@@ -1,2 +1,10 @@
-
-
+#+title: PhD Dissertation
+* Advanced degree application
+** TODO Presentations at conferences
+*** Matias
+**** Dyadic KDE
+**** Sep 22, 2022: Statistics Seminar, Georgia Institute of Technology
+**** Sep 8, 2022: Biostatistics Colloquium Seminar, Columbia University
+*** Yingjie
+*** Ricardo
+*** Jason
