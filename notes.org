@@ -3,8 +3,25 @@
 ** TODO Presentations at conferences
 *** Matias
 **** Dyadic KDE
-**** Sep 22, 2022: Statistics Seminar, Georgia Institute of Technology
-**** Sep 8, 2022: Biostatistics Colloquium Seminar, Columbia University
+**** Statistics Seminar, Georgia Institute of Technology, 2022
+**** Biostatistics Colloquium Seminar, Columbia University, 2022
 *** Yingjie
-*** Ricardo
+**** Dyadic KDE
+**** Econometrics Seminar, Peking University, 2023
+**** Econometrics Seminar, Renmin University, 2022
+**** Asian Meeting of Econometric Society in East and Southeast Asia, Singapore, 2023
+**** Symposium on Modern Statistics at Xiamen University, 2022
+*** TODO Ricardo
 *** Jason
+**** None
+* Structure
+** Abstract
+** Acknowledgements
+** Introduction
+** Inference with Mondrian Random Forests
+** Uniform Inference for Kernel Density Estimators with Dyadic Data
+** Yurinskii's Coupling for Martingales
+** Appendix: Proofs for ...
+** Appendix: Proofs for ...
+** Appendix: Proofs for ...
+** Bibliography

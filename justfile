@@ -1,5 +1,7 @@
 DISS := "dissertation"
 
+alias c := clean
+
 all: spell todo longlines format diss warn
 
 spell:
