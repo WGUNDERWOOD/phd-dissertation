@@ -1,27 +1,52 @@
 #+title: PhD Dissertation
 * Advanced degree application
-** TODO Presentations at conferences
-*** Matias
-**** Dyadic KDE
-**** Statistics Seminar, Georgia Institute of Technology, 2022
-**** Biostatistics Colloquium Seminar, Columbia University, 2022
-*** Yingjie
-**** Dyadic KDE
-**** Econometrics Seminar, Peking University, 2023
-**** Econometrics Seminar, Renmin University, 2022
-**** Asian Meeting of Econometric Society in East and Southeast Asia, Singapore, 2023
-**** Symposium on Modern Statistics at Xiamen University, 2022
-*** TODO Ricardo
-*** Jason
-**** None
+** Presentations at conferences
+*** TODO Cite these in the dissertation
+*** Statistics Seminar, Georgia Institute of Technology
+**** Uniform Inference for Kernel Density Estimators with Dyadic Data
+**** Presented by Matias Cattaneo, 2022
+*** Biostatistics Colloquium Seminar, Columbia University
+**** Uniform Inference for Kernel Density Estimators with Dyadic Data
+**** Presented by Matias Cattaneo, 2022
+*** Econometrics Seminar, Renmin University
+**** Uniform Inference for Kernel Density Estimators with Dyadic Data
+**** Presented by Yingie Feng, 2022
+*** Symposium on Modern Statistics, Xiamen University
+**** Uniform Inference for Kernel Density Estimators with Dyadic Data
+**** Presented by Yingie Feng, 2022
+*** Econometrics Seminar, Peking University
+**** Uniform Inference for Kernel Density Estimators with Dyadic Data
+**** Presented by Yingie Feng, 2023
+*** Asian Meeting of Econometric Society in East and Southeast Asia, Singapore
+**** Uniform Inference for Kernel Density Estimators with Dyadic Data
+**** Presented by Yingie Feng, 2023
+*** Statistics Seminar, University of Michigan
+**** New Theory and Methods for Mondrian Random Forests
+**** Presented by William Underwood, 2024
+*** Statistics Seminar, University of Illinois
+**** New Theory and Methods for Mondrian Random Forests
+**** Presented by William Underwood, 2024
+*** Statistics Seminar, University of Pittsburgh
+**** New Theory and Methods for Mondrian Random Forests
+**** Presented by William Underwood, 2024
+** Publications
+*** TODO Cite these in the dissertation
+*** M. D. Cattaneo, Y. Feng and W. G. Underwood. Uniform Inference for Kernel Density Estimators with Dyadic Data, Journal of the American Statistical Association, 2024 (forthcoming)
+*** M. D. Cattaneo, J. M. Klusowski and W. G. Underwood. Inference with Mondrian Random Forests, arXiv preprint 2310.09702, 2023
+*** M. D. Cattaneo, R. P. Masini and W. G. Underwood. Yurinskii's Coupling for Martingales, arXiv preprint 2210.00362, 2022
+** Contribution to the dissertation
+*** I am the main author of the three papers upon which this dissertation is based
+*** For each of these works, I conducted most of the investigative research, direction determination, literature review, technical writing, manuscript preparation, and critical revision
+*** The introductory sections of the dissertation are entirely my own
 * Structure
 ** Abstract
+*** Up to 350 words
 ** Acknowledgements
 ** Introduction
-** Inference with Mondrian Random Forests
-** Uniform Inference for Kernel Density Estimators with Dyadic Data
+** Mondrian Random Forests
+** Dyadic Kernel Density Estimation
 ** Yurinskii's Coupling for Martingales
-** Appendix: Proofs for ...
-** Appendix: Proofs for ...
-** Appendix: Proofs for ...
+** Appendix: Proofs
+** Appendix: Proofs
+** Appendix: Proofs
 ** Bibliography

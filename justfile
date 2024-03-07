@@ -14,7 +14,7 @@ todo:
 
 longlines:
 	@echo -e "\e[0;35m\033[1mChecking long lines...\e[0;30m\033[0m"
-	@long-lines {{DISS}}.tex refs.bib notes.org justfile
+	@long-lines {{DISS}}.tex refs.bib notes.org
 
 diss:
 	@echo -e "\e[0;35m\033[1mBuilding dissertation document...\e[0;30m\033[0m"
