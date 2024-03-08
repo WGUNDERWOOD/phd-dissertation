@@ -2,6 +2,7 @@
 * Tasks
 ** TODO Remake all plots in a consistent style
 ** TODO Check margins and spacing etc
+** TODO All files should be checked in the justfile
 * Structure
 ** Abstract
 *** Up to 350 words
@@ -76,10 +77,19 @@
 **** Presented by William Underwood, 2024
 ** Publications
 *** TODO Cite these in the dissertation
-*** M. D. Cattaneo, Y. Feng and W. G. Underwood. Uniform Inference for Kernel Density Estimators with Dyadic Data, Journal of the American Statistical Association, 2024 (forthcoming)
-*** M. D. Cattaneo, J. M. Klusowski and W. G. Underwood. Inference with Mondrian Random Forests, arXiv preprint 2310.09702, 2023
-*** M. D. Cattaneo, R. P. Masini and W. G. Underwood. Yurinskii's Coupling for Martingales, arXiv preprint 2210.00362, 2022
+*** M. D. Cattaneo, Y. Feng and W. G. Underwood
+**** Uniform Inference for Kernel Density Estimators with Dyadic Data
+**** Journal of the American Statistical Association, 2024 (forthcoming)
+*** M. D. Cattaneo, J. M. Klusowski and W. G. Underwood
+**** Inference with Mondrian Random Forests
+**** arXiv preprint 2310.09702, 2023
+*** M. D. Cattaneo, R. P. Masini and W. G. Underwood
+**** Yurinskii's Coupling for Martingales
+**** arXiv preprint 2210.00362, 2022
 ** Contribution to the dissertation
-*** I am the main author of the three papers upon which this dissertation is based
-*** For each of these works, I conducted most of the investigative research, direction determination, literature review, technical writing, manuscript preparation, and critical revision
-*** The introductory sections of the dissertation are entirely my own
+*** I am the main author of the three papers
+*** upon which this dissertation is based.
+*** For each of these works, I conducted most of the investigative research,
+*** direction determination, literature review, technical writing,
+*** manuscript preparation, and critical revision.
+*** The introductory sections of the dissertation are entirely my own.

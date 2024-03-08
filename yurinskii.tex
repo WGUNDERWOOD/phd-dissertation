@@ -1313,12 +1313,12 @@ In particular, consider the following well known Orlicz functions.
     $\sqrt{\log x} \leq \psi^{-1}(x)$.
 
   \item[Bernstein:]
-    $\psi(x) = \exp\hspace*{-0.8mm}
-    \Big(\hspace*{-0.6mm}
-    \Big(\frac{\sqrt{1+2ax}-1}{a}\Big)^{\hspace*{-0.6mm}2}
+    $\psi(x) = \exp
+    \Big(
+    \Big(\frac{\sqrt{1+2ax}-1}{a}\Big)^{2}
     \Big)-1$
     for $a > 0$ has
-    $\vvvert X \vvvert_2 \leq (1+a)\vvvert X \vvvert_\psi$ and
+    $\vvvert X \vvvert_2 \leq (1+a)\vvvert X \vvvert_\psi$ \\ and
     $\sqrt{\log x}~\leq~\psi^{-1}(x)$.
 
 \end{description}
@@ -1572,7 +1572,7 @@ illustration \citep{bradley2005basic}.
   %
 \end{proposition}
 
-The core of the proof of Proposition~\ref{pro:series} involves applying
+The core of the proof of Proposition~\ref{pro:series} is to apply
 Corollary~\ref{cor:sa_martingale} with $S = \sum_{i=1}^n p(W_i) \varepsilon_i$
 and $p=\infty$ to construct $T \sim \cN\big(0, \Var[S]\big)$ such that
 $\|S - T \|_\infty$ is small, and then setting $G(w) = p(w)^\T H^{-1} T$. So
@@ -1650,7 +1650,7 @@ $k^3(\log n)^6 / n \to 0$, giving
   &\to 0,
 \end{align*}
 %
-where $\rho(w,w') = \E[G(w)G(w')]$. Furthermore, using a Gaussian--Gaussian
+where $\rho(w,w') = \E[G(w)G(w')]$. Furthermore, by a Gaussian--Gaussian
 comparison result \citep[Lemma~3.1]{chernozhukov2013gaussian} and
 anti-concentration again, it is not difficult to show (see the proof of
 Proposition~\ref{pro:series}) that with $\bW = (W_1, \ldots, W_n)$ and
@@ -1806,8 +1806,7 @@ Therefore we use Proposition \ref{pro:emp_proc} to obtain a Gaussian strong
 approximation for the martingale empirical process directly.
 
 Under some mild regularity conditions, including stationarity for simplicity
-and an $\alpha$-mixing assumption on the time-dependence of the data, we first
-show
+and an $\alpha$-mixing assumption on the time-dependence of the data, we show
 $\sup_{w\in\cW} \|\hat H(w)-H(w)\|_2
 \lesssim_\P \sqrt{n h^{-2m}\log n}$.
 Further,

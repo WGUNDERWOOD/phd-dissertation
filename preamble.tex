@@ -7,15 +7,18 @@
 \usepackage{mathtools}
 \usepackage{enumitem}
 \usepackage{subcaption}
+\usepackage{titlesec}
 \usepackage[longnamesfirst]{natbib}
+\usepackage[hypertexnames=false,hidelinks]{hyperref}
 
 % blackboard
-% TODO these should begin with \bb
 \renewcommand{\P}{\ensuremath{\mathbb{P}}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
 \newcommand{\R}{\ensuremath{\mathbb{R}}}
 \newcommand{\E}{\ensuremath{\mathbb{E}}}
 \newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+\newcommand{\Z}{\ensuremath{\mathbb{Z}}}
 
 % roman
 \newcommand{\rF}{\ensuremath{\mathrm{F}}}
@@ -23,6 +26,7 @@
 % bold
 \newcommand{\bW}{\ensuremath{\mathbf{W}}}
 \newcommand{\bY}{\ensuremath{\mathbf{Y}}}
+\newcommand{\bX}{\ensuremath{\mathbf{X}}}
 
 % calligraphic
 \newcommand{\cH}{\ensuremath{\mathcal{H}}}
@@ -30,9 +34,14 @@
 \newcommand{\cN}{\ensuremath{\mathcal{N}}}
 \newcommand{\cX}{\ensuremath{\mathcal{X}}}
 \newcommand{\cW}{\ensuremath{\mathcal{W}}}
+\newcommand{\cB}{\ensuremath{\mathcal{B}}}
+% TODO don't use this for uniform distribution
+\newcommand{\cU}{\ensuremath{\mathcal{U}}}
+\newcommand{\cR}{\ensuremath{\mathcal{R}}}
+\newcommand{\cA}{\ensuremath{\mathcal{A}}}
+\newcommand{\cC}{\ensuremath{\mathcal{C}}}
 
 % sans serif
-% TODO these should begin with \s
 \newcommand{\T}{\ensuremath{\mathsf{T}}}
 
 % symbols
@@ -45,18 +54,13 @@
 \DeclareMathOperator{\Cov}{Cov}
 \DeclareMathOperator{\Unif}{Unif}
 \DeclareMathOperator{\Bias}{Bias}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \newcommand{\diff}[1]{\,\mathrm{d}#1}
 
-% environments
-\newtheoremstyle{break}{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}%
-{\thmname{#1}\thmnumber{ #2}%
-  \thmnote{ \rm(#3)\addcontentsline{toc}{subsubsection}{{\it#1 #2}\/: #3}}}
-
-\newtheoremstyle{breakplainproof}{\topsep}{\topsep}{}{}{\bfseries}{}{\newline}%
-{\thmname{#1}\thmnumber{ #2}%
-  \thmnote{ \rm(#3)\addcontentsline{toc}{subsubsection}{{\it#1}\/: #3}}}
-
+% theorem environments
+\newtheoremstyle{break}{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}{}%
 \theoremstyle{break}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
@@ -65,8 +69,18 @@
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{remark}{Remark}[section]
 
-\theoremstyle{breakplainproof}
+% proof environments
+\newtheoremstyle{breakproof}{\topsep}{\topsep}{}{}{\bfseries}{}{\newline}{}%
+\theoremstyle{breakproof}
 \let\proof\relax
 \newtheorem*{myproof}{Proof}
 \AtBeginEnvironment{myproof}{\setcounter{proofparagraphcounter}{0}}%
 \AtEndEnvironment{myproof}{\null\hfill$\square$}%
+
+% proof paragraphs
+\titleformat{\paragraph}[hang]{\bfseries\upshape}{}{0pt}{}[]
+\titlespacing*{\paragraph}{0pt}{6pt}{0pt}
+\newcounter{proofparagraphcounter}
+\newcommand{\proofparagraph}[1]{
+  \refstepcounter{proofparagraphcounter}%
+  \paragraph{Part \theproofparagraphcounter : #1}}%

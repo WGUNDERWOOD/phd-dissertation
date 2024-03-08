@@ -2,7 +2,7 @@ DISS := "dissertation"
 
 alias c := clean
 
-all: spell todo longlines format diss warn compress
+all: spell todo longlines format diss warn
 
 spell:
 	@echo -e "\e[0;35m\033[1mChecking spelling...\e[0;30m\033[0m"
