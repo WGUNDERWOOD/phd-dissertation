@@ -1,0 +1,243 @@
+% Packages
+% -------------------------------
+\usepackage[fontsize=11.5pt]{fontsize}
+\usepackage[margin=.9in]{geometry}
+
+\usepackage{float}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{microtype}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{mathrsfs}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{stackengine,scalerel}
+\usepackage{abstract}
+
+\usepackage[longnamesfirst]{natbib}
+\setlength{\bibsep}{7pt}
+
+\usepackage[onehalfspacing]{setspace}
+\usepackage{color,hyperref}
+\usepackage[norefs,nocites]{refcheck}
+\hypersetup{pdfborder = {0 0 0},colorlinks=true,linkcolor=blue,%
+  urlcolor=blue,citecolor=blue}
+
+\usepackage{appendix}
+
+\usepackage[boxruled,
+  linesnumbered,
+  commentsnumbered,
+  procnumbered,
+]{algorithm2e}
+
+% Document settings
+% -------------------------------
+
+\setcounter{tocdepth}{2}
+\captionsetup[subfigure]{justification=centering}
+
+\renewcommand{\abstractnamefont}{\normalfont\large\bfseries}
+\renewcommand{\abstracttextfont}{\normalfont\normalsize}
+
+% Macros
+% -------------------------------
+
+% Math operators
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator{\IQR}{IQR}
+\DeclareMathOperator{\MSE}{MSE}
+\DeclareMathOperator{\IMSE}{IMSE}
+\DeclareMathOperator{\ABias}{ABias}
+\DeclareMathOperator{\AIMSE}{AIMSE}
+\DeclareMathOperator{\AMSE}{AMSE}
+\DeclareMathOperator{\AVar}{AVar}
+\DeclareMathOperator{\Bias}{Bias}
+\DeclareMathOperator{\Ber}{Ber}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\diverge}{div}
+\DeclareMathOperator{\Env}{Env}
+\DeclareMathOperator{\KL}{KL}
+\DeclareMathOperator{\Leb}{Leb}
+\DeclareMathOperator{\symconv}{symconv}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+\DeclareMathOperator{\ROT}{ROT}
+
+% Single characters
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bV}{\ensuremath{\mathbf{V}}}
+\newcommand{\bX}{\ensuremath{\mathbf{X}}}
+\newcommand{\bW}{\ensuremath{\mathbf{W}}}
+\newcommand{\bY}{\ensuremath{\mathbf{Y}}}
+\renewcommand{\P}{\ensuremath{\mathbb{P}}}
+\newcommand{\E}{\ensuremath{\mathbb{E}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+\newcommand{\Cd}{\ensuremath{C_\mathrm{d}}}
+\newcommand{\Ck}{\ensuremath{C_\mathrm{k}}}
+\newcommand{\cF}{\ensuremath{\mathcal{F}}}
+\newcommand{\cS}{\ensuremath{\mathcal{S}}}
+\newcommand{\cW}{\ensuremath{\mathcal{W}}}
+\newcommand{\cV}{\ensuremath{\mathcal{V}}}
+\newcommand{\cU}{\ensuremath{\mathcal{U}}}
+\newcommand{\cC}{\ensuremath{\mathcal{C}}}
+\newcommand{\cE}{\ensuremath{\mathcal{E}}}
+\newcommand{\bbN}{\ensuremath{\mathbb{N}}}
+\newcommand{\CH}{\ensuremath{C_\mathrm{H}}}
+\newcommand{\CL}{\ensuremath{C_\mathrm{L}}}
+\newcommand{\cD}{\ensuremath{\mathcal{D}}}
+\newcommand{\cH}{\ensuremath{\mathcal{H}}}
+\newcommand{\cA}{\ensuremath{\mathcal{A}}}
+\newcommand{\BV}{\ensuremath{{\mathcal{V}_1}}}
+\newcommand{\cN}{\ensuremath{\mathcal{N}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+\newcommand{\cI}{\ensuremath{\mathcal{I}}}
+\newcommand{\cG}{\ensuremath{\mathcal{G}}}
+\newcommand{\cK}{\ensuremath{\mathcal{K}}}
+\newcommand{\cX}{\ensuremath{\mathcal{X}}}
+\newcommand{\cY}{\ensuremath{\mathcal{Y}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\T}{\ensuremath{\mathsf{T}}}
+\newcommand{\cT}{\ensuremath{\mathcal{T}}}
+\newcommand{\Dl}{\ensuremath{D_{\textup{lo}}}}
+\newcommand{\Du}{\ensuremath{D_{\textup{up}}}}
+\newcommand{\cP}{\ensuremath{\mathcal{P}}}
+\newcommand{\cPd}{\ensuremath{\mathcal{P}_{\mathrm{d}}}}
+
+% Other macros
+\newcommand{\maxi}{\ensuremath{\mathrm{max}}}
+\newcommand{\mini}{\ensuremath{\mathrm{min}}}
+\DeclareMathOperator*{\minimize}{minimize}
+\DeclareMathOperator*{\subjectto}{subject\ to}
+\newcommand{\dprime}{\ensuremath{\prime\prime}}
+\newcommand{\tprime}{\ensuremath{\prime\prime\prime}}
+\newcommand{\TV}{\mathrm{TV}}
+\newcommand{\Lip}{\mathrm{Lip}}
+\newcommand{\Data}{\textup{Data}}
+\newcommand{\diff}[1]{\,\mathrm{d}#1}
+\newcommand{\TODO}[1]{\textcolor{red}{\textsc{TODO}: #1}}
+
+\newcommand{\flbeta}{\ThisStyle{%
+    \ensurestackMath{%
+      \stackengine{-0.5\LMpt}{\SavedStyle \beta}%
+      {\SavedStyle {\rule{3.7\LMpt}{0.3\LMpt}}}%
+      {U}{c}{F}{F}{S}%
+    }%
+    \vphantom{\beta}}%
+}
+
+% Paragraph formatting
+% -------------------------------
+\titleformat
+{\paragraph} % command
+[hang] % shape
+{\bfseries\upshape} % format
+{} % label
+{1pt} % sep
+{} % before-code
+[] % after-code
+
+\titlespacing*{\paragraph}{0pt}{6pt}{0pt}
+
+\newcounter{proofparagraphcounter}
+
+\newcommand{\proofparagraph}[1]{
+  \refstepcounter{proofparagraphcounter}%
+  \paragraph{Part \theproofparagraphcounter : #1}%
+}
+
+% inline roman lists
+\newlist{inlineroman}{enumerate*}{1}
+\setlist[inlineroman]{afterlabel=~,label=(\roman*)}
+
+% Environments
+% -------------------------------
+
+\newtheoremstyle{break}%
+{\topsep}{\topsep}%
+{\itshape}{}%
+{\bfseries}{}%
+{\newline}%
+%
+% For theorems not in TOC
+%{}%
+%
+% For theorems in TOC
+{\thmname{#1}\thmnumber{ #2}%
+  \thmnote{ \rm(#3)\addcontentsline{toc}{subsubsection}{{\it#1 #2}: #3}}}
+
+\newtheoremstyle{breakplainproof}
+{\topsep}{\topsep}%
+{}{}%
+{\bfseries}{}%
+{\newline}%
+%
+% For proofs not in TOC
+%{}%
+%
+% For proofs in TOC
+{\thmname{#1}\thmnumber{ #2}%
+  \thmnote{ \rm(#3)\addcontentsline{toc}{subsubsection}{{\it#1}: #3}}}
+
+\theoremstyle{break}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{breakplainproof}
+\let\proof\relax
+\newtheorem*{proof}{Proof}
+\AtBeginEnvironment{proof}{\setcounter{proofparagraphcounter}{0}}%
+\AtEndEnvironment{proof}{\null\hfill\qedsymbol}%
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+% Algorithms
+% -------------------------------
+\DontPrintSemicolon%
+\makeatletter%
+\renewcommand{\SetKwInOut}[2]{%
+  \sbox\algocf@inoutbox{\KwSty{#2}\algocf@typo:}%
+  \expandafter\ifx\csname InOutSizeDefined\endcsname\relax%
+    \newcommand\InOutSizeDefined{}%
+    \setlength{\inoutsize}{\wd\algocf@inoutbox}%
+    \sbox\algocf@inoutbox{%
+      \parbox[t]{\inoutsize}%
+      {\KwSty{#2}\algocf@typo:\hfill}~%
+    }%
+    \setlength{\inoutindent}{\wd\algocf@inoutbox}%
+  \else%
+    \ifdim\wd\algocf@inoutbox>\inoutsize%
+      \setlength{\inoutsize}{\wd\algocf@inoutbox}%
+      \sbox\algocf@inoutbox{%
+        \parbox[t]{\inoutsize}%
+        {\KwSty{#2}\algocf@typo:\hfill}~%
+      }%
+      \setlength{\inoutindent}{\wd\algocf@inoutbox}%
+    \fi%
+  \fi%
+  \algocf@newcommand{#1}[1]{%
+    \ifthenelse{\boolean{algocf@inoutnumbered}}{\relax}{\everypar={\relax}}{%
+      \let\\\algocf@newinout\hangindent=\inoutindent\hangafter=1\parbox[t]%
+      {\inoutsize}{\KwSty{#2}%
+        \algocf@typo:\hfill}~##1\par%
+    }%
+    \algocf@linesnumbered%
+  }%
+}%
+\makeatother%
+\SetKwInOut{Input}{Input}%
+\SetKwInOut{Output}{Output}%
+\setlength{\algomargin}{2em}%

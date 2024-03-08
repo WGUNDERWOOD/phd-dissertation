@@ -1,4 +1,49 @@
 #+title: PhD Dissertation
+* Tasks
+** TODO Remake all plots in a consistent style
+** TODO Check margins and spacing etc
+* Structure
+** Abstract
+*** Up to 350 words
+** Acknowledgements
+** Introduction
+*** From job application research statement
+*** From paper abstracts and introductions
+** Mondrian Random Forests
+*** From CKU Overleaf
+*** DONE paper.tex
+*** DONE abstract.tex
+*** DONE refs.bib
+*** TODO Plots pgfs
+*** TODO More plots from job talk
+** Dyadic KDE
+*** From CFU Overleaf
+*** DONE CFU_2023_JASA.tex
+*** DONE CFU_2023_JASA--bib.bib
+*** DONE table.tex
+*** DONE preamble_CFU.tex algorithm style
+*** TODO Plots
+*** TODO Get more plots from GitHub research-dyadic-kde and two sigma talk
+** Yurinskii's Coupling
+*** From CMU Overleaf
+*** DONE abstract.tex
+*** DONE paper.tex
+*** TODO Plots
+*** TODO Make more plots
+** Appendix: Proofs for Mondrian Random Forests
+*** From CKU Overleaf
+*** DONE proofs.tex
+*** From GitHub research-random-forests
+*** DONE random_forests.tex extra technical results
+*** DONE inconsistency.tex
+** Appendix: Proofs for Dyadic KDE
+*** From GitHub research-dyadic-kde
+*** DONE dyadic_kde.tex
+*** Remove duplicated results as appropriate
+** Appendix: Proofs for Yurinskii's Coupling
+*** From CMU Overleaf
+*** DONE appendix.tex
+** Bibliography
 * Advanced degree application
 ** Presentations at conferences
 *** TODO Cite these in the dissertation
@@ -38,15 +83,3 @@
 *** I am the main author of the three papers upon which this dissertation is based
 *** For each of these works, I conducted most of the investigative research, direction determination, literature review, technical writing, manuscript preparation, and critical revision
 *** The introductory sections of the dissertation are entirely my own
-* Structure
-** Abstract
-*** Up to 350 words
-** Acknowledgements
-** Introduction
-** Mondrian Random Forests
-** Dyadic Kernel Density Estimation
-** Yurinskii's Coupling for Martingales
-** Appendix: Proofs
-** Appendix: Proofs
-** Appendix: Proofs
-** Bibliography
