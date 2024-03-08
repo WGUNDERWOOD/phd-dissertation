@@ -91,7 +91,7 @@ data points up to logarithmic terms.
 
 \begin{lemma}[Upper bound on the number of active data points]%
   \label{lem:active_data}
-  Suppose that Assumptions~\ref{ass:data} and \ref{ass:estimator} hold
+  Suppose that Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold
   and define
   $N_{\cup}(x) =
   \sum_{i=1}^{n} \I \left\{ X_i \in \bigcup_{b=1}^{B} T_b(x) \right\}$.
@@ -287,7 +287,7 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
     Mondrian random forest denominators]%
   \label{lem:moment_denominator}
 
-  Suppose Assumptions~\ref{ass:data}
+  Suppose Assumptions~\ref{ass:mondrian_data}
   and \ref{ass:estimator} hold.
   Let $T_b \sim \cM\big([0,1]^d, \lambda\big)$
   be independent and $k_b \geq 1$ for $1 \leq b \leq B_0$.
@@ -730,7 +730,7 @@ explicit bound with no expectations on the right-hand side.
     Mondrian random forest denominators]%
   \label{lem:simple_moment_denominator}
   %
-  Grant Assumptions~\ref{ass:data}
+  Grant Assumptions~\ref{ass:mondrian_data}
   and \ref{ass:estimator}.
   Let $T_b \sim \cM\big([0,1]^d, \lambda\big)$
   and $k_b \geq 1$ for $1 \leq b \leq B_0$.
@@ -964,7 +964,7 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
 \end{proof}
 
-\subsection{Proofs for Section \ref{sec:inference}}
+\subsection{Proofs for Section \ref{sec:mondrian_inference}}
 
 We give rigorous proofs of the central limit theorem,
 bias characterization, and variance estimation
@@ -3979,7 +3979,7 @@ of the debiased Mondrian random forest estimator.
 
 \subsection*{Proof of minimax optimality with debiasing}
 
-\begin{proof}[Theorem~\ref{thm:minimax}]
+\begin{proof}[Theorem~\ref{thm:mondrian_minimax}]
 
   The bias--variance decomposition along with
   Theorem~\ref{thm:bias_debiased}

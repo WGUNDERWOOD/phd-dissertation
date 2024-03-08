@@ -58,7 +58,7 @@ nonparametric kernel-based methods,
 we investigate the statistical properties of a class
 of local stochastic processes given by
 %
-\begin{align}\label{eq:estimator}
+\begin{align}\label{eq:kernel_estimator}
   w \mapsto \widehat{f}_W(w)
   = \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^n k_h(W_{ij},w),
 \end{align}
@@ -108,7 +108,7 @@ literature on nonparametric smoothing methods
 for dyadic data with two main technical
 results. Firstly, we derive the minimax rate of uniform convergence for density
 estimation with dyadic data and show that the estimator
-$\widehat{f}_W$ in \eqref{eq:estimator}
+$\widehat{f}_W$ in \eqref{eq:kernel_estimator}
 is minimax-optimal under appropriate conditions.
 Secondly, we present a set of
 uniform distributional approximation results
@@ -139,7 +139,8 @@ nor is the stochastic process $\widehat{f}_W$ Donsker in general,
 and the underlying dyadic data $\bW_n$ exhibits
 statistical dependence due to its network structure.
 
-Section~\ref{sec:setup} outlines the setup and presents the main assumptions
+Section~\ref{sec:kernel_setup} outlines the setup and presents the main
+assumptions
 imposed throughout the paper. We first discuss a Hoeffding-type decomposition of
 the U-statistic-like $\widehat{f}_W$ which is more general than the standard
 Hoeffding decomposition for second-order U-statistics due
@@ -173,7 +174,7 @@ for compactly supported dyadic data and
 generic kernel-like functions $k_h$ (including boundary-adaptive kernels), while
 also explicitly accounting for possible degeneracy of the
 H\'{a}jek projection term $L_n$ at some or possibly all points $w\in\cW$.
-Secondly, in Theorem~\ref{thm:minimax} we derive the
+Secondly, in Theorem~\ref{thm:kernel_minimax} we derive the
 minimax uniform convergence rate for estimating
 $f_W$, again allowing for possible degeneracy,
 and verify that it is achieved by $\widehat f_W$.
@@ -182,7 +183,7 @@ complementing recent work on parametric moment estimation
 using graphon data \citep{gao2021minimax} and on nonparametric
 kernel-based regression using dyadic data \citep{graham2021dyadicregression}.
 
-Section~\ref{sec:inference} presents a distributional analysis of
+Section~\ref{sec:kernel_inference} presents a distributional analysis of
 the stochastic process $\widehat{f}_W$ uniformly in $w \in \cW$. Because
 $\widehat{f}_W$ is not asymptotically tight in general, it
 does not converge
@@ -393,11 +394,11 @@ Write $A_n = o_\P(B_n)$ if $A_n / B_n \to 0$ in probability.
 For $a,b \in \R$, define $a\wedge b=\min\{a,b\}$ and
 $a \vee b = \max\{a,b\}$.
 
-\section{Setup}\label{sec:setup}
+\section{Setup}\label{sec:kernel_setup}
 
 We impose the following two assumptions throughout this paper.
 %
-\begin{assumption}[Data generation]\label{ass:data}\onehalfspacing
+\begin{assumption}[Data generation]\label{ass:kernel_data}\onehalfspacing
   %
   % A and V variables
   Let $\bA_n = (A_i: 1 \leq i \leq n)$ be i.i.d.\
@@ -429,7 +430,7 @@ We impose the following two assumptions throughout this paper.
   %
 \end{assumption}
 
-In Assumption~\ref{ass:data} we require
+In Assumption~\ref{ass:kernel_data} we require
 the density $f_W$ be in a $\beta$-smooth H\"older class of
 functions on the compact interval $\cW$.
 H\"older classes are well-established in the minimax estimation literature
@@ -546,7 +547,8 @@ different terms in the Hoeffding-type decomposition,
 explicitly accounting for potential degeneracy.
 
 \begin{lemma}[Bias and variance] \label{lem:variance}
-  Suppose that Assumptions \ref{ass:data}~and~\ref{ass:kernel_bandwidth} hold.
+  Suppose that Assumptions \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth}
+  hold.
   Then the bias term satisfies
   $\sup_{w \in \cW} \big| B_n(w) \big| \lesssim h^{p\wedge\beta}$
   and the variance terms satisfy
@@ -589,7 +591,7 @@ define the covariance function of the dyadic kernel density estimator as
 %
 \begin{lemma}[Variance bounds]
   \label{lem:variance_bounds}
-  Suppose that Assumptions~\ref{ass:data}
+  Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold.
   Then for sufficiently large $n$,
   %
@@ -667,7 +669,7 @@ rather than the probability of network edge existence,
 which is the focus of graphon estimation
 literature \citep{gao2021minimax}.
 
-In line with Assumption~\ref{ass:data}, $\bA_n$ and $\bV_n$ are i.i.d.\
+In line with Assumption~\ref{ass:kernel_data}, $\bA_n$ and $\bV_n$ are i.i.d.\
 sequences independent of each other.
 Then
 $f_{W \mid AA}(w \mid A_i, A_j) = \phi(w - A_i A_j)$,\,
@@ -764,7 +766,7 @@ convergence rate of $\widehat{f}_W$.
 \begin{theorem}[Uniform convergence rate]%
   \label{thm:uniform_consistency}%
   Suppose that Assumptions
-  \ref{ass:data}~and~\ref{ass:kernel_bandwidth}
+  \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth}
   hold. Then
   %
   \begin{align*}
@@ -817,13 +819,13 @@ with dyadic data.
 This implies minimax optimality of the kernel density estimator $\widehat
 f_W$, regardless of the degeneracy type of the dyadic distribution.
 
-\begin{theorem}[Uniform minimax rate] \label{thm:minimax}
+\begin{theorem}[Uniform minimax rate] \label{thm:kernel_minimax}
 
   Fix $\beta \geq 1$ and $\CH > 0$,
   and let $\cW$ be a compact interval with positive Lebesgue measure.
   Define $\cP = \cP(\cW, \beta, \CH)$
   as the class of dyadic distributions
-  satisfying Assumption~\ref{ass:data}.
+  satisfying Assumption~\ref{ass:kernel_data}.
   Define $\cPd$ as the subclass of $\cP$
   containing only those dyadic distributions
   which are totally degenerate on $\cW$ in the sense that
@@ -844,7 +846,8 @@ f_W$, regardless of the degeneracy type of the dyadic distribution.
 
 \end{theorem}
 
-Theorem~\ref{thm:minimax} shows that the uniform convergence rate of $n^{-1/2}$
+Theorem~\ref{thm:kernel_minimax} shows that the uniform convergence rate of
+$n^{-1/2}$
 obtained in Theorem~\ref{thm:uniform_consistency}
 (coming from the $L_n$ term) is minimax-optimal in general.
 When attention is restricted to totally degenerate dyadic distributions,
@@ -855,7 +858,8 @@ $\left(\frac{\log n}{n^2}\right)^{\frac{\beta}{2\beta+1}}$ and
 is determined by the bias $B_n$ and the leading variance term $E_n$ in
 \eqref{eq:h-decomposition}.
 
-Combining Theorems \ref{thm:uniform_consistency}~and~\ref{thm:minimax}, we
+Combining Theorems \ref{thm:uniform_consistency}~and~\ref{thm:kernel_minimax},
+we
 conclude that the estimator $\widehat{f}_W(w)$ achieves the minimax-optimal rate
 of uniform convergence for estimating $f_W(w)$ if
 $h \asymp \left( \frac{\log n}{n^2} \right)^{\frac{1}{2\beta+1}}$
@@ -866,7 +870,7 @@ This result appears to be new to the literature on
 nonparametric estimation with dyadic data.
 See \citet{gao2021minimax} for a contemporaneous review.
 
-\section{Distributional results}\label{sec:inference}
+\section{Distributional results}\label{sec:kernel_inference}
 
 We investigate the distributional properties of the
 standardized $t$-statistic process
@@ -918,7 +922,7 @@ and \citet{gine2010confidence} and may be of independent interest.
 \begin{lemma}[Strong approximation of $L_n$]
   \label{lem:strong_approx_Ln}
   Suppose that Assumptions
-  \ref{ass:data}~and~\ref{ass:kernel_bandwidth} hold.
+  \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth} hold.
   For each $n$ there exists
   a mean-zero Gaussian process
   $Z^L_n$ indexed on $\cW$ satisfying
@@ -968,7 +972,7 @@ which builds on a refinement by \citet{belloni2019conditional}.
   \label{lem:conditional_strong_approx_En}
 
   Suppose Assumptions
-  \ref{ass:data}~and~\ref{ass:kernel_bandwidth} hold
+  \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth} hold
   and take any $R_n \to \infty$.
   For each $n$ there exists
   $\widetilde Z^E_n$
@@ -993,7 +997,7 @@ $Z_n^E$ that approximates $\widetilde Z_n^E$.
   \label{lem:unconditional_strong_approx_En}
 
   Suppose that Assumptions
-  \ref{ass:data}~and~\ref{ass:kernel_bandwidth} hold.
+  \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth} hold.
   For each $n$ there exists
   a mean-zero Gaussian process $Z^E_n$ satisfying
   $\E\big[ \sup_{w \in \cW} \big|\widetilde Z_n^E(w) - Z_n^E(w)\big| \big]
@@ -1064,7 +1068,7 @@ such potential unknown degeneracy.
 \begin{theorem}[Strong approximation of $T_n$]
   \label{thm:strong_approx_fW}
 
-  Suppose that Assumptions~\ref{ass:data}
+  Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold and
   $f_W(w) > 0$ on $\cW$, and take any $R_n \to \infty$.
   Then for each $n$ there exists a
@@ -1188,7 +1192,7 @@ hence improving the finite sample performance of the proposed confidence bands.
 \begin{theorem}[Infeasible uniform confidence bands]
   \label{thm:infeasible_ucb}
 
-  Suppose that Assumptions~\ref{ass:data},~\ref{ass:kernel_bandwidth}
+  Suppose that Assumptions~\ref{ass:kernel_data},~\ref{ass:kernel_bandwidth}
   and~\ref{ass:rates} hold and
   $f_W(w) > 0$ on $\cW$.
   %
@@ -1303,7 +1307,7 @@ even in the limit.
 We therefore propose a modified covariance estimator
 which is guaranteed to be positive semi-definite.
 Specifically, consider the following optimization problem
-where $\Ck$ and $\CL$ are as in Section~\ref{sec:setup}.
+where $\Ck$ and $\CL$ are as in Section~\ref{sec:kernel_setup}.
 %
 \begin{equation}
   \label{eq:SDP}
@@ -1337,7 +1341,7 @@ Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_fW}.
 %
 \begin{lemma}[Consistency of $\widehat \Sigma_n$ and $\widehat \Sigma_n^+$]
   \label{lem:SDP}
-  Suppose that Assumptions~\ref{ass:data}
+  Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold
   and that
   $n h \gtrsim \log n$ and
@@ -1430,9 +1434,9 @@ Section~SA5 of
 the online supplemental appendix.
 
 \begin{theorem}[Feasible uniform confidence bands]
-  \label{thm:ucb}
+  \label{thm:kernel_ucb}
 
-  Suppose that Assumptions \ref{ass:data}, \ref{ass:kernel_bandwidth}
+  Suppose that Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
   and \ref{ass:rates} hold and $f_W(w) > 0$ on $\cW$. Then
   %
   \begin{align*}
@@ -1459,7 +1463,8 @@ simultaneous confidence intervals for a sequence of design points. Their
 inference procedure relies on the multiplier bootstrap,
 and their conditions for valid inference
 depend on the number of design points considered.
-In contrast, Theorem~\ref{thm:ucb} constructs a feasible uniform confidence band
+In contrast, Theorem~\ref{thm:kernel_ucb} constructs a feasible uniform
+confidence band
 over the entire domain of inference $\cW$ based on our strong
 approximation results for the whole $t$-statistic process
 and the covariance estimator $\widehat\Sigma_n^+$.
@@ -1475,7 +1480,7 @@ can be estimated by Monte Carlo simulation,
 resampling from the Gaussian process defined by the law of
 $\widehat Z_n^T \mid \bW_n$.
 
-The bandwidth restrictions in Theorem~\ref{thm:ucb} are the same
+The bandwidth restrictions in Theorem~\ref{thm:kernel_ucb} are the same
 as those required for the infeasible version
 given in Theorem~\ref{thm:infeasible_ucb}, namely those imposed in Assumption
 \ref{ass:rates}. This follows from the rates of convergence obtained in
@@ -1670,7 +1675,7 @@ Each plot contains the true density function $f_W$,
 the dyadic kernel density estimate $\widehat f_W$
 and two different approximate $95\%$ confidence bands for $f_W$.
 The first is the uniform confidence band (UCB)
-constructed using one of our main results, Theorem~\ref{thm:ucb}.
+constructed using one of our main results, Theorem~\ref{thm:kernel_ucb}.
 The second is a sequence of pointwise confidence intervals (PCI)
 constructed by finding a confidence interval for
 each evaluation point separately.
@@ -1778,7 +1783,7 @@ and it is important in causal inference and program evaluation settings
 
 For each $r \in \{0,1\}$,
 let $\bW_n^r$, $\bA_n^r$ and $\bV_n^r$ be random variables
-as defined in Assumption~\ref{ass:data} and
+as defined in Assumption~\ref{ass:kernel_data} and
 $\bX_n^r = (X_1^r, \ldots, X_n^r)$ be some covariates.
 We assume that $(A_i^r, X_i^r)$ are
 independent over $1 \leq i \leq n$
@@ -2252,7 +2257,7 @@ estimate $\theta$ and $g$,
 where the estimator of the nonparametric component
 $g$ takes a similar form to \eqref{eq:locpol},
 that is, a ratio of two kernel-based
-estimators as in \eqref{eq:estimator}.
+estimators as in \eqref{eq:kernel_estimator}.
 Consequently, our strong approximation techniques
 presented in this paper can be appropriately modified
 to develop valid uniform inference procedures for
@@ -2264,7 +2269,7 @@ as well as functionals thereof.
 
 We studied the uniform estimation and inference properties of the
 dyadic kernel density estimator
-$\widehat{f}_W$ given in \eqref{eq:estimator},
+$\widehat{f}_W$ given in \eqref{eq:kernel_estimator},
 which forms a class
 of U-process-like estimators
 indexed by the $n$-varying kernel function $k_h$ on $\cW$.

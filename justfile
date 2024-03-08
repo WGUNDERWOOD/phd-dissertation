@@ -1,6 +1,12 @@
 DISS := "dissertation"
 
 alias c := clean
+alias d := diss
+alias s := spell
+alias t := todo
+alias l := longlines
+alias f := format
+alias w := warn
 
 all: spell todo longlines format diss warn
 

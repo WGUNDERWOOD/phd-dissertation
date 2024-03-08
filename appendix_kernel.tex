@@ -168,7 +168,7 @@ $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
 \label{sec:assumptions}
 
 \begin{assumption}[Data generation]
-  \label{ass:data}
+  \label{ass:kernel_app_data}
 
   Fix $n \geq 2$ and
   let $\bA_n = (A_i: 1 \leq i \leq n)$
@@ -218,13 +218,13 @@ $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
 
 \begin{remark}
   By Lemma~\ref{lem:lipschitz_kernels_bounded},
-  Assumption~\ref{ass:data} implies that the densities
+  Assumption~\ref{ass:kernel_app_data} implies that the densities
   $f_W$, $f_{W \mid A}$ and $f_{W \mid AA}$ are all uniformly bounded by
   $\Cd \vcentcolon= 2 \sqrt{\CH} + 1/\Leb(\cW)$.
 \end{remark}
 
 \begin{assumption}[Kernels and bandwidth]
-  \label{ass:kernel_bandwidth}
+  \label{ass:kernel_app_bandwidth}
 
   Let $h = h(n) > 0$
   be a sequence of bandwidths
@@ -258,7 +258,7 @@ $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
 
 \begin{remark}
   The kernel functions required by
-  Assumption~\ref{ass:kernel_bandwidth}
+  Assumption~\ref{ass:kernel_app_bandwidth}
   can be constructed using
   polynomials on $[w \pm h] \cap \cW$,
   solving a family of linear systems to find the coefficients.
@@ -266,7 +266,7 @@ $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
 
 \begin{remark}
   By Lemma~\ref{lem:lipschitz_kernels_bounded},
-  Assumption~\ref{ass:kernel_bandwidth} implies that
+  Assumption~\ref{ass:kernel_app_bandwidth} implies that
   if $h \leq 1$ then
   $k_h$ is uniformly bounded by
   $\Ck / h$ where $\Ck \vcentcolon = 2 \CL + 1 + 1/\Leb(\cW)$.
@@ -283,8 +283,8 @@ and does not rely on the dyadic structure of the data.
 \begin{lemma}[Bias of $\widehat f_W$]
   \label{lem:bias}
 
-  Suppose that Assumptions \ref{ass:data} and
-  \ref{ass:kernel_bandwidth} hold.
+  Suppose that Assumptions \ref{ass:kernel_app_data} and
+  \ref{ass:kernel_app_bandwidth} hold.
   For $w \in \cW$
   define the leading bias term as
   \begin{align*}
@@ -368,7 +368,7 @@ provides a U-statistic decomposition of the estimator
 and Lemma~\ref{lem:uniform_concentration}
 employs this decomposition to establish
 uniform concentration.
-Theorem~\ref{thm:uniform_consistency}
+Theorem~\ref{thm:app_uniform_consistency}
 then combines this with the bias result from Lemma~\ref{lem:bias}
 to show uniform consistency.
 Lemma~\ref{lem:trichotomy} provides a useful trichotomy for
@@ -377,8 +377,8 @@ interpreting our results in various classes of data distributions.
 \begin{lemma}[Hoeffding-type decomposition for $\widehat f_W$]
   \label{lem:hoeffding}
 
-  Suppose that Assumptions~\ref{ass:data}
-  and~\ref{ass:kernel_bandwidth}
+  Suppose that Assumptions~\ref{ass:kernel_app_data}
+  and~\ref{ass:kernel_app_bandwidth}
   hold.
   Define the linear term
   (H\'{a}jek projection),
@@ -459,8 +459,8 @@ interpreting our results in various classes of data distributions.
 \begin{lemma}[Trichotomy of degeneracy]
   \label{lem:trichotomy}
 
-  Suppose that Assumptions~\ref{ass:data}
-  and~\ref{ass:kernel_bandwidth} hold,
+  Suppose that Assumptions~\ref{ass:kernel_app_data}
+  and~\ref{ass:kernel_app_bandwidth} hold,
   and define the non-negative
   upper and lower degeneracy constants
   \begin{align*}
@@ -517,7 +517,7 @@ interpreting our results in various classes of data distributions.
   Note that our need for uniformity in $w$
   complicates the simpler degeneracy/no degeneracy
   dichotomy observed for pointwise results by
-  \citet{graham2019kernel}.
+  \citet{graham2022kernel}.
 
 \end{remark}
 
@@ -525,9 +525,9 @@ interpreting our results in various classes of data distributions.
   \label{lem:uniform_concentration}
 
   Suppose Assumptions
-  \ref{ass:data}
+  \ref{ass:kernel_app_data}
   and
-  \ref{ass:kernel_bandwidth}
+  \ref{ass:kernel_app_bandwidth}
   hold.
   Then with $L_n$, $Q_n$ and $E_n$ defined as in
   Lemma~\ref{lem:hoeffding},
@@ -563,10 +563,10 @@ interpreting our results in various classes of data distributions.
 \end{lemma}
 
 \begin{theorem}[Uniform consistency of $\widehat f_W$]
-  \label{thm:uniform_consistency}
+  \label{thm:app_uniform_consistency}
 
-  Suppose Assumptions \ref{ass:data}
-  and \ref{ass:kernel_bandwidth} hold. Then
+  Suppose Assumptions \ref{ass:kernel_app_data}
+  and \ref{ass:kernel_app_bandwidth} hold. Then
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
@@ -587,7 +587,7 @@ interpreting our results in various classes of data distributions.
 
   In light of the degeneracy trichotomy
   in Lemma~\ref{lem:trichotomy},
-  we interpret Theorem~\ref{thm:uniform_consistency}.
+  we interpret Theorem~\ref{thm:app_uniform_consistency}.
   \begin{enumerate}[label=(\roman*)]
 
     \item Partial or no degeneracy:
@@ -595,7 +595,7 @@ interpreting our results in various classes of data distributions.
       any bandwidth sequence satisfying
       $\frac{\log n}{n} \lesssim h \lesssim n^{-\frac{1}{2(p \wedge \beta)}}$
       gives the bandwidth-independent ``parametric'' rate noted by
-      \citet{graham2019kernel}:
+      \citet{graham2022kernel}:
       \begin{align*}
         \E\left[
           \sup_{w \in \cW}
@@ -636,14 +636,14 @@ minimax optimality of our estimator under uniform convergence
 by providing upper and lower bounds in expectation uniformly over
 some classes of dyadic distributions.
 \begin{theorem}[Minimax optimality of $\widehat f_W$]
-  \label{thm:minimax}
+  \label{thm:kernel_app_minimax}
 
   Fix $\beta \geq 1$ and $\CH > 0$,
   and take $\cW$ a compact interval with
   positive Lebesgue measure.
   Define $\cP = \cP(\cW, \beta, \CH)$
   as the class of dyadic distributions
-  satisfying Assumption~\ref{ass:data}.
+  satisfying Assumption~\ref{ass:kernel_app_data}.
   Define $\cPd$ as the subclass of $\cP$
   containing only those distributions
   which are totally degenerate on $\cW$ in the sense that
@@ -683,9 +683,9 @@ some classes of dyadic distributions.
 
 \begin{remark}
 
-  Theorem~\ref{thm:minimax}
+  Theorem~\ref{thm:kernel_app_minimax}
   verifies that the rates of uniform consistency derived
-  in Theorem~\ref{thm:uniform_consistency}
+  in Theorem~\ref{thm:app_uniform_consistency}
   are minimax-optimal when using a kernel of sufficiently high order
   $(p \geq \beta)$.
   It also shows that both the
@@ -702,8 +702,8 @@ some classes of dyadic distributions.
 \begin{lemma}[Covariance structure]
   \label{lem:covariance_structure}
 
-  Suppose Assumptions~\ref{ass:data}
-  and~\ref{ass:kernel_bandwidth} hold.
+  Suppose Assumptions~\ref{ass:kernel_app_data}
+  and~\ref{ass:kernel_app_bandwidth} hold.
   Define the covariance function of the
   dyadic kernel density estimator by
   \begin{align*}
@@ -749,10 +749,10 @@ some classes of dyadic distributions.
 \end{lemma}
 
 \begin{lemma}[Variance bounds]
-  \label{lem:variance_bounds}
+  \label{lem:app_variance_bounds}
 
-  Suppose that Assumptions~\ref{ass:data}
-  and~\ref{ass:kernel_bandwidth} hold.
+  Suppose that Assumptions~\ref{ass:kernel_app_data}
+  and~\ref{ass:kernel_app_bandwidth} hold.
   Then for all large enough $n$,
   \begin{align*}
     \frac{\Dl^2}{n}
@@ -821,9 +821,9 @@ with a.s.\ continuous sample paths.
   \label{lem:strong_approx_Ln}
 
   Suppose that Assumptions
-  \ref{ass:data}
+  \ref{ass:kernel_app_data}
   and
-  \ref{ass:kernel_bandwidth} hold.
+  \ref{ass:kernel_app_bandwidth} hold.
   For each $n \geq 2$
   there exists
   on some probability space
@@ -895,7 +895,7 @@ with a.s.\ continuous sample paths.
   \label{lem:conditional_strong_approx_En}
 
   Suppose that Assumptions
-  \ref{ass:data} and \ref{ass:kernel_bandwidth} hold.
+  \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth} hold.
   For each $n \geq 2$
   and $t_n > 0$ with $\left|\log t_n\right| \lesssim \log n$,
   there exists on some probability space
@@ -982,7 +982,7 @@ with a.s.\ continuous sample paths.
   \label{lem:unconditional_strong_approx_En}
 
   Suppose that Assumptions
-  \ref{ass:data} and \ref{ass:kernel_bandwidth} hold.
+  \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth} hold.
   Let
   $\big(\bA_n', \bV_n', \widetilde Z_n^{E\prime}\big)$
   be defined as in
@@ -1066,7 +1066,7 @@ with a.s.\ continuous sample paths.
   \label{thm:strong_approx_fW}
 
   Suppose that Assumptions
-  \ref{ass:data} and \ref{ass:kernel_bandwidth} hold.
+  \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth} hold.
   For each $n \geq 2$
   and any sequence $R_n \to \infty$
   there exists on some probability space
@@ -1145,7 +1145,7 @@ In this section we will assume oracle knowledge of the true
 covariance function $\Sigma_n$,
 which is not typically available in practice.
 For feasible versions of these results which use a covariance estimator,
-see Section~\ref{sec:feasible_confidence_bands}.
+see Section~\ref{sec:app_feasible_confidence_bands}.
 We also assume that the true density $f_W$
 is bounded away from zero on the domain of inference,
 which is a standard assumption when constructing confidence bands.
@@ -1154,8 +1154,8 @@ which is a standard assumption when constructing confidence bands.
     of the standardized $t$-statistic]
   \label{lem:infeasible_t_statistic}
 
-  Let Assumptions \ref{ass:data} and
-  \ref{ass:kernel_bandwidth}
+  Let Assumptions \ref{ass:kernel_app_data} and
+  \ref{ass:kernel_app_bandwidth}
   hold and suppose that
   $f_W(w) > 0$ on $\cW$.
   Define for $w \in \cW$
@@ -1216,7 +1216,7 @@ and are given as Assumption~\ref{ass:rates}.
 \begin{theorem}[Infeasible uniform confidence bands]
   \label{thm:infeasible_ucb}
 
-  Let Assumptions \ref{ass:data}, \ref{ass:kernel_bandwidth}
+  Let Assumptions \ref{ass:kernel_app_data}, \ref{ass:kernel_app_bandwidth}
   and \ref{ass:rates}
   hold and suppose that $f_W(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
@@ -1251,7 +1251,7 @@ and are given as Assumption~\ref{ass:rates}.
 
 \begin{remark}
 
-  By Theorem~\ref{thm:uniform_consistency},
+  By Theorem~\ref{thm:app_uniform_consistency},
   the asymptotically optimal bandwidth choice
   under uniform convergence is given by
   $h \asymp (n^{-2} \log n)^{\frac{1}{2(p \wedge \beta)+1}}$.
@@ -1267,7 +1267,6 @@ and are given as Assumption~\ref{ass:rates}.
 \end{remark}
 
 \subsection{Covariance estimation}
-\label{sec:covariance_estimation}
 
 In this section
 we provide a consistent estimator for the
@@ -1282,7 +1281,7 @@ which is more amenable to computation.
 \begin{lemma}[Covariance estimation]
   \label{lem:covariance_estimation}
 
-  Let Assumptions \ref{ass:data} and \ref{ass:kernel_bandwidth}
+  Let Assumptions \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth}
   hold and suppose that $nh \gtrsim \log n$
   and $f_W(w) > 0$ on $\cW$.
   For $w,w' \in \cW$ define
@@ -1344,8 +1343,8 @@ which is more amenable to computation.
 \begin{lemma}[Alternative covariance estimator representation]
   \label{lem:alternative_covariance_estimator}
 
-  Suppose that Assumptions~\ref{ass:data}
-  and~\ref{ass:kernel_bandwidth} hold
+  Suppose that Assumptions~\ref{ass:kernel_app_data}
+  and~\ref{ass:kernel_app_bandwidth} hold
   and let $\widehat \Sigma_n$
   be the covariance estimator defined
   in Lemma~\ref{lem:covariance_estimation}.
@@ -1407,7 +1406,7 @@ Lemma~\ref{lem:covariance_estimation}
 and consider the following optimization problem
 over bivariate functions.
 \begin{equation}
-  \label{eq:SDP}
+  \label{eq:app_SDP}
   \begin{aligned}
     \minimize
     \qquad
@@ -1431,12 +1430,12 @@ over bivariate functions.
 \end{equation}
 
 \begin{lemma}[Consistency of $\widehat \Sigma_n^+$]
-  \label{lem:SDP}
+  \label{lem:app_SDP}
 
-  Suppose that Assumptions~\ref{ass:data}
-  and~\ref{ass:kernel_bandwidth} hold and that
+  Suppose that Assumptions~\ref{ass:kernel_app_data}
+  and~\ref{ass:kernel_app_bandwidth} hold and that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
-  Then the optimization problem (\ref{eq:SDP})
+  Then the optimization problem (\ref{eq:app_SDP})
   has an approximately optimal solution $\widehat\Sigma_n^+$
   which is uniformly entrywise-consistent
   for $\Sigma_n$ in the sense that
@@ -1454,10 +1453,10 @@ over bivariate functions.
 
 \begin{remark}
 
-  The optimization problem (\ref{eq:SDP}) is stated for functions
+  The optimization problem (\ref{eq:app_SDP}) is stated for functions
   rather than for matrices so is infinite-dimensional.
   However, when restricting to finite-size matrices,
-  Lemma~\ref{lem:SDP} still holds and does not depend on
+  Lemma~\ref{lem:app_SDP} still holds and does not depend on
   the size of the matrices.
   Furthermore, the problem
   then becomes a semi-definite program and so can be solved to
@@ -1466,7 +1465,7 @@ over bivariate functions.
   \citep{laurent2005semidefinite}.
 
   The Lipschitz-type constraint in the
-  optimization problem (\ref{eq:SDP})
+  optimization problem (\ref{eq:app_SDP})
   ensures that $\widehat \Sigma_n^+$
   is sufficiently smooth
   and is a technicality required by
@@ -1478,8 +1477,8 @@ over bivariate functions.
 \begin{lemma}[Positive semi-definite variance estimator bounds]
   \label{lem:variance_estimator_bounds}
 
-  Suppose that Assumptions~\ref{ass:data}
-  and~\ref{ass:kernel_bandwidth} hold and that
+  Suppose that Assumptions~\ref{ass:kernel_app_data}
+  and~\ref{ass:kernel_app_bandwidth} hold and that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Then $\widehat \Sigma_n^+(w,w) \geq 0$
   almost surely for all $w \in \cW$ and
@@ -1496,7 +1495,7 @@ over bivariate functions.
 \end{lemma}
 
 \subsection{Feasible uniform confidence bands}
-\label{sec:feasible_confidence_bands}
+\label{sec:app_feasible_confidence_bands}
 
 Now we use the strong approximation derived in
 Section~\ref{sec:strong_approx} and the
@@ -1506,8 +1505,8 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 \begin{lemma}[Proximity of the standardized and studentized t-statistics]
   \label{lem:studentized_t_statistic}
 
-  Let Assumptions \ref{ass:data} and
-  \ref{ass:kernel_bandwidth} hold and suppose that
+  Let Assumptions \ref{ass:kernel_app_data} and
+  \ref{ass:kernel_app_bandwidth} hold and suppose that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define for $w \in \cW$
   \begin{align*}
@@ -1533,7 +1532,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
     of the infeasible Gaussian process]
   \label{lem:distributional_approx_feasible_gaussian}
 
-  Let Assumptions \ref{ass:data} and \ref{ass:kernel_bandwidth}
+  Let Assumptions \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth}
   hold and suppose that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define a process $\widehat Z_n^T(w)$ which,
@@ -1579,7 +1578,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 \begin{lemma}[Feasible Gaussian approximation of the studentized $t$-statistic]
   \label{lem:feasible_gaussian_approx}
 
-  Let Assumptions \ref{ass:data}, \ref{ass:kernel_bandwidth}
+  Let Assumptions \ref{ass:kernel_app_data}, \ref{ass:kernel_app_bandwidth}
   and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
   Then
   %
@@ -1605,9 +1604,9 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 \end{lemma}
 
 \begin{theorem}[Feasible uniform confidence bands]
-  \label{thm:ucb}
+  \label{thm:kernel_app_ucb}
 
-  Let Assumptions \ref{ass:data}, \ref{ass:kernel_bandwidth}
+  Let Assumptions \ref{ass:kernel_app_data}, \ref{ass:kernel_app_bandwidth}
   and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
   and define $\widehat q_{1-\alpha}$ as the
@@ -1668,7 +1667,8 @@ Assumption~\ref{ass:counterfactual}.
   \label{ass:counterfactual}
 
   For each $r \in \{0,1\}$,
-  let $\bW_n^r$, $\bA_n^r$ and $\bV_n^r$ be as in Assumption~\ref{ass:data}.
+  let $\bW_n^r$, $\bA_n^r$ and $\bV_n^r$ be as in
+  Assumption~\ref{ass:kernel_app_data}.
   Let $X_i^r$ be finitely-supported variables,
   setting $\bX_n^r = (X_1^r, \ldots, X_n^r)$.
   Suppose that $(A_i^r, X_i^r)$ are
@@ -1761,8 +1761,8 @@ approximation results for the counterfactual density estimator.
 \begin{lemma}[Bias of $\widehat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_bias}
 
-  Suppose that Assumptions~\ref{ass:data},
-  \ref{ass:kernel_bandwidth} and \ref{ass:counterfactual} hold.
+  Suppose that Assumptions~\ref{ass:kernel_app_data},
+  \ref{ass:kernel_app_bandwidth} and \ref{ass:counterfactual} hold.
   Then
   %
   \begin{align*}
@@ -1781,8 +1781,8 @@ approximation results for the counterfactual density estimator.
   $\widehat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_hoeffding}
 
-  Suppose that Assumptions~\ref{ass:data},
-  \ref{ass:kernel_bandwidth} and
+  Suppose that Assumptions~\ref{ass:kernel_app_data},
+  \ref{ass:kernel_app_bandwidth} and
   \ref{ass:counterfactual} hold.
   Writing $k_{ij} = k_h(W_{ij}^1, w)$,
   $\kappa_{r i} = \kappa(X_r^0, X_r^1, X_i^1)$
@@ -1987,8 +1987,8 @@ approximation results for the counterfactual density estimator.
 \begin{lemma}[Uniform consistency of $\widehat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_uniform_consistency}
 
-  Suppose that Assumptions~\ref{ass:data},
-  \ref{ass:kernel_bandwidth} and \ref{ass:counterfactual} hold.
+  Suppose that Assumptions~\ref{ass:kernel_app_data},
+  \ref{ass:kernel_app_bandwidth} and \ref{ass:counterfactual} hold.
   Then
   %
   \begin{align*}
@@ -2092,8 +2092,8 @@ approximation results for the counterfactual density estimator.
     of the standardized counterfactual $t$-statistic]
   \label{lem:counterfactual_infeasible_t_statistic}
 
-  Let Assumptions \ref{ass:data},
-  \ref{ass:kernel_bandwidth} and
+  Let Assumptions \ref{ass:kernel_app_data},
+  \ref{ass:kernel_app_bandwidth} and
   \ref{ass:counterfactual}
   hold and suppose that
   $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
@@ -2131,7 +2131,7 @@ approximation results for the counterfactual density estimator.
 \begin{theorem}[Infeasible counterfactual uniform confidence bands]
   \label{thm:counterfactual_infeasible_ucb}
 
-  Let Assumptions \ref{ass:data}, \ref{ass:kernel_bandwidth},
+  Let Assumptions \ref{ass:kernel_app_data}, \ref{ass:kernel_app_bandwidth},
   \ref{ass:rates} and \ref{ass:counterfactual}
   hold and suppose that $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
@@ -2883,26 +2883,29 @@ parametric fit being slightly narrower in general.
 This could be due to the more stringent model specification
 leading to less estimated variance in the fitted values.
 
-\begin{figure}[H]
+\begin{figure}[ht]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{trade_plot_1995.pdf}
+    % TODO
+    %\includegraphics[scale=0.52]{trade_plot_1995.pdf}
     \caption{Year 1995, $\widehat h_{\ROT} = 1.27$}
     \label{subfig:trade_1995}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{trade_plot_1995_2000.pdf}
+    % TODO
+    %\includegraphics[scale=0.52]{trade_plot_1995_2000.pdf}
     \caption{Year 2000, $\widehat h_{\ROT} = 1.31$}
     \label{subfig:trade_2000}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{trade_plot_1995_2005.pdf}
+    % TODO
+    %\includegraphics[scale=0.52]{trade_plot_1995_2005.pdf}
     \caption{Year 2005, $\widehat h_{\ROT} = 1.37$}
     \label{subfig:trade_2005}
   \end{subfigure}
@@ -2915,26 +2918,29 @@ leading to less estimated variance in the fitted values.
   %
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[ht]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{trade_gdp_1995.pdf}
+    % TODO
+    %\includegraphics[scale=0.52]{trade_gdp_1995.pdf}
     \caption{Year 1995}
     \label{subfig:gdp_1995}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{trade_gdp_2000.pdf}
+    % TODO
+    %\includegraphics[scale=0.52]{trade_gdp_2000.pdf}
     \caption{Year 2000}
     \label{subfig:gdp_2000}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{trade_gdp_2005.pdf}
+    % TODO
+    %\includegraphics[scale=0.52]{trade_gdp_2005.pdf}
     \caption{Year 2005}
     \label{subfig:gdp_2005}
   \end{subfigure}
@@ -2945,26 +2951,29 @@ leading to less estimated variance in the fitted values.
   %
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[ht]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{trade_plot_parametric_1995.pdf}
+    % TODO
+    %\includegraphics[scale=0.52]{trade_plot_parametric_1995.pdf}
     \caption{Year 1995, $\widehat h_{\ROT} = 1.27$}
     \label{subfig:trade_para_1995}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{trade_plot_parametric_1995_2000.pdf}
+    % TODO
+    %\includegraphics[scale=0.52]{trade_plot_parametric_1995_2000.pdf}
     \caption{Year 2000, $\widehat h_{\ROT} = 1.31$}
     \label{subfig:trade_para_2000}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{trade_plot_parametric_1995_2005.pdf}
+    % TODO
+    %\includegraphics[scale=0.52]{trade_plot_parametric_1995_2005.pdf}
     \caption{Year 2005, $\widehat h_{\ROT} = 1.37$}
     \label{subfig:trade_para_2005}
   \end{subfigure}
@@ -5837,7 +5846,7 @@ We begin with a basic fact about Lipschitz functions.
 
   Applying Lemma~\ref{lem:lipschitz_kernels_bounded}
   to the density and kernel functions defined in
-  Assumptions~\ref{ass:data} and~\ref{ass:kernel_bandwidth}
+  Assumptions~\ref{ass:kernel_app_data} and~\ref{ass:kernel_app_bandwidth}
   yields the following.
   Firstly, since $k_h(\cdot, w)$ is $\CL/h^2$-Lipschitz
   on $[w \pm h] \cap \cW$ and integrates to one,
@@ -6801,7 +6810,7 @@ We begin with a basic fact about Lipschitz functions.
   of $\frac{\log n}{n^2h} \to 0$.
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:uniform_consistency}]
+\begin{proof}[Theorem~\ref{thm:app_uniform_consistency}]
 
   This follows from Lemma~\ref{lem:bias}
   and Lemma~\ref{lem:uniform_concentration}.
@@ -6809,7 +6818,7 @@ We begin with a basic fact about Lipschitz functions.
 
 \subsubsection{Minimax optimality}
 
-Before proving Theorem~\ref{thm:minimax}
+Before proving Theorem~\ref{thm:kernel_app_minimax}
 we first give a lower bound result
 for parametric point estimation in
 Lemma~\ref{lem:neyman_pearson_bernoulli}.
@@ -7004,7 +7013,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:minimax}]
+\begin{proof}[Theorem~\ref{thm:kernel_app_minimax}]
 
   \proofparagraph{lower bound for $\cP$}
 
@@ -7048,7 +7057,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Also
   $\sup_{w \in \cW} \|f_{W \mid A}(w \mid \cdot\,)\|_\TV \leq 1$.
   Therefore
-  $\P_\theta$ satisfies Assumption~\ref{ass:data}
+  $\P_\theta$ satisfies Assumption~\ref{ass:kernel_app_data}
   and so
   $\big\{\P_\theta : \theta \in [1/2, 1] \big\} \subseteq \cP$.
 
@@ -7460,7 +7469,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:variance_bounds}]
+\begin{proof}[Lemma~\ref{lem:app_variance_bounds}]
 
   By Lemma~\ref{lem:covariance_structure},
   the diagonal elements of $\Sigma_n$ are
@@ -8788,7 +8797,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     + h^{p \wedge \beta}.
   \end{align*}
   %
-  By Lemma~\ref{lem:variance_bounds}
+  By Lemma~\ref{lem:app_variance_bounds}
   with $\inf_\cW f_W(w) > 0$,
   the denominator is bounded below by
   %
@@ -8889,7 +8898,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     n^{-1}h^{-3} |w'-w''|
   \end{align*}
   uniformly in $w, w', w'' \in \cW$.
-  Therefore by Lemma~\ref{lem:variance_bounds},
+  Therefore by Lemma~\ref{lem:app_variance_bounds},
   with $\delta_n \leq n^{-2} h^2$,
   we have
   \begin{align*}
@@ -9715,11 +9724,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
     $\widehat f_W(w) \widehat f_W(w')$ term}
 
   By boundedness of $f_W$ and
-  Theorem~\ref{thm:uniform_consistency},
+  Theorem~\ref{thm:app_uniform_consistency},
   $\widehat f_W$ is uniformly bounded in probability.
   Noting that
   $\E[\widehat f_W(w)] = \E[k_{ij}]$
-  and by Lemma~\ref{lem:variance_bounds},
+  and by Lemma~\ref{lem:app_variance_bounds},
   \begin{align*}
     &\sup_{w,w' \in \cW}
     \left|
@@ -9801,7 +9810,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   is an empirical process evaluated at
   $g_w \in \cF$.
   By the lower bound on $\Sigma_n(w,w)$
-  from Lemma~\ref{lem:variance_bounds}
+  from Lemma~\ref{lem:app_variance_bounds}
   with $\inf_\cW f_W(w) > 0$ and since $nh \gtrsim \log n$,
   the class $\cF$ has a constant envelope function
   given by $F(a) \lesssim \sqrt{nh}$.
@@ -10292,7 +10301,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     n \Sigma_n(w,w) + n \Sigma_n(w',w').
   \end{align*}
   So Lemma~\ref{lem:ustat_concentration}
-  and Lemma~\ref{lem:variance_bounds}
+  and Lemma~\ref{lem:app_variance_bounds}
   give the pointwise concentration inequality
   \begin{align*}
     &\P\left(
@@ -10741,7 +10750,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   where $C_8 > 0$ is a constant and
   in the last line we use $1/h \lesssim n$.
   This converges to zero for any sufficiently large $t$,
-  so by Lemma~\ref{lem:variance_bounds} we have
+  so by Lemma~\ref{lem:app_variance_bounds} we have
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
@@ -10894,12 +10903,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \subsubsection{Positive semi-definite covariance estimation}
 
-\begin{proof}[Lemma~\ref{lem:SDP}]
+\begin{proof}[Lemma~\ref{lem:app_SDP}]
 
   Firstly we prove that the true covariance function
   $\Sigma_n$
   is feasible for the optimization problem
-  (\ref{eq:SDP}) in the sense that it satisfies the constraints.
+  (\ref{eq:app_SDP}) in the sense that it satisfies the constraints.
   Clearly as a covariance function,
   $\Sigma_n$ is symmetric and positive semi-definite.
   The Lipschitz constraint is satisfied because
@@ -10920,7 +10929,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   for all $w,w',w'' \in \cW$.
   Denote the (random) objective function
-  in the optimization problem (\ref{eq:SDP}) by
+  in the optimization problem (\ref{eq:app_SDP}) by
   \begin{align*}
     \objective(M) = \sup_{w,w' \in \cW}
     \left|
@@ -10997,7 +11006,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   Since $\widehat \Sigma_n^+$ is positive semi-definite,
   we must have $\widehat \Sigma_n^+(w,w) \geq 0$.
-  Now Lemma~\ref{lem:SDP}
+  Now Lemma~\ref{lem:app_SDP}
   implies that for all $\varepsilon \in (0,1)$
   there exists a $C_\varepsilon$ such that
   \begin{align*}
@@ -11016,7 +11025,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and note that it is increasing on $\{t \geq a^2/4\}$.
   Applying this with $t = \Sigma_n(w,w)$
   and $a = \frac{\sqrt{\log n}}{n}$,
-  noting that by Lemma~\ref{lem:variance_bounds} we have
+  noting that by Lemma~\ref{lem:app_variance_bounds} we have
   $t = \Sigma_n(w,w) \gtrsim \frac{1}{n^2h}
   \gg \frac{\log n}{4n^2} = a^2/4$,
   shows that for $n$ large enough,
@@ -11030,7 +11039,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sup_{w \in \cW} \Sigma_n(w,w)
     + \frac{\sqrt{\log n}}{n} \sqrt{\sup_{w \in \cW} \Sigma_n(w,w)}.
   \end{align*}
-  Applying the bounds from Lemma~\ref{lem:variance_bounds}
+  Applying the bounds from Lemma~\ref{lem:app_variance_bounds}
   yields
   \begin{align*}
     \frac{\Dl^2}{n} + \frac{1}{n^2h}
@@ -11100,13 +11109,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
   while Lemma~\ref{lem:bias} gives
   $\sup_{w \in \cW} \big| \E\big[\widehat f_W(w)\big] - f_W(w) \big|
   \lesssim h^{p \wedge \beta}$.
-  By Lemma~\ref{lem:variance_bounds} we have
+  By Lemma~\ref{lem:app_variance_bounds} we have
   $\sup_{w \in \cW} \Sigma_n(w,w)^{-1/2}
   \lesssim \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$,
   and similarly Lemma~\ref{lem:variance_estimator_bounds} gives
   $\sup_{w \in \cW} \widehat \Sigma_n^+(w,w)^{-1/2}
   \lesssim_\P \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$,
-  Thus, applying Lemma~\ref{lem:SDP} to control the
+  Thus, applying Lemma~\ref{lem:app_SDP} to control the
   covariance estimation error,
   \begin{align*}
     \sup_{w \in \cW}
@@ -11202,8 +11211,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sup_{w \in \cW}
   \left|\frac{\widehat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
   \lesssim_\P \sqrt{h \log n}$
-  by the proof of Lemma~\ref{lem:SDP}.
-  Thus by Lemma~\ref{lem:SDP},
+  by the proof of Lemma~\ref{lem:app_SDP}.
+  Thus by Lemma~\ref{lem:app_SDP},
   \begin{align*}
     \sup_{w, w' \in \cW}
     \left\{
@@ -11348,7 +11357,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   \proofparagraph{conditional $L^2$ regularity of $\widehat Z_n^T$}
 
-  By Lemma~\ref{lem:SDP},
+  By Lemma~\ref{lem:app_SDP},
   with $nh \gtrsim \log n$,
   we have
   uniformly in $w,w'$,
@@ -12046,7 +12055,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{enumerate}
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:ucb}]
+\begin{proof}[Theorem~\ref{thm:kernel_app_ucb}]
 
   \proofparagraph{existence of the conditional quantile}
 
