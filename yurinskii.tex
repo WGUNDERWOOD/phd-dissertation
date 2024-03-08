@@ -119,7 +119,7 @@ using the celebrated second-order Lindeberg method
 explicitly accounting for covariance
 degeneracy. As a consequence, their result could be leveraged to deduce a
 Yurinskii coupling for martingales with additional, non-trivial technical work
-(see Appendix~\ref{sec:proofs}
+(see Appendix~\ref{sec:yurinskii_proofs}
 for details). Nevertheless, a
 Yurinskii coupling derived from \citet{belloni2018high} would not feature
 \ref{it:contribution_approximate_martingale},
@@ -145,7 +145,7 @@ proceeding using a carefully tailored regularization. Establishing a coupling
 to a Gaussian mixture distribution is achieved by an appropriate conditioning
 argument, leveraging a conditional version of Strassen's theorem established by
 \citet{chen2020jackknife}, along with some related technical work detailed in
-Appendix~\ref{sec:proofs}.
+Appendix~\ref{sec:yurinskii_proofs}.
 A third-order coupling is obtained via a
 modification of a standard smoothing technique for Borel sets from classical
 versions of Yurinskii's coupling, enabling improved approximation errors
@@ -214,8 +214,8 @@ separability properties. The bandwidth restrictions we require are relatively
 mild, and, as far as we know, they have not been improved upon even with
 independent data.
 
-Section \ref{sec:conclusion} concludes the paper. All proofs are collected in
-Appendix~\ref{sec:proofs},
+Section \ref{sec:yurinskii_conclusion} concludes the paper.
+All proofs are collected in Appendix~\ref{sec:yurinskii_proofs},
 which also includes other technical lemmas of
 potential independent interest, alongside
 some further results on applications of our theory to
@@ -794,7 +794,7 @@ could in principle enable the derivation of a result similar to our
 Corollary~\ref{cor:sa_martingale}, this would require additional technical work
 on their behalf in multiple ways
 (see
-Appendix~\ref{sec:proofs}):
+Appendix~\ref{sec:yurinskii_proofs}):
 (i) a correct application of a conditional
 version of Strassen's theorem
 (Lemma~\ref{lem:strassen});
@@ -987,7 +987,7 @@ via discretization, and show explicitly in Lemma~\ref{lem:kde_eigenvalue}
 how it is crucial
 that we do not impose lower bounds on the eigenvalues of the discretized
 covariance matrix. Detailed calculations for this section are
-relegated to Appendix~\ref{sec:proofs} for conciseness.
+relegated to Appendix~\ref{sec:yurinskii_proofs} for conciseness.
 
 Let $X_1, \ldots, X_n$ be i.i.d.\ $\Unif[0,1]$, take
 $K(x) = \frac{1}{\sqrt{2 \pi}} e^{-x^2/2}$ the Gaussian kernel and let
@@ -1496,7 +1496,8 @@ is the expected outer product matrix, $S = \sum_{i=1}^n p(W_i) \varepsilon_i$
 is the score vector, and
 $\Bias(w) = p(w)^{\T} \hat H^{-1}\sum_{i=1}^n p(W_i) \mu(W_i) - \mu(w)$.
 Imposing some mild time series restrictions and assuming stationarity for
-simplicity, it is not difficult to show (see Appendix~\ref{sec:proofs})
+simplicity, it is not difficult to show
+(see Appendix~\ref{sec:yurinskii_proofs})
 that $\|\hat H - H\|_1 \lesssim_\P \sqrt{n k}$ and
 $\sup_{w\in\cW} |\Bias(w)| \lesssim_\P k^{-\gamma}$
 for some $\gamma>0$, depending on the specific structure of the basis
@@ -1931,7 +1932,7 @@ Section~\ref{sec:kde}, and as such, the result of \citet{li2020uniform} is
 unsuited for this application due to its strong minimum eigenvalue assumption.
 
 \section{Conclusion}
-\label{sec:conclusion}
+\label{sec:yurinskii_conclusion}
 
 In this paper we introduced as our main result a new version of Yurinskii's
 coupling which strictly generalizes all previously known forms of the result.

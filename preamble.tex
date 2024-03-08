@@ -8,6 +8,8 @@
 \usepackage{enumitem}
 \usepackage{subcaption}
 \usepackage{titlesec}
+\usepackage{stackengine}
+\usepackage{scalerel}
 \usepackage[longnamesfirst]{natbib}
 \usepackage[hypertexnames=false,hidelinks]{hyperref}
 
@@ -22,11 +24,14 @@
 
 % roman
 \newcommand{\rF}{\ensuremath{\mathrm{F}}}
+\newcommand{\rd}{\ensuremath{\mathrm{d}}}
+\renewcommand{\c}{\ensuremath{\mathrm{c}}}
 
 % bold
 \newcommand{\bW}{\ensuremath{\mathbf{W}}}
 \newcommand{\bY}{\ensuremath{\mathbf{Y}}}
 \newcommand{\bX}{\ensuremath{\mathbf{X}}}
+\newcommand{\bT}{\ensuremath{\mathbf{T}}}
 
 % calligraphic
 \newcommand{\cH}{\ensuremath{\mathcal{H}}}
@@ -40,6 +45,8 @@
 \newcommand{\cR}{\ensuremath{\mathcal{R}}}
 \newcommand{\cA}{\ensuremath{\mathcal{A}}}
 \newcommand{\cC}{\ensuremath{\mathcal{C}}}
+\newcommand{\cM}{\ensuremath{\mathcal{M}}}
+\newcommand{\cD}{\ensuremath{\mathcal{D}}}
 
 % sans serif
 \newcommand{\T}{\ensuremath{\mathsf{T}}}
@@ -48,13 +55,27 @@
 \newcommand{\vvvert}{{\vert\kern-0.25ex\vert\kern-0.25ex\vert}}
 \newcommand{\bigvvvert}{{\big\vert\kern-0.35ex\big\vert\kern-0.35ex\big\vert}}
 \newcommand{\Bigvvvert}{{\Big\vert\kern-0.3ex\Big\vert\kern-0.3ex\Big\vert}}
+\newcommand{\bigsetminus}{\mathbin{\big\backslash}}
+\newcommand{\Bigsetminus}{\mathbin{\Big\backslash}}
+
+% floor of beta
+\newcommand{\flbeta}{{\ThisStyle{%
+        \ensurestackMath{\stackengine{-0.5\LMpt}{\SavedStyle \beta}%
+          {\SavedStyle {\rule{3.7\LMpt}{0.3\LMpt}}}
+          {U}{c}{F}{F}{S}}\vphantom{\beta}}}}
 
 % operators
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\AIMSE}{AIMSE}
+\DeclareMathOperator{\LOOCV}{LOOCV}
+\DeclareMathOperator{\GCV}{GCV}
 \DeclareMathOperator{\Unif}{Unif}
 \DeclareMathOperator{\Bias}{Bias}
+\DeclareMathOperator{\Gam}{Gam}
 \DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Bin}{Bin}
 \DeclareMathOperator{\Tr}{Tr}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \newcommand{\diff}[1]{\,\mathrm{d}#1}
@@ -67,15 +88,16 @@
 \newtheorem{assumption}{Assumption}[section]
 \newtheorem{corollary}{Corollary}[section]
 \newtheorem{proposition}{Proposition}[section]
+\newtheorem{definition}{Definition}[section]
 \newtheorem{remark}{Remark}[section]
 
 % proof environments
 \newtheoremstyle{breakproof}{\topsep}{\topsep}{}{}{\bfseries}{}{\newline}{}%
 \theoremstyle{breakproof}
 \let\proof\relax
-\newtheorem*{myproof}{Proof}
-\AtBeginEnvironment{myproof}{\setcounter{proofparagraphcounter}{0}}%
-\AtEndEnvironment{myproof}{\null\hfill$\square$}%
+\newtheorem*{proof}{Proof}
+\AtBeginEnvironment{proof}{\setcounter{proofparagraphcounter}{0}}%
+\AtEndEnvironment{proof}{\null\hfill$\square$}%
 
 % proof paragraphs
 \titleformat{\paragraph}[hang]{\bfseries\upshape}{}{0pt}{}[]
