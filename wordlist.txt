@@ -33,6 +33,7 @@ Biau
 Bickel
 Bing
 Biometrika
+Biostatistics
 Birg
 Birkh
 Blaise
@@ -207,6 +208,7 @@ Ou
 Pe
 Peligrad
 Pensky
+Pereira
 phane
 Philipp
 pointwise
@@ -222,6 +224,7 @@ Rakhlin
 rard
 regressors
 Rendl
+Renmin
 rfi
 Rina
 Roxane
@@ -292,6 +295,7 @@ Wertz
 Whye
 Willem
 Woodroofe
+Xiamen
 Xiaohan
 Xiaohui
 Xu
