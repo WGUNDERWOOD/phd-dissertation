@@ -11,38 +11,38 @@
 *** From paper abstracts and introductions
 ** Mondrian Random Forests
 *** From CKU Overleaf
-*** DONE paper.tex
-*** DONE abstract.tex
-*** DONE refs.bib
-*** TODO Plots pgfs
-*** TODO More plots from job talk
+*** paper.tex
+*** abstract.tex
+*** refs.bib
+*** Plots pgfs
+*** More plots from job talk
 ** Dyadic KDE
 *** From CFU Overleaf
-*** DONE CFU_2023_JASA.tex
-*** DONE CFU_2023_JASA--bib.bib
-*** DONE table.tex
-*** DONE preamble_CFU.tex algorithm style
-*** TODO Plots
-*** TODO Get more plots from GitHub research-dyadic-kde and two sigma talk
+*** CFU_2023_JASA.tex
+*** CFU_2023_JASA--bib.bib
+*** table.tex
+*** preamble_CFU.tex algorithm style
+*** Plots
+*** Get more plots from GitHub research-dyadic-kde and two sigma talk
 ** Yurinskii's Coupling
 *** From CMU Overleaf
-*** DONE abstract.tex
-*** DONE paper.tex
-*** TODO Plots
-*** TODO Make more plots
+*** abstract.tex
+*** paper.tex
+*** Plots
+*** Make more plots
 ** Appendix: Proofs for Mondrian Random Forests
 *** From CKU Overleaf
-*** DONE proofs.tex
+*** proofs.tex
 *** From GitHub research-random-forests
-*** DONE random_forests.tex extra technical results
-*** DONE inconsistency.tex
+*** random_forests.tex extra technical results
+*** inconsistency.tex
 ** Appendix: Proofs for Dyadic KDE
 *** From GitHub research-dyadic-kde
-*** DONE dyadic_kde.tex
+*** dyadic_kde.tex
 *** Remove duplicated results as appropriate
 ** Appendix: Proofs for Yurinskii's Coupling
 *** From CMU Overleaf
-*** DONE appendix.tex
+*** appendix.tex
 ** Bibliography
 * Advanced degree application
 ** Presentations at conferences

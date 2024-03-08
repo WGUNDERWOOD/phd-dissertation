@@ -1,1 +1,72 @@
-\usepackage{lipsum}
+\documentclass{puthesis}
+
+% packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage[longnamesfirst]{natbib}
+
+% blackboard
+% TODO these should begin with \bb
+\renewcommand{\P}{\ensuremath{\mathbb{P}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\E}{\ensuremath{\mathbb{E}}}
+\newcommand{\Q}{\ensuremath{\mathbb{Q}}}
+
+% roman
+\newcommand{\rF}{\ensuremath{\mathrm{F}}}
+
+% bold
+\newcommand{\bW}{\ensuremath{\mathbf{W}}}
+\newcommand{\bY}{\ensuremath{\mathbf{Y}}}
+
+% calligraphic
+\newcommand{\cH}{\ensuremath{\mathcal{H}}}
+\newcommand{\cF}{\ensuremath{\mathcal{F}}}
+\newcommand{\cN}{\ensuremath{\mathcal{N}}}
+\newcommand{\cX}{\ensuremath{\mathcal{X}}}
+\newcommand{\cW}{\ensuremath{\mathcal{W}}}
+
+% sans serif
+% TODO these should begin with \s
+\newcommand{\T}{\ensuremath{\mathsf{T}}}
+
+% symbols
+\newcommand{\vvvert}{{\vert\kern-0.25ex\vert\kern-0.25ex\vert}}
+\newcommand{\bigvvvert}{{\big\vert\kern-0.35ex\big\vert\kern-0.35ex\big\vert}}
+\newcommand{\Bigvvvert}{{\Big\vert\kern-0.3ex\Big\vert\kern-0.3ex\Big\vert}}
+
+% operators
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Unif}{Unif}
+\DeclareMathOperator{\Bias}{Bias}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand{\diff}[1]{\,\mathrm{d}#1}
+
+% environments
+\newtheoremstyle{break}{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}%
+{\thmname{#1}\thmnumber{ #2}%
+  \thmnote{ \rm(#3)\addcontentsline{toc}{subsubsection}{{\it#1 #2}\/: #3}}}
+
+\newtheoremstyle{breakplainproof}{\topsep}{\topsep}{}{}{\bfseries}{}{\newline}%
+{\thmname{#1}\thmnumber{ #2}%
+  \thmnote{ \rm(#3)\addcontentsline{toc}{subsubsection}{{\it#1}\/: #3}}}
+
+\theoremstyle{break}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{assumption}{Assumption}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{remark}{Remark}[section]
+
+\theoremstyle{breakplainproof}
+\let\proof\relax
+\newtheorem*{myproof}{Proof}
+\AtBeginEnvironment{myproof}{\setcounter{proofparagraphcounter}{0}}%
+\AtEndEnvironment{myproof}{\null\hfill$\square$}%
