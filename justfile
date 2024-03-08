@@ -2,7 +2,7 @@ DISS := "dissertation"
 
 alias c := clean
 
-all: spell todo longlines format diss warn
+all: spell todo longlines format diss warn compress
 
 spell:
 	@echo -e "\e[0;35m\033[1mChecking spelling...\e[0;30m\033[0m"
@@ -27,8 +27,11 @@ warn:
 
 format:
 	@echo -e "\e[0;35m\033[1mFormatting...\e[0;30m\033[0m"
-	@latexindent-fast {{DISS}}.tex
-	@latexindent-fast refs.bib
+	@latexindent-fast {{DISS}}.tex refs.bib
+
+compress:
+	@echo -e "\e[0;35m\033[1mCompressing...\e[0;30m\033[0m"
+	@compress-pdf {{DISS}}.pdf
 
 clean:
 	@echo -e "\e[0;35m\033[1mCleaning...\e[0;30m\033[0m"
