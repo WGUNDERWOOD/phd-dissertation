@@ -13,12 +13,16 @@
 \usepackage{titlesec}
 \usepackage{stackengine}
 \usepackage{scalerel}
+\usepackage{microtype}
 \usepackage[boxruled,linesnumbered,commentsnumbered,procnumbered]{algorithm2e}
 \usepackage[longnamesfirst]{natbib}
 \usepackage[hypertexnames=false,hidelinks]{hyperref}
+\usepackage[norefs,nocites]{refcheck}
 
 % settings
 \pgfplotsset{compat=1.9}
+\newcommand{\TODO}[1]{\textcolor{red}{\textsc{TODO}: #1}}
+\microtypesetup{expansion=false}
 
 % blackboard
 \renewcommand{\P}{\ensuremath{\mathbb{P}}}
@@ -149,7 +153,6 @@
 % inline roman lists
 \newlist{inlineroman}{enumerate*}{1}
 \setlist[inlineroman]{afterlabel=~,label=(\roman*)}
-
 
 % algorithms
 \DontPrintSemicolon%

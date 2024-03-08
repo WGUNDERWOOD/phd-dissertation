@@ -1,6 +1,7 @@
 #+title: PhD Dissertation
 * Tasks
 ** TODO Remake all plots in a consistent style
+** TODO Citation style
 ** TODO Check margins and spacing etc
 ** TODO All files should be checked in justfile
 * Structure

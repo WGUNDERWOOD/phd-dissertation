@@ -354,6 +354,7 @@ and a maximal inequality for i.n.i.d.\ random variables.
 
 The total variation norm of a
 real-valued function $g$ of a single real variable is
+written as
 $\|g\|_\TV = \sup_{n \geq 1} \sup_{x_1 \leq \cdots \leq x_n}
 \sum_{i=1}^{n-1} |g(x_{i+1}) - g(x_i)|$.
 For an integer $m\geq 0$,
@@ -362,6 +363,7 @@ the space of all $m$-times continuously differentiable functions
 on $\mathcal{X}$.
 For $\beta > 0$ and $C>0$,
 define the H\"{o}lder class on $\mathcal{X}$ to be
+\TODO{check this is correct}
 $\cH^\beta_C(\cX)
 =
 \big\{
@@ -440,13 +442,13 @@ If the H\"older condition is satisfied only piecewise,
 then our results remain valid provided that the boundaries
 between the pieces are known and treated as boundary points.
 
-%If $W(a_1, a_2, v)$ is strictly monotonic and continuously differentiable in
-%its third argument,
-%we can give the conditional density of $W_{ij}$ explicitly
-%using the usual change-of-variables formula: with $w=W(a_1,a_2,v)$,
-%$f_{W \mid AA}(w \mid a_1,a_2) = f_V(v)
-%\big|\partial W(a_1,a_2,v)/\partial v\big|^{-1}$.
-%However, this is not necessary for our results.
+If $W(a_1, a_2, v)$ is strictly monotonic and continuously differentiable in
+its third argument,
+we can give the conditional density of $W_{ij}$ explicitly
+using the usual change-of-variables formula: with $w=W(a_1,a_2,v)$,
+we have
+$f_{W \mid AA}(w \mid a_1,a_2) = f_V(v)
+\big|\partial W(a_1,a_2,v)/\partial v\big|^{-1}$.
 
 \begin{assumption}[Kernels and bandwidth]\label{ass:kernel_bandwidth}%
   \onehalfspacing
@@ -721,7 +723,7 @@ regardless of the presence of partial or total degeneracy.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/illustration_total.pdf}
+    \includegraphics[scale=0.48]{graphics/illustration_total.pdf}
     \caption{
       Total degeneracy, \\
       $\pi = \left( \frac{1}{2}, 0, \frac{1}{2} \right)$
@@ -730,7 +732,7 @@ regardless of the presence of partial or total degeneracy.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/illustration_partial.pdf}
+    \includegraphics[scale=0.48]{graphics/illustration_partial.pdf}
     \caption{
       Partial degeneracy, \\
       $\pi = \left( \frac{1}{4}, 0, \frac{3}{4} \right)$
@@ -739,7 +741,7 @@ regardless of the presence of partial or total degeneracy.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/illustration_none.pdf}
+    \includegraphics[scale=0.48]{graphics/illustration_none.pdf}
     \caption{
       No degeneracy, \\
       $\pi = \left( \frac{1}{5}, \frac{1}{5}, \frac{3}{5} \right)$
@@ -857,7 +859,7 @@ is determined by the bias $B_n$ and the leading variance term $E_n$ in
 
 Combining Theorems \ref{thm:uniform_consistency}~and~\ref{thm:kernel_minimax},
 we
-conclude that the estimator $\hat{f}_W(w)$ achieves the minimax-optimal rate
+conclude that $\hat{f}_W(w)$ achieves the minimax-optimal rate
 of uniform convergence for estimating $f_W(w)$ if
 $h \asymp \left( \frac{\log n}{n^2} \right)^{\frac{1}{2\beta+1}}$
 and $p \geq \beta$,
@@ -1093,7 +1095,7 @@ such potential unknown degeneracy.
 \end{theorem}
 
 The first term in the numerator corresponds to
-the strong approximation error for $L_n$ in Lemma~\ref{lem:strong_approx_Ln}
+the strong approximation for $L_n$ in Lemma~\ref{lem:strong_approx_Ln}
 and the error introduced by $Q_n$.
 The second and third terms correspond to the conditional
 and unconditional strong approximation errors for
@@ -1591,6 +1593,7 @@ for $f_W$ is summarized in Algorithm~\ref{alg:method}.
   \caption{Feasible uniform confidence bands for
     dyadic kernel density estimation}
   \label{alg:method}
+  \setstretch{1.5}
 
   Choose a kernel $k_h$ of order $p \geq 2$ satisfying
   Assumption~\ref{ass:kernel_bandwidth}. \\
@@ -1688,7 +1691,7 @@ degenerate point $w = 0$.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/result_total.pdf}
+    \includegraphics[scale=0.48]{graphics/result_total.pdf}
     \caption{
       Total degeneracy, \\
       $\pi = \left( \frac{1}{2}, 0, \frac{1}{2} \right)$
@@ -1697,7 +1700,7 @@ degenerate point $w = 0$.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/result_partial.pdf}
+    \includegraphics[scale=0.48]{graphics/result_partial.pdf}
     \caption{
       Partial degeneracy, \\
       $\pi = \left( \frac{1}{4}, 0, \frac{3}{4} \right)$
@@ -1706,7 +1709,7 @@ degenerate point $w = 0$.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/result_none.pdf}
+    \includegraphics[scale=0.48]{graphics/result_none.pdf}
     \caption{
       No degeneracy, \\
       $\pi = \left( \frac{1}{5}, \frac{1}{5}, \frac{3}{5} \right)$
@@ -1883,8 +1886,7 @@ with $\I$ the indicator function.
 Section~SA2.10 of the online supplemental appendix provides technical details:
 we show how an asymptotic
 linear representation for $\hat\psi(x)$ leads to a
-modified Hoeffding-type decomposition of
-$\hat f_W^{\,1 \triangleright 0}(w)$,
+Hoeffding-type decomposition of $\hat f_W^{\,1 \triangleright 0}(w)$,
 which is then used to establish that $\hat f_W^{\,1 \triangleright 0}$
 is uniformly consistent for $f_W^{\,1 \triangleright 0}(w)$
 and also admits a Gaussian strong approximation,
@@ -2088,19 +2090,19 @@ are qualitatively similar.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_plot_1995.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_plot_1995.pdf}
     \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_plot_1995_2000.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_plot_1995_2000.pdf}
     \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_plot_1995_2005.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_plot_1995_2005.pdf}
     \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
   \end{subfigure}
   %

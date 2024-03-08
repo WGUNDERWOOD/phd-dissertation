@@ -9,7 +9,6 @@ give some notation
 and state our assumptions.
 
 \subsection{Setup and estimator}
-\label{sec:setup_estimator}
 
 Fix $n \geq 2$ and suppose there is
 a probability space carrying the latent random variables
@@ -45,7 +44,6 @@ is defined as
 \end{align*}
 
 \subsection{Notation}
-\label{sec:notation}
 
 \subsubsection{Norms}
 
@@ -76,45 +74,8 @@ real-valued function of a single real variable is
 $\|g\|_\TV = \sup_{n \geq 1} \sup_{x_1 \leq \cdots \leq x_n}
 \sum_{i=1}^{n-1} |g(x_{i+1}) - g(x_i)|$.
 
-\subsubsection{Inequalities}
-
-For deterministic non-negative sequences
-$a_n$ and $b_n$,
-write
-$a_n \lesssim b_n$
-or $a_n = O(b_n)$
-to indicate that there exists a positive constant
-$C$ which does not depend on $n$
-(although might depend on other quantities,
-depending on context)
-satisfying
-$a_n \leq C b_n$
-for all sufficiently large $n$.
-Write $a_n \ll b_n$
-or $a_n = o(b_n)$
-to indicate that
-$a_n / b_n \to 0$.
-If $a_n \lesssim b_n \lesssim a_n$,
-write $a_n \asymp b_n$.
-For random non-negative sequences
-$A_n$ and $B_n$,
-write
-$A_n \lesssim_\P B_n$
-or $A_n = O_\P(B_n)$
-to indicate that for any $\varepsilon > 0$
-there exists a deterministic positive constant
-$C_\varepsilon$ satisfying
-$\P(A_n \leq C_\varepsilon B_n) \geq 1 - \varepsilon$
-for all sufficiently large $n$.
-Write $A_n = o_\P(B_n)$ if
-$A_n / B_n \to 0$ in probability.
-
 \subsubsection{Sets}
 
-For $x \in \R$ and $a \geq 0$,
-we use $[x \pm a]$
-to denote the compact interval
-$[x-a, x+a]$.
 For a bounded set $\cX \subseteq \R$ and $a \geq 0$
 we use $[\cX \pm a]$ to denote the compact interval
 $[\inf \cX - a, \ \sup \cX + a]$.
@@ -145,6 +106,7 @@ Note that $\cC^0(\cX)$ is the class of functions
 which are continuous on $\cX$.
 For $C > 0$, define the H\"older class with smoothness
 $\beta > 0$ by
+%
 \begin{align*}
   \cH^\beta_C(\cX)
   &=
@@ -155,10 +117,11 @@ $\beta > 0$ by
   \text{ and }
   \big| g^{(\flbeta)}(x) - g^{(\flbeta)}(x') \big|
   \leq C |x-x'|^{\beta - \flbeta}, \
-  \text{ for all }
+  \forall
   x, x' \in \cX
   \Big\}.
 \end{align*}
+%
 Note that $\cH^1_C(\cX)$
 is the class of functions which are $C$-Lipschitz on $\cX$,
 and observe that the functions in
@@ -167,98 +130,16 @@ $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
 \subsection{Assumptions}
 \label{sec:assumptions}
 
-\begin{assumption}[Data generation]
-  \label{ass:kernel_app_data}
-
-  Fix $n \geq 2$ and
-  let $\bA_n = (A_i: 1 \leq i \leq n)$
-  be i.i.d.\
-  real-valued random variables supported on $\cA \subseteq \R$.
-  Let $\bV_n = (V_{ij}: 1 \leq i < j \leq n)$
-  be i.i.d.\
-  real-valued random variables with a Lebesgue density $f_V$ on $\R$.
-  Suppose that $\bA_n$ is independent of $\bV_n$.
-  Let $W_{ij} = W(A_i, A_j, V_{ij})$
-  and $\bW_n = (W_{ij}: 1 \leq i < j \leq n)$,
-  where $W$ is some unknown real-valued function
-  which is symmetric in its first two arguments.
-  Let $\cW \subseteq \R$ be a compact interval
-  with positive Lebesgue measure $\Leb(\cW)$.
-  Assume that the conditional distribution
-  of $W_{ij}$ given $A_i$ and $A_j$
-  admits a Lebesgue density
-  denoted $f_{W \mid AA}(w \mid A_i, A_j)$,
-  and define
-  $f_{W \mid A}(w \mid a) = \E\left[f_{W \mid AA}(w \mid A_i,a)\right]$
-  and
-  $f_W(w) = \E\left[f_{W \mid AA}(w \mid A_i,A_j)\right]$.
-  Take $\CH > 0$ and $\beta \geq 1$,
-  and suppose that $f_W \in \cH^\beta_{\CH}(\cW)$ and that
-  $f_{W \mid AA}(\cdot \mid a, a') \in \cH^1_{\CH}(\cW)$
-  for all $a,a' \in \cA$.
-  Assume that
-  $\sup_{w \in \cW} \|f_{W \mid A}(w \mid \cdot\,)\|_\TV <\infty$.
-\end{assumption}
-
-\begin{remark}
-  If $W(a_1, a_2, v)$
-  is strictly monotonic
-  and continuously differentiable
-  in its third argument,
-  we can give the conditional
-  density of $W_{ij}$ explicitly
-  using the usual change-of-variables formula:
-  with $w=W(a_1,a_2,v)$, we have
-  $f_{W \mid AA}(w \mid a_1,a_2)
-  = f_V(v)
-  \Big|
-  \frac{\partial W(a_1,a_2,v)}{\partial v}
-  \Big|^{-1}$.
-\end{remark}
-
 \begin{remark}
   By Lemma~\ref{lem:lipschitz_kernels_bounded},
-  Assumption~\ref{ass:kernel_app_data} implies that the densities
+  Assumption~\ref{ass:kernel_data} implies that the densities
   $f_W$, $f_{W \mid A}$ and $f_{W \mid AA}$ are all uniformly bounded by
   $\Cd \vcentcolon= 2 \sqrt{\CH} + 1/\Leb(\cW)$.
 \end{remark}
 
-\begin{assumption}[Kernels and bandwidth]
-  \label{ass:kernel_app_bandwidth}
-
-  Let $h = h(n) > 0$
-  be a sequence of bandwidths
-  satisfying $h \log n \to 0$
-  and $\frac{\log n}{n^2h} \to 0$.
-  For each $w \in \cW$ let $k_h(\cdot, w)$
-  be a real-valued function supported on
-  $[w \pm h] \cap \cW$.
-  Let $p \geq 1$ be an integer and
-  suppose that $k_h$ belongs to a family of
-  boundary bias-corrected kernels of order $p$,
-  which is to say that
-  \begin{align*}
-    \int_{\cW}
-    (s-w)^r k_h(s,w) \diff{s}
-    \quad
-    \begin{cases}
-      \begin{alignedat}{2}
-        &= 1 &\qquad &\text{for all } w \in \cW \text{ if }\, r = 0, \\
-        &= 0 & &\text{for all } w \in \cW \text{ if }\, 1 \leq r \leq p-1, \\
-        &\neq 0 & &\text{for some } w \in \cW \text{ if }\, r = p.
-      \end{alignedat}
-    \end{cases}
-  \end{align*}
-  Suppose also that for some $\CL > 0$,
-  the kernels satisfy
-  $k_h(s, \cdot) \in \cH^1_{\CL/h^2}(\cW)$
-  for all $s \in \cW$.
-
-\end{assumption}
-
 \begin{remark}
   The kernel functions required by
-  Assumption~\ref{ass:kernel_app_bandwidth}
+  Assumption~\ref{ass:kernel_bandwidth}
   can be constructed using
   polynomials on $[w \pm h] \cap \cW$,
   solving a family of linear systems to find the coefficients.
@@ -266,7 +147,7 @@ $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
 
 \begin{remark}
   By Lemma~\ref{lem:lipschitz_kernels_bounded},
-  Assumption~\ref{ass:kernel_app_bandwidth} implies that
+  Assumption~\ref{ass:kernel_bandwidth} implies that
   if $h \leq 1$ then
   $k_h$ is uniformly bounded by
   $\Ck / h$ where $\Ck \vcentcolon = 2 \CL + 1 + 1/\Leb(\cW)$.
@@ -283,8 +164,8 @@ and does not rely on the dyadic structure of the data.
 \begin{lemma}[Bias of $\hat f_W$]
   \label{lem:bias}
 
-  Suppose that Assumptions \ref{ass:kernel_app_data} and
-  \ref{ass:kernel_app_bandwidth} hold.
+  Suppose that Assumptions \ref{ass:kernel_data} and
+  \ref{ass:kernel_bandwidth} hold.
   For $w \in \cW$
   define the leading bias term as
   \begin{align*}
@@ -361,7 +242,7 @@ and does not rely on the dyadic structure of the data.
 
 \subsection{Uniform consistency}
 
-In this section we demonstrate uniform consistency of the
+In this section we show uniform consistency of the
 dyadic kernel density estimator.
 Lemma~\ref{lem:hoeffding}
 provides a U-statistic decomposition of the estimator
@@ -377,8 +258,8 @@ interpreting our results in various classes of data distributions.
 \begin{lemma}[Hoeffding-type decomposition for $\hat f_W$]
   \label{lem:hoeffding}
 
-  Suppose that Assumptions~\ref{ass:kernel_app_data}
-  and~\ref{ass:kernel_app_bandwidth}
+  Suppose that Assumptions~\ref{ass:kernel_data}
+  and~\ref{ass:kernel_bandwidth}
   hold.
   Define the linear term
   (H\'{a}jek projection),
@@ -459,8 +340,8 @@ interpreting our results in various classes of data distributions.
 \begin{lemma}[Trichotomy of degeneracy]
   \label{lem:trichotomy}
 
-  Suppose that Assumptions~\ref{ass:kernel_app_data}
-  and~\ref{ass:kernel_app_bandwidth} hold,
+  Suppose that Assumptions~\ref{ass:kernel_data}
+  and~\ref{ass:kernel_bandwidth} hold,
   and define the non-negative
   upper and lower degeneracy constants
   \begin{align*}
@@ -525,9 +406,9 @@ interpreting our results in various classes of data distributions.
   \label{lem:uniform_concentration}
 
   Suppose Assumptions
-  \ref{ass:kernel_app_data}
+  \ref{ass:kernel_data}
   and
-  \ref{ass:kernel_app_bandwidth}
+  \ref{ass:kernel_bandwidth}
   hold.
   Then with $L_n$, $Q_n$ and $E_n$ defined as in
   Lemma~\ref{lem:hoeffding},
@@ -565,8 +446,8 @@ interpreting our results in various classes of data distributions.
 \begin{theorem}[Uniform consistency of $\hat f_W$]
   \label{thm:app_uniform_consistency}
 
-  Suppose Assumptions \ref{ass:kernel_app_data}
-  and \ref{ass:kernel_app_bandwidth} hold. Then
+  Suppose Assumptions \ref{ass:kernel_data}
+  and \ref{ass:kernel_bandwidth} hold. Then
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
@@ -629,7 +510,6 @@ interpreting our results in various classes of data distributions.
 \end{remark}
 
 \subsection{Minimax optimality}
-\label{sec:minimax}
 
 In this section we demonstrate
 minimax optimality of our estimator under uniform convergence
@@ -643,7 +523,7 @@ some classes of dyadic distributions.
   positive Lebesgue measure.
   Define $\cP = \cP(\cW, \beta, \CH)$
   as the class of dyadic distributions
-  satisfying Assumption~\ref{ass:kernel_app_data}.
+  satisfying Assumption~\ref{ass:kernel_data}.
   Define $\cPd$ as the subclass of $\cP$
   containing only those distributions
   which are totally degenerate on $\cW$ in the sense that
@@ -702,8 +582,8 @@ some classes of dyadic distributions.
 \begin{lemma}[Covariance structure]
   \label{lem:covariance_structure}
 
-  Suppose Assumptions~\ref{ass:kernel_app_data}
-  and~\ref{ass:kernel_app_bandwidth} hold.
+  Suppose Assumptions~\ref{ass:kernel_data}
+  and~\ref{ass:kernel_bandwidth} hold.
   Define the covariance function of the
   dyadic kernel density estimator by
   \begin{align*}
@@ -736,14 +616,15 @@ some classes of dyadic distributions.
     \Cov\hspace*{-0.7mm}\big[
       k_h(W_{ij},w),
       k_h(W_{ij},w')
-      \big]
-    +
+      \big] \\
+    &\quad+
     \frac{4(n-2)}{n(n-1)}
     \Cov\hspace*{-0.7mm}\big[
       \E[k_h(W_{ij},w) \mid A_i],
       \E[k_h(W_{ij},w') \mid A_i]
       \big],
   \end{align*}
+  %
   where $1 \leq i < j < r \leq n$.
 
 \end{lemma}
@@ -751,8 +632,8 @@ some classes of dyadic distributions.
 \begin{lemma}[Variance bounds]
   \label{lem:app_variance_bounds}
 
-  Suppose that Assumptions~\ref{ass:kernel_app_data}
-  and~\ref{ass:kernel_app_bandwidth} hold.
+  Suppose that Assumptions~\ref{ass:kernel_data}
+  and~\ref{ass:kernel_bandwidth} hold.
   Then for all large enough $n$,
   \begin{align*}
     \frac{\Dl^2}{n}
@@ -777,19 +658,19 @@ for the empirical process $\hat f_W$.
 We begin by using the
 K\'omlos--Major--Tusn\'ady (KMT) approximation
 to obtain a strong approximation for $L_n$
-in Lemma~\ref{lem:strong_approx_Ln}.
+in Lemma~\ref{lem:app_strong_approx_Ln}.
 Since $E_n$ is an empirical process of i.n.i.d.\ variables,
 the KMT approximation is not valid.
 Instead we apply a conditional version of
 Yurinskii's coupling to obtain a
 conditional strong approximation for $E_n$
-in Lemma~\ref{lem:conditional_strong_approx_En},
+in Lemma~\ref{lem:app_conditional_strong_approx_En},
 and then construct an unconditional
 strong approximation for $E_n$
-in Lemma~\ref{lem:unconditional_strong_approx_En}.
+in Lemma~\ref{lem:app_unconditional_strong_approx_En}.
 These approximations are combined to give a
 strong approximation for $\hat f_W$
-in Theorem~\ref{thm:strong_approx_fW}.
+in Theorem~\ref{thm:app_strong_approx_fW}.
 We do not need to construct a strong approximation
 for the negligible $Q_n$.
 
@@ -818,12 +699,12 @@ indexed by a compact rectangle in $\R^d$
 with a.s.\ continuous sample paths.
 
 \begin{lemma}[Strong approximation of $L_n$]
-  \label{lem:strong_approx_Ln}
+  \label{lem:app_strong_approx_Ln}
 
   Suppose that Assumptions
-  \ref{ass:kernel_app_data}
+  \ref{ass:kernel_data}
   and
-  \ref{ass:kernel_app_bandwidth} hold.
+  \ref{ass:kernel_bandwidth} hold.
   For each $n \geq 2$
   there exists
   on some probability space
@@ -892,10 +773,10 @@ with a.s.\ continuous sample paths.
 \end{lemma}
 
 \begin{lemma}[Conditional strong approximation of $E_n$]
-  \label{lem:conditional_strong_approx_En}
+  \label{lem:app_conditional_strong_approx_En}
 
   Suppose that Assumptions
-  \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth} hold.
+  \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth} hold.
   For each $n \geq 2$
   and $t_n > 0$ with $\left|\log t_n\right| \lesssim \log n$,
   there exists on some probability space
@@ -979,14 +860,14 @@ with a.s.\ continuous sample paths.
 \end{lemma}
 
 \begin{lemma}[Unconditional strong approximation of $E_n$]
-  \label{lem:unconditional_strong_approx_En}
+  \label{lem:app_unconditional_strong_approx_En}
 
   Suppose that Assumptions
-  \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth} hold.
+  \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth} hold.
   Let
   $\big(\bA_n', \bV_n', \tilde Z_n^{E\prime}\big)$
   be defined as in
-  Lemma~\ref{lem:conditional_strong_approx_En}.
+  Lemma~\ref{lem:app_conditional_strong_approx_En}.
   For each $n \geq 2$
   there exists
   (on some probability space)
@@ -1053,20 +934,20 @@ with a.s.\ continuous sample paths.
 \begin{remark}
 
   Note that the process $\tilde Z_n^{E\prime}$,
-  constructed in Lemma~\ref{lem:conditional_strong_approx_En},
+  constructed in Lemma~\ref{lem:app_conditional_strong_approx_En},
   is a conditionally Gaussian process but is
   not in general a Gaussian process.
   The process $Z_n^{E\dprime}$,
-  constructed in Lemma~\ref{lem:unconditional_strong_approx_En},
+  constructed in Lemma~\ref{lem:app_unconditional_strong_approx_En},
   is a true Gaussian process.
 
 \end{remark}
 
 \begin{theorem}[Strong approximation of $\hat f_W$]
-  \label{thm:strong_approx_fW}
+  \label{thm:app_strong_approx_fW}
 
   Suppose that Assumptions
-  \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth} hold.
+  \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth} hold.
   For each $n \geq 2$
   and any sequence $R_n \to \infty$
   there exists on some probability space
@@ -1123,7 +1004,7 @@ with a.s.\ continuous sample paths.
 
 \begin{remark}
   The interpretation of
-  Theorem~\ref{thm:strong_approx_fW}
+  Theorem~\ref{thm:app_strong_approx_fW}
   is deferred to
   Section~\ref{sec:infeasible_confidence_bands},
   in which we scale the processes by their pointwise variance
@@ -1135,7 +1016,7 @@ with a.s.\ continuous sample paths.
 \label{sec:infeasible_confidence_bands}
 
 We use the strong approximation and bias results
-from Theorem~\ref{thm:strong_approx_fW}
+from Theorem~\ref{thm:app_strong_approx_fW}
 and Lemma~\ref{lem:bias}
 respectively to construct uniform confidence bands for
 the true density function $f_W$.
@@ -1154,8 +1035,8 @@ which is a standard assumption when constructing confidence bands.
     of the standardized $t$-statistic]
   \label{lem:infeasible_t_statistic}
 
-  Let Assumptions \ref{ass:kernel_app_data} and
-  \ref{ass:kernel_app_bandwidth}
+  Let Assumptions \ref{ass:kernel_data} and
+  \ref{ass:kernel_bandwidth}
   hold and suppose that
   $f_W(w) > 0$ on $\cW$.
   Define for $w \in \cW$
@@ -1167,11 +1048,11 @@ which is a standard assumption when constructing confidence bands.
   \end{align*}
   %
   Then with $R_n \to \infty$ as in
-  Theorem~\ref{thm:strong_approx_fW},
+  Theorem~\ref{thm:app_strong_approx_fW},
   %
   \begin{align*}
-    \sup_{w \in \cW} \left| T_n(w) - Z_n^T(w) \right|
-    &\lesssim_\P
+    &\sup_{w \in \cW} \left| T_n(w) - Z_n^T(w) \right| \\
+    &\quad\lesssim_\P
     \frac{
       n^{-1/2} \log n
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
@@ -1183,15 +1064,15 @@ which is a standard assumption when constructing confidence bands.
 \end{lemma}
 
 For the coverage rate error
-in the upcoming Theorem~\ref{thm:infeasible_ucb}
+in the upcoming Theorem~\ref{thm:app_infeasible_ucb}
 to converge to zero in large samples,
 we require further restrictions on the bandwidth sequence.
 These restrictions depend on the degeneracy type
 of the dyadic distribution,
-and are given as Assumption~\ref{ass:rates}.
+and are given as Assumption~\ref{ass:app_rates}.
 
 \begin{assumption}[Rate restriction for uniform confidence bands]
-  \label{ass:rates}
+  \label{ass:app_rates}
 
   Suppose that one of the following holds.
 
@@ -1214,10 +1095,10 @@ and are given as Assumption~\ref{ass:rates}.
 \end{assumption}
 
 \begin{theorem}[Infeasible uniform confidence bands]
-  \label{thm:infeasible_ucb}
+  \label{thm:app_infeasible_ucb}
 
-  Let Assumptions \ref{ass:kernel_app_data}, \ref{ass:kernel_app_bandwidth}
-  and \ref{ass:rates}
+  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
+  and \ref{ass:app_rates}
   hold and suppose that $f_W(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
   and define $q_{1-\alpha}$ as the quantile
@@ -1255,7 +1136,7 @@ and are given as Assumption~\ref{ass:rates}.
   the asymptotically optimal bandwidth choice
   under uniform convergence is given by
   $h \asymp (n^{-2} \log n)^{\frac{1}{2(p \wedge \beta)+1}}$.
-  This bandwidth satisfies Assumption~\ref{ass:rates}
+  This bandwidth satisfies Assumption~\ref{ass:app_rates}
   only in the case of no degeneracy.
   Thus in degenerate cases, one must undersmooth by choosing
   a bandwidth which is smaller than the optimal bandwidth.
@@ -1281,7 +1162,7 @@ which is more amenable to computation.
 \begin{lemma}[Covariance estimation]
   \label{lem:covariance_estimation}
 
-  Let Assumptions \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth}
+  Let Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
   hold and suppose that $nh \gtrsim \log n$
   and $f_W(w) > 0$ on $\cW$.
   For $w,w' \in \cW$ define
@@ -1295,8 +1176,8 @@ which is more amenable to computation.
     +
     \frac{24}{n^2(n-1)^2}
     \sum_{i<j<r}
-    S_{ijr}(w,w')
-    -
+    S_{ijr}(w,w') \\
+    &\quad-
     \frac{4n-6}{n(n-1)}
     \hat f_W(w)
     \hat f_W(w'),
@@ -1343,8 +1224,8 @@ which is more amenable to computation.
 \begin{lemma}[Alternative covariance estimator representation]
   \label{lem:alternative_covariance_estimator}
 
-  Suppose that Assumptions~\ref{ass:kernel_app_data}
-  and~\ref{ass:kernel_app_bandwidth} hold
+  Suppose that Assumptions~\ref{ass:kernel_data}
+  and~\ref{ass:kernel_bandwidth} hold
   and let $\hat \Sigma_n$
   be the covariance estimator defined
   in Lemma~\ref{lem:covariance_estimation}.
@@ -1432,8 +1313,8 @@ over bivariate functions.
 \begin{lemma}[Consistency of $\hat \Sigma_n^+$]
   \label{lem:app_SDP}
 
-  Suppose that Assumptions~\ref{ass:kernel_app_data}
-  and~\ref{ass:kernel_app_bandwidth} hold and that
+  Suppose that Assumptions~\ref{ass:kernel_data}
+  and~\ref{ass:kernel_bandwidth} hold and that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Then the optimization problem (\ref{eq:app_SDP})
   has an approximately optimal solution $\hat\Sigma_n^+$
@@ -1454,7 +1335,7 @@ over bivariate functions.
 \begin{remark}
 
   The optimization problem (\ref{eq:app_SDP}) is stated for functions
-  rather than for matrices so is infinite-dimensional.
+  rather than matrices so is infinite-dimensional.
   However, when restricting to finite-size matrices,
   Lemma~\ref{lem:app_SDP} still holds and does not depend on
   the size of the matrices.
@@ -1477,8 +1358,8 @@ over bivariate functions.
 \begin{lemma}[Positive semi-definite variance estimator bounds]
   \label{lem:variance_estimator_bounds}
 
-  Suppose that Assumptions~\ref{ass:kernel_app_data}
-  and~\ref{ass:kernel_app_bandwidth} hold and that
+  Suppose that Assumptions~\ref{ass:kernel_data}
+  and~\ref{ass:kernel_bandwidth} hold and that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Then $\hat \Sigma_n^+(w,w) \geq 0$
   almost surely for all $w \in \cW$ and
@@ -1505,8 +1386,8 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 \begin{lemma}[Proximity of the standardized and studentized t-statistics]
   \label{lem:studentized_t_statistic}
 
-  Let Assumptions \ref{ass:kernel_app_data} and
-  \ref{ass:kernel_app_bandwidth} hold and suppose that
+  Let Assumptions \ref{ass:kernel_data} and
+  \ref{ass:kernel_bandwidth} hold and suppose that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define for $w \in \cW$
   \begin{align*}
@@ -1532,7 +1413,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
     of the infeasible Gaussian process]
   \label{lem:distributional_approx_feasible_gaussian}
 
-  Let Assumptions \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth}
+  Let Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
   hold and suppose that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define a process $\hat Z_n^T(w)$ which,
@@ -1578,8 +1459,8 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 \begin{lemma}[Feasible Gaussian approximation of the studentized $t$-statistic]
   \label{lem:feasible_gaussian_approx}
 
-  Let Assumptions \ref{ass:kernel_app_data}, \ref{ass:kernel_app_bandwidth}
-  and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
+  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
+  and \ref{ass:app_rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
   Then
   %
   \begin{align*}
@@ -1606,8 +1487,8 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 \begin{theorem}[Feasible uniform confidence bands]
   \label{thm:kernel_app_ucb}
 
-  Let Assumptions \ref{ass:kernel_app_data}, \ref{ass:kernel_app_bandwidth}
-  and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
+  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
+  and \ref{ass:app_rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
   and define $\hat q_{1-\alpha}$ as the
   conditional quantile satisfying
@@ -1668,7 +1549,7 @@ Assumption~\ref{ass:counterfactual}.
 
   For each $r \in \{0,1\}$,
   let $\bW_n^r$, $\bA_n^r$ and $\bV_n^r$ be as in
-  Assumption~\ref{ass:kernel_app_data}.
+  Assumption~\ref{ass:kernel_data}.
   Let $X_i^r$ be finitely-supported variables,
   setting $\bX_n^r = (X_1^r, \ldots, X_n^r)$.
   Suppose that $(A_i^r, X_i^r)$ are
@@ -1733,8 +1614,9 @@ Note that since $p_X^r(x) > 0$,
   &=
   \frac{\hat p_X^{\,0}(x) - p_X^0(x)}{p_X^1(x)}
   - \frac{p_X^0(x)}{p_X^1(x)}
+  \frac{\hat p_X^{\,1}(x) - p_X^1(x)}{p_X^1(x)} \\
+  &\quad+
   \frac{\hat p_X^{\,1}(x) - p_X^1(x)}{p_X^1(x)}
-  + \frac{\hat p_X^{\,1}(x) - p_X^1(x)}{p_X^1(x)}
   \frac{\hat p_X^{\,1}(x) p_X^0(x) - \hat p_X^{\,0}(x)p_X^1(x)}
   {\hat p_X^{\,1}(x) p_X^1(x)} \\
   &=
@@ -1761,8 +1643,8 @@ approximation results for the counterfactual density estimator.
 \begin{lemma}[Bias of $\hat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_bias}
 
-  Suppose that Assumptions~\ref{ass:kernel_app_data},
-  \ref{ass:kernel_app_bandwidth} and \ref{ass:counterfactual} hold.
+  Suppose that Assumptions~\ref{ass:kernel_data},
+  \ref{ass:kernel_bandwidth} and \ref{ass:counterfactual} hold.
   Then
   %
   \begin{align*}
@@ -1781,10 +1663,10 @@ approximation results for the counterfactual density estimator.
   $\hat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_hoeffding}
 
-  Suppose that Assumptions~\ref{ass:kernel_app_data},
-  \ref{ass:kernel_app_bandwidth} and
+  Suppose that Assumptions~\ref{ass:kernel_data},
+  \ref{ass:kernel_bandwidth} and
   \ref{ass:counterfactual} hold.
-  Writing $k_{ij} = k_h(W_{ij}^1, w)$,
+  With $k_{ij} = k_h(W_{ij}^1, w)$,
   $\kappa_{r i} = \kappa(X_r^0, X_r^1, X_i^1)$
   and $\psi_i = \psi(X_i^1)$, define the projections
   %
@@ -1828,15 +1710,14 @@ approximation results for the counterfactual density estimator.
     \psi_i
     \E\left[
       k_{ir}  \kappa_{jr}
-      \mid A_i^1, X_j^0, X_j^1 \right]
-    +
+      \mid A_i^1, X_j^0, X_j^1 \right] \\
+    &\quad+
     \frac{1}{3}
     \kappa_{ji}
     \E\left[
       k_{ir} \psi_r
-      \mid A_i^1 \right] \\
-    &\quad+
-    \frac{1}{3}
+    \mid A_i^1 \right]
+    + \frac{1}{3}
     \psi_j
     \E\left[
       k_{jr}  \psi_r
@@ -1846,8 +1727,8 @@ approximation results for the counterfactual density estimator.
     \psi_j
     \E\left[
       k_{jr}  \kappa_{ir}
-      \mid X_i^0, X_i^1, A_j^1 \right]
-    +
+      \mid X_i^0, X_i^1, A_j^1 \right] \\
+    &\quad+
     \frac{1}{3}
     \kappa_{ij}
     \E\left[
@@ -1872,14 +1753,14 @@ approximation results for the counterfactual density estimator.
     \psi_j \kappa_{r i}
     \E\left[
       k_{ij}
-      \mid A_i^1, A_j^1 \right]
-    + \frac{1}{3}
+      \mid A_i^1, A_j^1 \right] \\
+    &\quad+
+    \frac{1}{3}
     \psi_i \psi_r
     \E\left[
       k_{ir}
-      \mid A_i^1, A_r^1 \right] \\
-    &\quad+
-    \frac{1}{3}
+      \mid A_i^1, A_r^1 \right]
+    + \frac{1}{3}
     \psi_i \kappa_{jr}
     \E\left[
       k_{ir}
@@ -1889,14 +1770,14 @@ approximation results for the counterfactual density estimator.
     \psi_r \kappa_{ji}
     \E\left[
       k_{ir}
-      \mid A_i^1, A_r^1 \right]
-    + \frac{1}{3}
+      \mid A_i^1, A_r^1 \right] \\
+    &\quad+
+    \frac{1}{3}
     \psi_j \psi_r
     \E\left[
       k_{jr}
-      \mid A_j^1, A_r^1 \right] \\
-    &\quad+
-    \frac{1}{3}
+      \mid A_j^1, A_r^1 \right]
+    + \frac{1}{3}
     \psi_j \kappa_{ir}
     \E\left[
       k_{jr}
@@ -1906,8 +1787,9 @@ approximation results for the counterfactual density estimator.
     \psi_r \kappa_{ij}
     \E\left[
       k_{jr}
-      \mid A_j^1, A_r^1 \right]
-    - u_{ij} - u_{ir} - u_{jr}
+      \mid A_j^1, A_r^1 \right] \\
+    &\quad-
+    u_{ij} - u_{ir} - u_{jr}
     + u_i + u_j + u_r
     - u, \\
     v_{ijr}
@@ -1987,8 +1869,8 @@ approximation results for the counterfactual density estimator.
 \begin{lemma}[Uniform consistency of $\hat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_uniform_consistency}
 
-  Suppose that Assumptions~\ref{ass:kernel_app_data},
-  \ref{ass:kernel_app_bandwidth} and \ref{ass:counterfactual} hold.
+  Suppose that Assumptions~\ref{ass:kernel_data},
+  \ref{ass:kernel_bandwidth} and \ref{ass:counterfactual} hold.
   Then
   %
   \begin{align*}
@@ -2016,13 +1898,13 @@ approximation results for the counterfactual density estimator.
   $\hat f_W^{\,1 \triangleright 0}(w)$ satisfying
   %
   \begin{align*}
-    \sup_{w \in \cW}
+    &\sup_{w \in \cW}
     \left|
     \hat f_W^{\,1 \triangleright 0}(w)
     - \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
     - Z_n^{f, 1 \triangleright 0}(w)
-    \right|
-    &\lesssim_\P
+    \right| \\
+    &\quad\lesssim_\P
     n^{-1} \log n
     + n^{-5/4} h^{-7/8} (\log n)^{3/8} R_n
     + n^{-7/6} h^{-1/2} (\log n)^{2/3}.
@@ -2037,13 +1919,13 @@ approximation results for the counterfactual density estimator.
   the counterfactual covariance function is
   %
   \begin{align*}
-    \Sigma_n^{1 \triangleright 0}(w,w')
-    &=
+    &\Sigma_n^{1 \triangleright 0}(w,w') \\
+    &\quad=
     \Cov\left[
       \hat f_W^{\,1 \triangleright 0}(w),
       \hat f_W^{\,1 \triangleright 0}(w')
     \right] \\
-    &=
+    &\quad=
     \frac{4}{n}
     \E\left[
       \Big(
@@ -2070,7 +1952,7 @@ approximation results for the counterfactual density estimator.
       \right]
       \Big)
     \right] \\
-    &\quad+
+    &\qquad+
     \frac{2}{n^2}
     \E\left[
       k_{ij} k_{ij}'
@@ -2092,8 +1974,8 @@ approximation results for the counterfactual density estimator.
     of the standardized counterfactual $t$-statistic]
   \label{lem:counterfactual_infeasible_t_statistic}
 
-  Let Assumptions \ref{ass:kernel_app_data},
-  \ref{ass:kernel_app_bandwidth} and
+  Let Assumptions \ref{ass:kernel_data},
+  \ref{ass:kernel_bandwidth} and
   \ref{ass:counterfactual}
   hold and suppose that
   $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
@@ -2113,11 +1995,11 @@ approximation results for the counterfactual density estimator.
   Then with $R_n \to \infty$ as in Lemma~\ref{lem:counterfactual_sa},
   %
   \begin{align*}
-    \sup_{w \in \cW}
+    &\sup_{w \in \cW}
     \left|
     T_n^{1 \triangleright 0}(w) - Z_n^{T, 1 \triangleright 0}(w)
-    \right|
-    &\lesssim_\P
+    \right| \\
+    &\quad\lesssim_\P
     \frac{
       n^{-1/2} \log n
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
@@ -2131,8 +2013,8 @@ approximation results for the counterfactual density estimator.
 \begin{theorem}[Infeasible counterfactual uniform confidence bands]
   \label{thm:counterfactual_infeasible_ucb}
 
-  Let Assumptions \ref{ass:kernel_app_data}, \ref{ass:kernel_app_bandwidth},
-  \ref{ass:rates} and \ref{ass:counterfactual}
+  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth},
+  \ref{ass:app_rates} and \ref{ass:counterfactual}
   hold and suppose that $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
   and define $q^{1 \triangleright 0}_{1-\alpha}$ as the quantile
@@ -2187,8 +2069,8 @@ and define the leave-out conditional expectation estimators
   &=
   \hat\E\left[
     k_h(W_{ij}^1,w) \psi(X_j^1) \mid A_i^1
-  \right]
-  =
+  \right] \\
+  &=
   \frac{1}{n-1}
   \left(
     \sum_{j=1}^{i-1}
@@ -2201,8 +2083,9 @@ and define the leave-out conditional expectation estimators
   \hat\E\left[
     k_h(W_{r j}^1,w) \psi(X_r^1)
     \kappa(X_i^0, X_i^1, X_j^1) \mid X_i^0, X_i^1
-  \right]
-  = \frac{1}{n-1}
+  \right] \\
+  &=
+  \frac{1}{n-1}
   \sum_{j=1}^n
   \I\{j \neq i\}
   \hat\kappa(X_i^0, X_i^1, X_j^1)
@@ -2579,14 +2462,14 @@ of i.n.i.d.\ variables.
   \end{align*}
   then
   \begin{align*}
-    \P\left(
+    &\P\left(
       \sup_{x \in \cX_n}
       \big|
       G_n(x) - Z_n(x)
       \big|
       > t_n
-    \right)
-    &\leq
+    \right) \\
+    &\quad\leq
     \frac{
       C_2
       \sigma_n
@@ -2600,6 +2483,7 @@ of i.n.i.d.\ variables.
       + \frac{l_{n,\infty}}{\sqrt n}
       \log n}
   \end{align*}
+  %
   where $C_2 > 0$ is a constant depending only on $C_1$.
   Further, $Z_n$
   has the same covariance structure as $G_n$
@@ -2797,7 +2681,6 @@ We begin with some definitions.
 \end{remark}
 
 \section{Additional empirical results}%
-\label{sec:empirical}
 
 We present some additional empirical results
 using the International Monetary Fund's
@@ -2847,7 +2730,7 @@ $B = 10\,000$ times.
 We also estimate the counterfactual trade distributions
 in 2000 and 2005 respectively,
 replacing the GDP distribution with that from 1995.
-For each year, Figure~\ref{fig:trade}
+For each year, Figure~\ref{fig:app_trade}
 plots the real and counterfactual density estimates
 along with their respective uniform confidence bands (UCB)
 at the nominal coverage rate of $95\%$.
@@ -2873,7 +2756,7 @@ of our counterfactual analysis to the choice of preliminary
 estimation step, we also provide results using a parametric
 estimator of the distribution of GDP.
 Figure~\ref{fig:trade_para} repeats the procedure used for
-Figure~\ref{fig:trade}, but this time
+Figure~\ref{fig:app_trade}, but this time
 replacing the histogram estimators by parametric estimators of the log GDP
 based on normal likelihood maximization.
 The point estimates are qualitatively similar, with the counterfactual
@@ -2888,30 +2771,27 @@ leading to less estimated variance in the fitted values.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_plot_1995.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_plot_1995.pdf}
     \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
-    \label{subfig:trade_1995}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_plot_1995_2000.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_plot_1995_2000.pdf}
     \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
-    \label{subfig:trade_2000}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_plot_1995_2005.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_plot_1995_2005.pdf}
     \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
-    \label{subfig:trade_2005}
   \end{subfigure}
   %
   \caption{Real and counterfactual density estimates
     and confidence bands for the DOTS data with histogram-based
     covariate estimation.}
   %
-  \label{fig:trade}
+  \label{fig:app_trade}
   %
 \end{figure}
 
@@ -2920,23 +2800,20 @@ leading to less estimated variance in the fitted values.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_gdp_1995.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_gdp_1995.pdf}
     \caption{Year 1995}
-    \label{subfig:gdp_1995}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_gdp_2000.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_gdp_2000.pdf}
     \caption{Year 2000}
-    \label{subfig:gdp_2000}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_gdp_2005.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_gdp_2005.pdf}
     \caption{Year 2005}
-    \label{subfig:gdp_2005}
   \end{subfigure}
   %
   \caption{Estimated GDP distributions for the DOTS data.}
@@ -2950,23 +2827,20 @@ leading to less estimated variance in the fitted values.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_plot_parametric_1995.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_plot_parametric_1995.pdf}
     \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
-    \label{subfig:trade_para_1995}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_plot_parametric_1995_2000.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_plot_parametric_1995_2000.pdf}
     \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
-    \label{subfig:trade_para_2000}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    \includegraphics[scale=0.52]{graphics/trade_plot_parametric_1995_2005.pdf}
+    \includegraphics[scale=0.48]{graphics/trade_plot_parametric_1995_2005.pdf}
     \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
-    \label{subfig:trade_para_2005}
   \end{subfigure}
   %
   \caption{Real and counterfactual density estimates
@@ -3394,8 +3268,7 @@ they are needed.
   \label{lem:anti-concentration}
 
   Let $Z$ be a separable mean-zero Gaussian process
-  indexed by a semimetric space $\cX$
-  satisfying
+  indexed by a semimetric space $\cX$ with
   $\E[Z(x)^2] = 1$
   for all $x \in \cX$.
   Then for any $\varepsilon > 0$,
@@ -3873,7 +3746,9 @@ they are needed.
     &\leq
     C e^{-\left( \frac{s}{8C M n} \right)^{2/3}}.
   \end{align*}
+  %
   Hence the moment bound is obtained:
+  %
   \begin{align*}
     \E\left[
       \|U_n\|_2
@@ -3885,8 +3760,9 @@ they are needed.
       \geq
       s
     \right)
-    \diff{s}
-    = \int_0^{8C M n(\log d)^{3/2}}
+    \diff{s} \\
+    &=
+    \int_0^{8C M n(\log d)^{3/2}}
     \P\left(
       \|U_n\|_2
       \geq
@@ -4119,8 +3995,8 @@ on each of the points $-1$ and $1$.
         t_i
         \right|
       \right)
-    \right],
-    &\E
+    \right], \\
+    \E
     \left[
       \frac{1}{2}
       \sup_{t \in \cT}
@@ -4161,6 +4037,7 @@ on each of the points $-1$ and $1$.
       \right|
     \right].
   \end{align*}
+  %
   To see the corollary,
   set
   $\cT = \left\{\big(f(X_1), \ldots, f(X_n)\big) : f \in \cF\right\}$
@@ -4185,8 +4062,8 @@ on each of the points $-1$ and $1$.
       \varepsilon_i
       t_i^2
       \right|
-    \right]
-    \leq 4
+    \right] \\
+    &\leq 4
     \E_\varepsilon
     \left[
       M
@@ -4208,6 +4085,7 @@ on each of the points $-1$ and $1$.
       \right|
     \right].
   \end{align*}
+  %
   Taking an expectation over $X_1, \ldots, X_n$
   and applying Fubini's theorem yields the result.
 \end{proof}
@@ -4384,14 +4262,16 @@ on each of the points $-1$ and $1$.
       \right|
     \right],
   \end{align*}
+  %
   where $\varepsilon_1, \ldots, \varepsilon_n$
-  are independent Rademacher random variables
-  which are independent of $X_1, \ldots, X_n$.
+  are independent Rademacher random variables,
+  independent of $X_1, \ldots, X_n$.
   Then the standard entropy integral inequality
   from the proof of Theorem~5.2 in
   the supplemental materials for
   \citet{chernozhukov2014gaussian}
   gives for a universal constant $C_1 > 0$,
+  %
   \begin{align*}
     \frac{1}{\sqrt n}
     \E \left[
@@ -4408,11 +4288,13 @@ on each of the points $-1$ and $1$.
     C_1 \|F\|_{\P_n,2}
     J(\sigma_n / \|F\|_{\P_n,2}, \cF, F).
   \end{align*}
+  %
   Taking marginal expectations
   and applying Jensen's inequality along with
   a convexity result for the covering integral,
   as in Lemma~A.2 in \citet{chernozhukov2014gaussian},
   gives
+  %
   \begin{align*}
     Z
     &\vcentcolon=
@@ -4429,7 +4311,8 @@ on each of the points $-1$ and $1$.
     C_1 \|F\|_{\bar\P,2}
     J(\E[\sigma_n^2]^{1/2} / \|F\|_{\bar\P,2}, \cF, F).
   \end{align*}
-  Next we use the symmetrization inequality
+  %
+  Next use the symmetrization inequality
   (Lemma~\ref{lem:symmetrization}),
   the contraction principle
   (Lemma~\ref{lem:contraction}),
@@ -4437,6 +4320,7 @@ on each of the points $-1$ and $1$.
   and the Hoffmann--J{\o}rgensen inequality
   (Lemma~\ref{lem:hoffmann})
   to deduce that
+  %
   \begin{align*}
     \E[\sigma_n^2]
     &=
@@ -4628,11 +4512,12 @@ on each of the points $-1$ and $1$.
     \big(
     \delta
     + \delta \log (C_1/\delta)
-    \big)
-    \leq
+    \big) \\
+    &\leq
     3 \delta
     \sqrt{C_2 \log (C_1/\delta)}.
   \end{align*}
+  %
   The remaining equations now follow
   by Lemma~\ref{lem:maximal_entropy}.
 \end{proof}
@@ -5266,15 +5151,15 @@ Lemma~\ref{lem:bv_characterization}.
     \leq
     \sqrt{
       \frac{3\sigma_n^4 \Leb(\cX_n)^2}{n^2\delta_n^2}}
-    \sqrt{
-      \frac{12 C_1 \sigma_n^2 \log n}{n}
-    }
-    \leq
+    \sqrt{ \frac{12 C_1 \sigma_n^2 \log n}{n} } \\
+    &\leq
     \frac{6\sigma_n^3
       \Leb(\cX_n)
       \sqrt{C_1 \log n}}{n^{3/2} \delta_n}.
   \end{align*}
+  %
   Now summing over the $n$ samples gives
+  %
   \begin{align*}
     \beta
     \leq
@@ -5285,6 +5170,7 @@ Lemma~\ref{lem:bv_characterization}.
     \frac{\sigma_n^2 \Leb(\cX_n)}{\sqrt n \delta_n}
     \Big(M_n + 6\sigma_n \sqrt{C_1 \log n}\Big).
   \end{align*}
+  %
   By a union bound
   and Gaussian tail probabilities,
   we have that
@@ -5439,16 +5325,18 @@ Lemma~\ref{lem:bv_characterization}.
     N\big(\cG_n^\delta, \rho_\Q, \varepsilon l_{n,\infty} \Leb(\cX_n)\big)
     &\leq
     N\big(\cG_n^\delta, \|\cdot\|_\infty,
-    \varepsilon l_{n,\infty} \Leb(\cX_n)\big)
-    \leq
+    \varepsilon l_{n,\infty} \Leb(\cX_n)\big) \\
+    &\leq
     N\big(\cG_n, \|\cdot\|_\infty,
     \varepsilon l_{n,\infty} \Leb(\cX_n)\big)^2
     \leq
     1/\varepsilon^2.
   \end{align*}
+  %
   Replacing $\varepsilon$ by
   $\varepsilon \delta_n/\Leb(\cX_n)$
   gives
+  %
   \begin{align*}
     \sup_\Q
     N\big(\cG_n^\delta, \rho_\Q, \varepsilon l_{n,\infty} \delta_n \big)
@@ -5457,6 +5345,7 @@ Lemma~\ref{lem:bv_characterization}.
     \leq
     (C_{1,n}/\varepsilon)^{2}
   \end{align*}
+  %
   with $C_{1,n} = \Leb(\cX_n) / \delta_n$,
   demonstrating that $\cG_n^\delta$
   forms a VC-type class.
@@ -5633,11 +5522,12 @@ Lemma~\ref{lem:bv_characterization}.
     \right)
     \lesssim
     l_{n,2} \delta_n
-    \sqrt{\log \left( \frac{\Leb(\cX_n)}{\delta_n} \right)}
-    \lesssim
+    \sqrt{\log \left( \frac{\Leb(\cX_n)}{\delta_n} \right)} \\
+    &\quad\lesssim
     l_{n,2} \delta_n
     \sqrt{C_1 \log n},
   \end{align*}
+  %
   where we used that $\delta_n \leq \Leb(\cX_n)$.
   So by Markov's inequality,
   \begin{align*}
@@ -5837,7 +5727,7 @@ We begin with a basic fact about Lipschitz functions.
 
   Applying Lemma~\ref{lem:lipschitz_kernels_bounded}
   to the density and kernel functions defined in
-  Assumptions~\ref{ass:kernel_app_data} and~\ref{ass:kernel_app_bandwidth}
+  Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
   yields the following.
   Firstly, since $k_h(\cdot, w)$ is $\CL/h^2$-Lipschitz
   on $[w \pm h] \cap \cW$ and integrates to one,
@@ -5858,10 +5748,10 @@ We begin with a basic fact about Lipschitz functions.
   gives
   \begin{align*}
     f_{W \mid AA}(w \mid a,a')
-    &\leq 2 \sqrt{\CH} + \frac{1}{\Leb(\cW)},
-    &f_{W \mid A}(w \mid a)
-    &\leq 2 \sqrt{\CH} + \frac{1}{\Leb(\cW)},
-    &f_W(w)
+    &\leq 2 \sqrt{\CH} + \frac{1}{\Leb(\cW)}, \\
+    f_{W \mid A}(w \mid a)
+    &\leq 2 \sqrt{\CH} + \frac{1}{\Leb(\cW)}, \\
+    f_W(w)
     &\leq 2 \sqrt{\CH} + \frac{1}{\Leb(\cW)}.
   \end{align*}
 
@@ -6160,17 +6050,19 @@ We begin with a basic fact about Lipschitz functions.
     u_{ij}
     &=
     \frac{1}{n(n-1)}
-    \E\big[k_h(W_{ij},w) \mid A_i, A_j\big],
-    &u_i
+    \E\big[k_h(W_{ij},w) \mid A_i, A_j\big], \\
+    u_i
     &=
     \frac{1}{n(n-1)}
-    \E\big[k_h(W_{ij},w) \mid A_i\big],
-    &u
+    \E\big[k_h(W_{ij},w) \mid A_i\big], \\
+    u
     &=
     \frac{1}{n(n-1)}
     \E\big[k_h(W_{ij},w)\big],
   \end{align*}
+  %
   to see
+  %
   \begin{align*}
     \hat f_W(w)
     - E_n(w)
@@ -6340,13 +6232,14 @@ We begin with a basic fact about Lipschitz functions.
   Now since $f_{W|A}(\cdot \mid a)$ is $\CH$-Lipschitz
   for all $a \in \cA$
   and since $|k_h| \leq \Ck/h$,
+  %
   \begin{align*}
-    \sup_{w \in \cW}
+    &\sup_{w \in \cW}
     \left|
     \E[k_h(W_{ij},w) \mid A_i]
     - f_{W \mid A}(w \mid A_i)
-    \right|
-    &=
+    \right| \\
+    &\quad=
     \sup_{w \in \cW}
     \left|
     \int_{\cW}
@@ -6355,7 +6248,7 @@ We begin with a basic fact about Lipschitz functions.
     \diff{s}
     - f_{W \mid A}(w \mid A_i)
     \right| \\
-    &=
+    &\quad=
     \sup_{w \in \cW}
     \left|
     \int_{\cW \cap [w \pm h]}
@@ -6366,13 +6259,14 @@ We begin with a basic fact about Lipschitz functions.
     \right)
     \diff{s}
     \right| \\
-    &\leq
+    &\quad\leq
     2h
     \frac{\Ck}{h}
     \CH h
     \leq
     2 \Ck \CH h
   \end{align*}
+  %
   almost surely.
   Therefore since $f_{W \mid A}(w \mid a) \leq \Cd$,
   we have
@@ -7048,7 +6942,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Also
   $\sup_{w \in \cW} \|f_{W \mid A}(w \mid \cdot\,)\|_\TV \leq 1$.
   Therefore
-  $\P_\theta$ satisfies Assumption~\ref{ass:kernel_app_data}
+  $\P_\theta$ satisfies Assumption~\ref{ass:kernel_data}
   and so
   $\big\{\P_\theta : \theta \in [1/2, 1] \big\} \subseteq \cP$.
 
@@ -7082,17 +6976,17 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{1}{2 \CH}\left(
       f_W(1) - \frac{1}{2} + \CH
     \right)
-    \right|
-    \leq
+    \right| \\
+    &\leq
     \frac{1}{2 \CH}
     \sup_{w \in \cW}
     \left|
     \tilde f_W(w)  - f_W(w)
     \right|.
   \end{align*}
+  %
   Therefore since also $\tilde \theta \geq 0$
-  and
-  $\theta \geq \frac{1}{2}$,
+  and $\theta \geq \frac{1}{2}$,
   \begin{align*}
     \big|
     \tilde \theta_n - \theta
@@ -7592,7 +7486,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
 \subsubsection{Strong approximation}
 
-\begin{proof}[Lemma~\ref{lem:strong_approx_Ln}]
+\begin{proof}[Lemma~\ref{lem:app_strong_approx_Ln}]
 
   To obtain the strong approximation,
   we apply the KMT corollary from
@@ -7818,7 +7712,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   where we retain the single prime notation for clarity.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:conditional_strong_approx_En}]
+\begin{proof}[Lemma~\ref{lem:app_conditional_strong_approx_En}]
 
   We apply Lemma~\ref{lem:yurinskii_corollary} conditional on
   $\bA_n$. While this lemma is not in its current form
@@ -8068,7 +7962,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   bounds in probability on the coupling error.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:unconditional_strong_approx_En}]
+\begin{proof}[Lemma~\ref{lem:app_unconditional_strong_approx_En}]
 
   \proofparagraph{defining $Z_n^{E\dprime}$}
 
@@ -8467,8 +8361,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \E\left[
       \big|\tilde Z_n^{E\dprime}(w) - \tilde Z_n^{E\dprime}(w')\big|^2
       \mid \bA_n'
-    \right]^{1/2}
-    =
+    \right]^{1/2} \\
+    &=
     \sqrt{n^2 h} \,
     \E\left[
       \big|E_n(w) - E_n(w')\big|^2
@@ -8480,7 +8374,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   uniformly in $\bA_n'$,
   where the last line was shown in
-  the proof of Lemma~\ref{lem:conditional_strong_approx_En}.
+  the proof of Lemma~\ref{lem:app_conditional_strong_approx_En}.
   Note that also
   \begin{align*}
     \rho(w, w')
@@ -8527,25 +8421,21 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   We use the previous parts
   to deduce that
   \begin{align*}
-    \E\left[
+    &\E\left[
       \sup_{w \in \cW}
       \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
-    \right]
-    &\lesssim
+    \right] \\
+    &\quad\lesssim
     \E\left[
       \max_{w \in \cW_\delta}
       \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
-    \right]
-    + \E\left[
-      \sup_{|w-w'| \leq \delta_n}
+      + \sup_{|w-w'| \leq \delta_n}
+      \left\{ 
       \big|\tilde Z_n^{E\dprime}(w) - \tilde Z_n^{E\dprime}(w')\big|
+      + \big|Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w')\big|
+      \right\}
     \right] \\
-    &\qquad+
-    \E\left[
-      \sup_{|w-w'| \leq \delta_n}
-      \big|Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w')\big|
-    \right] \\
-    &\lesssim
+    &\quad\lesssim
     \sqrt{\frac{h}{\delta_n} + 1}
     \frac{(\log n)^{3/4}}{n^{1/4}}
     + \frac{\delta_n \sqrt{\log n}}{h}.
@@ -8572,7 +8462,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $\big(\tilde Z_n^{E\dprime}, Z_n^{E\dprime}\big)$.
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:strong_approx_fW}]
+\begin{proof}[Theorem~\ref{thm:app_strong_approx_fW}]
 
   We add together the strong approximations
   for the $L_n$ and $E_n$ terms,
@@ -8582,15 +8472,14 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \proofparagraph{gluing together the strong approximations}
 
   Let $\big(\bA_n', \bV_n', L_n', Z_n^{L\prime}\big)$
-  be the strong approximation for $L_n$
-  from Lemma~\ref{lem:strong_approx_Ln}.
-  Likewise let
-  $\big(\bA_n'', \bV_n'', E_n'', \tilde Z_n^{E\dprime}\big)$
+  be the approximation for $L_n$
+  from Lemma~\ref{lem:app_strong_approx_Ln}.
+  Let $\big(\bA_n'', \bV_n'', E_n'', \tilde Z_n^{E\dprime}\big)$
   and
   $\big(\bA_n''', \bV_n''', \tilde Z_n^{E\tprime}, Z_n^{E\tprime}\big)$
   be the conditional and unconditional strong approximations for $E_n$
-  given in Lemmas~\ref{lem:conditional_strong_approx_En}
-  and \ref{lem:unconditional_strong_approx_En}
+  given in Lemmas~\ref{lem:app_conditional_strong_approx_En}
+  and \ref{lem:app_unconditional_strong_approx_En}
   respectively.
   The first step is to define copies of all of these variables
   and processes on the same probability space.
@@ -8757,7 +8646,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     {\sqrt{\Sigma_n(w,w)}}.
   \end{align*}
   %
-  By Theorem~\ref{thm:strong_approx_fW}
+  By Theorem~\ref{thm:app_strong_approx_fW}
   and Lemma~\ref{lem:bias},
   the numerator can be bounded above by
   %
@@ -8767,8 +8656,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \hat f_W(w) - f_W(w)
     -
     Z_n^f(w)
-    \right|
-    \leq
+    \right| \\
+    &\quad\leq
     \sup_{w \in \cW}
     \left|
     \hat f_W(w)
@@ -8802,9 +8691,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   and the result follows.
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:infeasible_ucb}]
+\begin{proof}[Theorem~\ref{thm:app_infeasible_ucb}]
 
   Note that the covariance structure of $Z_n^T$ is given by
+  %
   \begin{align*}
     \Cov\big[
       Z_n^T(w),
@@ -8814,8 +8704,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{\Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}}.
   \end{align*}
+  %
   We apply an anti-concentration result
-  to establish that all quantiles of the random variable
+  to establish that all quantiles of
   $\sup_{w \in \cW} \big|Z_n^T(w)\big|$ exist.
   To do this, we must first establish regularity
   properties of $Z_n^T$.
@@ -8844,7 +8735,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       k_{ij},
       k_{ir}'
       \big]
-    -
+      \right. \\
+    &\left.
+    \qquad-
     \frac{2}{n(n-1)}
     \Cov\big[
       k_{ij},
@@ -8888,10 +8781,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \lesssim
     n^{-1}h^{-3} |w'-w''|
   \end{align*}
+  %
   uniformly in $w, w', w'' \in \cW$.
   Therefore by Lemma~\ref{lem:app_variance_bounds},
   with $\delta_n \leq n^{-2} h^2$,
   we have
+  %
   \begin{align*}
     \inf_{|w-w'| \leq \delta_n}
     \Sigma_n(w,w')
@@ -9128,7 +9023,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   \proofparagraph{validity of the infeasible uniform confidence band}
 
-  Under Assumption~\ref{ass:rates} and with a
+  Under Assumption~\ref{ass:app_rates} and with a
   sufficiently slowly diverging sequence $R_n$,
   the strong approximation rate established in
   Lemma~\ref{lem:infeasible_t_statistic} is
@@ -9683,13 +9578,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{4(n-2)}{n(n-1)}
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    S_{ijr}
-    -
+    S_{ijr} \\
+    &\quad-
     \frac{4n-6}{n(n-1)}
     \hat f_W(w)
     \hat f_W(w'),
   \end{align*}
+  %
   where
+  %
   \begin{align*}
     S_{ijr}
     &=
@@ -9709,6 +9606,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     k_{ir}'
     \Big).
   \end{align*}
+  %
   We will prove uniform consistency of each of the three terms separately.
 
   \proofparagraph{uniform consistency of the
@@ -9815,7 +9713,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   By Lipschitz properties
   of $L_n$ and $\Sigma_n$
   derived in the proofs of Lemma~\ref{lem:uniform_concentration}
-  and Theorem~\ref{thm:infeasible_ucb}
+  and Theorem~\ref{thm:app_infeasible_ucb}
   respectively,
   we have
   \begin{align*}
@@ -10210,7 +10108,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\big(\Sigma_n(w,w) + \Sigma_n(w',w')\big)^{-1/2} \lesssim \sqrt{n^2h}$
   gives (adjusting constants if necessary)
   \begin{align*}
-    \P\left(
+    &\P\left(
       \Bigg|
       \frac{6}{n(n-1)(n-2)}
       \sum_{i<j<r}
@@ -10219,8 +10117,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Bigg|
       > t \frac{\log n}{\sqrt{nh}}
       + t \sqrt{\log n}
-    \right)
-    &\leq
+    \right) \\
+    &\quad\leq
     C_2 n^{-t^{2/3} / C_2}
     + 4 n^{-t^2 / (4C_3)}.
   \end{align*}
@@ -10314,8 +10212,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
       - \frac{t^2 \log n}
       {C_4
         + C_4 t (\Sigma_n(w,w) + \Sigma_n(w',w'))^{-1/2} \sqrt{\log n} / n}
-    \right)
-    \leq
+    \right) \\
+    &\quad\leq
     4 \exp \left(
       - \frac{t^2 \log n}
       {C_4
@@ -10324,6 +10222,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \leq
     4 n^{-t^2 / C_4}
   \end{align*}
+  %
   for some universal constant $C_4 > 0$
   (which may change from line to line),
   since the order of this U-statistic is fixed at three.
@@ -10423,7 +10322,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim
     \delta_n h^{-3}.
   \end{align*}
-  Also as noted in the proof of Theorem~\ref{thm:infeasible_ucb},
+  Also as noted in the proof of Theorem~\ref{thm:app_infeasible_ucb},
   \begin{align*}
     \sup_{|w_1-w_2| \leq \delta_n}
     \sup_{|w_1'-w_2'| \leq \delta_n}
@@ -10467,6 +10366,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\delta_n = n^{-6} \sqrt{\log n}$,
   the fluctuations can be at most $\sqrt{\log n}$,
   so we have for $t \geq 1$
+  %
   \begin{align*}
     &\P\Bigg(
     \sup_{w, w' \in \cW}
@@ -10477,14 +10377,16 @@ Theorem~3.3 in \citet{gine2000exponential}.
       {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \Bigg|
     > 2t \sqrt{\log n}
-    \Bigg)
-    \lesssim
+    \Bigg) \\
+    &\quad\lesssim
     \delta_n^{-2}
     n^{-t^{2/3} / C_5}
     \lesssim
     n^{12-t^{2/3} / C_5}.
   \end{align*}
+  %
   This converges to zero for any sufficiently large $t$, so
+  %
   \begin{align*}
     \sup_{w, w' \in \cW}
     \Bigg|
@@ -10767,13 +10669,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
   derived in the previous parts,
   and with $nh \gtrsim \log n$,
   we conclude that
+  %
   \begin{align*}
-    \sup_{w,w' \in \cW}
+    &\sup_{w,w' \in \cW}
     \left|
     \frac{\hat \Sigma_n(w,w') - \Sigma_n(w,w')}
-    {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
-    \right|
-    &\leq
+    {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}} 
+    \right| \\
+    &\quad\leq
     \frac{2}{n(n-1)}
     \sup_{w,w' \in \cW}
     \left|
@@ -10782,7 +10685,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{k_{ij} k_{ij}' - \E\big[k_{ij} k_{ij}']}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
-    &\quad+
+    &\qquad+
     \frac{4(n-2)}{n(n-1)}
     \sup_{w,w' \in \cW}
     \left|
@@ -10791,14 +10694,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{S_{ijr} - \E\big[k_{ij} k_{ir}']}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
-    &\quad+
+    &\qquad+
     \frac{4n-6}{n(n-1)}
     \sup_{w,w' \in \cW}
     \left|
     \frac{\hat f_W(w) \hat f_W(w') - \E[k_{ij}] \E[k_{ij}']}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
-    &\lesssim_\P
+    &\quad\lesssim_\P
     \sqrt{\frac{\log n}{n^3h}}
     + \frac{\sqrt{\log n}}{n}
     + \frac{\sqrt{\log n}}{n}
@@ -10905,7 +10808,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   The Lipschitz constraint is satisfied because
   as established in
   the proof of
-  Theorem~\ref{thm:infeasible_ucb},
+  Theorem~\ref{thm:app_infeasible_ucb},
   \begin{align*}
     \big|
     \Sigma_n(w,w')
@@ -11000,6 +10903,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Now Lemma~\ref{lem:app_SDP}
   implies that for all $\varepsilon \in (0,1)$
   there exists a $C_\varepsilon$ such that
+  %
   \begin{align*}
     &\P\left(
       \Sigma_n(w,w) - C_\varepsilon \frac{\sqrt{\log n}}{n} \sqrt{\Sigma_n(w,w)}
@@ -11007,10 +10911,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \hat \Sigma_n^+(w,w)
       \leq
       \Sigma_n(w,w) + C_\varepsilon \frac{\sqrt{\log n}}{n} \sqrt{\Sigma_n(w,w)}
-      \text{ for all } w \in \cW
+      \quad \forall w \in \cW
     \right) \\
     &\quad\geq 1-\varepsilon.
   \end{align*}
+  %
   Consider the function
   $g_a(t) = t - a \sqrt{t}$
   and note that it is increasing on $\{t \geq a^2/4\}$.
@@ -11084,14 +10989,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\sqrt{\Sigma_n(w,w)}}
     + \frac{\E\big[\hat f_W(w)\big] - f_W(w)}
     {\sqrt{\Sigma_n(w,w)}}
-    \right|
-    \cdot
+    \right| \\
+    &\quad\times
     \sup_{w \in \cW}
     \left|
     \frac{\hat\Sigma_n^+(w,w) - \Sigma_n(w,w)}
     {\sqrt{\Sigma_n(w,w) \hat\Sigma_n^+(w,w)}}
-    \right|
+    \right|.
   \end{align*}
+  %
   Now from the proof of Lemma~\ref{lem:covariance_estimation} we have that
   $\sup_{w \in \cW} \left|
   \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
@@ -11100,7 +11006,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   while Lemma~\ref{lem:bias} gives
   $\sup_{w \in \cW} \big| \E\big[\hat f_W(w)\big] - f_W(w) \big|
   \lesssim h^{p \wedge \beta}$.
-  By Lemma~\ref{lem:app_variance_bounds} we have
+  By Lemma~\ref{lem:app_variance_bounds},
   $\sup_{w \in \cW} \Sigma_n(w,w)^{-1/2}
   \lesssim \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$,
   and similarly Lemma~\ref{lem:variance_estimator_bounds} gives
@@ -11162,6 +11068,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $|\Sigma_n(w,w')| \leq
   \sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}$.
   Hence
+  %
   \begin{align*}
     \Delta
     &\leq
@@ -11169,8 +11076,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
-    \right|
-    + \sup_{w, w' \in \cW}
+    \right| \\
+    &\quad+
+    \sup_{w, w' \in \cW}
     \left|
     \frac{\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}
       - \sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}}
@@ -11195,7 +11103,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
         \Sigma_n(w,w) \Sigma_n(w',w')}}
     \right|.
   \end{align*}
-  For the first term note that
+  %
+  For the first term,
   $\inf_{w \in \cW} \hat \Sigma_n^+(w,w)
   \gtrsim \frac{\Dl^2}{n} + \frac{1}{n^2h}$
   by Lemma~\ref{lem:variance_estimator_bounds} and
@@ -11204,6 +11113,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \lesssim_\P \sqrt{h \log n}$
   by the proof of Lemma~\ref{lem:app_SDP}.
   Thus by Lemma~\ref{lem:app_SDP},
+  %
   \begin{align*}
     \sup_{w, w' \in \cW}
     \left\{
@@ -11221,7 +11131,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sqrt{\frac{\log n}{n}}
     \frac{1}{\Dl + 1/\sqrt{nh}}.
   \end{align*}
+  %
   For the second term, we have by the same bounds
+  %
   \begin{align*}
     &\sup_{w, w' \in \cW}
     \left|
@@ -11237,7 +11149,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \hat \Sigma_n^+(w',w')}
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
         \Sigma_n(w,w) \Sigma_n(w',w')}}
-    + \frac{\big| \hat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|
+      \right\} \\
+    &\qquad+
+      \sup_{w, w' \in \cW}
+      \left\{
+    \frac{\big| \hat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|
       \Sigma_n(w,w)}
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
         \Sigma_n(w,w) \Sigma_n(w',w')}}
@@ -11262,7 +11178,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sqrt{\frac{\log n}{n}}
     \frac{1}{\Dl + 1/\sqrt{nh}}.
   \end{align*}
+  %
   Therefore
+  %
   \begin{align*}
     \Delta \lesssim_\P
     \sqrt{\frac{\log n}{n}}
@@ -11330,7 +11248,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{trajectory regularity of $Z_n^T$}
 
   During the proof of
-  Theorem~\ref{thm:infeasible_ucb}
+  Theorem~\ref{thm:app_infeasible_ucb}
   we established that
   $Z_n^T$ satisfies the following
   trajectory regularity property:
@@ -11394,7 +11312,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}.
   \end{align*}
   Applying the same elementary result as for $Z_n^T$
-  in the proof of Theorem~\ref{thm:infeasible_ucb} yields
+  in the proof of Theorem~\ref{thm:app_infeasible_ucb} yields
   \begin{align*}
     \E\left[
       \big(
@@ -11423,7 +11341,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{conditional trajectory regularity of $\hat Z_n^T$}
 
   Just as for $Z_n^T$
-  in the proof of Theorem~\ref{thm:infeasible_ucb}
+  in the proof of Theorem~\ref{thm:app_infeasible_ucb}
   we apply Lemma~\ref{lem:gaussian_process_maximal},
   this time conditionally,
   to obtain that also
@@ -11669,7 +11587,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   we apply the anti-concentration
   result for $Z_n^T$
   from the proof of
-  Theorem~\ref{thm:infeasible_ucb}:
+  Theorem~\ref{thm:app_infeasible_ucb}:
   \begin{align*}
     \sup_{t \in \R}
     \P\left(
@@ -11800,8 +11718,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \sup_{w \in \cW}
       \left| \hat T_n(w) - Z_n^T(w) \right|
       \geq \varepsilon_n
-    \right)
-    + \P\left(
+    \right) \\
+    &\qquad+
+    \P\left(
       \left|
       \sup_{w \in \cW}
       \big|
@@ -11828,6 +11747,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + \varepsilon_n \sqrt{\log n}
     + O_\P(r_n),
   \end{align*}
+  %
   where in the last line we used the anti-concentration result
   from Lemma~\ref{lem:anti-concentration}
   applied to $Z_n^T$,
@@ -11885,8 +11805,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \sup_{w \in \cW}
       \left| \hat T_n(w) - Z_n^T(w) \right|
       \geq \varepsilon_n
-    \right)
-    - \P\left(
+    \right) \\
+    &\qquad-
+    \P\left(
       \left|
       \sup_{w \in \cW}
       \big|
@@ -11920,15 +11841,16 @@ Theorem~3.3 in \citet{gine2000exponential}.
   note that by
   Lemma~\ref{lem:infeasible_t_statistic}
   and Lemma~\ref{lem:studentized_t_statistic},
+  %
   \begin{align*}
-    \sup_{w \in \cW}
-    \left| \hat T_n(w) - Z_n^T(w) \right|
-    &\leq
+    &\sup_{w \in \cW}
+    \left| \hat T_n(w) - Z_n^T(w) \right| \\
+    &\quad\leq
     \sup_{w \in \cW}
     \left| \hat T_n(w) - T_n(w) \right|
     + \sup_{w \in \cW}
     \left| T_n(w) - Z_n^T(w) \right| \\
-    &\lesssim_\P
+    &\quad\lesssim_\P
     \sqrt{\frac{\log n}{n}}
     \left(
       \sqrt{\log n} + \frac{\sqrt n h^{p \wedge \beta}}
@@ -12016,7 +11938,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   Now we analyze these based on the degeneracy type
   and verify that they hold under
-  Assumption~\ref{ass:rates}.
+  Assumption~\ref{ass:app_rates}.
   \begin{enumerate}[label=(\roman*)]
 
     \item No degeneracy:
@@ -12461,7 +12383,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Thus
   $l_i^{1 \triangleright 0}(w)$ is a bounded-variation function
   of $\tilde A_i$, uniformly in $w$, and so as in
-  Lemma~\ref{lem:strong_approx_Ln} we have that
+  Lemma~\ref{lem:app_strong_approx_Ln} we have that
   on an appropriately enlarged probability space,
   %
   \begin{align*}
@@ -12481,9 +12403,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sqrt n L_n^{1 \triangleright 0}$.
   For $E_n^{1 \triangleright 0}(w)$,
   we first construct a strong approximation conditional on
-  $\bA_n$ and $\bX_n$ as in Lemma~\ref{lem:conditional_strong_approx_En}
+  $\bA_n$ and $\bX_n$ as in Lemma~\ref{lem:app_conditional_strong_approx_En}
   and deduce an unconditional strong approximation as in
-  Lemma~\ref{lem:unconditional_strong_approx_En} to see
+  Lemma~\ref{lem:app_unconditional_strong_approx_En} to see
   %
   \begin{align*}
     \sup_{w \in \cW}
@@ -12499,7 +12421,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   where $Z_n^{E, 1 \triangleright 0}$ is a mean-zero
   Gaussian process with the same covariance structure as
   $\sqrt{n^2h} E_n^{1 \triangleright 0}$.
-  Arguing as in the proof of Theorem~\ref{thm:strong_approx_fW}
+  Arguing as in the proof of Theorem~\ref{thm:app_strong_approx_fW}
   shows that the Gaussian processes are independent
   and can be summed to yield a single strong approximation.
   %
@@ -12510,13 +12432,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Arguing by mean-zero properties and conditional independence,
   %
   \begin{align*}
-    \Sigma_n^{1 \triangleright 0}(w,w')
-    &=
+    &\Sigma_n^{1 \triangleright 0}(w,w') \\
+    &\quad=
     \Cov\left[
       \hat f_W^{\,1 \triangleright 0}(w),
       \hat f_W^{\,1 \triangleright 0}(w')
     \right] \\
-    &=
+    &\quad=
     \frac{1}{n^2(n-1)^2(n-2)^2}
     \sum_{i \neq j}
     \sum_{r \notin \{i,j\}}
@@ -12538,7 +12460,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Big)
       \Big]
     + O\left( \frac{1}{n^{3/2}} + \frac{1}{\sqrt{n^4h}} \right) \\
-    &=
+    &\quad=
     \frac{2}{n^2}
     \E\left[
       k_{ij} \psi_i \psi_j
@@ -12556,7 +12478,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \E\left[
       k_{ij}' \psi_i \psi_j
     \right] \\
-    &\quad+
+    &\qquad+
     \frac{4}{n}
     \E\left[
       k_{ij}\psi_i \kappa_{i' j}
@@ -12573,9 +12495,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \psi_i \psi_{i'}
       \kappa_{r j} \kappa_{r j'}
     \right] \\
-    &\quad+
+    &\qquad+
     O\left( \frac{1}{n^{3/2}} + \frac{1}{\sqrt{n^4h}} \right) \\
-    &=
+    &\quad=
     \frac{4}{n}
     \E\left[
       \Big(
@@ -12601,7 +12523,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \right]
       \Big)
     \right] \\
-    &\quad+
+    &\qquad+
     \frac{2}{n^2}
     \E\left[
       k_{ij} k_{ij}'
@@ -12628,5 +12550,5 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{proof}[Theorem~\ref{thm:counterfactual_infeasible_ucb}]
   This proof proceeds in the same manner as the proof of
-  Theorem~\ref{thm:infeasible_ucb}.
+  Theorem~\ref{thm:app_infeasible_ucb}.
 \end{proof}

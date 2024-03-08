@@ -1542,7 +1542,8 @@ for details on our approach to this proof.
     &\,=
     \sum_{k=0}^{\flbeta}
     (-1)^k \,
-    \E \left[
+    \E
+    \left[
       \frac{
       \sum_{|\nu'|=1}^{\flbeta}
       \sum_{|\nu''|=0}^{\flbeta}
@@ -1556,8 +1557,9 @@ for details on our approach to this proof.
         \frac{\partial^\nu f(x)}{\nu !}
         T_b(x)^\nu
       \right)^u
-    \right]
-    + O \left(
+    \right] \\
+    &\qquad+
+    O \left(
       \frac{1}{\lambda^\beta}
     \right) \\
     &\,=
@@ -1567,16 +1569,15 @@ for details on our approach to this proof.
     \frac{\partial^{\nu'} \mu(x)}{\nu' !}
     \frac{\partial^{\nu''} f(x)}{\nu'' !}
     \left( \frac{\partial^\nu f(x)}{\nu !} \right)^u
-    \hspace*{-1mm}
-    \binom{|u|}{u}
+    \binom{|u|}{u} \\
+    &\qquad\times
     \frac{(-1)^{|u|}}{f(x)^{|u|+1}}
-    \E \hspace*{-1mm} \left[
+    \E \left[
       \frac{ T_b(x)^{\nu' + \nu''} (T_b(x)^\nu)^u}{|T_b(x)|^{|u|+1}}
     \right]
-    \hspace*{-1mm}
     + O \left(
       \frac{1}{\lambda^\beta}
-    \right) \hspace*{-1mm} .
+    \right) .
   \end{align*}
   %
   Now we show this is a polynomial in $\lambda$.
@@ -1663,10 +1664,11 @@ for details on our approach to this proof.
   Thus the limiting bias is
   %
   \begin{align}
-    \label{eq:bias}
+    \nonumber
     &\E \left[ \hat \mu(x) \right]
-    - \mu(x)
-    =
+    - \mu(x) \\
+    \nonumber
+    &\quad=
     \sum_{|\nu'|=1}^{\flbeta}
     \sum_{|\nu''|=0}^{\flbeta}
     \sum_{|u|=0}^{\flbeta}
@@ -1677,7 +1679,7 @@ for details on our approach to this proof.
     \frac{(-1)^{|u|}}{f(x)^{|u|+1}}
     \, \lambda^{- |\nu'| - |\nu''| - |\nu| \cdot u} \\
     \nonumber
-    &\ \times
+    &\qquad\times
     \prod_{j=1}^d
     \E \left[
       \frac{E_{2j}^{\nu'_j + \nu''_j + 1}
@@ -1686,8 +1688,10 @@ for details on our approach to this proof.
       \frac{\left(E_{2j}^{\nu_j + 1}
           + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^u}
       {(\nu_j + 1)^u (E_{2j} + E_{1j})^{|u|}}
-    \right]
-    + O \left( \frac{\log n}{\lambda} \frac{\lambda^d}{n} \right)
+    \right] \\
+    \label{eq:bias}
+    &\qquad+
+    O \left( \frac{\log n}{\lambda} \frac{\lambda^d}{n} \right)
     + O \left( \frac{1}{\lambda^\beta} \right),
   \end{align}
   %
@@ -1721,11 +1725,12 @@ for details on our approach to this proof.
   and
   %
   \begin{align}
-    \label{eq:bias_odd_2}
-    \frac{\left(E_{2j}^{\nu_j + 1}
+    \nonumber
+    &\frac{\left(E_{2j}^{\nu_j + 1}
         + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^u}
-    {(E_{2j} + E_{1j})^{|u|}}
-    =
+    {(E_{2j} + E_{1j})^{|u|}} \\
+    \label{eq:bias_odd_2}
+    &\quad=
     \prod_{\substack{|\nu| = 1 \\
         \nu_j u_\nu \text{ even}}}^\beta
     \frac{\left(E_{2j}^{\nu_j + 1}
@@ -2350,8 +2355,8 @@ results for the debiased Mondrian random forest estimator.
         {N_{b r}(x) N_{b' r'}(x)}
         \Bigm| \bX, \bY
       \right]
-    \right]
-    =
+    \right] \\
+    &\quad=
     \frac{n^2}{\lambda^{2d}}
     \frac{1}{B^4}
     \sum_{i=1}^n
@@ -2359,30 +2364,27 @@ results for the debiased Mondrian random forest estimator.
     \sum_{b=1}^B
     \sum_{b' \neq b}
     \sum_{\tilde b=1}^B
-    \sum_{\tilde b' \neq \tilde b} \\
-    &\ \E
-    \hspace*{-0.8mm}
-    \left[
+    \sum_{\tilde b' \neq \tilde b}
+    \E \left[
       \varepsilon_i^2
       \varepsilon_j^2
-      \hspace*{-0.5mm}
       \left(
         \frac{\I_{i b r}(x) \I_{i b' r'}(x) }
         {N_{b r}(x) N_{b' r'}(x)}
         - \E
-        \hspace*{-0.8mm}
         \left[
           \frac{\I_{i b r}(x) \I_{i b' r'}(x) }
           {N_{b r}(x) N_{b' r'}(x)}
           \Bigm| \bX
         \right]
       \right)
-      \hspace*{-1mm}
+      \right. \\
+    &\qquad\left.
+    \times
       \left(
         \frac{\I_{j \tilde b r}(x) \I_{j \tilde b' r'}(x) }
         {N_{\tilde b r}(x) N_{ \tilde b' r'}(x)}
         - \E
-        \hspace*{-0.8mm}
         \left[
           \frac{\I_{j \tilde b r}(x) \I_{j \tilde b' r'}(x) }
           {N_{\tilde b r}(x) N_{\tilde b' r'}(x)}
@@ -2458,8 +2460,7 @@ results for the debiased Mondrian random forest estimator.
   $N_{-j b r \cap b' r'} = \sum_{i \neq j} \I_{i b r}(x) \I_{i b' r'}(x)$.
   Since $\E[ \varepsilon_i^4 \mid X_i]$ is bounded,
   %
-  \begin{align}
-    \nonumber
+  \begin{align*}
     &\Var \left[
       \E \left[
         \frac{n}{\lambda^d}
@@ -2471,8 +2472,8 @@ results for the debiased Mondrian random forest estimator.
         {N_{b r}(x) N_{b' r'}(x)}
         \Bigm| \bX, \bY
       \right]
-    \right]
-    \leq
+    \right] \\
+    &\leq
     \Var \left[
       \E \left[
         \frac{n}{\lambda^d}
@@ -2482,7 +2483,6 @@ results for the debiased Mondrian random forest estimator.
         \Bigm| \bX, \bY
       \right]
     \right] \\
-    \nonumber
     &\quad\leq
     \frac{1}{2}
     \frac{n^2}{\lambda^{2d}}
@@ -2499,7 +2499,6 @@ results for the debiased Mondrian random forest estimator.
         \right)
       \right)^2
     \right] \\
-    \nonumber
     &\quad\leq
     \frac{n^2}{\lambda^{2d}}
     \sum_{j=1}^{n}
@@ -2515,7 +2514,6 @@ results for the debiased Mondrian random forest estimator.
         \I_{i b r}(x) \I_{i b' r'}(x) \varepsilon_i^2
       \right)^2
     \right] \\
-    \nonumber
     &\qquad+
     \frac{n^2}{\lambda^{2d}}
     \sum_{j=1}^{n}
@@ -2530,7 +2528,6 @@ results for the debiased Mondrian random forest estimator.
         \right)
       \right)^2
     \right] \\
-    \label{eq:clt_efron_stein}
     &\quad\lesssim
     \frac{n^2}{\lambda^{2d}}
     \sum_{j=1}^{n}
@@ -2545,10 +2542,9 @@ results for the debiased Mondrian random forest estimator.
       + \frac{\I_{j b r}(x) \I_{j b' r'}(x)}
       {N_{b r}(x)^2 N_{b' r'}(x)^2}
     \right].
-  \end{align}
+  \end{align*}
   %
-  For the first term in \eqref{eq:clt_efron_stein},
-  note that
+  For the first term in the above display, note that
   %
   \begin{align*}
     &\left|
@@ -2595,17 +2591,15 @@ results for the debiased Mondrian random forest estimator.
     &\, \lesssim
     \frac{n^2}{\lambda^{2d}}
     \sum_{j=1}^{n}
-    \E \hspace*{-0.9mm} \left[
+    \E \left[
       \frac{\I_{j b' r'}(x) + \tilde \I_{j b' r'}(x)}{N_{-j b r}(x)^2}
       \frac{N_{-j b r \cap b' r}(x)^2} {N_{-j b' r'}(x)^4}
-      \hspace*{-0.8mm}
-      +
-      \hspace*{-0.8mm}
+      \right. \\
+    &\left.
+      \qquad+
       \frac{\I_{j b r}(x) + \tilde \I_{j b r}(x)}{N_{-j b' r'}(x)^2}
       \frac{N_{-j b r \cap b' r}(x)^2} {N_{-j b r}(x)^4}
-      \hspace*{-0.8mm}
       +
-      \hspace*{-0.8mm}
       \frac{\I_{j b r}(x) \I_{j b' r'}(x)}
       {N_{b r}(x)^2 N_{b' r'}(x)^2}
     \right] \\
@@ -2621,8 +2615,8 @@ results for the debiased Mondrian random forest estimator.
     \E \left[
       \frac{\I_{b r}(x) \I_{b' r'}(x)}
       {N_{b r}(x) N_{b' r'}(x)^2}
-    \right]
-    \lesssim
+    \right] \\
+    &\lesssim
     \frac{n^2}{\lambda^{2d}}
     \frac{\lambda^d}{n}
     \frac{\lambda^{2d} \log n}{n^2}
@@ -2766,28 +2760,26 @@ results for the debiased Mondrian random forest estimator.
   $T_{b r}$, $T_{b' r'}$, $N_{-i b r}(x)$, and $N_{-i b' r'}(x)$,
   %
   \begin{align*}
-    \E \left[
+    &\E \left[
       \frac{\I_{i b r}(x) \I_{i b' r'}(x)}
       {N_{b r}(x) N_{b' r'}(x)}
-    \right]
-    &= \E \left[
+    \right] \\
+    &\quad= \E \left[
       \frac{\int_{T_{b r}(x) \cap T_{b' r'}(x)} f(\xi) \diff \xi}
       {(N_{-i b r}(x)+1) (N_{-i b' r'}(x)+1)}
     \right] \\
-    &= f(x) \,
-    \E \hspace*{-0.5mm} \left[
+    &\quad= f(x) \,
+    \E \left[
       \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}
       {(N_{-i b r}(x)+1) (N_{-i b' r'}(x)+1)}
     \right]
-    \hspace*{-0.8mm}
     +
-    \hspace*{-0.5mm}
-    \E \hspace*{-0.5mm} \left[
+    \E \left[
       \frac{\int_{T_{b r}(x) \cap T_{b' r'}(x)}
       (f(\xi) - f(x)) \diff \xi}
       {(N_{-i b r}(x)+1) (N_{-i b' r'}(x)+1)}
     \right] \\
-    &=
+    &\quad=
     f(x) \,
     \E \left[
       \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}
@@ -2989,7 +2981,10 @@ results for the debiased Mondrian random forest estimator.
     \E \left[
       \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}
       {(N_{-i b r}(x)+1) (N_{-i b' r'}(x)+1)}
-      - \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}
+  \right.\right. \\
+    &\left.\left.
+    \qquad -
+      \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}
       {(N_{-i b r}(x)+1)
       (N_{-i b' r' \cap b r}(x)+n f(x)
       |T_{b' r'}(x) \setminus T_{b r}(x)|+1)}
