@@ -850,7 +850,8 @@ immediately yields the following result.
 
 Taking $\cH_0$ to be trivial, the first inequality \eqref{eq:sa_indep_order_2}
 in Corollary~\ref{cor:sa_indep} provides an $\ell^p$-norm approximation
-analogous to that presented in \cite{belloni2019conditional}. By further
+analogous to that presented in \citet{belloni2019conditional}.
+By further
 restricting to $p=2$, we recover the original Yurinskii coupling as presented
 in \citet[Theorem~1]{lecam1988} and \citet[Theorem~10]{pollard2002user}. Thus,
 in the independent data setting, our result improves on prior work as follows:
@@ -1133,14 +1134,12 @@ ineffective in such scenarios.
   \centering
   \begin{subfigure}{0.45\textwidth}
     \centering
-    % TODO
-    %\includegraphics[width=\textwidth]{sim_2.pdf}
+    \includegraphics[width=\textwidth]{graphics/sim_2.pdf}
     \caption{$h = 0.03$}
   \end{subfigure}
   \begin{subfigure}{0.45\textwidth}
     \centering
-    % TODO
-    %\includegraphics[width=\textwidth]{sim_1.pdf}
+    \includegraphics[width=\textwidth]{graphics/sim_1.pdf}
     \caption{$h = 0.01$}
   \end{subfigure}
   \caption{
@@ -1680,12 +1679,12 @@ where $\hat G(w)$ is a zero-mean Gaussian process
 conditional on $\bW$ and $\bY$ with conditional covariance function
 $\hat\rho(w,w')
 =\E\big[\hat G(w) \hat G(w') \mid \bW, \bY \big]
-= p(w)^\T \hat H^{-1} \widehat{\Var}[S] \hat H^{-1}p(w')$
-for some estimator $\widehat{\Var}[S]$ satisfying
+= p(w)^\T \hat H^{-1} \hat V \hat H^{-1}p(w')$
+for some estimator $\hat V$ satisfying
 $\frac{k (\log n)^2}{n}
-\big\|\widehat{\Var}[S]-\Var[S]\big\|_2 \to_\P 0$.
+\big\|\hat V-\Var[S]\big\|_2 \to_\P 0$.
 For example, one could use the plug-in estimator
-$\widehat{\Var}[S]=\sum_{i=1}^n p(W_i) p(W_i)^\T \hat{\sigma}^2(W_i)$
+$\hat V=\sum_{i=1}^n p(W_i) p(W_i)^\T \hat{\sigma}^2(W_i)$
 where $\hat{\sigma}^2(w)$ satisfies
 $(\log n)^2 \sup_{w \in \cW}
 |\hat{\sigma}^2(w)-\sigma^2(w)| \to_\P 0$.

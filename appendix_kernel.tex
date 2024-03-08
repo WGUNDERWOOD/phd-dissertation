@@ -1,4 +1,4 @@
-\chapter{Appendix to Dyadic Kernel Density Estimation}
+\chapter{Appendix to Dyadic Kernel Density Estimators}
 
 \section{Introduction}
 
@@ -40,7 +40,7 @@ Then the dyadic
 kernel density estimator
 is defined as
 \begin{align*}
-  \widehat f_W(w) = \frac{2}{n(n-1)}
+  \hat f_W(w) = \frac{2}{n(n-1)}
   \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} k_h(W_{ij}, w).
 \end{align*}
 
@@ -66,7 +66,7 @@ is the maximum singular value.
 For real symmetric matrices,
 $\|\cdot\|_2$
 coincides with the maximum absolute eigenvalue.
-We use $\|\cdot\|_\maxi$
+We use $\|\cdot\|_{\max}$
 to denote the largest absolute entry of a real matrix.
 For real-valued functions,
 $\|\cdot\|_\infty$
@@ -280,7 +280,7 @@ is a standard result in kernel density estimation
 with boundary bias correction,
 and does not rely on the dyadic structure of the data.
 
-\begin{lemma}[Bias of $\widehat f_W$]
+\begin{lemma}[Bias of $\hat f_W$]
   \label{lem:bias}
 
   Suppose that Assumptions \ref{ass:kernel_app_data} and
@@ -306,7 +306,7 @@ and does not rely on the dyadic structure of the data.
       \begin{align*}
         \sup_{w \in \cW}
         \big|
-        \E\big[\widehat f_W(w)\big]
+        \E\big[\hat f_W(w)\big]
         - f_W(w)
         - h^p B_p(w)
         \big|
@@ -319,7 +319,7 @@ and does not rely on the dyadic structure of the data.
       \begin{align*}
         \sup_{w \in \cW}
         \big|
-        \E\big[\widehat f_W(w)\big]
+        \E\big[\hat f_W(w)\big]
         - f_W(w)
         - h^p B_p(w)
         \big|
@@ -332,7 +332,7 @@ and does not rely on the dyadic structure of the data.
       \begin{align*}
         \sup_{w \in \cW}
         \big|
-        \E\big[\widehat f_W(w)\big]
+        \E\big[\hat f_W(w)\big]
         - f_W(w)
         \big|
         \leq
@@ -347,7 +347,7 @@ and does not rely on the dyadic structure of the data.
   \begin{align*}
     \sup_{w \in \cW}
     \big|
-    \E\big[\widehat f_W(w)\big]
+    \E\big[\hat f_W(w)\big]
     - f_W(w)
     \big|
     \leq
@@ -374,7 +374,7 @@ to show uniform consistency.
 Lemma~\ref{lem:trichotomy} provides a useful trichotomy for
 interpreting our results in various classes of data distributions.
 
-\begin{lemma}[Hoeffding-type decomposition for $\widehat f_W$]
+\begin{lemma}[Hoeffding-type decomposition for $\hat f_W$]
   \label{lem:hoeffding}
 
   Suppose that Assumptions~\ref{ass:kernel_app_data}
@@ -384,7 +384,7 @@ interpreting our results in various classes of data distributions.
   (H\'{a}jek projection),
   quadratic term
   and error term
-  of $\widehat f_W(w)$ as
+  of $\hat f_W(w)$ as
   \begin{align*}
     L_n(w)
     &=
@@ -421,8 +421,8 @@ interpreting our results in various classes of data distributions.
   \end{align*}
   Then the following Hoeffding-type decomposition holds:
   \begin{align*}
-    \widehat f_W(w)
-    = \E\big[\widehat f_W(w)\big]
+    \hat f_W(w)
+    = \E\big[\hat f_W(w)\big]
     + L_n(w)
     + Q_n(w)
     + E_n(w).
@@ -521,7 +521,7 @@ interpreting our results in various classes of data distributions.
 
 \end{remark}
 
-\begin{lemma}[Uniform concentration of $\widehat f_W$]
+\begin{lemma}[Uniform concentration of $\hat f_W$]
   \label{lem:uniform_concentration}
 
   Suppose Assumptions
@@ -553,7 +553,7 @@ interpreting our results in various classes of data distributions.
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
-      \big|\widehat f_W(w) - \E[\widehat f_W(w)]\big|
+      \big|\hat f_W(w) - \E[\hat f_W(w)]\big|
     \right]
     &\lesssim
     \frac{\Du}{\sqrt n}
@@ -562,7 +562,7 @@ interpreting our results in various classes of data distributions.
 
 \end{lemma}
 
-\begin{theorem}[Uniform consistency of $\widehat f_W$]
+\begin{theorem}[Uniform consistency of $\hat f_W$]
   \label{thm:app_uniform_consistency}
 
   Suppose Assumptions \ref{ass:kernel_app_data}
@@ -570,7 +570,7 @@ interpreting our results in various classes of data distributions.
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
-      \big|\widehat f_W(w) - f_W(w)\big|
+      \big|\hat f_W(w) - f_W(w)\big|
     \right]
     &\lesssim
     h^{p \wedge \beta}
@@ -599,7 +599,7 @@ interpreting our results in various classes of data distributions.
       \begin{align*}
         \E\left[
           \sup_{w \in \cW}
-          \big|\widehat f_W(w) - \E[\widehat f_W(w)]\big|
+          \big|\hat f_W(w) - \E[\hat f_W(w)]\big|
         \right]
         \lesssim
         \frac{1}{\sqrt n},
@@ -614,7 +614,7 @@ interpreting our results in various classes of data distributions.
       \begin{align*}
         \E\left[
           \sup_{w \in \cW}
-          \big|\widehat f_W(w) - f_W(w)\big|
+          \big|\hat f_W(w) - f_W(w)\big|
         \right]
         &\lesssim
         h^{p \wedge \beta}
@@ -635,7 +635,7 @@ In this section we demonstrate
 minimax optimality of our estimator under uniform convergence
 by providing upper and lower bounds in expectation uniformly over
 some classes of dyadic distributions.
-\begin{theorem}[Minimax optimality of $\widehat f_W$]
+\begin{theorem}[Minimax optimality of $\hat f_W$]
   \label{thm:kernel_app_minimax}
 
   Fix $\beta \geq 1$ and $\CH > 0$,
@@ -650,22 +650,22 @@ some classes of dyadic distributions.
   $\sup_{w \in \cW} \Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$.
   Then
   \begin{align*}
-    \inf_{\widetilde f_W}
+    \inf_{\tilde f_W}
     \sup_{\P \in \cP}
     \E_\P\left[
       \sup_{w \in \cW}
       \big|
-      \widetilde f_W(w) - f_W(w)
+      \tilde f_W(w) - f_W(w)
       \big|
     \right]
     &\asymp
     \frac{1}{\sqrt n}, \\
-    \inf_{\widetilde f_W}
+    \inf_{\tilde f_W}
     \sup_{\P \in \cPd}
     \E_\P\left[
       \sup_{w \in \cW}
       \big|
-      \widetilde f_W(w) - f_W(w)
+      \tilde f_W(w) - f_W(w)
       \big|
     \right]
     &\asymp
@@ -673,7 +673,7 @@ some classes of dyadic distributions.
       \frac{\log n}{n^2}
     \right)^{\frac{\beta}{2\beta+1}},
   \end{align*}
-  where $\widetilde f_W$ is any estimator depending only on
+  where $\tilde f_W$ is any estimator depending only on
   the data $\bW_n = (W_{ij}: 1 \leq i < j \leq n)$
   distributed according to the dyadic law $\P$.
   The constants in $\asymp$ depend only on
@@ -690,7 +690,7 @@ some classes of dyadic distributions.
   $(p \geq \beta)$.
   It also shows that both the
   $L_n$ and $E_n$ terms are important
-  in the consistency of $\widehat f_W$,
+  in the consistency of $\hat f_W$,
   and that their relative magnitude
   in the supremum norm is determined
   by the degeneracy type of the underlying distribution.
@@ -710,8 +710,8 @@ some classes of dyadic distributions.
     \Sigma_n(w,w')
     &=
     \Cov\Big[
-      \widehat f_W(w),
-      \widehat f_W(w')
+      \hat f_W(w),
+      \hat f_W(w')
       \Big]
   \end{align*}
   for $w,w' \in \cW$.
@@ -773,7 +773,7 @@ some classes of dyadic distributions.
 \label{sec:strong_approx}
 
 In this section we give a strong approximation
-for the empirical process $\widehat f_W$.
+for the empirical process $\hat f_W$.
 We begin by using the
 K\'omlos--Major--Tusn\'ady (KMT) approximation
 to obtain a strong approximation for $L_n$
@@ -788,7 +788,7 @@ and then construct an unconditional
 strong approximation for $E_n$
 in Lemma~\ref{lem:unconditional_strong_approx_En}.
 These approximations are combined to give a
-strong approximation for $\widehat f_W$
+strong approximation for $\hat f_W$
 in Theorem~\ref{thm:strong_approx_fW}.
 We do not need to construct a strong approximation
 for the negligible $Q_n$.
@@ -904,7 +904,7 @@ with a.s.\ continuous sample paths.
   denoted
   $\big(\bA_n', \bV_n', E_n'\big)$,
   and a process
-  $\widetilde Z^{E\prime}_n$
+  $\tilde Z^{E\prime}_n$
   which is Gaussian conditional on $\bA_n'$
   and mean-zero conditional on $\bA_n'$,
   satisfying
@@ -913,7 +913,7 @@ with a.s.\ continuous sample paths.
     \P\left(
       \sup_{w \in \cW}
       \big|
-      \sqrt{n^2h} E_n'(w) - \widetilde Z_n^{E\prime}(w)
+      \sqrt{n^2h} E_n'(w) - \tilde Z_n^{E\prime}(w)
       \big|
       > t_n
       \Bigm\vert \bA_n'
@@ -934,7 +934,7 @@ with a.s.\ continuous sample paths.
   \begin{align*}
     \sup_{w \in \cW}
     \big|
-    \sqrt{n^2h} E_n'(w) - \widetilde Z_n^{E\prime}(w)
+    \sqrt{n^2h} E_n'(w) - \tilde Z_n^{E\prime}(w)
     \big|
     &\lesssim_\P
     n^{-1/4}
@@ -942,13 +942,13 @@ with a.s.\ continuous sample paths.
   \end{align*}
   %
   Further,
-  $\widetilde Z_n^{E\prime}$ has the same
+  $\tilde Z_n^{E\prime}$ has the same
   conditional covariance structure as
   $\sqrt{n^2h} E_n'$ in the sense that for all $w, w' \in \cW$,
   \begin{align*}
     \E\left[
-      \widetilde Z_n^{E\prime}(w)
-      \widetilde Z_n^{E\prime}(w')
+      \tilde Z_n^{E\prime}(w)
+      \tilde Z_n^{E\prime}(w')
       \bigm\vert \bA_n'
     \right]
     &=
@@ -966,8 +966,8 @@ with a.s.\ continuous sample paths.
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
       \big|
-      \widetilde Z_n^{E\prime}(w)
-      - \widetilde Z_n^{E\prime}(w')
+      \tilde Z_n^{E\prime}(w)
+      - \tilde Z_n^{E\prime}(w')
       \big|
     \right]
     &\lesssim
@@ -984,16 +984,16 @@ with a.s.\ continuous sample paths.
   Suppose that Assumptions
   \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth} hold.
   Let
-  $\big(\bA_n', \bV_n', \widetilde Z_n^{E\prime}\big)$
+  $\big(\bA_n', \bV_n', \tilde Z_n^{E\prime}\big)$
   be defined as in
   Lemma~\ref{lem:conditional_strong_approx_En}.
   For each $n \geq 2$
   there exists
   (on some probability space)
   a copy of
-  $\big(\bA_n', \bV_n', \widetilde Z_n^{E\prime}\big)$,
+  $\big(\bA_n', \bV_n', \tilde Z_n^{E\prime}\big)$,
   denoted
-  $\big(\bA_n'', \bV_n'', \widetilde Z_n^{E\dprime}\big)$,
+  $\big(\bA_n'', \bV_n'', \tilde Z_n^{E\dprime}\big)$,
   and a centered
   Gaussian process
   $Z^{E\dprime}_n$
@@ -1001,7 +1001,7 @@ with a.s.\ continuous sample paths.
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
-      \big|\widetilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
+      \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
     \right]
     &\lesssim
     n^{-1/6} (\log n)^{2/3}.
@@ -1009,7 +1009,7 @@ with a.s.\ continuous sample paths.
   Further,
   $Z_n^{E\dprime}$ has the same
   (unconditional) covariance structure as
-  $\widetilde Z_n^{E\dprime}$
+  $\tilde Z_n^{E\dprime}$
   and
   $\sqrt{n^2h} E_n$
   in the sense that for all $w, w' \in \cW$,
@@ -1020,8 +1020,8 @@ with a.s.\ continuous sample paths.
     \right]
     &=
     \E\left[
-      \widetilde Z_n^{E\dprime}(w)
-      \widetilde Z_n^{E\dprime}(w')
+      \tilde Z_n^{E\dprime}(w)
+      \tilde Z_n^{E\dprime}(w')
     \right]
     =
     n^2h \,
@@ -1052,7 +1052,7 @@ with a.s.\ continuous sample paths.
 
 \begin{remark}
 
-  Note that the process $\widetilde Z_n^{E\prime}$,
+  Note that the process $\tilde Z_n^{E\prime}$,
   constructed in Lemma~\ref{lem:conditional_strong_approx_En},
   is a conditionally Gaussian process but is
   not in general a Gaussian process.
@@ -1062,7 +1062,7 @@ with a.s.\ continuous sample paths.
 
 \end{remark}
 
-\begin{theorem}[Strong approximation of $\widehat f_W$]
+\begin{theorem}[Strong approximation of $\hat f_W$]
   \label{thm:strong_approx_fW}
 
   Suppose that Assumptions
@@ -1071,14 +1071,14 @@ with a.s.\ continuous sample paths.
   and any sequence $R_n \to \infty$
   there exists on some probability space
   a centered Gaussian process $Z_n^{f\prime}$
-  and a copy of $\widehat f_W$,
-  denoted $\widehat f_W'$,
+  and a copy of $\hat f_W$,
+  denoted $\hat f_W'$,
   satisfying
   %
   \begin{align*}
     \sup_{w \in \cW}
     \Big|
-    \widehat f_W'(w) - \E[\widehat f_W'(w)]
+    \hat f_W'(w) - \E[\hat f_W'(w)]
     - Z_n^{f\prime}(w)
     \Big|
     &\lesssim_\P
@@ -1089,15 +1089,15 @@ with a.s.\ continuous sample paths.
   %
   Further, $Z_n^{f\prime}$ has the same covariance
   structure as
-  $\widehat f_W'(w)$
+  $\hat f_W'(w)$
   in the sense that for all
   $w, w' \in \cW$,
   \begin{align*}
     \E\big[Z_n^{f\prime}(w) Z_n^{f\prime}(w')\big]
     &=
     \Cov\Big[
-      \widehat f_W'(w),
-      \widehat f_W'(w')
+      \hat f_W'(w),
+      \hat f_W'(w')
       \Big]
     = \Sigma_n(w,w').
   \end{align*}
@@ -1161,7 +1161,7 @@ which is a standard assumption when constructing confidence bands.
   Define for $w \in \cW$
   %
   \begin{align*}
-    T_n(w) = \frac{\widehat f_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}}
+    T_n(w) = \frac{\hat f_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}}
     \quad\text{and}\quad
     Z_n^T(w) = \frac{Z_n^f(w)}{\sqrt{\Sigma_n(w,w)}}.
   \end{align*}
@@ -1237,7 +1237,7 @@ and are given as Assumption~\ref{ass:rates}.
       f_W(w)
       \in
       \left[
-        \widehat f_W(w)
+        \hat f_W(w)
         \pm
         q_{1-\alpha}
         \sqrt{\Sigma_n(w,w)}
@@ -1286,7 +1286,7 @@ which is more amenable to computation.
   and $f_W(w) > 0$ on $\cW$.
   For $w,w' \in \cW$ define
   \begin{align*}
-    \widehat \Sigma_n(w,w')
+    \hat \Sigma_n(w,w')
     &=
     \frac{4}{n^2(n-1)^2}
     \sum_{i<j}
@@ -1298,8 +1298,8 @@ which is more amenable to computation.
     S_{ijr}(w,w')
     -
     \frac{4n-6}{n(n-1)}
-    \widehat f_W(w)
-    \widehat f_W(w'),
+    \hat f_W(w)
+    \hat f_W(w'),
   \end{align*}
   %
   where
@@ -1325,13 +1325,13 @@ which is more amenable to computation.
     \Big).
   \end{align*}
   %
-  Then $\widehat \Sigma_n$
+  Then $\hat \Sigma_n$
   is uniformly entrywise-consistent in the sense that
   %
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n(w,w') - \Sigma_n(w,w')}
+    \frac{\hat \Sigma_n(w,w') - \Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     &\lesssim_\P
@@ -1345,17 +1345,17 @@ which is more amenable to computation.
 
   Suppose that Assumptions~\ref{ass:kernel_app_data}
   and~\ref{ass:kernel_app_bandwidth} hold
-  and let $\widehat \Sigma_n$
+  and let $\hat \Sigma_n$
   be the covariance estimator defined
   in Lemma~\ref{lem:covariance_estimation}.
   Then the following alternative representation
-  for $\widehat \Sigma_n$ holds,
+  for $\hat \Sigma_n$ holds,
   which may be easier to compute
   as it does not involve any triple summations
   over the data.
   %
   \begin{align*}
-    \widehat \Sigma_n(w,w')
+    \hat \Sigma_n(w,w')
     &=
     \frac{4}{n^2}
     \sum_{i=1}^n
@@ -1366,8 +1366,8 @@ which is more amenable to computation.
     k_h(W_{ij},w')
     -
     \frac{4n-6}{n(n-1)}
-    \widehat f_W(w)
-    \widehat f_W(w'),
+    \hat f_W(w)
+    \hat f_W(w'),
   \end{align*}
   %
   where
@@ -1390,7 +1390,7 @@ which is more amenable to computation.
 
 \begin{remark}
 
-  The covariance estimator $\widehat \Sigma_n$
+  The covariance estimator $\hat \Sigma_n$
   is not necessarily almost surely positive semi-definite.
 
 \end{remark}
@@ -1399,9 +1399,9 @@ which is more amenable to computation.
 \label{sec:PSD}
 
 In this section we provide a
-positive semi-definite estimator $\widehat \Sigma_n^+$
+positive semi-definite estimator $\hat \Sigma_n^+$
 which is uniformly entrywise-consistent for $\Sigma_n$.
-Define $\widehat \Sigma_n$ as in
+Define $\hat \Sigma_n$ as in
 Lemma~\ref{lem:covariance_estimation}
 and consider the following optimization problem
 over bivariate functions.
@@ -1412,8 +1412,8 @@ over bivariate functions.
     \qquad
      & \sup_{w,w' \in \cW}
     \left|
-    \frac{M(w,w') - \widehat\Sigma_n(w,w')}
-    {\sqrt{\widehat \Sigma_n(w,w) + \widehat \Sigma_n(w',w')}}
+    \frac{M(w,w') - \hat\Sigma_n(w,w')}
+    {\sqrt{\hat \Sigma_n(w,w) + \hat \Sigma_n(w',w')}}
     \right|
     \quad \textup{ over } M: \cW \times \cW \to \R
     \\
@@ -1429,20 +1429,20 @@ over bivariate functions.
   \end{aligned}
 \end{equation}
 
-\begin{lemma}[Consistency of $\widehat \Sigma_n^+$]
+\begin{lemma}[Consistency of $\hat \Sigma_n^+$]
   \label{lem:app_SDP}
 
   Suppose that Assumptions~\ref{ass:kernel_app_data}
   and~\ref{ass:kernel_app_bandwidth} hold and that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Then the optimization problem (\ref{eq:app_SDP})
-  has an approximately optimal solution $\widehat\Sigma_n^+$
+  has an approximately optimal solution $\hat\Sigma_n^+$
   which is uniformly entrywise-consistent
   for $\Sigma_n$ in the sense that
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
+    \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     &\lesssim_\P
@@ -1466,7 +1466,7 @@ over bivariate functions.
 
   The Lipschitz-type constraint in the
   optimization problem (\ref{eq:app_SDP})
-  ensures that $\widehat \Sigma_n^+$
+  ensures that $\hat \Sigma_n^+$
   is sufficiently smooth
   and is a technicality required by
   some of the later proofs.
@@ -1480,14 +1480,14 @@ over bivariate functions.
   Suppose that Assumptions~\ref{ass:kernel_app_data}
   and~\ref{ass:kernel_app_bandwidth} hold and that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
-  Then $\widehat \Sigma_n^+(w,w) \geq 0$
+  Then $\hat \Sigma_n^+(w,w) \geq 0$
   almost surely for all $w \in \cW$ and
   \begin{align*}
     \frac{\Dl^2}{n} + \frac{1}{n^2h}
     &\lesssim_\P
-    \inf_{w \in \cW} \widehat \Sigma_n^+(w,w)
+    \inf_{w \in \cW} \hat \Sigma_n^+(w,w)
     \leq
-    \sup_{w \in \cW} \widehat \Sigma_n^+(w,w)
+    \sup_{w \in \cW} \hat \Sigma_n^+(w,w)
     \lesssim_\P
     \frac{\Du^2}{n} + \frac{1}{n^2h}.
   \end{align*}
@@ -1510,13 +1510,13 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define for $w \in \cW$
   \begin{align*}
-    \widehat T_n(w) = \frac{\widehat f_W(w) - f_W(w)}
-    {\sqrt{\widehat\Sigma_n^+(w,w)}}.
+    \hat T_n(w) = \frac{\hat f_W(w) - f_W(w)}
+    {\sqrt{\hat\Sigma_n^+(w,w)}}.
   \end{align*}
   Then
   \begin{align*}
     \sup_{w \in \cW}
-    \left| \widehat T_n(w) - T_n(w) \right|
+    \left| \hat T_n(w) - T_n(w) \right|
     &\lesssim_\P
     \sqrt{\frac{\log n}{n}}
     \left(
@@ -1535,7 +1535,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
   Let Assumptions \ref{ass:kernel_app_data} and \ref{ass:kernel_app_bandwidth}
   hold and suppose that
   $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
-  Define a process $\widehat Z_n^T(w)$ which,
+  Define a process $\hat Z_n^T(w)$ which,
   conditional on the data $\bW_n$,
   is conditionally mean-zero and
   conditionally Gaussian and whose
@@ -1543,11 +1543,11 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
   %
   \begin{align*}
     \E\left[
-      \widehat Z_n^T(w) \widehat Z_n^T(w')
+      \hat Z_n^T(w) \hat Z_n^T(w')
       \bigm| \bW_n \right]
     &=
-    \frac{\widehat \Sigma_n^+(w,w')}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}
+    \frac{\hat \Sigma_n^+(w,w')}
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
   \end{align*}
   %
   Then the following conditional
@@ -1563,7 +1563,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
     \right)
     - \P\left(
       \sup_{w \in \cW}
-      \left| \widehat Z_n^T(w) \right|
+      \left| \hat Z_n^T(w) \right|
       \leq t
       \biggm\vert \bW_n
     \right)
@@ -1587,12 +1587,12 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
     \left|
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) \right|
+      \left| \hat T_n(w) \right|
       \leq t
     \right)
     - \P\left(
       \sup_{w \in \cW}
-      \left| \widehat Z_n^T(w) \right|
+      \left| \hat Z_n^T(w) \right|
       \leq t
       \Bigm\vert \bW_n
     \right)
@@ -1609,13 +1609,13 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
   Let Assumptions \ref{ass:kernel_app_data}, \ref{ass:kernel_app_bandwidth}
   and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
-  and define $\widehat q_{1-\alpha}$ as the
+  and define $\hat q_{1-\alpha}$ as the
   conditional quantile satisfying
   \begin{align*}
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat Z_n^T(w) \right|
-      \leq \widehat q_{1-\alpha}
+      \left| \hat Z_n^T(w) \right|
+      \leq \hat q_{1-\alpha}
       \Bigm\vert \bW_n
     \right)
     &=
@@ -1627,10 +1627,10 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
       f_W(w)
       \in
       \left[
-        \widehat f_W(w)
+        \hat f_W(w)
         \pm
-        \widehat q_{1-\alpha}
-        \sqrt{\widehat\Sigma_n^+(w,w)}
+        \hat q_{1-\alpha}
+        \sqrt{\hat\Sigma_n^+(w,w)}
         \,\right]
       \,\textup{for all }
       w \in \cW
@@ -1644,11 +1644,11 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 
   In practice, suprema over $\cW$ can be
   replaced by maxima over a sufficiently fine finite partition of $\cW$.
-  The conditional quantile $\widehat q_{1-\alpha}$
+  The conditional quantile $\hat q_{1-\alpha}$
   can be estimated by Monte Carlo
   simulation,
   resampling from the Gaussian process defined by the law of
-  $\widehat Z_n^T \mid \bW_n$.
+  $\hat Z_n^T \mid \bW_n$.
 \end{remark}
 
 \subsection{Counterfactual
@@ -1712,31 +1712,31 @@ This counterfactual density can be estimated by
 the counterfactual dyadic kernel density estimator
 %
 \begin{align*}
-  \widehat f_W^{\,1 \triangleright 0}(w)
+  \hat f_W^{\,1 \triangleright 0}(w)
   &=
   \frac{2}{n(n-1)}
   \sum_{i=1}^{n-1}
   \sum_{j=i+1}^n
-  \widehat \psi(X_i^1)
-  \widehat \psi(X_j^1)
+  \hat \psi(X_i^1)
+  \hat \psi(X_j^1)
   k_h(W_{ij}^1, w)
 \end{align*}
 %
 with
-$\widehat\psi(x) =
-\I\{\widehat p_X^{\,1}(x) > 0\}\widehat p_X^{\,0}(x) / \widehat p_X^{\,1}(x)$
-and $\widehat p_X^{\,r}(x) = \frac{1}{n}\sum_{i = 1}^n \I\{X_i^r = x\}$.
+$\hat\psi(x) =
+\I\{\hat p_X^{\,1}(x) > 0\}\hat p_X^{\,0}(x) / \hat p_X^{\,1}(x)$
+and $\hat p_X^{\,r}(x) = \frac{1}{n}\sum_{i = 1}^n \I\{X_i^r = x\}$.
 Note that since $p_X^r(x) > 0$,
 %
 \begin{align*}
-  \widehat\psi(x) - \psi(x)
+  \hat\psi(x) - \psi(x)
   &=
-  \frac{\widehat p_X^{\,0}(x) - p_X^0(x)}{p_X^1(x)}
+  \frac{\hat p_X^{\,0}(x) - p_X^0(x)}{p_X^1(x)}
   - \frac{p_X^0(x)}{p_X^1(x)}
-  \frac{\widehat p_X^{\,1}(x) - p_X^1(x)}{p_X^1(x)}
-  + \frac{\widehat p_X^{\,1}(x) - p_X^1(x)}{p_X^1(x)}
-  \frac{\widehat p_X^{\,1}(x) p_X^0(x) - \widehat p_X^{\,0}(x)p_X^1(x)}
-  {\widehat p_X^{\,1}(x) p_X^1(x)} \\
+  \frac{\hat p_X^{\,1}(x) - p_X^1(x)}{p_X^1(x)}
+  + \frac{\hat p_X^{\,1}(x) - p_X^1(x)}{p_X^1(x)}
+  \frac{\hat p_X^{\,1}(x) p_X^0(x) - \hat p_X^{\,0}(x)p_X^1(x)}
+  {\hat p_X^{\,1}(x) p_X^1(x)} \\
   &=
   \frac{1}{n}
   \sum_{r=1}^n \kappa(X_r^0, X_r^1, x)
@@ -1758,7 +1758,7 @@ $\E[\kappa(X_i^0, X_i^1, x)] = 0$.
 We now establish uniform consistency and feasible strong
 approximation results for the counterfactual density estimator.
 
-\begin{lemma}[Bias of $\widehat f_W^{\,1 \triangleright 0}$]
+\begin{lemma}[Bias of $\hat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_bias}
 
   Suppose that Assumptions~\ref{ass:kernel_app_data},
@@ -1768,7 +1768,7 @@ approximation results for the counterfactual density estimator.
   \begin{align*}
     \sup_{w \in \cW}
     \big|
-    \E\big[\widehat f_W^{\,1 \triangleright 0}(w)\big]
+    \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
     - f_W^{1 \triangleright 0}(w)
     \big|
     \lesssim
@@ -1778,7 +1778,7 @@ approximation results for the counterfactual density estimator.
 \end{lemma}
 
 \begin{lemma}[Hoeffding-type decomposition for
-  $\widehat f_W^{\,1 \triangleright 0}$]
+  $\hat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_hoeffding}
 
   Suppose that Assumptions~\ref{ass:kernel_app_data},
@@ -1943,8 +1943,8 @@ approximation results for the counterfactual density estimator.
   where $O_\P(1/n)$ is uniform in $w \in \cW$.
   %
   \begin{align*}
-    \widehat f_W^{\,1 \triangleright 0}(w)
-    = \E\big[\widehat f_W^{\,1 \triangleright 0}(w)\big]
+    \hat f_W^{\,1 \triangleright 0}(w)
+    = \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
     + L_n^{1 \triangleright 0}(w)
     + E_n^{1 \triangleright 0}(w)
     + O_\P\left( \frac{1}{n} \right).
@@ -1984,7 +1984,7 @@ approximation results for the counterfactual density estimator.
 
 \end{lemma}
 
-\begin{lemma}[Uniform consistency of $\widehat f_W^{\,1 \triangleright 0}$]
+\begin{lemma}[Uniform consistency of $\hat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_uniform_consistency}
 
   Suppose that Assumptions~\ref{ass:kernel_app_data},
@@ -1994,7 +1994,7 @@ approximation results for the counterfactual density estimator.
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
-      \big|\widehat f_W^{\,1 \triangleright 0}(w)
+      \big|\hat f_W^{\,1 \triangleright 0}(w)
       - f_W^{1 \triangleright 0}(w)
     \right]
     &\lesssim
@@ -2005,7 +2005,7 @@ approximation results for the counterfactual density estimator.
 
 \end{lemma}
 
-\begin{lemma}[Strong approximation of $\widehat f_W^{\,1 \triangleright 0}$]
+\begin{lemma}[Strong approximation of $\hat f_W^{\,1 \triangleright 0}$]
   \label{lem:counterfactual_sa}
 
   On an appropriately enlarged probability space
@@ -2013,13 +2013,13 @@ approximation results for the counterfactual density estimator.
   there exists a mean-zero Gaussian process
   $Z_n^{f, 1 \triangleright 0}$
   with the same covariance structure as
-  $\widehat f_W^{\,1 \triangleright 0}(w)$ satisfying
+  $\hat f_W^{\,1 \triangleright 0}(w)$ satisfying
   %
   \begin{align*}
     \sup_{w \in \cW}
     \left|
-    \widehat f_W^{\,1 \triangleright 0}(w)
-    - \E\big[\widehat f_W^{\,1 \triangleright 0}(w)\big]
+    \hat f_W^{\,1 \triangleright 0}(w)
+    - \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
     - Z_n^{f, 1 \triangleright 0}(w)
     \right|
     &\lesssim_\P
@@ -2040,8 +2040,8 @@ approximation results for the counterfactual density estimator.
     \Sigma_n^{1 \triangleright 0}(w,w')
     &=
     \Cov\left[
-      \widehat f_W^{\,1 \triangleright 0}(w),
-      \widehat f_W^{\,1 \triangleright 0}(w')
+      \hat f_W^{\,1 \triangleright 0}(w),
+      \hat f_W^{\,1 \triangleright 0}(w')
     \right] \\
     &=
     \frac{4}{n}
@@ -2101,7 +2101,7 @@ approximation results for the counterfactual density estimator.
   %
   \begin{align*}
     T_n^{1 \triangleright 0}(w)
-    &= \frac{\widehat f_W^{\,1 \triangleright 0}(w)
+    &= \frac{\hat f_W^{\,1 \triangleright 0}(w)
     - f_W^{1 \triangleright 0}(w)}
     {\sqrt{\Sigma_n^{1 \triangleright 0}(w,w)}}
     \quad\text{and}\quad
@@ -2155,7 +2155,7 @@ approximation results for the counterfactual density estimator.
       f_W^{1 \triangleright 0}(w)
       \in
       \left[
-        \widehat f_W^{1 \triangleright 0}(w)
+        \hat f_W^{1 \triangleright 0}(w)
         \pm
         q^{1 \triangleright 0}_{1-\alpha}
         \sqrt{\Sigma_n^{1 \triangleright 0}(w,w)}
@@ -2173,11 +2173,11 @@ $\Sigma_n^{1 \triangleright 0}$.
 First let
 %
 \begin{align*}
-  \widehat\kappa(X_i^0, X_i^1, x)]
+  \hat\kappa(X_i^0, X_i^1, x)]
   &=
-  \frac{\I\{X_i^0 = x\} - \widehat p_X^0(x)}{\widehat p_X^1(x)}
-  - \frac{\widehat p_X^0(x)}{\widehat p_X^1(x)}
-  \frac{\I\{X_i^1 = x\} - \widehat p_X^1(x)}{\widehat p_X^1(x)}
+  \frac{\I\{X_i^0 = x\} - \hat p_X^0(x)}{\hat p_X^1(x)}
+  - \frac{\hat p_X^0(x)}{\hat p_X^1(x)}
+  \frac{\I\{X_i^1 = x\} - \hat p_X^1(x)}{\hat p_X^1(x)}
 \end{align*}
 %
 and define the leave-out conditional expectation estimators
@@ -2185,92 +2185,92 @@ and define the leave-out conditional expectation estimators
 \begin{align*}
   S_i^{1 \triangleright 0}(w)
   &=
-  \widehat\E\left[
+  \hat\E\left[
     k_h(W_{ij}^1,w) \psi(X_j^1) \mid A_i^1
   \right]
   =
   \frac{1}{n-1}
   \left(
     \sum_{j=1}^{i-1}
-    k_h(W_{ji}^1,w) \widehat\psi(X_j^1)
+    k_h(W_{ji}^1,w) \hat\psi(X_j^1)
     + \sum_{j=i+1}^n
-    k_h(W_{ij}^1,w) \widehat\psi(X_j^1)
+    k_h(W_{ij}^1,w) \hat\psi(X_j^1)
   \right), \\
-  \widetilde S_i^{1 \triangleright 0}(w)
+  \tilde S_i^{1 \triangleright 0}(w)
   &=
-  \widehat\E\left[
+  \hat\E\left[
     k_h(W_{r j}^1,w) \psi(X_r^1)
     \kappa(X_i^0, X_i^1, X_j^1) \mid X_i^0, X_i^1
   \right]
   = \frac{1}{n-1}
   \sum_{j=1}^n
   \I\{j \neq i\}
-  \widehat\kappa(X_i^0, X_i^1, X_j^1)
+  \hat\kappa(X_i^0, X_i^1, X_j^1)
   S_j^{1 \triangleright 0}(w).
 \end{align*}
 %
 Then set
 %
 \begin{align*}
-  \widehat\Sigma_n^{1 \triangleright 0}(w,w')
+  \hat\Sigma_n^{1 \triangleright 0}(w,w')
   &=
   \frac{4}{n^2}
   \sum_{i=1}^n
   \left(
-    \widehat\psi(X_i^1)
+    \hat\psi(X_i^1)
     S_i^{1 \triangleright 0}(w)
-    + \widetilde S_i^{1 \triangleright 0}(w)
+    + \tilde S_i^{1 \triangleright 0}(w)
   \right)
   \left(
-    \widehat\psi(X_i^1)
+    \hat\psi(X_i^1)
     S_i^{1 \triangleright 0}(w')
-    + \widetilde S_i^{1 \triangleright 0}(w')
+    + \tilde S_i^{1 \triangleright 0}(w')
   \right) \\
   &\quad-
   \frac{4}{n^3(n-1)}
   \sum_{i<j}
   k_h(W_{ij}^1, w)
   k_h(W_{ij}^1, w')
-  \widehat\psi(X_i^1)^2
-  \widehat\psi(X_j^1)^2
+  \hat\psi(X_i^1)^2
+  \hat\psi(X_j^1)^2
   - \frac{4}{n}
-  \widehat f_W^{\,1 \triangleright 0}(w)
-  \widehat f_W^{\,1 \triangleright 0}(w').
+  \hat f_W^{\,1 \triangleright 0}(w)
+  \hat f_W^{\,1 \triangleright 0}(w').
 \end{align*}
 %
 We then use a positive semi-definite approximation to
-$\widehat\Sigma_n^{1 \triangleright 0}$, denoted by
-$\widehat\Sigma_n^{+, 1 \triangleright 0}$,
+$\hat\Sigma_n^{1 \triangleright 0}$, denoted by
+$\hat\Sigma_n^{+, 1 \triangleright 0}$,
 following the methodology of
 Section~\ref{sec:PSD}.
 We omit the proof of consistency of these covariance estimators
 in the interest of brevity.
 To construct feasible uniform confidence bands,
-define a process $\widehat Z_n^{T, 1 \triangleright 0}(w)$ which,
+define a process $\hat Z_n^{T, 1 \triangleright 0}(w)$ which,
 conditional on the data $\bW_n^1$, $\bX_n^0$ and $\bX_n^1$
 is conditionally mean-zero and conditionally Gaussian and whose
 conditional covariance structure is
 %
 \begin{align*}
   \E\left[
-    \widehat Z_n^{T, 1 \triangleright 0}(w)
-    \widehat Z_n^{T, 1 \triangleright 0}(w')
+    \hat Z_n^{T, 1 \triangleright 0}(w)
+    \hat Z_n^{T, 1 \triangleright 0}(w')
     \bigm| \bW_n^1, \bX_n^0, \bX_n^1 \right]
   &=
-  \frac{\widehat \Sigma_n^{+, 1 \triangleright 0}(w,w')}
-  {\sqrt{\widehat \Sigma_n^{+, 1 \triangleright 0}(w,w)
-      \widehat \Sigma_n^{+, 1 \triangleright 0}(w',w')}}.
+  \frac{\hat \Sigma_n^{+, 1 \triangleright 0}(w,w')}
+  {\sqrt{\hat \Sigma_n^{+, 1 \triangleright 0}(w,w)
+      \hat \Sigma_n^{+, 1 \triangleright 0}(w',w')}}.
 \end{align*}
 %
 Let $\alpha \in (0,1)$ be a confidence level and define
-$\widehat q_{1-\alpha}^{1 \triangleright 0}$
+$\hat q_{1-\alpha}^{1 \triangleright 0}$
 as the conditional quantile satisfying
 %
 \begin{align*}
   \P\left(
     \sup_{w \in \cW}
-    \left| \widehat Z_n^{T, 1 \triangleright 0}(w) \right|
-    \leq \widehat q_{1-\alpha}^{1 \triangleright 0}
+    \left| \hat Z_n^{T, 1 \triangleright 0}(w) \right|
+    \leq \hat q_{1-\alpha}^{1 \triangleright 0}
     \Bigm\vert \bW_n^1, \bX_n^0, \bX_n^1
   \right)
   &=
@@ -2285,10 +2285,10 @@ we have that
     f_W^{1 \triangleright 0}(w)
     \in
     \left[
-      \widehat f_W^{\,1 \triangleright 0}(w)
+      \hat f_W^{\,1 \triangleright 0}(w)
       \pm
-      \widehat q^{1 \triangleright 0}_{1-\alpha}
-      \sqrt{\widehat\Sigma_n^{+, 1 \triangleright 0}(w,w)}
+      \hat q^{1 \triangleright 0}_{1-\alpha}
+      \sqrt{\hat\Sigma_n^{+, 1 \triangleright 0}(w,w)}
       \,\right]
     \,\textup{for all }
     w \in \cW
@@ -2744,23 +2744,23 @@ We begin with some definitions.
       be stochastic processes with
       trajectories in $\cD[0,1]$.
       For $x_1, \ldots, x_n \in [0,1]$
-      let $\widetilde X_1 = (X_1(x_1), \ldots, X_1(x_n))$
+      let $\tilde X_1 = (X_1(x_1), \ldots, X_1(x_n))$
       be a random vector
-      and suppose that $\widetilde X_1'$
-      is a copy of $\widetilde X_1$.
+      and suppose that $\tilde X_1'$
+      is a copy of $\tilde X_1$.
       Then there is a law $\P$ on
       $\cD[0,1] \times \R^n \times \cD[0,1]$
       such that restriction of $\P$ to
       $\cD[0,1] \times \R^n$
-      is the law of $(X_1, \widetilde X_1)$,
+      is the law of $(X_1, \tilde X_1)$,
       while the restriction of $\P$ to
       $\R^n \times \cD[0,1]$
-      is the law of $(\widetilde X_1',X_2)$.
+      is the law of $(\tilde X_1',X_2)$.
       In other words,
-      we can embed the vector $\widetilde X_1'$
+      we can embed the vector $\tilde X_1'$
       into a stochastic process $X_1$
       while maintaining the joint distribution of
-      $\widetilde X_1'$ and $X_2$.
+      $\tilde X_1'$ and $X_2$.
 
     \item
       Let $X_1, X_1', \ldots, X_n, X_n'$
@@ -2838,7 +2838,7 @@ To estimate the trade volume density function
 we use the counterfactual dyadic kernel density estimator
 from Section~\ref{subsec:counterfactual}
 with $d=100$ equally-spaced evaluation points in $[-10,10]$,
-using the rule-of-thumb bandwidth selector $\widehat h_{\ROT}$
+using the rule-of-thumb bandwidth selector $\hat h_{\ROT}$
 described in the main paper with $p=2$ and $C(K) = 2.435$.
 For inference we use an
 Epanechnikov kernel of order $p=4$ and
@@ -2859,7 +2859,7 @@ in the GDP distribution.
 In Figure~\ref{fig:gdp} we illustrate how, in the preliminary
 step of the counterfactual analysis, the distribution of
 log GDP is approximated using the histogram estimators
-$\widehat p_X^{\,0}$ and $\widehat p_X^{\,1}$
+$\hat p_X^{\,0}$ and $\hat p_X^{\,1}$
 defined in Section~\ref{subsec:counterfactual}.
 We also plot the density function of a normal distribution,
 fitted using maximum likelihood estimation,
@@ -2888,25 +2888,22 @@ leading to less estimated variance in the fitted values.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_plot_1995.pdf}
-    \caption{Year 1995, $\widehat h_{\ROT} = 1.27$}
+    \includegraphics[scale=0.52]{graphics/trade_plot_1995.pdf}
+    \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
     \label{subfig:trade_1995}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_plot_1995_2000.pdf}
-    \caption{Year 2000, $\widehat h_{\ROT} = 1.31$}
+    \includegraphics[scale=0.52]{graphics/trade_plot_1995_2000.pdf}
+    \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
     \label{subfig:trade_2000}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_plot_1995_2005.pdf}
-    \caption{Year 2005, $\widehat h_{\ROT} = 1.37$}
+    \includegraphics[scale=0.52]{graphics/trade_plot_1995_2005.pdf}
+    \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
     \label{subfig:trade_2005}
   \end{subfigure}
   %
@@ -2923,24 +2920,21 @@ leading to less estimated variance in the fitted values.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_gdp_1995.pdf}
+    \includegraphics[scale=0.52]{graphics/trade_gdp_1995.pdf}
     \caption{Year 1995}
     \label{subfig:gdp_1995}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_gdp_2000.pdf}
+    \includegraphics[scale=0.52]{graphics/trade_gdp_2000.pdf}
     \caption{Year 2000}
     \label{subfig:gdp_2000}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_gdp_2005.pdf}
+    \includegraphics[scale=0.52]{graphics/trade_gdp_2005.pdf}
     \caption{Year 2005}
     \label{subfig:gdp_2005}
   \end{subfigure}
@@ -2956,25 +2950,22 @@ leading to less estimated variance in the fitted values.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_plot_parametric_1995.pdf}
-    \caption{Year 1995, $\widehat h_{\ROT} = 1.27$}
+    \includegraphics[scale=0.52]{graphics/trade_plot_parametric_1995.pdf}
+    \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
     \label{subfig:trade_para_1995}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_plot_parametric_1995_2000.pdf}
-    \caption{Year 2000, $\widehat h_{\ROT} = 1.31$}
+    \includegraphics[scale=0.52]{graphics/trade_plot_parametric_1995_2000.pdf}
+    \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
     \label{subfig:trade_para_2000}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_plot_parametric_1995_2005.pdf}
-    \caption{Year 2005, $\widehat h_{\ROT} = 1.37$}
+    \includegraphics[scale=0.52]{graphics/trade_plot_parametric_1995_2005.pdf}
+    \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
     \label{subfig:trade_para_2005}
   \end{subfigure}
   %
@@ -3166,7 +3157,7 @@ they are needed.
       \Big]
     &\leq
     \sqrt{\log n} \,
-    \lambda_\mini(\Sigma_1)^{-1/2} \,
+    \lambda_{\min}(\Sigma_1)^{-1/2} \,
     \big\|
     \Sigma_1 - \Sigma_2
     \big\|_2.
@@ -3328,7 +3319,7 @@ they are needed.
     \big\|_2
     &\leq
     \frac{1}{2}
-    \lambda_\mini(\Sigma_1)^{-1/2} \,
+    \lambda_{\min}(\Sigma_1)^{-1/2} \,
     \big\|
     \Sigma_1 - \Sigma_2
     \big\|_2,
@@ -4677,7 +4668,7 @@ Lemma~\ref{lem:bv_characterization}.
     \lambda_i
     \geq 0, \
     y_i \in \cY \cup -\cY, \
-    n \in \bbN
+    n \in \N
     \right\}.
   \end{align*}
   Denote its topological closure by
@@ -4815,7 +4806,7 @@ Lemma~\ref{lem:bv_characterization}.
   asserts the existence
   of a probability space
   carrying $n$ i.i.d.\ uniform random variables
-  $\xi_1, \ldots, \xi_n \sim \cU[0,1]$
+  $\xi_1, \ldots, \xi_n \sim \Unif[0,1]$
   and a standard Brownian motion
   $B_n(s): s \in [0,1]$
   such that if
@@ -5962,7 +5953,7 @@ We begin with a basic fact about Lipschitz functions.
   \end{align*}
   Further, by the order of the kernel,
   \begin{align*}
-    \E\big[\widehat f_W(w)\big]
+    \E\big[\hat f_W(w)\big]
     - f_W(w)
     &=
     \int_{\cW}
@@ -5988,7 +5979,7 @@ We begin with a basic fact about Lipschitz functions.
   \begin{align*}
     &\sup_{w \in \cW}
     \big|
-    \E[\widehat f_W(w)]
+    \E[\hat f_W(w)]
     - f_W(w)
     - h^p B_p(w)
     \big|
@@ -6052,7 +6043,7 @@ We begin with a basic fact about Lipschitz functions.
   \begin{align*}
     &\sup_{w \in \cW}
     \big|
-    \E[\widehat f_W(w)]
+    \E[\hat f_W(w)]
     - f_W(w)
     - h^p B_p(w)
     \big|
@@ -6116,7 +6107,7 @@ We begin with a basic fact about Lipschitz functions.
   \begin{align*}
     \sup_{w \in \cW}
     \big|
-    \E[\widehat f_W(w)]
+    \E[\hat f_W(w)]
     - f_W(w)
     \big|
     &=
@@ -6143,9 +6134,9 @@ We begin with a basic fact about Lipschitz functions.
 
   Note that
   \begin{align*}
-    \widehat f_W(w)
+    \hat f_W(w)
     - E_n(w)
-    - \E[\widehat f_W(w)]
+    - \E[\hat f_W(w)]
     &=
     \frac{2}{n(n-1)}
     \sum_{i=1}^{n-1}
@@ -6181,9 +6172,9 @@ We begin with a basic fact about Lipschitz functions.
   \end{align*}
   to see
   \begin{align*}
-    \widehat f_W(w)
+    \hat f_W(w)
     - E_n(w)
-    - \E[\widehat f_W(w)]
+    - \E[\hat f_W(w)]
     &=
     \frac{2}{n}
     \sum_{i=1}^n
@@ -6840,16 +6831,16 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   and with a fixed distribution that does not depend on $\theta$.
   Let $\theta_0 = \frac{1}{2}$
   and $\theta_{1,n} = \frac{1}{2} + \frac{1}{\sqrt{8n}}$.
-  Then for any estimator $\widetilde \theta_n$
+  Then for any estimator $\tilde \theta_n$
   which is a function of
   $(A_1, A_2, \ldots, A_n, V)$ only,
   \begin{align*}
     \P_{\theta_0}^n \left(
-      \big| \widetilde \theta_n - \theta_0 \big|
+      \big| \tilde \theta_n - \theta_0 \big|
       \geq \frac{1}{\sqrt{32n}}
     \right)
     + \P_{\theta_{1,n}}^n \left(
-      \big| \widetilde \theta_n - \theta_{1,n} \big|
+      \big| \tilde \theta_n - \theta_{1,n} \big|
       \geq \frac{1}{\sqrt{32n}}
     \right)
     \geq \frac{1}{2}.
@@ -6964,15 +6955,15 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $\log \frac{1}{1-x} \leq 2x$
   for $x \in [0,1/2]$.
   Now define a test $f$ by
-  $f = 1$ if $\widetilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}$
+  $f = 1$ if $\tilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}$
   and $f=0$ otherwise,
   to see
   \begin{align*}
     \P_{\theta_0}^n \left(
-      \widetilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}
+      \tilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}
     \right)
     + \P_{\theta_{1,n}}^n \left(
-      \widetilde \theta_n \leq \frac{1}{2} + \frac{1}{\sqrt{32n}}
+      \tilde \theta_n \leq \frac{1}{2} + \frac{1}{\sqrt{32n}}
     \right)
     \geq \frac{1}{2}.
   \end{align*}
@@ -6983,30 +6974,30 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   we have the event inclusions
   \begin{align*}
     \left\{
-    \widetilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}
+    \tilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}
     \right\}
     &\subseteq
     \left\{
-    \left| \widetilde \theta_n - \theta_0 \right|
+    \left| \tilde \theta_n - \theta_0 \right|
     \geq \frac{1}{\sqrt{32n}}
     \right\} \\
     \left\{
-    \widetilde \theta_n \leq \frac{1}{2} + \frac{1}{\sqrt{32n}}
+    \tilde \theta_n \leq \frac{1}{2} + \frac{1}{\sqrt{32n}}
     \right\}
     &\subseteq
     \left\{
-    \left| \widetilde \theta_n - \theta_{1,n} \right|
+    \left| \tilde \theta_n - \theta_{1,n} \right|
     \geq \frac{1}{\sqrt{32n}}
     \right\}.
   \end{align*}
   Thus by the monotonicity of measures,
   \begin{align*}
     \P_{\theta_0}^n \left(
-      \big| \widetilde \theta_n - \theta_0 \big|
+      \big| \tilde \theta_n - \theta_0 \big|
       \geq \frac{1}{\sqrt{32n}}
     \right)
     + \P_{\theta_{1,n}}^n \left(
-      \big| \widetilde \theta_n - \theta_{1,n} \big|
+      \big| \tilde \theta_n - \theta_{1,n} \big|
       \geq \frac{1}{\sqrt{32n}}
     \right)
     \geq \frac{1}{2}.
@@ -7063,28 +7054,28 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   Note that $f_W(1) = \frac{1}{2} + (2\theta^2 - 1) \CH $,
   so $\theta^2 = \frac{1}{2 \CH}(f_W(1) - 1/2 + \CH)$.
-  Thus if $\widetilde f_W$ is some
+  Thus if $\tilde f_W$ is some
   density estimator
   depending only on the data $\bW_n$,
   we can naturally define
   the non-negative parameter point estimator
   \begin{align*}
-    \widetilde \theta_n^2
+    \tilde \theta_n^2
     &\vcentcolon=
     \frac{1}{2 \CH}\left(
-      \widetilde f_W(1) - \frac{1}{2} + \CH
+      \tilde f_W(1) - \frac{1}{2} + \CH
     \right)
     \vee 0.
   \end{align*}
   This gives the inequality
   \begin{align*}
     \big|
-    \widetilde \theta_n^2 - \theta^2
+    \tilde \theta_n^2 - \theta^2
     \big|
     &=
     \left|
     \frac{1}{2 \CH}\left(
-      \widetilde f_W(1) - \frac{1}{2} + \CH
+      \tilde f_W(1) - \frac{1}{2} + \CH
     \right)
     \vee 0
     -
@@ -7096,24 +7087,24 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{1}{2 \CH}
     \sup_{w \in \cW}
     \left|
-    \widetilde f_W(w)  - f_W(w)
+    \tilde f_W(w)  - f_W(w)
     \right|.
   \end{align*}
-  Therefore since also $\widetilde \theta \geq 0$
+  Therefore since also $\tilde \theta \geq 0$
   and
   $\theta \geq \frac{1}{2}$,
   \begin{align*}
     \big|
-    \widetilde \theta_n - \theta
+    \tilde \theta_n - \theta
     \big|
     &=
-    \frac{\big|\widetilde \theta_n^2 - \theta^2\big|}
-    {\widetilde \theta_n + \theta}
+    \frac{\big|\tilde \theta_n^2 - \theta^2\big|}
+    {\tilde \theta_n + \theta}
     \leq
     \frac{1}{\CH}
     \sup_{w \in \cW}
     \left|
-    \widetilde f_W(w)  - f_W(w)
+    \tilde f_W(w)  - f_W(w)
     \right|.
   \end{align*}
   Now we apply the point estimation lower bound from
@@ -7121,35 +7112,35 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   setting $\theta_0 = \frac{1}{2}$
   and $\theta_{1,n} = \frac{1}{2} + \frac{1}{\sqrt{8n}}$,
   noting that the estimator
-  $\widetilde \theta_n$
+  $\tilde \theta_n$
   is a function of $\bW_n$ only,
   thus is a function of $\bA_n$ and
   $\bV_n$ only and so satisfies the conditions.
   \begin{align*}
     &\P_{\theta_0} \left(
-      \sup_{w \in \cW} \big| \widetilde f_W(w) - f^{(0)}_W(w) \big|
+      \sup_{w \in \cW} \big| \tilde f_W(w) - f^{(0)}_W(w) \big|
       \geq \frac{1}{C\sqrt{n}}
     \right)
     + \P_{\theta_{1,n}} \left(
-      \sup_{w \in \cW} \big| \widetilde f_W(w) - f^{(1)}_W(w) \big|
+      \sup_{w \in \cW} \big| \tilde f_W(w) - f^{(1)}_W(w) \big|
       \geq \frac{1}{C\sqrt{n}}
     \right) \\
     &\quad\geq
     \P_{\theta_0} \left(
-      \big| \widetilde \theta_n - \theta_0 \big|
+      \big| \tilde \theta_n - \theta_0 \big|
       \geq \frac{1}{C \CH \sqrt{n}}
     \right)
     + \P_{\theta_{1,n}} \left(
-      \big| \widetilde \theta_n - \theta_{1,n} \big|
+      \big| \tilde \theta_n - \theta_{1,n} \big|
       \geq \frac{1}{C \CH \sqrt{n}}
     \right) \\
     &\quad\geq
     \P_{\theta_0} \left(
-      \big| \widetilde \theta_n - \theta_0 \big|
+      \big| \tilde \theta_n - \theta_0 \big|
       \geq \frac{1}{\sqrt{32n}}
     \right)
     + \P_{\theta_{1,n}} \left(
-      \big| \widetilde \theta_n - \theta_{1,n} \big|
+      \big| \tilde \theta_n - \theta_{1,n} \big|
       \geq \frac{1}{\sqrt{32n}}
     \right)
     \geq
@@ -7158,12 +7149,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   where we set $C \geq \frac{\sqrt{32}}{\CH}$.
   Therefore we deduce that
   \begin{align*}
-    \inf_{\widetilde f_W}
+    \inf_{\tilde f_W}
     \sup_{\P \in \cP}
     \P\left(
       \sup_{w \in \cW}
       \big|
-      \widetilde f_W(w) - f_W(w)
+      \tilde f_W(w) - f_W(w)
       \big|
       \geq
       \frac{1}{C \sqrt n}
@@ -7172,12 +7163,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   and so
   \begin{align*}
-    \inf_{\widetilde f_W}
+    \inf_{\tilde f_W}
     \sup_{\P \in \cP}
     \E_\P\left[
       \sup_{w \in \cW}
       \big|
-      \widetilde f_W(w) - f_W(w)
+      \tilde f_W(w) - f_W(w)
       \big|
     \right]
     \geq \frac{1}{4 C \sqrt{n}}.
@@ -7206,16 +7197,16 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Then by the main theorem in \citet{khasminskii1978lower},
   \begin{align*}
     \liminf_{n \to \infty}
-    \inf_{\widetilde f_W}
+    \inf_{\tilde f_W}
     \sup_{f \in \cF}
     \E_f\left[
       \left( \frac{n^2}{\log n} \right)^{\frac{\beta}{2\beta + 1}}
       \sup_{w \in \cW}
-      \big| \widetilde f_W(w) - f_W(w) \big|
+      \big| \tilde f_W(w) - f_W(w) \big|
     \right]
     > 0,
   \end{align*}
-  where $\widetilde f_W$ is any
+  where $\tilde f_W$ is any
   density estimator
   depending only on the $\frac{1}{2}n(n-1)$ i.i.d.\ data samples $\bW_n$.
   Now every density function in
@@ -7225,11 +7216,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Thus for large enough $n$ and
   some positive constant $C$,
   \begin{align*}
-    \inf_{\widetilde f_W}
+    \inf_{\tilde f_W}
     \sup_{\P \in \cPd}
     \E_\P\left[
       \sup_{w \in \cW}
-      \big| \widetilde f_W(w) - f_W(w) \big|
+      \big| \tilde f_W(w) - f_W(w) \big|
     \right]
     \geq
     \frac{1}{C}
@@ -7239,7 +7230,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \proofparagraph{upper bounds}
 
   The corresponding upper bounds follow by
-  using a dyadic kernel density estimator $\widehat f_W$
+  using a dyadic kernel density estimator $\hat f_W$
   with a boundary bias-corrected
   Lipschitz kernel of order $p \geq \beta$
   and using a bandwidth of $h$.
@@ -7248,7 +7239,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sup_{\P \in \cP}
     \sup_{w \in \cW}
     \big|
-    \E_\P\big[\widehat f_W(w)\big]
+    \E_\P\big[\hat f_W(w)\big]
     - f_W(w)
     \big|
     \leq
@@ -7265,7 +7256,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sup_{\P \in \cP}
     \E_\P\left[
       \sup_{w \in \cW}
-      \big|\widehat f_W(w) - \E_\P[\widehat f_W(w)]\big|
+      \big|\hat f_W(w) - \E_\P[\hat f_W(w)]\big|
     \right]
     &\lesssim
     \frac{1}{\sqrt n}
@@ -7273,7 +7264,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sup_{\P \in \cPd}
     \E_\P\left[
       \sup_{w \in \cW}
-      \big|\widehat f_W(w) - \E_\P[\widehat f_W(w)]\big|
+      \big|\hat f_W(w) - \E_\P[\hat f_W(w)]\big|
     \right]
     &\lesssim
     \sqrt{\frac{\log n}{n^2h}}.
@@ -7283,7 +7274,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sup_{\P \in \cP}
     \E_\P\left[
       \sup_{w \in \cW}
-      \big|\widehat f_W(w) - f_W(w)\big|
+      \big|\hat f_W(w) - f_W(w)\big|
     \right]
     &\lesssim
     h^\beta
@@ -7292,7 +7283,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sup_{\P \in \cPd}
     \E_\P\left[
       \sup_{w \in \cW}
-      \big|\widehat f_W(w) - f_W(w)\big|
+      \big|\hat f_W(w) - f_W(w)\big|
     \right]
     &\lesssim
     h^\beta
@@ -7307,7 +7298,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sup_{\P \in \cP}
     \E_\P\left[
       \sup_{w \in \cW}
-      \big|\widehat f_W(w) - f_W(w)\big|
+      \big|\hat f_W(w) - f_W(w)\big|
     \right]
     &\lesssim
     \frac{1}{\sqrt n}
@@ -7319,7 +7310,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sup_{\P \in \cPd}
     \E_\P\left[
       \sup_{w \in \cW}
-      \big|\widehat f_W(w) - f_W(w)\big|
+      \big|\hat f_W(w) - f_W(w)\big|
     \right]
     &\leq
     C\left(
@@ -7342,12 +7333,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &=
     \E\Big[
       \big(
-      \widehat f_W(w)
-      - \E[\widehat f_W(w)]
+      \hat f_W(w)
+      - \E[\hat f_W(w)]
       \big)
       \big(
-      \widehat f_W(w')
-      - \E[\widehat f_W(w')]
+      \hat f_W(w')
+      - \E[\hat f_W(w')]
       \big)
       \Big] \\
     &=
@@ -7615,13 +7606,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sup_{w \in \cW} \|k_h^A(\cdot,w)\|_\TV
     &=
     2\sup_{w \in \cW}
-    \sup_{m \in \bbN}
+    \sup_{m \in \N}
     \sup_{a_0 \leq \cdots \leq a_m}
     \sum_{i=1}^m
     \big|k_h^A(a_i,w) - k_h^A(a_{i-1},w)\big| \\
     &=
     2\sup_{w \in \cW}
-    \sup_{m \in \bbN}
+    \sup_{m \in \N}
     \sup_{a_0 \leq \cdots \leq a_m}
     \sum_{i=1}^m
     \left|
@@ -7637,7 +7628,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     2 \sup_{w \in \cW}
     \int_{[w \pm h] \cap \cW}
     |k_h(s,w)|
-    \sup_{m \in \bbN}
+    \sup_{m \in \N}
     \sup_{a_0 \leq \cdots \leq a_m}
     \sum_{i=1}^m
     \big|
@@ -7907,7 +7898,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   (an enlarged probability space)
   conditionally mean-zero
   and conditionally Gaussian processes
-  $\widetilde Z_n^{E\prime}(w)$
+  $\tilde Z_n^{E\prime}(w)$
   with the same conditional covariance structure as
   $\sqrt{n^2 h} E_n(w)$ and
   satisfying
@@ -7915,7 +7906,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &\P\left(
       \sup_{w \in \cW}
       \big|
-      \sqrt{n^2h} E_n(w) - \widetilde Z_n^{E\prime}(w)
+      \sqrt{n^2h} E_n(w) - \tilde Z_n^{E\prime}(w)
       \big|
       > t_n
       \Bigm\vert \bA_n'
@@ -7925,7 +7916,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \sup_{w \in \cW}
       \left|
       \sqrt{\frac{n(n-1)}{2}} E_n(w)
-      - \sqrt{\frac{n-1}{2nh}} \widetilde Z_n^{E\prime}(w)
+      - \sqrt{\frac{n-1}{2nh}} \tilde Z_n^{E\prime}(w)
       \right|
       > \sqrt{\frac{n-1}{2nh}}
       t_n
@@ -7980,15 +7971,15 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $h \lesssim 1 / \log n$
   and $\frac{\log n}{n^2 h} \lesssim 1$.
   To obtain the trajectory regularity property of
-  $\widetilde Z_n^{E\prime}$,
+  $\tilde Z_n^{E\prime}$,
   note that
   for $w, w' \in \cW$,
   by conditional independence,
   \begin{align*}
     &\E\left[
       \big|
-      \widetilde Z_n^{E\prime}(w)
-      - \widetilde Z_n^{E\prime}(w')
+      \tilde Z_n^{E\prime}(w)
+      - \tilde Z_n^{E\prime}(w')
       \big|^2
       \mid \bA_n'
     \right]^{1/2} \\
@@ -8035,8 +8026,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
       \big|
-      \widetilde Z_n^{E\prime}(w)
-      - \widetilde Z_n^{E\prime}(w')
+      \tilde Z_n^{E\prime}(w)
+      - \tilde Z_n^{E\prime}(w')
       \big|
       \mid \bA_n'
     \right]
@@ -8051,10 +8042,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   and there exists a modification
   with continuous trajectories.
   Finally in order to have
-  $\bA_n', \bV_n', E_n'$ and $\widetilde Z_n^{E\prime}$
+  $\bA_n', \bV_n', E_n'$ and $\tilde Z_n^{E\prime}$
   all defined on the same probability space,
   we note that $\bA_n$ and $\bV_n$ are random vectors
-  while $E_n'$ and $\widetilde Z_n^{E\prime}$
+  while $E_n'$ and $\tilde Z_n^{E\prime}$
   are stochastic processes
   with continuous sample paths
   indexed on
@@ -8064,15 +8055,15 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   allows us to ``glue together''
   $\big(\bA_n, \bV_n, E_n\big)$
   and
-  $\big(E_n', \widetilde Z_n^{E\prime}\big)$
+  $\big(E_n', \tilde Z_n^{E\prime}\big)$
   in the desired way
   on another new probability space,
   giving
-  $\big(\bA_n', \bV_n', E_n', \widetilde Z_n^{E\prime}\big)$,
+  $\big(\bA_n', \bV_n', E_n', \tilde Z_n^{E\prime}\big)$,
   where we retain the single prime notation for clarity.
 
   Note that the trajectories of the conditionally Gaussian processes
-  $\widetilde Z_n^{E\prime}$ depend on the choice of $t_n$,
+  $\tilde Z_n^{E\prime}$ depend on the choice of $t_n$,
   necessitating the use of a divergent sequence $R_n$ to establish
   bounds in probability on the coupling error.
 \end{proof}
@@ -8086,20 +8077,20 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Let $\cW_\delta$ be a $\delta_n$-covering of $\cW$
   with cardinality $\Leb(\cW)/\delta_n$
   which is also a $\delta_n$-packing.
-  Let $\widetilde Z_{n,\delta}^{E\prime}$
-  be the restriction of $\widetilde Z_n^{E\prime}$
+  Let $\tilde Z_{n,\delta}^{E\prime}$
+  be the restriction of $\tilde Z_n^{E\prime}$
   to $\cW_\delta$.
   Let
-  $\widetilde \Sigma_n^E(w, w') =
-  \E\big[\widetilde Z_n^{E\prime}(w) \widetilde Z_n^{E\prime}(w')
+  $\tilde \Sigma_n^E(w, w') =
+  \E\big[\tilde Z_n^{E\prime}(w) \tilde Z_n^{E\prime}(w')
   \mid \bA_n' \big]$
-  be the conditional covariance function of $\widetilde Z_n^{E\prime}$,
+  be the conditional covariance function of $\tilde Z_n^{E\prime}$,
   and define
-  $\Sigma_n^E(w,w') = \E\big[\widetilde \Sigma_n^E(w,w')\big]$.
-  Let $\widetilde \Sigma^E_{n,\delta}$
+  $\Sigma_n^E(w,w') = \E\big[\tilde \Sigma_n^E(w,w')\big]$.
+  Let $\tilde \Sigma^E_{n,\delta}$
   and $\Sigma^E_{n,\delta}$
   be the restriction matrices of
-  $\widetilde \Sigma^E_n$
+  $\tilde \Sigma^E_n$
   and $\Sigma^E_n$
   respectively
   to $\cW_\delta \times \cW_\delta$,
@@ -8111,19 +8102,19 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Let $N \sim \cN(0, I_{|\cW_\delta|})$
   be independent of $\bA_n'$,
   and define using the matrix square root
-  $\widetilde Z_{n,\delta}^{E\dprime}
-  = \big(\widetilde \Sigma^E_{n,\delta})^{1/2} N$,
+  $\tilde Z_{n,\delta}^{E\dprime}
+  = \big(\tilde \Sigma^E_{n,\delta})^{1/2} N$,
   which has the same distribution as
-  $\widetilde Z_{n,\delta}^{E\prime}$,
+  $\tilde Z_{n,\delta}^{E\prime}$,
   conditional on $\bA_n'$.
   Extend it using
   the Vorob'ev--Berkes--Philipp theorem
   (Lemma~\ref{lem:vbp})
   to the compact interval $\cW$,
   giving a conditionally Gaussian process
-  $\widetilde Z_n^{E\dprime}$
+  $\tilde Z_n^{E\dprime}$
   which has the same distribution as
-  $\widetilde Z_{n}^{E\prime}$,
+  $\tilde Z_{n}^{E\prime}$,
   conditional on $\bA_n'$.
   Define
   $Z_{n,\delta}^{E\dprime} = \big(\Sigma^E_{n,\delta})^{1/2} N$,
@@ -8138,14 +8129,14 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $\Sigma_n^E$.
 
   \proofparagraph{closeness of $Z_n^{E\dprime}$ and
-  $\widetilde Z_n^{E\dprime}$ on the mesh}
+  $\tilde Z_n^{E\dprime}$ on the mesh}
 
   Note that conditionally on $\bA_n'$,
-  $\widetilde Z_{n,\delta}^{E\dprime} - Z_{n,\delta}^{E\dprime}$
+  $\tilde Z_{n,\delta}^{E\dprime} - Z_{n,\delta}^{E\dprime}$
   is a length-$|\cW_\delta|$
   Gaussian random vector with covariance matrix
   $\big(
-  \big(\widetilde \Sigma^E_{n,\delta}\big)^{1/2}
+  \big(\tilde \Sigma^E_{n,\delta}\big)^{1/2}
   - \big(\Sigma^E_{n,\delta}\big)^{1/2}
   \big)^2$.
   So by the Gaussian maximal inequality in
@@ -8155,19 +8146,19 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \E\left[
       \max_{w \in \cW_\delta}
-      \big|\widetilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
+      \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
       \Bigm| \bA_n'
     \right]
     &\lesssim
     \sqrt{\log n}
     \left\|
-    \widetilde\Sigma^E_{n,\delta}
+    \tilde\Sigma^E_{n,\delta}
     - \Sigma^E_{n,\delta}
     \right\|_2^{1/2},
   \end{align*}
   since $\log |\cW_\delta| \lesssim \log n$.
   Next, we apply some U-statistic theory to
-  $\widetilde\Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}$,
+  $\tilde\Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}$,
   with the aim of applying the
   matrix concentration result
   for second-order U-statistics
@@ -8175,14 +8166,14 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Firstly we note that
   since
   the conditional covariance structures of
-  $\widetilde Z_n^{E\prime}$ and $\sqrt{n^2h} E_n$
+  $\tilde Z_n^{E\prime}$ and $\sqrt{n^2h} E_n$
   are equal in distribution,
   we have,
   writing $E_n(\cW_\delta)$
   for the vector $\big(E_n(w) : w \in \cW_\delta\big)$
   and similarly for $k_h(W_{ij}, \cW_\delta)$,
   \begin{align*}
-    \widetilde\Sigma^E_{n,\delta}
+    \tilde\Sigma^E_{n,\delta}
     &=
     n^2h \E[E_n(\cW_\delta) E_n(\cW_\delta)^\T \mid \bA_n] \\
     &=
@@ -8241,20 +8232,20 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   The following Hoeffding decomposition holds,
   by Lemma~\ref{lem:general_hoeffding}:
   \begin{align*}
-    \widetilde \Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}
+    \tilde \Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}
     &=
-    \widetilde L +\widetilde Q,
+    \tilde L +\tilde Q,
   \end{align*}
   where
   \begin{align*}
-    \widetilde L
+    \tilde L
     &=
     \frac{4h}{n-1}
     \sum_{i=1}^n
     \big(
     u(A_i) - u
     \big), \\
-    \widetilde Q
+    \tilde Q
     &=
     \frac{4h}{(n-1)^2}
     \sum_{i=1}^{n-1}
@@ -8361,11 +8352,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   and $\|u\|_2$, by Jensen's inequality.
   Therefore applying the matrix Bernstein inequality
   (Lemma~\ref{lem:matrix_bernstein})
-  to the zero-mean matrix $\widetilde L$ gives
+  to the zero-mean matrix $\tilde L$ gives
   \begin{align*}
     \E\left[
       \left\|
-      \widetilde L
+      \tilde L
       \right\|_2
     \right]
     &\lesssim
@@ -8380,11 +8371,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   Applying the matrix U-statistic concentration inequality
   (Lemma~\ref{lem:ustat_matrix_concentration})
-  to the zero-mean matrix $\widetilde Q$ gives
+  to the zero-mean matrix $\tilde Q$ gives
   \begin{align*}
     \E\left[
       \left\|
-      \widetilde Q
+      \tilde Q
       \right\|_2
     \right]
     &\lesssim
@@ -8404,38 +8395,38 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \E\left[
       \max_{w \in \cW_\delta}
-      \big|\widetilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
+      \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
     \right]
     &\lesssim
     \sqrt{\log n} \
     \E\left[
       \left\|
-      \widetilde\Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}
+      \tilde\Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}
       \right\|_2^{1/2}
     \right]
     \lesssim
     \sqrt{\log n} \
     \E\left[
       \left\|
-      \widetilde\Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}
+      \tilde\Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}
       \right\|_2
     \right]^{1/2} \\
     &\lesssim
     \sqrt{\log n} \
     \E\left[
       \left\|
-      \widetilde L
-      + \widetilde Q
+      \tilde L
+      + \tilde Q
       \right\|_2
     \right]^{1/2}
     \lesssim
     \sqrt{\log n} \
     \E\left[
       \left\|
-      \widetilde L
+      \tilde L
       \right\|_2
       + \left\|
-      \widetilde Q
+      \tilde Q
       \right\|_2
     \right]^{1/2} \\
     &\lesssim
@@ -8451,7 +8442,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{(\log n)^{3/4}}{n^{1/4}}.
   \end{align*}
 
-  \proofparagraph{regularity of $Z_n^E$ and $\widetilde Z_n^{E\prime}$}
+  \proofparagraph{regularity of $Z_n^E$ and $\tilde Z_n^{E\prime}$}
 
   Define the semimetrics
   \begin{align*}
@@ -8460,21 +8451,21 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \E\left[
       \big|Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w')\big|^2
     \right],
-    &\widetilde\rho(w, w')^2
+    &\tilde\rho(w, w')^2
     &=
     \E\left[
-      \big|\widetilde Z_n^{E\dprime}(w) - \widetilde Z_n^{E\dprime}(w')\big|^2
+      \big|\tilde Z_n^{E\dprime}(w) - \tilde Z_n^{E\dprime}(w')\big|^2
       \mid \bA_n
     \right].
   \end{align*}
-  We can bound $\widetilde \rho$ as follows,
-  since $\widetilde Z_n^{E\dprime}$ and $\sqrt{n^2h} E_n$
+  We can bound $\tilde \rho$ as follows,
+  since $\tilde Z_n^{E\dprime}$ and $\sqrt{n^2h} E_n$
   have the same conditional covariance structure:
   \begin{align*}
-    \widetilde\rho(w, w')
+    \tilde\rho(w, w')
     &=
     \E\left[
-      \big|\widetilde Z_n^{E\dprime}(w) - \widetilde Z_n^{E\dprime}(w')\big|^2
+      \big|\tilde Z_n^{E\dprime}(w) - \tilde Z_n^{E\dprime}(w')\big|^2
       \mid \bA_n'
     \right]^{1/2}
     =
@@ -8494,20 +8485,20 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \rho(w, w')
     &=
-    \sqrt{\E[\widetilde \rho(w,w')^2]}
+    \sqrt{\E[\tilde \rho(w,w')^2]}
     \lesssim
     h^{-1}
     |w-w'|.
   \end{align*}
   Thus Lemma~\ref{lem:gaussian_process_maximal}
   applies directly to $Z_n^E$
-  and conditionally to $\widetilde Z_n^{E\prime}$,
+  and conditionally to $\tilde Z_n^{E\prime}$,
   with $\delta_n \in (0, 1/(2h)]$,
   yielding
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
-      \big|\widetilde Z_n^{E\dprime}(w) - \widetilde Z_n^{E\dprime}(w')\big|
+      \big|\tilde Z_n^{E\dprime}(w) - \tilde Z_n^{E\dprime}(w')\big|
       \bigm\vert \bA_n'
     \right]
     &\lesssim
@@ -8538,16 +8529,16 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
-      \big|\widetilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
+      \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
     \right]
     &\lesssim
     \E\left[
       \max_{w \in \cW_\delta}
-      \big|\widetilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
+      \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
     \right]
     + \E\left[
       \sup_{|w-w'| \leq \delta_n}
-      \big|\widetilde Z_n^{E\dprime}(w) - \widetilde Z_n^{E\dprime}(w')\big|
+      \big|\tilde Z_n^{E\dprime}(w) - \tilde Z_n^{E\dprime}(w')\big|
     \right] \\
     &\qquad+
     \E\left[
@@ -8565,7 +8556,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
-      \big|\widetilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
+      \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
     \right]
     &\lesssim
     n^{-1/6} (\log n)^{2/3}.
@@ -8576,9 +8567,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   from Lemma~\ref{lem:vbp},
   this time conditionally on $\bA_n'$,
   to the random variables
-  $\big(\bA_n', \widetilde Z_n^{E\prime}\big)$
+  $\big(\bA_n', \tilde Z_n^{E\prime}\big)$
   and
-  $\big(\widetilde Z_n^{E\dprime}, Z_n^{E\dprime}\big)$.
+  $\big(\tilde Z_n^{E\dprime}, Z_n^{E\dprime}\big)$.
 \end{proof}
 
 \begin{proof}[Theorem~\ref{thm:strong_approx_fW}]
@@ -8594,9 +8585,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   be the strong approximation for $L_n$
   from Lemma~\ref{lem:strong_approx_Ln}.
   Likewise let
-  $\big(\bA_n'', \bV_n'', E_n'', \widetilde Z_n^{E\dprime}\big)$
+  $\big(\bA_n'', \bV_n'', E_n'', \tilde Z_n^{E\dprime}\big)$
   and
-  $\big(\bA_n''', \bV_n''', \widetilde Z_n^{E\tprime}, Z_n^{E\tprime}\big)$
+  $\big(\bA_n''', \bV_n''', \tilde Z_n^{E\tprime}, Z_n^{E\tprime}\big)$
   be the conditional and unconditional strong approximations for $E_n$
   given in Lemmas~\ref{lem:conditional_strong_approx_En}
   and \ref{lem:unconditional_strong_approx_En}
@@ -8608,7 +8599,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   (Lemma~\ref{lem:vbp}).
   In particular, dropping the prime notation for clarity,
   we construct
-  $\big(\bA_n, \bV_n, L_n, Z_n^L, E_n, \widetilde Z_n^E, Z_n^E\big)$
+  $\big(\bA_n, \bV_n, L_n, Z_n^L, E_n, \tilde Z_n^E, Z_n^E\big)$
   with the following properties:
   \begin{enumerate}[label=(\roman*)]
 
@@ -8619,12 +8610,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
     \item
       $\sup_{w \in \cW}
-      \big|\sqrt{n^2h} E_n(w) - \widetilde Z^E_n(w) \big|
+      \big|\sqrt{n^2h} E_n(w) - \tilde Z^E_n(w) \big|
       \lesssim_\P n^{-1/4}  h^{-3/8} (\log n)^{3/8} R_n$,
 
     \item
       $\sup_{w \in \cW}
-      \big| \widetilde Z^E_n(w) - Z^E_n(w) \big|
+      \big| \tilde Z^E_n(w) - Z^E_n(w) \big|
       \lesssim_\P n^{-1/6} (\log n)^{2/3}$,
 
     \item
@@ -8638,7 +8629,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   while $Z_n^E$ is independent of $\bA_n$.
   Therefore $(Z_n^L, Z_n^E)$ are jointly Gaussian.
   To obtain the strong approximation result
-  for $\widehat f_W$,
+  for $\hat f_W$,
   define the mean-zero Gaussian process
   \begin{align*}
     Z_n^f(w)
@@ -8677,7 +8668,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &
     \sup_{w \in \cW}
     \big|
-    \widehat f_W(w) - \E[\widehat f_W(w)]
+    \hat f_W(w) - \E[\hat f_W(w)]
     - Z_n^f(w)
     \big|
     \\
@@ -8700,11 +8691,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \right|
     + \frac{1}{\sqrt{n^2h}}
     \left|
-    \widetilde Z_n^E(w) - \sqrt{n^2h} E_n(w)
+    \tilde Z_n^E(w) - \sqrt{n^2h} E_n(w)
     \right|
     + \frac{1}{\sqrt{n^2h}}
     \left|
-    Z_n^E(w) - \widetilde Z_n^E(w)
+    Z_n^E(w) - \tilde Z_n^E(w)
     \right| \\
     &\qquad+
     \big| Q_n(w) \big|
@@ -8736,8 +8727,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     + \E\big[ E_n(w) E_n(w') \big] \\
     &=
     \E\big[
-      \big(\widehat f_W(w) - \E[\widehat f_W(w)]\big)
-      \big(\widehat f_W(w') - \E[\widehat f_W(w')]\big)
+      \big(\hat f_W(w) - \E[\hat f_W(w)]\big)
+      \big(\hat f_W(w') - \E[\hat f_W(w')]\big)
       \big].
   \end{align*}
 
@@ -8762,7 +8753,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   %
   \begin{align*}
     \left| T_n(w) - Z_n^T(w) \right|
-    &= \frac{\big| \widehat f_W(w) - f_W(w) - Z_n^f(w) \big|}
+    &= \frac{\big| \hat f_W(w) - f_W(w) - Z_n^f(w) \big|}
     {\sqrt{\Sigma_n(w,w)}}.
   \end{align*}
   %
@@ -8773,21 +8764,21 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     &\sup_{w \in \cW}
     \left|
-    \widehat f_W(w) - f_W(w)
+    \hat f_W(w) - f_W(w)
     -
     Z_n^f(w)
     \right|
     \leq
     \sup_{w \in \cW}
     \left|
-    \widehat f_W(w)
-    - \E\big[\widehat f_W(w)\big]
+    \hat f_W(w)
+    - \E\big[\hat f_W(w)\big]
     -
     Z_n^f(w)
     \right|
     + \sup_{w \in \cW}
     \left|
-    \E\big[\widehat f_W(w)\big]
+    \E\big[\hat f_W(w)\big]
     - f_W(w)
     \right| \\
     &\quad\lesssim_\P
@@ -9173,7 +9164,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     &\P\left(
       \left|
-      \widehat f_W(w) - f_W(w)
+      \hat f_W(w) - f_W(w)
       \right|
       \leq
       q_{1-\alpha}
@@ -9226,7 +9217,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     &\P\left(
       \left|
-      \widehat f_W(w) - f_W(w)
+      \hat f_W(w) - f_W(w)
       \right|
       \leq
       q_{1-\alpha}
@@ -9273,7 +9264,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \left|
     \P\left(
       \left|
-      \widehat f_W(w) - f_W(w)
+      \hat f_W(w) - f_W(w)
       \right|
       \leq
       q_{1-\alpha}
@@ -9398,12 +9389,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \big)
     &\leq
     C_1 \P\left(
-      C_1 |\widetilde S_n| \geq t
+      C_1 |\tilde S_n| \geq t
     \right),
   \end{align*}
   where
   \begin{align*}
-    \widetilde S_n
+    \tilde S_n
     &=
     \sum_{1 \leq i < j \leq n}
     \sum_{1 \leq q < r \leq n}
@@ -9603,7 +9594,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and for all $t > 0$,
   \begin{align*}
     \P\left(
-      |\widetilde S_n| \geq t
+      |\tilde S_n| \geq t
     \right)
     &\leq
     C_2 \exp\left(
@@ -9638,7 +9629,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right)
     &\leq
     C_1 \P\left(
-      C_1 |\widetilde S_n| \geq t
+      C_1 |\tilde S_n| \geq t
     \right) \\
     &\leq
     C_1 C_2 \exp\left(
@@ -9681,7 +9672,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     - \frac{4n-6}{n(n-1)}
     \E[k_{ij}]
     \E[k_{ij}'] \\
-    \widehat \Sigma_n(w,w')
+    \hat \Sigma_n(w,w')
     &=
     \frac{2}{n(n-1)}
     \frac{2}{n(n-1)}
@@ -9695,8 +9686,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     S_{ijr}
     -
     \frac{4n-6}{n(n-1)}
-    \widehat f_W(w)
-    \widehat f_W(w'),
+    \hat f_W(w)
+    \hat f_W(w'),
   \end{align*}
   where
   \begin{align*}
@@ -9721,19 +9712,19 @@ Theorem~3.3 in \citet{gine2000exponential}.
   We will prove uniform consistency of each of the three terms separately.
 
   \proofparagraph{uniform consistency of the
-    $\widehat f_W(w) \widehat f_W(w')$ term}
+    $\hat f_W(w) \hat f_W(w')$ term}
 
   By boundedness of $f_W$ and
   Theorem~\ref{thm:app_uniform_consistency},
-  $\widehat f_W$ is uniformly bounded in probability.
+  $\hat f_W$ is uniformly bounded in probability.
   Noting that
-  $\E[\widehat f_W(w)] = \E[k_{ij}]$
+  $\E[\hat f_W(w)] = \E[k_{ij}]$
   and by Lemma~\ref{lem:app_variance_bounds},
   \begin{align*}
     &\sup_{w,w' \in \cW}
     \left|
     \frac{
-      \widehat f_W(w) \widehat f_W(w')
+      \hat f_W(w) \hat f_W(w')
       - \E\big[k_{ij}\big] \E\big[k_{ij'}\big]}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
@@ -9741,24 +9732,24 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sup_{w,w' \in \cW}
     \left|
     \frac{
-      \widehat f_W(w) \widehat f_W(w')
-      - \E\big[\widehat f_W(w)\big] \E\big[\widehat f_W(w')\big]}
+      \hat f_W(w) \hat f_W(w')
+      - \E\big[\hat f_W(w)\big] \E\big[\hat f_W(w')\big]}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
     &\quad\leq
     \sup_{w,w' \in \cW}
     \left|
-    \frac{\widehat f_W(w) - \E\big[\widehat f_W(w)\big]}
+    \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
     {\sqrt{\Sigma_n(w,w)}}
-    \widehat f_W(w')
-    + \frac{\widehat f_W(w') - \E\big[\widehat f_W(w')\big]}
+    \hat f_W(w')
+    + \frac{\hat f_W(w') - \E\big[\hat f_W(w')\big]}
     {\sqrt{\Sigma_n(w',w')}}
-    \E\big[\widehat f_W(w)]
+    \E\big[\hat f_W(w)]
     \right| \\
     &\quad\lesssim_\P
     \sup_{w \in \cW}
     \left|
-    \frac{\widehat f_W(w) - \E\big[\widehat f_W(w)\big]}
+    \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
     {\sqrt{\Sigma_n(w,w)}}
     \right|
     \lesssim_\P
@@ -9897,7 +9888,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sup_{w,w' \in \cW}
     \left|
     \frac{
-      \widehat f_W(w) \widehat f_W(w')
+      \hat f_W(w) \hat f_W(w')
       - \E\big[k_{ij}\big] \E\big[k_{ij'}\big]}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
@@ -10779,7 +10770,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n(w,w') - \Sigma_n(w,w')}
+    \frac{\hat \Sigma_n(w,w') - \Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     &\leq
@@ -10804,7 +10795,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{4n-6}{n(n-1)}
     \sup_{w,w' \in \cW}
     \left|
-    \frac{\widehat f_W(w) \widehat f_W(w') - \E[k_{ij}] \E[k_{ij}']}
+    \frac{\hat f_W(w) \hat f_W(w') - \E[k_{ij}] \E[k_{ij}']}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
     &\lesssim_\P
@@ -10889,14 +10880,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     k_{ij}
     k_{ij}' \\
     &=
-    \widehat \Sigma_n(w,w')
+    \hat \Sigma_n(w,w')
     + \frac{4}{n^2(n-1)^2}
     \sum_{i < j}
     k_{ij}
     k_{ir}'
     + \frac{4n-6}{n(n-1)}
-    \widehat f
-    \widehat f',
+    \hat f
+    \hat f',
   \end{align*}
   and the result follows.
 \end{proof}
@@ -10933,31 +10924,31 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \objective(M) = \sup_{w,w' \in \cW}
     \left|
-    \frac{M(w,w') - \widehat\Sigma_n(w,w')}
-    {\sqrt{\widehat \Sigma_n(w,w) + \widehat \Sigma_n(w',w')}}
+    \frac{M(w,w') - \hat\Sigma_n(w,w')}
+    {\sqrt{\hat \Sigma_n(w,w) + \hat \Sigma_n(w',w')}}
     \right|.
   \end{align*}
   By Lemma~\ref{lem:covariance_estimation}
   with $w = w'$ we deduce that
   $\sup_{w \in \cW}
-  \left|\frac{\widehat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
+  \left|\frac{\hat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
   \lesssim_\P \sqrt{h \log n}$
   and so
   \begin{align*}
     \objective(\Sigma_n)
     &= \sup_{w,w' \in \cW}
     \left|
-    \frac{\widehat\Sigma_n(w,w') - \Sigma_n}
+    \frac{\hat\Sigma_n(w,w') - \Sigma_n}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     \sqrt{\frac{\Sigma_n(w,w) + \Sigma_n(w',w')}
-      {\widehat \Sigma_n(w,w) + \widehat \Sigma_n(w',w')}} \\
+      {\hat \Sigma_n(w,w) + \hat \Sigma_n(w',w')}} \\
     &\lesssim_\P
     \frac{\sqrt{\log n}}{n}
     \left(
-      1 - \frac{\big|\widehat \Sigma_n(w,w) - \Sigma_n(w,w)\big|}
+      1 - \frac{\big|\hat \Sigma_n(w,w) - \Sigma_n(w,w)\big|}
       {\Sigma_n(w,w)}
-      - \frac{\big|\widehat \Sigma_n(w',w') - \Sigma_n(w',w')\big|}
+      - \frac{\big|\hat \Sigma_n(w',w') - \Sigma_n(w',w')\big|}
       {\Sigma_n(w',w')}
     \right)^{-1/2} \\
     &\lesssim_\P
@@ -10979,10 +10970,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
   there exists a feasible function $M_\varepsilon$ with
   $\objective(M_\varepsilon) \leq \objective^* + \varepsilon$,
   and we call such a solution $\varepsilon$-optimal.
-  Let $\widehat \Sigma_n^+$ be an $n^{-1}$-optimal solution.
+  Let $\hat \Sigma_n^+$ be an $n^{-1}$-optimal solution.
   Then
   \begin{align*}
-    \objective(\widehat \Sigma_n^+)
+    \objective(\hat \Sigma_n^+)
     &\leq \objective^* + n^{-1}
     \leq \objective(\Sigma_n) + n^{-1}.
   \end{align*}
@@ -10990,11 +10981,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
+    \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     &\leq
-    \objective(\widehat \Sigma_n^+)
+    \objective(\hat \Sigma_n^+)
     + \objective(\Sigma_n)
     \leq 2 \, \objective(\Sigma_n) + n^{-1}
     \lesssim_\P
@@ -11004,8 +10995,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{proof}[Lemma~\ref{lem:variance_estimator_bounds}]
 
-  Since $\widehat \Sigma_n^+$ is positive semi-definite,
-  we must have $\widehat \Sigma_n^+(w,w) \geq 0$.
+  Since $\hat \Sigma_n^+$ is positive semi-definite,
+  we must have $\hat \Sigma_n^+(w,w) \geq 0$.
   Now Lemma~\ref{lem:app_SDP}
   implies that for all $\varepsilon \in (0,1)$
   there exists a $C_\varepsilon$ such that
@@ -11013,7 +11004,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\P\left(
       \Sigma_n(w,w) - C_\varepsilon \frac{\sqrt{\log n}}{n} \sqrt{\Sigma_n(w,w)}
       \leq
-      \widehat \Sigma_n^+(w,w)
+      \hat \Sigma_n^+(w,w)
       \leq
       \Sigma_n(w,w) + C_\varepsilon \frac{\sqrt{\log n}}{n} \sqrt{\Sigma_n(w,w)}
       \text{ for all } w \in \cW
@@ -11033,8 +11024,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \inf_{w \in \cW} \Sigma_n(w,w)
     - \frac{\sqrt{\log n}}{n} \sqrt{\inf_{w \in \cW} \Sigma_n(w,w)}
     \lesssim_\P
-    \inf_{w \in \cW}\widehat \Sigma_n^+(w,w), \\
-    \sup_{w \in \cW}\widehat \Sigma_n^+(w,w)
+    \inf_{w \in \cW}\hat \Sigma_n^+(w,w), \\
+    \sup_{w \in \cW}\hat \Sigma_n^+(w,w)
     \lesssim_\P
     \sup_{w \in \cW} \Sigma_n(w,w)
     + \frac{\sqrt{\log n}}{n} \sqrt{\sup_{w \in \cW} \Sigma_n(w,w)}.
@@ -11046,8 +11037,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     - \frac{\sqrt{\log n}}{n}
     \left( \frac{\Dl}{\sqrt n} + \frac{1}{\sqrt{n^2h}} \right)
     \lesssim_\P
-    \inf_{w \in \cW}\widehat \Sigma_n^+(w,w), \\
-    \sup_{w \in \cW}\widehat \Sigma_n^+(w,w)
+    \inf_{w \in \cW}\hat \Sigma_n^+(w,w), \\
+    \sup_{w \in \cW}\hat \Sigma_n^+(w,w)
     \lesssim_\P
     \frac{\Du^2}{n} + \frac{1}{n^2h}
     + \frac{\sqrt{\log n}}{n}
@@ -11057,9 +11048,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \frac{\Dl^2}{n} + \frac{1}{n^2h}
     \lesssim_\P
-    \inf_{w \in \cW}\widehat \Sigma_n^+(w,w)
+    \inf_{w \in \cW}\hat \Sigma_n^+(w,w)
     \leq
-    \sup_{w \in \cW}\widehat \Sigma_n^+(w,w)
+    \sup_{w \in \cW}\hat \Sigma_n^+(w,w)
     \lesssim_\P
     \frac{\Du^2}{n} + \frac{1}{n^2h}.
   \end{align*}
@@ -11071,17 +11062,17 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   \begin{align*}
     \sup_{w \in \cW}
-    \left| \widehat T_n(w) - T_n(w) \right|
+    \left| \hat T_n(w) - T_n(w) \right|
     &=
     \sup_{w \in \cW}
     \left\{
     \left|
-    \widehat f_W(w) - f_W(w)
+    \hat f_W(w) - f_W(w)
     \right|
     \cdot
     \left|
     \frac{1}
-    {\sqrt{\widehat\Sigma_n^+(w,w)}}
+    {\sqrt{\hat\Sigma_n^+(w,w)}}
     -
     \frac{1}{\sqrt{\Sigma_n(w,w)}}
     \right|
@@ -11089,37 +11080,37 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\leq
     \sup_{w \in \cW}
     \left|
-    \frac{\widehat f_W(w) - \E\big[\widehat f_W(w)\big]}
+    \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
     {\sqrt{\Sigma_n(w,w)}}
-    + \frac{\E\big[\widehat f_W(w)\big] - f_W(w)}
+    + \frac{\E\big[\hat f_W(w)\big] - f_W(w)}
     {\sqrt{\Sigma_n(w,w)}}
     \right|
     \cdot
     \sup_{w \in \cW}
     \left|
-    \frac{\widehat\Sigma_n^+(w,w) - \Sigma_n(w,w)}
-    {\sqrt{\Sigma_n(w,w) \widehat\Sigma_n^+(w,w)}}
+    \frac{\hat\Sigma_n^+(w,w) - \Sigma_n(w,w)}
+    {\sqrt{\Sigma_n(w,w) \hat\Sigma_n^+(w,w)}}
     \right|
   \end{align*}
   Now from the proof of Lemma~\ref{lem:covariance_estimation} we have that
   $\sup_{w \in \cW} \left|
-  \frac{\widehat f_W(w) - \E\big[\widehat f_W(w)\big]}
+  \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
   {\sqrt{\Sigma_n(w,w)}} \right|
   \lesssim_\P \sqrt{\log n}$,
   while Lemma~\ref{lem:bias} gives
-  $\sup_{w \in \cW} \big| \E\big[\widehat f_W(w)\big] - f_W(w) \big|
+  $\sup_{w \in \cW} \big| \E\big[\hat f_W(w)\big] - f_W(w) \big|
   \lesssim h^{p \wedge \beta}$.
   By Lemma~\ref{lem:app_variance_bounds} we have
   $\sup_{w \in \cW} \Sigma_n(w,w)^{-1/2}
   \lesssim \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$,
   and similarly Lemma~\ref{lem:variance_estimator_bounds} gives
-  $\sup_{w \in \cW} \widehat \Sigma_n^+(w,w)^{-1/2}
+  $\sup_{w \in \cW} \hat \Sigma_n^+(w,w)^{-1/2}
   \lesssim_\P \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$,
   Thus, applying Lemma~\ref{lem:app_SDP} to control the
   covariance estimation error,
   \begin{align*}
     \sup_{w \in \cW}
-    \left| \widehat T_n(w) - T_n(w) \right|
+    \left| \hat T_n(w) - T_n(w) \right|
     &\lesssim_\P
     \left(
       \sqrt{\log n} + \frac{h^{p \wedge \beta}}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}
@@ -11138,10 +11129,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{proof}[Lemma~\ref{lem:distributional_approx_feasible_gaussian}]
 
-  Firstly note that the process $\widehat Z_n^T$ exists
-  by noting that $\widehat \Sigma_n^+(w,w')$ and therefore also
-  $\frac{\widehat \Sigma_n^+(w,w')}
-  {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}$
+  Firstly note that the process $\hat Z_n^T$ exists
+  by noting that $\hat \Sigma_n^+(w,w')$ and therefore also
+  $\frac{\hat \Sigma_n^+(w,w')}
+  {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}$
   are positive semi-definite
   functions and appealing to the
   Kolmogorov consistency theorem \citep{gine2021mathematical}.
@@ -11152,14 +11143,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{bounding the covariance discrepancy}
 
   Define the maximum discrepancy in the (conditional) covariances
-  of $\widehat Z_n^T$ and $Z_n^T$ by
+  of $\hat Z_n^T$ and $Z_n^T$ by
   \begin{align*}
     \Delta
     &\vcentcolon=
     \sup_{w, w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n^+(w,w')}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}
+    \frac{\hat \Sigma_n^+(w,w')}
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
     - \frac{\Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}}
     \right|.
@@ -11176,40 +11167,40 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\leq
     \sup_{w, w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}
+    \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
     \right|
     + \sup_{w, w' \in \cW}
     \left|
-    \frac{\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}
+    \frac{\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}
       - \sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
     \right| \\
     &\leq
     \sup_{w, w' \in \cW}
     \left\{
     \sqrt{\frac{\Sigma_n(w,w) + \Sigma_n(w',w')}
-      {\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}
+      {\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
     \left|
-    \frac{\widehat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
+    \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     \right\} \\
     &\quad+
     \sup_{w, w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n^+(w,w)\widehat \Sigma_n^+(w',w')
+    \frac{\hat \Sigma_n^+(w,w)\hat \Sigma_n^+(w',w')
       - \Sigma_n(w,w) \Sigma_n(w',w')}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
         \Sigma_n(w,w) \Sigma_n(w',w')}}
     \right|.
   \end{align*}
   For the first term note that
-  $\inf_{w \in \cW} \widehat \Sigma_n^+(w,w)
+  $\inf_{w \in \cW} \hat \Sigma_n^+(w,w)
   \gtrsim \frac{\Dl^2}{n} + \frac{1}{n^2h}$
   by Lemma~\ref{lem:variance_estimator_bounds} and
   $\sup_{w \in \cW}
-  \left|\frac{\widehat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
+  \left|\frac{\hat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
   \lesssim_\P \sqrt{h \log n}$
   by the proof of Lemma~\ref{lem:app_SDP}.
   Thus by Lemma~\ref{lem:app_SDP},
@@ -11217,9 +11208,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sup_{w, w' \in \cW}
     \left\{
     \sqrt{\frac{\Sigma_n(w,w) + \Sigma_n(w',w')}
-      {\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}
+      {\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
     \left|
-    \frac{\widehat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
+    \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     \right\}
@@ -11234,38 +11225,38 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     &\sup_{w, w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')
+    \frac{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
       - \Sigma_n(w,w) \Sigma_n(w',w')}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
         \Sigma_n(w,w) \Sigma_n(w',w')}}
     \right| \\
     &\quad\leq
     \sup_{w, w' \in \cW}
     \left\{
-    \frac{\big| \widehat \Sigma_n^+(w,w) - \Sigma_n(w,w)\big|
-      \widehat \Sigma_n^+(w',w')}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')
+    \frac{\big| \hat \Sigma_n^+(w,w) - \Sigma_n(w,w)\big|
+      \hat \Sigma_n^+(w',w')}
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
         \Sigma_n(w,w) \Sigma_n(w',w')}}
-    + \frac{\big| \widehat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|
+    + \frac{\big| \hat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|
       \Sigma_n(w,w)}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
         \Sigma_n(w,w) \Sigma_n(w',w')}}
     \right\} \\
     &\quad\leq
     \sup_{w, w' \in \cW}
     \left\{
-    \frac{\big| \widehat \Sigma_n^+(w,w) - \Sigma_n(w,w)\big|}
+    \frac{\big| \hat \Sigma_n^+(w,w) - \Sigma_n(w,w)\big|}
     {\sqrt{\Sigma_n(w,w)}}
-    \frac{\sqrt{\widehat \Sigma_n^+(w',w')}}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \Sigma_n(w',w')}}
+    \frac{\sqrt{\hat \Sigma_n^+(w',w')}}
+    {\sqrt{\hat \Sigma_n^+(w,w) \Sigma_n(w',w')}}
     \right\} \\
     &\qquad+
     \sup_{w, w' \in \cW}
     \left\{
-    \frac{\big| \widehat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|}
+    \frac{\big| \hat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|}
     {\sqrt{\Sigma_n(w',w')}}
     \frac{\sqrt{\Sigma_n(w,w)}}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
     \right\} \\
     &\quad\lesssim_\P
     \sqrt{\frac{\log n}{n}}
@@ -11284,7 +11275,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   with cardinality $O(1/\delta_n)$,
   where $1/\delta_n$ is at most polynomial in $n$.
   The scaled (conditionally) Gaussian
-  processes $Z_n^T$ and $\widehat Z_n^T$
+  processes $Z_n^T$ and $\hat Z_n^T$
   both have pointwise (conditional) variances of 1.
   Therefore by Lemma~3.1 in \citet{chernozhukov2013gaussian},
   \begin{align*}
@@ -11297,7 +11288,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right)
     - \P\left(
       \sup_{w \in \cW_\delta}
-      \widehat Z_n^T(w)
+      \hat Z_n^T(w)
       \leq t
       \Bigm\vert \bW_n
     \right)
@@ -11320,7 +11311,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right)
     - \P\left(
       \sup_{w \in \cW_\delta}
-      \widehat Z_n^T(w)
+      \hat Z_n^T(w)
       \leq t
       \Bigm\vert \bW_n
     \right)
@@ -11355,7 +11346,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   whenever $1/\delta_n$
   is at most polynomial in $n$.
 
-  \proofparagraph{conditional $L^2$ regularity of $\widehat Z_n^T$}
+  \proofparagraph{conditional $L^2$ regularity of $\hat Z_n^T$}
 
   By Lemma~\ref{lem:app_SDP},
   with $nh \gtrsim \log n$,
@@ -11363,8 +11354,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   uniformly in $w,w'$,
   \begin{align*}
     \big|
-    \widehat \Sigma_n^+(w,w')
-    - \widehat \Sigma_n^+(w,w)
+    \hat \Sigma_n^+(w,w')
+    - \hat \Sigma_n^+(w,w)
     \big|
     &\lesssim
     n^{-1} h^{-3} |w-w'|.
@@ -11375,7 +11366,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   gives
   \begin{align*}
     \inf_{|w-w'| \leq \delta_n}
-    \widehat \Sigma_n^+(w,w')
+    \hat \Sigma_n^+(w,w')
     \gtrsim
     \frac{\Dl^2}{n}
     + \frac{1}{n^2h}
@@ -11389,25 +11380,25 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + \frac{1}{n^2h}.
   \end{align*}
   The conditional $L^2$
-  regularity of $\widehat Z_n^T$ is
+  regularity of $\hat Z_n^T$ is
   \begin{align*}
     \E\left[
       \big(
-      \widehat Z_n^T(w) - \widehat Z_n^T(w')
+      \hat Z_n^T(w) - \hat Z_n^T(w')
       \big)^2
       \bigm\vert \bW_n
     \right]
     &=
     2 - 2
-    \frac{\widehat \Sigma_n^+(w,w')}
-    {\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}.
+    \frac{\hat \Sigma_n^+(w,w')}
+    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}.
   \end{align*}
   Applying the same elementary result as for $Z_n^T$
   in the proof of Theorem~\ref{thm:infeasible_ucb} yields
   \begin{align*}
     \E\left[
       \big(
-      \widehat Z_n^T(w) - \widehat Z_n^T(w')
+      \hat Z_n^T(w) - \hat Z_n^T(w')
       \big)^2
       \bigm\vert \bW_n
     \right]
@@ -11415,13 +11406,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
     n^2 h^{-2} |w-w'|.
   \end{align*}
   Thus the conditional semimetric
-  induced by $\widehat Z_n^T$ on $\cW$ is
+  induced by $\hat Z_n^T$ on $\cW$ is
   \begin{align*}
-    \widehat\rho(w,w')
+    \hat\rho(w,w')
     &\vcentcolon=
     \E\left[
       \big(
-      \widehat Z_n^T(w) - \widehat Z_n^T(w')
+      \hat Z_n^T(w) - \hat Z_n^T(w')
       \big)^2
       \bigm\vert \bW_n
     \right]^{1/2}
@@ -11429,7 +11420,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     n h^{-1} \sqrt{|w-w'|}.
   \end{align*}
 
-  \proofparagraph{conditional trajectory regularity of $\widehat Z_n^T$}
+  \proofparagraph{conditional trajectory regularity of $\hat Z_n^T$}
 
   Just as for $Z_n^T$
   in the proof of Theorem~\ref{thm:infeasible_ucb}
@@ -11439,7 +11430,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
-      \left| \widehat Z_n^T(w) - \widehat Z_n^T(w') \right|
+      \left| \hat Z_n^T(w) - \hat Z_n^T(w') \right|
       \Bigm\vert \bW_n
     \right]
     &\lesssim_\P
@@ -11467,22 +11458,22 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     &\P\left(
       \sup_{w \in \cW}
-      \big| \widehat Z_n^T(w) \big|
+      \big| \hat Z_n^T(w) \big|
       \leq t
       \Bigm\vert \bW_n
     \right) \\
     &\quad\leq
     \P\left(
       \sup_{w \in \cW_\delta}
-      \big| \widehat Z_n^T(w) \big|
+      \big| \hat Z_n^T(w) \big|
       \leq t + \varepsilon_n
       \Bigm\vert \bW_n
     \right)
     + \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
-      \widehat Z_n^T(w)
-      - \widehat Z_n^T(w')
+      \hat Z_n^T(w)
+      - \hat Z_n^T(w')
       \right|
       \geq \varepsilon_n
       \Bigm\vert \bW_n
@@ -11497,8 +11488,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
-      \widehat Z_n^T(w)
-      - \widehat Z_n^T(w')
+      \hat Z_n^T(w)
+      - \hat Z_n^T(w')
       \right|
       \geq \varepsilon_n
       \Bigm\vert \bW_n
@@ -11522,8 +11513,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
-      \widehat Z_n^T(w)
-      - \widehat Z_n^T(w')
+      \hat Z_n^T(w)
+      - \hat Z_n^T(w')
       \right|
       \geq \varepsilon_n
       \Bigm\vert \bW_n
@@ -11558,22 +11549,22 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     &\P\left(
       \sup_{w \in \cW}
-      \big| \widehat Z_n^T(w) \big|
+      \big| \hat Z_n^T(w) \big|
       \leq t
       \Bigm\vert \bW_n
     \right) \\
     &\quad\geq
     \P\left(
       \sup_{w \in \cW_\delta}
-      \big| \widehat Z_n^T(w) \big|
+      \big| \hat Z_n^T(w) \big|
       \leq t - \varepsilon_n
       \Bigm\vert \bW_n
     \right)
     - \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
-      \widehat Z_n^T(w)
-      - \widehat Z_n^T(w')
+      \hat Z_n^T(w)
+      - \hat Z_n^T(w')
       \right|
       \geq \varepsilon_n
       \Bigm\vert \bW_n
@@ -11588,8 +11579,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     - \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
-      \widehat Z_n^T(w)
-      - \widehat Z_n^T(w')
+      \hat Z_n^T(w)
+      - \hat Z_n^T(w')
       \right|
       \geq \varepsilon_n
       \Bigm\vert \bW_n
@@ -11613,8 +11604,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     - \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
-      \widehat Z_n^T(w)
-      - \widehat Z_n^T(w')
+      \hat Z_n^T(w)
+      - \hat Z_n^T(w')
       \right|
       \geq \varepsilon_n
       \Bigm\vert \bW_n
@@ -11650,7 +11641,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \P\left(
       \sup_{w \in \cW}
-      \big| \widehat Z_n^T(w) \big|
+      \big| \hat Z_n^T(w) \big|
       \leq t
       \Bigm\vert \bW_n
     \right)
@@ -11699,7 +11690,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \P\left(
       \sup_{w \in \cW}
-      \big| \widehat Z_n^T(w) \big|
+      \big| \hat Z_n^T(w) \big|
       \leq t
       \Bigm\vert \bW_n
     \right)
@@ -11722,7 +11713,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \P\left(
       \sup_{w \in \cW}
-      \big| \widehat Z_n^T(w) \big|
+      \big| \hat Z_n^T(w) \big|
       \leq t
       \Bigm\vert \bW_n
     \right)
@@ -11744,7 +11735,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   \proofparagraph{Kolmogorov--Smirnov approximation}
 
-  Let $Z_n^T$ and $\widehat Z_n^T$ be defined
+  Let $Z_n^T$ and $\hat Z_n^T$ be defined
   as in the proof of
   Lemma~\ref{lem:distributional_approx_feasible_gaussian}.
   Write
@@ -11762,7 +11753,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\P\left(
       \sup_{w \in \cW}
       \left|
-      \widehat Z_n^T(w)
+      \hat Z_n^T(w)
       \right|
       \leq t
       \Bigm\vert \bW_n
@@ -11801,13 +11792,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\quad\leq
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) \right|
+      \left| \hat T_n(w) \right|
       \leq t
     \right)
     +
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) - Z_n^T(w) \right|
+      \left| \hat T_n(w) - Z_n^T(w) \right|
       \geq \varepsilon_n
     \right)
     + \P\left(
@@ -11825,13 +11816,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\quad\leq
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) \right|
+      \left| \hat T_n(w) \right|
       \leq t
     \right)
     +
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) - Z_n^T(w) \right|
+      \left| \hat T_n(w) - Z_n^T(w) \right|
       \geq \varepsilon_n
     \right)
     + \varepsilon_n \sqrt{\log n}
@@ -11847,7 +11838,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\P\left(
       \sup_{w \in \cW}
       \left|
-      \widehat Z_n^T(w)
+      \hat Z_n^T(w)
       \right|
       \leq t
       \Bigm\vert \bW_n
@@ -11886,13 +11877,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\quad\geq
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) \right|
+      \left| \hat T_n(w) \right|
       \leq t
     \right)
     -
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) - Z_n^T(w) \right|
+      \left| \hat T_n(w) - Z_n^T(w) \right|
       \geq \varepsilon_n
     \right)
     - \P\left(
@@ -11910,13 +11901,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\quad\geq
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) \right|
+      \left| \hat T_n(w) \right|
       \leq t
     \right)
     -
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) - Z_n^T(w) \right|
+      \left| \hat T_n(w) - Z_n^T(w) \right|
       \geq \varepsilon_n
     \right)
     - \varepsilon_n \sqrt{\log n}
@@ -11931,10 +11922,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and Lemma~\ref{lem:studentized_t_statistic},
   \begin{align*}
     \sup_{w \in \cW}
-    \left| \widehat T_n(w) - Z_n^T(w) \right|
+    \left| \hat T_n(w) - Z_n^T(w) \right|
     &\leq
     \sup_{w \in \cW}
-    \left| \widehat T_n(w) - T_n(w) \right|
+    \left| \hat T_n(w) - T_n(w) \right|
     + \sup_{w \in \cW}
     \left| T_n(w) - Z_n^T(w) \right| \\
     &\lesssim_\P
@@ -11961,13 +11952,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) \right|
+      \left| \hat T_n(w) \right|
       \leq t
     \right)
     - \P\left(
       \sup_{w \in \cW}
       \left|
-      \widehat Z_n^T(w)
+      \hat Z_n^T(w)
       \right|
       \leq t
       \Bigm\vert \bW_n
@@ -12064,7 +12055,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   now also conditioning on the data.
   In particular, using the anti-concentration result from
   Lemma~\ref{lem:anti-concentration},
-  the regularity property of $\widehat Z_n^T$
+  the regularity property of $\hat Z_n^T$
   and the Gaussian process maximal inequality from
   Lemma~\ref{lem:gaussian_process_maximal},
   we see that for any $\varepsilon > 0$,
@@ -12073,7 +12064,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \P\left(
       \left|
       \sup_{w \in \cW}
-      \big| \widehat Z_n^T(w) \big|
+      \big| \hat Z_n^T(w) \big|
       - t
       \right|
       \leq 2\varepsilon
@@ -12084,7 +12075,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left(
       1 + \E\left[
         \sup_{w \in \cW}
-        \big| \widehat Z_n^T(w) \big|
+        \big| \hat Z_n^T(w) \big|
         \Bigm\vert \bW_n
       \right]
     \right) \\
@@ -12092,7 +12083,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   Thus letting $\varepsilon \to 0$
   shows that the conditional distribution function of
-  $\sup_{w \in \cW} \big|\widehat Z_n^T(w)\big|$
+  $\sup_{w \in \cW} \big|\hat Z_n^T(w)\big|$
   is continuous,
   and therefore all of its conditional quantiles exist.
 
@@ -12104,7 +12095,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat Z_n^T(w) \right|
+      \left| \hat Z_n^T(w) \right|
       \leq t
       \Bigm\vert \bW_n
     \right),
@@ -12112,7 +12103,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) \right|
+      \left| \hat T_n(w) \right|
       \leq t
     \right),
   \end{align*}
@@ -12143,9 +12134,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $F_Z(t \mid \bW_n) \leq p$.
   Take $\alpha \in (0,1)$ and
   define the quantile
-  $\widehat q_{1-\alpha} = F_Z^{-1}(1-\alpha \mid \bW_n)$,
+  $\hat q_{1-\alpha} = F_Z^{-1}(1-\alpha \mid \bW_n)$,
   so that
-  $F_Z(\widehat q_{1-\alpha} \mid \bW_n) = 1-\alpha$.
+  $F_Z(\hat q_{1-\alpha} \mid \bW_n) = 1-\alpha$.
   By Lemma~\ref{lem:feasible_gaussian_approx},
   we have that
   \begin{align*}
@@ -12171,16 +12162,16 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \P\left(
       \sup_{w \in \cW}
       \left|
-      \widehat T_n(w)
+      \hat T_n(w)
       \right|
       \leq
-      \widehat q_{1-\alpha}
+      \hat q_{1-\alpha}
     \right)
     &=
     \P\left(
       \sup_{w \in \cW}
       \left|
-      \widehat T_n(w)
+      \hat T_n(w)
       \right|
       \leq
       F_Z^{-1}(1-\alpha \mid \bW_n)
@@ -12190,7 +12181,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       F_Z\left(
         \sup_{w \in \cW}
         \left|
-        \widehat T_n(w)
+        \hat T_n(w)
         \right|
         \Bigm\vert \bW_n
       \right)
@@ -12202,7 +12193,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       F_T\left(
         \sup_{w \in \cW}
         \left|
-        \widehat T_n(w)
+        \hat T_n(w)
         \right|
       \right)
       \leq
@@ -12226,9 +12217,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \P\left(
       \sup_{w \in \cW}
-      \left| \widehat T_n(w) \right|
+      \left| \hat T_n(w) \right|
       \leq
-      \widehat q_{1-\alpha}
+      \hat q_{1-\alpha}
     \right)
     &\geq
     1 - \alpha - 3\varepsilon_n.
@@ -12242,17 +12233,17 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Writing
   $k_{ij} = k_h(W_{ij}^1, w)$,
   $\psi_i = \psi(X_i^1)$,
-  $\widehat\psi_i = \widehat\psi(X_i^1)$
+  $\hat\psi_i = \hat\psi(X_i^1)$
   and $\kappa_{ij} = \kappa(X_i^0, X_i^1, X_j^1)$,
   %
   \begin{align*}
-    \E\big[\widehat f_W^{\,1 \triangleright 0}(w)\big]
+    \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
     &=
     \E\left[
       \frac{2}{n(n-1)}
       \sum_{i<j}
-      \widehat \psi_i
-      \widehat \psi_j
+      \hat \psi_i
+      \hat \psi_j
       k_{ij}
     \right] \\
     &=
@@ -12310,12 +12301,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \begin{proof}[Lemma~\ref{lem:counterfactual_hoeffding}]
 
   \begin{align*}
-    \widehat f_W^{\,1 \triangleright 0}(w)
+    \hat f_W^{\,1 \triangleright 0}(w)
     &=
     \frac{2}{n(n-1)}
     \sum_{i < j}
-    \widehat \psi_i
-    \widehat \psi_j
+    \hat \psi_i
+    \hat \psi_j
     k_{ij} \\
     &=
     \frac{2}{n(n-1)}
@@ -12389,7 +12380,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   So by the Hoeffding decomposition for third-order U-statistics,
   %
   \begin{align*}
-    \widehat f_W^{\,1 \triangleright 0}(w)
+    \hat f_W^{\,1 \triangleright 0}(w)
     &=
     u
     + \frac{3}{n}
@@ -12412,7 +12403,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \big(v_{ijr} - u_{ijr}\big)
     + O_\P\left( \frac{1}{n} \right) \\
     &=
-    \E\big[\widehat f_W^{\,1 \triangleright 0}(w) \big]
+    \E\big[\hat f_W^{\,1 \triangleright 0}(w) \big]
     + L_n^{1 \triangleright 0}(w)
     + Q_n^{1 \triangleright 0}(w)
     + T_n^{1 \triangleright 0}(w)
@@ -12461,15 +12452,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
   be a bijection and
   define $\logistic(x) = \frac{1}{1+e^{-x}}$.
   Let
-  $\widetilde A_i = \logistic(A_i^1) + \gamma(X_i^0, X_i^1)$
+  $\tilde A_i = \logistic(A_i^1) + \gamma(X_i^0, X_i^1)$
   so that
-  $A_i^1 = \logistic^{-1}\big(\widetilde A_i
-  - \lfloor \widetilde A_i \rfloor\big)$
+  $A_i^1 = \logistic^{-1}\big(\tilde A_i
+  - \lfloor \tilde A_i \rfloor\big)$
   and
-  $(X_i^0, X_i^1) = \gamma^{-1}(\lfloor \widetilde A_i \rfloor)$.
+  $(X_i^0, X_i^1) = \gamma^{-1}(\lfloor \tilde A_i \rfloor)$.
   Thus
   $l_i^{1 \triangleright 0}(w)$ is a bounded-variation function
-  of $\widetilde A_i$, uniformly in $w$, and so as in
+  of $\tilde A_i$, uniformly in $w$, and so as in
   Lemma~\ref{lem:strong_approx_Ln} we have that
   on an appropriately enlarged probability space,
   %
@@ -12522,8 +12513,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Sigma_n^{1 \triangleright 0}(w,w')
     &=
     \Cov\left[
-      \widehat f_W^{\,1 \triangleright 0}(w),
-      \widehat f_W^{\,1 \triangleright 0}(w')
+      \hat f_W^{\,1 \triangleright 0}(w),
+      \hat f_W^{\,1 \triangleright 0}(w')
     \right] \\
     &=
     \frac{1}{n^2(n-1)^2(n-2)^2}

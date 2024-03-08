@@ -5,6 +5,9 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{pgfplots}
+\usepackage{graphicx}
 \usepackage{enumitem}
 \usepackage{subcaption}
 \usepackage{titlesec}
@@ -14,6 +17,9 @@
 \usepackage[longnamesfirst]{natbib}
 \usepackage[hypertexnames=false,hidelinks]{hyperref}
 
+% settings
+\pgfplotsset{compat=1.9}
+
 % blackboard
 \renewcommand{\P}{\ensuremath{\mathbb{P}}}
 \newcommand{\N}{\ensuremath{\mathbb{N}}}
@@ -22,8 +28,6 @@
 \newcommand{\Q}{\ensuremath{\mathbb{Q}}}
 \newcommand{\I}{\ensuremath{\mathbb{I}}}
 \newcommand{\Z}{\ensuremath{\mathbb{Z}}}
-% TODO fix this
-\newcommand{\bbN}{\ensuremath{\mathbb{N}}}
 
 % roman
 \newcommand{\rF}{\ensuremath{\mathrm{F}}}
@@ -51,7 +55,6 @@
 \newcommand{\cT}{\ensuremath{\mathcal{T}}}
 \newcommand{\cV}{\ensuremath{\mathcal{V}}}
 \newcommand{\cE}{\ensuremath{\mathcal{E}}}
-% TODO don't use this for uniform distribution
 \newcommand{\cU}{\ensuremath{\mathcal{U}}}
 \newcommand{\cR}{\ensuremath{\mathcal{R}}}
 \newcommand{\cA}{\ensuremath{\mathcal{A}}}
@@ -82,8 +85,6 @@
 \newcommand{\Dl}{\ensuremath{D_{\textup{lo}}}}
 \newcommand{\Du}{\ensuremath{D_{\textup{up}}}}
 \newcommand{\cPd}{\ensuremath{\mathcal{P}_{\mathrm{d}}}}
-\newcommand{\maxi}{\ensuremath{\mathrm{max}}}
-\newcommand{\mini}{\ensuremath{\mathrm{min}}}
 
 % floor of beta
 \newcommand{\flbeta}{{\ThisStyle{%

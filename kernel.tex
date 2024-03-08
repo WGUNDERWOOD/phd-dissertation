@@ -1,4 +1,4 @@
-\chapter{Dyadic Kernel Density Estimation}
+\chapter{Dyadic Kernel Density Estimators}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % INTRODUCTION
@@ -59,7 +59,7 @@ we investigate the statistical properties of a class
 of local stochastic processes given by
 %
 \begin{align}\label{eq:kernel_estimator}
-  w \mapsto \widehat{f}_W(w)
+  w \mapsto \hat{f}_W(w)
   = \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^n k_h(W_{ij},w),
 \end{align}
 %
@@ -70,20 +70,20 @@ $w \in \cW\subseteq \R$. For each $w\in\cW$ and with an appropriate choice of
 the kernel function
 (e.g.\ $k_h(\cdot,w)=K((\cdot-w)/h)/h$ for an interior point $w$
 of $\cW$ and a fixed symmetric integrable kernel function $K$),
-the statistic $\widehat{f}_W(w)$ becomes a kernel density estimator
+the statistic $\hat{f}_W(w)$ becomes a kernel density estimator
 for the Lebesgue density function
 $f_W(w) = \E\big[f_{W \mid AA}(w \mid A_i,A_j)\big]$,
 where $f_{W \mid AA}(w \mid A_i,A_j)$ denotes the conditional Lebesgue density
 of $W_{ij}$ given $A_i$ and $A_j$.
 Setting
 $k_h(\cdot,w)=K((\cdot-w)/h)/h$, \citet{graham2022kernel}
-recently introduced the dyadic point estimator $\widehat{f}_W(w)$ and studied
+recently introduced the dyadic point estimator $\hat{f}_W(w)$ and studied
 its large sample properties pointwise in $w\in\cW=\mathbb{R}$, while
 \citet{chiang2020empirical} established its rate of convergence uniformly in
 $w\in\cW$ for a compact interval $\cW$ strictly contained in the support of
 the dyadic data $W_{ij}$.
 \citet{chiang2022inference} obtained a distributional approximation for the
-supremum statistic $\sup_{w\in\cW}\big|\widehat{f}_W(w)\big|$
+supremum statistic $\sup_{w\in\cW}\big|\hat{f}_W(w)\big|$
 over a finite collection $\cW$ of design points.
 More generally, as we discuss below,
 the estimand $f_W(w)$ is useful in
@@ -108,11 +108,11 @@ literature on nonparametric smoothing methods
 for dyadic data with two main technical
 results. Firstly, we derive the minimax rate of uniform convergence for density
 estimation with dyadic data and show that the estimator
-$\widehat{f}_W$ in \eqref{eq:kernel_estimator}
+$\hat{f}_W$ in \eqref{eq:kernel_estimator}
 is minimax-optimal under appropriate conditions.
 Secondly, we present a set of
 uniform distributional approximation results
-for the \emph{entire} stochastic process $\big(\widehat{f}_W(w):w\in\cW\big)$.
+for the \emph{entire} stochastic process $\big(\hat{f}_W(w):w\in\cW\big)$.
 Furthermore, we illustrate the usefulness of our main results
 with two distinct substantive statistical applications:
 %
@@ -134,19 +134,19 @@ results cannot be deduced from the existing U-statistic, empirical process and
 U-process theory available in the literature
 \citep{van1996weak,gine2021mathematical} because,
 as explained in detail below,
-$\widehat{f}_W(w)$ is not a standard U-statistic,
-nor is the stochastic process $\widehat{f}_W$ Donsker in general,
+$\hat{f}_W(w)$ is not a standard U-statistic,
+nor is the stochastic process $\hat{f}_W$ Donsker in general,
 and the underlying dyadic data $\bW_n$ exhibits
 statistical dependence due to its network structure.
 
 Section~\ref{sec:kernel_setup} outlines the setup and presents the main
 assumptions
 imposed throughout the paper. We first discuss a Hoeffding-type decomposition of
-the U-statistic-like $\widehat{f}_W$ which is more general than the standard
+the U-statistic-like $\hat{f}_W$ which is more general than the standard
 Hoeffding decomposition for second-order U-statistics due
 to its dyadic data structure.
 In particular,
-\eqref{eq:h-decomposition} shows that $\widehat{f}_W(w)$ decomposes into a sum
+\eqref{eq:h-decomposition} shows that $\hat{f}_W(w)$ decomposes into a sum
 of the four terms $B_n(w)$, $L_n(w)$, $E_n(w)$ and $Q_n(w)$,
 where $E_n(w)$ is not present in the classical second-order U-statistic theory.
 The first term $B_n(w)$ captures the usual smoothing bias, the second term
@@ -156,7 +156,7 @@ average of conditionally independent terms,
 and the fourth term $Q_n(w)$ is a negligible totally degenerate
 second-order U-process.
 The leading stochastic
-fluctuations of the process $\widehat{f}_W$
+fluctuations of the process $\hat{f}_W$
 are captured by $L_n$ and $E_n$,
 both of which are known to be asymptotically distributed
 as Gaussian random variables pointwise in $w\in\cW$ \citep{graham2022kernel}.
@@ -166,9 +166,9 @@ or possibly all evaluation points $w\in\cW$.
 
 Section~\ref{sec:point_estimation} studies minimax convergence rates for point
 estimation of $f_W$ uniformly over $\cW$ and gives precise conditions under
-which the estimator $\widehat{f}_W$ is minimax-optimal.
+which the estimator $\hat{f}_W$ is minimax-optimal.
 Firstly, in Theorem~\ref{thm:uniform_consistency} we establish the uniform rate
-of convergence of $\widehat{f}_W$ for $f_W$. This result improves upon the
+of convergence of $\hat{f}_W$ for $f_W$. This result improves upon the
 recent paper of \citet{chiang2020empirical} by allowing
 for compactly supported dyadic data and
 generic kernel-like functions $k_h$ (including boundary-adaptive kernels), while
@@ -177,15 +177,15 @@ H\'{a}jek projection term $L_n$ at some or possibly all points $w\in\cW$.
 Secondly, in Theorem~\ref{thm:kernel_minimax} we derive the
 minimax uniform convergence rate for estimating
 $f_W$, again allowing for possible degeneracy,
-and verify that it is achieved by $\widehat f_W$.
+and verify that it is achieved by $\hat f_W$.
 This result appears to be new to the literature,
 complementing recent work on parametric moment estimation
 using graphon data \citep{gao2021minimax} and on nonparametric
 kernel-based regression using dyadic data \citep{graham2021dyadicregression}.
 
 Section~\ref{sec:kernel_inference} presents a distributional analysis of
-the stochastic process $\widehat{f}_W$ uniformly in $w \in \cW$. Because
-$\widehat{f}_W$ is not asymptotically tight in general, it
+the stochastic process $\hat{f}_W$ uniformly in $w \in \cW$. Because
+$\hat{f}_W$ is not asymptotically tight in general, it
 does not converge
 weakly in the space of uniformly bounded real functions supported on $\cW$ and
 equipped with the uniform norm \citep{van1996weak},
@@ -237,7 +237,7 @@ gives our conditional strong approximation for $E_n$.
 Once the unconditional strong approximation for $L_n$ and the
 conditional-on-$\bA_n$ strong approximation for $E_n$ are established,
 we show how to properly ``glue'' them together to deduce a final unconditional
-strong approximation for $L_n+E_n$ and hence also for $\widehat{f}_W$ and its
+strong approximation for $L_n+E_n$ and hence also for $\hat{f}_W$ and its
 associated $t$-process. This final step requires some additional technical work.
 Firstly, building on our conditional strong approximation for $E_n$, we
 establish an unconditional strong approximation for $E_n$ in
@@ -249,14 +249,14 @@ the online supplemental appendix,
 to deduce a \emph{joint} strong
 approximation for $(L_n,E_n)$ and, in particular, for $L_n+E_n$.
 Thus we obtain our main result in Theorem~\ref{thm:strong_approx_fW},
-which establishes a valid strong approximation for $\widehat{f}_W$
+which establishes a valid strong approximation for $\hat{f}_W$
 and its associated $t$-process.
 This uniform inference result complements the recent contribution of
 \citet{davezies2021exchangeable}, which is not applicable
-here because $\widehat{f}_W$ is non-Donsker in general.
+here because $\hat{f}_W$ is non-Donsker in general.
 
 We illustrate the applicability of our strong approximation result for
-$\widehat{f}_W$ and its associated $t$-process by constructing valid
+$\hat{f}_W$ and its associated $t$-process by constructing valid
 standardized uniform confidence bands for
 the unknown density function $f_W$.
 Instead of relying on extreme value theory \citep*[e.g.][]{gine2004kernel}, we
@@ -264,13 +264,13 @@ employ anti-concentration methods, following \citet{chernozhukov2014anti}.
 This illustration improves on the recent work of \citet{chiang2022inference},
 which obtained simultaneous confidence intervals for the dyadic density $f_W$
 based on a high-dimensional central limit theorem over rectangles,
-following prior work by \cite{Chernozhukov-Chetverikov-Kato_2017_AoP}.
+following prior work by \citet{Chernozhukov-Chetverikov-Kato_2017_AoP}.
 The distributional
 approximation therein is applied to the
 H\'{a}jek projection term $L_n$ only, whereas
 our main construction leading to Theorem~\ref{thm:strong_approx_fW} gives a
 strong approximation for the entire U-process-like
-$\widehat{f}_W$ and its associated $t$-process, uniformly on $\cW$.
+$\hat{f}_W$ and its associated $t$-process, uniformly on $\cW$.
 As a consequence, our uniform inference theory is robust to potential
 unknown degeneracies in $L_n$ by virtue of our strong
 approximation of $L_n+E_n$ and the use of proper standardization,
@@ -290,7 +290,7 @@ estimators, one based on the plug-in method, and the other based on a
 positive semi-definite regularization thereof
 \citep{laurent2005semidefinite}. We derive the uniform convergence rates for
 both estimators in Lemma~\ref{lem:SDP}, which we then use to justify
-Studentization of $\widehat{f}_W$ and a
+Studentization of $\hat{f}_W$ and a
 feasible simulation-based approximation of the infeasible Gaussian process
 underlying our strong approximation results.
 Secondly, we discuss integrated mean
@@ -492,16 +492,16 @@ $\Ck h^{-1}$ where $\Ck \vcentcolon = 2 \CL + 1 + 1/\Leb(\cW)$.
 \subsection{Hoeffding-type decomposition and degeneracy}
 \label{sec:degeneracy}
 
-The estimator $\widehat{f}_W(w)$ is akin to a
+The estimator $\hat{f}_W(w)$ is akin to a
 U-statistic and thus admits a Hoeffding-type decomposition
 which is the starting point for our analysis. We have
 %
 \begin{align}\label{eq:h-decomposition}
-  \widehat{f}_W(w) - f_W(w) = B_n(w) + L_n(w) + E_n(w) + Q_n(w)
+  \hat{f}_W(w) - f_W(w) = B_n(w) + L_n(w) + E_n(w) + Q_n(w)
 \end{align}
 %
 with
-$B_n(w) = \E\big[\widehat{f}_W(w)\big] - f_W(w)$
+$B_n(w) = \E\big[\hat{f}_W(w)\big] - f_W(w)$
 and
 %
 \begin{align*}
@@ -579,12 +579,12 @@ define the covariance function of the dyadic kernel density estimator as
   =
   \E\Big[
     \Big(
-    \widehat f_W(w)
-    - \E\big[\widehat f_W(w)\big]
+    \hat f_W(w)
+    - \E\big[\hat f_W(w)\big]
     \Big)
     \Big(
-    \widehat f_W(w')
-    - \E\big[\widehat f_W(w')\big]
+    \hat f_W(w')
+    - \E\big[\hat f_W(w')\big]
     \Big)
     \Big].
 \end{equation*}
@@ -703,7 +703,7 @@ over $\cW = [-2,2]$ for each choice of the parameter $\pi$.
 
 The trichotomy of total/partial/no  degeneracy is useful for understanding the
 distributional properties of the dyadic kernel density estimator
-$\widehat{f}_W(w)$. Crucially, our need for uniformity in $w$ complicates the
+$\hat{f}_W(w)$. Crucially, our need for uniformity in $w$ complicates the
 simpler degeneracy/no degeneracy dichotomy observed previously in the literature
 \citep{graham2022kernel}.
 More specifically,
@@ -721,8 +721,7 @@ regardless of the presence of partial or total degeneracy.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{illustration_total.pdf}
+    \includegraphics[scale=0.52]{graphics/illustration_total.pdf}
     \caption{
       Total degeneracy, \\
       $\pi = \left( \frac{1}{2}, 0, \frac{1}{2} \right)$
@@ -731,8 +730,7 @@ regardless of the presence of partial or total degeneracy.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{illustration_partial.pdf}
+    \includegraphics[scale=0.52]{graphics/illustration_partial.pdf}
     \caption{
       Partial degeneracy, \\
       $\pi = \left( \frac{1}{4}, 0, \frac{3}{4} \right)$
@@ -741,8 +739,7 @@ regardless of the presence of partial or total degeneracy.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{illustration_none.pdf}
+    \includegraphics[scale=0.52]{graphics/illustration_none.pdf}
     \caption{
       No degeneracy, \\
       $\pi = \left( \frac{1}{5}, \frac{1}{5}, \frac{3}{5} \right)$
@@ -761,7 +758,7 @@ regardless of the presence of partial or total degeneracy.
 
 Using Lemma~\ref{lem:variance},
 the next theorem establishes the uniform
-convergence rate of $\widehat{f}_W$.
+convergence rate of $\hat{f}_W$.
 %
 \begin{theorem}[Uniform convergence rate]%
   \label{thm:uniform_consistency}%
@@ -772,7 +769,7 @@ convergence rate of $\widehat{f}_W$.
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
-      \big|\widehat{f}_W(w) - f_W(w)\big|
+      \big|\hat{f}_W(w) - f_W(w)\big|
     \right]
     \lesssim
     h^{p\wedge\beta}
@@ -791,7 +788,7 @@ We interpret this result in light of the degeneracy trichotomy.
     Any bandwidths satisfying
     $n^{-1} \log n \lesssim h \lesssim n^{-\frac{1}{2(p\wedge\beta)}}$
     yield
-    $\E\big[\sup_{w \in \cW}\big|\widehat f_W(w)
+    $\E\big[\sup_{w \in \cW}\big|\hat f_W(w)
       - f_W(w)\big| \big] \lesssim \frac{1}{\sqrt n}$,
     the ``parametric'' bandwidth-independent rate noted by
     \citet{graham2022kernel}.
@@ -802,7 +799,7 @@ We interpret this result in light of the degeneracy trichotomy.
     Theorem~\ref{thm:uniform_consistency} with
     $h \asymp \left( \frac{\log n}{n^2} \right)^{\frac{1}{2(p\wedge\beta)+1}}$
     yields
-    $\E\big[ \sup_{w \in \cW} \big|\widehat f_W(w) - f_W(w)\big| \big]
+    $\E\big[ \sup_{w \in \cW} \big|\hat f_W(w) - f_W(w)\big| \big]
     \lesssim
     \big(\frac{\log n}{n^2} \big)^{\frac{p\wedge\beta}{2(p\wedge\beta)+1}}$.
 \end{enumerate}
@@ -816,7 +813,7 @@ functions $k_h(\cdot,w)$, enabling boundary-adaptive density estimation.
 We establish the minimax rate under the
 supremum norm for density estimation
 with dyadic data.
-This implies minimax optimality of the kernel density estimator $\widehat
+This implies minimax optimality of the kernel density estimator $\hat
 f_W$, regardless of the degeneracy type of the dyadic distribution.
 
 \begin{theorem}[Uniform minimax rate] \label{thm:kernel_minimax}
@@ -831,14 +828,14 @@ f_W$, regardless of the degeneracy type of the dyadic distribution.
   which are totally degenerate on $\cW$ in the sense that
   $\sup_{w \in \cW} \Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$.
   Then
-  $\inf_{\widetilde f_W} \sup_{\P \in \cP}
-  \E_\P\big[\sup_{w \in \cW} \big| \widetilde f_W(w) - f_W(w) \big| \big]
+  $\inf_{\tilde f_W} \sup_{\P \in \cP}
+  \E_\P\big[\sup_{w \in \cW} \big| \tilde f_W(w) - f_W(w) \big| \big]
   \asymp \frac{1}{\sqrt n}$
   and
-  $\inf_{\widetilde f_W} \sup_{\P \in \cPd}
-  \E_\P\big[\sup_{w \in \cW} \big| \widetilde f_W(w) - f_W(w) \big| \big]
+  $\inf_{\tilde f_W} \sup_{\P \in \cPd}
+  \E_\P\big[\sup_{w \in \cW} \big| \tilde f_W(w) - f_W(w) \big| \big]
   \asymp \big( \frac{\log n}{n^2} \big)^{\frac{\beta}{2\beta+1}}$,
-  where $\widetilde f_W$ is any estimator depending only on
+  where $\tilde f_W$ is any estimator depending only on
   the data $\bW_n = (W_{ij}: 1 \leq i < j \leq n)$
   distributed according to the dyadic distribution $\P$.
   The constants underlying $\asymp$ depend only on
@@ -851,7 +848,7 @@ $n^{-1/2}$
 obtained in Theorem~\ref{thm:uniform_consistency}
 (coming from the $L_n$ term) is minimax-optimal in general.
 When attention is restricted to totally degenerate dyadic distributions,
-$\widehat f_W$ also achieves the minimax rate of uniform convergence
+$\hat f_W$ also achieves the minimax rate of uniform convergence
 (assuming a kernel of sufficiently high order $p \geq \beta$),
 which is on the order of
 $\left(\frac{\log n}{n^2}\right)^{\frac{\beta}{2\beta+1}}$ and
@@ -860,7 +857,7 @@ is determined by the bias $B_n$ and the leading variance term $E_n$ in
 
 Combining Theorems \ref{thm:uniform_consistency}~and~\ref{thm:kernel_minimax},
 we
-conclude that the estimator $\widehat{f}_W(w)$ achieves the minimax-optimal rate
+conclude that the estimator $\hat{f}_W(w)$ achieves the minimax-optimal rate
 of uniform convergence for estimating $f_W(w)$ if
 $h \asymp \left( \frac{\log n}{n^2} \right)^{\frac{1}{2\beta+1}}$
 and $p \geq \beta$,
@@ -875,7 +872,7 @@ See \citet{gao2021minimax} for a contemporaneous review.
 We investigate the distributional properties of the
 standardized $t$-statistic process
 %
-\[ T_n(w) = \frac{\widehat{f}_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}}
+\[ T_n(w) = \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}}
   , \qquad w\in\cW,\]
 %
 which is not necessarily asymptotically tight.
@@ -943,14 +940,14 @@ uniform inference procedures whenever
 In this special case, the recent Donsker-type results of
 \citet{davezies2021exchangeable}
 can be applied to analyze the limiting distribution
-of the stochastic process $\widehat{f}_W$.
+of the stochastic process $\hat{f}_W$.
 Alternatively,
 again only when $L_n$ is non-degenerate and leading,
 standard empirical process methods could also be used.
-However, even in the special case when $\widehat{f}_W(w)$ is asymptotically
+However, even in the special case when $\hat{f}_W(w)$ is asymptotically
 Donsker, our result in Lemma~\ref{lem:strong_approx_Ln}
 improves upon the literature by providing a rate-optimal strong approximation
-for $\widehat{f}_W$ as opposed to only a weak convergence result.
+for $\hat{f}_W$ as opposed to only a weak convergence result.
 See Theorem \ref{thm:infeasible_ucb} and the subsequent
 discussion below.
 
@@ -958,7 +955,7 @@ discussion below.
 More importantly, as illustrated above,
 it is common in the literature to find dyadic
 distributions which exhibit partial or total degeneracy, making the process
-$\widehat{f}_W$ non-Donsker.
+$\hat{f}_W$ non-Donsker.
 Thus approximating only $L_n$ is in general insufficient
 for valid uniform inference,
 and it is necessary to capture the distributional properties of $E_n$ as well.
@@ -975,23 +972,23 @@ which builds on a refinement by \citet{belloni2019conditional}.
   \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth} hold
   and take any $R_n \to \infty$.
   For each $n$ there exists
-  $\widetilde Z^E_n$
+  $\tilde Z^E_n$
   which is a mean-zero Gaussian process
   conditional on $\bA_n$ satisfying
   $\sup_{w \in \cW}
-  \big| \sqrt{n^2h} E_n(w) - \widetilde Z_n^E(w) \big|
+  \big| \sqrt{n^2h} E_n(w) - \tilde Z_n^E(w) \big|
   \lesssim_\P \frac{(\log n)^{3/8} R_n}{n^{1/4}h^{3/8}}$,
-  where $\E[\widetilde Z_n^E(w)\widetilde Z_n^E(w')\bigm\vert \bA_n]
+  where $\E[\tilde Z_n^E(w)\tilde Z_n^E(w')\bigm\vert \bA_n]
   =n^2h\E[E_n(w)E_n(w')\bigm\vert \bA_n]$
   for all $w, w' \in \cW$.
   %
 \end{lemma}
 
-The process $\widetilde Z_n^E$
+The process $\tilde Z_n^E$
 is a Gaussian process conditional on $\bA_n$ but is not in general a
 Gaussian process unconditionally.
 The following lemma further constructs an unconditional Gaussian process
-$Z_n^E$ that approximates $\widetilde Z_n^E$.
+$Z_n^E$ that approximates $\tilde Z_n^E$.
 
 \begin{lemma}[Unconditional strong approximation of $E_n$]
   \label{lem:unconditional_strong_approx_En}
@@ -1000,11 +997,11 @@ $Z_n^E$ that approximates $\widetilde Z_n^E$.
   \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth} hold.
   For each $n$ there exists
   a mean-zero Gaussian process $Z^E_n$ satisfying
-  $\E\big[ \sup_{w \in \cW} \big|\widetilde Z_n^E(w) - Z_n^E(w)\big| \big]
+  $\E\big[ \sup_{w \in \cW} \big|\tilde Z_n^E(w) - Z_n^E(w)\big| \big]
   \lesssim \frac{(\log n)^{2/3}}{n^{1/6}}$,
   where
   $Z_n^E$ is independent of $\bA_n$ and
-  $\E[Z_n^E(w)Z_n^E(w')]=\E[\widetilde Z_n^E(w)\widetilde Z_n^E(w')]
+  $\E[Z_n^E(w)Z_n^E(w')]=\E[\tilde Z_n^E(w)\tilde Z_n^E(w')]
   = n^2h \, \E[E_n(w)E_n(w')]$
   for all $w, w' \in \cW$.
   %
@@ -1033,7 +1030,7 @@ we obtain an unconditional strong approximation for $E_n$.
 The resulting rate of approximation may not be optimal,
 due to the Yurinskii coupling, but to the best of our knowledge
 it is the first in the literature for the process
-$E_n$, and hence for $\widehat{f}_W$ and its associated $t$-process in the
+$E_n$, and hence for $\hat{f}_W$ and its associated $t$-process in the
 context of dyadic data.
 The approximation rate is
 sufficiently fast to allow for optimal bandwidth choices; see Section
@@ -1058,7 +1055,7 @@ adaptivity to the unknown degeneracy type.
 In other
 words, a challenge in conducting uniform inference is that the
 finite-dimensional distributions of the stochastic process $L_n+E_n$,
-and hence those of $\widehat{f}_W$ and its associated $t$-process $T_n$,
+and hence those of $\hat{f}_W$ and its associated $t$-process $T_n$,
 may converge at different rates at different points $w\in\cW$.
 The following theorem provides an
 (infeasible)
@@ -1203,7 +1200,7 @@ hence improving the finite sample performance of the proposed confidence bands.
       f_W(w)
       \in
       \left[
-        \widehat f_W(w)
+        \hat f_W(w)
         \pm
         q_{1-\alpha}
         \sqrt{\Sigma_n(w,w)}
@@ -1242,7 +1239,7 @@ among others.
 In the next section we develop a feasible uniform inference procedure,
 based on robust bias correction methods,
 which amounts to first selecting an optimal bandwidth for the point estimator
-$\widehat{f}_W$ using a $p$th-order kernel,
+$\hat{f}_W$ using a $p$th-order kernel,
 and then correcting the bias of the point estimator while also adjusting
 the standardization (Studentization) when forming the $t$-statistic $T_n$.
 
@@ -1271,7 +1268,7 @@ Define the following plug-in covariance function
 estimator of $\Sigma_n$: for $w, w' \in \cW$,
 %
 \begin{align*}
-  \widehat \Sigma_n(w,w')
+  \hat \Sigma_n(w,w')
   &=
   \frac{4}{n^2}
   \hspace*{-0.5mm}
@@ -1291,8 +1288,8 @@ estimator of $\Sigma_n$: for $w, w' \in \cW$,
   -
   \hspace*{-0.5mm}
   \frac{4n-6}{n(n-1)}
-  \widehat f_W(w)
-  \widehat f_W(w'),
+  \hat f_W(w)
+  \hat f_W(w'),
 \end{align*}
 %
 where
@@ -1300,7 +1297,7 @@ $S_i(w) = \frac{1}{n-1} \big( \sum_{j = 1}^{i-1} k_h(W_{j i}, w)
 + \sum_{j = i+1}^n k_h(W_{ij}, w) \big)$
 is an ``estimator'' of
 $\E[k_h(W_{ij},w) \mid A_i]$.
-Though $\widehat\Sigma_n(w,w')$ is consistent in an appropriate sense
+Though $\hat\Sigma_n(w,w')$ is consistent in an appropriate sense
 as shown in Lemma~\ref{lem:SDP} below,
 it is not necessarily positive semi-definite,
 even in the limit.
@@ -1316,8 +1313,8 @@ where $\Ck$ and $\CL$ are as in Section~\ref{sec:kernel_setup}.
     \qquad
      & \sup_{w,w' \in \cW}
     \left|
-    \frac{M(w,w') - \widehat\Sigma_n(w,w')}
-    {\sqrt{\widehat \Sigma_n(w,w) + \widehat \Sigma_n(w',w')}}
+    \frac{M(w,w') - \hat\Sigma_n(w,w')}
+    {\sqrt{\hat \Sigma_n(w,w) + \hat \Sigma_n(w',w')}}
     \right|
     \quad \textup{ over } M: \cW \times \cW \to \R
     \\
@@ -1333,13 +1330,13 @@ where $\Ck$ and $\CL$ are as in Section~\ref{sec:kernel_setup}.
   \end{aligned}
 \end{equation}
 
-Denote by $\widehat\Sigma_n^+$ any (approximately) optimal solution to
+Denote by $\hat\Sigma_n^+$ any (approximately) optimal solution to
 (\ref{eq:SDP}). The following lemma establishes uniform convergence rates
-for both $\widehat \Sigma_n$ and $\widehat \Sigma_n^+$. It allows us to use
+for both $\hat \Sigma_n$ and $\hat \Sigma_n^+$. It allows us to use
 these estimators to construct feasible versions of $T_n$ and its associated
 Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_fW}.
 %
-\begin{lemma}[Consistency of $\widehat \Sigma_n$ and $\widehat \Sigma_n^+$]
+\begin{lemma}[Consistency of $\hat \Sigma_n$ and $\hat \Sigma_n^+$]
   \label{lem:SDP}
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold
@@ -1351,7 +1348,7 @@ Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_fW}.
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n(w,w') - \Sigma_n(w,w')}
+    \frac{\hat \Sigma_n(w,w') - \Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     &\lesssim_\P
@@ -1363,13 +1360,13 @@ Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_fW}.
   \citep[SDP,][]{laurent2005semidefinite}
   and has an approximately
   optimal solution
-  $\widehat\Sigma_n^+$
+  $\hat\Sigma_n^+$
   satisfying
   %
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
-    \frac{\widehat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
+    \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     &\lesssim_\P
@@ -1395,12 +1392,12 @@ of our methodology to handle large and possibly sparse networks.
 
 The bias-corrected variance estimator in
 \citet[Section~3.2]{MatsushitaOtsu2021} takes a similar form
-to our estimator $\widehat\Sigma_n$ but in the parametric setting,
+to our estimator $\hat\Sigma_n$ but in the parametric setting,
 and is therefore also not guaranteed
 to be positive semi-definite in finite samples.
 Our approach addresses this issue,
 ensuring a positive semi-definite estimator
-$\widehat\Sigma_n^+$ is always available.
+$\hat\Sigma_n^+$ is always available.
 
 \subsection{Feasible confidence bands}
 \label{sec:feasible_confidence_bands}
@@ -1410,22 +1407,22 @@ and a bandwidth $h$, we construct a valid confidence
 band that is implementable in practice.
 Define the Studentized $t$-statistic process
 %
-\[ \widehat T_n(w) = \frac{\widehat{f}_W(w) - f_W(w)}{\sqrt{\widehat
+\[ \hat T_n(w) = \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\hat
       \Sigma_n^+(w,w)}} , \qquad w\in\cW.\]
 %
-Let $\widehat Z_n^T(w)$ be a process which,
+Let $\hat Z_n^T(w)$ be a process which,
 conditional on the data $\bW_n$,
 is mean-zero and Gaussian, whose
 conditional covariance structure is
-$\E\big[ \widehat Z_n^T(w) \widehat Z_n^T(w') \bigm\vert \bW_n \big]
-= \frac{\widehat \Sigma_n^+(w,w')}
-{\sqrt{\widehat \Sigma_n^+(w,w) \widehat \Sigma_n^+(w',w')}}$.
-For $\alpha \in (0,1)$, let $\widehat q_{1-\alpha}$ be the
+$\E\big[ \hat Z_n^T(w) \hat Z_n^T(w') \bigm\vert \bW_n \big]
+= \frac{\hat \Sigma_n^+(w,w')}
+{\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}$.
+For $\alpha \in (0,1)$, let $\hat q_{1-\alpha}$ be the
 conditional quantile satisfying
 %
 $ \P\big(\sup_{w \in \cW}
-\big| \widehat Z_n^T(w) \big|
-\leq \widehat q_{1-\alpha}
+\big| \hat Z_n^T(w) \big|
+\leq \hat q_{1-\alpha}
 \bigm\vert \bW_n \big)
 = 1 - \alpha$,
 %
@@ -1444,10 +1441,10 @@ the online supplemental appendix.
       f_W(w)
       \in
       \left[
-        \widehat f_W(w)
+        \hat f_W(w)
         \pm
-        \widehat q_{1-\alpha}
-        \sqrt{\widehat\Sigma_n^+(w,w)}
+        \hat q_{1-\alpha}
+        \sqrt{\hat\Sigma_n^+(w,w)}
         \,\right]
       \,\textup{for all }
       w \in \cW
@@ -1457,7 +1454,7 @@ the online supplemental appendix.
   %
 \end{theorem}
 
-Recently, \cite{chiang2022inference} derived high-dimensional central limit
+Recently, \citet{chiang2022inference} derived high-dimensional central limit
 theorems over rectangles for exchangeable arrays and applied them to construct
 simultaneous confidence intervals for a sequence of design points. Their
 inference procedure relies on the multiplier bootstrap,
@@ -1467,7 +1464,7 @@ In contrast, Theorem~\ref{thm:kernel_ucb} constructs a feasible uniform
 confidence band
 over the entire domain of inference $\cW$ based on our strong
 approximation results for the whole $t$-statistic process
-and the covariance estimator $\widehat\Sigma_n^+$.
+and the covariance estimator $\hat\Sigma_n^+$.
 The required rate condition specified in
 Assumption~\ref{ass:rates} does not depend on the number of design points.
 Furthermore, our proposed inference methods are robust to potential
@@ -1475,10 +1472,10 @@ unknown degenerate points in the underlying dyadic data generating process.
 
 In practice, suprema over $\cW$ can be
 replaced by maxima over sufficiently many design points in $\cW$.
-The conditional quantile $\widehat q_{1-\alpha}$
+The conditional quantile $\hat q_{1-\alpha}$
 can be estimated by Monte Carlo simulation,
 resampling from the Gaussian process defined by the law of
-$\widehat Z_n^T \mid \bW_n$.
+$\hat Z_n^T \mid \bW_n$.
 
 The bandwidth restrictions in Theorem~\ref{thm:kernel_ucb} are the same
 as those required for the infeasible version
@@ -1538,11 +1535,11 @@ Section~\ref{sec:point_estimation}, but it is easier to implement in practice.
 To implement the AIMSE-optimal bandwidth choice,
 we propose a simple \emph{rule-of-thumb} (ROT)
 approach based on Silverman's rule.
-Suppose $p\wedge\beta=2$ and let $\widehat\sigma^2$ and $\widehat\IQR$
+Suppose $p\wedge\beta=2$ and let $\hat\sigma^2$ and $\hat\IQR$
 be the sample variance and sample interquartile range respectively
 of the data $\bW_n$. Then
-$\widehat{h}_{\ROT} = C(K) \big( \widehat\sigma \wedge
-\frac{\widehat\IQR}{1.349} \big) \big(\frac{n(n-1)}{2} \big)^{-1/5}$,
+$\hat{h}_{\ROT} = C(K) \big( \hat\sigma \wedge
+\frac{\hat\IQR}{1.349} \big) \big(\frac{n(n-1)}{2} \big)^{-1/5}$,
 where $C(K)=2.576$ for the triangular kernel $K(w) = (1 - |w|) \vee 0$,
 and $C(K)=2.435$ for the Epanechnikov kernel
 $K(w) = \frac{3}{4}(1 - w^2) \vee 0$.
@@ -1559,10 +1556,10 @@ for $f_W$, we employ the following robust bias correction approach.
 
 Firstly, estimate the bandwidth $h^*_{\AIMSE}\asymp n^{-\frac{2}{2p+1}}$ using a
 kernel of order $p$, which leads to an AIMSE-optimal point estimator
-$\widehat{f}_W$ in an $L^2(\nu)$ sense. Then use this bandwidth and a kernel of
-order $p' > p$ to construct the statistic $\widehat T_n$ and the confidence band
+$\hat{f}_W$ in an $L^2(\nu)$ sense. Then use this bandwidth and a kernel of
+order $p' > p$ to construct the statistic $\hat T_n$ and the confidence band
 as detailed in Section~\ref{sec:feasible_confidence_bands}.
-Importantly, both $\widehat{f}_W$ and $\widehat{\Sigma}^+_n$ are
+Importantly, both $\hat{f}_W$ and $\hat{\Sigma}^+_n$ are
 recomputed with the new higher-order kernel.
 The change in centering is equivalent to a bias correction
 of the original AIMSE-optimal point estimator,
@@ -1581,7 +1578,7 @@ which is equivalent to
 $2 \leq p < p'$.
 For concreteness, we recommend taking
 $p = 2$ and $p' = 4$,
-and using the rule-of-thumb bandwidth choice $\widehat{h}_{\ROT}$ defined above.
+and using the rule-of-thumb bandwidth choice $\hat{h}_{\ROT}$ defined above.
 In particular, this approach automatically delivers a KMT-optimal
 strong approximation whenever there are no degeneracies in the
 underlying dyadic data generating process.
@@ -1600,7 +1597,7 @@ for $f_W$ is summarized in Algorithm~\ref{alg:method}.
 
   Select a bandwidth $h \approx h^*_{\AIMSE}$ for $k_h$
   as in Section~\ref{sec:bandwidth_selection},
-  perhaps using $h = \widehat{h}_{\ROT}$. \\
+  perhaps using $h = \hat{h}_{\ROT}$. \\
 
   Choose another kernel $k_h'$ of order $p'>p$ satisfying
   Assumption~\ref{ass:kernel_bandwidth}.
@@ -1608,32 +1605,32 @@ for $f_W$ is summarized in Algorithm~\ref{alg:method}.
   For $d \geq 1$, choose a set of $d$
   distinct evaluation points $\cW_d$. \\
 
-  For each $w \in \cW_d$, construct the density estimate $\widehat f_W(w)$
+  For each $w \in \cW_d$, construct the density estimate $\hat f_W(w)$
   using $k'_{h}$ as in Section~\ref{sec:introduction}. \\
 
   For $w, w' \in \cW_d$, construct the
-  covariance estimate $\widehat \Sigma_n(w,w')$
+  covariance estimate $\hat \Sigma_n(w,w')$
   using $k'_{h}$ as in Section~\ref{sec:covariance_estimation}. \\
 
   Construct the $d \times d$ positive semi-definite
-  covariance estimate $\widehat \Sigma_n^+$
+  covariance estimate $\hat \Sigma_n^+$
   as in Section~\ref{sec:covariance_estimation}. \\
 
   For $B \geq 1$,
-  let $(\widehat Z_{n,r}^T: 1\leq r\leq B)$ be i.i.d.\ Gaussian vectors
-  from $\widehat{Z}_n^T$ as in
+  let $(\hat Z_{n,r}^T: 1\leq r\leq B)$ be i.i.d.\ Gaussian vectors
+  from $\hat{Z}_n^T$ as in
   Section~\ref{sec:feasible_confidence_bands}. \\
 
   For $\alpha \in (0,1)$, set
-  $\widehat q_{1-\alpha} = \inf_{q \in \R}
+  $\hat q_{1-\alpha} = \inf_{q \in \R}
   \{ q :
-  \# \{r: \max_{w\in\cW_d}|\widehat Z_{n,r}^T(w)|
+  \# \{r: \max_{w\in\cW_d}|\hat Z_{n,r}^T(w)|
   \leq q \}
   \geq B(1-\alpha) \}$. \\
 
   Construct
-  $ \big[\widehat f_W(w) \pm
-    \widehat q_{1-\alpha} \widehat\Sigma_n^+(w,w)^{1/2} \big]$
+  $ \big[\hat f_W(w) \pm
+    \hat q_{1-\alpha} \hat\Sigma_n^+(w,w)^{1/2} \big]$
   for each $w \in \cW_d$.
   %
 \end{algorithm}
@@ -1672,7 +1669,7 @@ with sample size $n=100$
 (so $N=4950$ pairs of nodes)
 and with $d=100$ equally-spaced evaluation points.
 Each plot contains the true density function $f_W$,
-the dyadic kernel density estimate $\widehat f_W$
+the dyadic kernel density estimate $\hat f_W$
 and two different approximate $95\%$ confidence bands for $f_W$.
 The first is the uniform confidence band (UCB)
 constructed using one of our main results, Theorem~\ref{thm:kernel_ucb}.
@@ -1691,8 +1688,7 @@ degenerate point $w = 0$.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{result_total.pdf}
+    \includegraphics[scale=0.52]{graphics/result_total.pdf}
     \caption{
       Total degeneracy, \\
       $\pi = \left( \frac{1}{2}, 0, \frac{1}{2} \right)$
@@ -1701,8 +1697,7 @@ degenerate point $w = 0$.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{result_partial.pdf}
+    \includegraphics[scale=0.52]{graphics/result_partial.pdf}
     \caption{
       Partial degeneracy, \\
       $\pi = \left( \frac{1}{4}, 0, \frac{3}{4} \right)$
@@ -1711,8 +1706,7 @@ degenerate point $w = 0$.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{result_none.pdf}
+    \includegraphics[scale=0.52]{graphics/result_none.pdf}
     \caption{
       No degeneracy, \\
       $\pi = \left( \frac{1}{5}, \frac{1}{5}, \frac{3}{5} \right)$
@@ -1736,7 +1730,7 @@ we run $2000$ repeats
 % four digit numbers do not need a space
 with sample size $n=3000$ (giving $N=4\,498\,500$ pairs of nodes)
 and with $d=50$ equally-spaced evaluation points.
-We record the average rule-of-thumb bandwidth $\widehat{h}_{\ROT}$
+We record the average rule-of-thumb bandwidth $\hat{h}_{\ROT}$
 and the average root integrated mean squared error (RIMSE).
 For both the uniform confidence bands (UCB)
 and the pointwise confidence intervals (PCI),
@@ -1764,8 +1758,45 @@ in the underlying dyadic distribution.
 \begin{table}[ht]
   \caption{Numerical results for three values of the parameter $\pi$.}
   \vspace{-1em}
-  % TODO
-  %\input{table.tex}
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|c|cc|cc|}
+      \hline
+      \multirow{2}{*}{$ \pi $}
+        & \multirow{2}{*}{Degeneracy type}
+        & \multirow{2}{*}{$ \hat h_{\ROT} $}
+        & \multirow{2}{*}{$ p $}
+        & \multirow{2}{*}{RIMSE}
+        & \multicolumn{2}{|c|}{UCB}
+        & \multicolumn{2}{|c|}{PCI} \\
+        \cline{6-9}
+        & & & &
+        & CR & AW
+        & CR & AW \\
+        \hline
+        \multirow{2}{*}{$ \left(\frac{1}{2}, 0, \frac{1}{2}\right) $}
+        & \multirow{2}{*}{Total}
+        & \multirow{2}{*}{0.161}
+        & 2 & 0.00048 & 87.1\% & 0.0028 & 6.5\% & 0.0017 \\
+        & &  & 4 & 0.00068 & 95.2\% & 0.0042 & 9.7\% & 0.0025 \\
+        \hline
+        \multirow{2}{*}{$ \left(\frac{1}{4}, 0, \frac{3}{4}\right) $}
+        & \multirow{2}{*}{Partial}
+        & \multirow{2}{*}{0.158}
+        & 2 & 0.00228 & 94.5\% & 0.0112 & 75.6\% & 0.0083 \\
+        & &  & 4 & 0.00234 & 94.7\% & 0.0124 & 65.3\% & 0.0087 \\
+        \hline
+        \multirow{2}{*}{$ \left(\frac{1}{5}, \frac{1}{5}, \frac{3}{5}\right) $}
+        & \multirow{2}{*}{None}
+        & \multirow{2}{*}{0.145}
+        & 2 & 0.00201 & 94.2\% & 0.0106 & 73.4\% & 0.0077 \\
+        & &  & 4 & 0.00202 & 95.6\% & 0.0117 & 64.3\% & 0.0080 \\
+        \hline
+    \end{tabular}
+  \end{center}
+  % n = 3000
+  % evaluation points = 50
+  % repeats = 2000
+  % resample = 10000
   \label{tab:results}
 \end{table}
 
@@ -1835,100 +1866,100 @@ We consider discrete covariates for simplicity,
 and hence the counterfactual dyadic kernel density estimator is
 %
 \begin{align*}
-  \widehat f_W^{\,1 \triangleright 0}(w)
+  \hat f_W^{\,1 \triangleright 0}(w)
   &=
   \frac{2}{n(n-1)}
   \sum_{i=1}^{n-1}
   \sum_{j=i+1}^n
-  \widehat \psi(X_i^1)
-  \widehat \psi(X_j^1)
+  \hat \psi(X_i^1)
+  \hat \psi(X_j^1)
   k_h(W_{ij}^1, w),
 \end{align*}
 %
-where $\widehat\psi(x) = \widehat p_X^{\,0}(x) / \widehat p_X^{\,1}(x)$ and
-$\widehat p_X^{\,r}(x) = \frac{1}{n}\sum_{i = 1}^n \I\{X_i^r = x\}$,
+where $\hat\psi(x) = \hat p_X^{\,0}(x) / \hat p_X^{\,1}(x)$ and
+$\hat p_X^{\,r}(x) = \frac{1}{n}\sum_{i = 1}^n \I\{X_i^r = x\}$,
 with $\I$ the indicator function.
 
 Section~SA2.10 of the online supplemental appendix provides technical details:
 we show how an asymptotic
-linear representation for $\widehat\psi(x)$ leads to a
+linear representation for $\hat\psi(x)$ leads to a
 modified Hoeffding-type decomposition of
-$\widehat f_W^{\,1 \triangleright 0}(w)$,
-which is then used to establish that $\widehat f_W^{\,1 \triangleright 0}$
+$\hat f_W^{\,1 \triangleright 0}(w)$,
+which is then used to establish that $\hat f_W^{\,1 \triangleright 0}$
 is uniformly consistent for $f_W^{\,1 \triangleright 0}(w)$
 and also admits a Gaussian strong approximation,
 with the same rates of convergence
 as for the standard density estimator.
 Furthermore, define the covariance function of
-$\widehat f_W^{\,1 \triangleright 0}(w)$ as
+$\hat f_W^{\,1 \triangleright 0}(w)$ as
 $\Sigma_n^{1 \triangleright 0}(w,w') = \Cov\big[
-\widehat f_W^{\,1 \triangleright 0}(w),
-\widehat f_W^{\,1 \triangleright 0}(w') \big]$,
+\hat f_W^{\,1 \triangleright 0}(w),
+\hat f_W^{\,1 \triangleright 0}(w') \big]$,
 which can be estimated as follows.
 First let
-$\widehat\kappa(X_i^0, X_i^1, x)
-= \frac{\I\{X_i^0 = x\} - \widehat p_X^0(x)}{\widehat p_X^1(x)}
-- \frac{\widehat p_X^0(x)}{\widehat p_X^1(x)} \frac{\I\{X_i^1 = x\} - \widehat
-  p_X^1(x)}{\widehat p_X^1(x)}$
-be a plug-in estimate of the influence function for $\widehat\psi(x)$
+$\hat\kappa(X_i^0, X_i^1, x)
+= \frac{\I\{X_i^0 = x\} - \hat p_X^0(x)}{\hat p_X^1(x)}
+- \frac{\hat p_X^0(x)}{\hat p_X^1(x)} \frac{\I\{X_i^1 = x\} - \hat
+  p_X^1(x)}{\hat p_X^1(x)}$
+be a plug-in estimate of the influence function for $\hat\psi(x)$
 and define the leave-one-out
 conditional expectation estimators\newline
 $S_i^{1 \triangleright 0}(w)
-= \frac{1}{n-1} \big( \sum_{j=1}^{i-1} k_h(W_{j i}^1,w) \widehat\psi(X_j^1)
-+ \sum_{j=i+1}^n k_h(W_{ij}^1,w) \widehat\psi(X_j^1) \big)$
+= \frac{1}{n-1} \big( \sum_{j=1}^{i-1} k_h(W_{j i}^1,w) \hat\psi(X_j^1)
++ \sum_{j=i+1}^n k_h(W_{ij}^1,w) \hat\psi(X_j^1) \big)$
 and\newline
-$\widetilde S_i^{1 \triangleright 0}(w)
+$\tilde S_i^{1 \triangleright 0}(w)
 = \frac{1}{n-1} \sum_{j=1}^n \I\{j \neq i\}
-\widehat\kappa(X_i^0, X_i^1, X_j^1) S_j^{1 \triangleright 0}(w)$.
+\hat\kappa(X_i^0, X_i^1, X_j^1) S_j^{1 \triangleright 0}(w)$.
 Then define the covariance estimator
 %
 \begin{align*}
-  \widehat\Sigma_n^{1 \triangleright 0}(w,w')
+  \hat\Sigma_n^{1 \triangleright 0}(w,w')
   &=
   \frac{4}{n^2}
   \sum_{i=1}^n
   \big(
-  \widehat\psi(X_i^1)
+  \hat\psi(X_i^1)
   S_i^{1 \triangleright 0}(w)
-  + \widetilde S_i^{1 \triangleright 0}(w)
+  + \tilde S_i^{1 \triangleright 0}(w)
   \big)
   \big(
-  \widehat\psi(X_i^1)
+  \hat\psi(X_i^1)
   S_i^{1 \triangleright 0}(w')
-  + \widetilde S_i^{1 \triangleright 0}(w')
+  + \tilde S_i^{1 \triangleright 0}(w')
   \big) \\
   &\quad-
   \frac{4}{n^3(n-1)}
   \sum_{i<j}
   k_h(W_{ij}^1, w)
   k_h(W_{ij}^1, w')
-  \widehat\psi(X_i^1)^2
-  \widehat\psi(X_j^1)^2
+  \hat\psi(X_i^1)^2
+  \hat\psi(X_j^1)^2
   - \frac{4}{n}
-  \widehat f_W^{\,1 \triangleright 0}(w)
-  \widehat f_W^{\,1 \triangleright 0}(w').
+  \hat f_W^{\,1 \triangleright 0}(w)
+  \hat f_W^{\,1 \triangleright 0}(w').
 \end{align*}
 %
 We use a positive semi-definite approximation to
-$\widehat\Sigma_n^{1 \triangleright 0}$, denoted by
-$\widehat\Sigma_n^{+, 1 \triangleright 0}$,
+$\hat\Sigma_n^{1 \triangleright 0}$, denoted by
+$\hat\Sigma_n^{+, 1 \triangleright 0}$,
 as in Section~\ref{sec:covariance_estimation}.
 To construct feasible uniform confidence bands,
-define a process $\widehat Z_n^{T, 1 \triangleright 0}(w)$ which
+define a process $\hat Z_n^{T, 1 \triangleright 0}(w)$ which
 is conditionally mean-zero and conditionally Gaussian
 given the data $\bW_n^1$, $\bX_n^0$ and $\bX_n^1$
 and whose conditional covariance structure is
-$\E\big[\widehat Z_n^{T, 1 \triangleright 0}(w)
-\widehat Z_n^{T, 1 \triangleright 0}(w')
+$\E\big[\hat Z_n^{T, 1 \triangleright 0}(w)
+\hat Z_n^{T, 1 \triangleright 0}(w')
 \bigm| \bW_n^1, \bX_n^0, \bX_n^1 \big]
-= \frac{\widehat \Sigma_n^{+, 1 \triangleright 0}(w,w')}
-{\sqrt{\widehat \Sigma_n^{+, 1 \triangleright 0}(w,w)
-    \widehat \Sigma_n^{+, 1 \triangleright 0}(w',w')}}$.
+= \frac{\hat \Sigma_n^{+, 1 \triangleright 0}(w,w')}
+{\sqrt{\hat \Sigma_n^{+, 1 \triangleright 0}(w,w)
+    \hat \Sigma_n^{+, 1 \triangleright 0}(w',w')}}$.
 For $\alpha \in (0,1)$, define
-$\widehat q_{1-\alpha}^{\,1 \triangleright 0}$
+$\hat q_{1-\alpha}^{\,1 \triangleright 0}$
 as the conditional quantile satisfying
-$\P\big(\sup_{w \in \cW}\big| \widehat Z_n^{T, 1 \triangleright 0}(w) \big|
-\leq \widehat q_{1-\alpha}^{\,1 \triangleright 0}
+$\P\big(\sup_{w \in \cW}\big| \hat Z_n^{T, 1 \triangleright 0}(w) \big|
+\leq \hat q_{1-\alpha}^{\,1 \triangleright 0}
 \bigm\vert \bW_n^1, \bX_n^0, \bX_n^1 \big)
 = 1 - \alpha$.
 Then, assuming that the covariance estimator is appropriately consistent,
@@ -1938,10 +1969,10 @@ Then, assuming that the covariance estimator is appropriately consistent,
     f_W^{1 \triangleright 0}(w)
     \in
     \left[
-      \widehat f_W^{\,1 \triangleright 0}(w)
+      \hat f_W^{\,1 \triangleright 0}(w)
       \pm
-      \widehat q^{\,1 \triangleright 0}_{1-\alpha}
-      \sqrt{\widehat\Sigma_n^{+, 1 \triangleright 0}(w,w)}
+      \hat q^{\,1 \triangleright 0}_{1-\alpha}
+      \sqrt{\hat\Sigma_n^{+, 1 \triangleright 0}(w,w)}
       \,\right]
     \,\textup{for all }
     w \in \cW
@@ -2029,7 +2060,7 @@ to a shift in the GDP distribution.
 To estimate the trade volume density function
 we use Algorithm~\ref{alg:method}
 with $d=100$ equally-spaced evaluation points in $[-10,10]$,
-using the rule-of-thumb bandwidth selector $\widehat h_{\ROT}$
+using the rule-of-thumb bandwidth selector $\hat h_{\ROT}$
 from Section~\ref{sec:bandwidth_selection} with
 $p=2$ and $C(K) = 2.435$.
 For inference we use an
@@ -2057,23 +2088,20 @@ are qualitatively similar.
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_plot_1995.pdf}
-    \caption{Year 1995, $\widehat h_{\ROT} = 1.27$}
+    \includegraphics[scale=0.52]{graphics/trade_plot_1995.pdf}
+    \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_plot_1995_2000.pdf}
-    \caption{Year 2000, $\widehat h_{\ROT} = 1.31$}
+    \includegraphics[scale=0.52]{graphics/trade_plot_1995_2000.pdf}
+    \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
   \end{subfigure}
   %
   \begin{subfigure}{0.32\textwidth}
     \centering
-    % TODO
-    %\includegraphics[scale=0.52]{trade_plot_1995_2005.pdf}
-    \caption{Year 2005, $\widehat h_{\ROT} = 1.37$}
+    \includegraphics[scale=0.52]{graphics/trade_plot_1995_2005.pdf}
+    \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
   \end{subfigure}
   %
   \caption{Real and counterfactual density estimates
@@ -2107,7 +2135,7 @@ $f_W^0$ and $f_W^1$ are equal on their
 common support $\cW \subseteq \R$.
 We present a family of hypothesis tests for this scenario
 based on dyadic kernel density estimation.
-Let $\widehat f_W^{\,0}(w)$ and $\widehat f_W^{\,1}(w)$
+Let $\hat f_W^{\,0}(w)$ and $\hat f_W^{\,1}(w)$
 be the associated
 (bias-corrected) dyadic kernel density estimators.
 Consider the test statistics
@@ -2120,8 +2148,8 @@ $\tau_p$ for $1 \leq p \leq \infty$ where
   \left(
     \int_{-\infty}^{\infty}
     \left|
-    \widehat f_W^{\,1}(w)
-    - \widehat f_W^{\,0}(w)
+    \hat f_W^{\,1}(w)
+    - \hat f_W^{\,0}(w)
     \right|^p
     \diff w
   \right)^{1/p}
@@ -2129,37 +2157,37 @@ $\tau_p$ for $1 \leq p \leq \infty$ where
   \tau_\infty
   = \sup_{w \in \cW}
   \left|
-  \widehat f_W^{\,1}(w)
-  - \widehat f_W^{\,0}(w)
+  \hat f_W^{\,1}(w)
+  - \hat f_W^{\,0}(w)
   \right|.
 \end{align}
 %
 Clearly we should reject the null hypothesis that $f_W^0 = f_W^1$ whenever
 the test statistic $\tau_p$ is sufficiently large.
 To estimate the critical value, let
-$\widehat\Sigma_n^{+,0}(w, w')$ and $\widehat\Sigma_m^{+,1}(w, w')$
+$\hat\Sigma_n^{+,0}(w, w')$ and $\hat\Sigma_m^{+,1}(w, w')$
 be the positive semi-definite estimators defined in
 Section~\ref{sec:covariance_estimation} and
-let $\widehat Z^0_n(w)$ and $\widehat Z^1_m(w)$ be zero-mean
+let $\hat Z^0_n(w)$ and $\hat Z^1_m(w)$ be zero-mean
 Gaussian processes with covariance
-structures $\widehat\Sigma_n^{+,0}(w, w')$
-and $\widehat\Sigma_m^{+,1}(w, w')$
+structures $\hat\Sigma_n^{+,0}(w, w')$
+and $\hat\Sigma_m^{+,1}(w, w')$
 respectively, which are independent conditional on the data.
 Define the approximate null test statistic
-$\widehat \tau_p$ by replacing
-$\widehat f_W^{\,0}(w)$ and $\widehat f_W^{\,1}(w)$
-with $\widehat Z^0_n(w)$ and $\widehat Z^1_m(w)$ respectively
+$\hat \tau_p$ by replacing
+$\hat f_W^{\,0}(w)$ and $\hat f_W^{\,1}(w)$
+with $\hat Z^0_n(w)$ and $\hat Z^1_m(w)$ respectively
 in \eqref{eq:hypothesis_test}.
 For a significance level $\alpha \in (0,1)$,
-the critical value is $\widehat C_\alpha$ where
+the critical value is $\hat C_\alpha$ where
 %
 $\P \big(
-\widehat \tau_p \geq \widehat C_\alpha \bigm\vert \bW_n^0, \bW_n^1
+\hat \tau_p \geq \hat C_\alpha \bigm\vert \bW_n^0, \bW_n^1
 \big) = \alpha$.
 %
 This is estimated by Monte Carlo simulation, resampling
 from the conditional law of
-$\widehat Z^0_n(w)$ and $\widehat Z^1_m(w)$
+$\hat Z^0_n(w)$ and $\hat Z^1_m(w)$
 and replacing integrals and suprema by sums and maxima over a
 finite partition of $\cW$.
 
@@ -2188,13 +2216,13 @@ for some bandwidth $h > 0$ and
 a kernel function $k_h$ on $\R^m \times \R^m$,
 the local polynomial regression estimator of
 $\mu(x_1, x_2)$ is
-$\widehat\mu(x_1, x_2)
-= e_1^\T \widehat\beta(x_1, x_2)$ where
+$\hat\mu(x_1, x_2)
+= e_1^\T \hat\beta(x_1, x_2)$ where
 $e_1$ is the first standard
 unit vector in $\R^q$ for $q=\binom{2m+\gamma}{\gamma}$ and
 \begin{align}
   \nonumber
-  \widehat{\beta}(x_1, x_2)
+  \hat{\beta}(x_1, x_2)
   &=
   \argmin_{\beta \in \R^q}
   \sum_{i=1}^{n-1}
@@ -2230,7 +2258,7 @@ in \eqref{eq:locpol} converges uniformly
 to its expectation,
 while the U-process-like ``numerator'' matrix
 can be handled the same way as we analyzed
-$\widehat f_W(w)$ in this paper,
+$\hat f_W(w)$ in this paper,
 through a Hoeffding-type decomposition and
 strong approximation methods,
 along with standard bias calculations.
@@ -2269,7 +2297,7 @@ as well as functionals thereof.
 
 We studied the uniform estimation and inference properties of the
 dyadic kernel density estimator
-$\widehat{f}_W$ given in \eqref{eq:kernel_estimator},
+$\hat{f}_W$ given in \eqref{eq:kernel_estimator},
 which forms a class
 of U-process-like estimators
 indexed by the $n$-varying kernel function $k_h$ on $\cW$.
