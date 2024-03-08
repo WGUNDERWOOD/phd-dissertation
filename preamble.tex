@@ -10,6 +10,7 @@
 \usepackage{titlesec}
 \usepackage{stackengine}
 \usepackage{scalerel}
+\usepackage[boxruled,linesnumbered,commentsnumbered,procnumbered]{algorithm2e}
 \usepackage[longnamesfirst]{natbib}
 \usepackage[hypertexnames=false,hidelinks]{hyperref}
 
@@ -26,12 +27,15 @@
 \newcommand{\rF}{\ensuremath{\mathrm{F}}}
 \newcommand{\rd}{\ensuremath{\mathrm{d}}}
 \renewcommand{\c}{\ensuremath{\mathrm{c}}}
+\newcommand{\TV}{\mathrm{TV}}
 
 % bold
 \newcommand{\bW}{\ensuremath{\mathbf{W}}}
 \newcommand{\bY}{\ensuremath{\mathbf{Y}}}
 \newcommand{\bX}{\ensuremath{\mathbf{X}}}
 \newcommand{\bT}{\ensuremath{\mathbf{T}}}
+\newcommand{\bA}{\ensuremath{\mathbf{A}}}
+\newcommand{\bV}{\ensuremath{\mathbf{V}}}
 
 % calligraphic
 \newcommand{\cH}{\ensuremath{\mathcal{H}}}
@@ -47,6 +51,7 @@
 \newcommand{\cC}{\ensuremath{\mathcal{C}}}
 \newcommand{\cM}{\ensuremath{\mathcal{M}}}
 \newcommand{\cD}{\ensuremath{\mathcal{D}}}
+\newcommand{\cP}{\ensuremath{\mathcal{P}}}
 
 % sans serif
 \newcommand{\T}{\ensuremath{\mathsf{T}}}
@@ -57,6 +62,13 @@
 \newcommand{\Bigvvvert}{{\Big\vert\kern-0.3ex\Big\vert\kern-0.3ex\Big\vert}}
 \newcommand{\bigsetminus}{\mathbin{\big\backslash}}
 \newcommand{\Bigsetminus}{\mathbin{\Big\backslash}}
+% TODO remove these macros
+\newcommand{\CH}{\ensuremath{C_\mathrm{H}}}
+\newcommand{\CL}{\ensuremath{C_\mathrm{L}}}
+\newcommand{\Ck}{\ensuremath{C_\mathrm{k}}}
+\newcommand{\Dl}{\ensuremath{D_{\textup{lo}}}}
+\newcommand{\Du}{\ensuremath{D_{\textup{up}}}}
+\newcommand{\cPd}{\ensuremath{\mathcal{P}_{\mathrm{d}}}}
 
 % floor of beta
 \newcommand{\flbeta}{{\ThisStyle{%
@@ -77,7 +89,12 @@
 \DeclareMathOperator{\Exp}{Exp}
 \DeclareMathOperator{\Bin}{Bin}
 \DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Leb}{Leb}
 \DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\minimize}{minimize}
+\DeclareMathOperator*{\subjectto}{subject\ to}
+\DeclareMathOperator{\IQR}{IQR}
+\DeclareMathOperator{\ROT}{ROT}
 \newcommand{\diff}[1]{\,\mathrm{d}#1}
 
 % theorem environments
@@ -106,3 +123,45 @@
 \newcommand{\proofparagraph}[1]{
   \refstepcounter{proofparagraphcounter}%
   \paragraph{Part \theproofparagraphcounter : #1}}%
+
+% inline roman lists
+\newlist{inlineroman}{enumerate*}{1}
+\setlist[inlineroman]{afterlabel=~,label=(\roman*)}
+
+
+% algorithms
+\DontPrintSemicolon%
+\makeatletter%
+\renewcommand{\SetKwInOut}[2]{%
+  \sbox\algocf@inoutbox{\KwSty{#2}\algocf@typo:}%
+  \expandafter\ifx\csname InOutSizeDefined\endcsname\relax%
+    \newcommand\InOutSizeDefined{}%
+    \setlength{\inoutsize}{\wd\algocf@inoutbox}%
+    \sbox\algocf@inoutbox{%
+      \parbox[t]{\inoutsize}%
+      {\KwSty{#2}\algocf@typo:\hfill}~%
+    }%
+    \setlength{\inoutindent}{\wd\algocf@inoutbox}%
+  \else%
+    \ifdim\wd\algocf@inoutbox>\inoutsize%
+      \setlength{\inoutsize}{\wd\algocf@inoutbox}%
+      \sbox\algocf@inoutbox{%
+        \parbox[t]{\inoutsize}%
+        {\KwSty{#2}\algocf@typo:\hfill}~%
+      }%
+      \setlength{\inoutindent}{\wd\algocf@inoutbox}%
+    \fi%
+  \fi%
+  \algocf@newcommand{#1}[1]{%
+    \ifthenelse{\boolean{algocf@inoutnumbered}}{\relax}{\everypar={\relax}}{%
+      \let\\\algocf@newinout\hangindent=\inoutindent\hangafter=1\parbox[t]%
+      {\inoutsize}{\KwSty{#2}%
+        \algocf@typo:\hfill}~##1\par%
+    }%
+    \algocf@linesnumbered%
+  }%
+}%
+\makeatother%
+\SetKwInOut{Input}{Input}%
+\SetKwInOut{Output}{Output}%
+\setlength{\algomargin}{2em}%

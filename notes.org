@@ -1,6 +1,7 @@
 #+title: PhD Dissertation
 * Tasks
 ** TODO Remake all plots in a consistent style
+** TODO Figure floats
 ** TODO Check margins and spacing etc
 ** TODO All files should be checked in the justfile
 * Structure
@@ -11,38 +12,28 @@
 *** From job application research statement
 *** From paper abstracts and introductions
 ** Mondrian Random Forests
-*** From CKU Overleaf
 *** paper.tex
-*** abstract.tex
 *** refs.bib
-*** Plots pgfs
-*** More plots from job talk
+*** TODO abstract.tex
+*** TODO Plots from Overleaf, job talk, GitHub
 ** Dyadic KDE
-*** From CFU Overleaf
-*** CFU_2023_JASA.tex
-*** CFU_2023_JASA--bib.bib
-*** table.tex
-*** preamble_CFU.tex algorithm style
-*** Plots
-*** Get more plots from GitHub research-dyadic-kde and two sigma talk
+*** TODO CFU_2023_JASA.tex
+*** TODO CFU_2023_JASA--bib.bib
+*** TODO table.tex
+*** TODO preamble_CFU.tex algorithm style
+*** TODO Plots from Overleaf, GitHub, two sigma / job talk
 ** Yurinskii's Coupling
-*** From CMU Overleaf
-*** abstract.tex
 *** paper.tex
-*** Plots
-*** Make more plots
+*** refs.bib
+*** TODO abstract.tex
+*** TODO Plots from Overleaf and make more
 ** Appendix: Proofs for Mondrian Random Forests
-*** From CKU Overleaf
 *** proofs.tex
-*** From GitHub research-random-forests
-*** random_forests.tex extra technical results
-*** inconsistency.tex
+*** TODO random_forests.tex
+*** TODO inconsistency.tex
 ** Appendix: Proofs for Dyadic KDE
-*** From GitHub research-dyadic-kde
-*** dyadic_kde.tex
-*** Remove duplicated results as appropriate
+*** TODO dyadic_kde.tex remove duplicated results as appropriate
 ** Appendix: Proofs for Yurinskii's Coupling
-*** From CMU Overleaf
 *** appendix.tex
 ** Bibliography
 * Advanced degree application
