@@ -13,6 +13,7 @@ tex-clean = pkgs.callPackage "${programs}/tex-clean.nix" {};
 todo-finder = pkgs.callPackage "${programs}/todo-finder/todo-finder.nix" {};
 in pkgs.mkShell {
     buildInputs = [
+        pkgs.just
         pkgs.texlive.combined.scheme-full
         latexindent-fast
         long-lines
