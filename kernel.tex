@@ -21,20 +21,20 @@ $\frac{1}{2}n(n-1)$
 observed real-valued random variables
 %
 \begin{align*}
-  \bW_n = (W_{ij}:1\leq i<j \leq n),
-  \quad\qquad W_{ij}
-  &= W(A_i,A_j,V_{ij}),
+  \bW_n = (W_{i j}:1\leq i<j \leq n),
+  \quad\qquad W_{i j}
+  &= W(A_i,A_j,V_{i j}),
 \end{align*}
 %
 where $W$ is an unknown function, $\bA_n=(A_{i}:1\leq i \leq n)$
 are independent and identically distributed (i.i.d.)\ latent random variables,
-and $\bV_n=(V_{ij}:1\leq i<j \leq n)$ are i.i.d.\
+and $\bV_n=(V_{i j}:1\leq i<j \leq n)$ are i.i.d.\
 latent random variables independent of $\bA_n$.
 A natural interpretation of
 this data is as a complete
 undirected network on $n$ vertices,
 with the latent variable $A_i$ associated with node $i$
-and the observed variable $W_{ij}$ associated
+and the observed variable $W_{i j}$ associated
 with the edge between nodes $i$ and $j$.
 The data generating process above is justified
 without loss of generality by the celebrated
@@ -45,7 +45,7 @@ for exchangeable arrays
 Various distributional features of dyadic data are of interest in applications.
 Most of the statistical literature focuses on parametric analysis, almost
 exclusively considering moments of (transformations of)
-the identically distributed $W_{ij}$.
+the identically distributed $W_{i j}$.
 See \citet{davezies2021exchangeable}, \citet{gao2021minimax},
 \citet{MatsushitaOtsu2021}, and references therein, for contemporary
 contributions and overviews. More recently, however, a few nonparametric
@@ -53,14 +53,14 @@ procedures for dyadic data have been proposed in the literature
 \citep{graham2021dyadicregression,graham2022kernel}.
 
 With the aim of estimating density-like functions
-associated with $W_{ij}$ using
+associated with $W_{i j}$ using
 nonparametric kernel-based methods,
 we investigate the statistical properties of a class
 of local stochastic processes given by
 %
 \begin{align}\label{eq:kernel_estimator}
   w \mapsto \hat{f}_W(w)
-  = \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^n k_h(W_{ij},w),
+  = \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^n k_h(W_{i j},w),
 \end{align}
 %
 where $k_h(\cdot,w)$ is a kernel function
@@ -74,14 +74,14 @@ the statistic $\hat{f}_W(w)$ becomes a kernel density estimator
 for the Lebesgue density function
 $f_W(w) = \E\big[f_{W \mid AA}(w \mid A_i,A_j)\big]$,
 where $f_{W \mid AA}(w \mid A_i,A_j)$ denotes the conditional Lebesgue density
-of $W_{ij}$ given $A_i$ and $A_j$.
+of $W_{i j}$ given $A_i$ and $A_j$.
 Setting
 $k_h(\cdot,w)=K((\cdot-w)/h)/h$, \citet{graham2022kernel}
 recently introduced the dyadic point estimator $\hat{f}_W(w)$ and studied
 its large sample properties pointwise in $w\in\cW=\mathbb{R}$, while
 \citet{chiang2020empirical} established its rate of convergence uniformly in
 $w\in\cW$ for a compact interval $\cW$ strictly contained in the support of
-the dyadic data $W_{ij}$.
+the dyadic data $W_{i j}$.
 \citet{chiang2022inference} obtained a distributional approximation for the
 supremum statistic $\sup_{w\in\cW}\big|\hat{f}_W(w)\big|$
 over a finite collection $\cW$ of design points.
@@ -95,9 +95,9 @@ and other nonparametric and semiparametric methods
 We remark that while we assume throughout that the network is complete,
 our approach generalizes in a straightforward way to networks
 with missing edges, as in Section~\ref{sec:trade_data}.
-This can be seen by setting $W_{ij} = -\infty$
+This can be seen by setting $W_{i j} = -\infty$
 whenever the edge $\{i, j\}$ is not present, so that the law of
-$W_{ij}$ is a mixture between a continuous distribution and a point mass
+$W_{i j}$ is a mixture between a continuous distribution and a point mass
 at $-\infty$.
 We then apply our methodology to recover the
 continuous component of this distribution,
@@ -217,8 +217,8 @@ Our main result for $L_n$ is given as Lemma~\ref{lem:strong_approx_Ln},
 and makes explicit the potential presence of degenerate points.
 
 The stochastic process $E_n$ is an empirical process depending on the dyadic
-variables $W_{ij}$ and indexed by an $n$-varying class of functions.
-When conditioning on $\bA_n$, the variables $W_{ij}$ are independent but not
+variables $W_{i j}$ and indexed by an $n$-varying class of functions.
+When conditioning on $\bA_n$, the variables $W_{i j}$ are independent but not
 necessarily identically distributed (i.n.i.d.), and thus we establish a
 conditional-on-$\bA_n$ strong
 approximation for $E_n$ based on the Yurinskii coupling
@@ -289,7 +289,7 @@ Gaussian process underlying our strong approximation results. We present two
 estimators, one based on the plug-in method, and the other based on a
 positive semi-definite regularization thereof
 \citep{laurent2005semidefinite}. We derive the uniform convergence rates for
-both estimators in Lemma~\ref{lem:SDP}, which we then use to justify
+both estimators in Lemma~\ref{lem:sdp}, which we then use to justify
 Studentization of $\hat{f}_W$ and a
 feasible simulation-based approximation of the infeasible Gaussian process
 underlying our strong approximation results.
@@ -405,20 +405,20 @@ We impose the following two assumptions throughout this paper.
   % A and V variables
   Let $\bA_n = (A_i: 1 \leq i \leq n)$ be i.i.d.\
   random variables supported on $\cA \subseteq \R$
-  and let $\bV_n = (V_{ij}: 1 \leq i < j \leq n)$
+  and let $\bV_n = (V_{i j}: 1 \leq i < j \leq n)$
   be i.i.d.\ random variables with a Lebesgue density $f_V$ on $\R$,
   with $\bA_n$ independent of $\bV_n$.
   %
   % W variables
-  Let $W_{ij} = W(A_i, A_j, V_{ij})$
-  and $\bW_n = (W_{ij}: 1 \leq i < j \leq n)$,
+  Let $W_{i j} = W(A_i, A_j, V_{i j})$
+  and $\bW_n = (W_{i j}: 1 \leq i < j \leq n)$,
   where $W$ is an unknown real-valued function
   which is symmetric in its first two arguments.
   %
   Let $\cW \subseteq \R$ be a compact interval
   with positive Lebesgue measure $\Leb(\cW)$.
   The conditional distribution
-  of $W_{ij}$ given $A_i$ and $A_j$
+  of $W_{i j}$ given $A_i$ and $A_j$
   admits a Lebesgue density $f_{W \mid AA}(w \mid A_i, A_j)$.
   For $\CH > 0$ and $\beta \geq 1$,
   take $f_W \in \cH^\beta_{\CH}(\cW)$ where
@@ -444,7 +444,7 @@ between the pieces are known and treated as boundary points.
 
 If $W(a_1, a_2, v)$ is strictly monotonic and continuously differentiable in
 its third argument,
-we can give the conditional density of $W_{ij}$ explicitly
+we can give the conditional density of $W_{i j}$ explicitly
 using the usual change-of-variables formula: with $w=W(a_1,a_2,v)$,
 we have
 $f_{W \mid AA}(w \mid a_1,a_2) = f_V(v)
@@ -511,18 +511,18 @@ and
   &= \frac{2}{n} \sum_{i=1}^n l_i(w),
   &
   E_n(w)
-  &= \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} e_{ij}(w),
+  &= \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} e_{i j}(w),
   &
   Q_n(w)
-  &= \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} q_{ij}(w),
+  &= \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} q_{i j}(w),
 \end{align*}
 %
 where
-$l_i(w) = \E[k_h(W_{ij},w) \mid A_i] - \E[k_h(W_{ij},w)]$,
-$e_{ij}(w) = k_h(W_{ij},w) - \E[k_h(W_{ij},w) \mid A_i, A_j]$
+$l_i(w) = \E[k_h(W_{i j},w) \mid A_i] - \E[k_h(W_{i j},w)]$,
+$e_{i j}(w) = k_h(W_{i j},w) - \E[k_h(W_{i j},w) \mid A_i, A_j]$
 and
-$q_{ij}(w) = \E[k_h(W_{ij},w) \mid A_i, A_j] - \E[k_h(W_{ij},w) \mid A_i]
-- \E[k_h(W_{ij},w) \mid A_j] + \E[k_h(W_{ij},w)]$.
+$q_{i j}(w) = \E[k_h(W_{i j},w) \mid A_i, A_j] - \E[k_h(W_{i j},w) \mid A_i]
+- \E[k_h(W_{i j},w) \mid A_j] + \E[k_h(W_{i j},w)]$.
 The non-random term $B_n$ captures the smoothing (or misspecification) bias,
 while the three stochastic processes $L_n$, $E_n$ and $Q_n$
 capture the variance of the estimator.
@@ -647,15 +647,15 @@ As a simple example,
 consider the family of dyadic distributions $\P_{\pi}$
 indexed by $\pi = (\pi_1, \pi_2, \pi_3)$
 with $\sum_{i=1}^3 \pi_i = 1$ and $\pi_i \geq 0$,
-generated by $W_{ij} = A_i A_j + V_{ij}$,
+generated by $W_{i j} = A_i A_j + V_{i j}$,
 where $A_i$ equals $-1$ with probability $\pi_1$,
 equals $0$ with probability $\pi_2$
 and equals $+1$ with probability $\pi_3$,
-and $V_{ij}$ is standard Gaussian.
+and $V_{i j}$ is standard Gaussian.
 This model induces a latent
 ``community structure'' where community membership
 is determined by the value of $A_i$ for each node $i$,
-and the interaction outcome $W_{ij}$ is a function
+and the interaction outcome $W_{i j}$ is a function
 only of the communities which $i$ and $j$ belong to and some
 idiosyncratic noise.
 Unlike the stochastic block model
@@ -666,7 +666,7 @@ as we work with fully connected networks;
 see Section~\ref{sec:trade_data} for a discussion of
 how to handle missing edges in practice.
 Also note that the parameter of interest in this paper is the Lebesgue density
-of a continuous random variable $W_{ij}$
+of a continuous random variable $W_{i j}$
 rather than the probability of network edge existence,
 which is the focus of graphon estimation
 literature \citep{gao2021minimax}.
@@ -838,7 +838,7 @@ f_W$, regardless of the degeneracy type of the dyadic distribution.
   \E_\P\big[\sup_{w \in \cW} \big| \tilde f_W(w) - f_W(w) \big| \big]
   \asymp \big( \frac{\log n}{n^2} \big)^{\frac{\beta}{2\beta+1}}$,
   where $\tilde f_W$ is any estimator depending only on
-  the data $\bW_n = (W_{ij}: 1 \leq i < j \leq n)$
+  the data $\bW_n = (W_{i j}: 1 \leq i < j \leq n)$
   distributed according to the dyadic distribution $\P$.
   The constants underlying $\asymp$ depend only on
   $\cW$, $\beta$ and $\CH$.
@@ -1284,8 +1284,8 @@ estimator of $\Sigma_n$: for $w, w' \in \cW$,
   \hspace*{-0.5mm}
   \sum_{i<j}
   \hspace*{-0.5mm}
-  k_h(W_{ij},w)
-  k_h(W_{ij},w')
+  k_h(W_{i j},w)
+  k_h(W_{i j},w')
   \hspace*{-0.5mm}
   -
   \hspace*{-0.5mm}
@@ -1296,11 +1296,11 @@ estimator of $\Sigma_n$: for $w, w' \in \cW$,
 %
 where
 $S_i(w) = \frac{1}{n-1} \big( \sum_{j = 1}^{i-1} k_h(W_{j i}, w)
-+ \sum_{j = i+1}^n k_h(W_{ij}, w) \big)$
++ \sum_{j = i+1}^n k_h(W_{i j}, w) \big)$
 is an ``estimator'' of
-$\E[k_h(W_{ij},w) \mid A_i]$.
+$\E[k_h(W_{i j},w) \mid A_i]$.
 Though $\hat\Sigma_n(w,w')$ is consistent in an appropriate sense
-as shown in Lemma~\ref{lem:SDP} below,
+as shown in Lemma~\ref{lem:sdp} below,
 it is not necessarily positive semi-definite,
 even in the limit.
 We therefore propose a modified covariance estimator
@@ -1309,7 +1309,7 @@ Specifically, consider the following optimization problem
 where $\Ck$ and $\CL$ are as in Section~\ref{sec:kernel_setup}.
 %
 \begin{equation}
-  \label{eq:SDP}
+  \label{eq:sdp}
   \begin{aligned}
     \minimize
     \qquad
@@ -1333,13 +1333,13 @@ where $\Ck$ and $\CL$ are as in Section~\ref{sec:kernel_setup}.
 \end{equation}
 
 Denote by $\hat\Sigma_n^+$ any (approximately) optimal solution to
-(\ref{eq:SDP}). The following lemma establishes uniform convergence rates
+(\ref{eq:sdp}). The following lemma establishes uniform convergence rates
 for both $\hat \Sigma_n$ and $\hat \Sigma_n^+$. It allows us to use
 these estimators to construct feasible versions of $T_n$ and its associated
 Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_fW}.
 %
 \begin{lemma}[Consistency of $\hat \Sigma_n$ and $\hat \Sigma_n^+$]
-  \label{lem:SDP}
+  \label{lem:sdp}
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold
   and that
@@ -1357,7 +1357,7 @@ Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_fW}.
     \frac{\sqrt{\log n}}{n}.
   \end{align*}
   %
-  Also, the optimization problem (\ref{eq:SDP})
+  Also, the optimization problem (\ref{eq:sdp})
   is a semi-definite program
   \citep[SDP,][]{laurent2005semidefinite}
   and has an approximately
@@ -1380,14 +1380,14 @@ Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_fW}.
 In practice we take $w, w' \in \cW_d$ where $\cW_d$ is a finite
 subset of $\cW$, typically taken to be an equally-spaced grid.
 This yields finite-dimensional covariance matrices,
-for which \eqref{eq:SDP}
+for which \eqref{eq:sdp}
 can be solved in polynomial time in $|\cW_d|$ using
 a general-purpose SDP solver
 \citep[e.g.\ by interior point methods,][]{laurent2005semidefinite}.
 The number of points in $\cW_d$ should be taken as large as is
 computationally practical in order to generate
 confidence bands rather than merely simultaneous confidence intervals.
-It is worth noting that the complexity of solving \eqref{eq:SDP}
+It is worth noting that the complexity of solving \eqref{eq:sdp}
 does not depend on the number of vertices $n$,
 and so does not influence the ability
 of our methodology to handle large and possibly sparse networks.
@@ -1483,7 +1483,7 @@ The bandwidth restrictions in Theorem~\ref{thm:kernel_ucb} are the same
 as those required for the infeasible version
 given in Theorem~\ref{thm:infeasible_ucb}, namely those imposed in Assumption
 \ref{ass:rates}. This follows from the rates of convergence obtained in
-Lemma~\ref{lem:SDP}, coupled with some careful technical work given in the
+Lemma~\ref{lem:sdp}, coupled with some careful technical work given in the
 supplemental appendix to handle the potential presence
 of degenerate points in $\Sigma_n$.
 
@@ -1647,7 +1647,7 @@ the kernel density estimator with dyadic data
 using simulations.
 The family of dyadic distributions
 defined in Section~\ref{sec:degeneracy},
-along with its three parametrizations,
+along with its three parameterizations,
 is used to generate data sets with different degeneracy types.
 %
 
@@ -1822,7 +1822,7 @@ $\bX_n^r = (X_1^r, \ldots, X_n^r)$ be some covariates.
 We assume that $(A_i^r, X_i^r)$ are
 independent over $1 \leq i \leq n$
 and that $\bX_n^r$ is independent of $\bV_n^r$,
-that $W_{ij}^r \mid X_i^r, X_j^r$
+that $W_{i j}^r \mid X_i^r, X_j^r$
 has a conditional Lebesgue density
 $f_{W \mid XX}^r(\,\cdot \mid x_1, x_2) \in \cH^\beta_{\CH}(\cW)$,
 that $X_i^r$ follows a distribution function $F_X^r$
@@ -1876,7 +1876,7 @@ and hence the counterfactual dyadic kernel density estimator is
   \sum_{j=i+1}^n
   \hat \psi(X_i^1)
   \hat \psi(X_j^1)
-  k_h(W_{ij}^1, w),
+  k_h(W_{i j}^1, w),
 \end{align*}
 %
 where $\hat\psi(x) = \hat p_X^{\,0}(x) / \hat p_X^{\,1}(x)$ and
@@ -1908,7 +1908,7 @@ and define the leave-one-out
 conditional expectation estimators\newline
 $S_i^{1 \triangleright 0}(w)
 = \frac{1}{n-1} \big( \sum_{j=1}^{i-1} k_h(W_{j i}^1,w) \hat\psi(X_j^1)
-+ \sum_{j=i+1}^n k_h(W_{ij}^1,w) \hat\psi(X_j^1) \big)$
++ \sum_{j=i+1}^n k_h(W_{i j}^1,w) \hat\psi(X_j^1) \big)$
 and\newline
 $\tilde S_i^{1 \triangleright 0}(w)
 = \frac{1}{n-1} \sum_{j=1}^n \I\{j \neq i\}
@@ -1933,8 +1933,8 @@ Then define the covariance estimator
   &\quad-
   \frac{4}{n^3(n-1)}
   \sum_{i<j}
-  k_h(W_{ij}^1, w)
-  k_h(W_{ij}^1, w')
+  k_h(W_{i j}^1, w)
+  k_h(W_{i j}^1, w')
   \hat\psi(X_i^1)^2
   \hat\psi(X_j^1)^2
   - \frac{4}{n}
@@ -2197,18 +2197,18 @@ While our focus has been on density estimation with dyadic data,
 our uniform dyadic estimation and inference results are readily
 applicable to the settings of nonparametric
 and semiparametric dyadic regression.
-For our second example, suppose that $Y_{ij} = Y(X_i, X_j, A_i, A_j, V_{ij})$,
+For our second example, suppose that $Y_{i j} = Y(X_i, X_j, A_i, A_j, V_{i j})$,
 where only $\bX_n$ and $\bY_n$ are observed and
 $\bV_n$ is independent of $(\bX_n, \bA_n)$,
 with $\bX_n = (X_i : 1 \leq i \leq n)$,
 $\bA_n = (A_i : 1 \leq i \leq n)$,
-$\bY_n = (Y_{ij}:1\leq i<j\leq n)$
-and $\bV_n = (V_{ij} : 1 \leq i < j \leq n)$.
+$\bY_n = (Y_{i j}:1\leq i<j\leq n)$
+and $\bV_n = (V_{i j} : 1 \leq i < j \leq n)$.
 A parameter of interest is the regression function
-$\mu(x_1, x_2) = \E[Y_{ij} \mid X_i=x_1, X_j=x_2]$,
+$\mu(x_1, x_2) = \E[Y_{i j} \mid X_i=x_1, X_j=x_2]$,
 which can be used to analyze average or partial effects
 of changing the node attributes $X_i$ and $X_j$
-on the edge variable $Y_{ij}$.
+on the edge variable $Y_{i j}$.
 This conditional expectation could be estimated
 using local polynomial methods:
 suppose that $X_i$ takes values in $\R^m$ and
@@ -2230,7 +2230,7 @@ unit vector in $\R^q$ for $q=\binom{2m+\gamma}{\gamma}$ and
   \sum_{i=1}^{n-1}
   \sum_{j=i+1}^n
   \left(
-    Y_{ij} - r(X_i-x_1, X_j-x_2)^\T \beta
+    Y_{i j} - r(X_i-x_1, X_j-x_2)^\T \beta
   \right)^2
   k_h(X_i-x_1, X_j-x_2) \\
   \label{eq:locpol}
@@ -2238,17 +2238,17 @@ unit vector in $\R^q$ for $q=\binom{2m+\gamma}{\gamma}$ and
   \left(
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^n
-    k_{ij} r_{ij} r_{ij}^\T
+    k_{i j} r_{i j} r_{i j}^\T
   \right)^{-1}
   \left(
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^n
-    k_{ij} r_{ij} Y_{ij}
+    k_{i j} r_{i j} Y_{i j}
   \right),
 \end{align}
-with $k_{ij} = k_h(X_i-x_1, X_j-x_2)$
+with $k_{i j} = k_h(X_i-x_1, X_j-x_2)$
 and
-$r_{ij} = r(X_i-x_1, X_j-x_2)$.
+$r_{i j} = r(X_i-x_1, X_j-x_2)$.
 \citet{graham2021dyadicregression}
 established pointwise distribution theory
 for the special case of the dyadic Nadaraya--Watson
@@ -2274,8 +2274,8 @@ As a third example, we consider applying our results to
 semiparametric semi-linear regression problems.
 The dyadic semi-linear regression model is
 %
-$\E[Y_{ij} \mid W_{ij}, X_i, X_j]
-= \theta^\T W_{ij} + g(X_i, X_j)$
+$\E[Y_{i j} \mid W_{i j}, X_i, X_j]
+= \theta^\T W_{i j} + g(X_i, X_j)$
 %
 where $\theta$ is the finite-dimensional parameter
 of interest
@@ -2291,7 +2291,7 @@ estimators as in \eqref{eq:kernel_estimator}.
 Consequently, our strong approximation techniques
 presented in this paper can be appropriately modified
 to develop valid uniform inference procedures for
-$g$ and $\E[Y_{ij} \mid W_{ij}=w, X_i=x_1, X_j=x_2]$,
+$g$ and $\E[Y_{i j} \mid W_{i j}=w, X_i=x_1, X_j=x_2]$,
 as well as functionals thereof.
 
 \section{Conclusion}

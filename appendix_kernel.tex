@@ -12,35 +12,35 @@ and state our assumptions.
 
 Fix $n \geq 2$ and suppose there is
 a probability space carrying the latent random variables
-$\bA_n=(A_i: 1\leq i\leq n)$ and $\bV_n=(V_{ij}: 1\leq i<j\leq n)$.
-Suppose that the $A_i$ are i.i.d., the $V_{ij}$ are i.i.d., and
+$\bA_n=(A_i: 1\leq i\leq n)$ and $\bV_n=(V_{i j}: 1\leq i<j\leq n)$.
+Suppose that the $A_i$ are i.i.d., the $V_{i j}$ are i.i.d., and
 that $\bA_n$ is independent of $\bV_n$.
 Define the observable dyadic random variables
-$W_{ij} = W(A_i, A_j, V_{ij})$
+$W_{i j} = W(A_i, A_j, V_{i j})$
 where $W$ is some unknown real-valued function.
 There are $\frac{1}{2}n(n-1)$ such variables;
 one for each unordered pair of distinct indices $i<j$.
 Note that if $i<j$ and $i'<j'$ are all distinct,
-then $W_{ij}$ is independent of $W_{i' j'}$.
-However, $W_{ij}$ is
-not in general independent of $W_{ij'}$,
+then $W_{i j}$ is independent of $W_{i' j'}$.
+However, $W_{i j}$ is
+not in general independent of $W_{i j'}$,
 as they may both depend on the latent variable $A_i$.
 This data generating process is justified by the
 Aldous--Hoover representation theorem for exchangeable arrays
 \citep{aldous1981representations, hoover1979relations}.
 
-Denote the kernel weight of the data point $W_{ij}$
+Denote the kernel weight of the data point $W_{i j}$
 at the evaluation point $w$
 with bandwidth $h$
 (see Section~\ref{sec:assumptions} for details)
 by
-$k_h(W_{ij}, w)$.
+$k_h(W_{i j}, w)$.
 Then the dyadic
 kernel density estimator
 is defined as
 \begin{align*}
   \hat f_W(w) = \frac{2}{n(n-1)}
-  \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} k_h(W_{ij}, w).
+  \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} k_h(W_{i j}, w).
 \end{align*}
 
 \subsection{Notation}
@@ -104,7 +104,7 @@ of functions from $\R$ to $\R$ which are
 $\flbeta$ times continuously differentiable on $\cX$.
 Note that $\cC^0(\cX)$ is the class of functions
 which are continuous on $\cX$.
-For $C > 0$, define the H\"older class with smoothness
+For $C > 0$, define the H{\"o}lder class with smoothness
 $\beta > 0$ by
 %
 \begin{align*}
@@ -276,29 +276,29 @@ interpreting our results in various classes of data distributions.
     \frac{2}{n(n-1)}
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^{n}
-    q_{ij}(w),
+    q_{i j}(w),
     &E_n(w)
     &=
     \frac{2}{n(n-1)}
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^{n}
-    e_{ij}(w)
+    e_{i j}(w)
   \end{align*}
   respectively, where
   \begin{align*}
     l_i(w)
     &=
-    \E\left[k_h(W_{ij},w) \mid A_i\right] - \E\left[k_h(W_{ij},w)\right], \\
-    q_{ij}(w)
+    \E\left[k_h(W_{i j},w) \mid A_i\right] - \E\left[k_h(W_{i j},w)\right], \\
+    q_{i j}(w)
     &=
-    \E\left[k_h(W_{ij},w) \mid A_i, A_j\right]
-    - \E\left[k_h(W_{ij},w) \mid A_i\right]
-    - \E\left[k_h(W_{ij},w) \mid A_j\right]
-    + \E\left[k_h(W_{ij},w)\right], \\
-    e_{ij}(w)
+    \E\left[k_h(W_{i j},w) \mid A_i, A_j\right]
+    - \E\left[k_h(W_{i j},w) \mid A_i\right]
+    - \E\left[k_h(W_{i j},w) \mid A_j\right]
+    + \E\left[k_h(W_{i j},w)\right], \\
+    e_{i j}(w)
     &=
-    k_h(W_{ij},w)
-    - \E\left[k_h(W_{ij},w) \mid A_i, A_j\right].
+    k_h(W_{i j},w)
+    - \E\left[k_h(W_{i j},w) \mid A_i, A_j\right].
   \end{align*}
   Then the following Hoeffding-type decomposition holds:
   \begin{align*}
@@ -377,11 +377,11 @@ interpreting our results in various classes of data distributions.
       $\Du > \Dl = 0$.
       There exists $w \in \cW$ with
       $\Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$;
-      such a point is labelled \emph{degenerate} and satisfies
+      such a point is labeled \emph{degenerate} and satisfies
       $\Var[L_n(w)] \leq 64 \Ck \CH \Cd \frac{h}{n}$.
       There also exists a point $w' \in \cW$ with
       $\Var\left[f_{W \mid A}(w' \mid A_i)\right] > 0$;
-      such a point is labelled \emph{non-degenerate} and satisfies
+      such a point is labeled \emph{non-degenerate} and satisfies
       $\Var[L_n(w')] \geq
       \frac{2}{n} \Var\left[f_{W \mid A}(w' \mid A_i)\right]$
       for all large enough $n$.
@@ -554,7 +554,7 @@ some classes of dyadic distributions.
     \right)^{\frac{\beta}{2\beta+1}},
   \end{align*}
   where $\tilde f_W$ is any estimator depending only on
-  the data $\bW_n = (W_{ij}: 1 \leq i < j \leq n)$
+  the data $\bW_n = (W_{i j}: 1 \leq i < j \leq n)$
   distributed according to the dyadic law $\P$.
   The constants in $\asymp$ depend only on
   $\cW$, $\beta$ and $\CH$.
@@ -602,26 +602,26 @@ some classes of dyadic distributions.
     &=
     \frac{2}{n(n-1)}
     \Cov\hspace*{-0.7mm}\big[
-      k_h(W_{ij},w),
-      k_h(W_{ij},w')
+      k_h(W_{i j},w),
+      k_h(W_{i j},w')
       \big]
     +
     \frac{4(n-2)}{n(n-1)}
     \Cov\hspace*{-0.7mm}\big[
-      k_h(W_{ij},w),
-      k_h(W_{ir},w')
+      k_h(W_{i j},w),
+      k_h(W_{i r},w')
       \big] \\
     &=
     \frac{2}{n(n-1)}
     \Cov\hspace*{-0.7mm}\big[
-      k_h(W_{ij},w),
-      k_h(W_{ij},w')
+      k_h(W_{i j},w),
+      k_h(W_{i j},w')
       \big] \\
     &\quad+
     \frac{4(n-2)}{n(n-1)}
     \Cov\hspace*{-0.7mm}\big[
-      \E[k_h(W_{ij},w) \mid A_i],
-      \E[k_h(W_{ij},w') \mid A_i]
+      \E[k_h(W_{i j},w) \mid A_i],
+      \E[k_h(W_{i j},w') \mid A_i]
       \big],
   \end{align*}
   %
@@ -1058,7 +1058,7 @@ which is a standard assumption when constructing confidence bands.
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
       + n^{1/2} h^{p \wedge \beta}}
-    {\Dl + 1/\sqrt{nh}}.
+    {\Dl + 1/\sqrt{n h}}.
   \end{align*}
 
 \end{lemma}
@@ -1163,7 +1163,7 @@ which is more amenable to computation.
   \label{lem:covariance_estimation}
 
   Let Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
-  hold and suppose that $nh \gtrsim \log n$
+  hold and suppose that $n h \gtrsim \log n$
   and $f_W(w) > 0$ on $\cW$.
   For $w,w' \in \cW$ define
   \begin{align*}
@@ -1171,12 +1171,12 @@ which is more amenable to computation.
     &=
     \frac{4}{n^2(n-1)^2}
     \sum_{i<j}
-    k_h(W_{ij},w)
-    k_h(W_{ij},w')
+    k_h(W_{i j},w)
+    k_h(W_{i j},w')
     +
     \frac{24}{n^2(n-1)^2}
     \sum_{i<j<r}
-    S_{ijr}(w,w') \\
+    S_{i j r}(w,w') \\
     &\quad-
     \frac{4n-6}{n(n-1)}
     \hat f_W(w)
@@ -1186,23 +1186,23 @@ which is more amenable to computation.
   where
   %
   \begin{align*}
-    S_{ijr}(w,w')
+    S_{i j r}(w,w')
     &=
     \frac{1}{6}
     \Big(
-    k_h(W_{ij},w)
-    k_h(W_{ir},w')
-    + k_h(W_{ij},w)
+    k_h(W_{i j},w)
+    k_h(W_{i r},w')
+    + k_h(W_{i j},w)
     k_h(W_{jr},w')
-    + k_h(W_{ir},w)
-    k_h(W_{ij},w') \\
+    + k_h(W_{i r},w)
+    k_h(W_{i j},w') \\
     &\qquad+
-    k_h(W_{ir},w)
+    k_h(W_{i r},w)
     k_h(W_{jr},w')
     + k_h(W_{jr},w)
-    k_h(W_{ij},w')
+    k_h(W_{i j},w')
     + k_h(W_{jr},w)
-    k_h(W_{ir},w')
+    k_h(W_{i r},w')
     \Big).
   \end{align*}
   %
@@ -1243,8 +1243,8 @@ which is more amenable to computation.
     S_i(w) S_i(w')
     - \frac{4}{n^2(n-1)^2}
     \sum_{i<j}
-    k_h(W_{ij},w)
-    k_h(W_{ij},w')
+    k_h(W_{i j},w)
+    k_h(W_{i j},w')
     -
     \frac{4n-6}{n(n-1)}
     \hat f_W(w)
@@ -1259,13 +1259,13 @@ which is more amenable to computation.
     \frac{1}{n-1}
     \left(
       \sum_{j = 1}^{i-1}
-      k_h(W_{ji}, w)
+      k_h(W_{j i}, w)
       + \sum_{j = i+1}^n
-      k_h(W_{ij}, w)
+      k_h(W_{i j}, w)
     \right)
   \end{align*}
   is an estimator of
-  $\E[k_h(W_{ij},w) \mid A_i]$.
+  $\E[k_h(W_{i j},w) \mid A_i]$.
 
 \end{lemma}
 
@@ -1287,7 +1287,7 @@ Lemma~\ref{lem:covariance_estimation}
 and consider the following optimization problem
 over bivariate functions.
 \begin{equation}
-  \label{eq:app_SDP}
+  \label{eq:app_sdp}
   \begin{aligned}
     \minimize
     \qquad
@@ -1302,7 +1302,7 @@ over bivariate functions.
     \qquad
      & M \textup{ is symmetric and positive semi-definite}, \\
      & \big|M(w,w') - M(w, w'')\big|
-    \leq \frac{4}{nh^3}
+    \leq \frac{4}{n h^3}
     \Ck \CL
     |w'-w''|
     \textup{ for all }
@@ -1311,12 +1311,12 @@ over bivariate functions.
 \end{equation}
 
 \begin{lemma}[Consistency of $\hat \Sigma_n^+$]
-  \label{lem:app_SDP}
+  \label{lem:app_sdp}
 
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold and that
-  $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
-  Then the optimization problem (\ref{eq:app_SDP})
+  $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
+  Then the optimization problem (\ref{eq:app_sdp})
   has an approximately optimal solution $\hat\Sigma_n^+$
   which is uniformly entrywise-consistent
   for $\Sigma_n$ in the sense that
@@ -1334,10 +1334,10 @@ over bivariate functions.
 
 \begin{remark}
 
-  The optimization problem (\ref{eq:app_SDP}) is stated for functions
+  The optimization problem (\ref{eq:app_sdp}) is stated for functions
   rather than matrices so is infinite-dimensional.
   However, when restricting to finite-size matrices,
-  Lemma~\ref{lem:app_SDP} still holds and does not depend on
+  Lemma~\ref{lem:app_sdp} still holds and does not depend on
   the size of the matrices.
   Furthermore, the problem
   then becomes a semi-definite program and so can be solved to
@@ -1346,7 +1346,7 @@ over bivariate functions.
   \citep{laurent2005semidefinite}.
 
   The Lipschitz-type constraint in the
-  optimization problem (\ref{eq:app_SDP})
+  optimization problem (\ref{eq:app_sdp})
   ensures that $\hat \Sigma_n^+$
   is sufficiently smooth
   and is a technicality required by
@@ -1360,7 +1360,7 @@ over bivariate functions.
 
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold and that
-  $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
+  $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Then $\hat \Sigma_n^+(w,w) \geq 0$
   almost surely for all $w \in \cW$ and
   \begin{align*}
@@ -1388,7 +1388,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 
   Let Assumptions \ref{ass:kernel_data} and
   \ref{ass:kernel_bandwidth} hold and suppose that
-  $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
+  $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define for $w \in \cW$
   \begin{align*}
     \hat T_n(w) = \frac{\hat f_W(w) - f_W(w)}
@@ -1402,9 +1402,9 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
     \sqrt{\frac{\log n}{n}}
     \left(
       \sqrt{\log n} + \frac{\sqrt n h^{p \wedge \beta}}
-      {\Dl + 1/\sqrt{nh}}
+      {\Dl + 1/\sqrt{n h}}
     \right)
-    \frac{1}{\Dl + 1/\sqrt{nh}}.
+    \frac{1}{\Dl + 1/\sqrt{n h}}.
   \end{align*}
 
 \end{lemma}
@@ -1415,7 +1415,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 
   Let Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
   hold and suppose that
-  $nh \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
+  $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define a process $\hat Z_n^T(w)$ which,
   conditional on the data $\bW_n$,
   is conditionally mean-zero and
@@ -1451,7 +1451,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
     \right|
     &\lesssim_\P
     \frac{n^{-1/6}(\log n)^{5/6}}
-    {\Dl^{1/3} + (nh)^{-1/6}}.
+    {\Dl^{1/3} + (n h)^{-1/6}}.
   \end{align*}
 
 \end{lemma}
@@ -1555,7 +1555,7 @@ Assumption~\ref{ass:counterfactual}.
   Suppose that $(A_i^r, X_i^r)$ are
   independent over $1 \leq i \leq n$
   and that $\bX_n^r$ is independent of $\bV_n^r$.
-  Assume that $W_{ij}^r \mid X_i^r, X_j^r$
+  Assume that $W_{i j}^r \mid X_i^r, X_j^r$
   has a Lebesgue density
   $f_{W \mid XX}^r(\,\cdot \mid x_1, x_2) \in \cH^\beta_{\CH}(\cW)$
   and that $X_i^r$ has positive
@@ -1569,7 +1569,7 @@ Assumption~\ref{ass:counterfactual}.
 \end{assumption}
 
 The counterfactual density of
-$W_{ij}$ in population $1$
+$W_{i j}$ in population $1$
 had $X_i, X_j$
 followed the distribution in population $0$ by
 %
@@ -1600,7 +1600,7 @@ the counterfactual dyadic kernel density estimator
   \sum_{j=i+1}^n
   \hat \psi(X_i^1)
   \hat \psi(X_j^1)
-  k_h(W_{ij}^1, w)
+  k_h(W_{i j}^1, w)
 \end{align*}
 %
 with
@@ -1666,7 +1666,7 @@ approximation results for the counterfactual density estimator.
   Suppose that Assumptions~\ref{ass:kernel_data},
   \ref{ass:kernel_bandwidth} and
   \ref{ass:counterfactual} hold.
-  With $k_{ij} = k_h(W_{ij}^1, w)$,
+  With $k_{i j} = k_h(W_{i j}^1, w)$,
   $\kappa_{r i} = \kappa(X_r^0, X_r^1, X_i^1)$
   and $\psi_i = \psi(X_i^1)$, define the projections
   %
@@ -1674,7 +1674,7 @@ approximation results for the counterfactual density estimator.
     u
     &=
     \E\left[
-      k_{ij}
+      k_{i j}
       \psi_i
       \psi_j
     \right], \\
@@ -1682,40 +1682,40 @@ approximation results for the counterfactual density estimator.
     &=
     \frac{2}{3} \psi_i
     \E\left[
-      k_{ij}
+      k_{i j}
       \psi_j
       \mid A_i^1 \right]
     +
     \frac{2}{3} \E\left[
       k_{jr}
-      \psi_j \kappa_{ir}
+      \psi_j \kappa_{i r}
       \mid X_i^0, X_i^1 \right]
     - \frac{2}{3} u, \\
-    u_{ij}
+    u_{i j}
     &=
     \frac{1}{3}
     \psi_i
     \psi_j
     \E\left[
-      k_{ij}
+      k_{i j}
       \mid A_i^1, A_j^1 \right]
     +
     \frac{1}{3}
     \psi_i
     \E\left[
-      k_{ir} \psi_r
+      k_{i r} \psi_r
       \mid A_i^1 \right]
     +
     \frac{1}{3}
     \psi_i
     \E\left[
-      k_{ir}  \kappa_{jr}
+      k_{i r}  \kappa_{jr}
       \mid A_i^1, X_j^0, X_j^1 \right] \\
     &\quad+
     \frac{1}{3}
-    \kappa_{ji}
+    \kappa_{j i}
     \E\left[
-      k_{ir} \psi_r
+      k_{i r} \psi_r
       \mid A_i^1 \right]
     + \frac{1}{3}
     \psi_j
@@ -1726,50 +1726,50 @@ approximation results for the counterfactual density estimator.
     \frac{1}{3}
     \psi_j
     \E\left[
-      k_{jr}  \kappa_{ir}
+      k_{jr}  \kappa_{i r}
       \mid X_i^0, X_i^1, A_j^1 \right] \\
     &\quad+
     \frac{1}{3}
-    \kappa_{ij}
+    \kappa_{i j}
     \E\left[
       k_{jr} \psi_r
       \mid A_j^1 \right]
     - u_i - u_j + u, \\
-    u_{ijr}
+    u_{i j r}
     &=
     \frac{1}{3}
     \psi_i \psi_j
     \E\left[
-      k_{ij}
+      k_{i j}
       \mid A_i^1, A_j^1 \right]
     +
     \frac{1}{3}
     \psi_i \kappa_{r j}
     \E\left[
-      k_{ij}
+      k_{i j}
       \mid A_i^1, A_j^1 \right]
     +
     \frac{1}{3}
     \psi_j \kappa_{r i}
     \E\left[
-      k_{ij}
+      k_{i j}
       \mid A_i^1, A_j^1 \right] \\
     &\quad+
     \frac{1}{3}
     \psi_i \psi_r
     \E\left[
-      k_{ir}
+      k_{i r}
       \mid A_i^1, A_r^1 \right]
     + \frac{1}{3}
     \psi_i \kappa_{jr}
     \E\left[
-      k_{ir}
+      k_{i r}
       \mid A_i^1, A_r^1 \right]
     +
     \frac{1}{3}
-    \psi_r \kappa_{ji}
+    \psi_r \kappa_{j i}
     \E\left[
-      k_{ir}
+      k_{i r}
       \mid A_i^1, A_r^1 \right] \\
     &\quad+
     \frac{1}{3}
@@ -1778,32 +1778,32 @@ approximation results for the counterfactual density estimator.
       k_{jr}
       \mid A_j^1, A_r^1 \right]
     + \frac{1}{3}
-    \psi_j \kappa_{ir}
+    \psi_j \kappa_{i r}
     \E\left[
       k_{jr}
       \mid A_j^1, A_r^1 \right]
     +
     \frac{1}{3}
-    \psi_r \kappa_{ij}
+    \psi_r \kappa_{i j}
     \E\left[
       k_{jr}
       \mid A_j^1, A_r^1 \right] \\
     &\quad-
-    u_{ij} - u_{ir} - u_{jr}
+    u_{i j} - u_{i r} - u_{jr}
     + u_i + u_j + u_r
     - u, \\
-    v_{ijr}
+    v_{i j r}
     &=
     \frac{1}{3}
-    k_{ij} \big(\psi_i \psi_j +\psi_i \kappa_{r j} +\psi_j \kappa_{r i} \big)
+    k_{i j} \big(\psi_i \psi_j +\psi_i \kappa_{r j} +\psi_j \kappa_{r i} \big)
     + \frac{1}{3}
-    k_{ir} \big(\psi_i \psi_r +\psi_i \kappa_{jr} +\psi_r \kappa_{ji} \big)
+    k_{i r} \big(\psi_i \psi_r +\psi_i \kappa_{jr} +\psi_r \kappa_{j i} \big)
     + \frac{1}{3}
-    k_{jr} \big(\psi_j \psi_r +\psi_j \kappa_{ir} +\psi_r \kappa_{ij} \big).
+    k_{jr} \big(\psi_j \psi_r +\psi_j \kappa_{i r} +\psi_r \kappa_{i j} \big).
   \end{align*}
   %
   With $l_i^{1 \triangleright 0}(w) = u_i$
-  and $e_{ijr}^{1 \triangleright 0}(w) = v_{ijr} - u_{ijr}$,
+  and $e_{i j r}^{1 \triangleright 0}(w) = v_{i j r} - u_{i j r}$,
   set
   %
   \begin{align*}
@@ -1818,7 +1818,7 @@ approximation results for the counterfactual density estimator.
     \sum_{i=1}^{n-2}
     \sum_{j=i+1}^{n-1}
     \sum_{r=i+1}^n
-    e_{ijr}^{1 \triangleright 0}(w).
+    e_{i j r}^{1 \triangleright 0}(w).
   \end{align*}
   %
   Then the following Hoeffding-type decomposition holds,
@@ -1915,7 +1915,7 @@ approximation results for the counterfactual density estimator.
 \begin{lemma}[Counterfactual covariance structure]
   \label{lem:counterfactual_covariance_structure}
 
-  Writing $k_{ij}'$ for $k_h(W_{ij}^1, w')$ etc.,
+  Writing $k_{i j}'$ for $k_h(W_{i j}^1, w')$ etc.,
   the counterfactual covariance function is
   %
   \begin{align*}
@@ -1931,23 +1931,23 @@ approximation results for the counterfactual density estimator.
       \Big(
       \psi_i
       \E\big[
-        k_{ij} \psi_j
+        k_{i j} \psi_j
         \mid A_i^1
         \big]
       + \E\left[
         k_{r j} \psi_r
-        \kappa_{ij}
+        \kappa_{i j}
         \mid X_i^0, X_i^1
       \right]
       \Big)
       \Big(
       \psi_i
       \E\big[
-        k_{ij}' \psi_j
+        k_{i j}' \psi_j
         \mid A_i^1
         \big]
       + \E\left[
-        k_{r j}' \psi_r \kappa_{ij}
+        k_{r j}' \psi_r \kappa_{i j}
         \mid X_i^0, X_i^1
       \right]
       \Big)
@@ -1955,15 +1955,15 @@ approximation results for the counterfactual density estimator.
     &\qquad+
     \frac{2}{n^2}
     \E\left[
-      k_{ij} k_{ij}'
+      k_{i j} k_{i j}'
       \psi_i^2 \psi_j^2
     \right]
     - \frac{4}{n}
     \E\left[
-      k_{ij} \psi_i \psi_j
+      k_{i j} \psi_i \psi_j
     \right]
     \E\left[
-      k_{ij}' \psi_i \psi_j
+      k_{i j}' \psi_i \psi_j
     \right]
     + O\left( \frac{1}{n^{3/2}} + \frac{1}{\sqrt{n^4h}} \right).
   \end{align*}
@@ -2005,7 +2005,7 @@ approximation results for the counterfactual density estimator.
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
       + n^{1/2} h^{p \wedge \beta}}
-    {\Dl^{1 \triangleright 0} + 1/\sqrt{nh}}.
+    {\Dl^{1 \triangleright 0} + 1/\sqrt{n h}}.
   \end{align*}
 
 \end{lemma}
@@ -2068,15 +2068,15 @@ and define the leave-out conditional expectation estimators
   S_i^{1 \triangleright 0}(w)
   &=
   \hat\E\left[
-    k_h(W_{ij}^1,w) \psi(X_j^1) \mid A_i^1
+    k_h(W_{i j}^1,w) \psi(X_j^1) \mid A_i^1
   \right] \\
   &=
   \frac{1}{n-1}
   \left(
     \sum_{j=1}^{i-1}
-    k_h(W_{ji}^1,w) \hat\psi(X_j^1)
+    k_h(W_{j i}^1,w) \hat\psi(X_j^1)
     + \sum_{j=i+1}^n
-    k_h(W_{ij}^1,w) \hat\psi(X_j^1)
+    k_h(W_{i j}^1,w) \hat\psi(X_j^1)
   \right), \\
   \tilde S_i^{1 \triangleright 0}(w)
   &=
@@ -2112,8 +2112,8 @@ Then set
   &\quad-
   \frac{4}{n^3(n-1)}
   \sum_{i<j}
-  k_h(W_{ij}^1, w)
-  k_h(W_{ij}^1, w')
+  k_h(W_{i j}^1, w)
+  k_h(W_{i j}^1, w')
   \hat\psi(X_i^1)^2
   \hat\psi(X_j^1)^2
   - \frac{4}{n}
@@ -2558,10 +2558,10 @@ We begin with some definitions.
   $(\cX_i, \cF_i, \P_i)$.
   Suppose that attached to each edge $(i,j) \in \cE$
   (where $i<j$ without loss of generality)
-  is a law $\P_{ij}$ on
+  is a law $\P_{i j}$ on
   $(\cX_i \times \cX_j, \cF_i \otimes \cF_j)$.
   Assume that these laws are pairwise-consistent in the sense that
-  the projection of $\P_{ij}$ onto
+  the projection of $\P_{i j}$ onto
   $\cX_i$ (resp.\ $\cX_j$) is $\P_i$ (resp.\ $\P_j$)
   for each $(i,j) \in \cE$.
   Then there exists a law $\P$ on
@@ -2573,7 +2573,7 @@ We begin with some definitions.
   \end{align*}
   such that the projection of $\P$
   onto $\cX_i \times \cX_j$
-  is $\P_{ij}$ for each $(i,j) \in \cE$,
+  is $\P_{i j}$ for each $(i,j) \in \cE$,
   and therefore also
   the projection of $\P$
   onto $\cX_i$
@@ -2601,14 +2601,14 @@ We begin with some definitions.
   \end{align*}
   That is, each measure $\P_i$
   places equal mass on 0 and 1,
-  while $\P_{ij}$
+  while $\P_{i j}$
   asserts that each pair of realizations is a.s.\ not equal.
   The graph of these laws forms a triangle,
   which is not a tree.
   Suppose that $(X_1,X_2,X_3)$ has distribution given by $\P$,
-  where $X_i \sim \P_i$ and $(X_i,X_j) \sim \P_{ij}$
+  where $X_i \sim \P_i$ and $(X_i,X_j) \sim \P_{i j}$
   for each $i,j$.
-  But then by definition of $\P_{ij}$ we have
+  But then by definition of $\P_{i j}$ we have
   $X_1 = 1-X_2 = X_3 = 1-X_1$ a.s.,
   which is a contradiction.
 
@@ -3348,11 +3348,11 @@ they are needed.
   \label{lem:general_hoeffding}
 
   Let $\cU$ be a vector space.
-  Let $u_{ij} \in \cU$ be defined for
+  Let $u_{i j} \in \cU$ be defined for
   $1 \leq i, j \leq n$
   and
   $i \neq j$.
-  Suppose that $u_{ij} = u_{ji}$
+  Suppose that $u_{i j} = u_{j i}$
   for all $i,j$.
   Then for any $u_i \in \cU$
   (for $1 \leq i \leq n$)
@@ -3361,7 +3361,7 @@ they are needed.
   \begin{align*}
     \sum_{i=1}^n
     \sum_{\substack{j=1 \\ j \neq i}}^n
-    \big(u_{ij} - u\big)
+    \big(u_{i j} - u\big)
     &=
     2(n-1)
     \sum_{i=1}^n
@@ -3369,7 +3369,7 @@ they are needed.
     +
     \sum_{i=1}^n
     \sum_{\substack{j=1 \\ j \neq i}}^n
-    \big(u_{ij} - u_i - u_j + u\big).
+    \big(u_{i j} - u_i - u_j + u\big).
   \end{align*}
 
 \end{lemma}
@@ -3378,18 +3378,18 @@ they are needed.
 
   We compute the left hand side minus the right hand side,
   beginning by observing that all of the
-  $u_{ij}$ and $u$ terms clearly cancel.
+  $u_{i j}$ and $u$ terms clearly cancel.
   \begin{align*}
     &\sum_{i=1}^n
     \sum_{\substack{j=1 \\ j \neq i}}^n
-    \big(u_{ij} - u\big)
+    \big(u_{i j} - u\big)
     - 2(n-1)
     \sum_{i=1}^n
     \big(u_i - u\big)
     -
     \sum_{i=1}^n
     \sum_{j \neq i}
-    \big(u_{ij} - u_i - u_j + u\big) \\
+    \big(u_{i j} - u_i - u_j + u\big) \\
     &\qquad=
     - 2(n-1)
     \sum_{i=1}^n
@@ -5653,12 +5653,12 @@ Lemma~\ref{lem:bv_characterization}.
   and suppose
   that vertex $n$ is a leaf
   connected to vertex $n-1$ by an edge,
-  relabelling the vertices if necessary.
+  relabeling the vertices if necessary.
   By the induction hypothesis we assume that there is a
   probability measure $\P^{(n-1)}$
   on $\prod_{i=1}^{n-1} \cX_i$
   whose projections onto $\cX_i$ are $\P_i$
-  and whose projections onto $\cX_i \times \cX_j$ are $\P_{ij}$,
+  and whose projections onto $\cX_i \times \cX_j$ are $\P_{i j}$,
   for $i,j \leq n-1$.
   Now apply the original
   Vorob'ev--Berkes--Philipp theorem,
@@ -5676,7 +5676,7 @@ Lemma~\ref{lem:bv_characterization}.
   which agrees with $\P_i$
   at every vertex by definition,
   and agrees with
-  $\P_{ij}$ for all $i,j \leq n-1$.
+  $\P_{i j}$ for all $i,j \leq n-1$.
   It also agrees with $\P_{n-1,n}$,
   and this is the only edge touching vertex $n$.
   Hence $\P^{(n)}$ satisfies the desired properties.
@@ -6032,33 +6032,33 @@ We begin with a basic fact about Lipschitz functions.
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^{n}
     \Big(
-    \E[k_h(W_{ij},w) \mid A_i, A_j]
-    - \E[k_h(W_{ij},w)]
+    \E[k_h(W_{i j},w) \mid A_i, A_j]
+    - \E[k_h(W_{i j},w)]
     \Big) \\
     &=
     \frac{1}{n(n-1)}
     \sum_{i=1}^{n-1}
     \sum_{j \neq i}
     \Big(
-    \E[k_h(W_{ij},w) \mid A_i, A_j]
-    - \E[k_h(W_{ij},w)]
+    \E[k_h(W_{i j},w) \mid A_i, A_j]
+    - \E[k_h(W_{i j},w)]
     \Big)
   \end{align*}
   and apply Lemma~\ref{lem:general_hoeffding}
   with
   \begin{align*}
-    u_{ij}
+    u_{i j}
     &=
     \frac{1}{n(n-1)}
-    \E\big[k_h(W_{ij},w) \mid A_i, A_j\big], \\
+    \E\big[k_h(W_{i j},w) \mid A_i, A_j\big], \\
     u_i
     &=
     \frac{1}{n(n-1)}
-    \E\big[k_h(W_{ij},w) \mid A_i\big], \\
+    \E\big[k_h(W_{i j},w) \mid A_i\big], \\
     u
     &=
     \frac{1}{n(n-1)}
-    \E\big[k_h(W_{ij},w)\big],
+    \E\big[k_h(W_{i j},w)\big],
   \end{align*}
   %
   to see
@@ -6075,7 +6075,7 @@ We begin with a basic fact about Lipschitz functions.
     \sum_{i=1}^n
     \sum_{j \neq i}
     \big(
-    u_{ij} - u_i - u_j + u
+    u_{i j} - u_i - u_j + u
     \big) \\
     &=
     \frac{2}{n}
@@ -6084,7 +6084,7 @@ We begin with a basic fact about Lipschitz functions.
     + \frac{2}{n(n-1)}
     \sum_{i=1}^n
     \sum_{j = i+1}^n
-    q_{ij}(w)
+    q_{i j}(w)
     =
     L_n + Q_n.
   \end{align*}
@@ -6137,13 +6137,13 @@ We begin with a basic fact about Lipschitz functions.
     &=
     0, \\
     \E\big[
-      q_{ij}(w)
+      q_{i j}(w)
       e_{rs}(w')
       \big]
     &=
     \begin{cases}
       \E\big[
-        q_{ij}(w)
+        q_{i j}(w)
         \big]
       \E\big[
         e_{rs}(w')
@@ -6151,7 +6151,7 @@ We begin with a basic fact about Lipschitz functions.
       \text{ if } \{i,j\} \cap \{r,s\} = \emptyset \\
       \E\big[
         \E\big[
-          q_{ij}(w) \mid A_i
+          q_{i j}(w) \mid A_i
           \big]
         \E\big[
           e_{rs}(w') \mid A_i
@@ -6160,7 +6160,7 @@ We begin with a basic fact about Lipschitz functions.
       \text{ if } \{i,j\} \cap \{r,s\} = \{i\}     \\
       \E\big[
         \E\big[
-          q_{ij}(w) \mid A_j
+          q_{i j}(w) \mid A_j
           \big]
         \E\big[
           e_{rs}(w') \mid A_j
@@ -6168,7 +6168,7 @@ We begin with a basic fact about Lipschitz functions.
         \big],
       \text{ if } \{i,j\} \cap \{r,s\} = \{j\}     \\
       \E\big[
-        q_{ij}(w)
+        q_{i j}(w)
         \E\big[
           e_{rs}(w') \mid A_r, A_s
           \big]
@@ -6183,7 +6183,7 @@ We begin with a basic fact about Lipschitz functions.
   and also
   $\E[q_{rs}(w) \mid A_i] = 0$
   and
-  $\E[e_{ij}(w) \mid A_i, A_j] = 0$.
+  $\E[e_{i j}(w) \mid A_i, A_j] = 0$.
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:trichotomy}]
@@ -6203,7 +6203,7 @@ We begin with a basic fact about Lipschitz functions.
   almost surely. Thus
   \begin{align*}
     \E\left[
-      k_h(W_{ij},w) \mid A_i
+      k_h(W_{i j},w) \mid A_i
     \right]
     &=
     \int_{\cW}
@@ -6217,7 +6217,7 @@ We begin with a basic fact about Lipschitz functions.
     \diff{s}
     =
     \E\left[
-      k_h(W_{ij},w)
+      k_h(W_{i j},w)
     \right]
   \end{align*}
   for all $w \in \cW$
@@ -6236,7 +6236,7 @@ We begin with a basic fact about Lipschitz functions.
   \begin{align*}
     &\sup_{w \in \cW}
     \left|
-    \E[k_h(W_{ij},w) \mid A_i]
+    \E[k_h(W_{i j},w) \mid A_i]
     - f_{W \mid A}(w \mid A_i)
     \right| \\
     &\quad=
@@ -6274,7 +6274,7 @@ We begin with a basic fact about Lipschitz functions.
     \sup_{w \in \cW}
     \left|
     \Var\big[
-      \E[k_h(W_{ij},w) \mid A_i]
+      \E[k_h(W_{i j},w) \mid A_i]
       \big]
     - \Var\left[
       f_{W \mid A}(w \mid A_i)
@@ -6286,7 +6286,7 @@ We begin with a basic fact about Lipschitz functions.
   whenever $h$ is small enough that
   $2 \Ck \CH h \leq \Cd$. Thus
   \begin{align*}
-    \inf_{w \in \cW} \Var\big[\E[k_h(W_{ij},w) \mid A_i]\big]
+    \inf_{w \in \cW} \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big]
     &\geq
     \inf_{w \in \cW}\Var[f_{W \mid A}(w \mid A_i)]
     - 16 \Ck \CH \Cd h.
@@ -6294,14 +6294,14 @@ We begin with a basic fact about Lipschitz functions.
   Therefore if
   $\Dl > 0$
   then eventually
-  $\inf_{w \in \cW} \Var\big[\E[k_h(W_{ij},w) \mid A_i]\big] \geq \Dl/2$.
+  $\inf_{w \in \cW} \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big] \geq \Dl/2$.
   Finally note that
   \begin{align*}
     \inf_{w \in \cW}\Var[L_n(w)]
     &=
     \frac{4}{n}
     \inf_{w \in \cW}
-    \Var\big[\E[k_h(W_{ij},w) \mid A_i]\big]
+    \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big]
     \geq
     \frac{2 \Dl}{n}.
   \end{align*}
@@ -6322,7 +6322,7 @@ We begin with a basic fact about Lipschitz functions.
   Then by the previous part,
   \begin{align*}
     \Var[L_n(w)] =
-    \frac{4}{n} \Var\big[\E[k_h(W_{ij},w) \mid A_i]\big]
+    \frac{4}{n} \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big]
     &\leq
     64 \Ck \CH \Cd \frac{h}{n}.
   \end{align*}
@@ -6333,7 +6333,7 @@ We begin with a basic fact about Lipschitz functions.
   \begin{align*}
     \Var[L_n(w)]
     = \frac{4}{n}
-    \Var\big[\E[k_h(W_{ij},w) \mid A_i]\big]
+    \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big]
     &\geq
     \frac{2}{n}
     \Var[f_{W \mid A}(w \mid A_i)].
@@ -6352,22 +6352,22 @@ We begin with a basic fact about Lipschitz functions.
     \cF_1
     &=
     \Big\{
-    W_{ij} \mapsto
-    k_h(W_{ij},w)
+    W_{i j} \mapsto
+    k_h(W_{i j},w)
     : w \in \cW
     \Big\}, \\
     \cF_2
     &=
     \Big\{
     (A_i, A_j) \mapsto
-    \E\big[ k_h(W_{ij},w) \mid A_i, A_j \big]
+    \E\big[ k_h(W_{i j},w) \mid A_i, A_j \big]
     : w \in \cW
     \Big\}, \\
     \cF_3
     &=
     \Big\{
     A_i \mapsto
-    \E\big[ k_h(W_{ij},w) \mid A_i \big]
+    \E\big[ k_h(W_{i j},w) \mid A_i \big]
     : w \in \cW
     \Big\}.
   \end{align*}
@@ -6425,7 +6425,7 @@ We begin with a basic fact about Lipschitz functions.
   where
   $C_1 = \frac{\CL}{\Ck} (\Leb(\cW) \vee 1)$
   and $C_2 = 1$.
-  Next, $\cF_2$ forms a smoothly parametrized class of functions
+  Next, $\cF_2$ forms a smoothly parameterized class of functions
   since for $w,w' \in \cW$ we have
   by the uniform Lipschitz properties of
   $f_{W \mid AA}(\cdot \mid A_i, A_j)$ and
@@ -6433,8 +6433,8 @@ We begin with a basic fact about Lipschitz functions.
   with $|w-w'| \leq h$,
   \begin{align*}
     &\left|
-    \E\big[ k_h(W_{ij},w) \mid A_i, A_j \big]
-    - \E\big[ k_h(W_{ij},w') \mid A_i, A_j \big]
+    \E\big[ k_h(W_{i j},w) \mid A_i, A_j \big]
+    - \E\big[ k_h(W_{i j},w') \mid A_i, A_j \big]
     \right| \\
     &\quad=
     \left|
@@ -6484,7 +6484,7 @@ We begin with a basic fact about Lipschitz functions.
   \end{align*}
   where $C_3 = 8 \CL \CH$.
   The same holds for $|w-w'| > h$
-  because Lipschitzness is a local property.
+  as the Lipschitz property is local.
   By taking $\E[\, \cdot \mid A_i]$,
   it can be seen
   by the contraction property of conditional expectation that
@@ -6492,14 +6492,14 @@ We begin with a basic fact about Lipschitz functions.
   singly-conditioned terms:
   \begin{align*}
     \left|
-    \E\big[ k_h(W_{ij},w) \mid A_i \big]
-    - \E\big[ k_h(W_{ij},w') \mid A_i \big]
+    \E\big[ k_h(W_{i j},w) \mid A_i \big]
+    - \E\big[ k_h(W_{i j},w') \mid A_i \big]
     \right|
     &\leq
     C_3
     |w-w'|.
   \end{align*}
-  Therefore $\cF_3$ is also smoothly parametrized
+  Therefore $\cF_3$ is also smoothly parameterized
   in exactly the same manner.
   Let
   \begin{align*}
@@ -6508,7 +6508,7 @@ We begin with a basic fact about Lipschitz functions.
     \sup_{w \in \cW}
     \esssup_{A_i, A_j}
     \big|
-    \E\big[ k_h(W_{ij},w) \mid A_i, A_j \big]
+    \E\big[ k_h(W_{i j},w) \mid A_i, A_j \big]
     \big|
     =
     \sup_{w \in \cW}
@@ -6525,7 +6525,7 @@ We begin with a basic fact about Lipschitz functions.
   For any $\varepsilon \in (0,1]$,
   take an $(\varepsilon C_4/C_3)$-cover of $\cW$
   of cardinality at most $C_3 \Leb(\cW) / (\varepsilon C_4)$.
-  By the above smooth parametrization properties,
+  By the above smooth parameterization properties,
   this cover induces an
   $\varepsilon C_4$-cover for both $\cF_2$ and $\cF_3$:
   \begin{align*}
@@ -6632,7 +6632,7 @@ We begin with a basic fact about Lipschitz functions.
   Conditional on $\bA_n$,
   note that $n E_n$
   is the empirical process of the conditionally
-  i.n.i.d.\ variables $W_{ij}$
+  i.n.i.d.\ variables $W_{i j}$
   indexed by $\cF_1$.
   We apply Lemma~\ref{lem:maximal_vc_inid}
   conditionally with
@@ -6642,15 +6642,15 @@ We begin with a basic fact about Lipschitz functions.
     \sup_{w \in \cW}
     \E\Big[
       \big(
-      k_h(W_{ij},w)
-      - \E[k_h(W_{ij},w) \mid A_i, A_j]
+      k_h(W_{i j},w)
+      - \E[k_h(W_{i j},w) \mid A_i, A_j]
       \big)^2
       \mid A_i, A_j
       \Big]
     \leq
     \sup_{w \in \cW}
     \E\Big[
-      k_h(W_{ij},w)^2
+      k_h(W_{i j},w)^2
       \mid A_i, A_j
       \Big] \\
     &\leq
@@ -6687,7 +6687,7 @@ We begin with a basic fact about Lipschitz functions.
     \sqrt{\frac{\log 1/h}{h}}
     +
     \frac{\log \big(1/h\big)}
-    {nh}
+    {n h}
     \lesssim
     \sqrt{\frac{\log n}{h}},
   \end{align*}
@@ -6910,15 +6910,15 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   with parameter $\theta \in [1/2, 1]$
   as follows:
   $A_1, \ldots, A_n$ are i.i.d.\ $\Ber(\theta)$, while
-  $V_{ij}$ for $1 \leq i < j \leq n$ are i.i.d.\
+  $V_{i j}$ for $1 \leq i < j \leq n$ are i.i.d.\
   and independent of $\bA_n$.
-  The distribution of $V_{ij}$ is given by its density function
+  The distribution of $V_{i j}$ is given by its density function
   $f_V(v) = \frac{1}{2} + \CH v$ on $[-1,1]$.
   Finally generate
-  $W_{ij} = W(A_i, A_j, V_{ij}) \vcentcolon=
-  (2 A_i A_j - 1) V_{ij}$.
+  $W_{i j} = W(A_i, A_j, V_{i j}) \vcentcolon=
+  (2 A_i A_j - 1) V_{i j}$.
   Note that the function $W$ does not depend on $\theta$.
-  The conditional and marginal densities of $W_{ij}$ are
+  The conditional and marginal densities of $W_{i j}$ are
   for $w \in [-1,1]$
   \begin{align*}
     f_{W \mid AA}(w \mid A_i, A_j)
@@ -7076,8 +7076,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Let $\cP_0$ be the subclass of $\cPd$
   consisting of the distributions which satisfy
   $A_1 = \cdots = A_n = 0$
-  and $W_{ij} \vcentcolon= A_i + A_j + V_{ij} = V_{ij}$,
-  so that $W_{ij}$ are i.i.d.\ with common density $f_W = f_V$.
+  and $W_{i j} \vcentcolon= A_i + A_j + V_{i j} = V_{i j}$,
+  so that $W_{i j}$ are i.i.d.\ with common density $f_W = f_V$.
   Define the class
   \begin{align*}
     \cF
@@ -7087,7 +7087,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     f \in \cH^\beta_{\CH}(\cW)
     \right\}.
   \end{align*}
-  Write $\E_f$ for the expectation under $W_{ij}$ having density $f$.
+  Write $\E_f$ for the expectation under $W_{i j}$ having density $f$.
   Then by the main theorem in \citet{khasminskii1978lower},
   \begin{align*}
     \liminf_{n \to \infty}
@@ -7218,9 +7218,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 \begin{proof}[Lemma~\ref{lem:covariance_structure}]
 
   Throughout this proof we will write
-  $k_{ij}$ for $k_h(W_{ij},w)$
+  $k_{i j}$ for $k_h(W_{i j},w)$
   and
-  $k_{ij}'$ for $k_h(W_{ij},w')$,
+  $k_{i j}'$ for $k_h(W_{i j},w')$,
   in the interest of brevity.
   \begin{align*}
     \Sigma_n(w,w')
@@ -7241,7 +7241,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
         \frac{2}{n(n-1)}
         \sum_{i<j}
         \big(
-        k_{ij} - \E k_{ij}
+        k_{i j} - \E k_{i j}
         \big)
       \right)
       \left(
@@ -7258,7 +7258,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sum_{r<s}
     \E\left[
       \big(
-      k_{ij} - \E k_{ij}
+      k_{i j} - \E k_{i j}
       \big)
       \big(
       k_{rs}' - \E k_{rs}'
@@ -7269,13 +7269,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sum_{i<j}
     \sum_{r<s}
     \Cov\left[
-      k_{ij},
+      k_{i j},
       k_{rs}'
     \right].
   \end{align*}
   Note first that
   for $i,j,r,s$ all distinct,
-  $k_{ij}$ is independent of $k_{rs}'$
+  $k_{i j}$ is independent of $k_{rs}'$
   and so the covariance is zero.
   By a counting argument,
   it can be seen that
@@ -7298,58 +7298,58 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{4}{n^2(n-1)^2}
     \bigg(
     \frac{n(n-1)}{2}
-    \Cov[k_{ij}, k_{ij}']
+    \Cov[k_{i j}, k_{i j}']
     + n(n-1)(n-2)
-    \Cov[k_{ij}, k_{ir}']
+    \Cov[k_{i j}, k_{i r}']
     \bigg) \\
     &=
     \frac{2}{n(n-1)}
-    \Cov[k_{ij}, k_{ij}']
+    \Cov[k_{i j}, k_{i j}']
     + \frac{4(n-2)}{n(n-1)}
-    \Cov[k_{ij}, k_{ir}'],
+    \Cov[k_{i j}, k_{i r}'],
   \end{align*}
   giving the first representation.
   To obtain the second representation,
   note that since
-  $W_{ij}$ and $W_{ir}$
+  $W_{i j}$ and $W_{i r}$
   are independent conditional
   on $A_i$,
   \begin{align*}
     \Cov\big[
-      k_{ij}
-      k_{ir}'
+      k_{i j}
+      k_{i r}'
       \big]
     &=
     \E\big[
-      k_{ij}
-      k_{ir}'
+      k_{i j}
+      k_{i r}'
       \big]
     -
-    \E[k_{ij}]
-    \E[k_{ir}']
+    \E[k_{i j}]
+    \E[k_{i r}']
     =
     \E\big[
       \E\big[
-        k_{ij}
-        k_{ir}'
+        k_{i j}
+        k_{i r}'
         \mid A_i
         \big]
       \big]
     -
-    \E[k_{ij}]
-    \E[k_{ir}'] \\
+    \E[k_{i j}]
+    \E[k_{i r}'] \\
     &=
     \E\big[
-      \E[k_{ij} \mid A_i]
-      \E[k_{ir}' \mid A_i]
+      \E[k_{i j} \mid A_i]
+      \E[k_{i r}' \mid A_i]
       \big]
     -
-    \E[k_{ij}]
-    \E[k_{ir}']
+    \E[k_{i j}]
+    \E[k_{i r}']
     =
     \Cov\big[
-      \E[k_{ij} \mid A_i],
-      \E[k_{ir}' \mid A_i]
+      \E[k_{i j} \mid A_i],
+      \E[k_{i r}' \mid A_i]
       \big].
   \end{align*}
 \end{proof}
@@ -7363,23 +7363,23 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &=
     \frac{2}{n(n-1)}
     \Var\big[
-      k_h(W_{ij},w)
+      k_h(W_{i j},w)
       \big]
     +
     \frac{4(n-2)}{n(n-1)}
     \Var\big[
-      \E[k_h(W_{ij},w) \mid A_i]
+      \E[k_h(W_{i j},w) \mid A_i]
       \big].
   \end{align*}
   We bound each of the two terms separately.
   Firstly, note that since $k_h$ is bounded by $\Ck/h$,
   \begin{align*}
     \Var\big[
-      k_h(W_{ij},w)
+      k_h(W_{i j},w)
       \big]
     \leq
     \E\big[
-      k_h(W_{ij},w)^2
+      k_h(W_{i j},w)^2
       \big]
     =
     \int_{\cW \cap [w \pm h]}
@@ -7389,13 +7389,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \leq 2 \Ck^2 / h.
   \end{align*}
   Conversely, since
-  $\big|\E[k_h(W_{ij},w)]\big|
+  $\big|\E[k_h(W_{i j},w)]\big|
   = \big|\int_{[w \pm h] \cap \cW} k_h(s,w) f_W(s) \diff{s}\big|
   \leq 2 \Ck \Cd$,
   Jensen's integral inequality shows
   \begin{align*}
     \Var\big[
-      k_h(W_{ij},w)
+      k_h(W_{i j},w)
       \big]
     &\geq
     \int_{\cW \cap [w \pm h]}
@@ -7425,7 +7425,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   For the other term, we have
   \begin{align*}
     \Var\big[
-      \E[k_h(W_{ij},w) \mid A_i]
+      \E[k_h(W_{i j},w) \mid A_i]
       \big]
     &\leq
     \Var\big[
@@ -7440,7 +7440,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Also
   \begin{align*}
     \Var\big[
-      \E[k_h(W_{ij},w) \mid A_i]
+      \E[k_h(W_{i j},w) \mid A_i]
       \big]
     &\geq
     \Var\big[
@@ -7493,7 +7493,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Lemma~\ref{lem:kmt_corollary}.
   Define the functions
   \begin{align*}
-    k_h^A(a, w) = 2\E[k_h(W_{ij},w) \mid A_i = a],
+    k_h^A(a, w) = 2\E[k_h(W_{i j},w) \mid A_i = a],
   \end{align*}
   which are of bounded variation in $a$ uniformly over $w$ since
   \begin{align*}
@@ -7725,15 +7725,15 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   into a conditionally Gaussian process, using the
   Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:vbp}).
 
-  By the mutual independence of $A_i$ and $V_{ij}$,
+  By the mutual independence of $A_i$ and $V_{i j}$,
   we have that the observations
-  $W_{ij}$ are independent
+  $W_{i j}$ are independent
   (but not necessarily identically distributed)
   conditionally on $\bA_n$.
   Note that
   $\sup_{s,w \in \cW} |k_h(s,w)| \lesssim M_n = h^{-1}$
   and
-  $\E[k_h(W_{ij},w)^2 \mid \bA_n] \lesssim \sigma_n^2 = h^{-1}$.
+  $\E[k_h(W_{i j},w)^2 \mid \bA_n] \lesssim \sigma_n^2 = h^{-1}$.
   The following uniform Lipschitz condition holds
   with $l_{n,\infty} = \CL h^{-2}$,
   by the Lipschitz property of the kernels:
@@ -7751,7 +7751,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     &\E\big[
       \big|
-      k_h(W_{ij}, w) - k_h(W_{ij}, w')
+      k_h(W_{i j}, w) - k_h(W_{i j}, w')
       \big|^2
       \mid \bA_n
       \big]^{1/2} \\
@@ -7779,13 +7779,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \sqrt{n^2h} E_n(w)
     =
-    \sqrt{\frac{2nh}{n-1}}
+    \sqrt{\frac{2 n h}{n-1}}
     \sqrt{\frac{2}{n(n-1)}}
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^{n}
     \Big(
-    k_h(W_{ij},w)
-    - \E[k_h(W_{ij},w)  \mid  A_i, A_j]
+    k_h(W_{i j},w)
+    - \E[k_h(W_{i j},w)  \mid  A_i, A_j]
     \Big),
   \end{align*}
   to deduce that for $t_n > 0$ there exist
@@ -7810,9 +7810,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \sup_{w \in \cW}
       \left|
       \sqrt{\frac{n(n-1)}{2}} E_n(w)
-      - \sqrt{\frac{n-1}{2nh}} \tilde Z_n^{E\prime}(w)
+      - \sqrt{\frac{n-1}{2 n h}} \tilde Z_n^{E\prime}(w)
       \right|
-      > \sqrt{\frac{n-1}{2nh}}
+      > \sqrt{\frac{n-1}{2 n h}}
       t_n
       \Bigm\vert \bA_n'
     \right) \\
@@ -7894,8 +7894,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \sum_{i=1}^{n-1}
       \sum_{j=i+1}^{n}
       \Big(
-      k_h(W_{ij},w)
-      - k_h(W_{ij},w')
+      k_h(W_{i j},w)
+      - k_h(W_{i j},w')
       \Big)
       \right|^2
       \Bigm\vert \bA_n
@@ -7904,8 +7904,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sqrt{h} \,
     \E\left[
       \big|
-      k_h(W_{ij},w)
-      - k_h(W_{ij},w')
+      k_h(W_{i j},w)
+      - k_h(W_{i j},w')
       \big|^2
       \bigm\vert \bA_n
     \right]^{1/2}
@@ -8065,7 +8065,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   we have,
   writing $E_n(\cW_\delta)$
   for the vector $\big(E_n(w) : w \in \cW_\delta\big)$
-  and similarly for $k_h(W_{ij}, \cW_\delta)$,
+  and similarly for $k_h(W_{i j}, \cW_\delta)$,
   \begin{align*}
     \tilde\Sigma^E_{n,\delta}
     &=
@@ -8077,16 +8077,16 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sum_{j=i+1}^{n} \\
     &\qquad\E\left[
       \Big(
-      k_h(W_{ij}, \cW_\delta)
+      k_h(W_{i j}, \cW_\delta)
       - \E\left[
-        k_h(W_{ij}, \cW_\delta)
+        k_h(W_{i j}, \cW_\delta)
         \mid \bA_n
       \right]
       \Big)
       \Big(
-      k_h(W_{ij}, \cW_\delta)
+      k_h(W_{i j}, \cW_\delta)
       - \E\left[
-        k_h(W_{ij}, \cW_\delta)
+        k_h(W_{i j}, \cW_\delta)
         \mid \bA_n
       \right]
       \Big)^\T
@@ -8106,17 +8106,17 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     u(A_i, A_j)
     &=
     \E\left[
-      k_h(W_{ij}, \cW_\delta)
-      k_h(W_{ij}, \cW_\delta)^\T
+      k_h(W_{i j}, \cW_\delta)
+      k_h(W_{i j}, \cW_\delta)^\T
       \mid \bA_n
     \right]
     -
     \E\left[
-      k_h(W_{ij}, \cW_\delta)
+      k_h(W_{i j}, \cW_\delta)
       \mid \bA_n
     \right]
     \E\left[
-      k_h(W_{ij}, \cW_\delta)
+      k_h(W_{i j}, \cW_\delta)
       \mid \bA_n
     \right]^\T.
   \end{align*}
@@ -8151,7 +8151,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Next, we seek an almost sure upper bound on
   $\|u(A_i, A_j)\|_2$.
   Since this is a symmetric matrix,
-  we have by H\"older's inequality
+  we have by H{\"o}lder's inequality
   \begin{align*}
     \|u(A_i, A_j)\|_2
     &\leq
@@ -8170,38 +8170,38 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &=
     \big|
     \E\left[
-      k_h(W_{ij}, w)
-      k_h(W_{ij}, w')
+      k_h(W_{i j}, w)
+      k_h(W_{i j}, w')
       \mid \bA_n
     \right]
     -
     \E\left[
-      k_h(W_{ij}, w)
+      k_h(W_{i j}, w)
       \mid \bA_n
     \right]
     \E\left[
-      k_h(W_{ij}, w')
+      k_h(W_{i j}, w')
       \mid \bA_n
     \right]
     \big| \\
     &\lesssim
     \E\left[
       |
-      k_h(W_{ij}, w)
-      k_h(W_{ij}, w')
+      k_h(W_{i j}, w)
+      k_h(W_{i j}, w')
       |
       \mid \bA_n
     \right]
     +
     \E\left[
       |
-      k_h(W_{ij}, w)
+      k_h(W_{i j}, w)
       |
       \mid \bA_n
     \right]
     \E\left[
       |
-      k_h(W_{ij}, w')
+      k_h(W_{i j}, w')
       |
       \mid \bA_n
     \right] \\
@@ -8713,8 +8713,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   \proofparagraph{$L^2$ regularity of $Z_n^T$}
 
-  Writing $k_{ij}'$
-  for $k_h(W_{ij},w')$ etc.,
+  Writing $k_{i j}'$
+  for $k_h(W_{i j},w')$ etc.,
   note that by Lemma~\ref{lem:covariance_structure},
   \begin{align*}
     &\big|
@@ -8726,56 +8726,56 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \left|
     \frac{2}{n(n-1)}
     \Cov\big[
-      k_{ij},
-      k_{ij}'
+      k_{i j},
+      k_{i j}'
       \big]
     +
     \frac{4(n-2)}{n(n-1)}
     \Cov\big[
-      k_{ij},
-      k_{ir}'
+      k_{i j},
+      k_{i r}'
       \big]
     \right. \\
     &\left.
     \qquad-
     \frac{2}{n(n-1)}
     \Cov\big[
-      k_{ij},
-      k_{ij}''
+      k_{i j},
+      k_{i j}''
       \big]
     -
     \frac{4(n-2)}{n(n-1)}
     \Cov\big[
-      k_{ij},
-      k_{ir}''
+      k_{i j},
+      k_{i r}''
       \big]
     \right| \\
     &\quad\leq
     \frac{2}{n(n-1)}
     \Big|
     \Cov\big[
-      k_{ij},
-      k_{ij}' - k_{ij}''
+      k_{i j},
+      k_{i j}' - k_{i j}''
       \big]
     \Big|
     +
     \frac{4(n-2)}{n(n-1)}
     \Big|
     \Cov\big[
-      k_{ij},
-      k_{ir}' - k_{ir}''
+      k_{i j},
+      k_{i r}' - k_{i r}''
       \big]
     \Big| \\
     &\quad\leq
     \frac{2}{n(n-1)}
-    \|k_{ij}\|_\infty
-    \|k_{ij}' - k_{ij}''\|_\infty
+    \|k_{i j}\|_\infty
+    \|k_{i j}' - k_{i j}''\|_\infty
     +
     \frac{4(n-2)}{n(n-1)}
-    \|k_{ij}\|_\infty
-    \|k_{ir}' - k_{ir}''\|_\infty \\
+    \|k_{i j}\|_\infty
+    \|k_{i r}' - k_{i r}''\|_\infty \\
     &\quad\leq
-    \frac{4}{nh^3}
+    \frac{4}{n h^3}
     \Ck \CL
     |w'-w''|
     \lesssim
@@ -9036,7 +9036,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
       + n^{1/2} h^{p \wedge \beta}}
-    {\Dl + 1/\sqrt{nh}} \\
+    {\Dl + 1/\sqrt{n h}} \\
     &\ll
     \frac{1}{\sqrt{\log n}}.
   \end{align*}
@@ -9186,7 +9186,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \begin{lemma}[A concentration inequality]
   \label{lem:dyadic_concentration}
 
-  Let $X_{ij}$ be mutually independent random variables
+  Let $X_{i j}$ be mutually independent random variables
   for $1 \leq i < j \leq n$
   taking values in a measurable space $\cX$.
   Let $h_1$, $h_2$
@@ -9194,17 +9194,17 @@ Theorem~3.3 in \citet{gine2000exponential}.
   satisfying the following
   for all $i$ and $j$.
   \begin{align*}
-    \E\big[h_1(X_{ij})\big]
+    \E\big[h_1(X_{i j})\big]
     &= 0,
-    &\E\big[h_2(X_{ij})\big]
+    &\E\big[h_2(X_{i j})\big]
     &=0, \\
-    \E\big[h_1(X_{ij})^2\big]
+    \E\big[h_1(X_{i j})^2\big]
     &\leq \sigma^2,
-    &\E\big[h_2(X_{ij})^2\big]
+    &\E\big[h_2(X_{i j})^2\big]
     &\leq \sigma^2, \\
-    \big|h_1(X_{ij})\big|
+    \big|h_1(X_{i j})\big|
     &\leq M,
-    &\big|h_2(X_{ij})\big|
+    &\big|h_2(X_{i j})\big|
     &\leq M.
   \end{align*}
   Consider the sum
@@ -9212,8 +9212,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     S_n
     &=
     \sum_{1 \leq i < j < r \leq n}
-    h_1(X_{ij})
-    h_2(X_{ir}).
+    h_1(X_{i j})
+    h_2(X_{i r}).
   \end{align*}
   Then $S_n$ satisfies the concentration inequality
   \begin{align*}
@@ -9255,12 +9255,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \sum_{1 \leq i < j \leq n}
     \sum_{1 \leq q < r \leq n}
-    h_{ijqr}
-    (X_{ij}, X_{qr}),
+    h_{i j q r}
+    (X_{i j}, X_{qr}),
   \end{align*}
   where
   \begin{align*}
-    h_{ijqr}
+    h_{i j q r}
     (a,b)
     &=
     h_1(a) h_2(b) \,
@@ -9270,7 +9270,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   U-statistic,
   it is in fact second-order.
   This is due to independence of the variables
-  $X_{ij}$,
+  $X_{i j}$,
   and by treating $(i,j)$ as a single index.
 
   \proofparagraph{decoupling}
@@ -9293,20 +9293,20 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \sum_{1 \leq i < j \leq n}
     \sum_{1 \leq q < r \leq n}
-    h_{ijqr}
-    (X_{ij}, X'_{qr}),
+    h_{i j q r}
+    (X_{i j}, X'_{qr}),
   \end{align*}
-  with $(X'_{ij})$
-  an independent copy of $(X_{ij})$.
+  with $(X'_{i j})$
+  an independent copy of $(X_{i j})$.
 
   \proofparagraph{U-statistic concentration}
 
-  The U-statistic kernel $h_{ijqr}(X_{ij}, X'_{qr})$
+  The U-statistic kernel $h_{i j q r}(X_{i j}, X'_{qr})$
   is totally degenerate in the sense that
   \begin{align*}
-    \E[h_{ijqr}(X_{ij}, X'_{qr}) \mid X_{ij}]
+    \E[h_{i j q r}(X_{i j}, X'_{qr}) \mid X_{i j}]
     &=
-    \E[h_{ijqr}(X_{ij}, X'_{qr}) \mid X'_{qr}]
+    \E[h_{i j q r}(X_{i j}, X'_{qr}) \mid X'_{qr}]
     = 0.
   \end{align*}
   Define and bound the following quantities:
@@ -9315,8 +9315,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     A
     &=
-    \max_{ijqr}
-    \|h_{ijqr}(X_{ij}, X'_{qr})\|_\infty
+    \max_{i j q r}
+    \|h_{i j q r}(X_{i j}, X'_{qr})\|_\infty
     \leq M^2, \\
     B
     &=
@@ -9325,14 +9325,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left\|
     \sum_{1 \leq i < j \leq n}
     \E\Big[
-    h_{ijqr}(X_{ij}, X'_{qr})^2
-    \mid X_{ij}
+    h_{i j q r}(X_{i j}, X'_{qr})^2
+    \mid X_{i j}
     \Big]
     \right\|_\infty, \
     \left\|
     \sum_{1 \leq q < r \leq n}
     \E\Big[
-    h_{ijqr}(X_{ij}, X'_{qr})^2
+    h_{i j q r}(X_{i j}, X'_{qr})^2
     \mid X'_{qr}
     \Big]
     \right\|_\infty
@@ -9342,7 +9342,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Bigg\{
     \left\|
     \sum_{1 \leq i < j \leq n}
-    h_1(X_{ij})^2
+    h_1(X_{i j})^2
     \E\big[
       h_2(X_{qr}')^2
       \big]
@@ -9352,7 +9352,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left\|
     \sum_{1 \leq q < r \leq n}
     \E\big[
-      h_1(X_{ij})^2
+      h_1(X_{i j})^2
       \big]
     h_2(X_{qr}')^2
     \I\{j<r, q=i\}
@@ -9372,15 +9372,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \sum_{1 \leq i < j \leq n}
       \sum_{1 \leq q < r \leq n}
       \E\big[
-      h_{ijqr}(X_{ij}, X'_{qr})^2
+      h_{i j q r}(X_{i j}, X'_{qr})^2
       \big]
     \right)^{1/2} \\
     &=
     \left(
       \sum_{1 \leq i < j < r \leq n}
       \E\big[
-        h_1(X_{ij})^2
-        h_2(X_{ir}')^2
+        h_1(X_{i j})^2
+        h_2(X_{i r}')^2
         \big]
     \right)^{1/2}
     \leq
@@ -9391,14 +9391,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{1 \leq i < j \leq n}
     \sum_{1 \leq q < r \leq n}
     \E\big[
-    h_{ijqr}(X_{ij}, X'_{qr})
-    f_{ij}(X_{ij})
+    h_{i j q r}(X_{i j}, X'_{qr})
+    f_{i j}(X_{i j})
     g_{qr}(X'_{qr})
     \big]
     \ : \\
     &\qquad\qquad\quad
     \sum_{1 \leq i < j \leq n}
-    \E\big[f_{ij}(X_{ij})^2\big]
+    \E\big[f_{i j}(X_{i j})^2\big]
     \leq 1, \
     \sum_{1 \leq q < r \leq n}
     \E\big[g_{qr}(X'_{qr})^2\big]
@@ -9408,17 +9408,17 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sup_{f,g} \Bigg\{
     \sum_{1 \leq i < j < r \leq n}
     \E\big[
-      h_1(X_{ij})
-      f_{ij}(X_{ij})
+      h_1(X_{i j})
+      f_{i j}(X_{i j})
       \big]
     \E\big[
-    h_2(X'_{ir})
-    g_{ir}(X'_{ir})
+    h_2(X'_{i r})
+    g_{i r}(X'_{i r})
     \big]
     \ : \\
     &\qquad\qquad\quad
     \sum_{1 \leq i < j \leq n}
-    \E\big[f_{ij}(X_{ij})^2\big]
+    \E\big[f_{i j}(X_{i j})^2\big]
     \leq 1, \
     \sum_{1 \leq q < r \leq n}
     \E\big[g_{qr}(X'_{qr})^2\big]
@@ -9427,14 +9427,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\leq
     \sup_{f,g} \Bigg\{
     \sum_{1 \leq i < j < r \leq n}
-    \E\big[ h_1(X_{ij})^2 \big]^{1/2}
-    \E\big[ f_{ij}(X_{ij})^2 \big]^{1/2}
-    \E\big[ h_2(X_{ir}')^2 \big]^{1/2}
-    \E\big[ g_{ir}(X'_{ir})^2 \big]^{1/2}
+    \E\big[ h_1(X_{i j})^2 \big]^{1/2}
+    \E\big[ f_{i j}(X_{i j})^2 \big]^{1/2}
+    \E\big[ h_2(X_{i r}')^2 \big]^{1/2}
+    \E\big[ g_{i r}(X'_{i r})^2 \big]^{1/2}
     \ : \\
     &\qquad\qquad\quad
     \sum_{1 \leq i < j \leq n}
-    \E\big[f_{ij}(X_{ij})^2\big]
+    \E\big[f_{i j}(X_{i j})^2\big]
     \leq 1, \
     \sum_{1 \leq q < r \leq n}
     \E\big[g_{qr}(X'_{qr})^2\big]
@@ -9444,13 +9444,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sigma^2
     \sup_{f,g} \Bigg\{
     \sum_{1 \leq i < j \leq n}
-    \E\big[ f_{ij}(X_{ij})^2 \big]^{1/2}
+    \E\big[ f_{i j}(X_{i j})^2 \big]^{1/2}
     \sum_{1 \leq r \leq n }
-    \E\big[ g_{ir}(X'_{ir})^2 \big]^{1/2}
+    \E\big[ g_{i r}(X'_{i r})^2 \big]^{1/2}
     \ : \\
     &\qquad\qquad\quad
     \sum_{1 \leq i < j \leq n}
-    \E\big[f_{ij}(X_{ij})^2\big]
+    \E\big[f_{i j}(X_{i j})^2\big]
     \leq 1, \
     \sum_{1 \leq q < r \leq n}
     \E\big[g_{qr}(X'_{qr})^2\big]
@@ -9462,17 +9462,17 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Bigg(
     n^2
     \sum_{1 \leq i < j \leq n}
-    \E\big[ f_{ij}(X_{ij})^2 \big]
+    \E\big[ f_{i j}(X_{i j})^2 \big]
     \Bigg)^{1/2}
     \Bigg(
     n
     \sum_{1 \leq r \leq n }
-    \E\big[ g_{ir}(X'_{ir})^2 \big]
+    \E\big[ g_{i r}(X'_{i r})^2 \big]
     \Bigg)^{1/2}
     \ : \\
     &\qquad\qquad\quad
     \sum_{1 \leq i < j \leq n}
-    \E\big[f_{ij}(X_{ij})^2\big]
+    \E\big[f_{i j}(X_{i j})^2\big]
     \leq 1, \
     \sum_{1 \leq q < r \leq n}
     \E\big[g_{qr}(X'_{qr})^2\big]
@@ -9552,33 +9552,33 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \begin{proof}[Lemma~\ref{lem:covariance_estimation}]
 
   Throughout this proof we will write
-  $k_{ij}$ for $k_h(W_{ij},w)$ and
-  $k_{ij}'$ for $k_h(W_{ij},w')$,
+  $k_{i j}$ for $k_h(W_{i j},w)$ and
+  $k_{i j}'$ for $k_h(W_{i j},w')$,
   in the interest of brevity.
-  Similarly we write $S_{ijr}$ to denote $S_{ijr}(w,w')$.
+  Similarly we write $S_{i j r}$ to denote $S_{i j r}(w,w')$.
   The estimand and estimator are reproduced below for clarity.
   \begin{align*}
     \Sigma_n(w,w')
     &=
     \frac{2}{n(n-1)}
-    \E[k_{ij} k_{ij}']
+    \E[k_{i j} k_{i j}']
     + \frac{4(n-2)}{n(n-1)}
-    \E[k_{ij} k_{ir}']
+    \E[k_{i j} k_{i r}']
     - \frac{4n-6}{n(n-1)}
-    \E[k_{ij}]
-    \E[k_{ij}'] \\
+    \E[k_{i j}]
+    \E[k_{i j}'] \\
     \hat \Sigma_n(w,w')
     &=
     \frac{2}{n(n-1)}
     \frac{2}{n(n-1)}
     \sum_{i<j}
-    k_{ij}
-    k_{ij}'
+    k_{i j}
+    k_{i j}'
     +
     \frac{4(n-2)}{n(n-1)}
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    S_{ijr} \\
+    S_{i j r} \\
     &\quad-
     \frac{4n-6}{n(n-1)}
     \hat f_W(w)
@@ -9588,22 +9588,22 @@ Theorem~3.3 in \citet{gine2000exponential}.
   where
   %
   \begin{align*}
-    S_{ijr}
+    S_{i j r}
     &=
     \frac{1}{6}
     \Big(
-    k_{ij}
-    k_{ir}'
-    + k_{ij}
+    k_{i j}
+    k_{i r}'
+    + k_{i j}
     k_{jr}'
-    + k_{ir}
-    k_{ij}'
-    + k_{ir}
+    + k_{i r}
+    k_{i j}'
+    + k_{i r}
     k_{jr}'
     + k_{jr}
-    k_{ij}'
+    k_{i j}'
     + k_{jr}
-    k_{ir}'
+    k_{i r}'
     \Big).
   \end{align*}
   %
@@ -9616,14 +9616,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Theorem~\ref{thm:app_uniform_consistency},
   $\hat f_W$ is uniformly bounded in probability.
   Noting that
-  $\E[\hat f_W(w)] = \E[k_{ij}]$
+  $\E[\hat f_W(w)] = \E[k_{i j}]$
   and by Lemma~\ref{lem:app_variance_bounds},
   \begin{align*}
     &\sup_{w,w' \in \cW}
     \left|
     \frac{
       \hat f_W(w) \hat f_W(w')
-      - \E\big[k_{ij}\big] \E\big[k_{ij'}\big]}
+      - \E\big[k_{i j}\big] \E\big[k_{i j'}\big]}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
     &\quad=
@@ -9681,8 +9681,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left\{
     a \mapsto
     \frac{
-      \E\big[k_h(W_{ij},w) \mid A_i = a \big]
-      - \E\big[k_h(W_{ij},w) \big]}
+      \E\big[k_h(W_{i j},w) \mid A_i = a \big]
+      - \E\big[k_h(W_{i j},w) \big]}
     {\sqrt{n \Sigma_n(w,w)}}:
     w \in \cW
     \right\},
@@ -9700,10 +9700,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $g_w \in \cF$.
   By the lower bound on $\Sigma_n(w,w)$
   from Lemma~\ref{lem:app_variance_bounds}
-  with $\inf_\cW f_W(w) > 0$ and since $nh \gtrsim \log n$,
+  with $\inf_\cW f_W(w) > 0$ and since $n h \gtrsim \log n$,
   the class $\cF$ has a constant envelope function
-  given by $F(a) \lesssim \sqrt{nh}$.
-  Clearly $M = \sup_a F(a) \lesssim \sqrt{nh}$.
+  given by $F(a) \lesssim \sqrt{n h}$.
+  Clearly $M = \sup_a F(a) \lesssim \sqrt{n h}$.
   Also by definition of $\Sigma_n$
   and orthogonality of $L_n$, $Q_n$ and $E_n$,
   we have
@@ -9777,7 +9777,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right]
     &\lesssim
     \sqrt{\log n}
-    + \frac{\sqrt{nh} \log n}{\sqrt{n}}
+    + \frac{\sqrt{n h} \log n}{\sqrt{n}}
     \lesssim
     \sqrt{\log n}.
   \end{align*}
@@ -9787,54 +9787,54 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \frac{
       \hat f_W(w) \hat f_W(w')
-      - \E\big[k_{ij}\big] \E\big[k_{ij'}\big]}
+      - \E\big[k_{i j}\big] \E\big[k_{i j'}\big]}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     &\lesssim_\P
     \sqrt{\log n}.
   \end{align*}
 
-  \proofparagraph{decomposition of the $S_{ijr}$ term}
+  \proofparagraph{decomposition of the $S_{i j r}$ term}
 
-  We first decompose the $S_{ijr}$ term into two parts,
+  We first decompose the $S_{i j r}$ term into two parts,
   and obtain a pointwise concentration result for each.
   This is extended to a uniform concentration result
   by considering the regularity of the covariance estimator process.
   Note that
-  $\E[S_{ijr}] = \E[k_{ij} k_{ir}']$,
+  $\E[S_{i j r}] = \E[k_{i j} k_{i r}']$,
   and hence
   \begin{align*}
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \big(
-    S_{ijr}
-    - \E[k_{ij} k_{ir}']
+    S_{i j r}
+    - \E[k_{i j} k_{i r}']
     \big)
     &=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    S_{ijr}^{(1)}
+    S_{i j r}^{(1)}
     + \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    S_{ijr}^{(2)}
+    S_{i j r}^{(2)}
   \end{align*}
   where
   \begin{align*}
-    S_{ijr}^{(1)}
+    S_{i j r}^{(1)}
     &=
-    S_{ijr} -
-    \E[S_{ijr} \mid \bA_n],
-    &S_{ijr}^{(2)}
+    S_{i j r} -
+    \E[S_{i j r} \mid \bA_n],
+    &S_{i j r}^{(2)}
     &=
-    \E[S_{ijr} \mid \bA_n]
-    - \E[S_{ijr}].
+    \E[S_{i j r} \mid \bA_n]
+    - \E[S_{i j r}].
   \end{align*}
 
-  \proofparagraph{pointwise concentration of the $S_{ijr}^{(1)}$ term}
+  \proofparagraph{pointwise concentration of the $S_{i j r}^{(1)}$ term}
 
   By symmetry in $i, j$ and $r$
   it is sufficient to consider only the first summand
-  in the definition of $S_{ijr}$.
+  in the definition of $S_{i j r}$.
   By conditional independence properties,
   we have the decomposition
   \begin{align}
@@ -9842,17 +9842,17 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \Big(
-    k_{ij}k_{ir}'
-    - \E[k_{ij}k_{ir}' \mid \bA_n]
+    k_{i j}k_{i r}'
+    - \E[k_{i j}k_{i r}' \mid \bA_n]
     \Big) \\
     \nonumber
     &\quad=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \Big(
-    k_{ij}k_{ir}'
-    - \E[k_{ij} \mid \bA_n]
-    \E[k_{ir}' \mid \bA_n]
+    k_{i j}k_{i r}'
+    - \E[k_{i j} \mid \bA_n]
+    \E[k_{i r}' \mid \bA_n]
     \Big) \\
     \nonumber
     &\quad=
@@ -9860,37 +9860,37 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i<j<r}
     \Big(
     \big(
-    k_{ij}
-    - \E[k_{ij} \mid \bA_n]
+    k_{i j}
+    - \E[k_{i j} \mid \bA_n]
     \big)
     \big(
-    k_{ir}'
-    - \E[k_{ir}' \mid \bA_n]
+    k_{i r}'
+    - \E[k_{i r}' \mid \bA_n]
     \big) \\
     \nonumber
     &\qquad+
     \big(
-    k_{ij}
-    - \E[k_{ij} \mid \bA_n]
+    k_{i j}
+    - \E[k_{i j} \mid \bA_n]
     \big)
-    \E[k_{ir}' \mid \bA_n]
+    \E[k_{i r}' \mid \bA_n]
     + \big(
-    k_{ir}'
-    - \E[k_{ir}' \mid \bA_n]
+    k_{i r}'
+    - \E[k_{i r}' \mid \bA_n]
     \big)
-    \E[k_{ij} \mid \bA_n]
+    \E[k_{i j} \mid \bA_n]
     \Big) \\
     \label{eq:Sijr1_decomp1}
     &\quad=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \Big(
-    k_{ij}
-    - \E[k_{ij} \mid \bA_n]
+    k_{i j}
+    - \E[k_{i j} \mid \bA_n]
     \Big)
     \Big(
-    k_{ir}'
-    - \E[k_{ir}' \mid \bA_n]
+    k_{i r}'
+    - \E[k_{i r}' \mid \bA_n]
     \Big) \\
     \label{eq:Sijr1_decomp2}
     &\qquad+
@@ -9898,38 +9898,38 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i=1}^{n-2}
     \sum_{j=i+1}^{n-1}
     \Big(
-    k_{ij}
-    - \E[k_{ij} \mid \bA_n]
+    k_{i j}
+    - \E[k_{i j} \mid \bA_n]
     \Big)
     \cdot \frac{3}{n}
     \sum_{r=j+1}^n
-    \E[k_{ir}' \mid \bA_n] \\
+    \E[k_{i r}' \mid \bA_n] \\
     \label{eq:Sijr1_decomp3}
     &\qquad+
     \frac{2}{(n-1)(n-2)}
     \sum_{i=1}^{n-2}
     \sum_{r=i+2}^n
     \Big(
-    k_{ir}'
-    - \E[k_{ir}' \mid \bA_n]
+    k_{i r}'
+    - \E[k_{i r}' \mid \bA_n]
     \Big)
     \cdot \frac{3}{n}
     \sum_{j=i+1}^{r-1}
-    \E[k_{ij} \mid \bA_n].
+    \E[k_{i j} \mid \bA_n].
   \end{align}
   For the term in~(\ref{eq:Sijr1_decomp1}),
   note that conditional on $\bA_n$,
   we have that
-  $k_{ij} - \E[k_{ij} \mid \bA_n]$
+  $k_{i j} - \E[k_{i j} \mid \bA_n]$
   are conditionally mean-zero
   and conditionally independent,
   as the only randomness is from $\bV_n$.
   Also
-  $\Var[k_{ij} \mid \bA_n] \lesssim \sigma^2 := 1/h$
+  $\Var[k_{i j} \mid \bA_n] \lesssim \sigma^2 := 1/h$
   and
-  $|k_{ij}| \lesssim M := 1/h$
+  $|k_{i j}| \lesssim M := 1/h$
   uniformly.
-  The same is true for $k_{ij}'$.
+  The same is true for $k_{i j}'$.
   Thus by Lemma~\ref{lem:dyadic_concentration}
   for some universal constant $C_1 > 0$:
   \begin{align*}
@@ -9937,12 +9937,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \left|
       \sum_{i<j<r}
       \Big(
-      k_{ij}
-      - \E[k_{ij} \mid \bA_n]
+      k_{i j}
+      - \E[k_{i j} \mid \bA_n]
       \Big)
       \Big(
-      k_{ir}'
-      - \E[k_{ir}' \mid \bA_n]
+      k_{i r}'
+      - \E[k_{i r}' \mid \bA_n]
       \Big)
       \right|
       > t
@@ -9972,7 +9972,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and therefore
   with $t \geq 1$
   and since
-  $nh \gtrsim \log n$,
+  $n h \gtrsim \log n$,
   introducing and adjusting a new
   constant $C_2$ where necessary,
   \begin{align*}
@@ -9981,12 +9981,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \frac{6}{n(n-1)(n-2)}
       \sum_{i<j<r}
       \Big(
-      k_{ij}
-      - \E[k_{ij} \mid \bA_n]
+      k_{i j}
+      - \E[k_{i j} \mid \bA_n]
       \Big)
       \Big(
-      k_{ir}'
-      - \E[k_{ir}' \mid \bA_n]
+      k_{i r}'
+      - \E[k_{i r}' \mid \bA_n]
       \Big)
       \right|
       > t
@@ -9998,12 +9998,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \left|
       \sum_{i<j<r}
       \Big(
-      k_{ij}
-      - \E[k_{ij} \mid \bA_n]
+      k_{i j}
+      - \E[k_{i j} \mid \bA_n]
       \Big)
       \Big(
-      k_{ir}'
-      - \E[k_{ir}' \mid \bA_n]
+      k_{i r}'
+      - \E[k_{i r}' \mid \bA_n]
       \Big)
       \right|
       > t
@@ -10016,8 +10016,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \min \left\{
       (t \log n)^2,
       t \log n,
-      (t \log n)^{2/3} (nh)^{1/3},
-      (t nh \log n)^{1/2} n^{1/4}
+      (t \log n)^{2/3} (n h)^{1/3},
+      (t n h \log n)^{1/2} n^{1/4}
       \right\}
     \right) \\
     &\quad\leq
@@ -10041,10 +10041,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Now for the term
   in~(\ref{eq:Sijr1_decomp2}),
   note that
-  $\frac{3}{n} \sum_{r=j+1}^n \E[k_{ir}' \mid \bA_n]$
+  $\frac{3}{n} \sum_{r=j+1}^n \E[k_{i r}' \mid \bA_n]$
   is $\bA_n$-measurable and bounded uniformly in $i,j$.
   Also, using the previously established conditional variance
-  and almost sure bounds on $k_{ij}$,
+  and almost sure bounds on $k_{i j}$,
   Bernstein's inequality
   (Lemma~\ref{lem:bernstein})
   applied conditionally
@@ -10056,12 +10056,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \sum_{i=1}^{n-2}
       \sum_{j=i+1}^{n-1}
       \Big(
-      k_{ij}
-      - \E[k_{ij} \mid \bA_n]
+      k_{i j}
+      - \E[k_{i j} \mid \bA_n]
       \Big)
       \cdot \frac{3}{n}
       \sum_{r=j+1}^n
-      \E[k_{ir}' \mid \bA_n]
+      \E[k_{i r}' \mid \bA_n]
       \Bigg|
       > t
       \sqrt{\frac{\log n}{n^2h}}
@@ -10094,7 +10094,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Bigg|
       \frac{6}{n(n-1)(n-2)}
       \sum_{i<j<r}
-      S_{ijr}^{(1)}
+      S_{i j r}^{(1)}
       \Bigg|
       > t
       \frac{\log n}{\sqrt{n^3h^2}}
@@ -10112,10 +10112,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Bigg|
       \frac{6}{n(n-1)(n-2)}
       \sum_{i<j<r}
-      \frac{S_{ijr}^{(1)}}
+      \frac{S_{i j r}^{(1)}}
       {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
       \Bigg|
-      > t \frac{\log n}{\sqrt{nh}}
+      > t \frac{\log n}{\sqrt{n h}}
       + t \sqrt{\log n}
     \right) \\
     &\quad\leq
@@ -10123,16 +10123,16 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + 4 n^{-t^2 / (4C_3)}.
   \end{align*}
 
-  \proofparagraph{pointwise concentration of the $S_{ijr}^{(2)}$ term}
+  \proofparagraph{pointwise concentration of the $S_{i j r}^{(2)}$ term}
 
   We apply the U-statistic concentration inequality from
   Lemma~\ref{lem:ustat_concentration}.
   Note that the terms
-  $\E[S_{ijr} \mid \bA_n]$
+  $\E[S_{i j r} \mid \bA_n]$
   are permutation-symmetric functions of
   the random variables
   $A_i, A_j$ and $A_r$ only,
-  making $S_{ijr}^{(2)}$ the summands of
+  making $S_{i j r}^{(2)}$ the summands of
   a (non-degenerate) mean-zero third-order U-statistic.
   While we could apply a third-order Hoeffding decomposition
   here to achieve degeneracy,
@@ -10142,51 +10142,51 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    S_{ijr}^{(2)}
+    S_{i j r}^{(2)}
     &=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \Big(
-    \E[S_{ijr} \mid \bA_n]
-    - \E[S_{ijr}]
+    \E[S_{i j r} \mid \bA_n]
+    - \E[S_{i j r}]
     \Big).
   \end{align*}
   Note that by conditional independence,
   \begin{align*}
     \big|
     \E\big[
-    k_{ij}k_{ir} \mid \bA_n
+    k_{i j}k_{i r} \mid \bA_n
     \big]
     \big|
     &=
     \big|
     \E\big[
-      k_{ij} \mid \bA_n
+      k_{i j} \mid \bA_n
       \big]
     \E\big[
-      k_{ir} \mid \bA_n
+      k_{i r} \mid \bA_n
       \big]
     \big|
     \lesssim 1,
   \end{align*}
-  and similarly for the other summands in $S_{ijr}$,
+  and similarly for the other summands in $S_{i j r}$,
   giving the almost-sure bound
-  $|S_{ijr}^{(2)}| \lesssim 1$.
+  $|S_{i j r}^{(2)}| \lesssim 1$.
   We also have
   \begin{align*}
-    \Var\big[ \E[k_{ij} \mid A_i] \E[k_{ir}' \mid A_i] \big]
+    \Var\big[ \E[k_{i j} \mid A_i] \E[k_{i r}' \mid A_i] \big]
     &\lesssim
-    \Var\big[\E[k_{ij} \mid A_i]\big]
-    + \Var\big[\E[k_{ir}' \mid A_i]\big]
+    \Var\big[\E[k_{i j} \mid A_i]\big]
+    + \Var\big[\E[k_{i r}' \mid A_i]\big]
     \lesssim
     n \Var[L_n(w)] + n \Var[L_n(w')] \\
     &\lesssim
     n \Sigma_n(w,w) + n \Sigma_n(w',w')
   \end{align*}
-  and similarly for the other summands in $S_{ijr}$,
+  and similarly for the other summands in $S_{i j r}$,
   giving the conditional variance bound
   \begin{align*}
-    \E[\E[S_{ijr}^{(2)} \mid A_i]^2] \lesssim
+    \E[\E[S_{i j r}^{(2)} \mid A_i]^2] \lesssim
     n \Sigma_n(w,w) + n \Sigma_n(w',w').
   \end{align*}
   So Lemma~\ref{lem:ustat_concentration}
@@ -10197,7 +10197,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Bigg|
       \frac{6}{n(n-1)(n-2)}
       \sum_{i<j<r}
-      S_{ijr}^{(2)}
+      S_{i j r}^{(2)}
       \Bigg|
       > t \sqrt{\log n} \sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}
     \right) \\
@@ -10227,7 +10227,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   (which may change from line to line),
   since the order of this U-statistic is fixed at three.
 
-  \proofparagraph{concentration of the $S_{ijr}$ term on a mesh}
+  \proofparagraph{concentration of the $S_{i j r}$ term on a mesh}
 
   Pick $\delta_n \to 0$
   with $\log 1/\delta_n \lesssim \log n$.
@@ -10246,10 +10246,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Bigg|
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    \frac{S_{ijr}(w,w') - \E[S_{ijr}(w,w')]}
+    \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
       {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \Bigg|
-    > t \frac{\log n}{\sqrt{nh}}
+    > t \frac{\log n}{\sqrt{n h}}
     + 2t \sqrt{\log n}
     \Bigg) \\
     &\quad\leq
@@ -10258,7 +10258,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + 4 n^{-t^2 / C_4}.
   \end{align*}
   Taking a union bound over $\cW_\delta \times \cW_\delta$,
-  noting that $nh \gtrsim \log n$
+  noting that $n h \gtrsim \log n$
   and adjusting constants gives
   \begin{align*}
     &\P\Bigg(
@@ -10266,7 +10266,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Bigg|
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    \frac{S_{ijr}(w,w') - \E[S_{ijr}(w,w')]}
+    \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
       {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \Bigg|
     > t \sqrt{\log n}
@@ -10284,24 +10284,24 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   for some constant $C_5 > 0$.
 
-  \proofparagraph{regularity of the $S_{ijr}$ term}
+  \proofparagraph{regularity of the $S_{i j r}$ term}
 
-  Next we bound the fluctuations in $S_{ijr}(w,w')$.
-  Writing $k_{ij}(w)$ for $k_h(W_{ij},w)$,
+  Next we bound the fluctuations in $S_{i j r}(w,w')$.
+  Writing $k_{i j}(w)$ for $k_h(W_{i j},w)$,
   note that
   \begin{align*}
     \big|
-    k_{ij}(w_1)
-    k_{ir}(w_1')
-    - k_{ij}(w_2)
-    k_{ir}(w_2')
+    k_{i j}(w_1)
+    k_{i r}(w_1')
+    - k_{i j}(w_2)
+    k_{i r}(w_2')
     \big|
     &\lesssim
     \frac{1}{h}
-    \big| k_{ij}(w_1) - k_{ij}(w_2) \big|
+    \big| k_{i j}(w_1) - k_{i j}(w_2) \big|
     +
     \frac{1}{h}
-    \big| k_{ir}(w_1') - k_{ir}(w_2') \big| \\
+    \big| k_{i r}(w_1') - k_{i r}(w_2') \big| \\
     &\lesssim
     \frac{1}{h^3}
     \Big(
@@ -10310,14 +10310,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Big),
   \end{align*}
   using the Lipschitz property of the kernel.
-  Similarly for the other summands in $S_{ijr}$.
+  Similarly for the other summands in $S_{i j r}$.
   Therefore
   \begin{align*}
     \sup_{|w_1-w_2| \leq \delta_n}
     \sup_{|w_1'-w_2'| \leq \delta_n}
     \big|
-    S_{ijr}(w_1, w_1')
-    - S_{ijr}(w_2, w_2')
+    S_{i j r}(w_1, w_1')
+    - S_{i j r}(w_2, w_2')
     \big|
     &\lesssim
     \delta_n h^{-3}.
@@ -10335,7 +10335,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \delta_n n^{-1}h^{-3}.
   \end{align*}
   Therefore since $\sqrt{\Sigma_n(w,w)} \gtrsim \sqrt{n^2h}$
-  and $|S_{ijr}| \lesssim h^{-2}$,
+  and $|S_{i j r}| \lesssim h^{-2}$,
   using the elementary fact
   $\frac{a}{\sqrt b} - \frac{c}{\sqrt d}
   = \frac{a-c}{\sqrt b} + c \frac{d-b}{\sqrt{b d} \sqrt{b+d}}$,
@@ -10343,9 +10343,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\sup_{|w_1-w_2| \leq \delta_n}
     \sup_{|w_1'-w_2'| \leq \delta_n}
     \left|
-    \frac{S_{ijr}(w_1, w_1')}
+    \frac{S_{i j r}(w_1, w_1')}
     {\sqrt{\Sigma_n(w_1,w_1) + \Sigma_n(w_1',w_1')}}
-    - \frac{S_{ijr}(w_2, w_2')}
+    - \frac{S_{i j r}(w_2, w_2')}
     {\sqrt{\Sigma_n(w_2,w_2) + \Sigma_n(w_2',w_2')}}
     \right| \\
     &\quad\lesssim
@@ -10360,7 +10360,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   where in the last line we use that
   $1/h \lesssim n$.
 
-  \proofparagraph{uniform concentration of the $S_{ijr}$ term}
+  \proofparagraph{uniform concentration of the $S_{i j r}$ term}
 
   By setting
   $\delta_n = n^{-6} \sqrt{\log n}$,
@@ -10373,7 +10373,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Bigg|
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    \frac{S_{ijr}(w,w') - \E[S_{ijr}(w,w')]}
+    \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
       {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \Bigg|
     > 2t \sqrt{\log n}
@@ -10392,14 +10392,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Bigg|
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    \frac{S_{ijr}(w,w') - \E[S_{ijr}(w,w')]}
+    \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \Bigg|
     &\lesssim_\P
     \sqrt{\log n}.
   \end{align*}
 
-  \proofparagraph{decomposition of the $k_{ij}k_{ij}'$ term}
+  \proofparagraph{decomposition of the $k_{i j}k_{i j}'$ term}
 
   We move on to the final term in
   the covariance estimator.
@@ -10408,40 +10408,40 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{2}{n(n-1)}
     \sum_{i<j}
     \Big(
-    k_{ij} k_{ij}'
-    - \E\big[k_{ij} k_{ij}']
+    k_{i j} k_{i j}'
+    - \E\big[k_{i j} k_{i j}']
     \Big)
     &=
     \frac{2}{n(n-1)}
     \sum_{i<j}
-    S_{ij}^{(1)}
+    S_{i j}^{(1)}
     +
     \frac{2}{n(n-1)}
     \sum_{i<j}
-    S_{ij}^{(2)},
+    S_{i j}^{(2)},
   \end{align*}
   where
   \begin{align*}
-    S_{ij}^{(1)}
+    S_{i j}^{(1)}
     &=
-    k_{ij} k_{ij}'
-    - \E\big[ k_{ij} k_{ij}' \mid \bA_n \big],
-    &S_{ij}^{(2)}
+    k_{i j} k_{i j}'
+    - \E\big[ k_{i j} k_{i j}' \mid \bA_n \big],
+    &S_{i j}^{(2)}
     &=
-    \E\big[ k_{ij} k_{ij}' \mid \bA_n \big]
-    - \E\big[ k_{ij} k_{ij}' \big].
+    \E\big[ k_{i j} k_{i j}' \mid \bA_n \big]
+    - \E\big[ k_{i j} k_{i j}' \big].
   \end{align*}
 
-  \proofparagraph{pointwise concentration of the $S_{ij}^{(1)}$ term}
+  \proofparagraph{pointwise concentration of the $S_{i j}^{(1)}$ term}
 
   Conditioning on $\bA_n$,
-  the variables $S_{ij}^{(1)}$
+  the variables $S_{i j}^{(1)}$
   are conditionally independent
   and conditionally mean-zero.
   They further satisfy
-  $|S_{ij}^{(1)}| \lesssim h^{-2}$
+  $|S_{i j}^{(1)}| \lesssim h^{-2}$
   and the conditional variance bound
-  $\E\big[\big( S_{ij}^{(1)} \big)^2 \mid \bA_n \big] \lesssim h^{-3}$.
+  $\E\big[\big( S_{i j}^{(1)} \big)^2 \mid \bA_n \big] \lesssim h^{-3}$.
   Therefore applying Bernstein's inequality
   (Lemma~\ref{lem:bernstein})
   conditional on $\bA_n$,
@@ -10452,7 +10452,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Bigg|
       \frac{2}{n(n-1)}
       \sum_{i<j}
-      S_{ij}^{(1)}
+      S_{i j}^{(1)}
       \Bigg|
       > t
       \sqrt{\frac{\log n}{n^2h^3}}
@@ -10477,20 +10477,20 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   where $C_6$ is a universal positive constant.
 
-  \proofparagraph{pointwise concentration of the $S_{ij}^{(2)}$ term}
+  \proofparagraph{pointwise concentration of the $S_{i j}^{(2)}$ term}
 
   We apply the U-statistic concentration inequality from
   Lemma~\ref{lem:ustat_concentration}.
-  Note that $S_{ij}^{(2)}$
+  Note that $S_{i j}^{(2)}$
   are permutation-symmetric functions of
   the random variables
   $A_i$ and $A_j$ only,
   making them the summands of
   a (non-degenerate) mean-zero second-order U-statistic.
   Note that
-  $\big|S_{ij}^{(2)}\big| \lesssim h^{-1}$
+  $\big|S_{i j}^{(2)}\big| \lesssim h^{-1}$
   and so trivially
-  $\E\big[\E[S_{ij}^{(2)} \mid A_i ]^2 \big] \lesssim h^{-2}$.
+  $\E\big[\E[S_{i j}^{(2)} \mid A_i ]^2 \big] \lesssim h^{-2}$.
   Thus by Lemma~\ref{lem:ustat_concentration},
   since the order of this U-statistic is fixed at two,
   for some universal positive constant $C_7$ we have
@@ -10499,15 +10499,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Bigg|
       \frac{2}{n(n-1)}
       \sum_{i<j}
-      S_{ij}^{(2)}
+      S_{i j}^{(2)}
       \Bigg|
       > t
-      \sqrt{\frac{\log n}{nh^2}}
+      \sqrt{\frac{\log n}{n h^2}}
     \right)
     &\leq
     2 \exp\left(
-      - \frac{t^2 n \log n / (nh^2)}
-      {C_7 h^{-2} / 2 + C_7 t h^{-1} \sqrt{\log n / (nh^2)} / 2}
+      - \frac{t^2 n \log n / (n h^2)}
+      {C_7 h^{-2} / 2 + C_7 t h^{-1} \sqrt{\log n / (n h^2)} / 2}
     \right) \\
     &\leq
     2 \exp\left(
@@ -10522,7 +10522,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     2 n^{-t^2 / C_7}.
   \end{align*}
 
-  \proofparagraph{concentration of the $k_{ij}k_{ij}'$ term on a mesh}
+  \proofparagraph{concentration of the $k_{i j}k_{i j}'$ term on a mesh}
 
   As before, use a union bound
   on the mesh $\cW_\delta \times \cW_\delta$.
@@ -10533,12 +10533,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \frac{2}{n(n-1)}
       \sum_{i<j}
       \Big(
-      k_{ij} k_{ij}'
-      - \E\big[k_{ij} k_{ij}']
+      k_{i j} k_{i j}'
+      - \E\big[k_{i j} k_{i j}']
       \Big)
       \right|
       > t \sqrt{\frac{\log n}{n^2h^3}}
-      + t \sqrt{\frac{\log n}{nh^2}}
+      + t \sqrt{\frac{\log n}{n h^2}}
     \right) \\
     &\quad\leq
     \P\left(
@@ -10546,7 +10546,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Bigg|
       \frac{2}{n(n-1)}
       \sum_{i<j}
-      S_{ij}^{(1)}
+      S_{i j}^{(1)}
       \Bigg|
       > t
       \sqrt{\frac{\log n}{n^2h^3}}
@@ -10556,26 +10556,26 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Bigg|
       \frac{2}{n(n-1)}
       \sum_{i<j}
-      S_{ij}^{(2)}
+      S_{i j}^{(2)}
       \Bigg|
       > t
-      \sqrt{\frac{\log n}{nh^2}}
+      \sqrt{\frac{\log n}{n h^2}}
     \right) \\
     &\quad\lesssim
     \delta_n^{-2} n^{-t^2 / C_6}
     + \delta_n^{-2} n^{-t^2 / C_7}.
   \end{align*}
 
-  \proofparagraph{regularity of the $k_{ij}k_{ij}'$ term}
+  \proofparagraph{regularity of the $k_{i j}k_{i j}'$ term}
 
-  Just as for the $S_{ijr}$ term,
+  Just as for the $S_{i j r}$ term,
   we have
   \begin{align*}
     \big|
-    k_{ij}(w_1)
-    k_{ij}(w_1')
-    - k_{ij}(w_2)
-    k_{ij}(w_2')
+    k_{i j}(w_1)
+    k_{i j}(w_1')
+    - k_{i j}(w_2)
+    k_{i j}(w_2')
     \big|
     &\lesssim
     \frac{1}{h^3}
@@ -10585,11 +10585,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Big).
   \end{align*}
 
-  \proofparagraph{uniform concentration of the $k_{ij}k_{ij}'$ term}
+  \proofparagraph{uniform concentration of the $k_{i j}k_{i j}'$ term}
 
   By setting
-  $\delta_n = h^3\sqrt{\log n / (nh^2)}$,
-  the fluctuations can be at most $\sqrt{\log n / (nh^2)}$,
+  $\delta_n = h^3\sqrt{\log n / (n h^2)}$,
+  the fluctuations can be at most $\sqrt{\log n / (n h^2)}$,
   so we have for $t \geq 1$
   \begin{align*}
     &\P\left(
@@ -10598,12 +10598,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \frac{2}{n(n-1)}
       \sum_{i<j}
       \Big(
-      k_{ij} k_{ij}'
-      - \E\big[k_{ij} k_{ij}']
+      k_{i j} k_{i j}'
+      - \E\big[k_{i j} k_{i j}']
       \Big)
       \right|
       > t \sqrt{\frac{\log n}{n^2h^3}}
-      + 2t \sqrt{\frac{\log n}{nh^2}}
+      + 2t \sqrt{\frac{\log n}{n h^2}}
     \right) \\
     &\quad\leq
     \P\left(
@@ -10612,24 +10612,24 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \frac{2}{n(n-1)}
       \sum_{i<j}
       \Big(
-      k_{ij} k_{ij}'
-      - \E\big[k_{ij} k_{ij}']
+      k_{i j} k_{i j}'
+      - \E\big[k_{i j} k_{i j}']
       \Big)
       \right|
       > t \sqrt{\frac{\log n}{n^2h^3}}
-      + t \sqrt{\frac{\log n}{nh^2}}
+      + t \sqrt{\frac{\log n}{n h^2}}
     \right) \\
     &\qquad+
     \P\left(
       \sup_{|w_1-w_2| \leq \delta_n}
       \sup_{|w_1'-w_2'| \leq \delta_n}
       \big|
-      k_{ij}(w_1)
-      k_{ij}(w_1')
-      - k_{ij}(w_2)
-      k_{ij}(w_2')
+      k_{i j}(w_1)
+      k_{i j}(w_1')
+      - k_{i j}(w_2)
+      k_{i j}(w_2')
       \big|
-      > t \sqrt{\frac{\log n}{nh^2}}
+      > t \sqrt{\frac{\log n}{n h^2}}
     \right) \\
     &\quad\lesssim
     \delta_n^{-2} n^{-t^2 / C_6}
@@ -10649,14 +10649,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \frac{2}{n(n-1)}
     \sum_{i<j}
-    \frac{k_{ij} k_{ij}' - \E\big[k_{ij} k_{ij}']}
+    \frac{k_{i j} k_{i j}' - \E\big[k_{i j} k_{i j}']}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \Big)
     \right|
     &\lesssim_\P
     \left(
       \sqrt{\frac{\log n}{n^2h^3}}
-      + \sqrt{\frac{\log n}{nh^2}}
+      + \sqrt{\frac{\log n}{n h^2}}
     \right)
     \sqrt{n^2h}
     \lesssim_\P
@@ -10667,7 +10667,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   By the uniform bounds in probability
   derived in the previous parts,
-  and with $nh \gtrsim \log n$,
+  and with $n h \gtrsim \log n$,
   we conclude that
   %
   \begin{align*}
@@ -10682,7 +10682,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \frac{2}{n(n-1)}
     \sum_{i<j}
-    \frac{k_{ij} k_{ij}' - \E\big[k_{ij} k_{ij}']}
+    \frac{k_{i j} k_{i j}' - \E\big[k_{i j} k_{i j}']}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
     &\qquad+
@@ -10691,14 +10691,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
-    \frac{S_{ijr} - \E\big[k_{ij} k_{ir}']}
+    \frac{S_{i j r} - \E\big[k_{i j} k_{i r}']}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
     &\qquad+
     \frac{4n-6}{n(n-1)}
     \sup_{w,w' \in \cW}
     \left|
-    \frac{\hat f_W(w) \hat f_W(w') - \E[k_{ij}] \E[k_{ij}']}
+    \frac{\hat f_W(w) \hat f_W(w') - \E[k_{i j}] \E[k_{i j}']}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
     &\quad\lesssim_\P
@@ -10714,11 +10714,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   Since there is no ambiguity,
   we may understand
-  $k_{ij}$
-  to mean $k_h(W_{ij},w)$
+  $k_{i j}$
+  to mean $k_h(W_{i j},w)$
   when $i<j$
   and
-  to mean $k_h(W_{ji},w)$
+  to mean $k_h(W_{j i},w)$
   when $j<i$.
   We use a prime
   to denote evaluation at $w'$
@@ -10729,7 +10729,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \frac{1}{n-1}
     \sum_{j \neq i}
-    k_{ij}
+    k_{i j}
   \end{align*}
   Let $\sum_{i \neq j \neq r}$
   indicate that all the indices are distinct.
@@ -10743,51 +10743,51 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i=1}^n
     \frac{1}{n-1}
     \sum_{j \neq i}
-    k_{ij}
+    k_{i j}
     \frac{1}{n-1}
     \sum_{r \neq i}
-    k_{ir}'
+    k_{i r}'
     =
     \frac{4}{n^2(n-1)^2}
     \sum_{i=1}^n
     \sum_{j \neq i}
     \sum_{r \neq i}
-    k_{ij}
-    k_{ir}' \\
+    k_{i j}
+    k_{i r}' \\
     &=
     \frac{4}{n^2(n-1)^2}
     \sum_{i=1}^n
     \sum_{j \neq i}
     \left(
       \sum_{r \neq i, r \neq j}
-      k_{ij}
-      k_{ir}'
-      + k_{ij}
-      k_{ij}'
+      k_{i j}
+      k_{i r}'
+      + k_{i j}
+      k_{i j}'
     \right) \\
     &=
     \frac{4}{n^2(n-1)^2}
     \sum_{i \neq j \neq r}
-    k_{ij}
-    k_{ir}'
+    k_{i j}
+    k_{i r}'
     + \frac{4}{n^2(n-1)^2}
     \sum_{i \neq j}
-    k_{ij}
-    k_{ij}' \\
+    k_{i j}
+    k_{i j}' \\
     &=
     \frac{24}{n^2(n-1)^2}
     \sum_{i < j < r}
-    S_{ijr}(w,w')
+    S_{i j r}(w,w')
     + \frac{8}{n^2(n-1)^2}
     \sum_{i < j}
-    k_{ij}
-    k_{ij}' \\
+    k_{i j}
+    k_{i j}' \\
     &=
     \hat \Sigma_n(w,w')
     + \frac{4}{n^2(n-1)^2}
     \sum_{i < j}
-    k_{ij}
-    k_{ir}'
+    k_{i j}
+    k_{i r}'
     + \frac{4n-6}{n(n-1)}
     \hat f
     \hat f',
@@ -10797,12 +10797,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \subsubsection{Positive semi-definite covariance estimation}
 
-\begin{proof}[Lemma~\ref{lem:app_SDP}]
+\begin{proof}[Lemma~\ref{lem:app_sdp}]
 
   Firstly we prove that the true covariance function
   $\Sigma_n$
   is feasible for the optimization problem
-  (\ref{eq:app_SDP}) in the sense that it satisfies the constraints.
+  (\ref{eq:app_sdp}) in the sense that it satisfies the constraints.
   Clearly as a covariance function,
   $\Sigma_n$ is symmetric and positive semi-definite.
   The Lipschitz constraint is satisfied because
@@ -10816,14 +10816,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Sigma_n(w, w'')
     \big|
     &\leq
-    \frac{4}{nh^3}
+    \frac{4}{n h^3}
     \Ck
     \CL
     |w'-w''|
   \end{align*}
   for all $w,w',w'' \in \cW$.
   Denote the (random) objective function
-  in the optimization problem (\ref{eq:app_SDP}) by
+  in the optimization problem (\ref{eq:app_sdp}) by
   \begin{align*}
     \objective(M) = \sup_{w,w' \in \cW}
     \left|
@@ -10900,7 +10900,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   Since $\hat \Sigma_n^+$ is positive semi-definite,
   we must have $\hat \Sigma_n^+(w,w) \geq 0$.
-  Now Lemma~\ref{lem:app_SDP}
+  Now Lemma~\ref{lem:app_sdp}
   implies that for all $\varepsilon \in (0,1)$
   there exists a $C_\varepsilon$ such that
   %
@@ -11012,7 +11012,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and similarly Lemma~\ref{lem:variance_estimator_bounds} gives
   $\sup_{w \in \cW} \hat \Sigma_n^+(w,w)^{-1/2}
   \lesssim_\P \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$,
-  Thus, applying Lemma~\ref{lem:app_SDP} to control the
+  Thus, applying Lemma~\ref{lem:app_sdp} to control the
   covariance estimation error,
   \begin{align*}
     \sup_{w \in \cW}
@@ -11027,9 +11027,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sqrt{\frac{\log n}{n}}
     \left(
       \sqrt{\log n} + \frac{\sqrt n h^{p \wedge \beta}}
-      {\Dl + 1/\sqrt{nh}}
+      {\Dl + 1/\sqrt{n h}}
     \right)
-    \frac{1}{\Dl + 1/\sqrt{nh}}.
+    \frac{1}{\Dl + 1/\sqrt{n h}}.
   \end{align*}
 \end{proof}
 
@@ -11111,8 +11111,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sup_{w \in \cW}
   \left|\frac{\hat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
   \lesssim_\P \sqrt{h \log n}$
-  by the proof of Lemma~\ref{lem:app_SDP}.
-  Thus by Lemma~\ref{lem:app_SDP},
+  by the proof of Lemma~\ref{lem:app_sdp}.
+  Thus by Lemma~\ref{lem:app_sdp},
   %
   \begin{align*}
     \sup_{w, w' \in \cW}
@@ -11129,7 +11129,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}} \\
     &\lesssim_\P
     \sqrt{\frac{\log n}{n}}
-    \frac{1}{\Dl + 1/\sqrt{nh}}.
+    \frac{1}{\Dl + 1/\sqrt{n h}}.
   \end{align*}
   %
   For the second term, we have by the same bounds
@@ -11176,7 +11176,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right\} \\
     &\quad\lesssim_\P
     \sqrt{\frac{\log n}{n}}
-    \frac{1}{\Dl + 1/\sqrt{nh}}.
+    \frac{1}{\Dl + 1/\sqrt{n h}}.
   \end{align*}
   %
   Therefore
@@ -11184,7 +11184,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \Delta \lesssim_\P
     \sqrt{\frac{\log n}{n}}
-    \frac{1}{\Dl + 1/\sqrt{nh}}.
+    \frac{1}{\Dl + 1/\sqrt{n h}}.
   \end{align*}
 
   \proofparagraph{Gaussian comparison on a mesh}
@@ -11237,12 +11237,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim_\P
     \left(
       \sqrt{\frac{\log n}{n}}
-      \frac{1}{\Dl + 1/\sqrt{nh}}
+      \frac{1}{\Dl + 1/\sqrt{n h}}
     \right)^{1/3}
     (\log n)^{2/3} \\
     &\lesssim_\P
     \frac{n^{-1/6}(\log n)^{5/6}}
-    {\Dl^{1/3} + (nh)^{-1/6}}.
+    {\Dl^{1/3} + (n h)^{-1/6}}.
   \end{align*}
 
   \proofparagraph{trajectory regularity of $Z_n^T$}
@@ -11266,8 +11266,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   \proofparagraph{conditional $L^2$ regularity of $\hat Z_n^T$}
 
-  By Lemma~\ref{lem:app_SDP},
-  with $nh \gtrsim \log n$,
+  By Lemma~\ref{lem:app_sdp},
+  with $n h \gtrsim \log n$,
   we have
   uniformly in $w,w'$,
   \begin{align*}
@@ -11369,7 +11369,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     r_n
     &=
     \frac{n^{-1/6}(\log n)^{5/6}}
-    {\Dl^{1/3} + (nh)^{-1/6}}.
+    {\Dl^{1/3} + (n h)^{-1/6}}.
   \end{align*}
   Take $\varepsilon_n > 0$ and observe that
   uniformly in $t \in \R$,
@@ -11444,7 +11444,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \leq t + 2\varepsilon_n
     \right)
     + O_\P(r_n)
-    + O_\P(\varepsilon_n^{-1} nh^{-1} \sqrt{\delta_n \log n}) \\
+    + O_\P(\varepsilon_n^{-1} n h^{-1} \sqrt{\delta_n \log n}) \\
     &\quad\leq
     \P\left(
       \sup_{w \in \cW}
@@ -11460,7 +11460,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \leq 2\varepsilon_n
     \right)
     + O_\P(r_n)
-    + O_\P(\varepsilon_n^{-1} nh^{-1} \sqrt{\delta_n \log n}).
+    + O_\P(\varepsilon_n^{-1} n h^{-1} \sqrt{\delta_n \log n}).
   \end{align*}
   The converse inequality is obtained
   analogously as follows:
@@ -11535,7 +11535,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \leq t - 2\varepsilon_n
     \right)
     - O_\P(r_n)
-    - O_\P(\varepsilon_n^{-1} nh^{-1} \sqrt{\delta_n \log n}) \\
+    - O_\P(\varepsilon_n^{-1} n h^{-1} \sqrt{\delta_n \log n}) \\
     &\quad\geq
     \P\left(
       \sup_{w \in \cW}
@@ -11551,7 +11551,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \leq 2\varepsilon_n
     \right)
     - O_\P(r_n)
-    - O_\P(\varepsilon_n^{-1} nh^{-1} \sqrt{\delta_n \log n}).
+    - O_\P(\varepsilon_n^{-1} n h^{-1} \sqrt{\delta_n \log n}).
   \end{align*}
   Combining these uniform upper and lower bounds gives
   \begin{align*}
@@ -11581,7 +11581,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \leq 2\varepsilon_n
     \right)
     + r_n
-    + \varepsilon_n^{-1} nh^{-1/2} \delta_n^{1/2} \sqrt{\log n}.
+    + \varepsilon_n^{-1} n h^{-1/2} \delta_n^{1/2} \sqrt{\log n}.
   \end{align*}
   To bound the remaining term,
   we apply the anti-concentration
@@ -11622,7 +11622,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\qquad\lesssim_\P
     \varepsilon_n \sqrt{\log n}
     + r_n
-    + \varepsilon_n^{-1} nh^{-1/2} \delta_n^{1/2} \sqrt{\log n}.
+    + \varepsilon_n^{-1} n h^{-1/2} \delta_n^{1/2} \sqrt{\log n}.
   \end{align*}
   Taking $\varepsilon = r_n / \sqrt{\log n}$
   and then $\delta_n = n^{-2} h r_n^2 \varepsilon_n^2 / \log n$
@@ -11645,7 +11645,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim_\P
     r_n =
     \frac{n^{-1/6}(\log n)^{5/6}}
-    {\Dl^{1/3} + (nh)^{-1/6}}.
+    {\Dl^{1/3} + (n h)^{-1/6}}.
   \end{align*}
 \end{proof}
 
@@ -11661,7 +11661,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     r_n
     &=
     \frac{n^{-1/6}(\log n)^{5/6}}
-    {\Dl^{1/3} + (nh)^{-1/6}}
+    {\Dl^{1/3} + (n h)^{-1/6}}
   \end{align*}
   for the rate of approximation from
   Lemma~\ref{lem:distributional_approx_feasible_gaussian}.
@@ -11854,16 +11854,16 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sqrt{\frac{\log n}{n}}
     \left(
       \sqrt{\log n} + \frac{\sqrt n h^{p \wedge \beta}}
-      {\Dl + 1/\sqrt{nh}}
+      {\Dl + 1/\sqrt{n h}}
     \right)
-    \frac{1}{\Dl + 1/\sqrt{nh}} \\
+    \frac{1}{\Dl + 1/\sqrt{n h}} \\
     &\qquad+
     \frac{
       n^{-1/2} \log n
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
       + n^{1/2} h^{p \wedge \beta}}
-    {\Dl + 1/\sqrt{nh}}
+    {\Dl + 1/\sqrt{n h}}
   \end{align*}
   %
   and denote this last quantity by $r_n'$.
@@ -11905,24 +11905,24 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Explicitly, we require the following.
   %
   \begin{align*}
-    \frac{n^{-1/2} (\log n)^{3/2}}{\Dl + 1/\sqrt{nh}}
+    \frac{n^{-1/2} (\log n)^{3/2}}{\Dl + 1/\sqrt{n h}}
     &\to 0,
-    &\frac{h^{p \wedge \beta} \log n}{\Dl^2 + (nh)^{-1}}
+    &\frac{h^{p \wedge \beta} \log n}{\Dl^2 + (n h)^{-1}}
     &\to 0, \\
     \frac{n^{-1/2} (\log n)^{3/2}}
-    {\Dl + 1/\sqrt{nh}}
+    {\Dl + 1/\sqrt{n h}}
     &\to 0,
     &\frac{n^{-3/4} h^{-7/8} (\log n)^{7/8}}
-    {\Dl + 1/\sqrt{nh}}
+    {\Dl + 1/\sqrt{n h}}
     &\to 0, \\
     \frac{n^{-2/3} h^{-1/2} (\log n)^{7/6}}
-    {\Dl + 1/\sqrt{nh}}
+    {\Dl + 1/\sqrt{n h}}
     &\to 0,
     &\frac{n^{1/2} h^{p \wedge \beta} (\log n)^{1/2}}
-    {\Dl + 1/\sqrt{nh}}
+    {\Dl + 1/\sqrt{n h}}
     &\to 0, \\
     \frac{n^{-1/6}(\log n)^{5/6}}
-    {\Dl^{1/3} + (nh)^{-1/6}}
+    {\Dl^{1/3} + (n h)^{-1/6}}
     &\to 0.
   \end{align*}
   Using the fact that $h \lesssim n^{-\varepsilon}$
@@ -11930,10 +11930,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and removing trivial statements leaves us with
   \begin{align*}
     \frac{n^{-3/4} h^{-7/8} (\log n)^{7/8}}
-    {\Dl + 1/\sqrt{nh}}
+    {\Dl + 1/\sqrt{n h}}
     &\to 0,
     &\frac{n^{1/2} h^{p \wedge \beta} (\log n)^{1/2}}
-    {\Dl + 1/\sqrt{nh}}
+    {\Dl + 1/\sqrt{n h}}
     &\to 0.
   \end{align*}
   Now we analyze these based on the degeneracy type
@@ -12153,10 +12153,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \begin{proof}[Lemma~\ref{lem:counterfactual_bias}]
 
   Writing
-  $k_{ij} = k_h(W_{ij}^1, w)$,
+  $k_{i j} = k_h(W_{i j}^1, w)$,
   $\psi_i = \psi(X_i^1)$,
   $\hat\psi_i = \hat\psi(X_i^1)$
-  and $\kappa_{ij} = \kappa(X_i^0, X_i^1, X_j^1)$,
+  and $\kappa_{i j} = \kappa(X_i^0, X_i^1, X_j^1)$,
   %
   \begin{align*}
     \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
@@ -12166,14 +12166,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \sum_{i<j}
       \hat \psi_i
       \hat \psi_j
-      k_{ij}
+      k_{i j}
     \right] \\
     &=
     \frac{2}{n(n-1)(n-2)}
     \sum_{i < j}
     \sum_{r \notin \{i,j\}}
     \E\left[
-      k_{ij}
+      k_{i j}
       \Big(
       \psi_i
       \psi_j
@@ -12186,7 +12186,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + O\left(\frac{1}{n}\right) \\
     &=
     \E\left[
-      k_{ij}
+      k_{i j}
       \psi_i
       \psi_j
     \right]
@@ -12196,7 +12196,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \psi_i
       \psi_j
       \E\left[
-        k_h(W_{ij}^1, w)
+        k_h(W_{i j}^1, w)
         \mid X_i^1, X_j^1
       \right]
       \big]
@@ -12229,7 +12229,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i < j}
     \hat \psi_i
     \hat \psi_j
-    k_{ij} \\
+    k_{i j} \\
     &=
     \frac{2}{n(n-1)}
     \sum_{i < j}
@@ -12243,33 +12243,33 @@ Theorem~3.3 in \citet{gine2000exponential}.
       + \frac{1}{n}
       \sum_{r=1}^n \kappa_{r j}
     \right)
-    k_{ij}
+    k_{i j}
     + O_\P\left(\frac{1}{n}\right) \\
     &=
     \frac{2}{n(n-1)}
     \sum_{i < j}
     \psi_i
     \psi_j
-    k_{ij}
+    k_{i j}
     + \frac{2}{n(n-1)}
     \sum_{i < j}
     \psi_i
     \frac{1}{n}
     \sum_{r \notin \{i,j\}}^n \kappa_{r j}
-    k_{ij}
+    k_{i j}
     + \frac{2}{n(n-1)}
     \sum_{i < j}
     \psi_j
     \frac{1}{n}
     \sum_{r \notin \{i,j\}}^n \kappa_{r i}
-    k_{ij} \\
+    k_{i j} \\
     &\quad+
     O_\P\left(\frac{1}{n}\right) \\
     &=
     \frac{2}{n(n-1)(n-2)}
     \sum_{i < j}
     \sum_{r \notin \{i,j\}}
-    k_{ij}
+    k_{i j}
     \Big(
     \psi_i
     \psi_j
@@ -12282,21 +12282,21 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i < j < r}
-    v_{ijr}
+    v_{i j r}
     + O_\P\left(\frac{1}{n}\right)
   \end{align*}
   %
   where
   %
   \begin{align*}
-    v_{ijr}
+    v_{i j r}
     &=
     \frac{1}{3}
-    k_{ij} \Big(\psi_i \psi_j +\psi_i \kappa_{r j} +\psi_j \kappa_{r i} \Big)
+    k_{i j} \Big(\psi_i \psi_j +\psi_i \kappa_{r j} +\psi_j \kappa_{r i} \Big)
     + \frac{1}{3}
-    k_{ir} \Big(\psi_i \psi_r +\psi_i \kappa_{jr} +\psi_r \kappa_{ji} \Big)
+    k_{i r} \Big(\psi_i \psi_r +\psi_i \kappa_{jr} +\psi_r \kappa_{j i} \Big)
     + \frac{1}{3}
-    k_{jr} \Big(\psi_j \psi_r +\psi_j \kappa_{ir} +\psi_r \kappa_{ij} \Big)
+    k_{jr} \Big(\psi_j \psi_r +\psi_j \kappa_{i r} +\psi_r \kappa_{i j} \Big)
   \end{align*}
   %
   So by the Hoeffding decomposition for third-order U-statistics,
@@ -12311,18 +12311,18 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + \frac{6}{n(n-1)}
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^n
-    u_{ij}
+    u_{i j}
     + \frac{6}{n(n-1)(n-2)}
     \sum_{i=1}^{n-2}
     \sum_{j=i+1}^{n-1}
     \sum_{r=j+1}^n
-    u_{ijr} \\
+    u_{i j r} \\
     &\quad+
     \frac{6}{n(n-1)(n-2)}
     \sum_{i=1}^{n-2}
     \sum_{j=i+1}^{n-1}
     \sum_{r=j+1}^n
-    \big(v_{ijr} - u_{ijr}\big)
+    \big(v_{i j r} - u_{i j r}\big)
     + O_\P\left( \frac{1}{n} \right) \\
     &=
     \E\big[\hat f_W^{\,1 \triangleright 0}(w) \big]
@@ -12333,10 +12333,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + O_\P\left( \frac{1}{n} \right).
   \end{align*}
   %
-  Noting that $\psi_i$, $\kappa_{ij}$
-  and $\E[k_{ij} \mid A_i^1, A_j^1]$
+  Noting that $\psi_i$, $\kappa_{i j}$
+  and $\E[k_{i j} \mid A_i^1, A_j^1]$
   are all bounded and that
-  $\E[k_{ij} \mid A_i^1, A_j^1]$
+  $\E[k_{i j} \mid A_i^1, A_j^1]$
   is Lipschitz in $w$,
   we deduce by
   Lemma~\ref{lem:uprocess_maximal}
@@ -12353,7 +12353,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sup_{w \in \cW} \big|L_n^{1 \triangleright 0}(w)\big|
   \lesssim_\P \frac{1}{\sqrt n}$.
   Note that in the proof of Lemma~\ref{lem:counterfactual_hoeffding}
-  the terms $v_{ijr} - u_{ijr}$ depend only on $V_{ij}, V_{ir}$ and $V_{jr}$
+  the terms $v_{i j r} - u_{i j r}$ depend only on $V_{i j}, V_{i r}$ and $V_{jr}$
   after conditioning on $\bA_n^1$, $\bX_n^0$ and $\bX_n^1$.
   Thus $E_n^{1 \triangleright 0}(w)$ is a degenerate second-order
   U-statistic and so
@@ -12446,15 +12446,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{r' \notin \{i',j'\}}
     \E\Big[
       \Big(
-      k_{ij} \psi_i \psi_j
-      - \E[k_{ij} \psi_i \psi_j]
-      + k_{ij}\psi_i \kappa_{r j}
-      + k_{ij}\psi_j \kappa_{r i}
+      k_{i j} \psi_i \psi_j
+      - \E[k_{i j} \psi_i \psi_j]
+      + k_{i j}\psi_i \kappa_{r j}
+      + k_{i j}\psi_j \kappa_{r i}
       \Big) \\
       &\quad\times
       \Big(
       k_{i' j'}' \psi_{i'} \psi_{j'}
-      - \E[k_{ij}' \psi_i \psi_j]
+      - \E[k_{i j}' \psi_i \psi_j]
       + k_{i' j'}'\psi_{i'} \kappa_{r' j'}
       + k_{i' j'}'\psi_{j'} \kappa_{r' i'}
       \Big)
@@ -12463,35 +12463,35 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\quad=
     \frac{2}{n^2}
     \E\left[
-      k_{ij} \psi_i \psi_j
-      k_{ij}' \psi_i \psi_j
+      k_{i j} \psi_i \psi_j
+      k_{i j}' \psi_i \psi_j
     \right]
     + \frac{4}{n}
     \E\left[
-      k_{ij} \psi_i \psi_j
-      k_{ir}' \psi_i \psi_r
+      k_{i j} \psi_i \psi_j
+      k_{i r}' \psi_i \psi_r
     \right]
     - \frac{4}{n}
     \E\left[
-      k_{ij} \psi_i \psi_j
+      k_{i j} \psi_i \psi_j
     \right]
     \E\left[
-      k_{ij}' \psi_i \psi_j
+      k_{i j}' \psi_i \psi_j
     \right] \\
     &\qquad+
     \frac{4}{n}
     \E\left[
-      k_{ij}\psi_i \kappa_{i' j}
+      k_{i j}\psi_i \kappa_{i' j}
       k_{i' j'}' \psi_{i'} \psi_{j'}
     \right]
     + \frac{4}{n}
     \E\left[
-      k_{ij} \psi_{i} \psi_{j}
-      k_{i' j'}'\psi_{i'} \kappa_{ij'}
+      k_{i j} \psi_{i} \psi_{j}
+      k_{i' j'}'\psi_{i'} \kappa_{i j'}
     \right]
     + \frac{4}{n}
     \E\left[
-      k_{ij} k'_{i' j'}
+      k_{i j} k'_{i' j'}
       \psi_i \psi_{i'}
       \kappa_{r j} \kappa_{r j'}
     \right] \\
@@ -12503,22 +12503,22 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Big(
       \psi_i
       \E\big[
-        k_{ij} \psi_j
+        k_{i j} \psi_j
         \mid i
         \big]
       + \E\left[
-        k_{r j} \psi_r \kappa_{ij}
+        k_{r j} \psi_r \kappa_{i j}
         \mid i
       \right]
       \Big)
       \Big(
       \psi_i
       \E\big[
-        k_{ij}' \psi_j
+        k_{i j}' \psi_j
         \mid i
         \big]
       + \E\left[
-        k_{r j}' \psi_r \kappa_{ij}
+        k_{r j}' \psi_r \kappa_{i j}
         \mid i
       \right]
       \Big)
@@ -12526,15 +12526,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\qquad+
     \frac{2}{n^2}
     \E\left[
-      k_{ij} k_{ij}'
+      k_{i j} k_{i j}'
       \psi_i^2 \psi_j^2
     \right]
     - \frac{4}{n}
     \E\left[
-      k_{ij} \psi_i \psi_j
+      k_{i j} \psi_i \psi_j
     \right]
     \E\left[
-      k_{ij}' \psi_i \psi_j
+      k_{i j}' \psi_i \psi_j
     \right]
     + O\left( \frac{1}{n^{3/2}} + \frac{1}{\sqrt{n^4h}} \right),
   \end{align*}
