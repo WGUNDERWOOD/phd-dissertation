@@ -2,24 +2,27 @@ let
 pkgs = import <nixpkgs> { };
 dotfiles = builtins.fetchGit {
     url = "https://github.com/WGUNDERWOOD/dotfiles";
-    rev = "2b1457479d611d6615dcba37803a85cbd35e8dad";
+    rev = "bacbcba694bda3d3d850c7975c65228fc94ad78c";
 };
 programs = "${dotfiles}/programs/";
-latexindent-fast = pkgs.callPackage "${programs}/latexindent-fast.nix" {};
+compress-pdf = pkgs.callPackage "${programs}/compress-pdf/compress-pdf.nix" {};
 long-lines = pkgs.callPackage "${programs}/long-lines/long-lines.nix" {};
 spell-check = pkgs.callPackage "${programs}/spell-check/spell-check.nix" {};
+tex-build = pkgs.callPackage "${programs}/tex-build/tex-build.nix" {};
 tex-check = pkgs.callPackage "${programs}/tex-check/tex-check.nix" {};
 tex-clean = pkgs.callPackage "${programs}/tex-clean.nix" {};
+tex-fmt = pkgs.callPackage "${programs}/tex-fmt/tex-fmt.nix" {};
 todo-finder = pkgs.callPackage "${programs}/todo-finder/todo-finder.nix" {};
 in pkgs.mkShell {
     buildInputs = [
         pkgs.just
-        pkgs.texlive.combined.scheme-full
-        latexindent-fast
+        compress-pdf
         long-lines
         spell-check
+        tex-build
         tex-check
         tex-clean
+        tex-fmt
         todo-finder
     ];
 }
