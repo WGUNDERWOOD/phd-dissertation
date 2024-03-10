@@ -11,7 +11,7 @@ for the $\ell^p$-norm \citep[Theorem~B.2]{chen2020jackknife}, stated for
 completeness as Lemma~\ref{lem:strassen}.
 
 \begin{lemma}[A conditional Strassen theorem for the
-    \texorpdfstring{$\ell^p$}{lp}-norm]%
+  \texorpdfstring{$\ell^p$}{lp}-norm]%
   \label{lem:strassen}
   %
   Let $(\Omega, \cH, \P)$ be a probability space supporting the $\R^d$-valued
@@ -29,8 +29,8 @@ completeness as Lemma~\ref{lem:strassen}.
     \E^* \left[
       \sup_{A \in \cB(\R^d)}
       \Big\{
-      \P \big( X \in A \mid \cH' \big)
-      - F \big( A_p^\eta \mid \cH' \big)
+        \P \big( X \in A \mid \cH' \big)
+        - F \big( A_p^\eta \mid \cH' \big)
       \Big\}
     \right]
     \leq \rho,
@@ -111,8 +111,8 @@ to that given in \citet[Lemma~39]{belloni2019conditional}.
     \sum_{|\kappa|=k}
     \frac{y^\kappa}{\kappa!}
     \big(
-    \partial^{\kappa} f(x + t y)
-    - \partial^{\kappa} f(x)
+      \partial^{\kappa} f(x + t y)
+      - \partial^{\kappa} f(x)
     \big)
     \Bigg|.
   \end{align*}
@@ -170,7 +170,7 @@ to that given in \citet[Lemma~39]{belloni2019conditional}.
       g(x + \sigma Z)
       \prod_{j=1}^{d}
       \frac{\partial^{\kappa_j}\phi(Z_j)}{\phi(Z_j)}
-      \Bigg],
+    \Bigg],
   \end{align}
   %
   where $Z \sim \cN(0, I_d)$.
@@ -207,8 +207,8 @@ to that given in \citet[Lemma~39]{belloni2019conditional}.
     \sum_{|\kappa|=k}
     \frac{y^\kappa}{\kappa!}
     \big(
-    \partial^{\kappa} f(x + t y)
-    - \partial^{\kappa} f(x)
+      \partial^{\kappa} f(x + t y)
+      - \partial^{\kappa} f(x)
     \big)
     \right| \\
     &\quad=
@@ -218,12 +218,12 @@ to that given in \citet[Lemma~39]{belloni2019conditional}.
     \frac{1}{\sigma^{|\kappa|}}
     \E \Bigg[
       \big(
-      g(x + t y + \sigma Z)
-      - g(x + \sigma Z)
+        g(x + t y + \sigma Z)
+        - g(x + \sigma Z)
       \big)
       \prod_{j=1}^{d}
       \frac{\partial^{\kappa_j}\phi(Z_j)}{\phi(Z_j)}
-      \Bigg]
+    \Bigg]
     \right| \\
     &\quad\leq
     \frac{t \|y\|_p}{\sigma^k \eta}
@@ -241,21 +241,21 @@ to that given in \citet[Lemma~39]{belloni2019conditional}.
   %
   \begin{align*}
     &\Bigg(
-    \sum_{|\kappa|=k}
-    \frac{y^\kappa}{\kappa!}
-    \big(
-    \partial^{\kappa} f(x + t y)
-    - \partial^{\kappa} f(x)
-    \big)
+      \sum_{|\kappa|=k}
+      \frac{y^\kappa}{\kappa!}
+      \big(
+        \partial^{\kappa} f(x + t y)
+        - \partial^{\kappa} f(x)
+      \big)
     \Bigg)^2 \\
     &\quad\leq
     \frac{t^2 \|y\|_p^2}{\sigma^{2k} \eta^2}
     \, \E \left[
       \Bigg(
-      \sum_{|\kappa|=k}
-      \frac{y^\kappa}{\kappa!}
-      \prod_{j=1}^{d}
-      \frac{\partial^{\kappa_j} \phi(Z_j)}{\phi(Z_j)}
+        \sum_{|\kappa|=k}
+        \frac{y^\kappa}{\kappa!}
+        \prod_{j=1}^{d}
+        \frac{\partial^{\kappa_j} \phi(Z_j)}{\phi(Z_j)}
       \Bigg)^2
     \right] \\
     &\quad=
@@ -284,15 +284,15 @@ to that given in \citet[Lemma~39]{belloni2019conditional}.
     &\leq
     \frac{\|y\|_p}{\sigma^k \eta}
     \Bigg(
-    \sum_{|\kappa|=k}
-    \frac{y^{2 \kappa}}{\kappa!}
+      \sum_{|\kappa|=k}
+      \frac{y^{2 \kappa}}{\kappa!}
     \Bigg)^{1/2}
     \leq
     \frac{\|y\|_p}{\sigma^k \eta \sqrt{k!}}
     \Bigg(
-    \sum_{|\kappa|=k}
-    \frac{k!}{\kappa!}
-    y^{2 \kappa}
+      \sum_{|\kappa|=k}
+      \frac{k!}{\kappa!}
+      y^{2 \kappa}
     \Bigg)^{1/2} \\
     &\leq
     \frac{\|y\|_p \|y\|_2^k}{\sigma^k \eta \sqrt{k!}}.
@@ -368,23 +368,23 @@ places throughout the paper.
     &=
     \E\Bigg[
       \bigg(
-      \sum_{j=1}^d X_j^2
+        \sum_{j=1}^d X_j^2
       \bigg)^2
-      \Bigg]
+    \Bigg]
     =
     \sum_{j=1}^d \sum_{k=1}^d
     \E\big[
       X_j^2 X_k^2
-      \big]
+    \big]
     \leq
     \bigg(
-    \sum_{j=1}^d
-    \E\big[X_j^4 \big]^{\frac{1}{2}}
+      \sum_{j=1}^d
+      \E\big[X_j^4 \big]^{\frac{1}{2}}
     \bigg)^2
     =
     3 \bigg(
-    \sum_{j=1}^d
-    \sigma_j^2
+      \sum_{j=1}^d
+      \sigma_j^2
     \bigg)^2, \\
     \E\big[\|X\|_2^6 \big]
     &=
@@ -397,16 +397,16 @@ places throughout the paper.
     \sum_{j=1}^d \sum_{k=1}^d \sum_{l=1}^d
     \E\big[
       X_j^2 X_k^2 X_l^2
-      \big]
+    \big]
     \leq
     \bigg(
-    \sum_{j=1}^d
-    \E\big[X_j^6 \big]^{\frac{1}{3}}
+      \sum_{j=1}^d
+      \E\big[X_j^6 \big]^{\frac{1}{3}}
     \bigg)^3
     =
     15 \bigg(
-    \sum_{j=1}^d
-    \sigma_j^2
+      \sum_{j=1}^d
+      \sigma_j^2
     \bigg)^3.
   \end{align*}
   %
@@ -426,7 +426,7 @@ places throughout the paper.
     \sum_{j=1}^d
     \E\Big[
       e^{X_j^2 / (4\sigma^2)}
-      \Big]
+    \Big]
     \leq
     4 \sigma^2
     \log
@@ -488,14 +488,14 @@ $\phi_p(d)$.
     \sum_{j=1}^d
     \E\Big[
       e^{|X_j| / t}
-      \Big]
+    \Big]
     \leq
     t
     \log
     \sum_{j=1}^d
     \E\Big[
       2 e^{X_j / t}
-      \Big]
+    \Big]
     \leq t \log \Big(2 d e^{\sigma^2/(2t^2)}\Big) \\
     &\leq t \log 2 d + \frac{\sigma^2}{2t},
   \end{align*}
@@ -512,7 +512,7 @@ ensuring approximations remain valid upon substituting
 an estimator for the true variance matrix.
 
 \begin{lemma}[Gaussian--Gaussian approximation in
-    \texorpdfstring{$\ell^p$}{lp}-norm]%
+  \texorpdfstring{$\ell^p$}{lp}-norm]%
   \label{lem:feasible_gaussian}
 
   Let $\Sigma_1, \Sigma_2 \in \R^{d \times d}$ be positive semi-definite
@@ -546,30 +546,30 @@ an estimator for the true variance matrix.
     \P\left(\big\| \Sigma^{1/2} Z \big\|_p > t \right)
     &=
     \P\Bigg(
-    \sum_{j=1}^d
-    \left|
-    \left(
-      \Sigma^{1/2} Z
-    \right)_j
-    \right|^p
+      \sum_{j=1}^d
+      \left|
+      \left(
+        \Sigma^{1/2} Z
+      \right)_j
+      \right|^p
     > t^p \Bigg)
     \leq
     \sum_{j=1}^d
     \P\Bigg(
-    \left|
-    \left(
-      \Sigma^{1/2} Z
-    \right)_j
-    \right|^p
-    > \frac{t^p \sigma_j^p}{\|\sigma\|_p^p}
+      \left|
+      \left(
+        \Sigma^{1/2} Z
+      \right)_j
+      \right|^p
+      > \frac{t^p \sigma_j^p}{\|\sigma\|_p^p}
     \Bigg) \\
     &=
     \sum_{j=1}^d
     \P\Bigg(
-    \left|
-    \sigma_j Z_j
-    \right|^p
-    > \frac{t^p \sigma_j^p}{\|\sigma\|_p^p}
+      \left|
+      \sigma_j Z_j
+      \right|^p
+      > \frac{t^p \sigma_j^p}{\|\sigma\|_p^p}
     \Bigg)
     =
     \sum_{j=1}^d
@@ -594,7 +594,7 @@ an estimator for the true variance matrix.
         \Sigma^{1/2} Z
       \right)_j
       \right|
-      > t \right)
+    > t \right)
     \leq
     \sum_{j=1}^d
     \P\left(
@@ -685,7 +685,7 @@ and an exponential concentration inequality
 for $\alpha$-mixing random variables.
 
 \begin{lemma}[Variance bounds for
-    \texorpdfstring{$\alpha$}{alpha}-mixing random variables]
+  \texorpdfstring{$\alpha$}{alpha}-mixing random variables]
   \label{lem:variance_mixing}
 
   Let $X_1, \ldots, X_n$ be
@@ -816,7 +816,7 @@ for $\alpha$-mixing random variables.
 \end{proof}
 
 \begin{lemma}[Exponential concentration inequalities for
-    \texorpdfstring{$\alpha$}{alpha}-mixing random variables]
+  \texorpdfstring{$\alpha$}{alpha}-mixing random variables]
   \label{lem:exponential_mixing}
 
   Let $X_1, \ldots, X_n$ be zero-mean real-valued
@@ -949,12 +949,12 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
     &\leq
     \inf_{t>0}
     \left\{
-    2 \P\big( \|Z\|_p > t \big)
-    + \min\left\{
-    \frac{\beta_{p,2} t^2}{\eta^3},
-    \frac{\beta_{p,3} t^3}{\eta^4}
-    + \frac{\pi_3 t^3}{\eta^3}
-    \right\}
+      2 \P\big( \|Z\|_p > t \big)
+      + \min\left\{
+        \frac{\beta_{p,2} t^2}{\eta^3},
+        \frac{\beta_{p,3} t^3}{\eta^4}
+        + \frac{\pi_3 t^3}{\eta^3}
+      \right\}
     \right\} \\
     \nonumber
     &\quad+
@@ -970,7 +970,7 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
     \beta_{p,k}
     &=
     \sum_{i=1}^n \E\left[\| X_i \|^k_2 \| X_i \|_p
-      + \|V_i^{1/2} Z_i \|^k_2 \|V_i^{1/2} Z_i \|_p \right],
+    + \|V_i^{1/2} Z_i \|^k_2 \|V_i^{1/2} Z_i \|_p \right],
     \qquad\gamma(M)
     = \P\big(\Omega \npreceq M\big), \\
     \delta_p(M,\eta)
@@ -985,11 +985,11 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
     \sum_{|\kappa| = 3}
     \E \Big[ \big|
       \E \left[ X_i^\kappa \mid \cH_{i-1} \right]
-      \big| \Big], \\
+    \big| \Big], \\
     \varepsilon_p(M, \eta)
     &=
     \P\left(\big\| (M - \Omega)^{1/2} Z \big\|_p\geq \eta, \
-      \Omega \preceq M\right),
+    \Omega \preceq M\right),
   \end{align*}
   %
   for $k \in \{2,3\}$, with $Z, Z_1,\dots ,Z_n$ i.i.d.\ standard Gaussian
@@ -1049,7 +1049,7 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
   = \tilde V_i$.
 
   \proofparagraph{bounding the difference between the original and
-    modified martingales}
+  modified martingales}
 
   By the triangle inequality,
   %
@@ -1094,12 +1094,12 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
   %
   \begin{align*}
     \E\Big[f\big(\tilde S\big) - f\big(\check S\big)
-      \mid \cH_0 \Big]
+    \mid \cH_0 \Big]
     &=
     \sum_{i=1}^{n+m}
     \E\Big[ f\big(Y_i + \tilde X_i\big)
       - f\big(Y_i + \check X_i\big)
-      \mid \cH_0 \Big]
+    \mid \cH_0 \Big]
   \end{align*}
   %
   where
@@ -1113,7 +1113,7 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
       f(Y_i + \tilde X_i)
       - f(Y_i + \check X_i)
       \mid \cH_0
-      \big]
+    \big]
     - \sum_{|\kappa| = 0}^k
     \frac{1}{\kappa!}
     \E \left[
@@ -1454,7 +1454,7 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
   %
   Further, if $|\kappa| = 3$ then
   $\big|\E \big[
-    \tilde X_i^\kappa \mid \tilde \cH_{i-1} \big]\big|
+  \tilde X_i^\kappa \mid \tilde \cH_{i-1} \big]\big|
   \leq \big| \E \left[ X_i^\kappa \mid \cH_{i-1} \right]\big|$
   for $1 \leq i \leq n$
   while by symmetry of the Gaussian distribution
@@ -1468,7 +1468,7 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
     \sum_{|\kappa| = 3}
     \E \Big[ \big|
       \E \left[ X_i^\kappa \mid \cH_{i-1} \right]
-      \big| \mid \cH_0 \Big],
+    \big| \mid \cH_0 \Big],
   \end{align*}
   %
   we have
@@ -1480,11 +1480,11 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
     \right]
     &\leq
     \min \left\{
-    \frac{3 \tilde \beta_{p,2}}{4 \sigma^2 \eta}
-    + \frac{\beta_{p,2}}{4 \sigma^2 \eta},
-    \frac{3 \tilde \beta_{p,3}}{4 \sigma^3 \eta}
-    + \frac{\beta_{p,3}}{4 \sigma^3 \eta}
-    + \frac{\tilde \pi_3}{\sigma^3}
+      \frac{3 \tilde \beta_{p,2}}{4 \sigma^2 \eta}
+      + \frac{\beta_{p,2}}{4 \sigma^2 \eta},
+      \frac{3 \tilde \beta_{p,3}}{4 \sigma^3 \eta}
+      + \frac{\beta_{p,3}}{4 \sigma^3 \eta}
+      + \frac{\tilde \pi_3}{\sigma^3}
     \right\}.
   \end{align*}
   %
@@ -1497,39 +1497,39 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
     =
     \E\big[\I\{\tilde S \in A\} - f(\tilde S)
       \mid \cH_0
-      \big]
+    \big]
     + \E\big[f(\tilde S) - f\big(\check S\big)
       \mid \cH_0
-      \big]
+    \big]
     + \E \big[f\big(\check S\big)
       \mid \cH_0
-      \big] \\
+    \big] \\
     &\,\leq
     \varepsilon\,\P(\tilde S \in A
     \mid \cH_0)
     + \min \left\{
-    \frac{3 \tilde \beta_{p,2}}{4 \sigma^2 \eta}
-    + \frac{\beta_{p,2}}{4 \sigma^2 \eta},
-    \frac{3 \tilde \beta_{p,3}}{4 \sigma^3 \eta}
-    + \frac{\beta_{p,3}}{4 \sigma^3 \eta}
-    + \frac{\tilde \pi_3}{\sigma^3}
+      \frac{3 \tilde \beta_{p,2}}{4 \sigma^2 \eta}
+      + \frac{\beta_{p,2}}{4 \sigma^2 \eta},
+      \frac{3 \tilde \beta_{p,3}}{4 \sigma^3 \eta}
+      + \frac{\beta_{p,3}}{4 \sigma^3 \eta}
+      + \frac{\tilde \pi_3}{\sigma^3}
     \right\} \\
     &\quad+
     \varepsilon
     + (1 - \varepsilon) \P\big(\check S \in A_p^{3\eta}
-    \mid \cH_0
+      \mid \cH_0
     \big) \\
     &\,\leq
     \P\big( \check S \in A_p^{3\eta}
-    \mid \cH_0
+      \mid \cH_0
     \big)
     + 2 \P(\|Z\|_p > t)
     + \min\!\left\{
-    \frac{3 \tilde \beta_{p,2} t^2}{4 \eta^3}
-    + \frac{\beta_{p,2} t^2}{4 \eta^3},
-    \frac{3 \tilde \beta_{p,3} t^3}{4 \eta^4}
-    + \frac{\beta_{p,3} t^3}{4 \eta^4}
-    + \frac{\tilde \pi_3 t^3}{\eta^3}
+      \frac{3 \tilde \beta_{p,2} t^2}{4 \eta^3}
+      + \frac{\beta_{p,2} t^2}{4 \eta^3},
+      \frac{3 \tilde \beta_{p,3} t^3}{4 \eta^4}
+      + \frac{\beta_{p,3} t^3}{4 \eta^4}
+      + \frac{\tilde \pi_3 t^3}{\eta^3}
     \right\}.
   \end{align*}
   %
@@ -1541,16 +1541,16 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
     &\E^* \left[
       \sup_{A \in \cB(\R^d)}
       \left\{
-      \P(\tilde S \in A \mid \cH_0)
-      - \P\big( \check S \in A_p^{3\eta} \mid \cH_0 \big)
+        \P(\tilde S \in A \mid \cH_0)
+        - \P\big( \check S \in A_p^{3\eta} \mid \cH_0 \big)
       \right\}
     \right] \\
     &\quad\leq
     2 \P(\|Z\|_p > t)
     + \min \left\{
-    \frac{\beta_{p,2} t^2}{\eta^3},
-    \frac{\beta_{p,3} t^3}{\eta^4}
-    + \frac{\pi_3 t^3}{\eta^3}
+      \frac{\beta_{p,2} t^2}{\eta^3},
+      \frac{\beta_{p,3} t^3}{\eta^4}
+      + \frac{\pi_3 t^3}{\eta^3}
     \right\}.
   \end{align*}
   %
@@ -1569,11 +1569,11 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
     &\leq
     \inf_{t>0}
     \left\{
-    2 \P(\|Z\|_p > t)
-    + \min \left\{
-    \frac{\beta_{p,2} t^2}{\eta^3},
-    \frac{\beta_{p,3} t^3}{\eta^4} + \frac{\pi_3 t^3}{\eta^3}
-    \right\}
+      2 \P(\|Z\|_p > t)
+      + \min \left\{
+        \frac{\beta_{p,2} t^2}{\eta^3},
+        \frac{\beta_{p,3} t^3}{\eta^4} + \frac{\pi_3 t^3}{\eta^3}
+      \right\}
     \right\},
   \end{align}
   %
@@ -1632,12 +1632,12 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
     &\leq
     \inf_{t>0}
     \left\{
-    2 \P\big( \|Z\|_p > t \big)
-    + \min\left\{
-    \frac{\beta_{p,2} t^2}{\eta^3},
-    \frac{\beta_{p,3} t^3}{\eta^4}
-    + \frac{\pi_3 t^3}{\eta^3}
-    \right\}
+      2 \P\big( \|Z\|_p > t \big)
+      + \min\left\{
+        \frac{\beta_{p,2} t^2}{\eta^3},
+        \frac{\beta_{p,3} t^3}{\eta^4}
+        + \frac{\pi_3 t^3}{\eta^3}
+      \right\}
     \right\} \\
     &\quad+
     \inf_{M \succeq 0}
@@ -1728,7 +1728,7 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
   \begin{align*}
     \varepsilon_p(M, \eta)
     &= \P\left(\big\| (M - \Omega)^{1/2} Z \big\|_p\geq \eta, \
-      \Omega \preceq M\right) \\
+    \Omega \preceq M\right) \\
     &\leq
     \frac{1}{\eta}
     \E\left[
@@ -1767,12 +1767,12 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
     &\leq
     \inf_{t>0}
     \left\{
-    2 \P\big(\|Z\|_p>t\big)
-    + \min\left\{
-    \frac{\beta_{p,2} t^2}{\eta^3},
-    \frac{\beta_{p,3} t^3}{\eta^4}
-    + \frac{\pi_3 t^3}{\eta^3}
-    \right\}
+      2 \P\big(\|Z\|_p>t\big)
+      + \min\left\{
+        \frac{\beta_{p,2} t^2}{\eta^3},
+        \frac{\beta_{p,3} t^3}{\eta^4}
+        + \frac{\pi_3 t^3}{\eta^3}
+      \right\}
     \right\} \\
     &\quad+
     \inf_{M \succeq 0}
@@ -1782,17 +1782,17 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
     &\leq
     \inf_{t>0}
     \left\{
-    \frac{2 \phi_p(d)}{t}
-    + \min\left\{
-    \frac{\beta_{p,2} t^2}{\eta^3},
-    \frac{\beta_{p,3} t^3}{\eta^4}
-    + \frac{\pi_3 t^3}{\eta^3}
-    \right\}
+      \frac{2 \phi_p(d)}{t}
+      + \min\left\{
+        \frac{\beta_{p,2} t^2}{\eta^3},
+        \frac{\beta_{p,3} t^3}{\eta^4}
+        + \frac{\pi_3 t^3}{\eta^3}
+      \right\}
     \right\} \\
     &\quad+
     \inf_{\nu > 0}
     \left\{ \frac{2\E \left[ \|\Omega\|_2 \right]}{\nu^2}
-    + \frac{2 \phi_p(d) \nu}{\eta}
+      + \frac{2 \phi_p(d) \nu}{\eta}
     \right\}
     + \frac{\phi_p(d) \sqrt{\E \left[ \|\Omega\|_2 \right]}}{\eta}
     +\P\big(\|U\|_p>\eta\big).
@@ -1893,7 +1893,7 @@ $\eta = \beta_{p,2}^{1/3} \phi_p(d)^{2/3} R_n$,
 %
 \begin{align*}
   \P\Big(\|S_n-T_n\|_p >
-  \beta_{p,2}^{1/3} \phi_p(d)^{2/3} R_n
+    \beta_{p,2}^{1/3} \phi_p(d)^{2/3} R_n
   \Big)
   &\leq
   \frac{24}{R_n}
@@ -1969,7 +1969,7 @@ $\left|\frac{1}{h} K \left( \frac{X_i - x}{h} \right)
 - \frac{1}{h} K \left( \frac{X_i - x'}{h} \right)\right|
 \lesssim \frac{|x-x'|}{h^2}$ almost surely, and also that
 $\E \Big[ \left|\frac{1}{h} K \left( \frac{X_i - x}{h} \right)
-  - \frac{1}{h} K \left( \frac{X_i - x'}{h} \right)\right|^2 \Big]
+- \frac{1}{h} K \left( \frac{X_i - x'}{h} \right)\right|^2 \Big]
 \lesssim \frac{|x-x'|^2}{h^3}$.
 By chaining with the Bernstein--Orlicz norm and polynomial covering numbers,
 %
@@ -2081,7 +2081,7 @@ the same bound holds for $T(x)$ with
   $\tilde\Sigma_{i j} = \frac{1}{2 \sqrt \pi}
   \exp \left( - \frac{1}{4} \left( \frac{x_i-x_j}{h} \right)^2 \right)$.
   By \citet[Proposition~2.4,
-    Proposition~2.5 and Equation~2.10]{baxter1994norm},
+  Proposition~2.5 and Equation~2.10]{baxter1994norm},
   with
   $\cB_k = \big\{b \in \R^\Z :
   \sum_{i \in \Z} \I\{b_i \neq 0\} \leq k \big\}$,
@@ -2102,8 +2102,8 @@ the same bound holds for $T(x)$ with
   $x = -e/2 \approx -1.359$.
   Consider the substitutions
   $\Z \cap (-\infty, -3] \mapsto (-\infty, -2]$,
-    $\{-2, -1\} \mapsto \{-2, -1\}$ and
-    $\Z \cap [0, \infty) \mapsto [-1, \infty)$.
+  $\{-2, -1\} \mapsto \{-2, -1\}$ and
+  $\Z \cap [0, \infty) \mapsto [-1, \infty)$.
   %
   \begin{align*}
     \sum_{i \in \Z}
@@ -2218,18 +2218,18 @@ the same bound holds for $T(x)$ with
   \begin{align*}
     &\P\left(\sup_{f \in \cF}
       \big| S(f) - T(f) \big|
-      \geq 2t + \eta \right)
+    \geq 2t + \eta \right)
     \leq
     \P\left(\sup_{f \in \cF_\delta}
       \big| S(f) - T(f) \big|
-      \geq \eta \right) \\
+    \geq \eta \right) \\
     &\qquad\qquad+
     \P\left(\sup_{d(f,f') \leq \delta}
       \big| S(f) - S(f') \big|
-      \geq t \right)
+    \geq t \right)
     + \P\left(\sup_{d(f,f') \leq \delta}
       \big| T(f) - T(f') \big|
-      \geq t \right).
+    \geq t \right).
   \end{align*}
 
   \proofparagraph{bounding the difference on $\cF_\delta$}
@@ -2256,9 +2256,9 @@ the same bound holds for $T(x)$ with
     \right)
     &\leq
     \frac{24\beta_\delta^{\frac{1}{3}}
-      (2\log 2 |\cF_\delta|)^{\frac{1}{3}}}{\eta}
+    (2\log 2 |\cF_\delta|)^{\frac{1}{3}}}{\eta}
     + 17\left(\frac{\sqrt{2 \log 2 |\cF_\delta|}
-        \sqrt{\E\left[\|\Omega_\delta\|_2\right]}}{\eta }\right)^{\frac{2}{3}}.
+    \sqrt{\E\left[\|\Omega_\delta\|_2\right]}}{\eta }\right)^{\frac{2}{3}}.
   \end{align*}
 
   \proofparagraph{bounding the fluctuations in $S(f)$}
@@ -2378,7 +2378,7 @@ the same bound holds for $T(x)$ with
   \begin{align*}
     \beta_{\infty,r}
     = \sum_{i=1}^n \E\left[\| X_i \|^r_2 \| X_i \|_\infty
-      + \|V_i^{1/2} Z_i \|^r_2 \|V_i^{1/2} Z_i \|_\infty \right]
+    + \|V_i^{1/2} Z_i \|^r_2 \|V_i^{1/2} Z_i \|_\infty \right]
   \end{align*}
   %
   with $Z_i \sim \cN(0,1)$ i.i.d.\ and independent of $V_i$.
@@ -2412,8 +2412,8 @@ the same bound holds for $T(x)$ with
       \max_{1 \leq j \leq k}
       p(W_i)_j
       \bigg(
-      \sum_{j=1}^k
-      p(W_i)_{j}^2
+        \sum_{j=1}^k
+        p(W_i)_{j}^2
       \bigg)^{r/2}
     \right] \\
     &\lesssim
@@ -2496,14 +2496,14 @@ the same bound holds for $T(x)$ with
     \sum_{|\kappa| = 3}
     \E \Big[ \big|
       \E [ X_i^\kappa \mid \cH_{i-1} ]
-      \big| \Big]
+    \big| \Big]
     =
     \sum_{i=1}^{n}
     \sum_{|\kappa| = 3}
     \E \Big[ \big|
       p(W_i)^\kappa \,
       \E [ \varepsilon_i^3 \mid \cH_{i-1} ]
-      \big| \Big]
+    \big| \Big]
     = 0,
   \end{align*}
   %
@@ -2541,7 +2541,7 @@ the same bound holds for $T(x)$ with
 
   We have
   $\hat H - H = \sum_{i=1}^n \big(p(W_i)p(W_i)^\T - \E\left[
-    p(W_i)p(W_i)^\T \right]\big)$.
+  p(W_i)p(W_i)^\T \right]\big)$.
   Observe that $(\hat H - H)_{j l}$ is the sum of
   a zero-mean strictly stationary $\alpha$-mixing sequence and so
   $\E[(\hat H - H)_{j l}^2] \lesssim n$ by
@@ -2565,8 +2565,8 @@ the same bound holds for $T(x)$ with
     \E\left[
       \sum_{1 \leq i \leq k}
       \Bigg(
-      \sum_{j=1}^k
-      |(\hat H-H)_{i j}|
+        \sum_{j=1}^k
+        |(\hat H-H)_{i j}|
       \Bigg)^2
     \right]^{\frac{1}{2}}
     \lesssim \sqrt{n k}.
@@ -2916,10 +2916,10 @@ the same bound holds for $T(x)$ with
     \cF
     &=
     \left\{
-    (W_i, \varepsilon_i) \mapsto
-    e_1^\T H(w)^{-1} K_h(W_i-w) p_h(W_i-w)
-    \varepsilon_i
-    :\ w \in \cW
+      (W_i, \varepsilon_i) \mapsto
+      e_1^\T H(w)^{-1} K_h(W_i-w) p_h(W_i-w)
+      \varepsilon_i
+      :\ w \in \cW
     \right\},
   \end{align*}
   %
@@ -3057,7 +3057,7 @@ the same bound holds for $T(x)$ with
   $V_i(\cF_\delta) =
   \E\big[\cF_\delta(W_i, \tilde\varepsilon_i)
     \cF_\delta(W_i, \tilde\varepsilon_i)^\T
-    \mid \cH_{i-1}\big]$
+  \mid \cH_{i-1}\big]$
   and $Z_i \sim \cN(0, I_d)$ be i.i.d.\ and
   independent of $\cH_n$.
   Note that
@@ -3086,7 +3086,7 @@ the same bound holds for $T(x)$ with
     \,\E\Bigg[
       \max_{f \in \cF_\delta} \sqrt{V_i(f,f)}
       \sum_{f \in \cF_\delta} V_i(f,f)
-      \Bigg] \\
+    \Bigg] \\
     &\lesssim
     n^{-3}
     h^{-2m}
@@ -3133,7 +3133,7 @@ the same bound holds for $T(x)$ with
       K_h(W_i-w')
       \tilde\varepsilon_i^2
       \Bigm| \cH_{i-1}
-      \Big]
+    \Big]
     \Big| \\
     &\lesssim
     n^{-2}
@@ -3185,19 +3185,19 @@ the same bound holds for $T(x)$ with
     \E\Bigg[
       \sum_{f,f' \in \cF_\delta}
       (\Omega_\delta)_{f,f'}^2
-      \Bigg]^{1/2}
+    \Bigg]^{1/2}
     \leq
     \Bigg(
-    \sum_{f,f' \in \cF_\delta}
-    \Var\left[
-      \sum_{i=1}^n V_i(f,f')
-    \right]
+      \sum_{f,f' \in \cF_\delta}
+      \Var\left[
+        \sum_{i=1}^n V_i(f,f')
+      \right]
     \Bigg)^{1/2} \\
     &\lesssim
     n^{-3/2} h^{-5m/3}
     \Bigg(
-    \sum_{f,f' \in \cF_\delta}
-    \I\{\|w-w'\|_2 \leq 2 C_K h\}
+      \sum_{f,f' \in \cF_\delta}
+      \I\{\|w-w'\|_2 \leq 2 C_K h\}
     \Bigg)^{1/2} \\
     &\lesssim
     n^{-3/2} h^{-5m/3}
@@ -3222,8 +3222,8 @@ the same bound holds for $T(x)$ with
     &=
     e_1^\T
     \big(
-    H(w)^{-1} K_h(W_i-w) p_h(W_i-w)
-    - H(w')^{-1} K_h(W_i-w') p_h(W_i-w')
+      H(w)^{-1} K_h(W_i-w) p_h(W_i-w)
+      - H(w')^{-1} K_h(W_i-w') p_h(W_i-w')
     \big)
     \tilde\varepsilon_i.
   \end{align*}
@@ -3239,8 +3239,8 @@ the same bound holds for $T(x)$ with
     h^{-m-1}
     \|w-w'\|_2
     \big(
-    \I\{\|W_i-w\| \leq C_K h\}
-    + \I\{\|W_i-w'\| \leq C_K h\}
+      \I\{\|W_i-w\| \leq C_K h\}
+      + \I\{\|W_i-w'\| \leq C_K h\}
     \big), \\
     &\left|
     p_h(W_i-w)_j - p_h(W_i-w')_j
@@ -3260,7 +3260,7 @@ the same bound holds for $T(x)$ with
       K_h(W_i-w) p_h(W_i-w)_j p_h(W_i-w)_l \\
       &\qquad-
       K_h(W_i-w') p_h(W_i-w')_j p_h(W_i-w')_l
-      \big]
+    \big]
     \big| \\
     &\leq
     n\E\left[
@@ -3449,7 +3449,7 @@ the same bound holds for $T(x)$ with
       \left(\sum_{i=1}^n f_{w'}(W_i, \varepsilon_i)\right)
     \right]
     &= \E\big[ T(w) T(w')
-      \big]
+    \big]
   \end{align*}
   %
   for all $w, w' \in \cW$ and
@@ -3466,41 +3466,41 @@ the same bound holds for $T(x)$ with
     \inf_{\delta > 0}
     \inf_{\cF_\delta}
     \Bigg\{
-    \frac{\beta_\delta^{1/3} (\log 2 |\cF_\delta|)^{1/3}}{\eta }
-    + \left(\frac{\sqrt{\log 2 |\cF_\delta|}
-        \sqrt{\E\left[\|\Omega_\delta\|_2\right]}}{\eta }\right)^{2/3} \\
-    &\qquad+
-    \psi\left(\frac{t}{L J_\psi(\delta)}\right)^{-1}
-    + \exp\left(\frac{-t^2}{L^2 J_2(\delta)^2}\right)
+      \frac{\beta_\delta^{1/3} (\log 2 |\cF_\delta|)^{1/3}}{\eta }
+      + \left(\frac{\sqrt{\log 2 |\cF_\delta|}
+      \sqrt{\E\left[\|\Omega_\delta\|_2\right]}}{\eta }\right)^{2/3} \\
+      &\qquad+
+      \psi\left(\frac{t}{L J_\psi(\delta)}\right)^{-1}
+      + \exp\left(\frac{-t^2}{L^2 J_2(\delta)^2}\right)
     \Bigg\} \\
     &\quad\leq
     C_\psi
     \Bigg\{
-    \frac{
-    \left(\frac{\log n} {n^2 h^{2m} \delta^{m}} \right)^{1/3}
-    (\log n)^{1/3}}{\eta }
-    + \left(\frac{\sqrt{\log n}
-        \sqrt{n^{-3/2} h^{-7m/6} \delta^{-m}}
+      \frac{
+        \left(\frac{\log n} {n^2 h^{2m} \delta^{m}} \right)^{1/3}
+      (\log n)^{1/3}}{\eta }
+      + \left(\frac{\sqrt{\log n}
+          \sqrt{n^{-3/2} h^{-7m/6} \delta^{-m}}
       }{\eta }\right)^{2/3} \\
-    &\qquad+
-    \psi\left(\frac{t}{\frac{1}{\sqrt{n} h^{m/2+1}}
-        J_\psi(\delta)}\right)^{-1}
-    + \exp\left(\frac{-t^2}{
-        \left( \frac{1}{\sqrt{n} h^{m/2+1}} \right)^2
-        J_2(\delta)^2}\right)
+      &\qquad+
+      \psi\left(\frac{t}{\frac{1}{\sqrt{n} h^{m/2+1}}
+      J_\psi(\delta)}\right)^{-1}
+      + \exp\left(\frac{-t^2}{
+          \left( \frac{1}{\sqrt{n} h^{m/2+1}} \right)^2
+      J_2(\delta)^2}\right)
     \Bigg\} \\
     &\quad\leq
     C_\psi
     \Bigg\{
-    \frac{
+      \frac{
       (\log n)^{2/3}}{n^{2/3} h^{2m/3} \delta^{m/3} \eta}
-    + \left(\frac{
+      + \left(\frac{
         n^{-3/4} h^{-7m/12} \delta^{-m/2} \sqrt{\log n}}
       {\eta }\right)^{2/3} \\
-    &\qquad+
-    \psi\left(\frac{t\sqrt{n} h^{m/2+1}}
+      &\qquad+
+      \psi\left(\frac{t\sqrt{n} h^{m/2+1}}
       {\delta \sqrt{\log n}}\right)^{-1}
-    + \exp\left(\frac{-t^2n h^{m+2}}
+      + \exp\left(\frac{-t^2n h^{m+2}}
       {\delta^2 \log n}\right)
     \Bigg\}.
   \end{align*}
@@ -3779,15 +3779,15 @@ the same bound holds for $T(x)$ with
     \sum_{i=1}^n K_h(W_i-w) p_h(W_i-w) \\
     &\quad\times
     \Bigg(
-    \sum_{|\kappa|=0}^{\gamma-1}
-    \frac{1}{\kappa!}
-    \partial^{\kappa} \mu(w)
+      \sum_{|\kappa|=0}^{\gamma-1}
+      \frac{1}{\kappa!}
+      \partial^{\kappa} \mu(w)
       (W_i-w)^\kappa
-    + \sum_{|\kappa|=\gamma}
-    \frac{1}{\kappa!}
-    \partial^{\kappa} \mu(w')
+      + \sum_{|\kappa|=\gamma}
+      \frac{1}{\kappa!}
+      \partial^{\kappa} \mu(w')
       (W_i-w)^\kappa
-    - \mu(w)
+      - \mu(w)
     \Bigg) \\
     &=
     \sum_{|\kappa|=1}^{\gamma-1}
@@ -3956,7 +3956,7 @@ the same bound holds for $T(x)$ with
     \sum_{i=1}^n
     \Var\big[
       K_h(W_i-w) p_h(W_i-w)_j \sigma(W_i)
-      \big] \\
+    \big] \\
     &\lesssim
     \frac{1}{n^2} n
     \frac{1}{h^m}
@@ -4125,9 +4125,9 @@ combined with \eqref{eq:convex_anticonc} yields for convex sets
   &\lesssim
   \inf_{\eta > 0}
   \left\{
-  \left(\frac{\beta_{p,2} d}{\eta^3}\right)^{1/3}
-  + \left(\frac{\E[\|\Omega \|_2] d}{\eta^2}\right)^{1/3}
-  + \eta \sqrt{\|\Sigma^{-1}\|_\rF}
+    \left(\frac{\beta_{p,2} d}{\eta^3}\right)^{1/3}
+    + \left(\frac{\E[\|\Omega \|_2] d}{\eta^2}\right)^{1/3}
+    + \eta \sqrt{\|\Sigma^{-1}\|_\rF}
   \right\}.
 \end{align*}
 
@@ -4153,9 +4153,9 @@ and \eqref{eq:rect_anticonc} yields
   &\quad\lesssim
   \inf_{\eta > 0}
   \left\{
-  \left(\frac{\beta_{\infty,2} \log 2d}{\eta^3}\right)^{1/3}
-  + \left(\frac{\E[\|\Omega \|_2] \log 2d}{\eta^2}\right)^{1/3}
-  + \frac{\eta \sqrt{\log 2d}}{\sigma_{\min}}
+    \left(\frac{\beta_{\infty,2} \log 2d}{\eta^3}\right)^{1/3}
+    + \left(\frac{\E[\|\Omega \|_2] \log 2d}{\eta^2}\right)^{1/3}
+    + \frac{\eta \sqrt{\log 2d}}{\sigma_{\min}}
   \right\}.
 \end{align*}
 %
@@ -4255,9 +4255,9 @@ multiplier bootstrap.
     &\quad\leq
     \inf_{p \in [1,\infty]} \inf_{\eta>0}
     \left\{ \Gamma_p(\eta) + 2 \Delta_p(\cA, \eta)
-    + 2d \exp\left(\frac{-\eta^2}
-      {2d^{2/p}\big\|\hat \Sigma^{1/2} - \Sigma^{1/2}\big\|_2^2}
-    \right)
+      + 2d \exp\left(\frac{-\eta^2}
+        {2d^{2/p}\big\|\hat \Sigma^{1/2} - \Sigma^{1/2}\big\|_2^2}
+      \right)
     \right\},
   \end{align*}
   %
@@ -4334,7 +4334,7 @@ martingale. Proposition~\ref{pro:bootstrap} is then used to ensure that
 feasible distributional approximations are also available.
 
 \subsection{Application: distributional approximation of martingale
-  \texorpdfstring{$\ell^p$}{lp}-norms}
+\texorpdfstring{$\ell^p$}{lp}-norms}
 \label{sec:lp}
 
 In some empirical applications,
@@ -4369,7 +4369,7 @@ origin and set
 %
 
 \begin{proposition}[Distributional approximation of
-    martingale $\ell^p$-norms]
+  martingale $\ell^p$-norms]
   \label{pro:application_lp}
 
   Assume the setup of Corollary~\ref{cor:sa_martingale},
@@ -4471,11 +4471,11 @@ to see
   &\qquad\leq
   \inf_{\eta>0}
   \left\{ \Gamma_p(\eta)
-  + 2 \Delta_p(\eta)
-  + 2d\, \E\left[
-    \exp\left(\frac{-\eta^2}
+    + 2 \Delta_p(\eta)
+    + 2d\, \E\left[
+      \exp\left(\frac{-\eta^2}
       {2d^{2/p}\big\|\hat \Sigma^{1/2} - \Sigma^{1/2}\big\|_2^2}\right)
-  \right]
+    \right]
   \right\}
 \end{align*}
 %

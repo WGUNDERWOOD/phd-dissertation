@@ -92,9 +92,9 @@
 
 % floor of beta
 \newcommand{\flbeta}{{\ThisStyle{%
-        \ensurestackMath{\stackengine{-0.5\LMpt}{\SavedStyle \beta}%
-          {\SavedStyle {\rule{3.7\LMpt}{0.3\LMpt}}}
-          {U}{c}{F}{F}{S}}\vphantom{\beta}}}}
+      \ensurestackMath{\stackengine{-0.5\LMpt}{\SavedStyle \beta}%
+        {\SavedStyle {\rule{3.7\LMpt}{0.3\LMpt}}}
+{U}{c}{F}{F}{S}}\vphantom{\beta}}}}
 
 % operators
 \DeclareMathOperator{\Var}{Var}
@@ -148,7 +148,7 @@
 \newcounter{proofparagraphcounter}
 \newcommand{\proofparagraph}[1]{
   \refstepcounter{proofparagraphcounter}%
-  \paragraph{Part \theproofparagraphcounter : #1}}%
+\paragraph{Part \theproofparagraphcounter : #1}}%
 
 % inline roman lists
 \newlist{inlineroman}{enumerate*}{1}
@@ -160,28 +160,28 @@
 \renewcommand{\SetKwInOut}[2]{%
   \sbox\algocf@inoutbox{\KwSty{#2}\algocf@typo:}%
   \expandafter\ifx\csname InOutSizeDefined\endcsname\relax%
-    \newcommand\InOutSizeDefined{}%
-    \setlength{\inoutsize}{\wd\algocf@inoutbox}%
-    \sbox\algocf@inoutbox{%
-      \parbox[t]{\inoutsize}%
-      {\KwSty{#2}\algocf@typo:\hfill}~%
-    }%
-    \setlength{\inoutindent}{\wd\algocf@inoutbox}%
+  \newcommand\InOutSizeDefined{}%
+  \setlength{\inoutsize}{\wd\algocf@inoutbox}%
+  \sbox\algocf@inoutbox{%
+    \parbox[t]{\inoutsize}%
+    {\KwSty{#2}\algocf@typo:\hfill}~%
+  }%
+  \setlength{\inoutindent}{\wd\algocf@inoutbox}%
   \else%
-    \ifdim\wd\algocf@inoutbox>\inoutsize%
-      \setlength{\inoutsize}{\wd\algocf@inoutbox}%
-      \sbox\algocf@inoutbox{%
-        \parbox[t]{\inoutsize}%
-        {\KwSty{#2}\algocf@typo:\hfill}~%
-      }%
-      \setlength{\inoutindent}{\wd\algocf@inoutbox}%
-    \fi%
+  \ifdim\wd\algocf@inoutbox>\inoutsize%
+  \setlength{\inoutsize}{\wd\algocf@inoutbox}%
+  \sbox\algocf@inoutbox{%
+    \parbox[t]{\inoutsize}%
+    {\KwSty{#2}\algocf@typo:\hfill}~%
+  }%
+  \setlength{\inoutindent}{\wd\algocf@inoutbox}%
+  \fi%
   \fi%
   \algocf@newcommand{#1}[1]{%
     \ifthenelse{\boolean{algocf@inoutnumbered}}{\relax}{\everypar={\relax}}{%
       \let\\\algocf@newinout\hangindent=\inoutindent\hangafter=1\parbox[t]%
       {\inoutsize}{\KwSty{#2}%
-        \algocf@typo:\hfill}~##1\par%
+      \algocf@typo:\hfill}~##1\par%
     }%
     \algocf@linesnumbered%
   }%

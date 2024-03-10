@@ -117,10 +117,10 @@ Furthermore, we illustrate the usefulness of our main results
 with two distinct substantive statistical applications:
 %
 \begin{inlineroman}
-  \item
+\item
   confidence bands for $f_W$
   (Section~\ref{sec:implementation}), and
-  \item
+\item
   estimation and inference for counterfactual
   dyadic distributions (Section~\ref{sec:counterfactual}).
 \end{inlineroman}
@@ -300,7 +300,7 @@ Thirdly, we provide
 feasible, valid uniform inference methods for
 $f_W$ by employing robust bias correction
 \citep{Calonico-Cattaneo-Farrell_2018_JASA,
-  Calonico-Cattaneo-Farrell_2022_Bernoulli}.
+Calonico-Cattaneo-Farrell_2022_Bernoulli}.
 Algorithm~\ref{alg:method} summarizes our entire feasible methodology.
 
 Section~\ref{sec:simulations} reports
@@ -367,13 +367,13 @@ define the H\"{o}lder class on $\mathcal{X}$ to be
 $\cH^\beta_C(\cX)
 =
 \big\{
-g \in \cC^{\flbeta}(\cX): \
-\max_{1 \leq r \leq \flbeta}
-\big| g^{(r)}(x) \big| \leq C
-\text{ and }
-\big| g^{(\flbeta)}(x) - g^{(\flbeta)}(x') \big|
-\leq C |x-x'|^{\beta - \flbeta}, \
-\forall x, x' \in \cX
+  g \in \cC^{\flbeta}(\cX): \
+  \max_{1 \leq r \leq \flbeta}
+  \big| g^{(r)}(x) \big| \leq C
+  \text{ and }
+  \big| g^{(\flbeta)}(x) - g^{(\flbeta)}(x') \big|
+  \leq C |x-x'|^{\beta - \flbeta}, \
+  \forall x, x' \in \cX
 \big\},
 $
 where $\flbeta$ denotes the largest integer
@@ -581,14 +581,14 @@ define the covariance function of the dyadic kernel density estimator as
   =
   \E\Big[
     \Big(
-    \hat f_W(w)
-    - \E\big[\hat f_W(w)\big]
+      \hat f_W(w)
+      - \E\big[\hat f_W(w)\big]
     \Big)
     \Big(
-    \hat f_W(w')
-    - \E\big[\hat f_W(w')\big]
+      \hat f_W(w')
+      - \E\big[\hat f_W(w')\big]
     \Big)
-    \Big].
+  \Big].
 \end{equation*}
 %
 \begin{lemma}[Variance bounds]
@@ -616,11 +616,11 @@ for degeneracy of dyadic distributions
 based on $\Dl$ and $\Du$:
 %
 \begin{inlineroman}
-  \item
+\item
   total degeneracy if $\Du = \Dl = 0$,
-  \item
+\item
   partial degeneracy if $\Du > \Dl = 0$,
-  \item
+\item
   no degeneracy if $\Dl > 0$.
 \end{inlineroman}
 %
@@ -791,7 +791,7 @@ We interpret this result in light of the degeneracy trichotomy.
     $n^{-1} \log n \lesssim h \lesssim n^{-\frac{1}{2(p\wedge\beta)}}$
     yield
     $\E\big[\sup_{w \in \cW}\big|\hat f_W(w)
-      - f_W(w)\big| \big] \lesssim \frac{1}{\sqrt n}$,
+    - f_W(w)\big| \big] \lesssim \frac{1}{\sqrt n}$,
     the ``parametric'' bandwidth-independent rate noted by
     \citet{graham2022kernel}.
 
@@ -875,7 +875,7 @@ We investigate the distributional properties of the
 standardized $t$-statistic process
 %
 \[ T_n(w) = \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}}
-  , \qquad w\in\cW,\]
+, \qquad w\in\cW,\]
 %
 which is not necessarily asymptotically tight.
 Therefore, to approximate the distribution of the entire $t$-statistic process,
@@ -1085,7 +1085,7 @@ such potential unknown degeneracy.
       n^{-1} \log n
       + n^{-5/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-7/6} h^{-1/2} (\log n)^{2/3}
-      + h^{p\wedge\beta}}
+    + h^{p\wedge\beta}}
     {\Dl/\sqrt{n} + 1/\sqrt{n^2h}},
   \end{align*}
   %
@@ -1177,7 +1177,7 @@ We now construct the infeasible uniform confidence bands.
 For $\alpha \in (0,1)$, let $q_{1-\alpha}$ be the quantile satisfying
 $ \P\left(\sup_{w \in \cW}
   \left| Z_n^T(w) \right|
-  \leq q_{1-\alpha} \right)
+\leq q_{1-\alpha} \right)
 = 1 - \alpha$.
 The following result employs the anti-concentration idea due to
 \citet{chernozhukov2014anti} to deduce valid standardized confidence bands,
@@ -1206,7 +1206,7 @@ hence improving the finite sample performance of the proposed confidence bands.
         \pm
         q_{1-\alpha}
         \sqrt{\Sigma_n(w,w)}
-        \, \right]
+      \, \right]
       \, \textup{for all }
       w \in \cW
     \right)
@@ -1235,7 +1235,7 @@ Different approaches are available in the literature to address this issue,
 including undersmoothing or ignoring the bias \citep{hall2001bootstrapping},
 bias correction \citep{hall1992effect}, robust bias correction
 \citep{Calonico-Cattaneo-Farrell_2018_JASA,
-  Calonico-Cattaneo-Farrell_2022_Bernoulli}
+Calonico-Cattaneo-Farrell_2022_Bernoulli}
 and Lepskii's method \citep{lepskii1992asymptotically,birge2001alternative},
 among others.
 In the next section we develop a feasible uniform inference procedure,
@@ -1313,7 +1313,7 @@ where $\Ck$ and $\CL$ are as in Section~\ref{sec:kernel_setup}.
   \begin{aligned}
     \minimize
     \qquad
-     & \sup_{w,w' \in \cW}
+    & \sup_{w,w' \in \cW}
     \left|
     \frac{M(w,w') - \hat\Sigma_n(w,w')}
     {\sqrt{\hat \Sigma_n(w,w) + \hat \Sigma_n(w',w')}}
@@ -1322,8 +1322,8 @@ where $\Ck$ and $\CL$ are as in Section~\ref{sec:kernel_setup}.
     \\
     \subjectto
     \qquad
-     & M \textup{ is symmetric and positive semi-definite}, \\
-     & \big|M(w,w') - M(w, w'')\big|
+    & M \textup{ is symmetric and positive semi-definite}, \\
+    & \big|M(w,w') - M(w, w'')\big|
     \leq \frac{4}{n h^3}
     \Ck \CL
     |w'-w''|
@@ -1410,7 +1410,7 @@ band that is implementable in practice.
 Define the Studentized $t$-statistic process
 %
 \[ \hat T_n(w) = \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\hat
-      \Sigma_n^+(w,w)}} , \qquad w\in\cW.\]
+\Sigma_n^+(w,w)}} , \qquad w\in\cW.\]
 %
 Let $\hat Z_n^T(w)$ be a process which,
 conditional on the data $\bW_n$,
@@ -1423,8 +1423,8 @@ For $\alpha \in (0,1)$, let $\hat q_{1-\alpha}$ be the
 conditional quantile satisfying
 %
 $ \P\big(\sup_{w \in \cW}
-\big| \hat Z_n^T(w) \big|
-\leq \hat q_{1-\alpha}
+  \big| \hat Z_n^T(w) \big|
+  \leq \hat q_{1-\alpha}
 \bigm\vert \bW_n \big)
 = 1 - \alpha$,
 %
@@ -1447,7 +1447,7 @@ the online supplemental appendix.
         \pm
         \hat q_{1-\alpha}
         \sqrt{\hat\Sigma_n^+(w,w)}
-        \,\right]
+      \,\right]
       \,\textup{for all }
       w \in \cW
     \right)
@@ -1502,23 +1502,23 @@ Then the $\nu$-weighted asymptotic IMSE (AIMSE) is minimized by
   &=
   \left(
     \frac{
-    p!(p-1)!
-    \Big(\int_\cW f_W(w) \nu(w) \diff{w}\Big)
-    \Big(\int_\R K(w)^2 \diff{w}\Big)
+      p!(p-1)!
+      \Big(\int_\cW f_W(w) \nu(w) \diff{w}\Big)
+      \Big(\int_\R K(w)^2 \diff{w}\Big)
     }
     {
-    2
-    \Big(
-    \int_{\cW}
-    f_W^{(p)}(w)^2
-    \nu(w)
-    \diff{w}
-    \Big)
-    \Big(
-    \int_\R
-    w^p K(w)
-    \diff{w}
-    \Big)^2
+      2
+      \Big(
+        \int_{\cW}
+        f_W^{(p)}(w)^2
+        \nu(w)
+        \diff{w}
+      \Big)
+      \Big(
+        \int_\R
+        w^p K(w)
+        \diff{w}
+      \Big)^2
     }
   \right)^{\frac{1}{2p+1}}
   \left(
@@ -1569,7 +1569,7 @@ while the change in scale captures the additional variability
 introduced by the bias correction itself.
 As shown formally in
 \citet{Calonico-Cattaneo-Farrell_2018_JASA,
-  Calonico-Cattaneo-Farrell_2022_Bernoulli}
+Calonico-Cattaneo-Farrell_2022_Bernoulli}
 for the case of kernel-based density estimation with i.i.d.\ data,
 this approach leads to higher-order refinements in the distributional
 approximation whenever additional smoothness is available ($p'\leq\beta$).
@@ -1591,7 +1591,7 @@ for $f_W$ is summarized in Algorithm~\ref{alg:method}.
 
 \begin{algorithm}[ht]
   \caption{Feasible uniform confidence bands for
-    dyadic kernel density estimation}
+  dyadic kernel density estimation}
   \label{alg:method}
   \setstretch{1.5}
 
@@ -1627,13 +1627,13 @@ for $f_W$ is summarized in Algorithm~\ref{alg:method}.
   For $\alpha \in (0,1)$, set
   $\hat q_{1-\alpha} = \inf_{q \in \R}
   \{ q :
-  \# \{r: \max_{w\in\cW_d}|\hat Z_{n,r}^T(w)|
-  \leq q \}
+    \# \{r: \max_{w\in\cW_d}|\hat Z_{n,r}^T(w)|
+    \leq q \}
   \geq B(1-\alpha) \}$. \\
 
   Construct
   $ \big[\hat f_W(w) \pm
-    \hat q_{1-\alpha} \hat\Sigma_n^+(w,w)^{1/2} \big]$
+  \hat q_{1-\alpha} \hat\Sigma_n^+(w,w)^{1/2} \big]$
   for each $w \in \cW_d$.
   %
 \end{algorithm}
@@ -1895,14 +1895,14 @@ as for the standard density estimator.
 Furthermore, define the covariance function of
 $\hat f_W^{\,1 \triangleright 0}(w)$ as
 $\Sigma_n^{1 \triangleright 0}(w,w') = \Cov\big[
-\hat f_W^{\,1 \triangleright 0}(w),
+  \hat f_W^{\,1 \triangleright 0}(w),
 \hat f_W^{\,1 \triangleright 0}(w') \big]$,
 which can be estimated as follows.
 First let
 $\hat\kappa(X_i^0, X_i^1, x)
 = \frac{\I\{X_i^0 = x\} - \hat p_X^0(x)}{\hat p_X^1(x)}
 - \frac{\hat p_X^0(x)}{\hat p_X^1(x)} \frac{\I\{X_i^1 = x\} - \hat
-  p_X^1(x)}{\hat p_X^1(x)}$
+p_X^1(x)}{\hat p_X^1(x)}$
 be a plug-in estimate of the influence function for $\hat\psi(x)$
 and define the leave-one-out
 conditional expectation estimators\newline
@@ -1921,14 +1921,14 @@ Then define the covariance estimator
   \frac{4}{n^2}
   \sum_{i=1}^n
   \big(
-  \hat\psi(X_i^1)
-  S_i^{1 \triangleright 0}(w)
-  + \tilde S_i^{1 \triangleright 0}(w)
+    \hat\psi(X_i^1)
+    S_i^{1 \triangleright 0}(w)
+    + \tilde S_i^{1 \triangleright 0}(w)
   \big)
   \big(
-  \hat\psi(X_i^1)
-  S_i^{1 \triangleright 0}(w')
-  + \tilde S_i^{1 \triangleright 0}(w')
+    \hat\psi(X_i^1)
+    S_i^{1 \triangleright 0}(w')
+    + \tilde S_i^{1 \triangleright 0}(w')
   \big) \\
   &\quad-
   \frac{4}{n^3(n-1)}
@@ -1952,16 +1952,16 @@ is conditionally mean-zero and conditionally Gaussian
 given the data $\bW_n^1$, $\bX_n^0$ and $\bX_n^1$
 and whose conditional covariance structure is
 $\E\big[\hat Z_n^{T, 1 \triangleright 0}(w)
-\hat Z_n^{T, 1 \triangleright 0}(w')
+  \hat Z_n^{T, 1 \triangleright 0}(w')
 \bigm| \bW_n^1, \bX_n^0, \bX_n^1 \big]
 = \frac{\hat \Sigma_n^{+, 1 \triangleright 0}(w,w')}
 {\sqrt{\hat \Sigma_n^{+, 1 \triangleright 0}(w,w)
-    \hat \Sigma_n^{+, 1 \triangleright 0}(w',w')}}$.
+\hat \Sigma_n^{+, 1 \triangleright 0}(w',w')}}$.
 For $\alpha \in (0,1)$, define
 $\hat q_{1-\alpha}^{\,1 \triangleright 0}$
 as the conditional quantile satisfying
 $\P\big(\sup_{w \in \cW}\big| \hat Z_n^{T, 1 \triangleright 0}(w) \big|
-\leq \hat q_{1-\alpha}^{\,1 \triangleright 0}
+  \leq \hat q_{1-\alpha}^{\,1 \triangleright 0}
 \bigm\vert \bW_n^1, \bX_n^0, \bX_n^1 \big)
 = 1 - \alpha$.
 Then, assuming that the covariance estimator is appropriately consistent,
@@ -1975,7 +1975,7 @@ Then, assuming that the covariance estimator is appropriately consistent,
       \pm
       \hat q^{\,1 \triangleright 0}_{1-\alpha}
       \sqrt{\hat\Sigma_n^{+, 1 \triangleright 0}(w,w)}
-      \,\right]
+    \,\right]
     \,\textup{for all }
     w \in \cW
   \right)
@@ -2107,7 +2107,7 @@ are qualitatively similar.
   \end{subfigure}
   %
   \caption{Real and counterfactual density estimates
-    and confidence bands for the DOTS data.}
+  and confidence bands for the DOTS data.}
   %
   \label{fig:trade}
   %
@@ -2184,7 +2184,7 @@ For a significance level $\alpha \in (0,1)$,
 the critical value is $\hat C_\alpha$ where
 %
 $\P \big(
-\hat \tau_p \geq \hat C_\alpha \bigm\vert \bW_n^0, \bW_n^1
+  \hat \tau_p \geq \hat C_\alpha \bigm\vert \bW_n^0, \bW_n^1
 \big) = \alpha$.
 %
 This is estimated by Monte Carlo simulation, resampling

@@ -114,7 +114,7 @@ data points up to logarithmic terms.
   $N_\cup(x) \sim
   \Bin\left(n, \int_{\bigcup_{b=1}^{B} T_b(x)} f(s) \diff s \right)
   \leq \Bin\left(n, 2^d \max_{1 \leq b \leq B} \max_{1 \leq j \leq d}
-    |T_b(x)_j|^d \|f\|_\infty \right)$
+  |T_b(x)_j|^d \|f\|_\infty \right)$
   conditionally on $\bT$.
   If $N \sim \Bin(n,p)$ then, by Bernstein's inequality,
   we have
@@ -135,7 +135,7 @@ data points up to logarithmic terms.
   %
   By Lemma~\ref{lem:largest_cell},
   $\P \left( \max_{1 \leq b \leq B} \max_{1 \leq j \leq d}
-    |T_j(x)| > \frac{t}{\lambda} \right)
+  |T_j(x)| > \frac{t}{\lambda} \right)
   \leq 2 d B e^{-t/2}$.
   Hence
   %
@@ -284,7 +284,7 @@ using the class $\cD \subseteq \cR$ and proceed by finite induction,
 beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
 
 \begin{lemma}[Generalized moment bound for
-    Mondrian random forest denominators]%
+  Mondrian random forest denominators]%
   \label{lem:moment_denominator}
 
   Suppose Assumptions~\ref{ass:mondrian_data}
@@ -318,14 +318,14 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
   \begin{align*}
     \cR
     &= \left\{ \bigcap_{b=1}^{{B_0}} D_b :
-    D_b \in
-    \big\{ T_b(x), T_b(x)^\c \big\}
+      D_b \in
+      \big\{ T_b(x), T_b(x)^\c \big\}
     \right\}
     \bigsetminus
     \left\{
-    \emptyset,\,
-    \bigcap_{b=1}^{{B_0}}
-    T_b(x)^\c
+      \emptyset,\,
+      \bigcap_{b=1}^{{B_0}}
+      T_b(x)^\c
     \right\}
   \end{align*}
   %
@@ -349,35 +349,35 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
     &\E \left[
       \prod_{b=1}^{B_0}
       \frac{1}{
-      1 \vee \left(
-        \sum_{D' \in \cA(b) \setminus \cD}
-        N_b(D')
-        + n \sum_{D' \in \cA(b) \cap \cD}
-        |D'|
-      \right)^{k_b}
-      }
-    \right] \\
-    &=
-    \E \left[
-      \prod_{b \notin \cA(D)}
-      \frac{1}{
-      1 \vee \left(
-        \sum_{D' \in \cA(b) \setminus \cD}
-        N_b(D')
-        + n \sum_{D' \in \cA(b) \cap \cD}
-        |D'|
-      \right)^{k_b}
-      } \right. \\
-      &\left.
-      \ \times\,\E\hspace*{-1mm}\left[
-        \prod_{b \in \cA(D)}
-        \frac{1}{
         1 \vee \left(
           \sum_{D' \in \cA(b) \setminus \cD}
           N_b(D')
           + n \sum_{D' \in \cA(b) \cap \cD}
           |D'|
         \right)^{k_b}
+      }
+    \right] \\
+    &=
+    \E \left[
+      \prod_{b \notin \cA(D)}
+      \frac{1}{
+        1 \vee \left(
+          \sum_{D' \in \cA(b) \setminus \cD}
+          N_b(D')
+          + n \sum_{D' \in \cA(b) \cap \cD}
+          |D'|
+        \right)^{k_b}
+      } \right. \\
+      &\left.
+      \ \times\,\E\hspace*{-1mm}\left[
+        \prod_{b \in \cA(D)}
+        \frac{1}{
+          1 \vee \left(
+            \sum_{D' \in \cA(b) \setminus \cD}
+            N_b(D')
+            + n \sum_{D' \in \cA(b) \cap \cD}
+            |D'|
+          \right)^{k_b}
         }
         \biggm|
         \bT,
@@ -399,7 +399,7 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
       n - \sum_{D' \in \cR \setminus (\cD \cup \{D\})} N_b(D'), \
       \frac{\int_{D} f(s) \diff s}
       {1 - \int_{\bigcup \left( \cR \setminus \cD \right) \setminus D}
-        f(s) \diff s}
+      f(s) \diff s}
     \right) \\
     &\geq \Bin\left(
       n - \sum_{D' \in \cR \setminus (\cD \cup \{D\})} N_b(D'), \
@@ -415,7 +415,7 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
   \begin{align*}
     \P \left(
       \sum_{D' \in \cR \setminus (\cD \cup \{D\})} N_b(D')
-      > t^{d+1} \frac{n}{\lambda^d} \|f\|_\infty \right)
+    > t^{d+1} \frac{n}{\lambda^d} \|f\|_\infty \right)
     &\leq
     \P \left( N_{\cup}(x) > t^{d+1}
       \frac{n}{\lambda^d}
@@ -437,12 +437,12 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
     &\E \left[
       \prod_{b \in \cA(D)}
       \frac{1}{
-      1 \vee \left(
-        \sum_{D' \in \cA(b) \setminus \cD}
-        N_b(D')
-        + n \sum_{D' \in \cA(b) \cap \cD}
-        |D'|
-      \right)^{k_b}
+        1 \vee \left(
+          \sum_{D' \in \cA(b) \setminus \cD}
+          N_b(D')
+          + n \sum_{D' \in \cA(b) \cap \cD}
+          |D'|
+        \right)^{k_b}
       }
       \biggm|
       \bT,
@@ -452,12 +452,12 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
     \E \left[
       \prod_{b \in \cA(D)}
       \frac{(9k)^{k_b}}{
-      1 \vee \left(
-        \sum_{D' \in \cA(b) \setminus (\cD \cup \{D\})}
-        N_b(D')
-        + n |D| \inf_x f(x) / 2
-        + n \sum_{D' \in \cA(b) \cap \cD}
-        |D'|
+        1 \vee \left(
+          \sum_{D' \in \cA(b) \setminus (\cD \cup \{D\})}
+          N_b(D')
+          + n |D| \inf_x f(x) / 2
+          + n \sum_{D' \in \cA(b) \cap \cD}
+          |D'|
       \right)^{k_b}}
     \right] \\
     &\qquad+
@@ -468,11 +468,11 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
     \left[
       \prod_{b \in \cA(D)}
       \frac{1}{
-      1 \vee \left(
-        \sum_{D' \in \cA(b) \setminus (\cD \cup \{D\})}
-        N_b(D')
-        + n \sum_{D' \in \cA(b) \cap (\cD \cup \{D\})}
-        |D'|
+        1 \vee \left(
+          \sum_{D' \in \cA(b) \setminus (\cD \cup \{D\})}
+          N_b(D')
+          + n \sum_{D' \in \cA(b) \cap (\cD \cup \{D\})}
+          |D'|
       \right)^{k_b}}
     \right] \\
     &\qquad+
@@ -485,12 +485,12 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
     &\E\left[
       \prod_{b=1}^{B_0}
       \frac{1}{
-      1 \vee \left(
-        \sum_{D' \in \cA(b) \setminus \cD}
-        N_b(D')
-        + n \sum_{D' \in \cA(b) \cap \cD}
-        |D'|
-      \right)^{k_b}
+        1 \vee \left(
+          \sum_{D' \in \cA(b) \setminus \cD}
+          N_b(D')
+          + n \sum_{D' \in \cA(b) \cap \cD}
+          |D'|
+        \right)^{k_b}
       }
     \right] \\
     &\quad\leq
@@ -498,11 +498,11 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
     \E \left[
       \prod_{b=1}^{B_0}
       \frac{1}{
-      1 \vee \left(
-        \sum_{D' \in \cA(b) \setminus (\cD \cup \{D\})}
-        N_b(D')
-        + n \sum_{D' \in \cA(b) \cap (\cD \cup \{D\})}
-        |D'|
+        1 \vee \left(
+          \sum_{D' \in \cA(b) \setminus (\cD \cup \{D\})}
+          N_b(D')
+          + n \sum_{D' \in \cA(b) \cap (\cD \cup \{D\})}
+          |D'|
       \right)^{k_b}}
     \right] \\
     &\qquad+
@@ -639,7 +639,7 @@ have heavy tails is a recurring challenge in our analysis.
     \E \left[
       \frac{\I\{E_{j1} + E_{j2} \geq t\}}
       {\left(\frac{1}{\lambda} E_{j1} \wedge x_j
-          + \frac{1}{\lambda} E_{j2} \wedge (1-x_j)\right)^k}
+      + \frac{1}{\lambda} E_{j2} \wedge (1-x_j)\right)^k}
     \right]
     + d\, \P \left(E_{j1} < t\right) \\
     &\leq
@@ -727,7 +727,7 @@ chaining together the previous two lemmas to provide an
 explicit bound with no expectations on the right-hand side.
 
 \begin{lemma}[Simplified generalized moment bound for
-    Mondrian random forest denominators]%
+  Mondrian random forest denominators]%
   \label{lem:simple_moment_denominator}
   %
   Grant Assumptions~\ref{ass:mondrian_data}
@@ -847,7 +847,7 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
       \E\big[(N - n p)^4\big]
       \E \left[
         \frac{1}{(N+a)^6}
-      \right]}.
+    \right]}.
   \end{align*}
   %
   Now we use
@@ -923,7 +923,7 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
       \E \left[
         \frac{1}{(N + a)^6 (N+b)^2}
         + \frac{1}{(N + b)^6 (N+a)^2}
-      \right]} \\
+    \right]} \\
     &\quad+
     \frac{2 \E\big[(N - n p)^2\big]}{(n p +a)(n p +b)}
     \left(
@@ -947,7 +947,7 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
       \left(
         \frac{1}{(n p + a)^4}
         + \frac{1}{(n p + b)^4}
-      \right)} \\
+    \right)} \\
     &\quad+
     \frac{2 n p}{(n p +a)(n p +b)}
     \left(
@@ -1285,7 +1285,7 @@ for details on our approach to this proof.
   %
   By Lemma~\ref{lem:binomial_expectation}, since
   $N_{-i b}(x) \sim \Bin\left(n-1,
-    \int_{T_b(x)} f(s) \diff s \right)$
+  \int_{T_b(x)} f(s) \diff s \right)$
   given $\bT$
   and $f$ is bounded away from zero,
   %
@@ -1350,7 +1350,7 @@ for details on our approach to this proof.
       \frac{1}{n |T_b(x)| \vee 1}
     \right]
     + \P \left( \max_{1 \leq l \leq d} |T_b(x)_l| >
-      \frac{2 \log n}{\lambda} \right)^{1/2}
+    \frac{2 \log n}{\lambda} \right)^{1/2}
     \E \left[
       \frac{1}
       {n^2 |T_b(x)|^2 \vee 1}
@@ -1545,11 +1545,11 @@ for details on our approach to this proof.
     \E
     \left[
       \frac{
-      \sum_{|\nu'|=1}^{\flbeta}
-      \sum_{|\nu''|=0}^{\flbeta}
-      \frac{\partial^{\nu'} \mu(x)}{\nu' !}
-      \frac{\partial^{\nu''} f(x)}{\nu'' !}
-      T_b(x)^{\nu' + \nu''}
+        \sum_{|\nu'|=1}^{\flbeta}
+        \sum_{|\nu''|=0}^{\flbeta}
+        \frac{\partial^{\nu'} \mu(x)}{\nu' !}
+        \frac{\partial^{\nu''} f(x)}{\nu'' !}
+        T_b(x)^{\nu' + \nu''}
       }{f(x)^{k+1} |T_b(x)|^{k+1}}
       \sum_{|u| = k}
       \binom{k}{u}
@@ -1620,10 +1620,10 @@ for details on our approach to this proof.
     \prod_{j=1}^d
     \E \left[
       \frac{E_{2j*}^{\nu'_j + \nu''_j + 1}
-        + (-1)^{\nu'_j + \nu''_j} E_{1j*}^{\nu'_j + \nu''_j + 1}}
+      + (-1)^{\nu'_j + \nu''_j} E_{1j*}^{\nu'_j + \nu''_j + 1}}
       {(\nu'_j + \nu''_j + 1) (E_{2j*} + E_{1j*})}
       \frac{\left(E_{2j*}^{\nu_j + 1}
-          + (-1)^{\nu_j} E_{1j*}^{\nu_j + 1}\right)^u}
+      + (-1)^{\nu_j} E_{1j*}^{\nu_j + 1}\right)^u}
       {(\nu_j + 1)^u (E_{2j*} + E_{1j*})^{|u|}}
     \right].
   \end{align}
@@ -1637,11 +1637,11 @@ for details on our approach to this proof.
       \bigcup_{j=1}^{d}
       \left(
         \left\{
-        E_{1j*} \neq E_{1j}
+          E_{1j*} \neq E_{1j}
         \right\}
         \cup
         \left\{
-        E_{2j*} \neq E_{2j}
+          E_{2j*} \neq E_{2j}
         \right\}
       \right)
     \right)
@@ -1683,10 +1683,10 @@ for details on our approach to this proof.
     \prod_{j=1}^d
     \E \left[
       \frac{E_{2j}^{\nu'_j + \nu''_j + 1}
-        + (-1)^{\nu'_j + \nu''_j} E_{1j}^{\nu'_j + \nu''_j + 1}}
+      + (-1)^{\nu'_j + \nu''_j} E_{1j}^{\nu'_j + \nu''_j + 1}}
       {(\nu'_j + \nu''_j + 1) (E_{2j} + E_{1j})}
       \frac{\left(E_{2j}^{\nu_j + 1}
-          + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^u}
+      + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^u}
       {(\nu_j + 1)^u (E_{2j} + E_{1j})^{|u|}}
     \right] \\
     \label{eq:bias}
@@ -1718,7 +1718,7 @@ for details on our approach to this proof.
   \begin{align}
     \label{eq:bias_odd_1}
     \frac{E_{2j}^{\nu'_j + \nu''_j + 1}
-      + (-1)^{\nu'_j + \nu''_j} E_{1j}^{\nu'_j + \nu''_j + 1}}
+    + (-1)^{\nu'_j + \nu''_j} E_{1j}^{\nu'_j + \nu''_j + 1}}
     {E_{2j} + E_{1j}}
   \end{align}
   %
@@ -1727,19 +1727,19 @@ for details on our approach to this proof.
   \begin{align}
     \nonumber
     &\frac{\left(E_{2j}^{\nu_j + 1}
-        + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^u}
+    + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^u}
     {(E_{2j} + E_{1j})^{|u|}} \\
     \label{eq:bias_odd_2}
     &\quad=
     \prod_{\substack{|\nu| = 1 \\
-        \nu_j u_\nu \text{ even}}}^\beta
+    \nu_j u_\nu \text{ even}}}^\beta
     \frac{\left(E_{2j}^{\nu_j + 1}
-      + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^{u_\nu}}
+    + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^{u_\nu}}
     {(E_{2j} + E_{1j})^{u_\nu}}
     \prod_{\substack{|\nu| = 1 \\
-        \nu_j u_\nu \text{ odd}}}^\beta
+    \nu_j u_\nu \text{ odd}}}^\beta
     \frac{\left(E_{2j}^{\nu_j + 1}
-      + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^{u_\nu}}
+    + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^{u_\nu}}
     {(E_{2j} + E_{1j})^{u_\nu}}.
   \end{align}
   %
@@ -1886,7 +1886,7 @@ for details on our approach to this proof.
     \prod_{j=1}^d
     \E \left[
       \frac{E_{2j}^{\nu'_j + 1}
-        + (-1)^{\nu'_j} E_{1j}^{\nu'_j + 1}}
+      + (-1)^{\nu'_j} E_{1j}^{\nu'_j + 1}}
       {(\nu'_j + 1) (E_{2j} + E_{1j})}
     \right].
   \end{align*}
@@ -2051,8 +2051,8 @@ results for the debiased Mondrian random forest estimator.
   \begin{align*}
     \sqrt{\frac{n}{\lambda^d}}
     \big(
-    \hat\mu_\rd(x)
-    - \E\left[
+      \hat\mu_\rd(x)
+      - \E\left[
         \hat\mu_\rd(x) \mid \bX, \bT
       \right]
     \big)
@@ -2494,7 +2494,7 @@ results for the debiased Mondrian random forest estimator.
           \frac{\I_{i b r}(x) \I_{i b' r}(x) \varepsilon_i^2}
           {N_{b r}(x) N_{b' r'}(x)}
           - \frac{\tilde \I_{i j b r}(x) \tilde \I_{i j b' r'}(x)
-            \tilde \varepsilon_{i j}^2}
+          \tilde \varepsilon_{i j}^2}
           {\tilde N_{j b r}(x) \tilde N_{j b' r'}(x)}
         \right)
       \right)^2
@@ -2523,7 +2523,7 @@ results for the debiased Mondrian random forest estimator.
           \frac{\I_{j b r}(x) \I_{j b' r'}(x) \varepsilon_j^2}
           {N_{b r}(x) N_{b' r'}(x)}
           - \frac{\tilde \I_{j b r}(x) \tilde \I_{j b' r'}(x)
-            \tilde \varepsilon_j^2}
+          \tilde \varepsilon_j^2}
           {\tilde N_{j b r}(x) \tilde N_{j b' r'}(x)}
         \right)
       \right)^2
@@ -2639,8 +2639,8 @@ results for the debiased Mondrian random forest estimator.
   \begin{align*}
     \sqrt{\frac{n}{\lambda^d}}
     \big(
-    \hat\mu_\rd(x)
-    - \E\left[
+      \hat\mu_\rd(x)
+      - \E\left[
         \hat\mu_\rd(x) \mid \bX, \bT
       \right]
     \big)
@@ -2702,14 +2702,14 @@ results for the debiased Mondrian random forest estimator.
     + \frac{n^2}{\lambda^d}
     \E \left[
       \frac{\I_{i b r}(x) \I_{i b' r'}(x)
-        \big(\sigma^2(X_i) - \sigma^2(x) \big)}
+      \big(\sigma^2(X_i) - \sigma^2(x) \big)}
       {N_{b r}(x) N_{b' r'}(x)}
     \right].
   \end{align*}
   %
   Since $\sigma^2$ is Lipschitz and
   $\P \left(\max_{1 \leq l \leq d}
-    |T_b(x)_l| \geq t/\lambda \right) \leq 2d e^{-t/2}$
+  |T_b(x)_l| \geq t/\lambda \right) \leq 2d e^{-t/2}$
   by Lemma~\ref{lem:largest_cell},
   we have by Lemma~\ref{lem:simple_moment_denominator} that
   %
@@ -2717,7 +2717,7 @@ results for the debiased Mondrian random forest estimator.
     \frac{n^2}{\lambda^d}
     \E \left[
       \frac{\I_{i b r}(x) \I_{i b' r'}(x)
-        \big|\sigma^2(X_i) - \sigma^2(x) \big|}
+      \big|\sigma^2(X_i) - \sigma^2(x) \big|}
       {N_{b r}(x) N_{b' r'}(x)}
     \right]
     &\leq
@@ -2847,7 +2847,7 @@ results for the debiased Mondrian random forest estimator.
       n - 1 - N_{-i b r}(x), \
       \frac{\int_{T_{b' r'}(x) \setminus T_{b r}(x)} f(\xi) \diff \xi}
       {1 - \int_{T_{b r}(x)}
-        f(\xi) \diff \xi}
+      f(\xi) \diff \xi}
     \right).
   \end{align*}
   %
@@ -2875,7 +2875,7 @@ results for the debiased Mondrian random forest estimator.
       \left|
       \frac{\int_{T_{b' r'}(x) \setminus T_{b r}(x)} f(\xi) \diff \xi}
       {1 - \int_{T_{b r}(x)} f(\xi)
-        \diff \xi}
+      \diff \xi}
       - f(x) |T_{b' r'}(x) \setminus T_{b r}(x)|
       \right|
       > t \, \frac{|T_{b' r'}(x) \setminus T_{b r}(x)|}{\lambda}
@@ -2890,7 +2890,7 @@ results for the debiased Mondrian random forest estimator.
     &\qquad+
     \P \left(
       \frac{\int_{T_{b' r'}(x) \setminus T_{b r}(x)} f(\xi) \diff \xi
-        \cdot \int_{T_{b r}(x)} f(\xi) \diff \xi}
+      \cdot \int_{T_{b r}(x)} f(\xi) \diff \xi}
       {1 - \int_{T_{b r}(x)} f(\xi) \diff \xi}
       > t \, \frac{|T_{b' r'}(x) \setminus T_{b r}(x)|}{2\lambda}
     \right) \\
@@ -2941,7 +2941,7 @@ results for the debiased Mondrian random forest estimator.
     \Bin\left(
       n
       \left( 1 - \frac{t^{d+1}}{\lambda^d}
-        - \frac{1}{n} \right), \,
+      - \frac{1}{n} \right), \,
       |T_{b' r'}(x) \setminus T_{b r}(x)|
       \left( f(x) - \frac{t}{\lambda} \right)
     \right).
@@ -2968,7 +2968,7 @@ results for the debiased Mondrian random forest estimator.
     \lesssim
     \frac{1 + \frac{n t}{\lambda} |T_{b' r'}(x) \setminus T_{b r}(x)|}
     {\left(N_{-i b' r' \cap b r}(x)
-      + n |T_{b' r'}(x) \setminus T_{b r}(x)|+1\right)^2}.
+    + n |T_{b' r'}(x) \setminus T_{b r}(x)|+1\right)^2}.
   \end{align*}
   %
   Therefore by the same approach as the proof of
@@ -2986,7 +2986,7 @@ results for the debiased Mondrian random forest estimator.
       \qquad -
       \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}
       {(N_{-i b r}(x)+1)
-      (N_{-i b' r' \cap b r}(x)+n f(x)
+        (N_{-i b' r' \cap b r}(x)+n f(x)
       |T_{b' r'}(x) \setminus T_{b r}(x)|+1)}
     \right]
     \right| \\
@@ -2995,7 +2995,7 @@ results for the debiased Mondrian random forest estimator.
       \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}{N_{-i b r}(x)+1}
       \frac{1 + \frac{n t}{\lambda} |T_{b' r'}(x) \setminus T_{b r}(x)|}
       {\left(N_{-i b' r' \cap b r}(x)
-        + n |T_{b' r'}(x) \setminus T_{b r}(x)|+1\right)^2}
+      + n |T_{b' r'}(x) \setminus T_{b r}(x)|+1\right)^2}
     \right]
     +
     e^{-t/C} \\
@@ -3049,7 +3049,7 @@ results for the debiased Mondrian random forest estimator.
     \lesssim
     \frac{1 + \frac{n t}{\lambda} |T_{b r}(x) \setminus T_{b' r'}(x)|}
     {\left(N_{-i b r \cap b' r'}(x)
-      + n |T_{b r}(x) \setminus T_{b' r'}(x)|+1\right)^2}.
+    + n |T_{b r}(x) \setminus T_{b' r'}(x)|+1\right)^2}.
   \end{align*}
   %
   with probability at least $1 - e^{-t/C}$,
@@ -3079,7 +3079,7 @@ results for the debiased Mondrian random forest estimator.
     \E \left[
       \frac{1 + \frac{n t}{\lambda} |T_{b r}(x) \setminus T_{b' r'}(x)|}
       {\left(N_{-i b r \cap b' r'}(x)
-        + n |T_{b r}(x) \setminus T_{b' r'}(x)|+1\right)^2}
+      + n |T_{b r}(x) \setminus T_{b' r'}(x)|+1\right)^2}
       \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}
       {N_{-i b' r' \cap b r}(x)+n f(x) |T_{b' r'}(x) \setminus T_{b r}(x)|+1}
     \right] \\
@@ -3132,7 +3132,7 @@ results for the debiased Mondrian random forest estimator.
     \Bin\left(
       n
       \left( 1 - \frac{t^{d+1}}{\lambda^d}
-        - \frac{1}{n} \right), \,
+      - \frac{1}{n} \right), \,
       |T_{b r}(x) \cap T_{b' r'}(x)|
       \left( f(x) - \frac{t}{\lambda} \right)
     \right).
@@ -3331,10 +3331,10 @@ results for the debiased Mondrian random forest estimator.
     &\quad\leq
     \sum_{j=1}^{d}
     \big(
-    \P(E_{1j} \geq a_r \lambda x_j)
-    + \P(E_{3j} \geq a_{r'} \lambda x_j)
-    + \P(E_{2j} \geq a_r \lambda (1 - x_j))
-    + \P(E_{4j} \geq a_{r'} \lambda (1 - x_j))
+      \P(E_{1j} \geq a_r \lambda x_j)
+      + \P(E_{3j} \geq a_{r'} \lambda x_j)
+      + \P(E_{2j} \geq a_r \lambda (1 - x_j))
+      + \P(E_{4j} \geq a_{r'} \lambda (1 - x_j))
     \big) \\
     &\quad\leq
     e^{-C \lambda}
@@ -3480,7 +3480,7 @@ results for the debiased Mondrian random forest estimator.
     \prod_{j=1}^d
     \E \left[
       \frac{ (E_{1j} / a_r) \wedge (E_{3j} / a_{r'})
-        + (E_{2j} a_r) \wedge (E_{4j} / a_{r'}) }
+      + (E_{2j} a_r) \wedge (E_{4j} / a_{r'}) }
       { \left( E_{1j} + E_{2j} \right) \left( E_{3j} + E_{4j} \right)}
     \right] \\
     &\quad=
@@ -3745,7 +3745,7 @@ of the debiased Mondrian random forest estimator.
     \E \big[
       \hat \mu_l(x)
       \Bigm| \bX, \bT
-      \big] \\
+    \big] \\
     &=
     \sum_{l=0}^J
     \omega_l
@@ -3836,7 +3836,7 @@ of the debiased Mondrian random forest estimator.
   So its conditional bias is controlled
   by Theorem~\ref{thm:bias} and is at most
   $O_\P \left( \frac{1}{\lambda} +
-    \frac{\log n}{\lambda} \sqrt{\lambda^d / n} \right)$.
+  \frac{\log n}{\lambda} \sqrt{\lambda^d / n} \right)$.
   Its variance is
   at most $\frac{\lambda^d}{n}$ by Theorem~\ref{thm:clt_debiased}.
   Consistency of the second term in \eqref{eq:sigma2_hat_proof}
@@ -3984,21 +3984,21 @@ of the debiased Mondrian random forest estimator.
   \begin{align*}
     \E \left[
       \big(
-      \hat \mu_\rd(x)
-      - \mu(x)
+        \hat \mu_\rd(x)
+        - \mu(x)
       \big)^2
     \right]
     &=
     \E \left[
       \big(
-      \hat \mu_\rd(x)
-      - \E \left[ \hat \mu_\rd(x) \mid \bX, \bT \right]
+        \hat \mu_\rd(x)
+        - \E \left[ \hat \mu_\rd(x) \mid \bX, \bT \right]
       \big)^2
     \right]
     + \E \left[
       \big(
-      \E \left[ \hat \mu_\rd(x) \mid \bX, \bT \right]
-      - \mu(x)
+        \E \left[ \hat \mu_\rd(x) \mid \bX, \bT \right]
+        - \mu(x)
       \big)^2
     \right] \\
     &\lesssim
@@ -4019,8 +4019,8 @@ of the debiased Mondrian random forest estimator.
   \begin{align*}
     \E \left[
       \big(
-      \hat \mu_\rd(x)
-      - \mu(x)
+        \hat \mu_\rd(x)
+        - \mu(x)
       \big)^2
     \right]
     &\lesssim

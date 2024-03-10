@@ -60,7 +60,7 @@ and machine learning communities
 in recent years
 \citep{ma2020isolation, mourtada2020minimax, scillitoe2021uncertainty,
   mourtada2021amf, vicuna2021reducing, gao2022towards,
-  o2022stochastic}.
+o2022stochastic}.
 Like other purely random forest variants,
 Mondrian random forests offer a simplified modification of
 Breiman's original proposal
@@ -486,7 +486,7 @@ for the Mondrian random forest estimator:
     \frac{1}{B}
     \sum_{b=1}^B
     \frac{\sum_{i=1}^n \big(\mu(X_i) - \mu(x)\big) \,
-      \I\big\{ X_i \in T_b(x) \big\}}
+    \I\big\{ X_i \in T_b(x) \big\}}
     {N_b(x)}
   \right).
 \end{align}
@@ -565,7 +565,7 @@ while Appendix~\ref{sec:mondrian_proofs} gives all the technical details.
 Theorem~\ref{thm:clt} gives our first main result.
 
 \begin{theorem}[Central limit theorem for the centered
-    Mondrian random forest estimator]%
+  Mondrian random forest estimator]%
   \label{thm:clt}
   %
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold,
@@ -575,8 +575,8 @@ Theorem~\ref{thm:clt} gives our first main result.
   \begin{align*}
     \sqrt{\frac{n}{\lambda^d}}
     \Big(
-    \hat \mu(x)
-    - \E \big[ \hat \mu(x) \mid \bX, \bT \big]
+      \hat \mu(x)
+      - \E \big[ \hat \mu(x) \mid \bX, \bT \big]
     \Big)
     &\rightsquigarrow
     \cN\big(0, \Sigma(x)\big)
@@ -1029,8 +1029,8 @@ Further,
 \begin{align*}
   \sqrt{\frac{n}{\lambda^d}}
   \big(
-  \hat\mu(x)
-  - \E\left[
+    \hat\mu(x)
+    - \E\left[
       \hat\mu(x) \mid \bX, \bT
     \right]
   \big)
@@ -1270,7 +1270,7 @@ debiased Mondrian random forest estimator
   \frac{1}{B}
   \sum_{b=1}^B
   \frac{\sum_{i=1}^n Y_i \,
-    \I\big\{ X_i \in T_{r b}(x) \big\}}
+  \I\big\{ X_i \in T_{r b}(x) \big\}}
   {N_{r b}(x)}.
 \end{align}
 %
@@ -1326,7 +1326,7 @@ we provide a direct proof only for Theorem~\ref{thm:clt_debiased}
 and deduce Theorem~\ref{thm:clt} as a special case.
 
 \begin{theorem}[Central limit theorem for the
-    debiased Mondrian random forest estimator]%
+  debiased Mondrian random forest estimator]%
   \label{thm:clt_debiased}
   %
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold,
@@ -1336,8 +1336,8 @@ and deduce Theorem~\ref{thm:clt} as a special case.
   \begin{align*}
     \sqrt{\frac{n}{\lambda^d}}
     \Big(
-    \hat \mu_\rd(x)
-    - \E \big[ \hat \mu_\rd(x) \mid \bX, \bT \big]
+      \hat \mu_\rd(x)
+      - \E \big[ \hat \mu_\rd(x) \mid \bX, \bT \big]
     \Big)
     &\rightsquigarrow
     \cN\big(0, \Sigma_\rd(x)\big)
@@ -1345,7 +1345,7 @@ and deduce Theorem~\ref{thm:clt} as a special case.
   %
   where, with
   $\ell_{r r'} = \frac{2 a_r}{3} \left( 1 - \frac{a_{r}}{a_{r'}}
-    \log\left(\frac{a_{r'}}{a_{r}} + 1\right) \right)$,
+  \log\left(\frac{a_{r'}}{a_{r}} + 1\right) \right)$,
   the limiting variance of the debiased estimator is
   %
   \begin{align*}
@@ -1477,7 +1477,7 @@ on the lifetime parameter $\lambda$
 and forest size $B$.
 
 \begin{theorem}[Feasible confidence intervals using a
-    debiased Mondrian random forest]%
+  debiased Mondrian random forest]%
   \label{thm:confidence_debiased}
   %
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold,
@@ -1538,7 +1538,7 @@ complementing a previous result established only for $\beta \in (0, 2]$
 by \citet{mourtada2020minimax}.
 %
 \begin{theorem}[Minimax optimality of the debiased
-    Mondrian random forest estimator]%
+  Mondrian random forest estimator]%
   \label{thm:mondrian_minimax}
   Grant Assumptions~\ref{ass:mondrian_data}
   and \ref{ass:estimator}.
@@ -1551,8 +1551,8 @@ by \citet{mourtada2020minimax}.
   \begin{align*}
     \E \left[
       \big(
-      \hat \mu_\rd(x)
-      - \mu(x)
+        \hat \mu_\rd(x)
+        - \mu(x)
       \big)^2
     \right]^{1/2}
     &\lesssim
@@ -1601,8 +1601,8 @@ same conditions as Theorem~\ref{thm:mondrian_minimax},
   \E \left[
     \int_{[\delta, 1-\delta]^d}
     \big(
-    \hat \mu_\rd(x)
-    - \mu(x)
+      \hat \mu_\rd(x)
+      - \mu(x)
     \big)^2
     \diff x
   \right]^{1/2}
@@ -1649,7 +1649,7 @@ the order of the bias correction $J$,
 and the debiasing scale parameters $a_r$ for $0 \leq r \leq J$.
 
 \subsection{Selecting the base lifetime parameter
-  \texorpdfstring{$\lambda$}{lambda}}%
+\texorpdfstring{$\lambda$}{lambda}}%
 
 The most important parameter is the base Mondrian lifetime parameter $\lambda$,
 which plays the role of a complexity parameter and thus governs the overall
@@ -1944,7 +1944,7 @@ or
 $\hat\lambda_{\GCV} \in \argmin_\lambda \GCV(\lambda, J)$.
 
 \subsection{Choosing the number \texorpdfstring{$B$}{B} of trees
-  in each forest}%
+in each forest}%
 
 The next parameter to choose is the number of trees in each forest, $B$.
 If no debiasing is applied, we suggest taking

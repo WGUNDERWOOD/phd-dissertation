@@ -292,8 +292,8 @@ related to the existing literature.
     &U
     &=
     \sum_{i=1}^{n} \big(
-    X_i - \E[ X_i \mid \cH_n]
-    + \E[ X_i \mid \cH_0 ]
+      X_i - \E[ X_i \mid \cH_n]
+      + \E[ X_i \mid \cH_0 ]
     \big).
   \end{align*}
   %
@@ -312,12 +312,12 @@ related to the existing literature.
     &\leq
     \inf_{t>0}
     \left\{
-    2 \P\big( \|Z\|_p > t \big)
-    + \min\left\{
-    \frac{\beta_{p,2} t^2}{\eta^3},
-    \frac{\beta_{p,3} t^3}{\eta^4}
-    + \frac{\pi_3 t^3}{\eta^3}
-    \right\}
+      2 \P\big( \|Z\|_p > t \big)
+      + \min\left\{
+        \frac{\beta_{p,2} t^2}{\eta^3},
+        \frac{\beta_{p,3} t^3}{\eta^4}
+        + \frac{\pi_3 t^3}{\eta^3}
+      \right\}
     \right\} \nonumber \\
     &\quad+
     \inf_{M \succeq 0}
@@ -335,14 +335,14 @@ related to the existing literature.
     \beta_{p,k}
     &=
     \sum_{i=1}^n \E\left[\| \tilde X_i \|^k_2 \| \tilde X_i \|_p
-      + \|V_i^{1/2} Z_i \|^k_2 \|V_i^{1/2} Z_i \|_p \right],
+    + \|V_i^{1/2} Z_i \|^k_2 \|V_i^{1/2} Z_i \|_p \right],
     &\pi_3
     &=
     \sum_{i=1}^{n}
     \sum_{|\kappa| = 3}
     \E \Big[ \big|
       \E [ \tilde X_i^\kappa \mid \cH_{i-1} ]
-      \big| \Big]
+    \big| \Big]
   \end{align*}
   %
   for $k \in \{2, 3\}$, with $\pi_3 = \infty$ if the associated
@@ -358,7 +358,7 @@ related to the existing literature.
     \varepsilon_p(M, \eta)
     &=
     \P\left(\big\| (M - \Omega)^{1/2} Z \big\|_p\geq \eta, \
-      \Omega \preceq M\right).
+    \Omega \preceq M\right).
   \end{align*}
 \end{theorem}
 
@@ -478,7 +478,7 @@ which are related to tail probabilities
 of the $\ell^p$-norm of a standard Gaussian.
 
 \begin{proposition}[Simplified strong approximation for
-    vector-valued approximate martingales]%
+  vector-valued approximate martingales]%
   \label{pro:sa_simplified}
 
   Assume the setup and notation of Theorem~\ref{thm:sa_dependent}.
@@ -552,7 +552,7 @@ $1 \leq i \leq n$ and $0 \leq r \leq i$,
   \label{eq:mixingale_1}
   \E \left[ \left\|
     \E \left[ X_i \mid \cH_{i-r} \right]
-    \right\|_p \right]
+  \right\|_p \right]
   &\leq
   c_i \zeta_r,
 \end{align}
@@ -563,7 +563,7 @@ and for all $1 \leq i \leq n$ and $0 \leq r \leq n-i$,
   \label{eq:mixingale_2}
   \E \left[ \big\|
     X_i - \E \big[ X_i \mid \cH_{i+r} \big]
-    \big\|_p \right]
+  \big\|_p \right]
   &\leq
   c_i \zeta_{r+1}.
 \end{align}
@@ -647,7 +647,7 @@ technical side, our result is rigorously established using a conditional
 version of Strassen's theorem \citep{chen2020jackknife}, a carefully crafted
 regularization argument, and a third-order Lindeberg method
 \citep[see][and references therein, for more discussion on the
-  standard second-order Lindeberg method]{chatterjee2006generalization}.
+standard second-order Lindeberg method]{chatterjee2006generalization}.
 Furthermore, as explained in Remark~\ref{rem:coupling_bounds_probability}, we
 clarify a technical issue in \citet{li2020uniform} surrounding the derivation
 of valid probability bounds for $\|S-T\|_p$.
@@ -755,7 +755,7 @@ Remark~\ref{rem:coupling_bounds_probability} makes clear.
 Technicalities akin to those outlined in
 Remark~\ref{rem:coupling_bounds_probability} have been both addressed and
 neglected alike in the prior literature. \citet[Chapter 10.4, Example
-  16]{pollard2002user} apparently misses this subtlety, providing an
+16]{pollard2002user} apparently misses this subtlety, providing an
 inaccurate bound in probability based on the Yurinskii coupling.
 \citet{li2020uniform} seem to make the same mistake in the proof of their
 Lemma~A2, which invalidates the conclusion of their Theorem~1. In contrast,
@@ -951,7 +951,7 @@ substantive problems in statistics. Having until this point studied only
 finite-dimensional (albeit potentially high-dimensional) random vectors, we now
 turn our attention to infinite-dimensional stochastic processes. Specifically,
 we consider empirical processes of the form \[S(f) = \sum_{i=1}^{n} f(X_i),
-  \qquad f \in \cF,\] with $\cF$ a problem-specific class of real-valued
+\qquad f \in \cF,\] with $\cF$ a problem-specific class of real-valued
 functions, where each $f(X_i)$ forms a martingale difference sequence with
 respect to an appropriate filtration. We construct (conditionally) Gaussian
 processes $T(f)$ for which an upper bound on the uniform coupling error
@@ -966,7 +966,7 @@ Gaussian approximation of empirical process suprema in the independent data
 setting and wrote (p.\ $1565$): ``A related but different problem is that of
 approximating \textit{whole} empirical processes by a sequence of Gaussian
 processes in the sup-norm. This problem is more difficult than
-  [approximating the supremum of the empirical process].''
+[approximating the supremum of the empirical process].''
 Indeed, the results we establish in
 this section are for a strong approximation for the entire empirical process by
 a sequence of Gaussian mixture processes in the supremum norm, when the data
@@ -1084,7 +1084,7 @@ the resulting bound on the coupling error is
 \[\sup_{x \in \cX}
   \big| S(x) - T(x) \big| \lesssim_\P
   \left( \frac{N \log 2N}{n^2 h^2} \right)^{1/3} R_n
-  + \delta \sqrt{\frac{\log n}{n h^3}},\]
++ \delta \sqrt{\frac{\log n}{n h^3}},\]
 where the mesh size $\delta$ can then be optimized to obtain the tightest
 possible strong
 approximation.
@@ -1103,7 +1103,7 @@ strong approximation bound if the \citet{li2020uniform} coupling were to be
 used instead of the results in this paper.
 
 \begin{lemma}[Minimum eigenvalue of a
-    kernel density estimator covariance matrix]%
+  kernel density estimator covariance matrix]%
   \label{lem:kde_eigenvalue}
   %
   The minimum eigenvalue of
@@ -1193,11 +1193,11 @@ Define the set of Orlicz functions
   \Psi
   &=
   \left\{
-  \psi: [0, \infty) \to [0, \infty)
-  \text{ convex increasing, }
-  \psi(0) = 0,\
-  \limsup_{x,y \to \infty} \tfrac{\psi(x) \psi(y)}{\psi(C x y)} < \infty
-  \text{ for } C > 0
+    \psi: [0, \infty) \to [0, \infty)
+    \text{ convex increasing, }
+    \psi(0) = 0,\
+    \limsup_{x,y \to \infty} \tfrac{\psi(x) \psi(y)}{\psi(C x y)} < \infty
+    \text{ for } C > 0
   \right\}
 \end{align*}
 %
@@ -1205,7 +1205,7 @@ and, for real-valued $Y$, the Orlicz norm
 $\vvvert Y \vvvert_\psi
 = \inf
 \left\{ C > 0:
-\E \left[ \psi(|Y|/C) \leq 1 \right]
+  \E \left[ \psi(|Y|/C) \leq 1 \right]
 \right\}$
 as in \citet[Section~2.2]{van1996weak}.
 
@@ -1247,12 +1247,12 @@ as in \citet[Section~2.2]{van1996weak}.
     \inf_{\delta > 0}
     \inf_{\cF_\delta}
     \Bigg\{
-    \frac{\beta_\delta^{1/3} (\log 2 |\cF_\delta|)^{1/3}}{\eta } \\
-    &\qquad\quad+
-    \left(\frac{\sqrt{\log 2 |\cF_\delta|}
-        \sqrt{\E\left[\|\Omega_\delta\|_2\right]}}{\eta }\right)^{2/3}
-    + \psi\left(\frac{t}{L J_\psi(\delta)}\right)^{-1}
-    + \exp\left(\frac{-t^2}{L^2 J_2(\delta)^2}\right)
+      \frac{\beta_\delta^{1/3} (\log 2 |\cF_\delta|)^{1/3}}{\eta } \\
+      &\qquad\quad+
+      \left(\frac{\sqrt{\log 2 |\cF_\delta|}
+      \sqrt{\E\left[\|\Omega_\delta\|_2\right]}}{\eta }\right)^{2/3}
+      + \psi\left(\frac{t}{L J_\psi(\delta)}\right)^{-1}
+      + \exp\left(\frac{-t^2}{L^2 J_2(\delta)^2}\right)
     \Bigg\}
   \end{align*}
   %
@@ -1264,7 +1264,7 @@ as in \citet[Section~2.2]{van1996weak}.
     &= \sum_{i=1}^n
     \E\left[ \|\cF_\delta(X_i)\|^2_2\|\cF_\delta(X_i)\|_\infty
       + \|V_i(\cF_\delta)^{1/2}Z_i\|^2_2
-      \|V_i(\cF_\delta)^{1/2}Z_i\|_\infty \right],
+    \|V_i(\cF_\delta)^{1/2}Z_i\|_\infty \right],
   \end{align*}
   \vspace*{-6mm}
   \begin{align*}
@@ -1314,7 +1314,7 @@ In particular, consider the following well known Orlicz functions.
   \item[Bernstein:]
     $\psi(x) = \exp
     \Big(
-    \Big(\frac{\sqrt{1+2ax}-1}{a}\Big)^{2}
+      \Big(\frac{\sqrt{1+2ax}-1}{a}\Big)^{2}
     \Big)-1$
     for $a > 0$ has
     $\vvvert X \vvvert_2 \leq (1+a)\vvvert X \vvvert_\psi$ \\ and
@@ -1367,8 +1367,8 @@ Theorem~2.2.8 and Theorem~2.14.1 in \citet{van1996weak} give
   \E\left[
     \sup_{d_\P(f,f') \leq \delta}
     \Big(
-    |S(f) - S(f')|
-    + |T(f) - T(f')|
+      |S(f) - S(f')|
+      + |T(f) - T(f')|
     \Big)
   \right]
   &\lesssim
@@ -1694,19 +1694,19 @@ uniform confidence band for partitioning-based series estimators
 based on martingale data.
 
 \begin{proposition}[Feasible uniform confidence bands for partitioning
-    series estimators]%
+  series estimators]%
   \label{pro:series_feasible}
   %
   Assume the setup of the preceding section. Then
   %
   \begin{align*}
     \P\Big(
-    \mu(w) \in
-    \Big[
+      \mu(w) \in
+      \Big[
         \hat\mu(w) \pm \hat q(\tau)
         \sqrt{\hat\rho(w,w)}
-        \Big]
-    \ \text{for all }
+      \Big]
+      \ \text{for all }
     w \in \cW \Big)
     \to 1-\tau,
   \end{align*}
@@ -1719,16 +1719,16 @@ based on martingale data.
     &=
     \inf
     \left\{
-    t \in \R:
-    \P\left(
-      \sup_{w \in \cW}
-      \left|
-      \frac{\hat G(w)}{\sqrt{\hat\rho(w,w)}}
-      \right|
-      \leq t
-      \Bigm| \bW, \bY
-    \right)
-    \geq \tau
+      t \in \R:
+      \P\left(
+        \sup_{w \in \cW}
+        \left|
+        \frac{\hat G(w)}{\sqrt{\hat\rho(w,w)}}
+        \right|
+        \leq t
+        \Bigm| \bW, \bY
+      \right)
+      \geq \tau
     \right\}
   \end{align*}
   %
@@ -1819,10 +1819,10 @@ via Proposition \ref{pro:emp_proc} by setting
 %
 \begin{align*}
   \cF = \left\{
-  (W_i, \varepsilon_i) \mapsto
-  e_1^\T H(w)^{-1}
-  K_h(W_i-w) p_h(W_i-w) \varepsilon_i
-  : w \in \cW
+    (W_i, \varepsilon_i) \mapsto
+    e_1^\T H(w)^{-1}
+    K_h(W_i-w) p_h(W_i-w) \varepsilon_i
+    : w \in \cW
   \right\}.
 \end{align*}
 %
