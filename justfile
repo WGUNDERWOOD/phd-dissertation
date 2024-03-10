@@ -24,8 +24,7 @@ longlines:
 
 diss:
 	@echo -e "\e[0;35m\033[1mBuilding dissertation document...\e[0;30m\033[0m"
-	@latexmk -rc-report- -pdf -quiet {{DISS}}.tex | \
-		grep -v 'Latexmk: Nothing to do for' | grep '^.' || true
+	@tex-build {{DISS}}.tex
 
 warn:
 	@echo -e "\e[0;35m\033[1mChecking for warnings...\e[0;30m\033[0m"
@@ -33,7 +32,7 @@ warn:
 
 format:
 	@echo -e "\e[0;35m\033[1mFormatting...\e[0;30m\033[0m"
-	@latexindent-fast *.tex refs.bib
+	@tex-fmt *.tex refs.bib
 
 compress:
 	@echo -e "\e[0;35m\033[1mCompressing...\e[0;30m\033[0m"

@@ -111,14 +111,14 @@ $\beta > 0$ by
   \cH^\beta_C(\cX)
   &=
   \Big\{
-  g \in \cC^{\flbeta}(\cX): \
-  \max_{1 \leq r \leq \flbeta}
-  \big| g^{(r)}(x) \big| \leq C
-  \text{ and }
-  \big| g^{(\flbeta)}(x) - g^{(\flbeta)}(x') \big|
-  \leq C |x-x'|^{\beta - \flbeta}, \
-  \forall
-  x, x' \in \cX
+    g \in \cC^{\flbeta}(\cX): \
+    \max_{1 \leq r \leq \flbeta}
+    \big| g^{(r)}(x) \big| \leq C
+    \text{ and }
+    \big| g^{(\flbeta)}(x) - g^{(\flbeta)}(x') \big|
+    \leq C |x-x'|^{\beta - \flbeta}, \
+    \forall
+    x, x' \in \cX
   \Big\}.
 \end{align*}
 %
@@ -324,13 +324,13 @@ interpreting our results in various classes of data distributions.
   \begin{equation*}
     \E\big[
       L_n(w) Q_n(w')
-      \big]
+    \big]
     = \E\big[
       L_n(w) E_n(w')
-      \big]
+    \big]
     = \E\big[
       Q_n(w) E_n(w')
-      \big]
+    \big]
     = 0
   \end{equation*}
   for all $w, w' \in \cW$.
@@ -592,7 +592,7 @@ some classes of dyadic distributions.
     \Cov\Big[
       \hat f_W(w),
       \hat f_W(w')
-      \Big]
+    \Big]
   \end{align*}
   for $w,w' \in \cW$.
   Then $\Sigma_n$ admits the following
@@ -604,25 +604,25 @@ some classes of dyadic distributions.
     \Cov\hspace*{-0.7mm}\big[
       k_h(W_{i j},w),
       k_h(W_{i j},w')
-      \big]
+    \big]
     +
     \frac{4(n-2)}{n(n-1)}
     \Cov\hspace*{-0.7mm}\big[
       k_h(W_{i j},w),
       k_h(W_{i r},w')
-      \big] \\
+    \big] \\
     &=
     \frac{2}{n(n-1)}
     \Cov\hspace*{-0.7mm}\big[
       k_h(W_{i j},w),
       k_h(W_{i j},w')
-      \big] \\
+    \big] \\
     &\quad+
     \frac{4(n-2)}{n(n-1)}
     \Cov\hspace*{-0.7mm}\big[
       \E[k_h(W_{i j},w) \mid A_i],
       \E[k_h(W_{i j},w') \mid A_i]
-      \big],
+    \big],
   \end{align*}
   %
   where $1 \leq i < j < r \leq n$.
@@ -979,7 +979,7 @@ with a.s.\ continuous sample paths.
     \Cov\Big[
       \hat f_W'(w),
       \hat f_W'(w')
-      \Big]
+    \Big]
     = \Sigma_n(w,w').
   \end{align*}
   It also has continuous trajectories satisfying
@@ -1032,7 +1032,7 @@ is bounded away from zero on the domain of inference,
 which is a standard assumption when constructing confidence bands.
 
 \begin{lemma}[Infeasible Gaussian approximation
-    of the standardized $t$-statistic]
+  of the standardized $t$-statistic]
   \label{lem:infeasible_t_statistic}
 
   Let Assumptions \ref{ass:kernel_data} and
@@ -1057,7 +1057,7 @@ which is a standard assumption when constructing confidence bands.
       n^{-1/2} \log n
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
-      + n^{1/2} h^{p \wedge \beta}}
+    + n^{1/2} h^{p \wedge \beta}}
     {\Dl + 1/\sqrt{n h}}.
   \end{align*}
 
@@ -1122,7 +1122,7 @@ and are given as Assumption~\ref{ass:app_rates}.
         \pm
         q_{1-\alpha}
         \sqrt{\Sigma_n(w,w)}
-        \, \right]
+      \, \right]
       \, \textup{for all }
       w \in \cW
     \right)
@@ -1190,19 +1190,19 @@ which is more amenable to computation.
     &=
     \frac{1}{6}
     \Big(
-    k_h(W_{i j},w)
-    k_h(W_{i r},w')
-    + k_h(W_{i j},w)
-    k_h(W_{jr},w')
-    + k_h(W_{i r},w)
-    k_h(W_{i j},w') \\
-    &\qquad+
-    k_h(W_{i r},w)
-    k_h(W_{jr},w')
-    + k_h(W_{jr},w)
-    k_h(W_{i j},w')
-    + k_h(W_{jr},w)
-    k_h(W_{i r},w')
+      k_h(W_{i j},w)
+      k_h(W_{i r},w')
+      + k_h(W_{i j},w)
+      k_h(W_{jr},w')
+      + k_h(W_{i r},w)
+      k_h(W_{i j},w') \\
+      &\qquad+
+      k_h(W_{i r},w)
+      k_h(W_{jr},w')
+      + k_h(W_{jr},w)
+      k_h(W_{i j},w')
+      + k_h(W_{jr},w)
+      k_h(W_{i r},w')
     \Big).
   \end{align*}
   %
@@ -1291,7 +1291,7 @@ over bivariate functions.
   \begin{aligned}
     \minimize
     \qquad
-     & \sup_{w,w' \in \cW}
+    & \sup_{w,w' \in \cW}
     \left|
     \frac{M(w,w') - \hat\Sigma_n(w,w')}
     {\sqrt{\hat \Sigma_n(w,w) + \hat \Sigma_n(w',w')}}
@@ -1300,8 +1300,8 @@ over bivariate functions.
     \\
     \subjectto
     \qquad
-     & M \textup{ is symmetric and positive semi-definite}, \\
-     & \big|M(w,w') - M(w, w'')\big|
+    & M \textup{ is symmetric and positive semi-definite}, \\
+    & \big|M(w,w') - M(w, w'')\big|
     \leq \frac{4}{n h^3}
     \Ck \CL
     |w'-w''|
@@ -1410,7 +1410,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 \end{lemma}
 
 \begin{lemma}[Feasible Gaussian approximation
-    of the infeasible Gaussian process]
+  of the infeasible Gaussian process]
   \label{lem:distributional_approx_feasible_gaussian}
 
   Let Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
@@ -1425,7 +1425,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
   \begin{align*}
     \E\left[
       \hat Z_n^T(w) \hat Z_n^T(w')
-      \bigm| \bW_n \right]
+    \bigm| \bW_n \right]
     &=
     \frac{\hat \Sigma_n^+(w,w')}
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
@@ -1512,7 +1512,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
         \pm
         \hat q_{1-\alpha}
         \sqrt{\hat\Sigma_n^+(w,w)}
-        \,\right]
+      \,\right]
       \,\textup{for all }
       w \in \cW
     \right)
@@ -1533,7 +1533,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 \end{remark}
 
 \subsection{Counterfactual
-  dyadic density estimation}
+dyadic density estimation}
 \label{subsec:counterfactual}
 
 As an application we provide methodology for estimation and inference
@@ -1684,12 +1684,12 @@ approximation results for the counterfactual density estimator.
     \E\left[
       k_{i j}
       \psi_j
-      \mid A_i^1 \right]
+    \mid A_i^1 \right]
     +
     \frac{2}{3} \E\left[
       k_{jr}
       \psi_j \kappa_{i r}
-      \mid X_i^0, X_i^1 \right]
+    \mid X_i^0, X_i^1 \right]
     - \frac{2}{3} u, \\
     u_{i j}
     &=
@@ -1698,42 +1698,42 @@ approximation results for the counterfactual density estimator.
     \psi_j
     \E\left[
       k_{i j}
-      \mid A_i^1, A_j^1 \right]
+    \mid A_i^1, A_j^1 \right]
     +
     \frac{1}{3}
     \psi_i
     \E\left[
       k_{i r} \psi_r
-      \mid A_i^1 \right]
+    \mid A_i^1 \right]
     +
     \frac{1}{3}
     \psi_i
     \E\left[
       k_{i r}  \kappa_{jr}
-      \mid A_i^1, X_j^0, X_j^1 \right] \\
+    \mid A_i^1, X_j^0, X_j^1 \right] \\
     &\quad+
     \frac{1}{3}
     \kappa_{j i}
     \E\left[
       k_{i r} \psi_r
-      \mid A_i^1 \right]
+    \mid A_i^1 \right]
     + \frac{1}{3}
     \psi_j
     \E\left[
       k_{jr}  \psi_r
-      \mid A_j^1 \right]
+    \mid A_j^1 \right]
     +
     \frac{1}{3}
     \psi_j
     \E\left[
       k_{jr}  \kappa_{i r}
-      \mid X_i^0, X_i^1, A_j^1 \right] \\
+    \mid X_i^0, X_i^1, A_j^1 \right] \\
     &\quad+
     \frac{1}{3}
     \kappa_{i j}
     \E\left[
       k_{jr} \psi_r
-      \mid A_j^1 \right]
+    \mid A_j^1 \right]
     - u_i - u_j + u, \\
     u_{i j r}
     &=
@@ -1741,53 +1741,53 @@ approximation results for the counterfactual density estimator.
     \psi_i \psi_j
     \E\left[
       k_{i j}
-      \mid A_i^1, A_j^1 \right]
+    \mid A_i^1, A_j^1 \right]
     +
     \frac{1}{3}
     \psi_i \kappa_{r j}
     \E\left[
       k_{i j}
-      \mid A_i^1, A_j^1 \right]
+    \mid A_i^1, A_j^1 \right]
     +
     \frac{1}{3}
     \psi_j \kappa_{r i}
     \E\left[
       k_{i j}
-      \mid A_i^1, A_j^1 \right] \\
+    \mid A_i^1, A_j^1 \right] \\
     &\quad+
     \frac{1}{3}
     \psi_i \psi_r
     \E\left[
       k_{i r}
-      \mid A_i^1, A_r^1 \right]
+    \mid A_i^1, A_r^1 \right]
     + \frac{1}{3}
     \psi_i \kappa_{jr}
     \E\left[
       k_{i r}
-      \mid A_i^1, A_r^1 \right]
+    \mid A_i^1, A_r^1 \right]
     +
     \frac{1}{3}
     \psi_r \kappa_{j i}
     \E\left[
       k_{i r}
-      \mid A_i^1, A_r^1 \right] \\
+    \mid A_i^1, A_r^1 \right] \\
     &\quad+
     \frac{1}{3}
     \psi_j \psi_r
     \E\left[
       k_{jr}
-      \mid A_j^1, A_r^1 \right]
+    \mid A_j^1, A_r^1 \right]
     + \frac{1}{3}
     \psi_j \kappa_{i r}
     \E\left[
       k_{jr}
-      \mid A_j^1, A_r^1 \right]
+    \mid A_j^1, A_r^1 \right]
     +
     \frac{1}{3}
     \psi_r \kappa_{i j}
     \E\left[
       k_{jr}
-      \mid A_j^1, A_r^1 \right] \\
+    \mid A_j^1, A_r^1 \right] \\
     &\quad-
     u_{i j} - u_{i r} - u_{jr}
     + u_i + u_j + u_r
@@ -1849,7 +1849,7 @@ approximation results for the counterfactual density estimator.
     \limsup_{n \to \infty}
     \sup_{w \in \cW}
     \Var\big[
-    l_i^{1 \triangleright 0}(w)
+      l_i^{1 \triangleright 0}(w)
     \big]
     &\text{and}&
     &
@@ -1860,7 +1860,7 @@ approximation results for the counterfactual density estimator.
     \liminf_{n \to \infty}
     \inf_{w \in \cW}
     \Var\big[
-    l_i^{1 \triangleright 0}(w)
+      l_i^{1 \triangleright 0}(w)
     \big].
   \end{align*}
 
@@ -1929,27 +1929,27 @@ approximation results for the counterfactual density estimator.
     \frac{4}{n}
     \E\left[
       \Big(
-      \psi_i
-      \E\big[
-        k_{i j} \psi_j
-        \mid A_i^1
+        \psi_i
+        \E\big[
+          k_{i j} \psi_j
+          \mid A_i^1
         \big]
-      + \E\left[
-        k_{r j} \psi_r
-        \kappa_{i j}
-        \mid X_i^0, X_i^1
-      \right]
+        + \E\left[
+          k_{r j} \psi_r
+          \kappa_{i j}
+          \mid X_i^0, X_i^1
+        \right]
       \Big)
       \Big(
-      \psi_i
-      \E\big[
-        k_{i j}' \psi_j
-        \mid A_i^1
+        \psi_i
+        \E\big[
+          k_{i j}' \psi_j
+          \mid A_i^1
         \big]
-      + \E\left[
-        k_{r j}' \psi_r \kappa_{i j}
-        \mid X_i^0, X_i^1
-      \right]
+        + \E\left[
+          k_{r j}' \psi_r \kappa_{i j}
+          \mid X_i^0, X_i^1
+        \right]
       \Big)
     \right] \\
     &\qquad+
@@ -1971,7 +1971,7 @@ approximation results for the counterfactual density estimator.
 \end{lemma}
 
 \begin{lemma}[Infeasible Gaussian approximation
-    of the standardized counterfactual $t$-statistic]
+  of the standardized counterfactual $t$-statistic]
   \label{lem:counterfactual_infeasible_t_statistic}
 
   Let Assumptions \ref{ass:kernel_data},
@@ -2004,7 +2004,7 @@ approximation results for the counterfactual density estimator.
       n^{-1/2} \log n
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
-      + n^{1/2} h^{p \wedge \beta}}
+    + n^{1/2} h^{p \wedge \beta}}
     {\Dl^{1 \triangleright 0} + 1/\sqrt{n h}}.
   \end{align*}
 
@@ -2041,7 +2041,7 @@ approximation results for the counterfactual density estimator.
         \pm
         q^{1 \triangleright 0}_{1-\alpha}
         \sqrt{\Sigma_n^{1 \triangleright 0}(w,w)}
-        \, \right]
+      \, \right]
       \, \textup{for all }
       w \in \cW
     \right)
@@ -2138,11 +2138,11 @@ conditional covariance structure is
   \E\left[
     \hat Z_n^{T, 1 \triangleright 0}(w)
     \hat Z_n^{T, 1 \triangleright 0}(w')
-    \bigm| \bW_n^1, \bX_n^0, \bX_n^1 \right]
+  \bigm| \bW_n^1, \bX_n^0, \bX_n^1 \right]
   &=
   \frac{\hat \Sigma_n^{+, 1 \triangleright 0}(w,w')}
   {\sqrt{\hat \Sigma_n^{+, 1 \triangleright 0}(w,w)
-      \hat \Sigma_n^{+, 1 \triangleright 0}(w',w')}}.
+  \hat \Sigma_n^{+, 1 \triangleright 0}(w',w')}}.
 \end{align*}
 %
 Let $\alpha \in (0,1)$ be a confidence level and define
@@ -2172,7 +2172,7 @@ we have that
       \pm
       \hat q^{1 \triangleright 0}_{1-\alpha}
       \sqrt{\hat\Sigma_n^{+, 1 \triangleright 0}(w,w)}
-      \,\right]
+    \,\right]
     \,\textup{for all }
     w \in \cW
   \right)
@@ -2242,7 +2242,7 @@ conditional distribution.
     \frac{1}{\sqrt n}
     \sum_{i=1}^n
     \Big(
-    f(X_i) - \E[f(X_i)]
+      f(X_i) - \E[f(X_i)]
     \Big).
   \end{align*}
   Let $\sigma > 0$ satisfy
@@ -2456,8 +2456,8 @@ of i.n.i.d.\ variables.
     \frac{1}{\sqrt n}
     \sum_{i=1}^n
     \Big(
-    g_n(X'_i,x)
-    - \E[g_n(X'_i,x)]
+      g_n(X'_i,x)
+      - \E[g_n(X'_i,x)]
     \Big),
   \end{align*}
   then
@@ -2481,7 +2481,7 @@ of i.n.i.d.\ variables.
       l_{n,2}
       \sqrt{\log n}
       + \frac{l_{n,\infty}}{\sqrt n}
-      \log n}
+    \log n}
   \end{align*}
   %
   where $C_2 > 0$ is a constant depending only on $C_1$.
@@ -2789,7 +2789,7 @@ leading to less estimated variance in the fitted values.
   %
   \caption{Real and counterfactual density estimates
     and confidence bands for the DOTS data with histogram-based
-    covariate estimation.}
+  covariate estimation.}
   %
   \label{fig:app_trade}
   %
@@ -2845,7 +2845,7 @@ leading to less estimated variance in the fitted values.
   %
   \caption{Real and counterfactual density estimates
     and confidence bands for the DOTS data
-    with parametric covariate estimation.}
+  with parametric covariate estimation.}
   %
   \label{fig:trade_para}
   %
@@ -3009,7 +3009,7 @@ they are needed.
       \Sigma_1^{1/2} N
       - \Sigma_2^{1/2} N
       \big\|_\infty
-      \Big]
+    \Big]
     &\leq
     2 \sqrt{\log n} \,
     \big\|
@@ -3028,7 +3028,7 @@ they are needed.
       \Sigma_1^{1/2} N
       - \Sigma_2^{1/2} N
       \big\|_\infty
-      \Big]
+    \Big]
     &\leq
     \sqrt{\log n} \,
     \lambda_{\min}(\Sigma_1)^{-1/2} \,
@@ -3129,10 +3129,10 @@ they are needed.
     &=
     \Var\big[
       \big(\Sigma_1^{1/2} N - \Sigma_2^{1/2} N\big)_i
-      \big]
+    \big]
     =
     \Big(\big(
-    \Sigma_1^{1/2} - \Sigma_2^{1/2}
+        \Sigma_1^{1/2} - \Sigma_2^{1/2}
     \big)^2\Big)_{ii}.
   \end{align*}
   Note that if $e_i$ is the
@@ -3161,7 +3161,7 @@ they are needed.
       \Sigma_1^{1/2} N
       - \Sigma_2^{1/2} N
       \big\|_\infty
-      \Big]
+    \Big]
     &\leq
     2 \sqrt{\log n} \,
     \big\|
@@ -3221,7 +3221,7 @@ they are needed.
     &=
     \E\big[\big(Z(x) - Z(x')\big)^2\big]^{1/2}
     = \big(\Sigma(x,x)
-    - 2 \Sigma(x,x')
+      - 2 \Sigma(x,x')
     + \Sigma(x',x')\big)^{1/2}.
   \end{align*}
   Let $N(\varepsilon, \cX, \rho)$
@@ -3323,9 +3323,9 @@ they are needed.
     &=
     \sup
     \big\{
-    n \geq 1:
-    \P\big(|X_n| > 1/k\big)
-    > 1/k
+      n \geq 1:
+      \P\big(|X_n| > 1/k\big)
+      > 1/k
     \big\}
     \vee
     (\tau_{k-1} +1)
@@ -3486,10 +3486,10 @@ they are needed.
     \frac{2}{n(n-1)}
     \sum_{i<j}
     \Big(
-    f(X_i, X_j)
-    - \E\big[f(X_i,X_j) \mid X_i\big]
-    - \E\big[f(X_i,X_j) \mid X_j\big]
-    + \E\big[f(X_i,X_j)\big]
+      f(X_i, X_j)
+      - \E\big[f(X_i,X_j) \mid X_i\big]
+      - \E\big[f(X_i,X_j) \mid X_j\big]
+      + \E\big[f(X_i,X_j)\big]
     \Big)
   \end{align*}
   for $f \in \cF$.
@@ -3507,7 +3507,7 @@ they are needed.
   \begin{align*}
     \sup_\Q
     N\big(
-    \cF, \|\cdot\|_{\Q,2}, \varepsilon \|F\|_{\Q,2}
+      \cF, \|\cdot\|_{\Q,2}, \varepsilon \|F\|_{\Q,2}
     \big)
     &\leq
     (C_1/\varepsilon)^{C_2}
@@ -3534,11 +3534,11 @@ they are needed.
     &\leq
     C_3 \sigma
     \Big(
-    C_2 \log\big(C_1 \|F\|_{\P,2} / \sigma \big)
+      C_2 \log\big(C_1 \|F\|_{\P,2} / \sigma \big)
     \Big)
     + \frac{C_3 \|M\|_{\P,2}}{\sqrt{n}}
     \Big(
-    C_2 \log\big(C_1 \|F\|_{\P,2} / \sigma \big)
+      C_2 \log\big(C_1 \|F\|_{\P,2} / \sigma \big)
     \Big)^2.
   \end{align*}
 
@@ -3839,8 +3839,8 @@ on each of the points $-1$ and $1$.
         \left|
         \sum_{i=1}^n
         \Big(
-        f(X_i)
-        - \E[f(X_i)]
+          f(X_i)
+          - \E[f(X_i)]
         \Big)
         \right|
       \right)
@@ -3854,8 +3854,8 @@ on each of the points $-1$ and $1$.
         \sum_{i=1}^n
         \varepsilon_i
         \Big(
-        f(X_i)
-        - a_i
+          f(X_i)
+          - a_i
         \Big)
         \right|
       \right)
@@ -4246,8 +4246,8 @@ on each of the points $-1$ and $1$.
       \left|
       \sum_{i=1}^n
       \Big(
-      f(X_i)
-      - \E[f(X_i)]
+        f(X_i)
+        - \E[f(X_i)]
       \Big)
       \right|
     \right]
@@ -4485,7 +4485,7 @@ on each of the points $-1$ and $1$.
     \leq
     \int_0^\delta
     \sqrt{1 +
-      C_2 \log (C_1/\varepsilon)}
+    C_2 \log (C_1/\varepsilon)}
     \diff{\varepsilon} \\
     &\leq
     \int_0^\delta
@@ -4510,8 +4510,8 @@ on each of the points $-1$ and $1$.
     \delta
     + \sqrt{\frac{C_2}{\log (C_1/\delta)}}
     \big(
-    \delta
-    + \delta \log (C_1/\delta)
+      \delta
+      + \delta \log (C_1/\delta)
     \big) \\
     &\leq
     3 \delta
@@ -4544,16 +4544,16 @@ Lemma~\ref{lem:bv_characterization}.
     \symconv \cY
     &=
     \left\{
-    \sum_{i=1}^n
-    \lambda_i
-    y_i :
-    \sum_{i=1}^n
-    \lambda_i
-    = 1, \
-    \lambda_i
-    \geq 0, \
-    y_i \in \cY \cup -\cY, \
-    n \in \N
+      \sum_{i=1}^n
+      \lambda_i
+      y_i :
+      \sum_{i=1}^n
+      \lambda_i
+      = 1, \
+      \lambda_i
+      \geq 0, \
+      y_i \in \cY \cup -\cY, \
+      n \in \N
     \right\}.
   \end{align*}
   Denote its topological closure by
@@ -4609,7 +4609,7 @@ Lemma~\ref{lem:bv_characterization}.
   and
   $\sum_{k = 1}^{|A_n|-1}
   \big(
-  g(a_k) - g(a_{k+1})
+    g(a_k) - g(a_{k+1})
   \big)
   = g(0) - g(1) = 1$.
   Therefore
@@ -4701,7 +4701,7 @@ Lemma~\ref{lem:bv_characterization}.
     \frac{1}{\sqrt{n}}
     \sum_{i=1}^n
     \big(
-    \I\{\xi_i \leq s\} - s
+      \I\{\xi_i \leq s\} - s
     \big),
     &\beta_n(s)
     &\vcentcolon=
@@ -4829,8 +4829,8 @@ Lemma~\ref{lem:bv_characterization}.
   Consider the function class
   \begin{align*}
     \cG_n = \big\{
-    V_n^{-1} g_n\big(F_X^{-1}(\cdot), x\big)
-    - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
+      V_n^{-1} g_n\big(F_X^{-1}(\cdot), x\big)
+      - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
     : x \in \R \big\},
   \end{align*}
   noting that $g_n(\cdot,x)$
@@ -4851,8 +4851,8 @@ Lemma~\ref{lem:bv_characterization}.
     &=
     \beta_n \Big(g_n\big(F_X^{-1}(\cdot), x\big)\Big)
     = V_n \beta_n \Big(
-    V_n^{-1} g_n\big(F_X^{-1}(\cdot), x\big)
-    - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
+      V_n^{-1} g_n\big(F_X^{-1}(\cdot), x\big)
+      - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
     \Big),
   \end{align*}
   which is a mean-zero Gaussian process with continuous trajectories.
@@ -4870,7 +4870,7 @@ Lemma~\ref{lem:bv_characterization}.
         \int_0^1 g_n\big(F_X^{-1}(s),x'\big) \diff{B_n(s)}
         - B_n(1) \int_0^1 g_n\big(F_X^{-1}(s),x'\big) \diff{s}
       \right)
-      \bigg] \\
+    \bigg] \\
     &=
     \E\left[
       \int_0^1 g_n\big(F_X^{-1}(s),x\big) \diff{B_n(s)}
@@ -4898,31 +4898,31 @@ Lemma~\ref{lem:bv_characterization}.
     \int_0^1 g_n\big(F_X^{-1}(s),x'\big) \diff{s} \\
     &=
     \E\Big[
-    g_n\big(F_X^{-1}(\xi_i), x\big)
-    g_n\big(F_X^{-1}(\xi_i), x'\big)
+      g_n\big(F_X^{-1}(\xi_i), x\big)
+      g_n\big(F_X^{-1}(\xi_i), x'\big)
     \Big]
     - \E\Big[
-    g_n\big(F_X^{-1}(\xi_i), x\big)
+      g_n\big(F_X^{-1}(\xi_i), x\big)
     \Big]
     \E\Big[
-    g_n\big(F_X^{-1}(\xi_i), x'\big)
+      g_n\big(F_X^{-1}(\xi_i), x'\big)
     \Big] \\
     &=
     \E\Big[
       g_n\big(X_i, x\big)
       g_n\big(X_i, x'\big)
-      \Big]
+    \Big]
     - \E\Big[
       g_n\big(X_i, x\big)
-      \Big]
+    \Big]
     \E\Big[
       g_n\big(X_i, x'\big)
-      \Big]
+    \Big]
     =
     \E\big[
       G_n(x)
       G_n(x')
-      \big]
+    \big]
   \end{align*}
   as desired, where we used the It\^o isometry for stochastic integrals,
   writing
@@ -4935,8 +4935,8 @@ Lemma~\ref{lem:bv_characterization}.
     &=
     \alpha_n \Big(g_n\big(F_X^{-1}(\cdot), x\big)\Big)
     = V_n \alpha_n \Big(
-    V_n^{-1} g_n\big(F_X^{-1}(\cdot), x\big)
-    - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
+      V_n^{-1} g_n\big(F_X^{-1}(\cdot), x\big)
+      - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
     \Big),
   \end{align*}
   and so by Equation~\ref{eq:kmt_concentration}
@@ -4982,8 +4982,8 @@ Lemma~\ref{lem:bv_characterization}.
     &=
     \frac{1}{\sqrt n}
     \Big(
-    g_n(X_i', x)
-    - \E[g_n(X_i', x)]
+      g_n(X_i', x)
+      - \E[g_n(X_i', x)]
     \Big),
   \end{align*}
   where $X_1', \ldots, X_n'$
@@ -4997,7 +4997,7 @@ Lemma~\ref{lem:bv_characterization}.
     h_i^\delta
     &=
     \big(
-    h_i(x): x \in \cX_n^\delta
+      h_i(x): x \in \cX_n^\delta
     \big).
   \end{align*}
   By an extension of
@@ -5034,11 +5034,11 @@ Lemma~\ref{lem:bv_characterization}.
     \beta
     = \sum_{i=1}^n
     \Big(
-    \E\big[\|h_i^\delta\|_2^2 \,
-      \|h_i^\delta\|_\infty
+      \E\big[\|h_i^\delta\|_2^2 \,
+        \|h_i^\delta\|_\infty
       \big]
-    + \E\big[\|z_i\|_2^2 \,
-      \|z_i\|_\infty
+      + \E\big[\|z_i\|_2^2 \,
+        \|z_i\|_\infty
       \big]
     \Big),
   \end{align*}
@@ -5052,16 +5052,16 @@ Lemma~\ref{lem:bv_characterization}.
   \begin{align*}
     \E\big[\|h_i^\delta\|_2^2 \,
       \|h_i^\delta\|_\infty \,
-      \big]
+    \big]
     \leq
     \frac{M_n}{\sqrt n}
     \E\big[\|h_i^\delta\|_2^2 \,
-      \big]
+    \big]
     =
     \frac{M_n}{\sqrt n}
     \sum_{x \in \cX_n^\delta}
     \E\big[h_i(x)^2 \,
-      \big]
+    \big]
     \leq
     \frac{M_n}{\sqrt n}
     \frac{|\cX_n^\delta| \sigma_n^2}{n}
@@ -5072,24 +5072,24 @@ Lemma~\ref{lem:bv_characterization}.
   \begin{align*}
     \E\big[
       \|z_i\|_2^4 \,
-      \big]
+    \big]
     &\leq
     |\cX_n^\delta| \,
     \E\big[
       \|z_i\|_4^4
-      \big]
+    \big]
     \leq
     |\cX_n^\delta|^2 \,
     \max_j
     \E\big[
-    (z_i^{(j)})^4
+      (z_i^{(j)})^4
     \big]
     \leq
     3
     |\cX_n^\delta|^2 \,
     \max_j
     \E\big[
-    (z_i^{(j)})^2
+      (z_i^{(j)})^2
     \big]^2 \\
     &=
     3
@@ -5097,7 +5097,7 @@ Lemma~\ref{lem:bv_characterization}.
     \max_{x \in \cX_n^\delta}
     \E\big[
       h_i(x)^2
-      \big]^2
+    \big]^2
     \leq
     \frac{3\sigma_n^4 \Leb(\cX_n)^2}{n^2\delta_n^2} .
   \end{align*}
@@ -5107,13 +5107,13 @@ Lemma~\ref{lem:bv_characterization}.
   \begin{align*}
     \E\big[
       \|z_i\|_\infty^2
-      \big]
+    \big]
     &\leq
     \frac{4 \sigma_n^2}{n}
     \log
     \E\big[
       e^{\|z_i\|_\infty^2 / (4\sigma_n^2/n)}
-      \big]
+    \big]
     \leq
     \frac{4 \sigma_n^2}{n}
     \log
@@ -5139,23 +5139,23 @@ Lemma~\ref{lem:bv_characterization}.
   \begin{align*}
     \E\big[\|z_i\|_2^2 \,
       \|z_i\|_\infty
-      \big]
+    \big]
     &\leq
     \sqrt{
       \E\big[\|z_i\|_2^4
-        \big]}
+    \big]}
     \sqrt{
       \E\big[
         \|z_i\|_\infty^2
-        \big]}
+    \big]}
     \leq
     \sqrt{
-      \frac{3\sigma_n^4 \Leb(\cX_n)^2}{n^2\delta_n^2}}
+    \frac{3\sigma_n^4 \Leb(\cX_n)^2}{n^2\delta_n^2}}
     \sqrt{ \frac{12 C_1 \sigma_n^2 \log n}{n} } \\
     &\leq
     \frac{6\sigma_n^3
       \Leb(\cX_n)
-      \sqrt{C_1 \log n}}{n^{3/2} \delta_n}.
+    \sqrt{C_1 \log n}}{n^{3/2} \delta_n}.
   \end{align*}
   %
   Now summing over the $n$ samples gives
@@ -5208,12 +5208,12 @@ Lemma~\ref{lem:bv_characterization}.
     \E\big[
       Z_n(x)
       Z_n(x')
-      \big]
+    \big]
     =
     \E\big[
       G_n(x)
       G_n(x')
-      \big],
+    \big],
   \end{align*}
   %
   satisfying for any $s' > 0$
@@ -5246,8 +5246,8 @@ Lemma~\ref{lem:bv_characterization}.
     \cG_n
     &=
     \big\{
-    g_n(\cdot, x):
-    x \in \cX_n
+      g_n(\cdot, x):
+      x \in \cX_n
     \big\}, \\
     \Env(\cG_n)
     &=
@@ -5255,10 +5255,10 @@ Lemma~\ref{lem:bv_characterization}.
     \cG_n^\delta
     &=
     \big\{
-    g_n(\cdot, x)
-    - g_n(\cdot, x'):
-    x, x' \in \cX_n,
-    |x-x'| \leq \delta_n
+      g_n(\cdot, x)
+      - g_n(\cdot, x'):
+      x, x' \in \cX_n,
+      |x-x'| \leq \delta_n
     \big\}, \\
     \Env(\cG_n^\delta)
     &=
@@ -5375,8 +5375,8 @@ Lemma~\ref{lem:bv_characterization}.
       \frac{1}{\sqrt{n}}
       \sum_{i=1}^n
       \Big(
-      g(X_i)
-      - \E[g(X_i)]
+        g(X_i)
+        - \E[g(X_i)]
       \Big)
       \right|
     \right]
@@ -5409,8 +5409,8 @@ Lemma~\ref{lem:bv_characterization}.
       \left|
       \sum_{i=1}^n
       \Big(
-      g_n(X_i, x) - \E[g_n(X_i, x)]
-      - g_n(X_i, x') + \E[g_n(X_i, x')]
+        g_n(X_i, x) - \E[g_n(X_i, x)]
+        - g_n(X_i, x') + \E[g_n(X_i, x')]
       \Big)
       \right|
       > t_n
@@ -5422,7 +5422,7 @@ Lemma~\ref{lem:bv_characterization}.
       \frac{1}{\sqrt{n}}
       \sum_{i=1}^n
       \Big(
-      g(X_i) - \E[g(X_i)]
+        g(X_i) - \E[g(X_i)]
       \Big)
       \right|
       > t_n
@@ -5435,7 +5435,7 @@ Lemma~\ref{lem:bv_characterization}.
       \frac{1}{\sqrt{n}}
       \sum_{i=1}^n
       \Big(
-      g(X_i) - \E[g(X_i)]
+        g(X_i) - \E[g(X_i)]
       \Big)
       \right|
     \right] \\
@@ -5477,14 +5477,14 @@ Lemma~\ref{lem:bv_characterization}.
       \big|
       Z_n(x) - Z_n(x')
       \big|
-      \bigg]
+    \bigg]
     \lesssim
     \E\bigg[
       \sup_{\rho(x,x') \leq l_{n,2} \delta_n}
       \big|
       Z_n(x) - Z_n(x')
       \big|
-      \bigg]
+    \bigg]
     \leq
     \int_0^{l_{n,2} \delta_n}
     \sqrt{\log N(\varepsilon, \cX_n, \rho)}
@@ -5599,12 +5599,12 @@ Lemma~\ref{lem:bv_characterization}.
       \Big(M_n + \sigma_n \sqrt{\log n}\Big)
     } \Bigg/
     \sqrt{
-    t_n^{-1}
-    l_{n,2}
-    \sqrt{\log n}
-    \left(
-      1 + \frac{l_{n,\infty} \sqrt{\log n}}{l_{n,2} \sqrt{n}}
-    \right)
+      t_n^{-1}
+      l_{n,2}
+      \sqrt{\log n}
+      \left(
+        1 + \frac{l_{n,\infty} \sqrt{\log n}}{l_{n,2} \sqrt{n}}
+      \right)
     }
   \end{align*}
   %
@@ -5634,10 +5634,10 @@ Lemma~\ref{lem:bv_characterization}.
     \left( 1 + \frac{l_{n,\infty} \sqrt{\log n}}{l_{n,2} \sqrt n} \right) \\
     &\quad\lesssim
     \frac{\sigma_n \sqrt{\Leb(\cX_n)} \sqrt{\log n}
-      \sqrt{M_n + \sigma_n \sqrt{\log n}}}
+    \sqrt{M_n + \sigma_n \sqrt{\log n}}}
     {n^{1/4} t_n^2}
     \sqrt{l_{n,2} \sqrt {\log n}
-      + \frac{l_{n,\infty}}{\sqrt n} \log n}
+    + \frac{l_{n,\infty}}{\sqrt n} \log n}
   \end{align*}
   %
   up to constants depending only on $C_1$.
@@ -5709,11 +5709,11 @@ We begin with a basic fact about Lipschitz functions.
     C \Leb(\cX) + \frac{1}{\Leb(\cX)}.
   \end{align*}
   Now let $g: \cX \to [0,\infty)$ satisfy
-    $|g(x) - g(x')| \leq C |x-x'|$ for some $C > 0$
-    and all $x, x' \in \cX$.
-    Suppose also that $g$ is a sub-kernel in the sense that
-    $\int_\cX g(x) \diff{x} \leq 1$.
-    Then for any $M \in \big(0, \Leb(\cX)\big]$,
+  $|g(x) - g(x')| \leq C |x-x'|$ for some $C > 0$
+  and all $x, x' \in \cX$.
+  Suppose also that $g$ is a sub-kernel in the sense that
+  $\int_\cX g(x) \diff{x} \leq 1$.
+  Then for any $M \in \big(0, \Leb(\cX)\big]$,
   we have
   \begin{align*}
     \sup_{x \in \cX} f(x)
@@ -5829,8 +5829,8 @@ We begin with a basic fact about Lipschitz functions.
     \int_{\cW}
     k_h(s,w)
     \big(
-    P_p(s,w)
-    - P_{p-1}(s,w)
+      P_p(s,w)
+      - P_{p-1}(s,w)
     \big)
     \diff{s}
     &=
@@ -5888,8 +5888,8 @@ We begin with a basic fact about Lipschitz functions.
     \int_{\cW}
     k_h(s,w)
     \big(
-    f_W(s) - P_{p}(s,w)
-    + P_{p}(s,w) - P_{p-1}(s,w)
+      f_W(s) - P_{p}(s,w)
+      + P_{p}(s,w) - P_{p-1}(s,w)
     \big)
     \diff{s}
     - h^p B_p(w)
@@ -5900,7 +5900,7 @@ We begin with a basic fact about Lipschitz functions.
     \int_{\cW}
     k_h(s,w)
     \big(
-    f_W(s) - P_{p}(s,w)
+      f_W(s) - P_{p}(s,w)
     \big)
     \diff{s}
     \right|
@@ -5952,8 +5952,8 @@ We begin with a basic fact about Lipschitz functions.
     \int_{\cW}
     k_h(s,w)
     \big(
-    f_W(s) - P_{\flbeta}(s,w)
-    + P_{\flbeta}(s,w) - P_{\flbeta - 1}(s,w)
+      f_W(s) - P_{\flbeta}(s,w)
+      + P_{\flbeta}(s,w) - P_{\flbeta - 1}(s,w)
     \big)
     \diff{s}
     - h^{\flbeta} B_{\flbeta}(w)
@@ -5964,7 +5964,7 @@ We begin with a basic fact about Lipschitz functions.
     \int_{\cW}
     k_h(s,w)
     \big(
-    f_W(s) - P_{\flbeta}(s,w)
+      f_W(s) - P_{\flbeta}(s,w)
     \big)
     \diff{s}
     \right|
@@ -6006,7 +6006,7 @@ We begin with a basic fact about Lipschitz functions.
     \int_{[w \pm h] \cap \cW}
     k_h(s,w)
     \big(
-    f_W(s) - P_{\flbeta}(s,w)
+      f_W(s) - P_{\flbeta}(s,w)
     \big)
     \diff{s}
     \right|
@@ -6032,16 +6032,16 @@ We begin with a basic fact about Lipschitz functions.
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^{n}
     \Big(
-    \E[k_h(W_{i j},w) \mid A_i, A_j]
-    - \E[k_h(W_{i j},w)]
+      \E[k_h(W_{i j},w) \mid A_i, A_j]
+      - \E[k_h(W_{i j},w)]
     \Big) \\
     &=
     \frac{1}{n(n-1)}
     \sum_{i=1}^{n-1}
     \sum_{j \neq i}
     \Big(
-    \E[k_h(W_{i j},w) \mid A_i, A_j]
-    - \E[k_h(W_{i j},w)]
+      \E[k_h(W_{i j},w) \mid A_i, A_j]
+      - \E[k_h(W_{i j},w)]
     \Big)
   \end{align*}
   and apply Lemma~\ref{lem:general_hoeffding}
@@ -6075,7 +6075,7 @@ We begin with a basic fact about Lipschitz functions.
     \sum_{i=1}^n
     \sum_{j \neq i}
     \big(
-    u_{i j} - u_i - u_j + u
+      u_{i j} - u_i - u_j + u
     \big) \\
     &=
     \frac{2}{n}
@@ -6104,34 +6104,34 @@ We begin with a basic fact about Lipschitz functions.
     \E\big[
       l_i(w)
       q_{rs}(w')
-      \big]
+    \big]
     &=
     \E\big[
       l_i(w)
       \E\big[
         q_{rs}(w') \mid A_i
-        \big]
       \big]
+    \big]
     = 0, \\
     \E\big[
       l_i(w)
       e_{rs}(w')
-      \big]
+    \big]
     &=
     \begin{cases}
       \E\big[
         l_i(w)
-        \big]
+      \big]
       \E\big[
         e_{rs}(w')
-        \big],
+      \big],
       \text{ if } i \notin \{r,s\} \\
       \E\big[
         l_i(w)
         \E\big[
           e_{rs}(w') \mid A_r, A_s
-          \big]
-        \big],
+        \big]
+      \big],
       \text{ if } i \in \{r,s\}
     \end{cases} \\
     &=
@@ -6139,40 +6139,40 @@ We begin with a basic fact about Lipschitz functions.
     \E\big[
       q_{i j}(w)
       e_{rs}(w')
-      \big]
+    \big]
     &=
     \begin{cases}
       \E\big[
         q_{i j}(w)
-        \big]
+      \big]
       \E\big[
         e_{rs}(w')
-        \big],
+      \big],
       \text{ if } \{i,j\} \cap \{r,s\} = \emptyset \\
       \E\big[
         \E\big[
           q_{i j}(w) \mid A_i
-          \big]
+        \big]
         \E\big[
           e_{rs}(w') \mid A_i
-          \big]
-        \big],
+        \big]
+      \big],
       \text{ if } \{i,j\} \cap \{r,s\} = \{i\}     \\
       \E\big[
         \E\big[
           q_{i j}(w) \mid A_j
-          \big]
+        \big]
         \E\big[
           e_{rs}(w') \mid A_j
-          \big]
-        \big],
+        \big]
+      \big],
       \text{ if } \{i,j\} \cap \{r,s\} = \{j\}     \\
       \E\big[
         q_{i j}(w)
         \E\big[
           e_{rs}(w') \mid A_r, A_s
-          \big]
-        \big],
+        \big]
+      \big],
       \text{ if } \{i,j\} = \{r,s\}
     \end{cases} \\
     &=
@@ -6275,7 +6275,7 @@ We begin with a basic fact about Lipschitz functions.
     \left|
     \Var\big[
       \E[k_h(W_{i j},w) \mid A_i]
-      \big]
+    \big]
     - \Var\left[
       f_{W \mid A}(w \mid A_i)
     \right]
@@ -6352,23 +6352,23 @@ We begin with a basic fact about Lipschitz functions.
     \cF_1
     &=
     \Big\{
-    W_{i j} \mapsto
-    k_h(W_{i j},w)
-    : w \in \cW
+      W_{i j} \mapsto
+      k_h(W_{i j},w)
+      : w \in \cW
     \Big\}, \\
     \cF_2
     &=
     \Big\{
-    (A_i, A_j) \mapsto
-    \E\big[ k_h(W_{i j},w) \mid A_i, A_j \big]
-    : w \in \cW
+      (A_i, A_j) \mapsto
+      \E\big[ k_h(W_{i j},w) \mid A_i, A_j \big]
+      : w \in \cW
     \Big\}, \\
     \cF_3
     &=
     \Big\{
-    A_i \mapsto
-    \E\big[ k_h(W_{i j},w) \mid A_i \big]
-    : w \in \cW
+      A_i \mapsto
+      \E\big[ k_h(W_{i j},w) \mid A_i \big]
+      : w \in \cW
     \Big\}.
   \end{align*}
   For $\cF_1$,
@@ -6391,10 +6391,10 @@ We begin with a basic fact about Lipschitz functions.
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
-      \frac{C_\mathrm{L}}{h^2} \varepsilon \right)
+    \frac{C_\mathrm{L}}{h^2} \varepsilon \right)
     &\leq
     N\left(\cF_1, \|\cdot\|_\infty,
-      \frac{C_\mathrm{L}}{h^2} \varepsilon \right)
+    \frac{C_\mathrm{L}}{h^2} \varepsilon \right)
     \leq
     \frac{\Leb(\cW)}{\varepsilon},
   \end{align*}
@@ -6406,7 +6406,7 @@ We begin with a basic fact about Lipschitz functions.
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
-      \frac{\Ck}{h} \varepsilon \right)
+    \frac{\Ck}{h} \varepsilon \right)
     &\leq
     \frac{\CL}{\Ck}
     \frac{\Leb(\cW)}{h \varepsilon}.
@@ -6415,7 +6415,7 @@ We begin with a basic fact about Lipschitz functions.
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
-      \frac{\Ck}{h} \varepsilon \right)
+    \frac{\Ck}{h} \varepsilon \right)
     &\leq
     \frac{\CL}{\Ck}
     \frac{\Leb(\cW) \vee 1}{h \varepsilon}
@@ -6451,8 +6451,8 @@ We begin with a basic fact about Lipschitz functions.
     \left|
     \int_{[w \pm 2h] \cap \cW}
     \big(
-    k_h(s,w)
-    - k_h(s,w')
+      k_h(s,w)
+      - k_h(s,w')
     \big)
     f_{W \mid AA}(s \mid A_i, A_j)
     \diff{s}
@@ -6461,12 +6461,12 @@ We begin with a basic fact about Lipschitz functions.
     \left|
     \int_{[w \pm 2h] \cap \cW}
     \big(
-    k_h(s,w)
-    - k_h(s,w')
+      k_h(s,w)
+      - k_h(s,w')
     \big)
     \big(
-    f_{W \mid AA}(s \mid A_i, A_j)
-    - f_{W \mid AA}(w \mid A_i, A_j)
+      f_{W \mid AA}(s \mid A_i, A_j)
+      - f_{W \mid AA}(w \mid A_i, A_j)
     \big)
     \diff{s}
     \right| \\
@@ -6552,7 +6552,7 @@ We begin with a basic fact about Lipschitz functions.
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
-      \varepsilon \Ck / h \right)
+    \varepsilon \Ck / h \right)
     &\leq
     (C_1/(h\varepsilon))^{C_2},
     &\sup_\Q
@@ -6642,17 +6642,17 @@ We begin with a basic fact about Lipschitz functions.
     \sup_{w \in \cW}
     \E\Big[
       \big(
-      k_h(W_{i j},w)
-      - \E[k_h(W_{i j},w) \mid A_i, A_j]
+        k_h(W_{i j},w)
+        - \E[k_h(W_{i j},w) \mid A_i, A_j]
       \big)^2
       \mid A_i, A_j
-      \Big]
+    \Big]
     \leq
     \sup_{w \in \cW}
     \E\Big[
       k_h(W_{i j},w)^2
       \mid A_i, A_j
-      \Big] \\
+    \Big] \\
     &\leq
     \sup_{w \in \cW}
     \int_{[w \pm h] \cap \cW}
@@ -6753,10 +6753,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   give
   \begin{align*}
     \P_{\theta_0}^n \big(
-    f=1
+      f=1
     \big)
     +\P_{\theta_{1,n}}^n \big(
-    f=0
+      f=0
     \big)
     &\geq
     1-
@@ -6772,7 +6772,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
         \P_{\theta_0}^n
         \bigm\|
         \P_{\theta_{1,n}}^n
-      \right)} \\
+    \right)} \\
     &=
     1-
     \sqrt{
@@ -6787,7 +6787,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
         V
         \bigm\|
         V
-      \right)} \\
+    \right)} \\
     &=
     1-
     \sqrt{
@@ -6796,7 +6796,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
         \Ber(\theta_0)
         \bigm\|
         \Ber(\theta_{1,n})
-      \right)},
+    \right)},
   \end{align*}
   where $\TV$ is the total variation distance
   and $\KL$ is the Kullback--Leibler divergence.
@@ -6808,10 +6808,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   parameter values.
   \begin{align*}
     \P_{\theta_0}^n \big(
-    f=1
+      f=1
     \big)
     +\P_{\theta_{1,n}}^n \big(
-    f=0
+      f=0
     \big)
     &\geq
     1-
@@ -6821,19 +6821,19 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
         \Ber(\theta_0)
         \bigm\|
         \Ber(\theta_{1,n})
-      \right)} \\
+    \right)} \\
     &=
     1-
     \sqrt{\frac{n}{2}}
     \sqrt{
       \theta_0 \log \frac{\theta_0}{\theta_{1,n}}
-      + (1 - \theta_0) \log \frac{1 - \theta_0}{1 - \theta_{1,n}}} \\
+    + (1 - \theta_0) \log \frac{1 - \theta_0}{1 - \theta_{1,n}}} \\
     &=
     1-
     \sqrt{\frac{n}{2}}
     \sqrt{
       \frac{1}{2} \log \frac{1/2}{1/2 + 1/\sqrt{8n}}
-      + \frac{1}{2} \log \frac{1/2}{1/2 - 1/\sqrt{8n}}} \\
+    + \frac{1}{2} \log \frac{1/2}{1/2 - 1/\sqrt{8n}}} \\
     &=
     1-
     \frac{\sqrt n}{2}
@@ -6868,20 +6868,20 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   we have the event inclusions
   \begin{align*}
     \left\{
-    \tilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}
+      \tilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}
     \right\}
     &\subseteq
     \left\{
-    \left| \tilde \theta_n - \theta_0 \right|
-    \geq \frac{1}{\sqrt{32n}}
+      \left| \tilde \theta_n - \theta_0 \right|
+      \geq \frac{1}{\sqrt{32n}}
     \right\} \\
     \left\{
-    \tilde \theta_n \leq \frac{1}{2} + \frac{1}{\sqrt{32n}}
+      \tilde \theta_n \leq \frac{1}{2} + \frac{1}{\sqrt{32n}}
     \right\}
     &\subseteq
     \left\{
-    \left| \tilde \theta_n - \theta_{1,n} \right|
-    \geq \frac{1}{\sqrt{32n}}
+      \left| \tilde \theta_n - \theta_{1,n} \right|
+      \geq \frac{1}{\sqrt{32n}}
     \right\}.
   \end{align*}
   Thus by the monotonicity of measures,
@@ -7083,8 +7083,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \cF
     &=
     \left\{
-    f \text{ density function on } \R, \
-    f \in \cH^\beta_{\CH}(\cW)
+      f \text{ density function on } \R, \
+      f \in \cH^\beta_{\CH}(\cW)
     \right\}.
   \end{align*}
   Write $\E_f$ for the expectation under $W_{i j}$ having density $f$.
@@ -7227,28 +7227,28 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &=
     \E\Big[
       \big(
-      \hat f_W(w)
-      - \E[\hat f_W(w)]
+        \hat f_W(w)
+        - \E[\hat f_W(w)]
       \big)
       \big(
-      \hat f_W(w')
-      - \E[\hat f_W(w')]
+        \hat f_W(w')
+        - \E[\hat f_W(w')]
       \big)
-      \Big] \\
+    \Big] \\
     &=
     \E\left[
       \left(
         \frac{2}{n(n-1)}
         \sum_{i<j}
         \big(
-        k_{i j} - \E k_{i j}
+          k_{i j} - \E k_{i j}
         \big)
       \right)
       \left(
         \frac{2}{n(n-1)}
         \sum_{r<s}
         \big(
-        k_{rs}' - \E k_{rs}'
+          k_{rs}' - \E k_{rs}'
         \big)
       \right)
     \right] \\
@@ -7258,10 +7258,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sum_{r<s}
     \E\left[
       \big(
-      k_{i j} - \E k_{i j}
+        k_{i j} - \E k_{i j}
       \big)
       \big(
-      k_{rs}' - \E k_{rs}'
+        k_{rs}' - \E k_{rs}'
       \big)
     \right]
     =
@@ -7297,10 +7297,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &=
     \frac{4}{n^2(n-1)^2}
     \bigg(
-    \frac{n(n-1)}{2}
-    \Cov[k_{i j}, k_{i j}']
-    + n(n-1)(n-2)
-    \Cov[k_{i j}, k_{i r}']
+      \frac{n(n-1)}{2}
+      \Cov[k_{i j}, k_{i j}']
+      + n(n-1)(n-2)
+      \Cov[k_{i j}, k_{i r}']
     \bigg) \\
     &=
     \frac{2}{n(n-1)}
@@ -7318,12 +7318,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \Cov\big[
       k_{i j}
       k_{i r}'
-      \big]
+    \big]
     &=
     \E\big[
       k_{i j}
       k_{i r}'
-      \big]
+    \big]
     -
     \E[k_{i j}]
     \E[k_{i r}']
@@ -7333,8 +7333,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
         k_{i j}
         k_{i r}'
         \mid A_i
-        \big]
       \big]
+    \big]
     -
     \E[k_{i j}]
     \E[k_{i r}'] \\
@@ -7342,7 +7342,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \E\big[
       \E[k_{i j} \mid A_i]
       \E[k_{i r}' \mid A_i]
-      \big]
+    \big]
     -
     \E[k_{i j}]
     \E[k_{i r}']
@@ -7350,7 +7350,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \Cov\big[
       \E[k_{i j} \mid A_i],
       \E[k_{i r}' \mid A_i]
-      \big].
+    \big].
   \end{align*}
 \end{proof}
 
@@ -7364,23 +7364,23 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{2}{n(n-1)}
     \Var\big[
       k_h(W_{i j},w)
-      \big]
+    \big]
     +
     \frac{4(n-2)}{n(n-1)}
     \Var\big[
       \E[k_h(W_{i j},w) \mid A_i]
-      \big].
+    \big].
   \end{align*}
   We bound each of the two terms separately.
   Firstly, note that since $k_h$ is bounded by $\Ck/h$,
   \begin{align*}
     \Var\big[
       k_h(W_{i j},w)
-      \big]
+    \big]
     \leq
     \E\big[
       k_h(W_{i j},w)^2
-      \big]
+    \big]
     =
     \int_{\cW \cap [w \pm h]}
     k_h(s,w)^2
@@ -7396,7 +7396,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \Var\big[
       k_h(W_{i j},w)
-      \big]
+    \big]
     &\geq
     \int_{\cW \cap [w \pm h]}
     k_h(s,w)^2
@@ -7426,11 +7426,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \Var\big[
       \E[k_h(W_{i j},w) \mid A_i]
-      \big]
+    \big]
     &\leq
     \Var\big[
       f_{W \mid A}(w \mid A_i)
-      \big]
+    \big]
     + 16 \CH \Ck \Cd h
     \leq
     2 \Du^2
@@ -7441,11 +7441,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \Var\big[
       \E[k_h(W_{i j},w) \mid A_i]
-      \big]
+    \big]
     &\geq
     \Var\big[
       f_{W \mid A}(w \mid A_i)
-      \big]
+    \big]
     - 16 \CH \Ck \Cd h
     \geq
     \frac{\Dl^2}{2}
@@ -7513,8 +7513,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \int_{[w \pm h] \cap \cW}
     k_h(s,w)
     \big(
-    f_{W \mid A}(s \mid  a_i)
-    - f_{W \mid A}(s \mid  a_{i-1})
+      f_{W \mid A}(s \mid  a_i)
+      - f_{W \mid A}(s \mid  a_{i-1})
     \big)
     \diff{s}
     \right| \\
@@ -7640,10 +7640,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \frac{1}{n}
       \sum_{i=1}^n
       \Big(
-      k_h^A(A_i,w)
-      - k_h^A(A_i,w')
-      - \E\big[k_h^A(A_i,w)]
-      + \E\big[k_h^A(A_i,w')]
+        k_h^A(A_i,w)
+        - k_h^A(A_i,w')
+        - \E\big[k_h^A(A_i,w)]
+        + \E\big[k_h^A(A_i,w')]
       \Big)
       \right|^2
     \right]^{1/2} \\
@@ -7754,7 +7754,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       k_h(W_{i j}, w) - k_h(W_{i j}, w')
       \big|^2
       \mid \bA_n
-      \big]^{1/2} \\
+    \big]^{1/2} \\
     &\quad\leq
     \frac{\CL}{h^2}
     |w-w'|
@@ -7784,8 +7784,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^{n}
     \Big(
-    k_h(W_{i j},w)
-    - \E[k_h(W_{i j},w)  \mid  A_i, A_j]
+      k_h(W_{i j},w)
+      - \E[k_h(W_{i j},w)  \mid  A_i, A_j]
     \Big),
   \end{align*}
   to deduce that for $t_n > 0$ there exist
@@ -7827,7 +7827,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       l_{n,2}
       \sqrt{\log n}
       + \frac{l_{n,\infty}}{n}
-      \log n} \\
+    \log n} \\
     &\quad\lesssim
     \frac{
       h^{-1/2}
@@ -7838,7 +7838,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       h^{-3/2}
       \sqrt{\log n}
       + \frac{h^{-2}}{n}
-      \log n} \\
+    \log n} \\
     &\quad\lesssim
     \sqrt{\frac{\log n}{n}}
     \frac{
@@ -7894,8 +7894,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \sum_{i=1}^{n-1}
       \sum_{j=i+1}^{n}
       \Big(
-      k_h(W_{i j},w)
-      - k_h(W_{i j},w')
+        k_h(W_{i j},w)
+        - k_h(W_{i j},w')
       \Big)
       \right|^2
       \Bigm\vert \bA_n
@@ -8030,8 +8030,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   is a length-$|\cW_\delta|$
   Gaussian random vector with covariance matrix
   $\big(
-  \big(\tilde \Sigma^E_{n,\delta}\big)^{1/2}
-  - \big(\Sigma^E_{n,\delta}\big)^{1/2}
+    \big(\tilde \Sigma^E_{n,\delta}\big)^{1/2}
+    - \big(\Sigma^E_{n,\delta}\big)^{1/2}
   \big)^2$.
   So by the Gaussian maximal inequality in
   Lemma~\ref{lem:gaussian_vector_maximal}
@@ -8077,18 +8077,18 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sum_{j=i+1}^{n} \\
     &\qquad\E\left[
       \Big(
-      k_h(W_{i j}, \cW_\delta)
-      - \E\left[
         k_h(W_{i j}, \cW_\delta)
-        \mid \bA_n
-      \right]
+        - \E\left[
+          k_h(W_{i j}, \cW_\delta)
+          \mid \bA_n
+        \right]
       \Big)
       \Big(
-      k_h(W_{i j}, \cW_\delta)
-      - \E\left[
         k_h(W_{i j}, \cW_\delta)
-        \mid \bA_n
-      \right]
+        - \E\left[
+          k_h(W_{i j}, \cW_\delta)
+          \mid \bA_n
+        \right]
       \Big)^\T
       \bigm\vert \bA_n
     \right] \\
@@ -8137,7 +8137,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{4h}{n-1}
     \sum_{i=1}^n
     \big(
-    u(A_i) - u
+      u(A_i) - u
     \big), \\
     \tilde Q
     &=
@@ -8145,7 +8145,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^{n}
     \big(
-    u(A_i, A_j) - u(A_i) - u(A_j) + u
+      u(A_i, A_j) - u(A_i) - u(A_j) + u
     \big).
   \end{align*}
   Next, we seek an almost sure upper bound on
@@ -8229,9 +8229,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \max_{1 \leq k \leq |\cW_\delta|}
     \sum_{l=1}^{|\cW_\delta|}
     \Big(
-    h^{-1}
-    \I\big\{ |k-l| \leq 2h/\delta_n \big\}
-    + 1
+      h^{-1}
+      \I\big\{ |k-l| \leq 2h/\delta_n \big\}
+      + 1
     \Big) \\
     &\lesssim
     1/\delta_n
@@ -8431,8 +8431,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
       + \sup_{|w-w'| \leq \delta_n}
       \left\{
-      \big|\tilde Z_n^{E\dprime}(w) - \tilde Z_n^{E\dprime}(w')\big|
-      + \big|Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w')\big|
+        \big|\tilde Z_n^{E\dprime}(w) - \tilde Z_n^{E\dprime}(w')\big|
+        + \big|Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w')\big|
       \right\}
     \right] \\
     &\quad\lesssim
@@ -8535,12 +8535,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \E\big[
       Z_n^Q(w)
       Z_n^Q(w')
-      \big]
+    \big]
     &=
     n^2 \E\big[
       Q_n(w)
       Q_n(w')
-      \big].
+    \big].
   \end{align*}
   As shown in the proof of
   Lemma~\ref{lem:uniform_concentration},
@@ -8550,7 +8550,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Thus by Lemma~\ref{lem:gaussian_process_maximal},
   we have
   $\E\big[\sup_{w \in \cW}
-    |Z_n^Q(w)|\big]
+  |Z_n^Q(w)|\big]
   \lesssim 1$.
   Therefore the uniform approximation error is given by
   \begin{align*}
@@ -8568,28 +8568,28 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     + \frac{1}{n} Z_n^Q(w)
     + \frac{1}{\sqrt{n^2h}} Z_n^E(w)
     - \Big(
-    L_n(w) + Q_n(w) + E_n(w)
+      L_n(w) + Q_n(w) + E_n(w)
     \Big)
     \right| \\
     &\quad\leq
     \sup_{w \in \cW}
     \bigg(
-    \frac{1}{\sqrt n}
-    \left|
-    Z_n^L(w) - \sqrt{n} L_n(w)
-    \right|
-    + \frac{1}{\sqrt{n^2h}}
-    \left|
-    \tilde Z_n^E(w) - \sqrt{n^2h} E_n(w)
-    \right|
-    + \frac{1}{\sqrt{n^2h}}
-    \left|
-    Z_n^E(w) - \tilde Z_n^E(w)
-    \right| \\
-    &\qquad+
-    \big| Q_n(w) \big|
-    + \frac{1}{n}
-    \big| Z_n^Q(w) \big|
+      \frac{1}{\sqrt n}
+      \left|
+      Z_n^L(w) - \sqrt{n} L_n(w)
+      \right|
+      + \frac{1}{\sqrt{n^2h}}
+      \left|
+      \tilde Z_n^E(w) - \sqrt{n^2h} E_n(w)
+      \right|
+      + \frac{1}{\sqrt{n^2h}}
+      \left|
+      Z_n^E(w) - \tilde Z_n^E(w)
+      \right| \\
+      &\qquad+
+      \big| Q_n(w) \big|
+      + \frac{1}{n}
+      \big| Z_n^Q(w) \big|
     \bigg) \\
     &\quad\lesssim_\P
     n^{-1} \log n
@@ -8618,7 +8618,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \E\big[
       \big(\hat f_W(w) - \E[\hat f_W(w)]\big)
       \big(\hat f_W(w') - \E[\hat f_W(w')]\big)
-      \big].
+    \big].
   \end{align*}
 
   \proofparagraph{trajectory regularity}
@@ -8699,7 +8699,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \Cov\big[
       Z_n^T(w),
       Z_n^T(w')
-      \big]
+    \big]
     &=
     \frac{\Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}}.
@@ -8728,13 +8728,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \Cov\big[
       k_{i j},
       k_{i j}'
-      \big]
+    \big]
     +
     \frac{4(n-2)}{n(n-1)}
     \Cov\big[
       k_{i j},
       k_{i r}'
-      \big]
+    \big]
     \right. \\
     &\left.
     \qquad-
@@ -8742,13 +8742,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \Cov\big[
       k_{i j},
       k_{i j}''
-      \big]
+    \big]
     -
     \frac{4(n-2)}{n(n-1)}
     \Cov\big[
       k_{i j},
       k_{i r}''
-      \big]
+    \big]
     \right| \\
     &\quad\leq
     \frac{2}{n(n-1)}
@@ -8756,7 +8756,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \Cov\big[
       k_{i j},
       k_{i j}' - k_{i j}''
-      \big]
+    \big]
     \Big|
     +
     \frac{4(n-2)}{n(n-1)}
@@ -8764,7 +8764,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \Cov\big[
       k_{i j},
       k_{i r}' - k_{i r}''
-      \big]
+    \big]
     \Big| \\
     &\quad\leq
     \frac{2}{n(n-1)}
@@ -8821,7 +8821,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \E\left[
       \big(
-      Z_n^T(w) - Z_n^T(w')
+        Z_n^T(w) - Z_n^T(w')
       \big)^2
     \right]
     &=
@@ -8855,7 +8855,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \E\left[
       \big(
-      Z_n^T(w) - Z_n^T(w')
+        Z_n^T(w) - Z_n^T(w')
       \big)^2
     \right]
     &\lesssim
@@ -8874,7 +8874,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &\vcentcolon=
     \E\left[
       \big(
-      Z_n^T(w) - Z_n^T(w')
+        Z_n^T(w) - Z_n^T(w')
       \big)^2
     \right]^{1/2}
     \lesssim
@@ -8889,21 +8889,21 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     N(\varepsilon, \cW, \rho)
     &\lesssim
     N\big(
-    \varepsilon,
-    \cW,
-    n h^{-1} \sqrt{|\cdot|}
+      \varepsilon,
+      \cW,
+      n h^{-1} \sqrt{|\cdot|}
     \big)
     \lesssim
     N\big(
-    n^{-1} h \varepsilon,
-    \cW,
-    \sqrt{|\cdot|}
+      n^{-1} h \varepsilon,
+      \cW,
+      \sqrt{|\cdot|}
     \big)
     \lesssim
     N\big(
-    n^{-2} h^2 \varepsilon^2,
-    \cW,
-    |\cdot|
+      n^{-2} h^2 \varepsilon^2,
+      \cW,
+      |\cdot|
     \big)
     \lesssim
     n^2 h^{-2} \varepsilon^{-2}.
@@ -9035,7 +9035,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       n^{-1/2} \log n
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
-      + n^{1/2} h^{p \wedge \beta}}
+    + n^{1/2} h^{p \wedge \beta}}
     {\Dl + 1/\sqrt{n h}} \\
     &\ll
     \frac{1}{\sqrt{\log n}}.
@@ -9218,16 +9218,16 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Then $S_n$ satisfies the concentration inequality
   \begin{align*}
     \P\big(
-    |S_n| \geq t
+      |S_n| \geq t
     \big)
     &\leq
     C \exp\left(
       -\frac{1}{C}
       \min \left\{
-      \frac{t^2}{n^3 \sigma^4},
-      \frac{t}{\sqrt{n^3 \sigma^4}},
-      \frac{t^{2/3}}{(n M \sigma)^{2/3}},
-      \frac{t^{1/2}}{M}
+        \frac{t^2}{n^3 \sigma^4},
+        \frac{t}{\sqrt{n^3 \sigma^4}},
+        \frac{t^{2/3}}{(n M \sigma)^{2/3}},
+        \frac{t^{1/2}}{M}
       \right\}
     \right)
   \end{align*}
@@ -9280,7 +9280,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   constant $C_1 > 0$ satisfying
   \begin{align*}
     \P\big(
-    |S_n| \geq t
+      |S_n| \geq t
     \big)
     &\leq
     C_1 \P\left(
@@ -9322,47 +9322,47 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \max
     \left\{
-    \left\|
-    \sum_{1 \leq i < j \leq n}
-    \E\Big[
-    h_{i j q r}(X_{i j}, X'_{qr})^2
-    \mid X_{i j}
-    \Big]
-    \right\|_\infty, \
-    \left\|
-    \sum_{1 \leq q < r \leq n}
-    \E\Big[
-    h_{i j q r}(X_{i j}, X'_{qr})^2
-    \mid X'_{qr}
-    \Big]
-    \right\|_\infty
+      \left\|
+      \sum_{1 \leq i < j \leq n}
+      \E\Big[
+        h_{i j q r}(X_{i j}, X'_{qr})^2
+        \mid X_{i j}
+      \Big]
+      \right\|_\infty, \
+      \left\|
+      \sum_{1 \leq q < r \leq n}
+      \E\Big[
+        h_{i j q r}(X_{i j}, X'_{qr})^2
+        \mid X'_{qr}
+      \Big]
+      \right\|_\infty
     \right\}^{1/2} \\
     &=
     \max
     \Bigg\{
-    \left\|
-    \sum_{1 \leq i < j \leq n}
-    h_1(X_{i j})^2
-    \E\big[
-      h_2(X_{qr}')^2
-      \big]
-    \I\{j<r, q=i\}
-    \right\|_\infty, \\
-    &\qquad\qquad\quad
-    \left\|
-    \sum_{1 \leq q < r \leq n}
-    \E\big[
+      \left\|
+      \sum_{1 \leq i < j \leq n}
       h_1(X_{i j})^2
+      \E\big[
+        h_2(X_{qr}')^2
       \big]
-    h_2(X_{qr}')^2
-    \I\{j<r, q=i\}
-    \right\|_\infty
+      \I\{j<r, q=i\}
+      \right\|_\infty, \\
+      &\qquad\qquad\quad
+      \left\|
+      \sum_{1 \leq q < r \leq n}
+      \E\big[
+        h_1(X_{i j})^2
+      \big]
+      h_2(X_{qr}')^2
+      \I\{j<r, q=i\}
+      \right\|_\infty
     \Bigg\}^{1/2} \\
     &\leq
     \max
     \left\{
-    n^2 M^2 \sigma^2,
-    n M^2 \sigma^2
+      n^2 M^2 \sigma^2,
+      n M^2 \sigma^2
     \right\}^{1/2}
     =
     n M \sigma, \\
@@ -9372,7 +9372,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \sum_{1 \leq i < j \leq n}
       \sum_{1 \leq q < r \leq n}
       \E\big[
-      h_{i j q r}(X_{i j}, X'_{qr})^2
+        h_{i j q r}(X_{i j}, X'_{qr})^2
       \big]
     \right)^{1/2} \\
     &=
@@ -9381,102 +9381,102 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \E\big[
         h_1(X_{i j})^2
         h_2(X_{i r}')^2
-        \big]
+      \big]
     \right)^{1/2}
     \leq
     \sqrt{n^3 \sigma^4}, \\
     D
     &=
     \sup_{f,g} \Bigg\{
-    \sum_{1 \leq i < j \leq n}
-    \sum_{1 \leq q < r \leq n}
-    \E\big[
-    h_{i j q r}(X_{i j}, X'_{qr})
-    f_{i j}(X_{i j})
-    g_{qr}(X'_{qr})
-    \big]
-    \ : \\
-    &\qquad\qquad\quad
-    \sum_{1 \leq i < j \leq n}
-    \E\big[f_{i j}(X_{i j})^2\big]
-    \leq 1, \
-    \sum_{1 \leq q < r \leq n}
-    \E\big[g_{qr}(X'_{qr})^2\big]
-    \leq 1
+      \sum_{1 \leq i < j \leq n}
+      \sum_{1 \leq q < r \leq n}
+      \E\big[
+        h_{i j q r}(X_{i j}, X'_{qr})
+        f_{i j}(X_{i j})
+        g_{qr}(X'_{qr})
+      \big]
+      \ : \\
+      &\qquad\qquad\quad
+      \sum_{1 \leq i < j \leq n}
+      \E\big[f_{i j}(X_{i j})^2\big]
+      \leq 1, \
+      \sum_{1 \leq q < r \leq n}
+      \E\big[g_{qr}(X'_{qr})^2\big]
+      \leq 1
     \Bigg\} \\
     &=
     \sup_{f,g} \Bigg\{
-    \sum_{1 \leq i < j < r \leq n}
-    \E\big[
-      h_1(X_{i j})
-      f_{i j}(X_{i j})
+      \sum_{1 \leq i < j < r \leq n}
+      \E\big[
+        h_1(X_{i j})
+        f_{i j}(X_{i j})
       \big]
-    \E\big[
-    h_2(X'_{i r})
-    g_{i r}(X'_{i r})
-    \big]
-    \ : \\
-    &\qquad\qquad\quad
-    \sum_{1 \leq i < j \leq n}
-    \E\big[f_{i j}(X_{i j})^2\big]
-    \leq 1, \
-    \sum_{1 \leq q < r \leq n}
-    \E\big[g_{qr}(X'_{qr})^2\big]
-    \leq 1
+      \E\big[
+        h_2(X'_{i r})
+        g_{i r}(X'_{i r})
+      \big]
+      \ : \\
+      &\qquad\qquad\quad
+      \sum_{1 \leq i < j \leq n}
+      \E\big[f_{i j}(X_{i j})^2\big]
+      \leq 1, \
+      \sum_{1 \leq q < r \leq n}
+      \E\big[g_{qr}(X'_{qr})^2\big]
+      \leq 1
     \Bigg\} \\
     &\leq
     \sup_{f,g} \Bigg\{
-    \sum_{1 \leq i < j < r \leq n}
-    \E\big[ h_1(X_{i j})^2 \big]^{1/2}
-    \E\big[ f_{i j}(X_{i j})^2 \big]^{1/2}
-    \E\big[ h_2(X_{i r}')^2 \big]^{1/2}
-    \E\big[ g_{i r}(X'_{i r})^2 \big]^{1/2}
-    \ : \\
-    &\qquad\qquad\quad
-    \sum_{1 \leq i < j \leq n}
-    \E\big[f_{i j}(X_{i j})^2\big]
-    \leq 1, \
-    \sum_{1 \leq q < r \leq n}
-    \E\big[g_{qr}(X'_{qr})^2\big]
-    \leq 1
-    \Bigg\} \\
-    &\leq
-    \sigma^2
-    \sup_{f,g} \Bigg\{
-    \sum_{1 \leq i < j \leq n}
-    \E\big[ f_{i j}(X_{i j})^2 \big]^{1/2}
-    \sum_{1 \leq r \leq n }
-    \E\big[ g_{i r}(X'_{i r})^2 \big]^{1/2}
-    \ : \\
-    &\qquad\qquad\quad
-    \sum_{1 \leq i < j \leq n}
-    \E\big[f_{i j}(X_{i j})^2\big]
-    \leq 1, \
-    \sum_{1 \leq q < r \leq n}
-    \E\big[g_{qr}(X'_{qr})^2\big]
-    \leq 1
+      \sum_{1 \leq i < j < r \leq n}
+      \E\big[ h_1(X_{i j})^2 \big]^{1/2}
+      \E\big[ f_{i j}(X_{i j})^2 \big]^{1/2}
+      \E\big[ h_2(X_{i r}')^2 \big]^{1/2}
+      \E\big[ g_{i r}(X'_{i r})^2 \big]^{1/2}
+      \ : \\
+      &\qquad\qquad\quad
+      \sum_{1 \leq i < j \leq n}
+      \E\big[f_{i j}(X_{i j})^2\big]
+      \leq 1, \
+      \sum_{1 \leq q < r \leq n}
+      \E\big[g_{qr}(X'_{qr})^2\big]
+      \leq 1
     \Bigg\} \\
     &\leq
     \sigma^2
     \sup_{f,g} \Bigg\{
-    \Bigg(
-    n^2
-    \sum_{1 \leq i < j \leq n}
-    \E\big[ f_{i j}(X_{i j})^2 \big]
-    \Bigg)^{1/2}
-    \Bigg(
-    n
-    \sum_{1 \leq r \leq n }
-    \E\big[ g_{i r}(X'_{i r})^2 \big]
-    \Bigg)^{1/2}
-    \ : \\
-    &\qquad\qquad\quad
-    \sum_{1 \leq i < j \leq n}
-    \E\big[f_{i j}(X_{i j})^2\big]
-    \leq 1, \
-    \sum_{1 \leq q < r \leq n}
-    \E\big[g_{qr}(X'_{qr})^2\big]
-    \leq 1
+      \sum_{1 \leq i < j \leq n}
+      \E\big[ f_{i j}(X_{i j})^2 \big]^{1/2}
+      \sum_{1 \leq r \leq n }
+      \E\big[ g_{i r}(X'_{i r})^2 \big]^{1/2}
+      \ : \\
+      &\qquad\qquad\quad
+      \sum_{1 \leq i < j \leq n}
+      \E\big[f_{i j}(X_{i j})^2\big]
+      \leq 1, \
+      \sum_{1 \leq q < r \leq n}
+      \E\big[g_{qr}(X'_{qr})^2\big]
+      \leq 1
+    \Bigg\} \\
+    &\leq
+    \sigma^2
+    \sup_{f,g} \Bigg\{
+      \Bigg(
+        n^2
+        \sum_{1 \leq i < j \leq n}
+        \E\big[ f_{i j}(X_{i j})^2 \big]
+      \Bigg)^{1/2}
+      \Bigg(
+        n
+        \sum_{1 \leq r \leq n }
+        \E\big[ g_{i r}(X'_{i r})^2 \big]
+      \Bigg)^{1/2}
+      \ : \\
+      &\qquad\qquad\quad
+      \sum_{1 \leq i < j \leq n}
+      \E\big[f_{i j}(X_{i j})^2\big]
+      \leq 1, \
+      \sum_{1 \leq q < r \leq n}
+      \E\big[g_{qr}(X'_{qr})^2\big]
+      \leq 1
     \Bigg\}
     \leq
     \sqrt{n^3 \sigma^4}.
@@ -9495,20 +9495,20 @@ Theorem~3.3 in \citet{gine2000exponential}.
     C_2 \exp\left(
       -\frac{1}{C_2}
       \min \left\{
-      \frac{t^2}{C^2},
-      \frac{t}{D},
-      \frac{t^{2/3}}{B^{2/3}},
-      \frac{t^{1/2}}{A^{1/2}}
+        \frac{t^2}{C^2},
+        \frac{t}{D},
+        \frac{t^{2/3}}{B^{2/3}},
+        \frac{t^{1/2}}{A^{1/2}}
       \right\}
     \right) \\
     &\leq
     C_2 \exp\left(
       -\frac{1}{C_2}
       \min \left\{
-      \frac{t^2}{n^3 \sigma^4},
-      \frac{t}{\sqrt{n^3 \sigma^4}},
-      \frac{t^{2/3}}{(n M \sigma)^{2/3}},
-      \frac{t^{1/2}}{M}
+        \frac{t^2}{n^3 \sigma^4},
+        \frac{t}{\sqrt{n^3 \sigma^4}},
+        \frac{t^{2/3}}{(n M \sigma)^{2/3}},
+        \frac{t^{1/2}}{M}
       \right\}
     \right)
   \end{align*}
@@ -9530,20 +9530,20 @@ Theorem~3.3 in \citet{gine2000exponential}.
     C_1 C_2 \exp\left(
       -\frac{1}{C_2}
       \min \left\{
-      \frac{t^2}{n^3 \sigma^4 C_1^2},
-      \frac{t}{\sqrt{n^3 \sigma^4 C_1}},
-      \frac{t^{2/3}}{(n M \sigma C_1)^{2/3}},
-      \frac{t^{1/2}}{M C_1^{1/2}}
+        \frac{t^2}{n^3 \sigma^4 C_1^2},
+        \frac{t}{\sqrt{n^3 \sigma^4 C_1}},
+        \frac{t^{2/3}}{(n M \sigma C_1)^{2/3}},
+        \frac{t^{1/2}}{M C_1^{1/2}}
       \right\}
     \right) \\
     &\leq
     C \exp\left(
       -\frac{1}{C}
       \min \left\{
-      \frac{t^2}{n^3 \sigma^4},
-      \frac{t}{\sqrt{n^3 \sigma^4}},
-      \frac{t^{2/3}}{(n M \sigma)^{2/3}},
-      \frac{t^{1/2}}{M}
+        \frac{t^2}{n^3 \sigma^4},
+        \frac{t}{\sqrt{n^3 \sigma^4}},
+        \frac{t^{2/3}}{(n M \sigma)^{2/3}},
+        \frac{t^{1/2}}{M}
       \right\}
     \right).
   \end{align*}
@@ -9592,25 +9592,25 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \frac{1}{6}
     \Big(
-    k_{i j}
-    k_{i r}'
-    + k_{i j}
-    k_{jr}'
-    + k_{i r}
-    k_{i j}'
-    + k_{i r}
-    k_{jr}'
-    + k_{jr}
-    k_{i j}'
-    + k_{jr}
-    k_{i r}'
+      k_{i j}
+      k_{i r}'
+      + k_{i j}
+      k_{jr}'
+      + k_{i r}
+      k_{i j}'
+      + k_{i r}
+      k_{jr}'
+      + k_{jr}
+      k_{i j}'
+      + k_{jr}
+      k_{i r}'
     \Big).
   \end{align*}
   %
   We will prove uniform consistency of each of the three terms separately.
 
   \proofparagraph{uniform consistency of the
-    $\hat f_W(w) \hat f_W(w')$ term}
+  $\hat f_W(w) \hat f_W(w')$ term}
 
   By boundedness of $f_W$ and
   Theorem~\ref{thm:app_uniform_consistency},
@@ -9623,7 +9623,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \frac{
       \hat f_W(w) \hat f_W(w')
-      - \E\big[k_{i j}\big] \E\big[k_{i j'}\big]}
+    - \E\big[k_{i j}\big] \E\big[k_{i j'}\big]}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
     &\quad=
@@ -9631,7 +9631,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \frac{
       \hat f_W(w) \hat f_W(w')
-      - \E\big[\hat f_W(w)\big] \E\big[\hat f_W(w')\big]}
+    - \E\big[\hat f_W(w)\big] \E\big[\hat f_W(w')\big]}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right| \\
     &\quad\leq
@@ -9679,12 +9679,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \cF
     &=
     \left\{
-    a \mapsto
-    \frac{
-      \E\big[k_h(W_{i j},w) \mid A_i = a \big]
+      a \mapsto
+      \frac{
+        \E\big[k_h(W_{i j},w) \mid A_i = a \big]
       - \E\big[k_h(W_{i j},w) \big]}
-    {\sqrt{n \Sigma_n(w,w)}}:
-    w \in \cW
+      {\sqrt{n \Sigma_n(w,w)}}:
+      w \in \cW
     \right\},
   \end{align*}
   noting that
@@ -9787,7 +9787,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \frac{
       \hat f_W(w) \hat f_W(w')
-      - \E\big[k_{i j}\big] \E\big[k_{i j'}\big]}
+    - \E\big[k_{i j}\big] \E\big[k_{i j'}\big]}
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     &\lesssim_\P
@@ -9807,8 +9807,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \big(
-    S_{i j r}
-    - \E[k_{i j} k_{i r}']
+      S_{i j r}
+      - \E[k_{i j} k_{i r}']
     \big)
     &=
     \frac{6}{n(n-1)(n-2)}
@@ -9842,55 +9842,55 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \Big(
-    k_{i j}k_{i r}'
-    - \E[k_{i j}k_{i r}' \mid \bA_n]
+      k_{i j}k_{i r}'
+      - \E[k_{i j}k_{i r}' \mid \bA_n]
     \Big) \\
     \nonumber
     &\quad=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \Big(
-    k_{i j}k_{i r}'
-    - \E[k_{i j} \mid \bA_n]
-    \E[k_{i r}' \mid \bA_n]
+      k_{i j}k_{i r}'
+      - \E[k_{i j} \mid \bA_n]
+      \E[k_{i r}' \mid \bA_n]
     \Big) \\
     \nonumber
     &\quad=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \Big(
-    \big(
-    k_{i j}
-    - \E[k_{i j} \mid \bA_n]
-    \big)
-    \big(
-    k_{i r}'
-    - \E[k_{i r}' \mid \bA_n]
-    \big) \\
-    \nonumber
-    &\qquad+
-    \big(
-    k_{i j}
-    - \E[k_{i j} \mid \bA_n]
-    \big)
-    \E[k_{i r}' \mid \bA_n]
-    + \big(
-    k_{i r}'
-    - \E[k_{i r}' \mid \bA_n]
-    \big)
-    \E[k_{i j} \mid \bA_n]
+      \big(
+        k_{i j}
+        - \E[k_{i j} \mid \bA_n]
+      \big)
+      \big(
+        k_{i r}'
+        - \E[k_{i r}' \mid \bA_n]
+      \big) \\
+      \nonumber
+      &\qquad+
+      \big(
+        k_{i j}
+        - \E[k_{i j} \mid \bA_n]
+      \big)
+      \E[k_{i r}' \mid \bA_n]
+      + \big(
+        k_{i r}'
+        - \E[k_{i r}' \mid \bA_n]
+      \big)
+      \E[k_{i j} \mid \bA_n]
     \Big) \\
     \label{eq:Sijr1_decomp1}
     &\quad=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \Big(
-    k_{i j}
-    - \E[k_{i j} \mid \bA_n]
+      k_{i j}
+      - \E[k_{i j} \mid \bA_n]
     \Big)
     \Big(
-    k_{i r}'
-    - \E[k_{i r}' \mid \bA_n]
+      k_{i r}'
+      - \E[k_{i r}' \mid \bA_n]
     \Big) \\
     \label{eq:Sijr1_decomp2}
     &\qquad+
@@ -9898,8 +9898,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i=1}^{n-2}
     \sum_{j=i+1}^{n-1}
     \Big(
-    k_{i j}
-    - \E[k_{i j} \mid \bA_n]
+      k_{i j}
+      - \E[k_{i j} \mid \bA_n]
     \Big)
     \cdot \frac{3}{n}
     \sum_{r=j+1}^n
@@ -9910,8 +9910,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i=1}^{n-2}
     \sum_{r=i+2}^n
     \Big(
-    k_{i r}'
-    - \E[k_{i r}' \mid \bA_n]
+      k_{i r}'
+      - \E[k_{i r}' \mid \bA_n]
     \Big)
     \cdot \frac{3}{n}
     \sum_{j=i+1}^{r-1}
@@ -9937,12 +9937,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \left|
       \sum_{i<j<r}
       \Big(
-      k_{i j}
-      - \E[k_{i j} \mid \bA_n]
+        k_{i j}
+        - \E[k_{i j} \mid \bA_n]
       \Big)
       \Big(
-      k_{i r}'
-      - \E[k_{i r}' \mid \bA_n]
+        k_{i r}'
+        - \E[k_{i r}' \mid \bA_n]
       \Big)
       \right|
       > t
@@ -9952,20 +9952,20 @@ Theorem~3.3 in \citet{gine2000exponential}.
     C_1 \exp\left(
       -\frac{1}{C_1}
       \min \left\{
-      \frac{t^2}{n^3 \sigma^4},
-      \frac{t}{\sqrt{n^3 \sigma^4}},
-      \frac{t^{2/3}}{(n M \sigma)^{2/3}},
-      \frac{t^{1/2}}{M}
+        \frac{t^2}{n^3 \sigma^4},
+        \frac{t}{\sqrt{n^3 \sigma^4}},
+        \frac{t^{2/3}}{(n M \sigma)^{2/3}},
+        \frac{t^{1/2}}{M}
       \right\}
     \right) \\
     &\quad\leq
     C_1 \exp\left(
       -\frac{1}{C_1}
       \min \left\{
-      \frac{t^2 h^2}{n^3},
-      \frac{t h}{\sqrt{n^3}},
-      \frac{t^{2/3} h}{n^{2/3}},
-      t^{1/2} h
+        \frac{t^2 h^2}{n^3},
+        \frac{t h}{\sqrt{n^3}},
+        \frac{t^{2/3} h}{n^{2/3}},
+        t^{1/2} h
       \right\}
     \right),
   \end{align*}
@@ -9981,12 +9981,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \frac{6}{n(n-1)(n-2)}
       \sum_{i<j<r}
       \Big(
-      k_{i j}
-      - \E[k_{i j} \mid \bA_n]
+        k_{i j}
+        - \E[k_{i j} \mid \bA_n]
       \Big)
       \Big(
-      k_{i r}'
-      - \E[k_{i r}' \mid \bA_n]
+        k_{i r}'
+        - \E[k_{i r}' \mid \bA_n]
       \Big)
       \right|
       > t
@@ -9998,12 +9998,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \left|
       \sum_{i<j<r}
       \Big(
-      k_{i j}
-      - \E[k_{i j} \mid \bA_n]
+        k_{i j}
+        - \E[k_{i j} \mid \bA_n]
       \Big)
       \Big(
-      k_{i r}'
-      - \E[k_{i r}' \mid \bA_n]
+        k_{i r}'
+        - \E[k_{i r}' \mid \bA_n]
       \Big)
       \right|
       > t
@@ -10014,20 +10014,20 @@ Theorem~3.3 in \citet{gine2000exponential}.
     C_2 \exp\left(
       -\frac{1}{C_2}
       \min \left\{
-      (t \log n)^2,
-      t \log n,
-      (t \log n)^{2/3} (n h)^{1/3},
-      (t n h \log n)^{1/2} n^{1/4}
+        (t \log n)^2,
+        t \log n,
+        (t \log n)^{2/3} (n h)^{1/3},
+        (t n h \log n)^{1/2} n^{1/4}
       \right\}
     \right) \\
     &\quad\leq
     C_2 \exp\left(
       -\frac{1}{C_2}
       \min \left\{
-      t \log n,
-      t \log n,
-      t^{2/3} \log n,
-      t^{1/2} n^{1/4} \log n
+        t \log n,
+        t \log n,
+        t^{2/3} \log n,
+        t^{1/2} n^{1/4} \log n
       \right\}
     \right) \\
     &\quad=
@@ -10056,8 +10056,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \sum_{i=1}^{n-2}
       \sum_{j=i+1}^{n-1}
       \Big(
-      k_{i j}
-      - \E[k_{i j} \mid \bA_n]
+        k_{i j}
+        - \E[k_{i j} \mid \bA_n]
       \Big)
       \cdot \frac{3}{n}
       \sum_{r=j+1}^n
@@ -10147,25 +10147,25 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \Big(
-    \E[S_{i j r} \mid \bA_n]
-    - \E[S_{i j r}]
+      \E[S_{i j r} \mid \bA_n]
+      - \E[S_{i j r}]
     \Big).
   \end{align*}
   Note that by conditional independence,
   \begin{align*}
     \big|
     \E\big[
-    k_{i j}k_{i r} \mid \bA_n
+      k_{i j}k_{i r} \mid \bA_n
     \big]
     \big|
     &=
     \big|
     \E\big[
       k_{i j} \mid \bA_n
-      \big]
+    \big]
     \E\big[
       k_{i r} \mid \bA_n
-      \big]
+    \big]
     \big|
     \lesssim 1,
   \end{align*}
@@ -10205,19 +10205,19 @@ Theorem~3.3 in \citet{gine2000exponential}.
     4 \exp \left(
       - \frac{n t^2 (\Sigma_n(w,w) + \Sigma_n(w',w')) \log n}
       {C_4 (n\Sigma_n(w,w) + n\Sigma_n(w',w'))
-        + C_4 t \sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}\sqrt{\log n}}
+      + C_4 t \sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}\sqrt{\log n}}
     \right) \\
     &\quad\leq
     4 \exp \left(
       - \frac{t^2 \log n}
       {C_4
-        + C_4 t (\Sigma_n(w,w) + \Sigma_n(w',w'))^{-1/2} \sqrt{\log n} / n}
+      + C_4 t (\Sigma_n(w,w) + \Sigma_n(w',w'))^{-1/2} \sqrt{\log n} / n}
     \right) \\
     &\quad\leq
     4 \exp \left(
       - \frac{t^2 \log n}
       {C_4
-        + C_4 t \sqrt{h}}
+      + C_4 t \sqrt{h}}
     \right)
     \leq
     4 n^{-t^2 / C_4}
@@ -10243,14 +10243,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
   we have that for fixed $w$ and $w'$:
   \begin{align*}
     &\P\Bigg(
-    \Bigg|
-    \frac{6}{n(n-1)(n-2)}
-    \sum_{i<j<r}
-    \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
+      \Bigg|
+      \frac{6}{n(n-1)(n-2)}
+      \sum_{i<j<r}
+      \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
       {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
-    \Bigg|
-    > t \frac{\log n}{\sqrt{n h}}
-    + 2t \sqrt{\log n}
+      \Bigg|
+      > t \frac{\log n}{\sqrt{n h}}
+      + 2t \sqrt{\log n}
     \Bigg) \\
     &\quad\leq
     C_2 n^{-t^{2/3} / C_2}
@@ -10262,21 +10262,21 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and adjusting constants gives
   \begin{align*}
     &\P\Bigg(
-    \sup_{w, w' \in \cW_\delta}
-    \Bigg|
-    \frac{6}{n(n-1)(n-2)}
-    \sum_{i<j<r}
-    \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
+      \sup_{w, w' \in \cW_\delta}
+      \Bigg|
+      \frac{6}{n(n-1)(n-2)}
+      \sum_{i<j<r}
+      \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
       {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
-    \Bigg|
-    > t \sqrt{\log n}
+      \Bigg|
+      > t \sqrt{\log n}
     \Bigg) \\
     &\quad\lesssim
     \delta_n^{-2}
     \Big(
-    C_2 n^{-t^{2/3} / C_2}
-    + 4 n^{-t^2 / (4C_3)}
-    + 4 n^{-t^2 / C_4}
+      C_2 n^{-t^{2/3} / C_2}
+      + 4 n^{-t^2 / (4C_3)}
+      + 4 n^{-t^2 / C_4}
     \Big)
     \lesssim
     \delta_n^{-2}
@@ -10305,8 +10305,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim
     \frac{1}{h^3}
     \Big(
-    |w_1 - w_2|
-    + |w_1' - w_2'|
+      |w_1 - w_2|
+      + |w_1' - w_2'|
     \Big),
   \end{align*}
   using the Lipschitz property of the kernel.
@@ -10369,14 +10369,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
   %
   \begin{align*}
     &\P\Bigg(
-    \sup_{w, w' \in \cW}
-    \Bigg|
-    \frac{6}{n(n-1)(n-2)}
-    \sum_{i<j<r}
-    \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
+      \sup_{w, w' \in \cW}
+      \Bigg|
+      \frac{6}{n(n-1)(n-2)}
+      \sum_{i<j<r}
+      \frac{S_{i j r}(w,w') - \E[S_{i j r}(w,w')]}
       {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
-    \Bigg|
-    > 2t \sqrt{\log n}
+      \Bigg|
+      > 2t \sqrt{\log n}
     \Bigg) \\
     &\quad\lesssim
     \delta_n^{-2}
@@ -10408,8 +10408,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{2}{n(n-1)}
     \sum_{i<j}
     \Big(
-    k_{i j} k_{i j}'
-    - \E\big[k_{i j} k_{i j}']
+      k_{i j} k_{i j}'
+      - \E\big[k_{i j} k_{i j}']
     \Big)
     &=
     \frac{2}{n(n-1)}
@@ -10533,8 +10533,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \frac{2}{n(n-1)}
       \sum_{i<j}
       \Big(
-      k_{i j} k_{i j}'
-      - \E\big[k_{i j} k_{i j}']
+        k_{i j} k_{i j}'
+        - \E\big[k_{i j} k_{i j}']
       \Big)
       \right|
       > t \sqrt{\frac{\log n}{n^2h^3}}
@@ -10580,8 +10580,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim
     \frac{1}{h^3}
     \Big(
-    |w_1 - w_2|
-    + |w_1' - w_2'|
+      |w_1 - w_2|
+      + |w_1' - w_2'|
     \Big).
   \end{align*}
 
@@ -10598,8 +10598,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \frac{2}{n(n-1)}
       \sum_{i<j}
       \Big(
-      k_{i j} k_{i j}'
-      - \E\big[k_{i j} k_{i j}']
+        k_{i j} k_{i j}'
+        - \E\big[k_{i j} k_{i j}']
       \Big)
       \right|
       > t \sqrt{\frac{\log n}{n^2h^3}}
@@ -10612,8 +10612,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \frac{2}{n(n-1)}
       \sum_{i<j}
       \Big(
-      k_{i j} k_{i j}'
-      - \E\big[k_{i j} k_{i j}']
+        k_{i j} k_{i j}'
+        - \E\big[k_{i j} k_{i j}']
       \Big)
       \right|
       > t \sqrt{\frac{\log n}{n^2h^3}}
@@ -10844,7 +10844,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
     \right|
     \sqrt{\frac{\Sigma_n(w,w) + \Sigma_n(w',w')}
-      {\hat \Sigma_n(w,w) + \hat \Sigma_n(w',w')}} \\
+    {\hat \Sigma_n(w,w) + \hat \Sigma_n(w',w')}} \\
     &\lesssim_\P
     \frac{\sqrt{\log n}}{n}
     \left(
@@ -10970,16 +10970,16 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \sup_{w \in \cW}
     \left\{
-    \left|
-    \hat f_W(w) - f_W(w)
-    \right|
-    \cdot
-    \left|
-    \frac{1}
-    {\sqrt{\hat\Sigma_n^+(w,w)}}
-    -
-    \frac{1}{\sqrt{\Sigma_n(w,w)}}
-    \right|
+      \left|
+      \hat f_W(w) - f_W(w)
+      \right|
+      \cdot
+      \left|
+      \frac{1}
+      {\sqrt{\hat\Sigma_n^+(w,w)}}
+      -
+      \frac{1}{\sqrt{\Sigma_n(w,w)}}
+      \right|
     \right\} \\
     &\leq
     \sup_{w \in \cW}
@@ -11080,26 +11080,26 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sup_{w, w' \in \cW}
     \left|
     \frac{\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}
-      - \sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}}
+    - \sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}}
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
     \right| \\
     &\leq
     \sup_{w, w' \in \cW}
     \left\{
-    \sqrt{\frac{\Sigma_n(w,w) + \Sigma_n(w',w')}
+      \sqrt{\frac{\Sigma_n(w,w) + \Sigma_n(w',w')}
       {\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
-    \left|
-    \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
-    {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
-    \right|
+      \left|
+      \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
+      {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
+      \right|
     \right\} \\
     &\quad+
     \sup_{w, w' \in \cW}
     \left|
     \frac{\hat \Sigma_n^+(w,w)\hat \Sigma_n^+(w',w')
-      - \Sigma_n(w,w) \Sigma_n(w',w')}
+    - \Sigma_n(w,w) \Sigma_n(w',w')}
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
-        \Sigma_n(w,w) \Sigma_n(w',w')}}
+    \Sigma_n(w,w) \Sigma_n(w',w')}}
     \right|.
   \end{align*}
   %
@@ -11116,12 +11116,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \sup_{w, w' \in \cW}
     \left\{
-    \sqrt{\frac{\Sigma_n(w,w) + \Sigma_n(w',w')}
+      \sqrt{\frac{\Sigma_n(w,w) + \Sigma_n(w',w')}
       {\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
-    \left|
-    \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
-    {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
-    \right|
+      \left|
+      \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
+      {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
+      \right|
     \right\}
     &\lesssim_\P
     \frac{\sqrt{\log n}}{n}
@@ -11137,41 +11137,41 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\sup_{w, w' \in \cW}
     \left|
     \frac{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
-      - \Sigma_n(w,w) \Sigma_n(w',w')}
+    - \Sigma_n(w,w) \Sigma_n(w',w')}
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
-        \Sigma_n(w,w) \Sigma_n(w',w')}}
+    \Sigma_n(w,w) \Sigma_n(w',w')}}
     \right| \\
     &\quad\leq
     \sup_{w, w' \in \cW}
     \left\{
-    \frac{\big| \hat \Sigma_n^+(w,w) - \Sigma_n(w,w)\big|
+      \frac{\big| \hat \Sigma_n^+(w,w) - \Sigma_n(w,w)\big|
       \hat \Sigma_n^+(w',w')}
-    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
-        \Sigma_n(w,w) \Sigma_n(w',w')}}
+      {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
+      \Sigma_n(w,w) \Sigma_n(w',w')}}
     \right\} \\
     &\qquad+
     \sup_{w, w' \in \cW}
     \left\{
-    \frac{\big| \hat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|
+      \frac{\big| \hat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|
       \Sigma_n(w,w)}
-    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
-        \Sigma_n(w,w) \Sigma_n(w',w')}}
+      {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')
+      \Sigma_n(w,w) \Sigma_n(w',w')}}
     \right\} \\
     &\quad\leq
     \sup_{w, w' \in \cW}
     \left\{
-    \frac{\big| \hat \Sigma_n^+(w,w) - \Sigma_n(w,w)\big|}
-    {\sqrt{\Sigma_n(w,w)}}
-    \frac{\sqrt{\hat \Sigma_n^+(w',w')}}
-    {\sqrt{\hat \Sigma_n^+(w,w) \Sigma_n(w',w')}}
+      \frac{\big| \hat \Sigma_n^+(w,w) - \Sigma_n(w,w)\big|}
+      {\sqrt{\Sigma_n(w,w)}}
+      \frac{\sqrt{\hat \Sigma_n^+(w',w')}}
+      {\sqrt{\hat \Sigma_n^+(w,w) \Sigma_n(w',w')}}
     \right\} \\
     &\qquad+
     \sup_{w, w' \in \cW}
     \left\{
-    \frac{\big| \hat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|}
-    {\sqrt{\Sigma_n(w',w')}}
-    \frac{\sqrt{\Sigma_n(w,w)}}
-    {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
+      \frac{\big| \hat \Sigma_n^+(w',w') - \Sigma_n(w',w')\big|}
+      {\sqrt{\Sigma_n(w',w')}}
+      \frac{\sqrt{\Sigma_n(w,w)}}
+      {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
     \right\} \\
     &\quad\lesssim_\P
     \sqrt{\frac{\log n}{n}}
@@ -11213,7 +11213,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim
     \Delta^{1/3}
     \Big(
-    1 \vee \log \frac{1}{\Delta \delta_n}
+      1 \vee \log \frac{1}{\Delta \delta_n}
     \Big)^{2/3}
   \end{align*}
   uniformly in the data. By the previous part and
@@ -11301,7 +11301,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \E\left[
       \big(
-      \hat Z_n^T(w) - \hat Z_n^T(w')
+        \hat Z_n^T(w) - \hat Z_n^T(w')
       \big)^2
       \bigm\vert \bW_n
     \right]
@@ -11315,7 +11315,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     \E\left[
       \big(
-      \hat Z_n^T(w) - \hat Z_n^T(w')
+        \hat Z_n^T(w) - \hat Z_n^T(w')
       \big)^2
       \bigm\vert \bW_n
     \right]
@@ -11329,7 +11329,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\vcentcolon=
     \E\left[
       \big(
-      \hat Z_n^T(w) - \hat Z_n^T(w')
+        \hat Z_n^T(w) - \hat Z_n^T(w')
       \big)^2
       \bigm\vert \bW_n
     \right]^{1/2}
@@ -11861,7 +11861,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       n^{-1/2} \log n
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
-      + n^{1/2} h^{p \wedge \beta}}
+    + n^{1/2} h^{p \wedge \beta}}
     {\Dl + 1/\sqrt{n h}}
   \end{align*}
   %
@@ -12034,19 +12034,19 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     \sup
     \big\{
-    t \in \R
-    \, : \,
-    F_Z(t \mid \bW_n)
-    = p
+      t \in \R
+      \, : \,
+      F_Z(t \mid \bW_n)
+      = p
     \big\},
     &F_T^{-1}(p)
     &=
     \sup
     \big\{
-    t \in \R
-    \, : \,
-    F_T(t)
-    = p
+      t \in \R
+      \, : \,
+      F_T(t)
+      = p
     \big\}.
   \end{align*}
   Note that
@@ -12174,12 +12174,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \E\left[
       k_{i j}
       \Big(
-      \psi_i
-      \psi_j
-      +\psi_i
-      \kappa_{r j}
-      +\psi_j
-      \kappa_{r i}
+        \psi_i
+        \psi_j
+        +\psi_i
+        \kappa_{r j}
+        +\psi_j
+        \kappa_{r i}
       \Big)
     \right]
     + O\left(\frac{1}{n}\right) \\
@@ -12198,7 +12198,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
         k_h(W_{i j}^1, w)
         \mid X_i^1, X_j^1
       \right]
-      \big]
+    \big]
     + O\left(\frac{1}{n}\right) \\
     &=
     \E\big[
@@ -12206,7 +12206,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \psi_j
       f_{W \mid XX}^1(w \mid X_i^1, X_j^1)
       + O_\P\left( h^{p \wedge \beta} \right)
-      \big]
+    \big]
     + O\left(\frac{1}{n}\right)
     =
     f_W^{1 \triangleright 0}(w)
@@ -12270,12 +12270,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{r \notin \{i,j\}}
     k_{i j}
     \Big(
-    \psi_i
-    \psi_j
-    +\psi_i
-    \kappa_{r j}
-    +\psi_j
-    \kappa_{r i}
+      \psi_i
+      \psi_j
+      +\psi_i
+      \kappa_{r j}
+      +\psi_j
+      \kappa_{r i}
     \Big)
     + O_\P\left(\frac{1}{n}\right) \\
     &=
@@ -12446,19 +12446,19 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{r' \notin \{i',j'\}}
     \E\Big[
       \Big(
-      k_{i j} \psi_i \psi_j
-      - \E[k_{i j} \psi_i \psi_j]
-      + k_{i j}\psi_i \kappa_{r j}
-      + k_{i j}\psi_j \kappa_{r i}
+        k_{i j} \psi_i \psi_j
+        - \E[k_{i j} \psi_i \psi_j]
+        + k_{i j}\psi_i \kappa_{r j}
+        + k_{i j}\psi_j \kappa_{r i}
       \Big) \\
       &\quad\times
       \Big(
-      k_{i' j'}' \psi_{i'} \psi_{j'}
-      - \E[k_{i j}' \psi_i \psi_j]
-      + k_{i' j'}'\psi_{i'} \kappa_{r' j'}
-      + k_{i' j'}'\psi_{j'} \kappa_{r' i'}
+        k_{i' j'}' \psi_{i'} \psi_{j'}
+        - \E[k_{i j}' \psi_i \psi_j]
+        + k_{i' j'}'\psi_{i'} \kappa_{r' j'}
+        + k_{i' j'}'\psi_{j'} \kappa_{r' i'}
       \Big)
-      \Big]
+    \Big]
     + O\left( \frac{1}{n^{3/2}} + \frac{1}{\sqrt{n^4h}} \right) \\
     &\quad=
     \frac{2}{n^2}
@@ -12501,26 +12501,26 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{4}{n}
     \E\left[
       \Big(
-      \psi_i
-      \E\big[
-        k_{i j} \psi_j
-        \mid i
+        \psi_i
+        \E\big[
+          k_{i j} \psi_j
+          \mid i
         \big]
-      + \E\left[
-        k_{r j} \psi_r \kappa_{i j}
-        \mid i
-      \right]
+        + \E\left[
+          k_{r j} \psi_r \kappa_{i j}
+          \mid i
+        \right]
       \Big)
       \Big(
-      \psi_i
-      \E\big[
-        k_{i j}' \psi_j
-        \mid i
+        \psi_i
+        \E\big[
+          k_{i j}' \psi_j
+          \mid i
         \big]
-      + \E\left[
-        k_{r j}' \psi_r \kappa_{i j}
-        \mid i
-      \right]
+        + \E\left[
+          k_{r j}' \psi_r \kappa_{i j}
+          \mid i
+        \right]
       \Big)
     \right] \\
     &\qquad+
