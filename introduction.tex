@@ -2,38 +2,99 @@
 
 \chapter{Introduction}
 
-Nonparametric statistics
-Minimal assumptions: benefits over parametric models
-Example of nonparametric problem
-How modern methods fit into this framework, statistical learning
-Introduce estimation, inference, complex data
+% nonparametric estimation is common
+Nonparametric estimation procedures are at the heart of many
+contemporary theoretical and methodological topics within the fields of
+statistics, data science and machine learning.
+While classical parametric techniques impose specific distributional and
+structural assumptions when modeling statistical problems,
+nonparametric methods instead take a more flexible approach,
+typically positing only higher-level restrictions such as moment conditions
+and smoothness assumptions.
+Examples of such methods abound in modern data science,
+encompassing histograms, kernel methods, smoothing splines, decision trees,
+nearest neighbor methods,
+random forests, neural networks and many more.
 
-Estimation and minimaxity
-Describe the usual setup for proving these types of results
+% nonparametric estimation is good
+The benefits of this framework are clear; statistical procedures can be
+formulated in cases where the stringent assumptions of parametric models
+are violated, or cannot be tested. Further, the resulting methods often
+exhibit robustness against various forms of misspecification or misuse.
+The class of problems which can be expressed is also correspondingly
+larger: arbitrary distributions and relationships between variables
+can be expressed and estimated.
 
-Statistical inference
-Conformal prediction
+% nonparametric estimation is hard
+Nonetheless, these attractive properties do come at a price.
+In particular, as its name suggests, the nonparametric approach
+forgoes the ability to reduce a complex statistical problem
+to that of estimating a fixed finite number of parameters.
+Rather, nonparametric procedures typically involve estimating
+a growing number of parameters simultaneously,
+or even handling infinite-dimensional objects such as entire functions.
+As a consequence, a nonparametric estimator is usually less efficient
+than its corresponding correctly specified parametric counterpart;
+rates of convergence tend to be slower and confidence sets
+more conservative. Another challenge
+is that the theoretical analysis of nonparametric estimators
+is often significantly more involved, requiring tools from
+contemporary developments in
+high-dimensional concentration phenomena,
+empirical processes,
+strong approximation theory,
+and stochastic calculus,
+alongside careful mathematical analysis.
 
-Complex data
+% nonparametric inference
+Where the goal of nonparametric estimation is typically to provide accurate
+point estimates of unknown (possibly high-dimensional or infinite-dimensional)
+quantities of interest, the aim of nonparametric inference is to equip
+practitioners with a quantification of the uncertainty
+present in those estimates. Such methodology is essential for the derivation
+of hypothesis tests and confidence sets in nonparametric settings,
+which in turn are vital for the rigorous treatment of statistical significance,
+power, and uncertainty quantification.
+Inference is one of the central concepts
+in classical statistics, and despite the rapid recent development of
+theory for modern nonparametric estimators such as random forests, their
+applicability to statistical inference is rather less well studied.
 
-Introduce each paper
+% complex data
+In any statistical modeling problem, the choice and usage of an estimator
+must naturally be tailored to the available data.
+Today, much of the data produced and analyzed does not fit neatly into the
+classical framework of independent and identically distributed samples,
+and instead might consist of time series, networks, or
+high-dimensional data, to name just a few.
+Therefore it is important to understand how
+nonparametric methods might be adapted to correctly handle
+these data types, maintaining fast estimation
+rates and valid techniques for statistical inference.
 
-Papers:
-\cite{%
-  cattaneo2024uniform,%
-  cattaneo2022yurinskii,%
-  cattaneo2023inference%
-}
+% what we do
+This dissertation presents a selection of projects related to nonparametric
+estimation and inference, their applications to complex data settings,
+and the technical mathematical tools used in their theoretical analysis.
 
-Talks: put these in conclusion of each chapter.
-\cite{%
-  cattaneo2022talkgeorgia,%
-  cattaneo2022talkcolumbia,%
-  feng2022talkrenmin,%
-  feng2022talkxiamen,%
-  feng2023talkpeking,%
-  feng2023talksingapore,%
-  underwood2024talkmichigan,%
-  underwood2024talkillinois,%
-  underwood2024talkpitt%
-}
+\section*{Overview of the dissertation}
+
+% mondrian
+Chapter~\ref{cha:mondrian}
+is based on the work of \cite{cattaneo2023inference}
+and presents methods for inference with Mondrian random forests
+in the nonparametric regression setting.
+
+% kernel
+In Chapter~\ref{cha:kernel},
+based on the work of \cite{cattaneo2024uniform},
+we consider uniform estimation and inference
+for nonparametric kernel density estimators with dyadic
+network data.
+
+% yurinskii
+Finally, Chapter~\ref{cha:yurinskii}
+is based on the work of
+\cite{cattaneo2022yurinskii}
+and presents a generalization of Yurinskii's coupling
+for approximate martingale data.
