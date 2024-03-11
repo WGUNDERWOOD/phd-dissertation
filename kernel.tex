@@ -3,9 +3,6 @@
 \chapter{Dyadic Kernel Density Estimators}
 \label{cha:kernel}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% INTRODUCTION
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 \label{sec:introduction}
 
@@ -511,13 +508,13 @@ and
 %
 \begin{align*}
   L_n(w)
-  &= \frac{2}{n} \sum_{i=1}^n l_i(w),
-  &
+  &= \frac{2}{n} \sum_{i=1}^n l_i(w), \\
   E_n(w)
-  &= \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} e_{i j}(w),
-  &
+  &=
+  \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} e_{i j}(w), \\
   Q_n(w)
-  &= \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} q_{i j}(w),
+  &=
+  \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} q_{i j}(w),
 \end{align*}
 %
 where
@@ -552,11 +549,11 @@ different terms in the Hoeffding-type decomposition,
 explicitly accounting for potential degeneracy.
 
 \begin{lemma}[Bias and variance] \label{lem:variance}
-  Suppose that Assumptions \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth}
-  hold.
-  Then the bias term satisfies
-  $\sup_{w \in \cW} \big| B_n(w) \big| \lesssim h^{p\wedge\beta}$
+  Suppose Assumptions \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth}
+  hold. Then the bias satisfies
+  $\sup_{w \in \cW} \big| B_n(w) \big| \lesssim h^{p\wedge\beta}$,
   and the variance terms satisfy
+  %
   \begin{align*}
     \E\left[ \sup_{w \in \cW} |L_n(w)| \right]
     &\lesssim
@@ -1082,8 +1079,8 @@ such potential unknown degeneracy.
     T_n(w)
     -
     Z_n^{T}(w)
-    \right|
-    \lesssim_\P
+    \right| \\
+    &\quad\lesssim_\P
     \frac{
       n^{-1} \log n
       + n^{-5/4} h^{-7/8} (\log n)^{3/8} R_n
@@ -1276,22 +1273,14 @@ estimator of $\Sigma_n$: for $w, w' \in \cW$,
   \hat \Sigma_n(w,w')
   &=
   \frac{4}{n^2}
-  \hspace*{-0.5mm}
   \sum_{i=1}^n
-  \hspace*{-0.5mm}
   S_i(w) S_i(w')
-  \hspace*{-0.5mm}
   -
-  \hspace*{-0.5mm}
   \frac{4}{n^2(n-1)^2}
-  \hspace*{-0.5mm}
   \sum_{i<j}
-  \hspace*{-0.5mm}
   k_h(W_{i j},w)
-  k_h(W_{i j},w')
-  \hspace*{-0.5mm}
-  -
-  \hspace*{-0.5mm}
+  k_h(W_{i j},w') \\
+  &\quad-
   \frac{4n-6}{n(n-1)}
   \hat f_W(w)
   \hat f_W(w'),
@@ -1300,8 +1289,7 @@ estimator of $\Sigma_n$: for $w, w' \in \cW$,
 where
 $S_i(w) = \frac{1}{n-1} \big( \sum_{j = 1}^{i-1} k_h(W_{j i}, w)
 + \sum_{j = i+1}^n k_h(W_{i j}, w) \big)$
-is an ``estimator'' of
-$\E[k_h(W_{i j},w) \mid A_i]$.
+estimates $\E[k_h(W_{i j},w) \mid A_i]$.
 Though $\hat\Sigma_n(w,w')$ is consistent in an appropriate sense
 as shown in Lemma~\ref{lem:sdp} below,
 it is not necessarily positive semi-definite,
@@ -1844,8 +1832,9 @@ as population $0$ is
   &=
   \E\left[
     f_{W \mid XX}^1\big(w \mid X_1^0, X_2^0\big)
-  \right]
-  = \int_{\cX}
+  \right] \\
+  &=
+  \int_{\cX}
   \int_{\cX}
   f_{W \mid XX}^{1}(w \mid x_1, x_2)
   \psi(x_1)
@@ -1951,7 +1940,7 @@ $\hat\Sigma_n^{+, 1 \triangleright 0}$,
 as in Section~\ref{sec:covariance_estimation}.
 To construct feasible uniform confidence bands,
 define a process $\hat Z_n^{T, 1 \triangleright 0}(w)$ which
-is conditionally mean-zero and conditionally Gaussian
+is conditionally mean-zero and Gaussian
 given the data $\bW_n^1$, $\bX_n^0$ and $\bX_n^1$
 and whose conditional covariance structure is
 $\E\big[\hat Z_n^{T, 1 \triangleright 0}(w)
@@ -2200,7 +2189,7 @@ While our focus has been on density estimation with dyadic data,
 our uniform dyadic estimation and inference results are readily
 applicable to the settings of nonparametric
 and semiparametric dyadic regression.
-For our second example, suppose that $Y_{i j} = Y(X_i, X_j, A_i, A_j, V_{i j})$,
+For a second example, suppose $Y_{i j} = Y(X_i, X_j, A_i, A_j, V_{i j})$,
 where only $\bX_n$ and $\bY_n$ are observed and
 $\bV_n$ is independent of $(\bX_n, \bA_n)$,
 with $\bX_n = (X_i : 1 \leq i \leq n)$,
@@ -2331,13 +2320,3 @@ This work has been presented as
   feng2023talkpeking,%
   feng2023talksingapore%
 }.
-
-\section*{Supplemental material}
-
-A supplemental appendix containing technical and methodological details
-as well as proofs and additional empirical results is available at
-\href{https://arxiv.org/abs/2201.05967}%
-{\texttt{https://arxiv.org/abs/2201.05967}}.
-Replication files for the empirical studies are provided at
-\href{https://github.com/WGUNDERWOOD/DyadicKDE.jl}%
-{\texttt{https://github.com/wgunderwood/DyadicKDE.jl}}.

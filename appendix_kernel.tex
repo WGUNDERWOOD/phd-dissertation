@@ -88,10 +88,10 @@ for the cardinality.
 
 \subsubsection{Sums}
 
-We use $\sum_i$
-to indicate $\sum_{i=1}^n$
+Write $\sum_i$
+for $\sum_{i=1}^n$
 when clear from context.
-Similarly we use $\sum_{i<j}$
+Similarly use $\sum_{i<j}$
 for $\sum_{i=1}^{n-1} \sum_{j=i+1}^n$
 and $\sum_{i<j<r}$
 for $\sum_{i=1}^{n-2} \sum_{j=i+1}^{n-1} \sum_{r=j+1}^n$.
@@ -118,8 +118,8 @@ $\beta > 0$ by
     \big| g^{(r)}(x) \big| \leq C
     \text{ and }
     \big| g^{(\flbeta)}(x) - g^{(\flbeta)}(x') \big|
-    \leq C |x-x'|^{\beta - \flbeta}, \
-    \forall
+    \leq C |x-x'|^{\beta - \flbeta} \\
+  &\quad\qquad\text{for all }
     x, x' \in \cX
   \Big\}.
 \end{align*}
@@ -244,7 +244,7 @@ and does not rely on the dyadic structure of the data.
 
 \subsection{Uniform consistency}
 
-In this section we show uniform consistency of the
+We show uniform consistency of the
 dyadic kernel density estimator.
 Lemma~\ref{lem:hoeffding}
 provides a U-statistic decomposition of the estimator
@@ -272,21 +272,23 @@ interpreting our results in various classes of data distributions.
     L_n(w)
     &=
     \frac{2}{n} \sum_{i=1}^n
-    l_i(w),
-    &Q_n(w)
+    l_i(w), \\
+    Q_n(w)
     &=
     \frac{2}{n(n-1)}
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^{n}
-    q_{i j}(w),
-    &E_n(w)
+    q_{i j}(w), \\
+    E_n(w)
     &=
     \frac{2}{n(n-1)}
     \sum_{i=1}^{n-1}
     \sum_{j=i+1}^{n}
     e_{i j}(w)
   \end{align*}
+  %
   respectively, where
+  %
   \begin{align*}
     l_i(w)
     &=
@@ -490,10 +492,11 @@ interpreting our results in various classes of data distributions.
 
     \item Total degeneracy:
       when $\Du = 0$,
-      minimizing the upper bound by setting
+      minimizing the bound with
       $h \asymp
       \left( \frac{\log n}{n^2} \right)^{\frac{1}{2(p \wedge \beta)+1}}$
       yields
+      %
       \begin{align*}
         \E\left[
           \sup_{w \in \cW}
@@ -606,8 +609,8 @@ some classes of dyadic distributions.
     \Cov\hspace*{-0.7mm}\big[
       k_h(W_{i j},w),
       k_h(W_{i j},w')
-    \big]
-    +
+    \big] \\
+    &\quad+
     \frac{4(n-2)}{n(n-1)}
     \Cov\hspace*{-0.7mm}\big[
       k_h(W_{i j},w),
@@ -864,10 +867,9 @@ with a.s.\ continuous sample paths.
 \begin{lemma}[Unconditional strong approximation of $E_n$]
   \label{lem:app_unconditional_strong_approx_En}
 
-  Suppose that Assumptions
+  Suppose Assumptions
   \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth} hold.
-  Let
-  $\big(\bA_n', \bV_n', \tilde Z_n^{E\prime}\big)$
+  Let $\big(\bA_n', \bV_n', \tilde Z_n^{E\prime}\big)$
   be defined as in
   Lemma~\ref{lem:app_conditional_strong_approx_En}.
   For each $n \geq 2$
@@ -959,12 +961,12 @@ with a.s.\ continuous sample paths.
   satisfying
   %
   \begin{align*}
-    \sup_{w \in \cW}
+    &\sup_{w \in \cW}
     \Big|
     \hat f_W'(w) - \E[\hat f_W'(w)]
     - Z_n^{f\prime}(w)
-    \Big|
-    &\lesssim_\P
+    \Big| \\
+    &\quad\lesssim_\P
     n^{-1} \log n
     + n^{-5/4} h^{-7/8} (\log n)^{3/8} R_n
     + n^{-7/6} h^{-1/2} (\log n)^{2/3}.
@@ -1151,8 +1153,7 @@ and are given as Assumption~\ref{ass:app_rates}.
 
 \subsection{Covariance estimation}
 
-In this section
-we provide a consistent estimator for the
+We provide a consistent estimator for the
 covariance function $\Sigma_n$.
 In Lemma~\ref{lem:covariance_estimation}
 we define the estimator and demonstrate that it
@@ -1198,7 +1199,7 @@ which is more amenable to computation.
       k_h(W_{jr},w')
       + k_h(W_{i r},w)
       k_h(W_{i j},w') \\
-      &\qquad+
+      &\quad+
       k_h(W_{i r},w)
       k_h(W_{jr},w')
       + k_h(W_{jr},w)
@@ -1246,8 +1247,8 @@ which is more amenable to computation.
     - \frac{4}{n^2(n-1)^2}
     \sum_{i<j}
     k_h(W_{i j},w)
-    k_h(W_{i j},w')
-    -
+    k_h(W_{i j},w') \\
+    &\quad-
     \frac{4n-6}{n(n-1)}
     \hat f_W(w)
     \hat f_W(w'),
@@ -1799,8 +1800,9 @@ approximation results for the counterfactual density estimator.
     \frac{1}{3}
     k_{i j} \big(\psi_i \psi_j +\psi_i \kappa_{r j} +\psi_j \kappa_{r i} \big)
     + \frac{1}{3}
-    k_{i r} \big(\psi_i \psi_r +\psi_i \kappa_{jr} +\psi_r \kappa_{j i} \big)
-    + \frac{1}{3}
+    k_{i r} \big(\psi_i \psi_r +\psi_i \kappa_{jr} +\psi_r \kappa_{j i} \big) \\
+    &\quad+
+    \frac{1}{3}
     k_{jr} \big(\psi_j \psi_r +\psi_j \kappa_{i r} +\psi_r \kappa_{i j} \big).
   \end{align*}
   %
@@ -1942,6 +1944,9 @@ approximation results for the counterfactual density estimator.
           \mid X_i^0, X_i^1
         \right]
       \Big)
+      \right. \\
+    &\left.
+      \qquad\qquad\,
       \Big(
         \psi_i
         \E\big[
@@ -2396,8 +2401,7 @@ of i.n.i.d.\ variables.
 \begin{lemma}[Yurinskii coupling for Lipschitz i.n.i.d.\ empirical processes]
   \label{lem:yurinskii_corollary}
 
-  For $n \geq 2$
-  let $X_1, \dots, X_n$
+  For $n \geq 2$ let $X_1, \dots, X_n$
   be independent but not necessarily identically distributed
   (i.n.i.d.) random variables
   taking values in a measurable space $(S, \cS)$
@@ -2405,12 +2409,11 @@ of i.n.i.d.\ variables.
   be a compact interval
   with $\left|\log \Leb(\cX_n)\right| \leq C_1 \log n$
   where $C_1 > 0$ is a constant.
-  Let $g_n$ be a measurable function on
-  $S \times \cX_n$
-  satisfying
+  Let $g_n$ be measurable on $S \times \cX_n$ satisfying
   $\sup_{\xi \in S} \sup_{x \in \cX_n} |g_n(\xi, x)| \leq M_n$
   and
-  $\sup_{x \in \cX_n} \max_{1 \leq i \leq n} \Var[g_n(X_i, x)] \leq \sigma_n^2$,
+  $\sup_{x \in \cX_n} \max_{1 \leq i \leq n} \Var[g_n(X_i, x)]
+  \leq \sigma_n^2$,
   with $\left|\log M_n\right| \leq C_1 \log n$
   and $\left|\log \sigma_n^2\right| \leq C_1 \log n$.
   Suppose that $g_n$ satisfies the following uniform
@@ -3482,18 +3485,21 @@ they are needed.
   Let $\cF$ be a class of measurable functions from
   $S \times S$ to $\R$ which is also pointwise measurable.
   Define the degenerate second-order U-process
+  %
   \begin{align*}
     U_n(f)
-    &=
+    =
     \frac{2}{n(n-1)}
     \sum_{i<j}
-    \Big(
+    &\Big(
       f(X_i, X_j)
-      - \E\big[f(X_i,X_j) \mid X_i\big]
-      - \E\big[f(X_i,X_j) \mid X_j\big]
-      + \E\big[f(X_i,X_j)\big]
-    \Big)
+      - \E\big[f(X_i,X_j) \mid X_i\big] \\
+    &\quad-
+    \E\big[f(X_i,X_j) \mid X_j\big]
+    + \E\big[f(X_i,X_j)\big]
+  \Big)
   \end{align*}
+  %
   for $f \in \cF$.
   Suppose that each $f \in \cF$ is symmetric in the sense that
   $f(s_1,s_2) = f(s_2,s_1)$
@@ -3609,12 +3615,13 @@ they are needed.
     &\leq
     C e^{-t}.
   \end{align*}
-  We remark here that clearly
-  by Jensen's inequality,
+  %
+  We remark that by Jensen's inequality,
   $\sigma^2 \leq \E[ \| H(X_i, X_j)^2 \|_2 ]
   = \E[ \| H(X_i, X_j) \|_2^2 ]
   \leq M^2$,
   giving the weaker but simpler concentration inequality
+  %
   \begin{align*}
     \P\left(
       \|U_n\|_2
@@ -3625,8 +3632,10 @@ they are needed.
     &\leq
     C e^{-t}.
   \end{align*}
+  %
   From this last inequality we can deduce the following moment bound
   by integration of tail probabilities.
+  %
   \begin{align*}
     \E\left[
       \|U_n\|_2
@@ -3733,12 +3742,12 @@ they are needed.
     &\leq
     C e^{-t}.
   \end{align*}
+  %
   Defining
-  $s = 8 C M n t^{3/2}$,
-  or equivalently
-  $t = \left( \frac{s}{8C M n} \right)^{2/3}$,
-  shows that
-  for any $s \geq 8C M n(\log d)^{3/2}$,
+  $s = 8 C M n t^{3/2}$
+  so $t = \left( \frac{s}{8C M n} \right)^{2/3}$
+  shows that for any $s \geq 8C M n(\log d)^{3/2}$,
+  %
   \begin{align*}
     \P\left(
       \|U_n\|_2
@@ -3784,8 +3793,8 @@ they are needed.
     +
     \int_0^\infty
     C e^{-\left( \frac{s}{8C M n} \right)^{2/3}}
-    \diff{s}
-    =
+    \diff{s} \\
+    &=
     8C M n(\log d)^{3/2}
     +
     8C M n
@@ -4102,7 +4111,7 @@ on each of the points $-1$ and $1$.
   $\cF$ is a pointwise measurable class of functions from $S$ to $\R$
   with finite envelope $F$.
   Let $\varepsilon_1, \ldots, \varepsilon_n$
-  be independent Rademacher random variables
+  be independent Rademacher variables
   which are independent of $X_1, \ldots, X_n$.
   Then for any $q \in (1, \infty)$,
   \begin{align*}
@@ -4314,7 +4323,7 @@ on each of the points $-1$ and $1$.
     J(\E[\sigma_n^2]^{1/2} / \|F\|_{\bar\P,2}, \cF, F).
   \end{align*}
   %
-  Next use the symmetrization inequality
+  Now use symmetrization
   (Lemma~\ref{lem:symmetrization}),
   the contraction principle
   (Lemma~\ref{lem:contraction}),
@@ -4527,7 +4536,7 @@ on each of the points $-1$ and $1$.
 \subsubsection{Strong approximation results}
 
 Before proving Lemma~\ref{lem:kmt_corollary},
-we require the elementary characterization
+we require the characterization
 of bounded-variation functions given in
 Lemma~\ref{lem:bv_characterization}.
 
@@ -4926,12 +4935,13 @@ Lemma~\ref{lem:bv_characterization}.
       G_n(x')
     \big]
   \end{align*}
-  as desired, where we used the It\^o isometry for stochastic integrals,
-  writing
-  $B_n(1) = \int_0^1 \diff{B_n(s)}$;
+  %
+  as desired, by the It\^o isometry for stochastic integrals,
+  writing $B_n(1) = \int_0^1 \diff{B_n(s)}$;
   and noting that $F_X^{-1}(\xi_i)$
   has the same distribution as $X_i$.
   Finally, note that
+  %
   \begin{align*}
     G_n(x)
     &=
@@ -4941,20 +4951,22 @@ Lemma~\ref{lem:bv_characterization}.
       - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
     \Big),
   \end{align*}
+  %
   and so by Equation~\ref{eq:kmt_concentration}
+  %
   \begin{align*}
     \P\left(
       \sup_{x \in \R}
       \Big|G_n(x) - Z_n(x)\Big|
       > V_n \frac{t + C_1 \log n}{\sqrt n}
     \right)
-    \leq
+    &\leq
     \P\left(
       \sup_{g \in \cV_1}
       \big|\alpha_n(g) - \beta_n(g)\big|
       > \frac{t + C_1\log n}{\sqrt{n}}
-    \right)
-    \leq C_2 e^{-C_3 t}.
+    \right) \\
+    &\leq C_2 e^{-C_3 t}.
   \end{align*}
 \end{proof}
 
@@ -5221,14 +5233,14 @@ Lemma~\ref{lem:bv_characterization}.
   satisfying for any $s' > 0$
   %
   \begin{align*}
-    \P\left(
+    &\P\left(
       \sup_{x \in \cX_n^\delta}
       \big|
       G_n(x) - Z_n(x)
       \big|
       > t_n
-    \right)
-    &\leq
+    \right) \\
+    &\quad\leq
     \frac{4 \Leb(\cX_n)}{\delta_n}
     e^{-s^2/2}
     + \frac{\sigma_n^2 \Leb(\cX_n) s^2}{\sqrt n \delta_n t_n^3}
@@ -5285,26 +5297,30 @@ Lemma~\ref{lem:bv_characterization}.
   on $(S, \cS)$,
   noting that any $\|\cdot\|_\infty$-cover
   is a $\rho_\Q$-cover,
+  %
   \begin{align*}
     \sup_\Q
     N\big(\cG_n, \rho_\Q, \varepsilon l_{n,\infty} \Leb(\cX_n)\big)
     &\leq
     N\big(\cG_n, \|\cdot\|_\infty,
-    \varepsilon l_{n,\infty} \Leb(\cX_n)\big)
-    \leq
+    \varepsilon l_{n,\infty} \Leb(\cX_n)\big) \\
+    &\leq
     N\big(\cX_n, |\cdot|, \varepsilon \Leb(\cX_n)\big)
     \leq
     1/\varepsilon.
   \end{align*}
+  %
   Replacing $\varepsilon$ by
   $\varepsilon M_n/(l_{n,\infty} \Leb(\cX_n))$
   gives
+  %
   \begin{align*}
     \sup_\Q
     N\big(\cG_n, \rho_\Q, \varepsilon M_n \big)
     &\leq
     \frac{l_{n,\infty} \Leb(\cX_n)}{\varepsilon M_n},
   \end{align*}
+  %
   and so $\cG_n$
   is a VC-type class.
   To see that $\cG_n^\delta$
@@ -5370,8 +5386,9 @@ Lemma~\ref{lem:bv_characterization}.
   and $\sigma = l_{n,2} \delta_n$
   gives,
   up to universal constants
+  %
   \begin{align*}
-    \E\left[
+    &\E\left[
       \sup_{g \in \cG_n^\delta}
       \left|
       \frac{1}{\sqrt{n}}
@@ -5381,21 +5398,23 @@ Lemma~\ref{lem:bv_characterization}.
         - \E[g(X_i)]
       \Big)
       \right|
-    \right]
-    &\lesssim
+    \right] \\
+    &\quad\lesssim
     \sigma
     \sqrt{2 \log \big(C_{1,n} \|F\|_{\bar\P,2}/\sigma\big)}
     +
     \frac{\|M\|_{\P,2} 2 \log \big(C_{1,n} \|F\|_{\bar\P,2}/\sigma\big)}
     {\sqrt{n}} \\
-    &\lesssim
+    &\quad\lesssim
     l_{n,2} \delta_n
     \sqrt{C_1 \log n}
     +
     \frac{l_{n,\infty} \delta_n}{\sqrt n}
     C_1 \log n,
   \end{align*}
+  %
   and hence by Markov's inequality,
+  %
   \begin{align*}
     &\P\left(
       \sup_{|x-x'| \leq \delta_n}
@@ -5486,24 +5505,24 @@ Lemma~\ref{lem:bv_characterization}.
       \big|
       Z_n(x) - Z_n(x')
       \big|
-    \bigg]
-    \leq
+    \bigg] \\
+    &\quad\leq
     \int_0^{l_{n,2} \delta_n}
     \sqrt{\log N(\varepsilon, \cX_n, \rho)}
-    \diff{\varepsilon} \\
-    &\quad\leq
+    \diff{\varepsilon}
+    \leq
     \int_0^{l_{n,2} \delta_n}
     \sqrt{\log N(\varepsilon / l_{n,2}, \cX_n, |\cdot|)}
-    \diff{\varepsilon}
-    \leq
-    \int_0^{l_{n,2} \delta_n}
-    \sqrt{\log \left( 1 + \frac{\Leb(\cX_n) l_{n,2}}{\varepsilon} \right)}
     \diff{\varepsilon} \\
     &\quad\leq
     \int_0^{l_{n,2} \delta_n}
-    \sqrt{\log \left( \frac{2\Leb(\cX_n) l_{n,2}}{\varepsilon} \right)}
+    \sqrt{\log \left( 1 + \frac{\Leb(\cX_n) l_{n,2}}{\varepsilon} \right)}
     \diff{\varepsilon}
     \leq
+    \int_0^{l_{n,2} \delta_n}
+    \sqrt{\log \left( \frac{2\Leb(\cX_n) l_{n,2}}{\varepsilon} \right)}
+    \diff{\varepsilon} \\
+    &\quad\leq
     \log \left(\frac{2\Leb(\cX_n)}{\delta_n} \right)^{-1/2}
     \int_0^{l_{n,2} \delta_n}
     \log \left( \frac{2\Leb(\cX_n) l_{n,2}}{\varepsilon} \right)
@@ -5586,11 +5605,13 @@ Lemma~\ref{lem:bv_characterization}.
     \frac{4 \Leb(\cX_n)}{\delta_n}
     e^{-s^2/2}
     + \frac{\sigma_n^2 \Leb(\cX_n) s^2}{\sqrt n \delta_n t_n^3}
-    \Big(M_n + 6 \sigma_n \sqrt{C_1 \log n}\Big)
-    + \frac{l_{n,2} \delta_n}{t_n}
+    \Big(M_n + 6 \sigma_n \sqrt{C_1 \log n}\Big) \\
+    &\qquad+
+    \frac{l_{n,2} \delta_n}{t_n}
     \sqrt{C_1 \log n}
     + \frac{l_{n,\infty} \delta_n}{t_n \sqrt n} C_1 \log n.
   \end{align*}
+  %
   Choosing an approximately optimal mesh size of
   %
   \begin{align*}
@@ -5626,8 +5647,9 @@ Lemma~\ref{lem:bv_characterization}.
     \frac{4 \Leb(\cX_n)}{\delta_n}
     e^{-s^2/2}
     + \frac{\sigma_n^2 \Leb(\cX_n) s^2}{\sqrt n \delta_n t_n^3}
-    \Big(M_n + 6 \sigma_n \sqrt{C_1 \log n}\Big)
-    + \frac{l_{n,2} \delta_n}{t_n}
+    \Big(M_n + 6 \sigma_n \sqrt{C_1 \log n}\Big) \\
+    &\qquad+
+    \frac{l_{n,2} \delta_n}{t_n}
     \sqrt{C_1 \log n}
     + \frac{l_{n,\infty} \delta_n}{t_n \sqrt n} C_1 \log n \\
     &\quad\lesssim
@@ -5874,8 +5896,8 @@ We begin with a basic fact about Lipschitz functions.
     \E[\hat f_W(w)]
     - f_W(w)
     - h^p B_p(w)
-    \big|
-    =
+    \big| \\
+    &\quad=
     \sup_{w \in \cW}
     \left|
     \int_{\cW}
@@ -5905,8 +5927,8 @@ We begin with a basic fact about Lipschitz functions.
       f_W(s) - P_{p}(s,w)
     \big)
     \diff{s}
-    \right|
-    =
+    \right| \\
+    &\quad=
     \sup_{w \in \cW}
     \left|
     \int_{\cW}
@@ -5938,8 +5960,8 @@ We begin with a basic fact about Lipschitz functions.
     \E[\hat f_W(w)]
     - f_W(w)
     - h^p B_p(w)
-    \big|
-    =
+    \big| \\
+    &\quad=
     \sup_{w \in \cW}
     \left|
     \int_{\cW}
@@ -5969,8 +5991,8 @@ We begin with a basic fact about Lipschitz functions.
       f_W(s) - P_{\flbeta}(s,w)
     \big)
     \diff{s}
-    \right|
-    =
+    \right| \\
+    &\quad=
     \sup_{w \in \cW}
     \left|
     \int_{\cW}
@@ -6484,6 +6506,7 @@ We begin with a basic fact about Lipschitz functions.
     C_3
     |w-w'|,
   \end{align*}
+  %
   where $C_3 = 8 \CL \CH$.
   The same holds for $|w-w'| > h$
   as the Lipschitz property is local.
@@ -6492,6 +6515,7 @@ We begin with a basic fact about Lipschitz functions.
   by the contraction property of conditional expectation that
   the same holds for the
   singly-conditioned terms:
+  %
   \begin{align*}
     \left|
     \E\big[ k_h(W_{i j},w) \mid A_i \big]
@@ -6501,9 +6525,11 @@ We begin with a basic fact about Lipschitz functions.
     C_3
     |w-w'|.
   \end{align*}
+  %
   Therefore $\cF_3$ is also smoothly parameterized
   in exactly the same manner.
   Let
+  %
   \begin{align*}
     C_4
     &=
@@ -6511,8 +6537,8 @@ We begin with a basic fact about Lipschitz functions.
     \esssup_{A_i, A_j}
     \big|
     \E\big[ k_h(W_{i j},w) \mid A_i, A_j \big]
-    \big|
-    =
+    \big| \\
+    &=
     \sup_{w \in \cW}
     \esssup_{A_i, A_j}
     \left|
@@ -6524,6 +6550,7 @@ We begin with a basic fact about Lipschitz functions.
     &\leq 2h \frac{\Ck}{h} \Cd
     \leq 2 \Ck \Cd.
   \end{align*}
+  %
   For any $\varepsilon \in (0,1]$,
   take an $(\varepsilon C_4/C_3)$-cover of $\cW$
   of cardinality at most $C_3 \Leb(\cW) / (\varepsilon C_4)$.
@@ -7265,8 +7292,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \big(
         k_{rs}' - \E k_{rs}'
       \big)
-    \right]
-    =
+    \right] \\
+    &=
     \frac{4}{n^2(n-1)^2}
     \sum_{i<j}
     \sum_{r<s}
@@ -7275,6 +7302,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       k_{rs}'
     \right].
   \end{align*}
+  %
   Note first that
   for $i,j,r,s$ all distinct,
   $k_{i j}$ is independent of $k_{rs}'$
@@ -7294,6 +7322,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   the value of the summands
   depends only on the number of distinct indices
   and we have the decomposition
+  %
   \begin{align*}
     \Sigma_n(w,w')
     &=
@@ -7499,14 +7528,14 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   which are of bounded variation in $a$ uniformly over $w$ since
   \begin{align*}
-    \sup_{w \in \cW} \|k_h^A(\cdot,w)\|_\TV
-    &=
+    &\sup_{w \in \cW} \|k_h^A(\cdot,w)\|_\TV \\
+    &\quad=
     2\sup_{w \in \cW}
     \sup_{m \in \N}
     \sup_{a_0 \leq \cdots \leq a_m}
     \sum_{i=1}^m
     \big|k_h^A(a_i,w) - k_h^A(a_{i-1},w)\big| \\
-    &=
+    &\quad=
     2\sup_{w \in \cW}
     \sup_{m \in \N}
     \sup_{a_0 \leq \cdots \leq a_m}
@@ -7520,7 +7549,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \big)
     \diff{s}
     \right| \\
-    &\leq
+    &\quad\leq
     2 \sup_{w \in \cW}
     \int_{[w \pm h] \cap \cW}
     |k_h(s,w)|
@@ -7532,7 +7561,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     - f_{W \mid A}(s \mid  a_{i-1})
     \big|
     \diff{s} \\
-    &\leq
+    &\quad\leq
     2 \sup_{w \in \cW}
     \int_{[w \pm h] \cap \cW}
     |k_h(s,w)|
@@ -7541,7 +7570,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     f_{W \mid A}(w \mid  \cdot)
     \big\|_\TV
     \diff{s} \\
-    &\leq
+    &\quad\leq
     4 \Ck \sup_{w \in \cW}
     \big\|
     f_{W \mid A}(w \mid  \cdot)
@@ -7549,6 +7578,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \lesssim
     \Du,
   \end{align*}
+  %
   where the last line is by observing that the total variation
   is zero whenever $\Du = 0$.
   Hence by Lemma~\ref{lem:kmt_corollary}
@@ -7557,6 +7587,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   denoted $A_i'$
   and a centered Gaussian process $Z_n^{L\prime}$
   such that if we define
+  %
   \begin{align*}
     L_n'(w)
     &=
@@ -7565,6 +7596,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \big(k_h^A(A_i',w) -
     \E[k_h^A(A_i',w)]\big),
   \end{align*}
+  %
   then for some positive constants
   $C_1, C_2, C_3$,
   by defining the processes as zero outside $\cW$
@@ -8076,8 +8108,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     n^2h
     \frac{4}{n^2(n-1)^2}
     \sum_{i=1}^{n-1}
-    \sum_{j=i+1}^{n} \\
-    &\qquad\E\left[
+    \sum_{j=i+1}^{n}
+    \E\left[
       \Big(
         k_h(W_{i j}, \cW_\delta)
         - \E\left[
@@ -8085,7 +8117,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
           \mid \bA_n
         \right]
       \Big)
-      \Big(
+      \right. \\
+    &\qquad\left.
+      \times\Big(
         k_h(W_{i j}, \cW_\delta)
         - \E\left[
           k_h(W_{i j}, \cW_\delta)
@@ -8100,10 +8134,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sum_{j=i+1}^{n}
     u(A_i, A_j),
   \end{align*}
+  %
   where we
   define the random
   $|\cW_\delta| \times |\cW_\delta|$
   matrices
+  %
   \begin{align*}
     u(A_i, A_j)
     &=
@@ -8111,8 +8147,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       k_h(W_{i j}, \cW_\delta)
       k_h(W_{i j}, \cW_\delta)^\T
       \mid \bA_n
-    \right]
-    -
+    \right] \\
+    &\quad-
     \E\left[
       k_h(W_{i j}, \cW_\delta)
       \mid \bA_n
@@ -8122,6 +8158,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \mid \bA_n
     \right]^\T.
   \end{align*}
+  %
   Let $u(A_i) = \E[u(A_i, A_j) \mid A_i]$
   and
   $u = \E[u(A_i, A_j)]$.
@@ -8175,8 +8212,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       k_h(W_{i j}, w)
       k_h(W_{i j}, w')
       \mid \bA_n
-    \right]
-    -
+    \right] \\
+    &\quad-
     \E\left[
       k_h(W_{i j}, w)
       \mid \bA_n
@@ -8193,8 +8230,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       k_h(W_{i j}, w')
       |
       \mid \bA_n
-    \right]
-    +
+    \right] \\
+    &\quad+
     \E\left[
       |
       k_h(W_{i j}, w)
@@ -8216,11 +8253,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \I\big\{ |k-l| \leq 2h/\delta_n \big\}
     + 1,
   \end{align*}
+  %
   where we used that
   $|w-w'| \geq |k-l| \delta_n$
   because $\cW_\delta$
   is a $\delta_n$-packing.
   Hence
+  %
   \begin{align*}
     \|u(A_i, A_j)\|_2
     &\leq
@@ -8289,11 +8328,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   taking a marginal expectation
   and applying Jensen's inequality,
   \begin{align*}
-    \E\left[
+    &\E\left[
       \max_{w \in \cW_\delta}
       \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
-    \right]
-    &\lesssim
+    \right] \\
+    &\quad\lesssim
     \sqrt{\log n} \
     \E\left[
       \left\|
@@ -8307,7 +8346,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \tilde\Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}
       \right\|_2
     \right]^{1/2} \\
-    &\lesssim
+    &\quad\lesssim
     \sqrt{\log n} \
     \E\left[
       \left\|
@@ -8325,7 +8364,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \tilde Q
       \right\|_2
     \right]^{1/2} \\
-    &\lesssim
+    &\quad\lesssim
     \sqrt{\log n}
     \left(
       \left(\frac{h}{\delta_n} + 1 \right)
@@ -8333,7 +8372,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       + \left(\frac{h}{\delta_n} + 1 \right)
       \frac{(\log n)^{3/2}}{n}
     \right)^{1/2} \\
-    &\lesssim
+    &\quad\lesssim
     \sqrt{\frac{h}{\delta_n} + 1}
     \frac{(\log n)^{3/4}}{n^{1/4}}.
   \end{align*}
@@ -8422,6 +8461,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   We use the previous parts
   to deduce that
+  %
   \begin{align*}
     &\E\left[
       \sup_{w \in \cW}
@@ -8431,7 +8471,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \E\left[
       \max_{w \in \cW_\delta}
       \big|\tilde Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w)\big|
-      + \sup_{|w-w'| \leq \delta_n}
+    \right] \\
+    &\qquad+
+    \E\left[
+      \sup_{|w-w'| \leq \delta_n}
       \left\{
         \big|\tilde Z_n^{E\dprime}(w) - \tilde Z_n^{E\dprime}(w')\big|
         + \big|Z_n^{E\dprime}(w) - Z_n^{E\dprime}(w')\big|
@@ -8442,9 +8485,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{(\log n)^{3/4}}{n^{1/4}}
     + \frac{\delta_n \sqrt{\log n}}{h}.
   \end{align*}
+  %
   Setting
   $\delta_n = h \left( \frac{\log n}{n} \right)^{1/6}$
   gives
+  %
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
@@ -8453,6 +8498,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &\lesssim
     n^{-1/6} (\log n)^{2/3}.
   \end{align*}
+  %
   Finally, independence of $Z_n^{E\dprime}$ and $\bA_n''$
   follows by another application of
   the Vorob'ev--Berkes--Philipp theorem
@@ -8474,8 +8520,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \proofparagraph{gluing together the strong approximations}
 
   Let $\big(\bA_n', \bV_n', L_n', Z_n^{L\prime}\big)$
-  be the approximation for $L_n$
-  from Lemma~\ref{lem:app_strong_approx_Ln}.
+  be the strong approximation for $L_n$
+  derived in Lemma~\ref{lem:app_strong_approx_Ln}.
   Let $\big(\bA_n'', \bV_n'', E_n'', \tilde Z_n^{E\dprime}\big)$
   and
   $\big(\bA_n''', \bV_n''', \tilde Z_n^{E\tprime}, Z_n^{E\tprime}\big)$
@@ -8583,12 +8629,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       + \frac{1}{\sqrt{n^2h}}
       \left|
       \tilde Z_n^E(w) - \sqrt{n^2h} E_n(w)
-      \right|
-      + \frac{1}{\sqrt{n^2h}}
-      \left|
-      Z_n^E(w) - \tilde Z_n^E(w)
       \right| \\
       &\qquad+
+      \frac{1}{\sqrt{n^2h}}
+      \left|
+      Z_n^E(w) - \tilde Z_n^E(w)
+      \right|
       \big| Q_n(w) \big|
       + \frac{1}{n}
       \big| Z_n^Q(w) \big|
@@ -8854,6 +8900,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \lesssim a,b,c
   \lesssim \frac{\Du^2}{n} + \frac{1}{n^2h}$
   yields
+  %
   \begin{align*}
     \E\left[
       \big(
@@ -8862,15 +8909,17 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \right]
     &\lesssim
     \frac{(\Du^2/n + 1/(n^2h))n^{-1}h^{-3}|w-w'|}
-    {(\Dl^2/n + 1/(n^2h))^2}
-    \lesssim
+    {(\Dl^2/n + 1/(n^2h))^2} \\
+    &\lesssim
     \frac{n^{2} h^{-4}|w-w'|}
     {n^{-4}h^{-2}}
     \lesssim
     n^2 h^{-2} |w-w'|.
   \end{align*}
+  %
   Thus the semimetric
   induced by $Z_n^T$ on $\cW$ is
+  %
   \begin{align*}
     \rho(w,w')
     &\vcentcolon=
@@ -8900,8 +8949,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       n^{-1} h \varepsilon,
       \cW,
       \sqrt{|\cdot|}
-    \big)
-    \lesssim
+    \big) \\
+    &\lesssim
     N\big(
       n^{-2} h^2 \varepsilon^2,
       \cW,
@@ -8910,6 +8959,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \lesssim
     n^2 h^{-2} \varepsilon^{-2}.
   \end{align*}
+  %
   Now apply the Gaussian process regularity result from
   Lemma~\ref{lem:gaussian_process_maximal}.
   \begin{align*}
@@ -8949,11 +8999,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \E\left[
       \sup_{\rho(w,w') \leq n h^{-1} \delta_n^{1/2}}
       \big| Z_n^T(w) - Z_n^T(w') \big|
-    \right]
-    \lesssim
+    \right] \\
+    &\lesssim
     n h^{-1}
     \sqrt{\delta_n \log n},
   \end{align*}
+  %
   whenever $1/\delta_n$
   is at most polynomial in $n$.
 
@@ -9031,15 +9082,15 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Lemma~\ref{lem:infeasible_t_statistic} is
   %
   \begin{align*}
-    \sup_{w \in \cW} \left| T_n(w) - Z_n^T(w) \right|
-    &\lesssim_\P
+    &\sup_{w \in \cW} \left| T_n(w) - Z_n^T(w) \right| \\
+    &\quad\lesssim_\P
     \frac{
       n^{-1/2} \log n
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
     + n^{1/2} h^{p \wedge \beta}}
     {\Dl + 1/\sqrt{n h}} \\
-    &\ll
+    &\quad\ll
     \frac{1}{\sqrt{\log n}}.
   \end{align*}
   %
@@ -9312,6 +9363,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     = 0.
   \end{align*}
   Define and bound the following quantities:
+  %
   \begingroup
   \allowdisplaybreaks
   \begin{align*}
@@ -9330,7 +9382,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
         h_{i j q r}(X_{i j}, X'_{qr})^2
         \mid X_{i j}
       \Big]
-      \right\|_\infty, \
+      \right\|_\infty,
+      \right. \\
+      &\left.
+      \qquad\qquad\quad
       \left\|
       \sum_{1 \leq q < r \leq n}
       \E\Big[
@@ -9341,7 +9396,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right\}^{1/2} \\
     &=
     \max
-    \Bigg\{
+    \left\{
       \left\|
       \sum_{1 \leq i < j \leq n}
       h_1(X_{i j})^2
@@ -9349,8 +9404,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
         h_2(X_{qr}')^2
       \big]
       \I\{j<r, q=i\}
-      \right\|_\infty, \\
-      &\qquad\qquad\quad
+      \right\|_\infty,
+      \right. \\
+      &\left.
+      \qquad\qquad\quad
       \left\|
       \sum_{1 \leq q < r \leq n}
       \E\big[
@@ -9359,7 +9416,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       h_2(X_{qr}')^2
       \I\{j<r, q=i\}
       \right\|_\infty
-    \Bigg\}^{1/2} \\
+    \right\}^{1/2} \\
     &\leq
     \max
     \left\{
@@ -9484,6 +9541,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sqrt{n^3 \sigma^4}.
   \end{align*}
   \endgroup
+  %
   By Theorem~3.3 in
   \citet{gine2000exponential},
   we have that for some universal constant
@@ -9651,8 +9709,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \left|
     \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
     {\sqrt{\Sigma_n(w,w)}}
-    \right|
-    \lesssim_\P
+    \right| \\
+    &\quad\lesssim_\P
     \sup_{w \in \cW}
     \left|
     \frac{L_n(w)}
@@ -9667,8 +9725,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\sqrt{\Sigma_n(w,w)}}
     \right|
     + \sqrt{n^2h} \frac{1}{n}
-    + \sqrt{n^2h} \sqrt{\frac{\log n}{n^2h}}
-    \lesssim_\P
+    + \sqrt{n^2h} \sqrt{\frac{\log n}{n^2h}} \\
+    &\quad\lesssim_\P
     \sup_{w \in \cW}
     \left|
     \frac{L_n(w)}
@@ -9676,7 +9734,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right|
     + \sqrt{\log n}.
   \end{align*}
+  %
   Now consider the function class
+  %
   \begin{align*}
     \cF
     &=
@@ -9689,7 +9749,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
       w \in \cW
     \right\},
   \end{align*}
+  %
   noting that
+  %
   \begin{align*}
     \frac{L_n(w)}
     {\Sigma_n(w,w)^{1/2}}
@@ -9698,6 +9760,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i=1}^n
     g_w(A_i)
   \end{align*}
+  %
   is an empirical process evaluated at
   $g_w \in \cF$.
   By the lower bound on $\Sigma_n(w,w)$
@@ -9719,13 +9782,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
   respectively,
   we have
   \begin{align*}
-    \left|
+    &\left|
     \frac{L_n(w)}
     {\sqrt{\Sigma_n(w,w)}}
     - \frac{L_n(w')}
     {\sqrt{\Sigma_n(w',w')}}
-    \right|
-    &\lesssim
+    \right| \\
+    &\quad\lesssim
     \frac{\big|L_n(w) - L_n(w')\big|}
     {\sqrt{\Sigma_n(w,w)}}
     +
@@ -9736,39 +9799,43 @@ Theorem~3.3 in \citet{gine2000exponential}.
     - \frac{1}
     {\sqrt{\Sigma_n(w',w')}}
     \right| \\
-    &\lesssim
+    &\quad\lesssim
     \sqrt{n^2h}
     |w-w'|
     +\left|
     \frac{\Sigma_n(w,w) - \Sigma_n(w',w')}
     {\Sigma_n(w,w)\sqrt{\Sigma_n(w',w')}}
     \right| \\
-    &\lesssim
+    &\quad\lesssim
     \sqrt{n^2h}
     |w-w'|
     + (n^2h)^{3/2}
     \left|
     \Sigma_n(w,w) - \Sigma_n(w',w')
     \right| \\
-    &\lesssim
+    &\quad\lesssim
     \sqrt{n^2h}
     |w-w'|
     + (n^2h)^{3/2}
     n^{-1} h^{-3}
-    |w-w'|
-    \lesssim
+    |w-w'| \\
+    &\quad\lesssim
     n^4 |w-w'|
   \end{align*}
+  %
   uniformly over $w,w' \in \cW$.
   Therefore by compactness of $\cW$
   we have the covering number bound
+  %
   \begin{align*}
     N(\cF, \|\cdot\|_\infty, \varepsilon)
     &\lesssim
     N(\cW, |\cdot|, n^{-4} \varepsilon)
     \lesssim n^4 \varepsilon^{-1}.
   \end{align*}
+  %
   Thus by Lemma~\ref{lem:maximal_vc_inid},
+  %
   \begin{align*}
     \E \left[
       \sup_{w \in \cW}
@@ -9805,14 +9872,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Note that
   $\E[S_{i j r}] = \E[k_{i j} k_{i r}']$,
   and hence
+  %
   \begin{align*}
-    \frac{6}{n(n-1)(n-2)}
+    &\frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     \big(
       S_{i j r}
       - \E[k_{i j} k_{i r}']
-    \big)
-    &=
+    \big) \\
+    &\quad=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
     S_{i j r}^{(1)}
@@ -9820,7 +9888,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i<j<r}
     S_{i j r}^{(2)}
   \end{align*}
+  %
   where
+  %
   \begin{align*}
     S_{i j r}^{(1)}
     &=
@@ -10179,21 +10249,25 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \Var\big[ \E[k_{i j} \mid A_i] \E[k_{i r}' \mid A_i] \big]
     &\lesssim
     \Var\big[\E[k_{i j} \mid A_i]\big]
-    + \Var\big[\E[k_{i r}' \mid A_i]\big]
-    \lesssim
+    + \Var\big[\E[k_{i r}' \mid A_i]\big] \\
+    &\lesssim
     n \Var[L_n(w)] + n \Var[L_n(w')] \\
     &\lesssim
     n \Sigma_n(w,w) + n \Sigma_n(w',w')
   \end{align*}
+  %
   and similarly for the other summands in $S_{i j r}$,
   giving the conditional variance bound
+  %
   \begin{align*}
     \E[\E[S_{i j r}^{(2)} \mid A_i]^2] \lesssim
     n \Sigma_n(w,w) + n \Sigma_n(w',w').
   \end{align*}
+  %
   So Lemma~\ref{lem:ustat_concentration}
   and Lemma~\ref{lem:app_variance_bounds}
   give the pointwise concentration inequality
+  %
   \begin{align*}
     &\P\left(
       \Bigg|
@@ -10450,7 +10524,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   we obtain the pointwise in $w,w'$
   concentration inequality
   \begin{align*}
-    \P\left(
+    &\P\left(
       \Bigg|
       \frac{2}{n(n-1)}
       \sum_{i<j}
@@ -10459,24 +10533,25 @@ Theorem~3.3 in \citet{gine2000exponential}.
       > t
       \sqrt{\frac{\log n}{n^2h^3}}
       \Bigm\vert \bA_n
-    \right)
-    &\leq
+    \right) \\
+    &\quad\leq
     2 \exp\left(
       - \frac{t^2 n^2 \log n / (n^2h^3)}
       {C_6 h^{-3} / 2 + C_6 t h^{-2} \sqrt{\log n / (n^2h^3)} / 2}
     \right) \\
-    &\leq
+    &\quad\leq
     2 \exp\left(
       - \frac{t^2 \log n}
       {C_6 / 2 + C_6 t \sqrt{\log n / (n^2h)} / 2}
     \right) \\
-    &\leq
+    &\quad\leq
     2 \exp\left(
       - \frac{t^2 \log n}{C_6}
     \right)
     =
     2 n^{-t^2 / C_6},
   \end{align*}
+  %
   where $C_6$ is a universal positive constant.
 
   \proofparagraph{pointwise concentration of the $S_{i j}^{(2)}$ term}
@@ -10552,8 +10627,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Bigg|
       > t
       \sqrt{\frac{\log n}{n^2h^3}}
-    \right)
-    + \P\left(
+    \right) \\
+    &\qquad+
+    \P\left(
       \sup_{w,w' \in \cW_\delta}
       \Bigg|
       \frac{2}{n(n-1)}
@@ -10659,8 +10735,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \sqrt{\frac{\log n}{n^2h^3}}
       + \sqrt{\frac{\log n}{n h^2}}
     \right)
-    \sqrt{n^2h}
-    \lesssim_\P
+    \sqrt{n^2h} \\
+    &\lesssim_\P
     \sqrt{\frac{n \log n}{h}}.
   \end{align*}
 
@@ -10910,11 +10986,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \Sigma_n(w,w) - C_\varepsilon \frac{\sqrt{\log n}}{n} \sqrt{\Sigma_n(w,w)}
       \leq
       \hat \Sigma_n^+(w,w)
-      \leq
-      \Sigma_n(w,w) + C_\varepsilon \frac{\sqrt{\log n}}{n} \sqrt{\Sigma_n(w,w)}
+    \right.
+    \\
+    &\left.
+      \qquad\leq
+      \Sigma_n(w,w) + C_\varepsilon \frac{\sqrt{\log n}}{n} \sqrt{\Sigma_n(w,w)},
       \quad \forall w \in \cW
-    \right) \\
-    &\quad\geq 1-\varepsilon.
+    \right)
+    \geq 1-\varepsilon.
   \end{align*}
   %
   Consider the function
@@ -11008,11 +11087,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sup_{w \in \cW} \big| \E\big[\hat f_W(w)\big] - f_W(w) \big|
   \lesssim h^{p \wedge \beta}$.
   By Lemma~\ref{lem:app_variance_bounds},
+  note that
   $\sup_{w \in \cW} \Sigma_n(w,w)^{-1/2}
-  \lesssim \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$,
-  and similarly Lemma~\ref{lem:variance_estimator_bounds} gives
+  \lesssim \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$, and
   $\sup_{w \in \cW} \hat \Sigma_n^+(w,w)^{-1/2}
-  \lesssim_\P \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$,
+  \lesssim_\P \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$
+  by Lemma~\ref{lem:variance_estimator_bounds}.
   Thus, applying Lemma~\ref{lem:app_sdp} to control the
   covariance estimation error,
   \begin{align*}
@@ -11036,7 +11116,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{proof}[Lemma~\ref{lem:distributional_approx_feasible_gaussian}]
 
-  Firstly note that the process $\hat Z_n^T$ exists
+  Firstly note that $\hat Z_n^T$ exists
   by noting that $\hat \Sigma_n^+(w,w')$ and therefore also
   $\frac{\hat \Sigma_n^+(w,w')}
   {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}$
@@ -11105,10 +11185,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right|.
   \end{align*}
   %
-  For the first term,
+  For the first term, note that
   $\inf_{w \in \cW} \hat \Sigma_n^+(w,w)
   \gtrsim \frac{\Dl^2}{n} + \frac{1}{n^2h}$
-  by Lemma~\ref{lem:variance_estimator_bounds} and
+  by Lemma~\ref{lem:variance_estimator_bounds} and also
   $\sup_{w \in \cW}
   \left|\frac{\hat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
   \lesssim_\P \sqrt{h \log n}$
@@ -11116,7 +11196,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Thus by Lemma~\ref{lem:app_sdp},
   %
   \begin{align*}
-    \sup_{w, w' \in \cW}
+    &\sup_{w, w' \in \cW}
     \left\{
       \sqrt{\frac{\Sigma_n(w,w) + \Sigma_n(w',w')}
       {\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}
@@ -11124,11 +11204,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \frac{\hat \Sigma_n^+(w,w') - \Sigma_n(w,w')}
       {\sqrt{\Sigma_n(w,w) + \Sigma_n(w',w')}}
       \right|
-    \right\}
-    &\lesssim_\P
+    \right\} \\
+    &\quad\lesssim_\P
     \frac{\sqrt{\log n}}{n}
-    \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}} \\
-    &\lesssim_\P
+    \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}
+    \lesssim_\P
     \sqrt{\frac{\log n}{n}}
     \frac{1}{\Dl + 1/\sqrt{n h}}.
   \end{align*}
@@ -11221,7 +11301,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   uniformly in the data. By the previous part and
   since $x (\log 1/x)^2$ is increasing on $\big(0, e^{-2}\big)$,
   \begin{align*}
-    \sup_{t \in \R}
+    &\sup_{t \in \R}
     \left|
     \P\left(
       \sup_{w \in \cW_\delta}
@@ -11234,14 +11314,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \leq t
       \Bigm\vert \bW_n
     \right)
-    \right|
-    &\lesssim_\P
+    \right| \\
+    &\quad\lesssim_\P
     \left(
       \sqrt{\frac{\log n}{n}}
       \frac{1}{\Dl + 1/\sqrt{n h}}
     \right)^{1/3}
-    (\log n)^{2/3} \\
-    &\lesssim_\P
+    (\log n)^{2/3}
+    \lesssim_\P
     \frac{n^{-1/6}(\log n)^{5/6}}
     {\Dl^{1/3} + (n h)^{-1/6}}.
   \end{align*}
@@ -11419,17 +11499,17 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \big| Z_n^T(w) \big|
       \leq t + 2\varepsilon_n
     \right)
-    + O_\P(r_n) \\
-    &\qquad+
-    \P\left(
+    + O_\P(r_n)
+    + \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
       Z_n^T(w)
       - Z_n^T(w')
       \right|
       \geq \varepsilon_n
-    \right)
-    + \P\left(
+    \right) \\
+    &\qquad+
+    \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
       \hat Z_n^T(w)
@@ -11459,12 +11539,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
       - t
       \right|
       \leq 2\varepsilon_n
-    \right)
-    + O_\P(r_n)
+    \right) \\
+    &\qquad+
+    O_\P(r_n)
     + O_\P(\varepsilon_n^{-1} n h^{-1} \sqrt{\delta_n \log n}).
   \end{align*}
+  %
   The converse inequality is obtained
   analogously as follows:
+  %
   \begin{align*}
     &\P\left(
       \sup_{w \in \cW}
@@ -11510,17 +11593,17 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \big| Z_n^T(w) \big|
       \leq t - 2\varepsilon_n
     \right)
-    - O_\P(r_n) \\
-    &\qquad-
-    \P\left(
+    - O_\P(r_n)
+    - \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
       Z_n^T(w)
       - Z_n^T(w')
       \right|
       \geq \varepsilon_n
-    \right)
-    - \P\left(
+    \right) \\
+    &\qquad-
+    \P\left(
       \sup_{|w-w'| \leq \delta_n}
       \left|
       \hat Z_n^T(w)
@@ -11550,11 +11633,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
       - t
       \right|
       \leq 2\varepsilon_n
-    \right)
-    - O_\P(r_n)
+    \right) \\
+    &\qquad-
+    O_\P(r_n)
     - O_\P(\varepsilon_n^{-1} n h^{-1} \sqrt{\delta_n \log n}).
   \end{align*}
+  %
   Combining these uniform upper and lower bounds gives
+  %
   \begin{align*}
     &\sup_{t \in \R}
     \left|
@@ -12147,7 +12233,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\geq
     1 - \alpha - 3\varepsilon_n.
   \end{align*}
-  Here ends the proof of the theorem.
+  %
 \end{proof}
 
 \subsubsection{Counterfactual dyadic density estimation}
@@ -12209,14 +12295,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
       f_{W \mid XX}^1(w \mid X_i^1, X_j^1)
       + O_\P\left( h^{p \wedge \beta} \right)
     \big]
-    + O\left(\frac{1}{n}\right)
-    =
+    + O\left(\frac{1}{n}\right) \\
+    &=
     f_W^{1 \triangleright 0}(w)
     + O\left( h^{p \wedge \beta} + \frac{1}{n}\right)
   \end{align*}
   %
   uniformly in $w \in \cW$, following the proof of
-  Lemma~\ref{lem:bias} by H{\"o}lder-continuity
+  Lemma~\ref{lem:bias} and using H{\"o}lder continuity
   of $f_{W \mid XX}^1(\,\cdot \mid x_1, x_2)$.
   %
 \end{proof}
@@ -12257,15 +12343,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \psi_i
     \frac{1}{n}
     \sum_{r \notin \{i,j\}}^n \kappa_{r j}
-    k_{i j}
-    + \frac{2}{n(n-1)}
+    k_{i j} \\
+    &\quad+
+    \frac{2}{n(n-1)}
     \sum_{i < j}
     \psi_j
     \frac{1}{n}
     \sum_{r \notin \{i,j\}}^n \kappa_{r i}
-    k_{i j} \\
-    &\quad+
-    O_\P\left(\frac{1}{n}\right) \\
+    k_{i j}
+    + O_\P\left(\frac{1}{n}\right) \\
     &=
     \frac{2}{n(n-1)(n-2)}
     \sum_{i < j}
@@ -12295,8 +12381,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{1}{3}
     k_{i j} \Big(\psi_i \psi_j +\psi_i \kappa_{r j} +\psi_j \kappa_{r i} \Big)
     + \frac{1}{3}
-    k_{i r} \Big(\psi_i \psi_r +\psi_i \kappa_{jr} +\psi_r \kappa_{j i} \Big)
-    + \frac{1}{3}
+    k_{i r} \Big(\psi_i \psi_r +\psi_i \kappa_{jr} +\psi_r \kappa_{j i} \Big) \\
+    &\quad+
+    \frac{1}{3}
     k_{jr} \Big(\psi_j \psi_r +\psi_j \kappa_{i r} +\psi_r \kappa_{i j} \Big)
   \end{align*}
   %
@@ -12401,11 +12488,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   %
   where $Z_n^{L, 1 \triangleright 0}$ is a mean-zero
-  Gaussian process with the same covariance structure as
+  Gaussian process with the same covariance as
   $\sqrt n L_n^{1 \triangleright 0}$.
   For $E_n^{1 \triangleright 0}(w)$,
   we first construct a strong approximation conditional on
-  $\bA_n$ and $\bX_n$ as in Lemma~\ref{lem:app_conditional_strong_approx_En}
+  $\bA_n$ and $\bX_n$ as shown in
+  Lemma~\ref{lem:app_conditional_strong_approx_En}
   and deduce an unconditional strong approximation as in
   Lemma~\ref{lem:app_unconditional_strong_approx_En} to see
   %
@@ -12421,7 +12509,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   %
   where $Z_n^{E, 1 \triangleright 0}$ is a mean-zero
-  Gaussian process with the same covariance structure as
+  Gaussian process with the same covariance as
   $\sqrt{n^2h} E_n^{1 \triangleright 0}$.
   Arguing as in the proof of Theorem~\ref{thm:app_strong_approx_fW}
   shows that the Gaussian processes are independent
@@ -12445,15 +12533,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i \neq j}
     \sum_{r \notin \{i,j\}}
     \sum_{i' \neq j'}
-    \sum_{r' \notin \{i',j'\}}
-    \E\Big[
+    \sum_{r' \notin \{i',j'\}} \\
+    &\quad\qquad\E\Big[
       \Big(
         k_{i j} \psi_i \psi_j
         - \E[k_{i j} \psi_i \psi_j]
         + k_{i j}\psi_i \kappa_{r j}
         + k_{i j}\psi_j \kappa_{r i}
       \Big) \\
-      &\quad\times
+      &\qquad\qquad\times
       \Big(
         k_{i' j'}' \psi_{i'} \psi_{j'}
         - \E[k_{i j}' \psi_i \psi_j]

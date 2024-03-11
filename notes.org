@@ -5,6 +5,7 @@
 ** TODO Check margins and spacing etc
 ** TODO All files should be checked in justfile
 ** TODO Discuss software implementations
+** TODO proofparagraph no caps
 * Structure
 ** Abstract
 *** Up to 350 words

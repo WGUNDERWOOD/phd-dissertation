@@ -448,7 +448,7 @@ $\phi_p(d)$.
 \begin{lemma}[Gaussian \texorpdfstring{$\ell^p$}{lp}-norm bound]%
   \label{lem:gaussian_pnorm}
   Let $X \sim \cN(0, \Sigma)$ where $\Sigma \in \R^{d \times d}$
-  is positive semi-definite. Then
+  is a positive semi-definite matrix. Then
   $\E\left[ \|X\|_p \right]
   \leq
   \phi_p(d)
@@ -1803,7 +1803,7 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
   In general, set
   $t = 2^{1/3} \phi_p(d)^{1/3} \beta_{p,2}^{-1/3} \eta$
   and $\nu = \E[\|\Omega\|_2]^{1/3} \phi_p(d)^{-1/3} \eta^{1/3}$,
-  replacing $\eta$ with $\eta / 6$ to see
+  then replace $\eta$ with $\eta / 6$ to see
   %
   \begin{align*}
     \P\big(\|S-T\|_p > 6\eta\big)
