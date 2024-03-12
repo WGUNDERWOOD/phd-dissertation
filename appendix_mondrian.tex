@@ -3768,14 +3768,14 @@ of the debiased Mondrian random forest estimator.
   and $A \omega = e_0$, we have
   %
   \begin{align*}
-    \sum_{l=0}^J
+    &\sum_{l=0}^J
     \omega_l
     \left(
       \mu(x)
       + \sum_{r=1}^{\lfloor \flbeta / 2 \rfloor}
       \frac{B_r(x)}{a_l^{2r} \lambda^{2r}}
-    \right)
-    &=
+    \right) \\
+    &\quad=
     \mu(x)
     \sum_{l=0}^J
     \omega_l
@@ -3784,7 +3784,7 @@ of the debiased Mondrian random forest estimator.
     \frac{B_r(x)}{\lambda^{2r}}
     \sum_{l=0}^J
     \frac{\omega_l}{a_l^{2r}} \\
-    &=
+    &\quad=
     \mu(x)
     (A \omega)_1
     + \sum_{r=1}^{\lfloor \flbeta / 2 \rfloor \wedge J}
@@ -3795,14 +3795,14 @@ of the debiased Mondrian random forest estimator.
     \frac{B_r(x)}{\lambda^{2r}}
     \sum_{l=0}^J
     \frac{\omega_l}{a_l^{2r}} \\
-    &=
+    &\quad=
     \mu(x)
     + \I\{\lfloor \flbeta / 2 \rfloor \geq J + 1\}
     \frac{B_{J+1}(x)}{\lambda^{2J + 2}}
     \sum_{l=0}^J
     \frac{\omega_l}{a_l^{2J + 2}}
     + O \left( \frac{1}{\lambda^{2J + 4}} \right) \\
-    &=
+    &\quad=
     \mu(x)
     + \I\{2J + 2 < \beta\}
     \frac{\bar\omega B_{J+1}(x)}{\lambda^{2J + 2}}
@@ -3861,7 +3861,7 @@ of the debiased Mondrian random forest estimator.
   Note that
   %
   \begin{align*}
-    \frac{n}{\lambda^d}
+    &\frac{n}{\lambda^d}
     \sum_{i=1}^n
     \left(
       \sum_{r=0}^J
@@ -3870,8 +3870,8 @@ of the debiased Mondrian random forest estimator.
       \sum_{b=1}^B
       \frac{\I\{X_i \in T_{r b}(x)\}}
       {\sum_{i=1}^n \I\{X_i \in T_{r b}(x)\}}
-    \right)^2
-    &=
+    \right)^2 \\
+    &\quad=
     \frac{n}{\lambda^d}
     \frac{1}{B^2}
     \sum_{i=1}^n
@@ -3957,8 +3957,9 @@ of the debiased Mondrian random forest estimator.
     &=
     \sqrt{\frac{n}{\lambda^d}}
     \frac{\hat \mu_\rd(x) - \E \left[ \hat \mu_\rd(x) \mid \bX, \bT \right]}
-    {\hat \Sigma_\rd(x)^{1/2}}
-    + \sqrt{\frac{n}{\lambda^d}} \,
+    {\hat \Sigma_\rd(x)^{1/2}} \\
+    &\quad+
+    \sqrt{\frac{n}{\lambda^d}} \,
     O_\P \left(
       \frac{1}{\lambda^\beta}
       + \frac{1}{\lambda \sqrt B}
