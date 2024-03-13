@@ -80,10 +80,29 @@ and the technical mathematical tools used in their theoretical analysis.
 \section*{Overview of the dissertation}
 
 % mondrian
-Chapter~\ref{cha:mondrian}
-is based on the work of \cite{cattaneo2023inference}
-and presents methods for inference with Mondrian random forests
-in the nonparametric regression setting.
+Chapter~\ref{cha:mondrian}, titled
+``Inference with Mondrian random forests''
+is based on the work of \cite{cattaneo2023inference}.
+% what are random forests
+Random forests are popular methods for classification and regression,
+% why are there variants
+and many different variants have been proposed in recent years.
+% mondrian random forests
+One interesting example is the Mondrian random forest,
+in which the underlying trees are constructed according to a Mondrian process.
+% what we do
+In this paper we give a central limit theorem
+for the estimates made by a Mondrian random forest
+in the regression setting.
+When combined with a bias characterization and a
+consistent variance estimator,
+this allows one to perform asymptotically valid statistical inference,
+such as constructing confidence intervals,
+on the unknown regression function.
+We also provide a debiasing procedure for Mondrian random
+forests which allows them to achieve minimax-optimal estimation rates
+with $\beta$-H{\"o}lder regression functions, for all $\beta$
+and in arbitrary dimension, assuming appropriate parameter tuning.
 
 % kernel
 In Chapter~\ref{cha:kernel},

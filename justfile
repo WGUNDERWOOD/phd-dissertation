@@ -1,14 +1,14 @@
 DISS := "dissertation"
 
 alias c := clean
-alias d := diss
+alias b := build
 alias s := spell
 alias t := todo
 alias l := longlines
 alias f := format
 alias w := warn
 
-all: spell todo longlines format diss warn
+all: spell todo longlines format build warn
 
 spell:
 	@spell-check *.tex refs.bib
@@ -19,7 +19,7 @@ todo:
 longlines:
 	@long-lines *.tex refs.bib notes.org
 
-diss:
+build:
 	@tex-build {{DISS}}.tex
 
 warn:

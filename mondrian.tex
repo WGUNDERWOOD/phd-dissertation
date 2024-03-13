@@ -472,7 +472,7 @@ Our analysis begins with a bias--variance decomposition
 for the Mondrian random forest estimator:
 %
 \begin{align}
-  \label{eq:bias_variance}
+  \nonumber
   \hat\mu(x) - \mu(x)
   &=
   \Big( \hat\mu(x) - \E \big[ \hat \mu(x) \mid \bX, \bT \big]\Big)
@@ -484,8 +484,10 @@ for the Mondrian random forest estimator:
     \sum_{b=1}^B
     \frac{\sum_{i=1}^n \varepsilon_i \, \I\big\{ X_i \in T_b(x) \big\}}
     {N_b(x)}
-  \right)
-  + \left(
+  \right) \\
+  \label{eq:bias_variance}
+  &\quad+
+  \left(
     \frac{1}{B}
     \sum_{b=1}^B
     \frac{\sum_{i=1}^n \big(\mu(X_i) - \mu(x)\big) \,

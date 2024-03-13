@@ -1,5 +1,6 @@
 # accept
 Aad
+abbrvnat
 Abraar
 adaptivity
 additively
@@ -156,7 +157,6 @@ Gy
 Haar
 Hanin
 Haoran
-hapalike
 Harro
 HDR
 Herold
