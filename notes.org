@@ -1,11 +1,9 @@
 #+title: PhD Dissertation
 * Tasks
-** TODO Remake all plots in a consistent style
-** TODO Citation style
+** TODO Remake plots in a consistent style
+** TODO Check citation style
 ** TODO Check margins and spacing etc
-** TODO All files should be checked in justfile
 ** TODO Discuss software implementations
-** TODO proofparagraph no caps
 * Structure
 ** Abstract
 *** Up to 350 words

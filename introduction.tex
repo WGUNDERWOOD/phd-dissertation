@@ -132,13 +132,68 @@ and in arbitrary dimension, assuming appropriate parameter tuning.
 Chapter~\ref{cha:kernel},
 titled ``Dyadic Kernel Density Estimators,''
 is based on the work of \cite{cattaneo2024uniform}.
-We consider uniform estimation and inference
-for nonparametric kernel density estimators with dyadic
-network data.
+% intro to dyadic data
+Network data plays an important role in statistics,
+econometrics and many other data science disciplines,
+providing a natural framework for modeling relationships
+between units, be they people, financial institutions,
+proteins, or economic entities.
+Of prominent interest is the task of performing statistical estimation
+and inference with data sampled from the edges of such networks,
+known as ``dyadic'' data.
+The archetypal lack of independence between edges in a network
+renders many classical statistical tools unsuited for direct application.
+As such, researchers must appeal to techniques tailored to
+dyadic data in order to accurately capture the complex structure
+present in the network.
+
+% broad scope
+In this chapter we focus on nonparametric estimation and inference
+with dyadic data, and in particular we seek methods which are robust
+in the sense that our results should hold uniformly across the support
+of the data.
+We specifically consider the problem of uniformly estimating
+a dyadic Lebesgue density function,
+focusing on kernel-based estimators taking the form of
+dyadic empirical processes.
+
+% main contributions
+Our main contributions include the minimax-optimal uniform convergence rate
+of the dyadic kernel density estimator,
+along with strong approximation results
+for the associated standardized and Studentized $t$-processes.
+A consistent variance estimator
+enables the construction of valid and feasible uniform confidence bands for
+the unknown density function.
+We showcase the broad applicability of our results by
+developing novel counterfactual density estimation
+and inference methodology for dyadic data,
+which can be used for causal inference and program evaluation.
+%
+% why it is difficult
+A crucial feature of dyadic distributions
+is that they may be ``degenerate'' at certain
+points in the support of the data,
+a property making our analysis somewhat delicate.
+Nonetheless our methods for uniform inference
+remain robust to the potential presence of such points.
+%
+% applications
+For implementation purposes,
+we discuss inference procedures based on
+positive semi-definite covariance estimators,
+mean squared error optimal bandwidth selectors,
+and robust bias correction techniques.
+We illustrate the empirical finite-sample performance of our
+methods both in simulations and with real-world trade data,
+for which we make comparisons between observed and counterfactual
+trade distributions in different years.
+Our technical results concerning strong approximations
+and maximal inequalities are of potential independent interest.
 
 % yurinskii
 Finally, Chapter~\ref{cha:yurinskii},
-title ``Yurinskii's coupling for martingales''
+titled ``Yurinskii's coupling for martingales,''
 is based on the work of \cite{cattaneo2022yurinskii}.
 It presents a generalization of Yurinskii's coupling
 for approximate martingale data.
