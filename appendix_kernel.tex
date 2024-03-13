@@ -137,7 +137,7 @@ $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
   By Lemma~\ref{lem:lipschitz_kernels_bounded},
   Assumption~\ref{ass:kernel_data} implies that the densities
   $f_W$, $f_{W \mid A}$ and $f_{W \mid AA}$ are all uniformly bounded by
-  $\Cd \vcentcolon= 2 \sqrt{\CH} + 1/\Leb(\cW)$.
+  $C_\rd \vcentcolon= 2 \sqrt{C_\rH} + 1/\Leb(\cW)$.
 \end{remark}
 
 \begin{remark}
@@ -153,7 +153,7 @@ $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
   Assumption~\ref{ass:kernel_bandwidth} implies that
   if $h \leq 1$ then
   $k_h$ is uniformly bounded by
-  $\Ck / h$ where $\Ck \vcentcolon = 2 \CL + 1 + 1/\Leb(\cW)$.
+  $C_\rk / h$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
 \end{remark}
 \section{Main results}
 
@@ -195,7 +195,7 @@ and does not rely on the dyadic structure of the data.
         - h^p B_p(w)
         \big|
         \leq
-        \frac{2\Ck \CH}{(p+1)!}
+        \frac{2 C_\rk C_\rH}{(p+1)!}
         h^{p+1}.
       \end{align*}
 
@@ -208,7 +208,7 @@ and does not rely on the dyadic structure of the data.
         - h^p B_p(w)
         \big|
         \leq
-        \frac{2 \Ck \CH}{\flbeta !}
+        \frac{2 C_\rk C_\rH}{\flbeta !}
         h^\beta.
       \end{align*}
 
@@ -220,13 +220,13 @@ and does not rely on the dyadic structure of the data.
         - f_W(w)
         \big|
         \leq
-        \frac{2 \Ck \CH}{\flbeta !}
+        \frac{2 C_\rk C_\rH}{\flbeta !}
         h^\beta.
       \end{align*}
 
   \end{enumerate}
   Noting that
-  $\sup_{\cW} |B_p(w)| \leq 2 \Ck \CH / p!$,
+  $\sup_{\cW} |B_p(w)| \leq 2 C_\rk C_\rH / p!$,
   we deduce that for $h \leq 1$,
   \begin{align*}
     \sup_{w \in \cW}
@@ -235,7 +235,7 @@ and does not rely on the dyadic structure of the data.
     - f_W(w)
     \big|
     \leq
-    \frac{4 \Ck \CH}{(p \wedge \flbeta)!}
+    \frac{4 C_\rk C_\rH}{(p \wedge \flbeta)!}
     h^{p \wedge \beta}
     \lesssim
     h^{p \wedge \beta}.
@@ -383,7 +383,7 @@ interpreting our results in various classes of data distributions.
       There exists $w \in \cW$ with
       $\Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$;
       such a point is labeled \emph{degenerate} and satisfies
-      $\Var[L_n(w)] \leq 64 \Ck \CH \Cd \frac{h}{n}$.
+      $\Var[L_n(w)] \leq 64 C_\rk C_\rH C_\rd \frac{h}{n}$.
       There also exists a point $w' \in \cW$ with
       $\Var\left[f_{W \mid A}(w' \mid A_i)\right] > 0$;
       such a point is labeled \emph{non-degenerate} and satisfies
@@ -524,13 +524,13 @@ some classes of dyadic distributions.
 \begin{theorem}[Minimax optimality of $\hat f_W$]
   \label{thm:kernel_app_minimax}
 
-  Fix $\beta \geq 1$ and $\CH > 0$,
+  Fix $\beta \geq 1$ and $C_\rH > 0$,
   and take $\cW$ a compact interval with
   positive Lebesgue measure.
-  Define $\cP = \cP(\cW, \beta, \CH)$
+  Define $\cP = \cP(\cW, \beta, C_\rH)$
   as the class of dyadic distributions
   satisfying Assumption~\ref{ass:kernel_data}.
-  Define $\cPd$ as the subclass of $\cP$
+  Define $\cP_\rd$ as the subclass of $\cP$
   containing only those distributions
   which are totally degenerate on $\cW$ in the sense that
   $\sup_{w \in \cW} \Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$.
@@ -547,7 +547,7 @@ some classes of dyadic distributions.
     &\asymp
     \frac{1}{\sqrt n}, \\
     \inf_{\tilde f_W}
-    \sup_{\P \in \cPd}
+    \sup_{\P \in \cP_\rd}
     \E_\P\left[
       \sup_{w \in \cW}
       \big|
@@ -563,7 +563,7 @@ some classes of dyadic distributions.
   the data $\bW_n = (W_{i j}: 1 \leq i < j \leq n)$
   distributed according to the dyadic law $\P$.
   The constants in $\asymp$ depend only on
-  $\cW$, $\beta$ and $\CH$.
+  $\cW$, $\beta$ and $C_\rH$.
 
 \end{theorem}
 
@@ -1307,7 +1307,7 @@ over bivariate functions.
     & M \textup{ is symmetric and positive semi-definite}, \\
     & \big|M(w,w') - M(w, w'')\big|
     \leq \frac{4}{n h^3}
-    \Ck \CL
+    C_\rk C_\rL
     |w'-w''|
     \textup{ for all }
     w, w', w'' \in \cW.
@@ -1561,7 +1561,7 @@ Assumption~\ref{ass:counterfactual}.
   and that $\bX_n^r$ is independent of $\bV_n^r$.
   Assume that $W_{i j}^r \mid X_i^r, X_j^r$
   has a Lebesgue density
-  $f_{W \mid XX}^r(\,\cdot \mid x_1, x_2) \in \cH^\beta_{\CH}(\cW)$
+  $f_{W \mid XX}^r(\,\cdot \mid x_1, x_2) \in \cH^\beta_{C_\rH}(\cW)$
   and that $X_i^r$ has positive
   probability mass function
   $p_X^r(x)$ on a common support $\cX$.
@@ -5756,30 +5756,30 @@ We begin with a basic fact about Lipschitz functions.
   to the density and kernel functions defined in
   Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
   yields the following.
-  Firstly, since $k_h(\cdot, w)$ is $\CL/h^2$-Lipschitz
+  Firstly, since $k_h(\cdot, w)$ is $C_\rL / h^2$-Lipschitz
   on $[w \pm h] \cap \cW$ and integrates to one,
   we have by the first inequality in
   Lemma~\ref{lem:lipschitz_kernels_bounded} that
   \begin{align*}
     |k_h(s,w)|
-    &\leq \frac{2 \CL + 1}{h} + \frac{1}{\Leb(\cW)}.
+    &\leq \frac{2 C_\rL + 1}{h} + \frac{1}{\Leb(\cW)}.
   \end{align*}
   Since each of
   $f_{W \mid AA}(\cdot \mid a,a')$,
   $f_{W \mid A}(\cdot \mid a)$ and
-  $f_W$ is non-negative and $\CH$-Lipschitz on $\cW$
+  $f_W$ is non-negative and $C_\rH$-Lipschitz on $\cW$
   and integrates to at most one over $\cW$,
-  taking $M = \frac{1}{\sqrt \CH} \wedge \Leb(\cW)$
+  taking $M = \frac{1}{\sqrt{C_\rH}} \wedge \Leb(\cW)$
   in the second inequality in
   Lemma~\ref{lem:lipschitz_kernels_bounded}
   gives
   \begin{align*}
     f_{W \mid AA}(w \mid a,a')
-    &\leq 2 \sqrt{\CH} + \frac{1}{\Leb(\cW)}, \\
+    &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}, \\
     f_{W \mid A}(w \mid a)
-    &\leq 2 \sqrt{\CH} + \frac{1}{\Leb(\cW)}, \\
+    &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}, \\
     f_W(w)
-    &\leq 2 \sqrt{\CH} + \frac{1}{\Leb(\cW)}.
+    &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}.
   \end{align*}
 
 \end{remark}
@@ -5944,13 +5944,13 @@ We begin with a basic fact about Lipschitz functions.
     \sup_{w \in \cW}
     \left|
     \int_{[w \pm h]}
-    \frac{\Ck}{h}
-    \frac{\CH}{(p+1)!}
+    \frac{C_\rk}{h}
+    \frac{C_\rH}{(p+1)!}
     h^{p+1}
     \diff{s}
     \right|
     \leq
-    \frac{2\Ck \CH}{(p+1)!}
+    \frac{2C_\rk C_\rH}{(p+1)!}
     h^{p+1}.
   \end{align*}
 
@@ -6008,13 +6008,13 @@ We begin with a basic fact about Lipschitz functions.
     \sup_{w \in \cW}
     \left|
     \int_{[w \pm h]}
-    \frac{\Ck}{h}
-    \frac{\CH h^{\beta - \flbeta}}{\flbeta !}
+    \frac{C_\rk}{h}
+    \frac{C_\rH h^{\beta - \flbeta}}{\flbeta !}
     h^{\flbeta}
     \diff{s}
     \right|
     \leq
-    \frac{2 \Ck \CH}{\flbeta !}
+    \frac{2 C_\rk C_\rH}{\flbeta !}
     h^\beta.
   \end{align*}
 
@@ -6038,7 +6038,7 @@ We begin with a basic fact about Lipschitz functions.
     \diff{s}
     \right|
     \leq
-    \frac{2 \Ck \CH}{\flbeta !}
+    \frac{2 C_\rk C_\rH}{\flbeta !}
     h^\beta.
   \end{align*}
 \end{proof}
@@ -6256,9 +6256,9 @@ We begin with a basic fact about Lipschitz functions.
   \proofparagraph{no degeneracy}
 
   Suppose that $\Dl > 0$.
-  Now since $f_{W|A}(\cdot \mid a)$ is $\CH$-Lipschitz
+  Now since $f_{W|A}(\cdot \mid a)$ is $C_\rH$-Lipschitz
   for all $a \in \cA$
-  and since $|k_h| \leq \Ck/h$,
+  and since $|k_h| \leq C_\rk/h$,
   %
   \begin{align*}
     &\sup_{w \in \cW}
@@ -6288,14 +6288,14 @@ We begin with a basic fact about Lipschitz functions.
     \right| \\
     &\quad\leq
     2h
-    \frac{\Ck}{h}
-    \CH h
+    \frac{C_\rk}{h}
+    C_\rH h
     \leq
-    2 \Ck \CH h
+    2 C_\rk C_\rH h
   \end{align*}
   %
   almost surely.
-  Therefore since $f_{W \mid A}(w \mid a) \leq \Cd$,
+  Therefore since $f_{W \mid A}(w \mid a) \leq C_\rd$,
   we have
   \begin{align*}
     \sup_{w \in \cW}
@@ -6308,15 +6308,15 @@ We begin with a basic fact about Lipschitz functions.
     \right]
     \right|
     &\leq
-    16 \Ck \CH \Cd h
+    16 C_\rk C_\rH C_\rd h
   \end{align*}
   whenever $h$ is small enough that
-  $2 \Ck \CH h \leq \Cd$. Thus
+  $2 C_\rk C_\rH h \leq C_\rd$. Thus
   \begin{align*}
     \inf_{w \in \cW} \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big]
     &\geq
     \inf_{w \in \cW}\Var[f_{W \mid A}(w \mid A_i)]
-    - 16 \Ck \CH \Cd h.
+    - 16 C_\rk C_\rH C_\rd h.
   \end{align*}
   Therefore if
   $\Dl > 0$
@@ -6336,7 +6336,7 @@ We begin with a basic fact about Lipschitz functions.
   \proofparagraph{partial degeneracy}
 
   Since $f_{W \mid A}(w \mid A_i)$
-  is bounded by $\Cd$ and $\CH$-Lipschitz in $w$,
+  is bounded by $C_\rd$ and $C_\rH$-Lipschitz in $w$,
   we must have that
   $\Var[f_{W \mid A}(w \mid A_i)]$
   is a continuous function on $\cW$.
@@ -6351,7 +6351,7 @@ We begin with a basic fact about Lipschitz functions.
     \Var[L_n(w)] =
     \frac{4}{n} \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big]
     &\leq
-    64 \Ck \CH \Cd \frac{h}{n}.
+    64 C_\rk C_\rH C_\rd \frac{h}{n}.
   \end{align*}
   If conversely $w$ is not a degenerate point
   then
@@ -6428,29 +6428,29 @@ We begin with a basic fact about Lipschitz functions.
   where $\Q$ ranges over Borel
   probability measures on $\cW$.
   Since
-  $\frac{\Ck}{h}$
+  $\frac{C_\rk}{h}$
   is an envelope function for $\cF_1$,
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
-    \frac{\Ck}{h} \varepsilon \right)
+    \frac{C_\rk}{h} \varepsilon \right)
     &\leq
-    \frac{\CL}{\Ck}
+    \frac{C_\rL}{C_\rk}
     \frac{\Leb(\cW)}{h \varepsilon}.
   \end{align*}
   Thus for all $\varepsilon \in (0,1]$,
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
-    \frac{\Ck}{h} \varepsilon \right)
+    \frac{C_\rk}{h} \varepsilon \right)
     &\leq
-    \frac{\CL}{\Ck}
+    \frac{C_\rL}{C_\rk}
     \frac{\Leb(\cW) \vee 1}{h \varepsilon}
     \leq
     (C_1/(h\varepsilon))^{C_2},
   \end{align*}
   where
-  $C_1 = \frac{\CL}{\Ck} (\Leb(\cW) \vee 1)$
+  $C_1 = \frac{C_\rL}{C_\rk} (\Leb(\cW) \vee 1)$
   and $C_2 = 1$.
   Next, $\cF_2$ forms a smoothly parameterized class of functions
   since for $w,w' \in \cW$ we have
@@ -6499,18 +6499,18 @@ We begin with a basic fact about Lipschitz functions.
     \right| \\
     &\quad\leq
     4h
-    \frac{\CL}{h^2}
+    \frac{C_\rL}{h^2}
     |w-w'|
-    2 \CH h
+    2 C_\rH h
     \leq
-    8 \CL \CH
+    8 C_\rL C_\rH
     |w-w'|
     \leq
     C_3
     |w-w'|,
   \end{align*}
   %
-  where $C_3 = 8 \CL \CH$.
+  where $C_3 = 8 C_\rL C_\rH$.
   The same holds for $|w-w'| > h$
   as the Lipschitz property is local.
   By taking $\E[\, \cdot \mid A_i]$,
@@ -6550,8 +6550,8 @@ We begin with a basic fact about Lipschitz functions.
     f_{W \mid AA}(s \mid A_i, A_j)
     \diff{s}
     \right| \\
-    &\leq 2h \frac{\Ck}{h} \Cd
-    \leq 2 \Ck \Cd.
+    &\leq 2h \frac{C_\rk}{h} C_\rd
+    \leq 2 C_\rk C_\rd.
   \end{align*}
   %
   For any $\varepsilon \in (0,1]$,
@@ -6579,12 +6579,12 @@ We begin with a basic fact about Lipschitz functions.
   $\cF_2$ and
   $\cF_3$
   form VC-type classes with envelopes
-  $F_1 = \Ck / h$ and
+  $F_1 = C_\rk / h$ and
   $F_2 = F_3 = C_4$ respectively:
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
-    \varepsilon \Ck / h \right)
+    \varepsilon C_\rk / h \right)
     &\leq
     (C_1/(h\varepsilon))^{C_2},
     &\sup_\Q
@@ -6691,7 +6691,7 @@ We begin with a basic fact about Lipschitz functions.
     k_h(s,w)^2
     f_{W \mid AA}(s \mid A_i, A_j)
     \diff{s}
-    \leq 2h \frac{\Ck^2}{h^2}
+    \leq 2h \frac{C_\rk^2}{h^2}
     \lesssim 1/h
   \end{align*}
   and noting that we have
@@ -6711,9 +6711,9 @@ We begin with a basic fact about Lipschitz functions.
     {n} \\
     &\lesssim
     \frac{1}{\sqrt h}
-    \sqrt{C_2 \log \big((C_1/h) (\Ck/h) \sqrt h \big)}
+    \sqrt{C_2 \log \big((C_1/h) (C_\rk/h) \sqrt h \big)}
     +
-    \frac{(\Ck/h) C_2 \log \big((C_1/h) (\Ck/h) \sqrt h \big)}
+    \frac{(C_\rk/h) C_2 \log \big((C_1/h) (C_\rk/h) \sqrt h \big)}
     {n} \\
     &\lesssim
     \sqrt{\frac{\log 1/h}{h}}
@@ -6936,8 +6936,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   By translation and scaling of the data,
   we may assume without loss of generality that $\cW = [-1,1]$.
-  We may also assume that $\CH \leq 1/2$,
-  since reducing $\CH$ can only shrink the class of distributions.
+  We may also assume that $C_\rH \leq 1/2$,
+  since reducing $C_\rH$ can only shrink the class of distributions.
   Define the dyadic distribution $\P_\theta$
   with parameter $\theta \in [1/2, 1]$
   as follows:
@@ -6945,7 +6945,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $V_{i j}$ for $1 \leq i < j \leq n$ are i.i.d.\
   and independent of $\bA_n$.
   The distribution of $V_{i j}$ is given by its density function
-  $f_V(v) = \frac{1}{2} + \CH v$ on $[-1,1]$.
+  $f_V(v) = \frac{1}{2} + C_\rH v$ on $[-1,1]$.
   Finally generate
   $W_{i j} = W(A_i, A_j, V_{i j}) \vcentcolon=
   (2 A_i A_j - 1) V_{i j}$.
@@ -6956,21 +6956,21 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     f_{W \mid AA}(w \mid A_i, A_j)
     &=
     \begin{cases}
-      \frac{1}{2} + \CH w & \text{if } A_i = A_j = 1                \\
-      \frac{1}{2} - \CH w & \text{if } A_i = 0 \text{ or } A_j = 0, \\
+      \frac{1}{2} + C_\rH w & \text{if } A_i = A_j = 1                \\
+      \frac{1}{2} - C_\rH w & \text{if } A_i = 0 \text{ or } A_j = 0, \\
     \end{cases} \\
     f_{W \mid A}(w \mid A_i)
     &=
     \begin{cases}
-      \frac{1}{2} + (2 \theta - 1) \CH w
+      \frac{1}{2} + (2 \theta - 1) C_\rH w
       & \text{if } A_i = 1   \\
-      \frac{1}{2} - \CH w & \text{if } A_i = 0 , \\
+      \frac{1}{2} - C_\rH w & \text{if } A_i = 0 , \\
     \end{cases} \\
-    f_W(w)&= \frac{1}{2} + (2\theta^2 - 1) \CH w.
+    f_W(w)&= \frac{1}{2} + (2\theta^2 - 1) C_\rH w.
   \end{align*}
   Clearly
-  $f_W \in \cH^\beta_{\CH}(\cW)$ and
-  $f_{W \mid AA}(\cdot \mid a, a') \in \cH^1_{\CH}(\cW)$.
+  $f_W \in \cH^\beta_{C_\rH}(\cW)$ and
+  $f_{W \mid AA}(\cdot \mid a, a') \in \cH^1_{C_\rH}(\cW)$.
   Also
   $\sup_{w \in \cW} \|f_{W \mid A}(w \mid \cdot\,)\|_\TV \leq 1$.
   Therefore
@@ -6978,8 +6978,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   and so
   $\big\{\P_\theta : \theta \in [1/2, 1] \big\} \subseteq \cP$.
 
-  Note that $f_W(1) = \frac{1}{2} + (2\theta^2 - 1) \CH $,
-  so $\theta^2 = \frac{1}{2 \CH}(f_W(1) - 1/2 + \CH)$.
+  Note that $f_W(1) = \frac{1}{2} + (2\theta^2 - 1) C_\rH $,
+  so $\theta^2 = \frac{1}{2 C_\rH}(f_W(1) - 1/2 + C_\rH)$.
   Thus if $\tilde f_W$ is some
   density estimator
   depending only on the data $\bW_n$,
@@ -6988,8 +6988,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \begin{align*}
     \tilde \theta_n^2
     &\vcentcolon=
-    \frac{1}{2 \CH}\left(
-      \tilde f_W(1) - \frac{1}{2} + \CH
+    \frac{1}{2 C_\rH}\left(
+      \tilde f_W(1) - \frac{1}{2} + C_\rH
     \right)
     \vee 0.
   \end{align*}
@@ -7000,17 +7000,17 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \big|
     &=
     \left|
-    \frac{1}{2 \CH}\left(
-      \tilde f_W(1) - \frac{1}{2} + \CH
+    \frac{1}{2 C_\rH}\left(
+      \tilde f_W(1) - \frac{1}{2} + C_\rH
     \right)
     \vee 0
     -
-    \frac{1}{2 \CH}\left(
-      f_W(1) - \frac{1}{2} + \CH
+    \frac{1}{2 C_\rH}\left(
+      f_W(1) - \frac{1}{2} + C_\rH
     \right)
     \right| \\
     &\leq
-    \frac{1}{2 \CH}
+    \frac{1}{2 C_\rH}
     \sup_{w \in \cW}
     \left|
     \tilde f_W(w)  - f_W(w)
@@ -7027,7 +7027,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{\big|\tilde \theta_n^2 - \theta^2\big|}
     {\tilde \theta_n + \theta}
     \leq
-    \frac{1}{\CH}
+    \frac{1}{C_\rH}
     \sup_{w \in \cW}
     \left|
     \tilde f_W(w)  - f_W(w)
@@ -7054,11 +7054,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &\quad\geq
     \P_{\theta_0} \left(
       \big| \tilde \theta_n - \theta_0 \big|
-      \geq \frac{1}{C \CH \sqrt{n}}
+      \geq \frac{1}{C C_\rH \sqrt{n}}
     \right)
     + \P_{\theta_{1,n}} \left(
       \big| \tilde \theta_n - \theta_{1,n} \big|
-      \geq \frac{1}{C \CH \sqrt{n}}
+      \geq \frac{1}{C C_\rH \sqrt{n}}
     \right) \\
     &\quad\geq
     \P_{\theta_0} \left(
@@ -7072,7 +7072,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \geq
     \frac{1}{2},
   \end{align*}
-  where we set $C \geq \frac{\sqrt{32}}{\CH}$.
+  where we set $C \geq \frac{\sqrt{32}}{C_\rH}$.
   Therefore we deduce that
   \begin{align*}
     \inf_{\tilde f_W}
@@ -7100,12 +7100,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \geq \frac{1}{4 C \sqrt{n}}.
   \end{align*}
 
-  \proofparagraph{lower bound for $\cPd$}
+  \proofparagraph{lower bound for $\cP_\rd$}
 
   For the subclass of totally degenerate distributions,
   we rely on the main theorem
   from \citet{khasminskii1978lower}.
-  Let $\cP_0$ be the subclass of $\cPd$
+  Let $\cP_0$ be the subclass of $\cP_\rd$
   consisting of the distributions which satisfy
   $A_1 = \cdots = A_n = 0$
   and $W_{i j} \vcentcolon= A_i + A_j + V_{i j} = V_{i j}$,
@@ -7116,7 +7116,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &=
     \left\{
       f \text{ density function on } \R, \
-      f \in \cH^\beta_{\CH}(\cW)
+      f \in \cH^\beta_{C_\rH}(\cW)
     \right\}.
   \end{align*}
   Write $\E_f$ for the expectation under $W_{i j}$ having density $f$.
@@ -7136,14 +7136,14 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   density estimator
   depending only on the $\frac{1}{2}n(n-1)$ i.i.d.\ data samples $\bW_n$.
   Now every density function in
-  $\cH^\beta_{\CH}(\cW)$
+  $\cH^\beta_{C_\rH}(\cW)$
   corresponds to a distribution in
-  $\cP_0$ and therefore to a distribution in $\cPd$.
+  $\cP_0$ and therefore to a distribution in $\cP_\rd$.
   Thus for large enough $n$ and
   some positive constant $C$,
   \begin{align*}
     \inf_{\tilde f_W}
-    \sup_{\P \in \cPd}
+    \sup_{\P \in \cP_\rd}
     \E_\P\left[
       \sup_{w \in \cW}
       \big| \tilde f_W(w) - f_W(w) \big|
@@ -7169,13 +7169,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     - f_W(w)
     \big|
     \leq
-    \frac{4\Ck \CH}{\flbeta !}
+    \frac{4C_\rk C_\rH}{\flbeta !}
     h^\beta.
   \end{align*}
   Then,
   treating the degenerate and non-degenerate cases separately
   and noting that all inequalities hold uniformly over
-  $\cP$ and $\cPd$,
+  $\cP$ and $\cP_\rd$,
   the proof of Lemma~\ref{lem:uniform_concentration}
   shows that
   \begin{align*}
@@ -7187,7 +7187,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     &\lesssim
     \frac{1}{\sqrt n}
     + \sqrt{\frac{\log n}{n^2h}}, \\
-    \sup_{\P \in \cPd}
+    \sup_{\P \in \cP_\rd}
     \E_\P\left[
       \sup_{w \in \cW}
       \big|\hat f_W(w) - \E_\P[\hat f_W(w)]\big|
@@ -7206,7 +7206,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     h^\beta
     + \frac{1}{\sqrt n}
     + \sqrt{\frac{\log n}{n^2h}}, \\
-    \sup_{\P \in \cPd}
+    \sup_{\P \in \cP_\rd}
     \E_\P\left[
       \sup_{w \in \cW}
       \big|\hat f_W(w) - f_W(w)\big|
@@ -7233,7 +7233,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \right)^{\frac{\beta}{2\beta+1}}
     \leq
     \frac{C}{\sqrt n}, \\
-    \sup_{\P \in \cPd}
+    \sup_{\P \in \cP_\rd}
     \E_\P\left[
       \sup_{w \in \cW}
       \big|\hat f_W(w) - f_W(w)\big|
@@ -7406,7 +7406,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \big].
   \end{align*}
   We bound each of the two terms separately.
-  Firstly, note that since $k_h$ is bounded by $\Ck/h$,
+  Firstly, note that since $k_h$ is bounded by $C_\rk/h$,
   \begin{align*}
     \Var\big[
       k_h(W_{i j},w)
@@ -7420,12 +7420,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     k_h(s,w)^2
     f_W(s)
     \diff{s}
-    \leq 2 \Ck^2 / h.
+    \leq 2 C_\rk^2 / h.
   \end{align*}
   Conversely, since
   $\big|\E[k_h(W_{i j},w)]\big|
   = \big|\int_{[w \pm h] \cap \cW} k_h(s,w) f_W(s) \diff{s}\big|
-  \leq 2 \Ck \Cd$,
+  \leq 2 C_\rk C_\rd$,
   Jensen's integral inequality shows
   \begin{align*}
     \Var\big[
@@ -7436,7 +7436,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     k_h(s,w)^2
     f_W(s)
     \diff{s}
-    - 4 \Ck^2 \Cd^2 \\
+    - 4 C_\rk^2 C_\rd^2 \\
     &\geq
     \inf_{w \in \cW} f_W(w)
     \frac{1}{2h}
@@ -7445,11 +7445,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       k_h(s,w)
       \diff{s}
     \right)^2
-    - 4 \Ck^2 \Cd^2 \\
+    - 4 C_\rk^2 C_\rd^2 \\
     &\geq
     \frac{1}{2h}
     \inf_{w \in \cW} f_W(w)
-    - 4 \Ck^2 \Cd^2
+    - 4 C_\rk^2 C_\rd^2
     \geq
     \frac{1}{4h}
     \inf_{w \in \cW} f_W(w)
@@ -7465,7 +7465,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \Var\big[
       f_{W \mid A}(w \mid A_i)
     \big]
-    + 16 \CH \Ck \Cd h
+    + 16 C_\rH C_\rk C_\rd h
     \leq
     2 \Du^2
   \end{align*}
@@ -7480,7 +7480,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \Var\big[
       f_{W \mid A}(w \mid A_i)
     \big]
-    - 16 \CH \Ck \Cd h
+    - 16 C_\rH C_\rk C_\rd h
     \geq
     \frac{\Dl^2}{2}
   \end{align*}
@@ -7499,7 +7499,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sup_{w \in \cW} \Sigma_n(w,w)
     \leq
     \frac{2}{n(n-1)}
-    \frac{2 \Ck^2}{h}
+    \frac{2 C_\rk^2}{h}
     + \frac{4(n-2)}{n(n-1)}
     2 \Du^2,
   \end{align*}
@@ -7574,7 +7574,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \big\|_\TV
     \diff{s} \\
     &\quad\leq
-    4 \Ck \sup_{w \in \cW}
+    4 C_\rk \sup_{w \in \cW}
     \big\|
     f_{W \mid A}(w \mid  \cdot)
     \big\|_\TV
@@ -7772,7 +7772,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   and
   $\E[k_h(W_{i j},w)^2 \mid \bA_n] \lesssim \sigma_n^2 = h^{-1}$.
   The following uniform Lipschitz condition holds
-  with $l_{n,\infty} = \CL h^{-2}$,
+  with $l_{n,\infty} = C_\rL h^{-2}$,
   by the Lipschitz property of the kernels:
   \begin{align*}
     \sup_{s,w,w' \in \cW}
@@ -7784,7 +7784,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     l_{n,\infty}.
   \end{align*}
   Also, the following $L^2$ Lipschitz condition holds
-  uniformly with $l_{n,2} = 2 \CL \sqrt{\Cd} h^{-3/2}$:
+  uniformly with $l_{n,2} = 2 C_\rL \sqrt{C_\rd} h^{-3/2}$:
   \begin{align*}
     &\E\big[
       \big|
@@ -7793,7 +7793,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \mid \bA_n
     \big]^{1/2} \\
     &\quad\leq
-    \frac{\CL}{h^2}
+    \frac{C_\rL}{h^2}
     |w-w'|
     \left(
       \int_{([w \pm h] \cup [w' \pm h]) \cap \cW}
@@ -7801,9 +7801,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \diff{s}
     \right)^{1/2} \\
     &\quad\leq
-    \frac{\CL}{h^2}
+    \frac{C_\rL}{h^2}
     |w-w'|
-    \sqrt{4h \Cd}
+    \sqrt{4h C_\rd}
     \leq
     l_{n,2}
     |w-w'|.
@@ -8827,7 +8827,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \|k_{i r}' - k_{i r}''\|_\infty \\
     &\quad\leq
     \frac{4}{n h^3}
-    \Ck \CL
+    C_\rk C_\rL
     |w'-w''|
     \lesssim
     n^{-1}h^{-3} |w'-w''|
@@ -10896,8 +10896,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \big|
     &\leq
     \frac{4}{n h^3}
-    \Ck
-    \CL
+    C_\rk
+    C_\rL
     |w'-w''|
   \end{align*}
   for all $w,w',w'' \in \cW$.

@@ -446,11 +446,11 @@ We impose the following two assumptions throughout this paper.
   The conditional distribution
   of $W_{i j}$ given $A_i$ and $A_j$
   admits a Lebesgue density $f_{W \mid AA}(w \mid A_i, A_j)$.
-  For $\CH > 0$ and $\beta \geq 1$,
-  take $f_W \in \cH^\beta_{\CH}(\cW)$ where
+  For $C_\rH > 0$ and $\beta \geq 1$,
+  take $f_W \in \cH^\beta_{C_\rH}(\cW)$ where
   $f_{W}(w) = \E\left[f_{W \mid AA}(w \mid A_i,A_j)\right]$
   and
-  $f_{W \mid AA}(\cdot \mid a, a') \in \cH^1_{\CH}(\cW)$
+  $f_{W \mid AA}(\cdot \mid a, a') \in \cH^1_{C_\rH}(\cW)$
   for all $a,a' \in \cA$.
   Suppose
   $\sup_{w \in \cW} \|f_{W \mid A}(w \mid \cdot\,)\|_\TV <\infty$ where
@@ -503,8 +503,8 @@ $f_{W \mid AA}(w \mid a_1,a_2) = f_V(v)
     \end{cases}
   \end{align*}
   %
-  Also, for $\CL > 0$,
-  suppose $k_h(s, \cdot) \in \cH^1_{\CL h^{-2}}(\cW)$
+  Also, for $C_\rL > 0$,
+  suppose $k_h(s, \cdot) \in \cH^1_{C_\rL h^{-2}}(\cW)$
   for all $s \in \cW$.
   %
 \end{assumption}
@@ -515,7 +515,7 @@ and possibly boundary-corrected kernel functions
 Assumption~\ref{ass:kernel_bandwidth} implies that
 if $h \leq 1$ then
 $k_h$ is uniformly bounded by
-$\Ck h^{-1}$ where $\Ck \vcentcolon = 2 \CL + 1 + 1/\Leb(\cW)$.
+$C_\rk h^{-1}$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
 
 \subsection{Hoeffding-type decomposition and degeneracy}
 \label{sec:degeneracy}
@@ -807,7 +807,7 @@ convergence rate of $\hat{f}_W$.
 \end{theorem}
 %
 The constant in Theorem~\ref{thm:uniform_consistency}
-depends only on $\cW$, $\beta$, $\CH$
+depends only on $\cW$, $\beta$, $C_\rH$
 and the choice of kernel.
 We interpret this result in light of the degeneracy trichotomy.
 \begin{enumerate}[label=(\roman*)]\onehalfspacing
@@ -846,12 +846,12 @@ f_W$, regardless of the degeneracy type of the dyadic distribution.
 
 \begin{theorem}[Uniform minimax rate] \label{thm:kernel_minimax}
 
-  Fix $\beta \geq 1$ and $\CH > 0$,
+  Fix $\beta \geq 1$ and $C_\rH > 0$,
   and let $\cW$ be a compact interval with positive Lebesgue measure.
-  Define $\cP = \cP(\cW, \beta, \CH)$
+  Define $\cP = \cP(\cW, \beta, C_\rH)$
   as the class of dyadic distributions
   satisfying Assumption~\ref{ass:kernel_data}.
-  Define $\cPd$ as the subclass of $\cP$
+  Define $\cP_\rd$ as the subclass of $\cP$
   containing only those dyadic distributions
   which are totally degenerate on $\cW$ in the sense that
   $\sup_{w \in \cW} \Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$.
@@ -860,14 +860,14 @@ f_W$, regardless of the degeneracy type of the dyadic distribution.
   \E_\P\big[\sup_{w \in \cW} \big| \tilde f_W(w) - f_W(w) \big| \big]
   \asymp \frac{1}{\sqrt n}$
   and
-  $\inf_{\tilde f_W} \sup_{\P \in \cPd}
+  $\inf_{\tilde f_W} \sup_{\P \in \cP_\rd}
   \E_\P\big[\sup_{w \in \cW} \big| \tilde f_W(w) - f_W(w) \big| \big]
   \asymp \big( \frac{\log n}{n^2} \big)^{\frac{\beta}{2\beta+1}}$,
   where $\tilde f_W$ is any estimator depending only on
   the data $\bW_n = (W_{i j}: 1 \leq i < j \leq n)$
   distributed according to the dyadic distribution $\P$.
   The constants underlying $\asymp$ depend only on
-  $\cW$, $\beta$ and $\CH$.
+  $\cW$, $\beta$ and $C_\rH$.
 
 \end{theorem}
 
@@ -1323,7 +1323,7 @@ even in the limit.
 We therefore propose a modified covariance estimator
 which is guaranteed to be positive semi-definite.
 Specifically, consider the following optimization problem
-where $\Ck$ and $\CL$ are as in Section~\ref{sec:kernel_setup}.
+where $C_\rk$ and $C_\rL$ are as in Section~\ref{sec:kernel_setup}.
 %
 \begin{equation}
   \label{eq:sdp}
@@ -1342,7 +1342,7 @@ where $\Ck$ and $\CL$ are as in Section~\ref{sec:kernel_setup}.
     & M \textup{ is symmetric and positive semi-definite}, \\
     & \big|M(w,w') - M(w, w'')\big|
     \leq \frac{4}{n h^3}
-    \Ck \CL
+    C_\rk C_\rL
     |w'-w''|
     \textup{ for all }
     w, w', w'' \in \cW.
@@ -1841,7 +1841,7 @@ independent over $1 \leq i \leq n$
 and that $\bX_n^r$ is independent of $\bV_n^r$,
 that $W_{i j}^r \mid X_i^r, X_j^r$
 has a conditional Lebesgue density
-$f_{W \mid XX}^r(\,\cdot \mid x_1, x_2) \in \cH^\beta_{\CH}(\cW)$,
+$f_{W \mid XX}^r(\,\cdot \mid x_1, x_2) \in \cH^\beta_{C_\rH}(\cW)$,
 that $X_i^r$ follows a distribution function $F_X^r$
 on a common support $\cX$, and that
 $(\bA_n^0, \bV_n^0, \bX_n^0)$
