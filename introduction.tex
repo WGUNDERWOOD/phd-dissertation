@@ -84,36 +84,67 @@ Chapter~\ref{cha:mondrian}, titled
 ``Inference with Mondrian random forests''
 is based on the work of \cite{cattaneo2023inference}.
 % what are random forests
-Random forests are popular methods for classification and regression,
+Random forests are popular ensembling-based methods for
+classification and regression, which are well known for their
+good performance, flexibility, robustness and efficiency.
+The majority of random forest models share the following common framework
+for producing estimates of a classification or regression function using
+covariates and a response variable.
+Firstly, the covariate space is partitioned in some algorithmic manner,
+possibly using a source of external randomness.
+Secondly, a local estimator of the classification or regression function
+is fitted to the responses in each cell in the partition separately,
+yielding a tree estimator.
+Finally, this process is repeated with many different partitions, and
+the resulting tree estimators are averaged to produce a forest estimate.
+
 % why are there variants
-and many different variants have been proposed in recent years.
+Many different variants of random forests have been proposed in
+recent years, typically with the aim of improving their statistical or
+computational properties, or simplifying their construction in order to
+permit a more detailed theoretical analysis.
 % mondrian random forests
-One interesting example is the Mondrian random forest,
-in which the underlying trees are constructed according to a Mondrian process.
+One interesting such example is that of the Mondrian random forest,
+in which the underlying partitions (or trees) are constructed
+independently of the data. Naturally this restriction rules out many
+classical random forest models which exhibit a complex and data-dependent
+partitioning scheme. Instead, trees are sampled from a canonical
+stochastic process, known as the Mondrian process, which endows the resulting
+tree and forest estimators with various agreeable features.
+
 % what we do
-In this paper we give a central limit theorem
-for the estimates made by a Mondrian random forest
-in the regression setting.
-When combined with a bias characterization and a
+In this paper we study the estimation and inference properties of
+Mondrian random forests in the nonparametric
+regression setting. In particular, we
+establish a novel central limit theorem for the estimates
+made by a Mondrian random forest which,
+when combined with a characterization of the bias and a
 consistent variance estimator,
-this allows one to perform asymptotically valid statistical inference,
+allows one to perform asymptotically valid statistical inference,
 such as constructing confidence intervals,
 on the unknown regression function.
 We also provide a debiasing procedure for Mondrian random
 forests which allows them to achieve minimax-optimal estimation rates
-with $\beta$-H{\"o}lder regression functions, for all $\beta$
+with H{\"o}lder smooth regression functions, for any smoothness parameter
 and in arbitrary dimension, assuming appropriate parameter tuning.
 
 % kernel
-In Chapter~\ref{cha:kernel},
-based on the work of \cite{cattaneo2024uniform},
-we consider uniform estimation and inference
+Chapter~\ref{cha:kernel},
+titled ``Dyadic Kernel Density Estimators,''
+is based on the work of \cite{cattaneo2024uniform}.
+We consider uniform estimation and inference
 for nonparametric kernel density estimators with dyadic
 network data.
 
 % yurinskii
-Finally, Chapter~\ref{cha:yurinskii}
-is based on the work of
-\cite{cattaneo2022yurinskii}
-and presents a generalization of Yurinskii's coupling
+Finally, Chapter~\ref{cha:yurinskii},
+title ``Yurinskii's coupling for martingales''
+is based on the work of \cite{cattaneo2022yurinskii}.
+It presents a generalization of Yurinskii's coupling
 for approximate martingale data.
+
+Supplementary materials including proofs for
+Chapters~\ref{cha:mondrian}, \ref{cha:kernel} and \ref{cha:yurinskii}
+are provided in Appendices~\ref{app:mondrian}, \ref{app:kernel}
+and \ref{app:yurinskii} respectively.
+
