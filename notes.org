@@ -5,78 +5,26 @@
 ** TODO Check margins and spacing etc
 ** TODO Discuss software implementations
 * Structure
-** Abstract
+** TODO Abstract
 *** Up to 350 words
-** Acknowledgements
-** Introduction
+** TODO Acknowledgements
+** TODO Introduction
 *** From job application research statement
 *** From paper abstracts and introductions
-** Mondrian Random Forests
-*** paper.tex
-*** refs.bib
-*** TODO abstract.tex
-*** TODO Plots from Overleaf, job talk, GitHub
-** Dyadic KDE
-*** CFU_2023_JASA.tex
-*** CFU_2023_JASA--bib.bib
-*** table.tex
-*** preamble_CFU.tex
-*** TODO Plots from Overleaf, GitHub, two sigma / job talk
-** Yurinskii's Coupling
-*** paper.tex
-*** refs.bib
-*** TODO abstract.tex
-*** TODO Plots from Overleaf and make more
-** Appendix: Proofs for Mondrian Random Forests
-*** proofs.tex
-*** TODO random_forests.tex
-*** TODO inconsistency.tex
-** Appendix: Proofs for Dyadic KDE
-*** dyadic_kde.tex
-*** TODO Remove duplicated results as appropriate
+** TODO Mondrian Random Forests
+*** Plots from Overleaf, job talk, GitHub
+** TODO Dyadic KDE
+*** Plots from Overleaf, GitHub, two sigma / job talk
+** TODO Yurinskii's Coupling
+*** Plots from Overleaf and make more
+** TODO Appendix: Proofs for Mondrian Random Forests
+*** random_forests.tex
+*** inconsistency.tex
+** TODO Appendix: Proofs for Dyadic KDE
+*** Remove duplicated results as appropriate
 ** Appendix: Proofs for Yurinskii's Coupling
-*** appendix.tex
 ** Bibliography
 * Advanced degree application
-** Presentations at conferences
-*** Statistics Seminar, Georgia Institute of Technology
-**** Uniform Inference for Kernel Density Estimators with Dyadic Data
-**** Presented by Matias Cattaneo, 2022
-*** Biostatistics Colloquium Seminar, Columbia University
-**** Uniform Inference for Kernel Density Estimators with Dyadic Data
-**** Presented by Matias Cattaneo, 2022
-*** Econometrics Seminar, Renmin University
-**** Uniform Inference for Kernel Density Estimators with Dyadic Data
-**** Presented by Yingie Feng, 2022
-*** Symposium on Modern Statistics, Xiamen University
-**** Uniform Inference for Kernel Density Estimators with Dyadic Data
-**** Presented by Yingie Feng, 2022
-*** Econometrics Seminar, Peking University
-**** Uniform Inference for Kernel Density Estimators with Dyadic Data
-**** Presented by Yingie Feng, 2023
-*** Asian Meeting of Econometric Society in East and Southeast Asia
-**** Singapore
-**** Uniform Inference for Kernel Density Estimators with Dyadic Data
-**** Presented by Yingie Feng, 2023
-*** Statistics Seminar, University of Michigan
-**** New Theory and Methods for Mondrian Random Forests
-**** Presented by William Underwood, 2024
-*** Statistics Seminar, University of Illinois
-**** New Theory and Methods for Mondrian Random Forests
-**** Presented by William Underwood, 2024
-*** Statistics Seminar, University of Pittsburgh
-**** New Theory and Methods for Mondrian Random Forests
-**** Presented by William Underwood, 2024
-** Publications
-*** M. D. Cattaneo, Y. Feng and W. G. Underwood
-**** Uniform Inference for Kernel Density Estimators with Dyadic Data
-**** Journal of the American Statistical Association, 2024 (forthcoming)
-*** M. D. Cattaneo, J. M. Klusowski and W. G. Underwood
-**** Inference with Mondrian Random Forests
-**** arXiv preprint 2310.09702, 2023
-*** M. D. Cattaneo, R. P. Masini and W. G. Underwood
-**** Yurinskii's Coupling for Martingales
-**** arXiv preprint 2210.00362, 2022
 ** Contribution to the dissertation
 *** I am the main author of the three papers
 *** upon which this dissertation is based.
