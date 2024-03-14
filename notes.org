@@ -4,6 +4,7 @@
 ** TODO Check citation style
 ** TODO Check margins and spacing etc
 ** TODO Discuss software implementations
+** TODO Check chapter headings
 * Structure
 ** TODO Abstract
 *** Up to 350 words
