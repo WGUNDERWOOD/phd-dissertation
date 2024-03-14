@@ -3,203 +3,196 @@
 \chapter{Introduction}
 
 % nonparametric estimation is common
-Nonparametric estimation procedures are at the heart of many
-contemporary theoretical and methodological topics within the fields of
-statistics, data science and machine learning.
-While classical parametric techniques impose specific distributional and
-structural assumptions when modeling statistical problems,
-nonparametric methods instead take a more flexible approach,
-typically positing only higher-level restrictions such as moment conditions
-and smoothness assumptions.
-Examples of such methods abound in modern data science,
+Nonparametric estimation procedures are at the heart of many contemporary
+theoretical and methodological topics within the fields of statistics, data
+science and machine learning. While classical parametric techniques impose
+specific distributional and structural assumptions when modeling statistical
+problems, nonparametric methods instead take a more flexible approach,
+typically positing only higher-level restrictions such as moment conditions and
+smoothness assumptions. Examples of such methods abound in modern data science,
 encompassing histograms, kernel methods, smoothing splines, decision trees,
-nearest neighbor methods,
-random forests, neural networks and many more.
+nearest neighbor methods, random forests, neural networks and many more.
 
 % nonparametric estimation is good
 The benefits of this framework are clear; statistical procedures can be
-formulated in cases where the stringent assumptions of parametric models
-are violated, or cannot be tested. Further, the resulting methods often
-exhibit robustness against various forms of misspecification or misuse.
-The class of problems which can be expressed is also correspondingly
-larger: arbitrary distributions and relationships between variables
-can be expressed and estimated.
+formulated in cases where the stringent assumptions of parametric models are
+violated, or cannot be tested. Further, the resulting methods often exhibit
+robustness against various forms of misspecification or misuse. The class of
+problems which can be expressed is also correspondingly larger: arbitrary
+distributions and relationships between variables can be expressed and
+estimated.
 
 % nonparametric estimation is hard
-Nonetheless, these attractive properties do come at a price.
-In particular, as its name suggests, the nonparametric approach
-forgoes the ability to reduce a complex statistical problem
-to that of estimating a fixed finite number of parameters.
-Rather, nonparametric procedures typically involve estimating
-a growing number of parameters simultaneously,
-or even handling infinite-dimensional objects such as entire functions.
-As a consequence, a nonparametric estimator is usually less efficient
-than its corresponding correctly specified parametric counterpart;
-rates of convergence tend to be slower and confidence sets
-more conservative. Another challenge
-is that the theoretical analysis of nonparametric estimators
-is often significantly more involved, requiring tools from
-contemporary developments in
-high-dimensional concentration phenomena,
-empirical processes,
-strong approximation theory,
-and stochastic calculus,
-alongside careful mathematical analysis.
+Nonetheless, these attractive properties do come at a price. In particular, as
+its name suggests, the nonparametric approach forgoes the ability to reduce a
+complex statistical problem to that of estimating a fixed finite number of
+parameters. Rather, nonparametric procedures typically involve estimating a
+growing number of parameters simultaneously, or even handling
+infinite-dimensional objects such as entire functions. As a consequence, a
+nonparametric estimator is usually less efficient than its corresponding
+correctly specified parametric counterpart; rates of convergence tend to be
+slower and confidence sets more conservative. Another challenge is that the
+theoretical analysis of nonparametric estimators is often significantly more
+involved, requiring tools from contemporary developments in high-dimensional
+concentration phenomena, empirical processes, strong approximation theory, and
+stochastic calculus, alongside careful mathematical analysis.
 
 % nonparametric inference
 Where the goal of nonparametric estimation is typically to provide accurate
 point estimates of unknown (possibly high-dimensional or infinite-dimensional)
 quantities of interest, the aim of nonparametric inference is to equip
-practitioners with a quantification of the uncertainty
-present in those estimates. Such methodology is essential for the derivation
-of hypothesis tests and confidence sets in nonparametric settings,
-which in turn are vital for the rigorous treatment of statistical significance,
-power, and uncertainty quantification.
-Inference is one of the central concepts
-in classical statistics, and despite the rapid recent development of
-theory for modern nonparametric estimators such as random forests, their
-applicability to statistical inference is rather less well studied.
+practitioners with a quantification of the uncertainty present in those
+estimates. Such methodology is essential for the derivation of hypothesis tests
+and confidence sets in nonparametric settings, which in turn are vital for the
+rigorous treatment of statistical significance, power, and uncertainty
+quantification. Inference is one of the central concepts in classical
+statistics, and despite the rapid recent development of theory for modern
+nonparametric estimators such as random forests, their applicability to
+statistical inference is rather less well studied.
 
 % complex data
-In any statistical modeling problem, the choice and usage of an estimator
-must naturally be tailored to the available data.
-Today, much of the data produced and analyzed does not fit neatly into the
-classical framework of independent and identically distributed samples,
-and instead might consist of time series, networks, or
-high-dimensional data, to name just a few.
-Therefore it is important to understand how
-nonparametric methods might be adapted to correctly handle
-these data types, maintaining fast estimation
-rates and valid techniques for statistical inference.
+In any statistical modeling problem, the choice and usage of an estimator must
+naturally be tailored to the available data. Today, much of the data produced
+and analyzed does not fit neatly into the classical framework of independent
+and identically distributed samples, and instead might consist of time series,
+networks, or high-dimensional data, to name just a few. Therefore it is
+important to understand how nonparametric methods might be adapted to correctly
+handle these data types, maintaining fast estimation rates and valid techniques
+for statistical inference.
 
 % what we do
 This dissertation presents a selection of projects related to nonparametric
-estimation and inference, their applications to complex data settings,
-and the technical mathematical tools used in their theoretical analysis.
+estimation and inference, their applications to complex data settings, and the
+technical mathematical tools used in their theoretical analysis.
 
 \section*{Overview of the dissertation}
 
 % mondrian
-Chapter~\ref{cha:mondrian}, titled
-``Inference with Mondrian random forests''
+Chapter~\ref{cha:mondrian}, titled ``Inference with Mondrian random forests''
 is based on the work of \cite{cattaneo2023inference}.
 % what are random forests
-Random forests are popular ensembling-based methods for
-classification and regression, which are well known for their
-good performance, flexibility, robustness and efficiency.
-The majority of random forest models share the following common framework
-for producing estimates of a classification or regression function using
-covariates and a response variable.
-Firstly, the covariate space is partitioned in some algorithmic manner,
-possibly using a source of external randomness.
-Secondly, a local estimator of the classification or regression function
-is fitted to the responses in each cell in the partition separately,
-yielding a tree estimator.
-Finally, this process is repeated with many different partitions, and
-the resulting tree estimators are averaged to produce a forest estimate.
+Random forests are popular ensembling-based methods for classification and
+regression, which are well known for their good performance, flexibility,
+robustness and efficiency. The majority of random forest models share the
+following common framework for producing estimates of a classification or
+regression function using covariates and a response variable. Firstly, the
+covariate space is partitioned in some algorithmic manner, possibly using a
+source of external randomness. Secondly, a local estimator of the
+classification or regression function is fitted to the responses in each cell
+in the partition separately, yielding a tree estimator. Finally, this process
+is repeated with many different partitions, and the resulting tree estimators
+are averaged to produce a forest estimate.
 
 % why are there variants
-Many different variants of random forests have been proposed in
-recent years, typically with the aim of improving their statistical or
-computational properties, or simplifying their construction in order to
-permit a more detailed theoretical analysis.
+Many different variants of random forests have been proposed in recent years,
+typically with the aim of improving their statistical or computational
+properties, or simplifying their construction in order to permit a more
+detailed theoretical analysis.
 % mondrian random forests
-One interesting such example is that of the Mondrian random forest,
-in which the underlying partitions (or trees) are constructed
-independently of the data. Naturally this restriction rules out many
-classical random forest models which exhibit a complex and data-dependent
-partitioning scheme. Instead, trees are sampled from a canonical
-stochastic process, known as the Mondrian process, which endows the resulting
-tree and forest estimators with various agreeable features.
+One interesting such example is that of the Mondrian random forest, in which
+the underlying partitions (or trees) are constructed independently of the data.
+Naturally this restriction rules out many classical random forest models which
+exhibit a complex and data-dependent partitioning scheme. Instead, trees are
+sampled from a canonical stochastic process, known as the Mondrian process,
+which endows the resulting tree and forest estimators with various agreeable
+features.
 
 % what we do
-In this paper we study the estimation and inference properties of
-Mondrian random forests in the nonparametric
-regression setting. In particular, we
-establish a novel central limit theorem for the estimates
-made by a Mondrian random forest which,
-when combined with a characterization of the bias and a
-consistent variance estimator,
-allows one to perform asymptotically valid statistical inference,
-such as constructing confidence intervals,
-on the unknown regression function.
-We also provide a debiasing procedure for Mondrian random
-forests which allows them to achieve minimax-optimal estimation rates
-with H{\"o}lder smooth regression functions, for any smoothness parameter
-and in arbitrary dimension, assuming appropriate parameter tuning.
+In this paper we study the estimation and inference properties of Mondrian
+random forests in the nonparametric regression setting. In particular, we
+establish a novel central limit theorem for the estimates made by a Mondrian
+random forest which, when combined with a characterization of the bias and a
+consistent variance estimator, allows one to perform asymptotically valid
+statistical inference, such as constructing confidence intervals, on the
+unknown regression function. We also provide a debiasing procedure for Mondrian
+random forests which allows them to achieve minimax-optimal estimation rates
+with H{\"o}lder smooth regression functions, for any smoothness parameter and
+in arbitrary dimension, assuming appropriate parameter tuning.
 
 % kernel
-Chapter~\ref{cha:kernel},
-titled ``Dyadic Kernel Density Estimators,''
-is based on the work of \cite{cattaneo2024uniform}.
-% intro to dyadic data
-Network data plays an important role in statistics,
-econometrics and many other data science disciplines,
-providing a natural framework for modeling relationships
-between units, be they people, financial institutions,
-proteins, or economic entities.
-Of prominent interest is the task of performing statistical estimation
-and inference with data sampled from the edges of such networks,
-known as ``dyadic'' data.
-The archetypal lack of independence between edges in a network
-renders many classical statistical tools unsuited for direct application.
-As such, researchers must appeal to techniques tailored to
-dyadic data in order to accurately capture the complex structure
-present in the network.
+Chapter~\ref{cha:kernel}, titled ``Dyadic Kernel Density Estimators,'' is based
+on the work of \cite{cattaneo2024uniform}.
+Network data plays an important role in statistics, econometrics and many other
+data science disciplines, providing a natural framework for modeling
+relationships between units, be they people, financial institutions, proteins,
+or economic entities. Of prominent interest is the task of performing
+statistical estimation and inference with data sampled from the edges of such
+networks, known as ``dyadic'' data. The archetypal lack of independence between
+edges in a network renders many classical statistical tools unsuited for direct
+application. As such, researchers must appeal to techniques tailored to dyadic
+data in order to accurately capture the complex structure present in the
+network.
 
 % broad scope
-In this chapter we focus on nonparametric estimation and inference
-with dyadic data, and in particular we seek methods which are robust
-in the sense that our results should hold uniformly across the support
-of the data.
-We specifically consider the problem of uniformly estimating
-a dyadic Lebesgue density function,
-focusing on kernel-based estimators taking the form of
-dyadic empirical processes.
+In this chapter we focus on nonparametric estimation and inference with dyadic
+data, and in particular we seek methods which are robust in the sense that our
+results should hold uniformly across the support of the data. We specifically
+consider the problem of uniformly estimating a dyadic Lebesgue density
+function, focusing on kernel-based estimators taking the form of dyadic
+empirical processes.
 
 % main contributions
-Our main contributions include the minimax-optimal uniform convergence rate
-of the dyadic kernel density estimator,
-along with strong approximation results
-for the associated standardized and Studentized $t$-processes.
-A consistent variance estimator
-enables the construction of valid and feasible uniform confidence bands for
-the unknown density function.
-We showcase the broad applicability of our results by
-developing novel counterfactual density estimation
-and inference methodology for dyadic data,
-which can be used for causal inference and program evaluation.
-%
+Our main contributions include the minimax-optimal uniform convergence rate of
+the dyadic kernel density estimator, along with strong approximation results
+for the associated standardized and Studentized $t$-processes. A consistent
+variance estimator enables the construction of valid and feasible uniform
+confidence bands for the unknown density function. We showcase the broad
+applicability of our results by developing novel counterfactual density
+estimation and inference methodology for dyadic data, which can be used for
+causal inference and program evaluation.
 % why it is difficult
-A crucial feature of dyadic distributions
-is that they may be ``degenerate'' at certain
-points in the support of the data,
-a property making our analysis somewhat delicate.
-Nonetheless our methods for uniform inference
-remain robust to the potential presence of such points.
-%
+A crucial feature of dyadic distributions is that they may be ``degenerate'' at
+certain points in the support of the data, a property making our analysis
+somewhat delicate. Nonetheless our methods for uniform inference remain robust
+to the potential presence of such points.
 % applications
-For implementation purposes,
-we discuss inference procedures based on
-positive semi-definite covariance estimators,
-mean squared error optimal bandwidth selectors,
-and robust bias correction techniques.
-We illustrate the empirical finite-sample performance of our
-methods both in simulations and with real-world trade data,
-for which we make comparisons between observed and counterfactual
-trade distributions in different years.
-Our technical results concerning strong approximations
-and maximal inequalities are of potential independent interest.
+For implementation purposes, we discuss inference procedures based on positive
+semi-definite covariance estimators, mean squared error optimal bandwidth
+selectors, and robust bias correction techniques. We illustrate the empirical
+finite-sample performance of our methods both in simulations and with
+real-world trade data, for which we make comparisons between observed and
+counterfactual trade distributions in different years. Our technical results
+concerning strong approximations and maximal inequalities are of potential
+independent interest.
 
 % yurinskii
-Finally, Chapter~\ref{cha:yurinskii},
-titled ``Yurinskii's coupling for martingales,''
-is based on the work of \cite{cattaneo2022yurinskii}.
-It presents a generalization of Yurinskii's coupling
-for approximate martingale data.
+Finally, Chapter~\ref{cha:yurinskii}, titled ``Yurinskii's coupling for
+martingales,'' is based on the work of \cite{cattaneo2022yurinskii}.
+Yurinskii's coupling is a popular theoretical tool for non-asymptotic
+distributional analysis in mathematical statistics and applied probability.
+Coupling theory, also known as ``strong approximation,'' provides an
+alternative framework to the more classical weak convergence approach. Rather
+than merely approximating the distribution of a random variable, strong
+approximation techniques construct a coupling sequence of random variables
+which are close almost surely or in probability.
 
-Supplementary materials including proofs for
+% what is it used for
+This allows distributional analysis in settings where weak convergence fails,
+including many applications to nonparametric or high-dimensional statistics;
+coupling is a key technical component in the main strong approximation results
+of Chapter~\ref{cha:kernel}. The Yurinskii method offers a Gaussian coupling
+with an explicit error bound under easily verified conditions; originally
+stated in $\ell^2$-norm for sums of independent random vectors, it has recently
+been extended both to the $\ell^p$-norm, for $1 \leq p \leq \infty$, and to
+vector-valued martingales in $\ell^2$-norm, under some strong conditions.
+
+% what we do
+We present as our main result a Yurinskii coupling for approximate martingales
+in $\ell^p$-norm, under substantially weaker conditions than those previously
+imposed. Our formulation further allows for the coupling variable to follow a
+more general Gaussian mixture distribution, and we provide a novel third-order
+coupling method which gives tighter approximations in certain settings. We
+specialize our main result to mixingales, martingales, and independent data,
+and derive uniform Gaussian mixture strong approximations for martingale
+empirical processes. Applications to nonparametric partitioning-based and local
+polynomial regression procedures are provided.
+
+% appendices
+Supplementary materials for
 Chapters~\ref{cha:mondrian}, \ref{cha:kernel} and \ref{cha:yurinskii}
 are provided in Appendices~\ref{app:mondrian}, \ref{app:kernel}
 and \ref{app:yurinskii} respectively.
+These contain detailed proofs of the main results, additional technical
+contributions,
+\TODO{empirical results too?}
 
