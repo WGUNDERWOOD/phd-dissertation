@@ -13,19 +13,14 @@
 *** From job application research statement
 *** From paper abstracts and introductions
 ** TODO Mondrian Random Forests
-*** Plots from job talk
-**** theorem_distribution.png
-**** weather examples
-**** comparison with Piet Mondrian
+*** Minimax table
+*** New section on weather
 ** TODO Dyadic KDE
-*** Plots from GitHub two sigma talk
-**** network_1.pdf
-** TODO Yurinskii's Coupling
-*** Make more plots?
+*** Add results from appendix as appropriate
+** Yurinskii's Coupling
 ** TODO Appendix: Proofs for Mondrian Random Forests
 *** random_forests.tex some nice mathematical results
 *** inconsistency.tex also nice result
-*** Include both of these documents into the appendix
 ** TODO Appendix: Proofs for Dyadic KDE
 *** Remove duplicated results as appropriate
 ** Appendix: Proofs for Yurinskii's Coupling

@@ -1,7 +1,7 @@
 %! TeX root = dissertation.tex
 
 \chapter{Inference with Mondrian Random Forests}
-\label{cha:mondrian}
+\label{ch:mondrian}
 
 % abstract
 Random forests are popular methods for classification and regression, and many
@@ -1635,6 +1635,25 @@ same conditions as Theorem~\ref{thm:mondrian_minimax},
 %
 with appropriate tuning of $\lambda$ and $B$.
 
+\TODO{explain this table}
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{|c|c|}
+      \hline
+      \textbf{Estimator} & \textbf{Minimax condition} \\
+      \hline
+      Mondrian tree &
+      $\beta \in (0, 1]$ \\
+      Mondrian random forest &
+      $\beta \in (0, 2]$ \\
+      \alert{Debiased Mondrian random forest} &
+      \hspace*{2mm}$\beta \in (0, \infty)$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
 \subsection{Interpretation}
 
 The debiased Mondrian random forest estimator defined in \eqref{eq:debiased}
@@ -1992,6 +2011,68 @@ For example, we could set
 $a_r = (1+\gamma)^r$
 or $a_r = 1 + \gamma r$ for some $\gamma > 0$.
 We suggest for concreteness taking $a_r = 1.05^r$.
+
+\section{Illustrative example: weather forecasting}%
+
+\TODO{write this section}
+
+  \begin{figure}
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+      \centering
+      \includegraphics[scale=0.6]{graphics/weather_data.png}%
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \centering
+      \includegraphics[scale=0.6]{graphics/weather_data_filled_partition.png}%
+    \end{subfigure}
+  \end{figure}
+
+  \begin{figure}
+    \centering
+    \begin{subfigure}{0.49\textwidth}
+      \centering
+      \includegraphics[scale=0.6]{graphics/weather_forest_2.png}%
+    \end{subfigure}
+    \begin{subfigure}{0.49\textwidth}
+      \centering
+      \includegraphics[scale=0.6]{graphics/weather_forest_30.png}%
+    \end{subfigure}
+  \end{figure}
+
+  \begin{figure}
+    \centering
+    \begin{subfigure}{0.54\textwidth}
+      \centering
+      \includegraphics[scale=0.6]{graphics/weather_gcv.png}%
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+      \centering
+      \includegraphics[scale=0.6]{graphics/weather_forest_design.png}%
+    \end{subfigure}
+  \end{figure}
+
+\begin{table}
+  \begin{center}
+    \begin{tabular}{|c|c|r|c|c|}
+      \hline
+      \textbf{Point} & \textbf{Humidity} & \textbf{Pressure} &
+      \textbf{Chance of rain} & \textbf{95\% confidence interval} \\
+      \hline
+      $1$ & $20\%$ & $1020\,\textrm{mbar}$ &
+      $\phantom{0}4.3\%$ &
+      \hspace*{-0mm}$4.1\%$ -- $4.6\%$ \\
+      $2$ & $70\%$ & $1000\,\textrm{mbar}$ &
+      $53.0\%$ &
+      $52.0\%$ -- $54.0\%$ \\
+      $3$ & $80\%$ & $990\,\textrm{mbar}$ &
+      $77.5\%$ &
+      $74.4\%$ -- $80.6\%$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{table}
+
 
 \section{Conclusion}%
 \label{sec:mondrian_conclusion}

@@ -115,6 +115,7 @@ Efron
 Eggermont
 Elizaveta
 Elsevier
+endeavour
 ensembling
 entrywise
 Env
@@ -448,6 +449,7 @@ undersmoothed
 undersmoothing
 undirected
 Unif
+untestable
 Vaart
 Vadim
 Vandermonde
