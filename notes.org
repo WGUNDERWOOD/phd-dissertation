@@ -13,11 +13,15 @@
 *** From job application research statement
 *** From paper abstracts and introductions
 ** TODO Mondrian Random Forests
-*** Plots from Overleaf, job talk, GitHub
+*** Plots from job talk
+**** theorem_distribution.png
+**** weather examples
+**** comparison with Piet Mondrian
 ** TODO Dyadic KDE
-*** Plots from Overleaf, GitHub, two sigma / job talk
+*** Plots from GitHub two sigma talk
+**** network_1.pdf
 ** TODO Yurinskii's Coupling
-*** Plots from Overleaf and make more
+*** Make more plots?
 ** TODO Appendix: Proofs for Mondrian Random Forests
 *** random_forests.tex some nice mathematical results
 *** inconsistency.tex also nice result
