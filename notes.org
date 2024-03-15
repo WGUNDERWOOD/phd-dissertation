@@ -1,6 +1,9 @@
 #+title: PhD Dissertation
 * Tasks
 ** TODO Remake plots in a consistent style
+*** Check fonts and font sizes
+*** pngquant --quality=20-30 --ext=.png --force
+*** optipng -o5
 ** TODO Check margins and spacing etc
 ** TODO Discuss software implementations
 ** TODO latex GitHub action

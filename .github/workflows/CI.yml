@@ -1,0 +1,14 @@
+name: CI
+on:
+  push
+  workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Compile with pdflatex
+      - uses: xu-cheng/latex-action@v3
+        with:
+          root_file: dissertation.tex
