@@ -1,10 +1,9 @@
 #+title: PhD Dissertation
 * Tasks
 ** TODO Remake plots in a consistent style
-** TODO Check citation style
 ** TODO Check margins and spacing etc
 ** TODO Discuss software implementations
-** TODO Check chapter headings
+** TODO latex GitHub action
 * Structure
 ** TODO Abstract
 *** Up to 350 words
