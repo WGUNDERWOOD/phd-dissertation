@@ -5,12 +5,6 @@
 
 \section{Introduction}
 
-We describe the setup of
-dyadic density estimation,
-define the dyadic kernel density estimator,
-give some notation
-and state our assumptions.
-
 \subsection{Setup and estimator}
 
 Fix $n \geq 2$ and suppose there is
@@ -155,93 +149,8 @@ $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
   $k_h$ is uniformly bounded by
   $C_\rk / h$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
 \end{remark}
+
 \section{Main results}
-
-\subsection{Bias}
-
-Lemma~\ref{lem:bias}
-is a standard result in kernel density estimation
-with boundary bias correction,
-and does not rely on the dyadic structure of the data.
-
-\begin{lemma}[Bias of $\hat f_W$]
-  \label{lem:bias}
-
-  Suppose that Assumptions \ref{ass:kernel_data} and
-  \ref{ass:kernel_bandwidth} hold.
-  For $w \in \cW$
-  define the leading bias term as
-  \begin{align*}
-    B_p(w)
-    &=
-    \frac{f_W^{(p)}(w)}{p!}
-    \int_{\cW}
-    k_h(s,w)
-    \left(
-      \frac{s-w}{h}
-    \right)^p
-    \diff{s}.
-  \end{align*}
-  for $1 \leq p \leq \flbeta$.
-  Then we have the following bias bounds.
-  \begin{enumerate}[label=(\roman*)]
-
-    \item If $p \leq \flbeta - 1$,
-      \begin{align*}
-        \sup_{w \in \cW}
-        \big|
-        \E\big[\hat f_W(w)\big]
-        - f_W(w)
-        - h^p B_p(w)
-        \big|
-        \leq
-        \frac{2 C_\rk C_\rH}{(p+1)!}
-        h^{p+1}.
-      \end{align*}
-
-    \item If $p = \flbeta$,
-      \begin{align*}
-        \sup_{w \in \cW}
-        \big|
-        \E\big[\hat f_W(w)\big]
-        - f_W(w)
-        - h^p B_p(w)
-        \big|
-        \leq
-        \frac{2 C_\rk C_\rH}{\flbeta !}
-        h^\beta.
-      \end{align*}
-
-    \item If $p \geq \flbeta+1$,
-      \begin{align*}
-        \sup_{w \in \cW}
-        \big|
-        \E\big[\hat f_W(w)\big]
-        - f_W(w)
-        \big|
-        \leq
-        \frac{2 C_\rk C_\rH}{\flbeta !}
-        h^\beta.
-      \end{align*}
-
-  \end{enumerate}
-  Noting that
-  $\sup_{\cW} |B_p(w)| \leq 2 C_\rk C_\rH / p!$,
-  we deduce that for $h \leq 1$,
-  \begin{align*}
-    \sup_{w \in \cW}
-    \big|
-    \E\big[\hat f_W(w)\big]
-    - f_W(w)
-    \big|
-    \leq
-    \frac{4 C_\rk C_\rH}{(p \wedge \flbeta)!}
-    h^{p \wedge \beta}
-    \lesssim
-    h^{p \wedge \beta}.
-  \end{align*}
-
-\end{lemma}
 
 \subsection{Uniform consistency}
 
@@ -257,90 +166,6 @@ then combines this with the bias result from Lemma~\ref{lem:bias}
 to show uniform consistency.
 Lemma~\ref{lem:trichotomy} provides a useful trichotomy for
 interpreting our results in various classes of data distributions.
-
-\begin{lemma}[Hoeffding-type decomposition for $\hat f_W$]
-  \label{lem:hoeffding}
-
-  Suppose that Assumptions~\ref{ass:kernel_data}
-  and~\ref{ass:kernel_bandwidth}
-  hold.
-  Define the linear term
-  (H\'{a}jek projection),
-  quadratic term
-  and error term
-  of $\hat f_W(w)$ as
-  \begin{align*}
-    L_n(w)
-    &=
-    \frac{2}{n} \sum_{i=1}^n
-    l_i(w), \\
-    Q_n(w)
-    &=
-    \frac{2}{n(n-1)}
-    \sum_{i=1}^{n-1}
-    \sum_{j=i+1}^{n}
-    q_{i j}(w), \\
-    E_n(w)
-    &=
-    \frac{2}{n(n-1)}
-    \sum_{i=1}^{n-1}
-    \sum_{j=i+1}^{n}
-    e_{i j}(w)
-  \end{align*}
-  %
-  respectively, where
-  %
-  \begin{align*}
-    l_i(w)
-    &=
-    \E\left[k_h(W_{i j},w) \mid A_i\right] - \E\left[k_h(W_{i j},w)\right], \\
-    q_{i j}(w)
-    &=
-    \E\left[k_h(W_{i j},w) \mid A_i, A_j\right]
-    - \E\left[k_h(W_{i j},w) \mid A_i\right]
-    - \E\left[k_h(W_{i j},w) \mid A_j\right]
-    + \E\left[k_h(W_{i j},w)\right], \\
-    e_{i j}(w)
-    &=
-    k_h(W_{i j},w)
-    - \E\left[k_h(W_{i j},w) \mid A_i, A_j\right].
-  \end{align*}
-  Then the following Hoeffding-type decomposition holds:
-  \begin{align*}
-    \hat f_W(w)
-    = \E\big[\hat f_W(w)\big]
-    + L_n(w)
-    + Q_n(w)
-    + E_n(w).
-  \end{align*}
-  Further,
-  the stochastic processes
-  $L_n$, $Q_n$ and $E_n$
-  are all mean-zero, since
-  \begin{equation*}
-    \E\big[L_n(w)\big]
-    = \E\big[Q_n(w)\big]
-    = \E\big[E_n(w)\big]
-    = 0
-  \end{equation*}
-  for all $w \in \cW$.
-  Also they are mutually orthogonal
-  in $L^2(\P)$ as
-  \begin{equation*}
-    \E\big[
-      L_n(w) Q_n(w')
-    \big]
-    = \E\big[
-      L_n(w) E_n(w')
-    \big]
-    = \E\big[
-      Q_n(w) E_n(w')
-    \big]
-    = 0
-  \end{equation*}
-  for all $w, w' \in \cW$.
-
-\end{lemma}
 
 \begin{lemma}[Trichotomy of degeneracy]
   \label{lem:trichotomy}
@@ -394,18 +219,6 @@ interpreting our results in various classes of data distributions.
   \end{enumerate}
 
 \end{lemma}
-
-\begin{remark}
-
-  The trichotomy of total/partial/no degeneracy
-  given in Lemma~\ref{lem:trichotomy} is useful for understanding
-  the asymptotic behavior of the dyadic kernel density estimator.
-  Note that our need for uniformity in $w$
-  complicates the simpler degeneracy/no degeneracy
-  dichotomy observed for pointwise results by
-  \citet{graham2022kernel}.
-
-\end{remark}
 
 \begin{lemma}[Uniform concentration of $\hat f_W$]
   \label{lem:uniform_concentration}
@@ -521,6 +334,7 @@ In this section we demonstrate
 minimax optimality of our estimator under uniform convergence
 by providing upper and lower bounds in expectation uniformly over
 some classes of dyadic distributions.
+
 \begin{theorem}[Minimax optimality of $\hat f_W$]
   \label{thm:kernel_app_minimax}
 
@@ -632,27 +446,6 @@ some classes of dyadic distributions.
   \end{align*}
   %
   where $1 \leq i < j < r \leq n$.
-
-\end{lemma}
-
-\begin{lemma}[Variance bounds]
-  \label{lem:app_variance_bounds}
-
-  Suppose that Assumptions~\ref{ass:kernel_data}
-  and~\ref{ass:kernel_bandwidth} hold.
-  Then for all large enough $n$,
-  \begin{align*}
-    \frac{\Dl^2}{n}
-    + \frac{1}{n^2h}
-    \inf_{w \in \cW} f_W(w)
-    &\lesssim
-    \inf_{w \in \cW} \Sigma_n(w,w)
-    \leq
-    \sup_{w \in \cW} \Sigma_n(w,w)
-    \lesssim
-    \frac{\Du^2}{n}
-    + \frac{1}{n^2h}.
-  \end{align*}
 
 \end{lemma}
 

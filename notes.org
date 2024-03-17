@@ -10,21 +10,19 @@
 ** TODO Check margins and spacing etc
 ** TODO Discuss software implementations
 * Structure
-** TODO Abstract
+** Abstract
 *** Up to 350 words
-** TODO Acknowledgements
-** TODO Introduction
+** Acknowledgements
+** Introduction
 *** From job application research statement
 *** From paper abstracts and introductions
 ** Mondrian Random Forests
-** TODO Dyadic KDE
-*** Add results from appendix as appropriate
+** Dyadic KDE
+*** TODO Add results from appendix as appropriate
 ** Yurinskii's Coupling
-** TODO Appendix: Proofs for Mondrian Random Forests
-*** random_forests.tex some nice mathematical results
-*** inconsistency.tex also nice result
-** TODO Appendix: Proofs for Dyadic KDE
-*** Remove duplicated results as appropriate
+** Appendix: Proofs for Mondrian Random Forests
+** Appendix: Proofs for Dyadic KDE
+*** TODO Remove duplicated results as appropriate
 ** Appendix: Proofs for Yurinskii's Coupling
 ** Bibliography
 * Advanced degree application
