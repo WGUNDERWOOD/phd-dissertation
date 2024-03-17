@@ -977,7 +977,7 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
 
   Take $C = \bigotimes_{j=1}^d C^j$
   and $\lambda_b > 0$ for $1 \leq b \leq B$.
-  Let $T_b \sim \MP(C, \lambda_b)$ be independent Mondrian processes
+  Let $T_b \sim \cM(C, \lambda_b)$ be independent Mondrian processes
   and write $\bigwedge_{b=1}^B T_b$ for the common refinement
   of their partitions.
   Then the expected number of cells in this refinement is
@@ -986,7 +986,7 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
     \E\left[\# \bigwedge_{b=1}^B T_b \right]
     &= \prod_{j=1}^d \left(
       1 + |C^j| \sum_{b=1}^B \lambda_b
-      \right).
+    \right).
   \end{align*}
   %
 \end{lemma}
@@ -1000,7 +1000,7 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
     \E\left[\# T_b \right]
     &= \prod_{j=1}^d \left(
       1 + |C^j| \lambda_b
-      \right).
+    \right).
   \end{align*}
   %
   We proceed by induction on $B$.
@@ -1010,90 +1010,88 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   \begin{align*}
     \E\left[\# \bigwedge_{b=1}^B T_b \right]
     &=
-      \E\left[
+    \E\left[
       \sum_{C_B \in T_B}
       \#
       \left(
-      \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
+        \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
       \right)
-      \right]
-      = \E\left[
+    \right]
+    = \E\left[
       \sum_{C_B \in T_B}
       \E\left[
-      \#
-      \left(
-      \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
-      \right)
-      \biggm| T_B
+        \#
+        \left(
+          \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
+        \right)
+        \biggm| T_B
       \right]
-      \right].
+    \right].
   \end{align*}
   %
   Now by the restriction property of Mondrian processes
   \cite[Fact~2]{mourtada2020minimax},
-  observe that $T_b \cap C_B \sim \MP(C_B, \lambda_b)$
+  observe that $T_b \cap C_B \sim \cM(C_B, \lambda_b)$
   conditional on $T_B$.
   Then by the induction hypothesis,
   %
   \begin{align*}
     \E\left[
-    \#
-    \left(
-    \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
-    \right)
-    \biggm| T_B
+      \#
+      \left(
+        \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
+      \right)
+      \biggm| T_B
     \right]
     &=
-      \prod_{j=1}^d \left(
+    \prod_{j=1}^d \left(
       1 + |C_B^j| \sum_{b=1}^{B-1} \lambda_b
-      \right)
-      = \E\big[
+    \right)
+    = \E\big[
       \# T_{C_B} \mid T_B
-      \big]
+    \big]
   \end{align*}
   %
-  where $T_{C_B} \sim \MP(C_B, \sum_{b=1}^{B-1} \lambda_B)$
+  where $T_{C_B} \sim \cM(C_B, \sum_{b=1}^{B-1} \lambda_B)$
   independently, conditional on $T_B$,
   by the result for a single tree.
   The restriction property finally shows that
   $\sum_{C_B \in T_B} \# T_{C_B}$ is equal in distribution
-  to $\# T$ where $T \sim \MP(C, \sum_{b=1}^B \lambda_b)$
+  to $\# T$ where $T \sim \cM(C, \sum_{b=1}^B \lambda_b)$
   and so
   %
   \begin{align*}
     \E\left[\# \bigwedge_{b=1}^B T_b \right]
     &=
-      \E\left[
+    \E\left[
       \sum_{C_B \in T_B}
       \E\big[
-      \# T_{C_B} \mid T_B
+        \# T_{C_B} \mid T_B
       \big]
-      \right]
-      =
-      \E\big[\# T \big]
-      = \prod_{j=1}^d \left(
+    \right]
+    =
+    \E\big[\# T \big]
+    = \prod_{j=1}^d \left(
       1 + |C^j| \sum_{b=1}^B \lambda_b
-      \right).
+    \right).
   \end{align*}
 \end{proof}
 
 \begin{lemma}[Tail bound for the number of cells in a Mondrian tree]
   \label{lem:cells_tail}
 
-  Let $T \sim \MP(C, \lambda)$. Then
+  Let $T \sim \cM(C, \lambda)$. Then
   %
   \begin{align*}
-    \P\left(\# T >
-    3
-    (1 + \lambda |C|)^d
-    (t + 1 + d \log(1 + \lambda |C|)
+    \P\left(
+      \# T > 3 (1 + \lambda |C|)^d
+      (t + 1 + d \log(1 + \lambda |C|))
     \right)
     &\leq
-      e^{-t}.
+    e^{-t}.
   \end{align*}
 
 \end{lemma}
-
 
 \begin{proof}[Lemma~\ref{lem:cells_tail}]
 
@@ -1108,14 +1106,14 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   \begin{align*}
     \P\left(\# T > t \right)
     &\leq
-      \P\left(\sum_{C_\varepsilon \in \cC_\varepsilon}
-      \# (T \cap C_\varepsilon) > t \right)
-      \leq
-      \sum_{C_\varepsilon \in \cC_\varepsilon}
-      \P\left(
+    \P\left(\sum_{C_\varepsilon \in \cC_\varepsilon}
+    \# (T \cap C_\varepsilon) > t \right)
+    \leq
+    \sum_{C_\varepsilon \in \cC_\varepsilon}
+    \P\left(
       \# (T \cap C_\varepsilon) >
       \frac{t}{\# \cC_\varepsilon}
-      \right).
+    \right).
   \end{align*}
   %
   Now $\# (T \cap C_\varepsilon)$ is dominated by a Yule process
@@ -1128,41 +1126,41 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   \begin{align*}
     \P\left(\# T > t \right)
     &\leq
-      \# \cC_\varepsilon \,
-      (1 - e^{-\lambda |C| \varepsilon})^{t / \# \cC_\varepsilon - 1}
-      \leq
-      (1 + 1/\varepsilon)^d
-      (1 - e^{-\lambda |C| \varepsilon})^{t (1 + 1/\varepsilon)^{-d} - 1}.
+    \# \cC_\varepsilon \,
+    (1 - e^{-\lambda |C| \varepsilon})^{t / \# \cC_\varepsilon - 1}
+    \leq
+    (1 + 1/\varepsilon)^d
+    (1 - e^{-\lambda |C| \varepsilon})^{t (1 + 1/\varepsilon)^{-d} - 1}.
   \end{align*}
   %
   Setting $\varepsilon = \frac{1}{\lambda |C|}$,
   noting $1-1/e \leq e^{-1/3}$
   and replacing $t$ by
   $3 (1 + \lambda |C|)^d
-  (t + 1 + d \log(1 + \lambda |C|)$
+  (t + 1 + d \log(1 + \lambda |C|))$
   yields
   %
   \begin{align*}
     &\P\left(\# T > t \right)
-      \leq
-      (1 + \lambda |C|)^d
-      (1 - 1/e)^{t (1 + \lambda |C|)^{-d} - 1}
-      \leq
-      2 (1 + \lambda |C|)^d
-      e^{-t (1 + \lambda |C|)^{-d} / 3}, \\
+    \leq
+    (1 + \lambda |C|)^d
+    (1 - 1/e)^{t (1 + \lambda |C|)^{-d} - 1}
+    \leq
+    2 (1 + \lambda |C|)^d
+    e^{-t (1 + \lambda |C|)^{-d} / 3}, \\
     &\P\left(\# T >
       3
       (1 + \lambda |C|)^d
-      (t + 1 + d \log(1 + \lambda |C|)
-      \right)
-      \leq
-      e^{-t}.
+      (t + 1 + d \log(1 + \lambda |C|))
+    \right)
+    \leq
+    e^{-t}.
   \end{align*}
 \end{proof}
 
 \begin{definition}[Canonical order of cells in a Mondrian tree]
 
-  Let $T \sim \MP(C, \lambda)$.
+  Let $T \sim \cM(C, \lambda)$.
   Each cell in a fixed realization of $T$ can be described by
   a word from the alphabet $\{l, r\}$,
   where $l$ indicates the cell to the left of a split
@@ -1172,7 +1170,7 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   After one split there are two cells, denoted
   $l$ and $r$.
   Now suppose that the cell $r$ splits again, giving two splits and three cells,
-  denoted $l$, $rl$ and $rr$.
+  denoted $l$, $r l$ and $r r$.
   Define the canonical ordering of the cells of $T$ by applying
   the lexicographic order to their words, with $l < r$.
   Note that it does not matter which coordinate each split occurs in:
@@ -1181,11 +1179,10 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
 
 \end{definition}
 
-
 \begin{lemma}[Cells in a Mondrian tree have identically distributed shapes]
   \label{lem:cells_identically_distributed}
 
-  Let $T \sim \MP(C, \lambda)$
+  Let $T \sim \cM(C, \lambda)$
   with canonically ordered cells
   $C_1, \ldots, C_{\# T}$.
   For any $\varepsilon_1, \ldots, \varepsilon_d \geq 0$
@@ -1193,16 +1190,16 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    |C_i^1| \leq \varepsilon_1,
-    \ldots, |C_i^d| \leq \varepsilon_d,
-    \# T = k
+      |C_i^1| \leq \varepsilon_1,
+      \ldots, |C_i^d| \leq \varepsilon_d,
+      \# T = k
     \right)
     &=
-      \P\left(
+    \P\left(
       |C_1^1| \leq \varepsilon_1,
       \ldots, |C_1^d| \leq \varepsilon_d,
       \# T = k
-      \right).
+    \right).
   \end{align*}
   %
   Therefore by marginalizing over $\# T$,
@@ -1210,38 +1207,36 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    |C_i^1| > \varepsilon_1,
-    \ldots, |C_i^d| > \varepsilon_d
+      |C_i^1| > \varepsilon_1,
+      \ldots, |C_i^d| > \varepsilon_d
     \right)
     &=
-      \prod_{j=1}^d
-      \P\left(
+    \prod_{j=1}^d
+    \P\left(
       \frac{E_j}{\lambda} \wedge |C^j|
       > \varepsilon_j
-      \right)
-      = \prod_{j=1}^d
-      \I\{|C^j| > \varepsilon_j\}
-      e^{-\lambda \varepsilon_j}.
+    \right)
+    = \prod_{j=1}^d
+    \I\{|C^j| > \varepsilon_j\}
+    e^{-\lambda \varepsilon_j}.
   \end{align*}
 
 \end{lemma}
-
-
 
 \begin{proof}[Lemma~\ref{lem:cells_identically_distributed}]
 
   Let $w$ be the word associated with the cell $C_i \in T$.
   Note that $i=1$ if and only if $r \notin w$.
   So suppose $r \in w$.
-  Let $\widetilde w$ be the word obtained by replacing all occurences
+  Let $\widetilde w$ be the word obtained by replacing all occurrences
   of $r$ in $w$ with an $l$.
   Each such replacement corresponds to a split in $T$.
-  Let $\widetilde T$ be the same process as $T$ but with the following modification:
-  for each split where a replacement was made,
+  Let $\widetilde T$ be the same process as $T$ but with the following
+  modification: for each split where a replacement was made,
   change the uniform random variable $U$
   (from the definition of $T$) to $1-U$.
   Since $U$ is independent of everything else in the construction of $T$,
-  we observe that $\widetilde T \sim \MP(C, \lambda)$ also.
+  we observe that $\widetilde T \sim \cM(C, \lambda)$ also.
   Further, there is almost surely exactly one cell in $\widetilde T$
   which has the same shape as $C$.
   Denote this cell $\widetilde C$ and note that
@@ -1254,40 +1249,36 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   Equality of the distributions follows immediately.
 \end{proof}
 
-
-
-
 \begin{lemma}[Tail bound on largest Mondrian cell]
   \label{lem:largest_cell_tail}
 
-  Let $T \sim \MP(C, \lambda)$.
+  Let $T \sim \cM(C, \lambda)$.
   For any $\varepsilon > 0$,
   %
   \begin{align*}
     \P\left(
-    \max_{C' \in T}
-    \max_{1 \leq j \leq d}
-    |C'^j| > \varepsilon
+      \max_{C' \in T}
+      \max_{1 \leq j \leq d}
+      |C'^j| > \varepsilon
     \right)
     &\leq
-      5d (1 + \lambda |C|)^{d+1}
-      e^{-\lambda \varepsilon}.
+    5d (1 + \lambda |C|)^{d+1}
+    e^{-\lambda \varepsilon}.
   \end{align*}
   %
   and so also
   %
   \begin{align*}
     \P\left(
-    \max_{C' \in T}
-    |C'| > \varepsilon
+      \max_{C' \in T}
+      |C'| > \varepsilon
     \right)
     &\leq
-      5 d (1 + \lambda |C|)^{d+1}
-      e^{-\lambda \varepsilon / d}.
+    5 d (1 + \lambda |C|)^{d+1}
+    e^{-\lambda \varepsilon / d}.
   \end{align*}
   %
 \end{lemma}
-
 
 \begin{proof}[Lemma~\ref{lem:largest_cell_tail}]
 
@@ -1298,40 +1289,40 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    \max_{C' \in T}
-    \max_{1 \leq j \leq d}
-    |C'^j| > \varepsilon
+      \max_{C' \in T}
+      \max_{1 \leq j \leq d}
+      |C'^j| > \varepsilon
     \right)
     &\leq
-      \sum_{l=1}^k
-      \P\left(
+    \sum_{l=1}^k
+    \P\left(
       \max_{1 \leq i \leq l}
       \max_{1 \leq j \leq d}
       |C_i^j| > \varepsilon,
       \# T = l
-      \right)
-      + \P\left( \# T > k \right) \\
+    \right)
+    + \P\left( \# T > k \right) \\
     &\leq
-      \sum_{l=1}^k
-      \sum_{i=1}^l
-      \sum_{j=1}^d
-      \P\big(
+    \sum_{l=1}^k
+    \sum_{i=1}^l
+    \sum_{j=1}^d
+    \P\big(
       |C_i^j| > \varepsilon,
       \# T = l
-      \big)
-      + \P\left( \# T > k \right) \\
+    \big)
+    + \P\left( \# T > k \right) \\
     &\leq
-      \sum_{l=1}^k
-      l d \,
-      \P\big(
+    \sum_{l=1}^k
+    l d \,
+    \P\big(
       |C_1^j| > \varepsilon,
       \# T = l
-      \big)
-      + \P\left( \# T > k \right) \\
+    \big)
+    + \P\left( \# T > k \right) \\
     &\leq
-      k d \,
-      \P\big(|C_1^j| > \varepsilon \big)
-      + \P\left( \# T > k \right).
+    k d \,
+    \P\big(|C_1^j| > \varepsilon \big)
+    + \P\left( \# T > k \right).
   \end{align*}
   %
   For the first term we use the exact distribution of
@@ -1340,17 +1331,17 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    \max_{C' \in T}
-    \max_{1 \leq j \leq d}
-    |C'^j| > \varepsilon
+      \max_{C' \in T}
+      \max_{1 \leq j \leq d}
+      |C'^j| > \varepsilon
     \right)
     &\leq
-      k d \, \P\big(|C_1^j| > \varepsilon \big)
-      + \P\left( \# T > k \right) \\
+    k d \, \P\big(|C_1^j| > \varepsilon \big)
+    + \P\left( \# T > k \right) \\
     &\leq
-      kd \, e^{-\lambda \varepsilon}
-      + 2 (1 + \lambda |C|)^d
-      e^{-k (1 + \lambda |C|)^{-d} / 3}.
+    k d \, e^{-\lambda \varepsilon}
+    + 2 (1 + \lambda |C|)^d
+    e^{-k (1 + \lambda |C|)^{-d} / 3}.
   \end{align*}
   %
   Finally set
@@ -1359,27 +1350,26 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    \max_{C' \in T}
-    \max_{1 \leq j \leq d}
-    |C'^j| > \varepsilon
+      \max_{C' \in T}
+      \max_{1 \leq j \leq d}
+      |C'^j| > \varepsilon
     \right)
     &\leq
-      \big( 3 \lambda \varepsilon (1 + \lambda |C|)^d + 1 \big)
-      d \, e^{-\lambda \varepsilon}
-      + 2 (1 + \lambda |C|)^d
-      e^{-\lambda \varepsilon} \\
+    \big( 3 \lambda \varepsilon (1 + \lambda |C|)^d + 1 \big)
+    d \, e^{-\lambda \varepsilon}
+    + 2 (1 + \lambda |C|)^d
+    e^{-\lambda \varepsilon} \\
     &\leq
-      3d (1 + \lambda |C|)^{d+1}
-      e^{-\lambda \varepsilon}
-      + 2 (1 + \lambda |C|)^d
-      e^{-\lambda \varepsilon} \\
+    3d (1 + \lambda |C|)^{d+1}
+    e^{-\lambda \varepsilon}
+    + 2 (1 + \lambda |C|)^d
+    e^{-\lambda \varepsilon} \\
     &\leq
-      5d (1 + \lambda |C|)^{d+1}
-      e^{-\lambda \varepsilon}.
+    5d (1 + \lambda |C|)^{d+1}
+    e^{-\lambda \varepsilon}.
   \end{align*}
   %
 \end{proof}
-
 
 \begin{lemma}[Some inequalities regarding forest refinements]
   \label{lem:refinement_inequalities}
@@ -1400,7 +1390,7 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   \begin{align*}
     \# \bigwedge_{b=1}^B T_b
     &\leq \prod_{j=1}^d
-      \sum_{b=1}^B \# T_b^j
+    \sum_{b=1}^B \# T_b^j
   \end{align*}
   %
   and this is bound is achievable whenever $B \geq d$.
@@ -1430,40 +1420,31 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   $\# \bigwedge_j T'_j \leq \prod_j \# T'_j
   \leq \prod_j \sum_b \# T_b^j$.
   Finally note $\bigwedge_b T_b$
-  is a subtree of $\bigwedge_j T'_j$ and the result follows.
+  is a sub-tree of $\bigwedge_j T'_j$ and the result follows.
   This bound is achievable when $B \geq d$ by fixing
   $T_b$ to have cuts only in dimension $b$ when $b \leq d$
   and to be empty otherwise.
   %
 \end{proof}
 
-
-
-
 \begin{lemma}[Tail bound on the number of cells in a Mondrian forest refinement]
   \label{lem:refinement_tail}
 
-  Let $T_b \sim \MP(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
+  Let $T_b \sim \cM(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
   Then
   %
   \begin{align*}
     \P\left(
-    \# \bigwedge_{b=1}^B T_b
-    > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
-    \left(
-    t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
-    \right)^d
+      \# \bigwedge_{b=1}^B T_b
+      > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
+      \left(
+        t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
+      \right)^d
     \right)
     &\leq e^{-t}.
   \end{align*}
 
-
 \end{lemma}
-
-
-
-
-
 
 \begin{proof}[Lemma~\ref{lem:refinement_tail}]
 
@@ -1474,26 +1455,26 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    \# \bigwedge_{b=1}^B T_b
-    > t
+      \# \bigwedge_{b=1}^B T_b
+      > t
     \right)
     &\leq
-      \P\left(
+    \P\left(
       \prod_{j=1}^d
       \sum_{b=1}^B \# T_b^j
       > t
-      \right)
-      \leq
-      d\,
-      \P\left(
+    \right)
+    \leq
+    d\,
+    \P\left(
       \sum_{b=1}^B \# T_b
       > t^{1/d}
-      \right)
-      \leq
-      dB\,
-      \P\left(
+    \right)
+    \leq
+    dB\,
+    \P\left(
       \# T_b > \frac{t^{1/d}}{B}
-      \right).
+    \right).
   \end{align*}
   %
   Now by the subcell trick, partition $C$ into
@@ -1507,44 +1488,44 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    \# \bigwedge_{b=1}^B T_b
-    > t
+      \# \bigwedge_{b=1}^B T_b
+      > t
     \right)
     &\leq
-      \P\left(
+    \P\left(
       \sum_{C_\varepsilon \in \cC_\varepsilon}
       \# \bigwedge_{b=1}^B (T_b \cap C_\varepsilon)
       > t
-      \right)
-      \leq
-      \sum_{C_\varepsilon \in \cC_\varepsilon}
-      \P\left(
+    \right)
+    \leq
+    \sum_{C_\varepsilon \in \cC_\varepsilon}
+    \P\left(
       \# \bigwedge_{b=1}^B (T_b \cap C_\varepsilon)
       > \frac{t}{\# \cC_\varepsilon}
-      \right).
+    \right).
   \end{align*}
   %
   Applying the coarse estimate above gives
   %
   \begin{align*}
     \P\left(
-    \# \bigwedge_{b=1}^B T_b
-    > t
+      \# \bigwedge_{b=1}^B T_b
+      > t
     \right)
     &\leq
-      \# \cC_\varepsilon
-      dB\,
-      \P\left(
+    \# \cC_\varepsilon
+    dB\,
+    \P\left(
       \# (T_b \cap C_\varepsilon)
       > \frac{t^{1/d}}{B \# \cC_\varepsilon^{1/d}}
-      \right)
-      \leq
-      (1 + 1/\varepsilon)^d
-      dB\,
-      \P\left(
+    \right) \\
+    &\leq
+    (1 + 1/\varepsilon)^d
+    dB\,
+    \P\left(
       \# (T_b \cap C_\varepsilon)
       > \frac{t^{1/d}}{B (1 + 1/\varepsilon)}
-      \right)
+    \right).
   \end{align*}
   %
   By Lemma~\ref{lem:cells_tail}
@@ -1552,19 +1533,19 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    \# \bigwedge_{b=1}^B T_b
-    > t
+      \# \bigwedge_{b=1}^B T_b
+      > t
     \right)
     &\leq
-      2 (1 + 1/\varepsilon)^d
-      dB\,
-      (1 + \lambda |C| \varepsilon)^d
-      e^{-t^{1/d} B^{-1} (1+1/\varepsilon)^{-1}
-      (1 + \lambda |C| \varepsilon)^{-d} / 3} \\
+    2 (1 + 1/\varepsilon)^d
+    dB\,
+    (1 + \lambda |C| \varepsilon)^d
+    e^{-t^{1/d} B^{-1} (1+1/\varepsilon)^{-1}
+    (1 + \lambda |C| \varepsilon)^{-d} / 3} \\
     &\leq
-      2^{d+1} dB (1 + \lambda |C|)^d
-      e^{-t^{1/d} B^{-1} (1+\lambda |C|)^{-1}
-      2^{-d} / 3}.
+    2^{d+1} dB (1 + \lambda |C|)^d
+    e^{-t^{1/d} B^{-1} (1+\lambda |C|)^{-1}
+    2^{-d} / 3}.
   \end{align*}
   %
   Finally replacing $t$ by
@@ -1576,69 +1557,62 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    \# \bigwedge_{b=1}^B T_b
-    > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
-    \left(
-    t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
-    \right)^d
+      \# \bigwedge_{b=1}^B T_b
+      > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
+      \left(
+        t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
+      \right)^d
     \right)
     &\leq e^{-t}.
   \end{align*}
   %
 \end{proof}
 
-
-
 \begin{definition}[Active cells]
 
-  For a point $x \in C$ and trees $T_b$ for $1 \leq b \leq B$
-  we define the active cells in the refinement at $x$ by
+  For $x \in C$ and trees $T_b$ for $1 \leq b \leq B$,
+  define the active cells in the refinement at $x$ by
   %
   \begin{align*}
     \cA(x)
     = \left\{
-    C' \in \bigwedge_{b=1}^B T_b
-    \text{ such that there exists some } b
-    \text{ and } C'' \in T_b
-    \text{ such that } C' \subseteq C''
-    \text{ and } x \in C''
+      C' \in \bigwedge_{b=1}^B T_b :
+      \text{ there exists } b
+      \text{ and } C'' \in T_b
+      \text{ with } C' \subseteq C''
+      \text{ and } x \in C''
     \right\}.
   \end{align*}
 
 \end{definition}
 
-
-
 \begin{lemma}[Active cells]
   \label{lem:active_cells}
 
-  Let $T_b \sim \MP(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
+  Let $T_b \sim \cM(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
   Then the number of active cells can be controlled pointwise by
   %
   \begin{align*}
     \P\left( \# \cA(x)
-    > 2^{d^2} 3^d B^d (1+2dt)^d t^d
+      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
     \right)
     &\leq
-      2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
+    2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
   \end{align*}
   %
   and uniformly by
   %
   \begin{align*}
     \P\left(
-    \sup_{x \in C} \# \cA(x)
-    > 2^{d(d+3)} d^d B^d t^{2d}
+      \sup_{x \in C} \# \cA(x)
+      > 2^{d(d+3)} d^d B^d t^{2d}
     \right)
     &\leq
-      2^{11d^2}
-      B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
+    2^{11d^2}
+    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
   \end{align*}
   %
 \end{lemma}
-
-
-
 
 \begin{proof}[Lemma~\ref{lem:active_cells}]
 
@@ -1654,17 +1628,17 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   \begin{align*}
     \P\left( \# \cA(x) > t \right)
     &\leq
-      \P\left(
+    \P\left(
       \# \bigwedge_{b=1}^B
       \left( T_b \cap C_x^{\varepsilon/\lambda} \right)
       > t
-      \right)
-      + \P\left(
+    \right)
+    + \P\left(
       \max_{1 \leq b \leq B}
       \max_{C_b \in T_b}
       \max_{1 \leq j \leq d}
       |C_b^j| > \frac{\varepsilon}{\lambda}
-      \right).
+    \right).
   \end{align*}
   %
   Thus by a union bound and
@@ -1676,11 +1650,11 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   \begin{align*}
     \P\left( \# \cA(x) > t \right)
     &\leq
-      2^{d+1} dB (1 + 2 d \varepsilon)^d
-      e^{-t^{1/d} B^{-1} (1 + 2 d \varepsilon)^{-1}
-      2^{-d} / 3}
-      + 5d B (1 + \lambda |C|)^{d+1}
-      e^{-\varepsilon}.
+    2^{d+1} dB (1 + 2 d \varepsilon)^d
+    e^{-t^{1/d} B^{-1} (1 + 2 d \varepsilon)^{-1}
+    2^{-d} / 3}
+    + 5d B (1 + \lambda |C|)^{d+1}
+    e^{-\varepsilon}.
   \end{align*}
   %
   Noting $\varepsilon \leq \lambda |C|$,
@@ -1690,57 +1664,57 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left( \# \cA(x)
-    > 2^{d^2} 3^d B^d (1+2dt)^d t^d
+      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
     \right)
     &\leq
-      2^{d+1} dB (1 + 2 d \lambda |C|)^d e^{-t}
-      + 5d B (1 + \lambda |C|)^{d+1}
-      e^{-t} \\
+    2^{d+1} dB (1 + 2 d \lambda |C|)^d e^{-t}
+    + 5d B (1 + \lambda |C|)^{d+1}
+    e^{-t} \\
     &\leq
-      2^{d+3} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}, \\
+    2^{d+3} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}, \\
     \P\left( \# \cA(x)
-    > 2^{d(d+3)} d^d B^d t^{2d}
+      > 2^{d(d+3)} d^d B^d t^{2d}
     \right)
     &\leq
-      2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
+    2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
   \end{align*}
   %
   Next note that $\cA(x)$ depends on $x$ only
   through $\bigwedge_b T_b(x)$ so that
   %
   \begin{align*}
+    &\P\left(
+      \sup_{x \in C} \# \cA(x)
+      > 2^{d(d+3)} d^d B^d t^{2d}
+    \right) \\
+    &\quad=
     \P\left(
-    \sup_{x \in C} \# \cA(x)
-    > 2^{d(d+3)} d^d B^d t^{2d}
-    \right)
-    &=
-      \P\left(
       \max_{C' \in \bigwedge_b T_b} \# \cA(C')
       > 2^{d(d+3)} d^d B^d t^{2d}
-      \right) \\
-    &\leq
-      \sum_{l=1}^k
-      \P\left(
+    \right) \\
+    &\quad\leq
+    \sum_{l=1}^k
+    \P\left(
       \max_{C' \in \bigwedge_b T_b} \# \cA(C')
       > 2^{d(d+3)} d^d B^d t^{2d},
       \# \bigwedge_{b=1}^B T_b = l
-      \right)
-      + \P\left(
+    \right)
+    + \P\left(
       \# \bigwedge_{b=1}^B T_b > k
-      \right) \\
-    &\leq
-      k \sup_{x \in C}
-      \P\left( \# \cA(x)
+    \right) \\
+    &\quad\leq
+    k \sup_{x \in C}
+    \P\left( \# \cA(x)
       > 2^{d(d+3)} d^d B^d t^{2d}
-      \right)
-      + \P\left(
+    \right)
+    + \P\left(
       \# \bigwedge_{b=1}^B T_b > k
-      \right) \\
-    &\leq
-      2^{d+5} kdB (1 + 2 d \lambda |C|)^{d+1} e^{-t}
-      + 2^{d+1} dB (1 + \lambda |C|)^d
-      e^{-k^{1/d} B^{-1} (1+\lambda |C|)^{-1}
-      2^{-d} / 3}.
+    \right) \\
+    &\quad\leq
+    2^{d+5} k d B (1 + 2 d \lambda |C|)^{d+1} e^{-t}
+    + 2^{d+1} dB (1 + \lambda |C|)^d
+    e^{-k^{1/d} B^{-1} (1+\lambda |C|)^{-1}
+    2^{-d} / 3}.
   \end{align*}
   %
   Setting
@@ -1749,20 +1723,15 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
   \begin{align*}
     \P\left(
-    \sup_{x \in C} \# \cA(x)
-    > 2^{d(d+3)} d^d B^d t^{2d}
+      \sup_{x \in C} \# \cA(x)
+      > 2^{d(d+3)} d^d B^d t^{2d}
     \right)
     &\leq
-      2^{11d^2}
-      B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
+    2^{11d^2}
+    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
   \end{align*}
   %
 \end{proof}
-
-
-
-
-
 
 \pagebreak
 
