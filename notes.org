@@ -1,12 +1,14 @@
 #+title: PhD Dissertation
 * Tasks
 ** TODO Remake plots in a consistent style
+*** TODO Weather plots
+*** TODO Kernel plots
+*** TODO Eigenvalue plots
 *** Check fonts and font sizes
 *** pngquant --quality=20-30 --ext=.png --force
 *** optipng -o5
 ** TODO Check margins and spacing etc
 ** TODO Discuss software implementations
-** TODO latex GitHub action
 * Structure
 ** TODO Abstract
 *** Up to 350 words
@@ -14,9 +16,7 @@
 ** TODO Introduction
 *** From job application research statement
 *** From paper abstracts and introductions
-** TODO Mondrian Random Forests
-*** Minimax table
-*** New section on weather
+** Mondrian Random Forests
 ** TODO Dyadic KDE
 *** Add results from appendix as appropriate
 ** Yurinskii's Coupling
