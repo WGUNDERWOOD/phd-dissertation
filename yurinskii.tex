@@ -270,7 +270,7 @@ and $\kappa! = \prod_{j=1}^{d} \kappa_j !$.
 Since our results concern couplings, some statements must be made on a new or
 enlarged probability space. We omit the details of this for clarity of
 notation, but technicalities are handled by the Vorob'ev--Berkes--Philipp
-Theorem \citep[Theorem~1.1.10]{dudley1999uniform}.
+Theorem~\citep[Theorem~1.1.10]{dudley1999uniform}.
 
 \section{Main results}
 \label{sec:main_results}
@@ -453,7 +453,7 @@ prior results in the literature.
 
 %matching third moments
 Finally \ref{it:contribution_third_order},
-Theorem \ref{thm:sa_dependent} gives
+Theorem~\ref{thm:sa_dependent} gives
 a third-order strong approximation alongside the usual second-order
 version considered in all prior literature.
 More precisely, we observe that an analog of the term
@@ -726,10 +726,10 @@ directly yields the following result.
 The closest antecedents to Corollary~\ref{cor:sa_martingale} are
 \citet{belloni2018high} and \citet{li2020uniform}, who also implicitly or
 explicitly considered Yurinskii's coupling for martingales. More specifically,
-\citet[Theorem 1]{li2020uniform} established an explicit
+\citet[Theorem~1]{li2020uniform} established an explicit
 $\ell^2$-norm Yurinskii coupling
 for martingales under a strong assumption on the minimum eigenvalue of the
-martingale quadratic variation, while \citet[Theorem 2.1]{belloni2018high}
+martingale quadratic variation, while \citet[Theorem~2.1]{belloni2018high}
 established a
 central limit theorem for vector-valued martingale sequences employing the
 standard second-order Lindeberg method, implying that their proof could be
@@ -971,8 +971,9 @@ In this section, we demonstrate how our main results can be applied to some more
 substantive problems in statistics. Having until this point studied only
 finite-dimensional (albeit potentially high-dimensional) random vectors, we now
 turn our attention to infinite-dimensional stochastic processes. Specifically,
-we consider empirical processes of the form \[S(f) = \sum_{i=1}^{n} f(X_i),
-\qquad f \in \cF,\] with $\cF$ a problem-specific class of real-valued
+we consider empirical processes of the form
+$S(f) = \sum_{i=1}^{n} f(X_i)$ for $f \in \cF$
+a problem-specific class of real-valued
 functions, where each $f(X_i)$ forms a martingale difference sequence with
 respect to an appropriate filtration. We construct (conditionally) Gaussian
 processes $T(f)$ for which an upper bound on the uniform coupling error
@@ -1102,10 +1103,15 @@ $\log(N/h) \lesssim \log n$ and $n h \gtrsim \log n$,
 Finally, for any sequence $R_n\to\infty$
 (see Remark~\ref{rem:coupling_bounds_probability}),
 the resulting bound on the coupling error is
-\[\sup_{x \in \cX}
-  \big| S(x) - T(x) \big| \lesssim_\P
+%
+\begin{align*}
+  \sup_{x \in \cX}
+  \big| S(x) - T(x) \big|
+  &\lesssim_\P
   \left( \frac{N \log 2N}{n^2 h^2} \right)^{1/3} R_n
-+ \delta \sqrt{\frac{\log n}{n h^3}},\]
+  + \delta \sqrt{\frac{\log n}{n h^3}},
+\end{align*}
+%
 where the mesh size $\delta$ can then be optimized to obtain the tightest
 possible strong
 approximation.

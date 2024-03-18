@@ -866,7 +866,6 @@ verified.
 \end{lemma}
 
 \subsection{Feasible uniform confidence bands}
-\label{sec:app_feasible_confidence_bands}
 
 Now we use the strong approximation derived in
 Section~\ref{sec:strong_approx} and the
@@ -2162,192 +2161,8 @@ We begin with some definitions.
 
 \end{remark}
 
-\begin{remark}
-  Note that while we discuss trees in
-  Lemma~\ref{lem:vbp},
-  these refer to the dependency graph of the relevant
-  Polish space-valued random variables and do not
-  have any direct relation to the
-  networks studied throughout the main paper.
-\end{remark}
-
-\section{Additional empirical results}%
-
-\TODO{move to main paper}
-
-We present some additional empirical results
-using the International Monetary Fund's
-Direction of Trade Statistics (DOTS) data set,
-to complement those given in the main paper.
-This data set contains information about
-the yearly trade flows among
-$n = 207$ economies ($N = 21\,321$ pairs),
-and we focus on the years
-$1995$, $2000$ and $2005$.
-
-We define the \emph{trade volume} between countries
-$i$ and $j$ as the logarithm of the sum of
-the trade flow (in billions of US dollars)
-from $i$ to $j$ and the trade flow from $j$ to $i$.
-In each year several pairs of countries
-did not trade directly, yielding trade flows of zero
-and hence a trade volume of $-\infty$.
-We therefore assume that the distribution of trade volumes
-is a mixture of a point mass at $-\infty$ and a
-Lebesgue density on $\R$.
-The local nature of our estimator means that
-observations taking the value of $-\infty$
-can simply be removed from the data set.
-
-For counterfactual analysis we use the
-gross domestic product (GDP) of each country as a
-covariate, using $10\%$-percentiles to group the values into
-$10$ different levels for ease of estimation.
-This allows for a comparison of the observed distribution of trade at each year
-with, for example, the counterfactual distribution of trade
-had the GDP distribution remained as it was in $1995$.
-As such we can measure how much of the change in trade
-distribution is attributable
-to a shift in the GDP distribution.
-
-To estimate the trade volume density function
-we use the counterfactual dyadic kernel density estimator
-from Section~\ref{subsec:counterfactual}
-with $d=100$ equally-spaced evaluation points in $[-10,10]$,
-using the rule-of-thumb bandwidth selector $\hat h_{\ROT}$
-described in the main paper with $p=2$ and $C(K) = 2.435$.
-For inference we use an
-Epanechnikov kernel of order $p=4$ and
-resample the Gaussian process
-$B = 10\,000$ times.
-We also estimate the counterfactual trade distributions
-in 2000 and 2005 respectively,
-replacing the GDP distribution with that from 1995.
-For each year, Figure~\ref{fig:app_trade}
-plots the real and counterfactual density estimates
-along with their respective uniform confidence bands (UCB)
-at the nominal coverage rate of $95\%$.
-Our empirical results show that
-the counterfactual distribution drifts further from the truth
-in 2005 compared with 2000, indicating a more significant shift
-in the GDP distribution.
-
-In Figure~\ref{fig:gdp} we illustrate how, in the preliminary
-step of the counterfactual analysis, the distribution of
-log GDP is approximated using the histogram estimators
-$\hat p_X^{\,0}$ and $\hat p_X^{\,1}$
-defined in Section~\ref{subsec:counterfactual}.
-We also plot the density function of a normal distribution,
-fitted using maximum likelihood estimation,
-and this seems to capture the distribution of log GDP reasonably well.
-Such a parametric approach to the preliminary step
-may be favored in cases where a choice of model
-is clear or where the histogram estimators perform poorly.
-
-To demonstrate the relative robustness
-of our counterfactual analysis to the choice of preliminary
-estimation step, we also provide results using a parametric
-estimator of the distribution of GDP.
-Figure~\ref{fig:trade_para} repeats the procedure used for
-Figure~\ref{fig:app_trade}, but this time
-replacing the histogram estimators by parametric estimators of the log GDP
-based on normal likelihood maximization.
-The point estimates are qualitatively similar, with the counterfactual
-distribution drifting in the same direction over time.
-The confidence bands are also similar, with the band based on the
-parametric fit being slightly narrower in general.
-This could be due to the more stringent model specification
-leading to less estimated variance in the fitted values.
-
-\begin{figure}[ht]
-  \centering
-  %
-  \begin{subfigure}{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.48]{graphics/trade_plot_1995.pdf}
-    \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
-  \end{subfigure}
-  %
-  \begin{subfigure}{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.48]{graphics/trade_plot_1995_2000.pdf}
-    \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
-  \end{subfigure}
-  %
-  \begin{subfigure}{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.48]{graphics/trade_plot_1995_2005.pdf}
-    \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
-  \end{subfigure}
-  %
-  \caption{Real and counterfactual density estimates
-    and confidence bands for the DOTS data with histogram-based
-  covariate estimation.}
-  %
-  \label{fig:app_trade}
-  %
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  %
-  \begin{subfigure}{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.48]{graphics/trade_gdp_1995.pdf}
-    \caption{Year 1995}
-  \end{subfigure}
-  %
-  \begin{subfigure}{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.48]{graphics/trade_gdp_2000.pdf}
-    \caption{Year 2000}
-  \end{subfigure}
-  %
-  \begin{subfigure}{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.48]{graphics/trade_gdp_2005.pdf}
-    \caption{Year 2005}
-  \end{subfigure}
-  %
-  \caption{Estimated GDP distributions for the DOTS data.}
-  %
-  \label{fig:gdp}
-  %
-\end{figure}
-
-\begin{figure}[ht]
-  \centering
-  %
-  \begin{subfigure}{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.48]{graphics/trade_plot_parametric_1995.pdf}
-    \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
-  \end{subfigure}
-  %
-  \begin{subfigure}{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.48]{graphics/trade_plot_parametric_1995_2000.pdf}
-    \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
-  \end{subfigure}
-  %
-  \begin{subfigure}{0.32\textwidth}
-    \centering
-    \includegraphics[scale=0.48]{graphics/trade_plot_parametric_1995_2005.pdf}
-    \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
-  \end{subfigure}
-  %
-  \caption{Real and counterfactual density estimates
-    and confidence bands for the DOTS data
-  with parametric covariate estimation.}
-  %
-  \label{fig:trade_para}
-  %
-\end{figure}
-
 \section{Proofs}
 \label{sec:kernel_proofs}
-
-\TODO{check these are still in the right order}
 
 \subsection{Preliminary lemmas}
 
@@ -4705,7 +4520,7 @@ Lemma~\ref{lem:bv_characterization}.
   Note that
   $Z_n^\delta$
   now extends
-  by the Vorob'ev--Berkes--Philipp Theorem
+  by the Vorob'ev--Berkes--Philipp theorem
   (Lemma~\ref{lem:vbp})
   to a mean-zero Gaussian
   process
@@ -8025,7 +7840,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   The first step is to define copies of all of these variables
   and processes on the same probability space.
   This is achieved by applying the
-  Vorob'ev--Berkes--Philipp Theorem
+  Vorob'ev--Berkes--Philipp theorem
   (Lemma~\ref{lem:vbp}).
   In particular, dropping the prime notation for clarity,
   we construct

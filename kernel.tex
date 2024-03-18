@@ -1117,8 +1117,9 @@ literature on nonparametric estimation with dyadic data. See
 We investigate the distributional properties of the
 standardized $t$-statistic process
 %
-\[ T_n(w) = \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}}
-, \qquad w\in\cW,\]
+\begin{align*}
+  T_n(w) = \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}}
+\end{align*}
 %
 which is not necessarily asymptotically tight.
 Therefore, to approximate the distribution of the entire $t$-statistic process,
@@ -1139,7 +1140,7 @@ By the Hoeffding-type decomposition
 \eqref{eq:h-decomposition} and Lemma~\ref{lem:uniform_concentration},
 it suffices to consider the distributional properties
 of the stochastic process $(L_n(w)+E_n(w):w\in\cW)$.
-Our approach combines the K\'omlos--Major--Tusn\'ady (KMT) approximation
+Our approach combines the K{\'o}mlos--Major--Tusn{\'a}dy (KMT) approximation
 \citep{komlos1975approximation} to obtain a strong approximation of
 $L_n$ with a Yurinskii approximation
 \citep{yurinskii1978error} to obtain a
@@ -1625,8 +1626,10 @@ and a bandwidth $h$, we construct a valid confidence
 band that is implementable in practice.
 Define the Studentized $t$-statistic process
 %
-\[ \hat T_n(w) = \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\hat
-\Sigma_n^+(w,w)}} , \qquad w\in\cW.\]
+\begin{align*}
+\hat T_n(w) =
+\frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\hat \Sigma_n^+(w,w)}}.
+\end{align*}
 %
 Let $\hat Z_n^T(w)$ be a process which,
 conditional on the data $\bW_n$,
@@ -2295,12 +2298,8 @@ Our empirical results show that
 the counterfactual distribution drifts further from the truth
 in 2005 compared with 2000, indicating a more significant shift
 in the GDP distribution.
-In the online supplemental appendix we repeat the procedure
-using a parametric (log-normal maximum likelihood) preliminary estimate
-of the GDP distribution, and observe that the results
-are qualitatively similar.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
@@ -2322,13 +2321,125 @@ are qualitatively similar.
   \end{subfigure}
   %
   \caption{Real and counterfactual density estimates
-  and confidence bands for the DOTS data.}
+    and confidence bands for the DOTS data with histogram-based
+  covariate estimation.}
   %
   \label{fig:trade}
   %
-  % \vspace{-.8em}
-  % \flushleft\footnotesize\emph{Notes}.
-  % notes.
+\end{figure}
+
+In Figure~\ref{fig:gdp} we illustrate how, in the preliminary
+step of the counterfactual analysis, the distribution of
+log GDP is approximated using the histogram estimators
+$\hat p_X^{\,0}$ and $\hat p_X^{\,1}$
+defined in Section~\ref{subsec:counterfactual}.
+We also plot the density function of a normal distribution,
+fitted using maximum likelihood estimation,
+and this seems to capture the distribution of log GDP reasonably well.
+Such a parametric approach to the preliminary step
+may be favored in cases where a choice of model
+is clear or where the histogram estimators perform poorly.
+
+\begin{figure}[ht]
+  \centering
+  %
+  \begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[scale=0.48]{graphics/trade_gdp_1995.pdf}
+    \caption{Year 1995}
+  \end{subfigure}
+  %
+  \begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[scale=0.48]{graphics/trade_gdp_2000.pdf}
+    \caption{Year 2000}
+  \end{subfigure}
+  %
+  \begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[scale=0.48]{graphics/trade_gdp_2005.pdf}
+    \caption{Year 2005}
+  \end{subfigure}
+  %
+  \caption{Estimated GDP distributions for the DOTS data.}
+  %
+  \label{fig:gdp}
+  %
+\end{figure}
+
+To demonstrate the relative robustness
+of our counterfactual analysis to the choice of preliminary
+estimation step, we also provide results using a parametric
+estimator of the distribution of GDP.
+Figure~\ref{fig:trade_para} repeats the procedure used for
+Figure~\ref{fig:trade}, but this time
+replacing the histogram estimators by parametric estimators of the log GDP
+based on normal likelihood maximization.
+The point estimates are qualitatively similar, with the counterfactual
+distribution drifting in the same direction over time.
+The confidence bands are also similar, with the band based on the
+parametric fit being slightly narrower in general.
+This could be due to the more stringent model specification
+leading to less estimated variance in the fitted values.
+
+%\begin{figure}[ht]
+%  \centering
+%  %
+%  \begin{subfigure}{0.32\textwidth}
+%    \centering
+%    \includegraphics[scale=0.48]{graphics/trade_plot_1995.pdf}
+%    \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
+%  \end{subfigure}
+%  %
+%  \begin{subfigure}{0.32\textwidth}
+%    \centering
+%    \includegraphics[scale=0.48]{graphics/trade_plot_1995_2000.pdf}
+%    \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
+%  \end{subfigure}
+%  %
+%  \begin{subfigure}{0.32\textwidth}
+%    \centering
+%    \includegraphics[scale=0.48]{graphics/trade_plot_1995_2005.pdf}
+%    \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
+%  \end{subfigure}
+%  %
+%  \caption{Real and counterfactual density estimates
+%  and confidence bands for the DOTS data.}
+%  %
+%  \label{fig:trade}
+%  %
+%  % \vspace{-.8em}
+%  % \flushleft\footnotesize\emph{Notes}.
+%  % notes.
+%\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  %
+  \begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[scale=0.48]{graphics/trade_plot_parametric_1995.pdf}
+    \caption{Year 1995, $\hat h_{\ROT} = 1.27$}
+  \end{subfigure}
+  %
+  \begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[scale=0.48]{graphics/trade_plot_parametric_1995_2000.pdf}
+    \caption{Year 2000, $\hat h_{\ROT} = 1.31$}
+  \end{subfigure}
+  %
+  \begin{subfigure}{0.32\textwidth}
+    \centering
+    \includegraphics[scale=0.48]{graphics/trade_plot_parametric_1995_2005.pdf}
+    \caption{Year 2005, $\hat h_{\ROT} = 1.37$}
+  \end{subfigure}
+  %
+  \caption{Real and counterfactual density estimates
+    and confidence bands for the DOTS data
+  with parametric covariate estimation.}
+  %
+  \label{fig:trade_para}
+  %
 \end{figure}
 
 \section{Other applications and future work}
@@ -2359,20 +2470,19 @@ Consider the test statistics
 $\tau_p$ for $1 \leq p \leq \infty$ where
 %
 \begin{align}
-  \label{eq:hypothesis_test}
-  \tau_p
+  \nonumber
+  \tau_p^p
   &=
-  \left(
-    \int_{-\infty}^{\infty}
-    \left|
-    \hat f_W^{\,1}(w)
-    - \hat f_W^{\,0}(w)
-    \right|^p
-    \diff w
-  \right)^{1/p}
-  \text{ for } p < \infty, \text{ and }\,
+  \int_{-\infty}^{\infty}
+  \left|
+  \hat f_W^{\,1}(w)
+  - \hat f_W^{\,0}(w)
+  \right|^p
+  \diff w
+  \ \text{ for } p < \infty, \\
+  \label{eq:hypothesis_test}
   \tau_\infty
-  = \sup_{w \in \cW}
+  &= \sup_{w \in \cW}
   \left|
   \hat f_W^{\,1}(w)
   - \hat f_W^{\,0}(w)
@@ -2533,6 +2643,11 @@ From a technical perspective,
 Appendix~\ref{app:kernel} contains several generic results
 concerning strong approximation methods and maximal inequalities
 for empirical processes that may be of independent interest.
+Implementations of this chapter's methodology,
+along with replication files for the empirical results,
+are provided by a Julia package available at
+\href{https://github.com/WGUNDERWOOD/DyadicKDE.jl}%
+{\texttt{github.com/wgunderwood/DyadicKDE.jl}}.
 This work has been presented as
 %
 \cite{%
