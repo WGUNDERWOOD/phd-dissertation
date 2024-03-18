@@ -390,9 +390,7 @@ the space of all $m$-times continuously differentiable functions
 on $\mathcal{X}$.
 For $\beta > 0$ and $C>0$,
 define the H\"{o}lder class on $\mathcal{X}$ to be
-\TODO{check this is correct}
-$\cH^\beta_C(\cX)
-=
+$\cH^\beta_C(\cX) =
 \big\{
   g \in \cC^{\flbeta}(\cX): \
   \max_{1 \leq r \leq \flbeta}
@@ -512,8 +510,9 @@ $f_{W \mid AA}(w \mid a_1,a_2) = f_V(v)
 
 This assumption allows for all standard compactly supported
 and possibly boundary-corrected kernel functions
-\citep{wand1994kernel,simonoff2012smoothing}.
-Assumption~\ref{ass:kernel_bandwidth} implies that
+\citep{wand1994kernel,simonoff2012smoothing}, constructed for example by taking
+polynomials on a compact interval and solving a linear system for the
+coefficients. Assumption~\ref{ass:kernel_bandwidth} implies that
 if $h \leq 1$ then
 $k_h$ is uniformly bounded by
 $C_\rk h^{-1}$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
@@ -611,7 +610,6 @@ which is the starting point for our analysis.
 
 \end{lemma}
 
-
 \TODO{check new bias result here}
 
 Lemma~\ref{lem:bias}
@@ -697,7 +695,6 @@ and does not rely on the dyadic structure of the data.
   \end{align*}
 
 \end{lemma}
-
 
 The non-random term $B_n$ captures the smoothing (or misspecification) bias,
 while the three stochastic processes $L_n$, $E_n$ and $Q_n$
@@ -989,29 +986,48 @@ with dyadic data.
 This implies minimax optimality of the kernel density estimator $\hat
 f_W$, regardless of the degeneracy type of the dyadic distribution.
 
-\begin{theorem}[Uniform minimax rate] \label{thm:kernel_minimax}
+\begin{theorem}[Uniform minimax optimality]
+  \label{thm:kernel_minimax}
 
   Fix $\beta \geq 1$ and $C_\rH > 0$,
-  and let $\cW$ be a compact interval with positive Lebesgue measure.
+  and take $\cW$ a compact interval with
+  positive Lebesgue measure.
   Define $\cP = \cP(\cW, \beta, C_\rH)$
   as the class of dyadic distributions
   satisfying Assumption~\ref{ass:kernel_data}.
   Define $\cP_\rd$ as the subclass of $\cP$
-  containing only those dyadic distributions
+  containing only those distributions
   which are totally degenerate on $\cW$ in the sense that
   $\sup_{w \in \cW} \Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$.
   Then
-  $\inf_{\tilde f_W} \sup_{\P \in \cP}
-  \E_\P\big[\sup_{w \in \cW} \big| \tilde f_W(w) - f_W(w) \big| \big]
-  \asymp \frac{1}{\sqrt n}$
-  and
-  $\inf_{\tilde f_W} \sup_{\P \in \cP_\rd}
-  \E_\P\big[\sup_{w \in \cW} \big| \tilde f_W(w) - f_W(w) \big| \big]
-  \asymp \big( \frac{\log n}{n^2} \big)^{\frac{\beta}{2\beta+1}}$,
+  \begin{align*}
+    \inf_{\tilde f_W}
+    \sup_{\P \in \cP}
+    \E_\P\left[
+      \sup_{w \in \cW}
+      \big|
+      \tilde f_W(w) - f_W(w)
+      \big|
+    \right]
+    &\asymp
+    \frac{1}{\sqrt n}, \\
+    \inf_{\tilde f_W}
+    \sup_{\P \in \cP_\rd}
+    \E_\P\left[
+      \sup_{w \in \cW}
+      \big|
+      \tilde f_W(w) - f_W(w)
+      \big|
+    \right]
+    &\asymp
+    \left(
+      \frac{\log n}{n^2}
+    \right)^{\frac{\beta}{2\beta+1}},
+  \end{align*}
   where $\tilde f_W$ is any estimator depending only on
   the data $\bW_n = (W_{i j}: 1 \leq i < j \leq n)$
-  distributed according to the dyadic distribution $\P$.
-  The constants underlying $\asymp$ depend only on
+  distributed according to the dyadic law $\P$.
+  The constants in $\asymp$ depend only on
   $\cW$, $\beta$ and $C_\rH$.
 
 \end{theorem}
@@ -1029,16 +1045,13 @@ is determined by the bias $B_n$ and the leading variance term $E_n$ in
 \eqref{eq:h-decomposition}.
 
 Combining Theorems \ref{thm:uniform_consistency}~and~\ref{thm:kernel_minimax},
-we
-conclude that $\hat{f}_W(w)$ achieves the minimax-optimal rate
-of uniform convergence for estimating $f_W(w)$ if
-$h \asymp \left( \frac{\log n}{n^2} \right)^{\frac{1}{2\beta+1}}$
-and $p \geq \beta$,
-whether or not there are
-any degenerate points in the underlying data generating process.
-This result appears to be new to the literature on
-nonparametric estimation with dyadic data.
-See \citet{gao2021minimax} for a contemporaneous review.
+we conclude that $\hat{f}_W(w)$ achieves the minimax-optimal rate of uniform
+convergence for estimating $f_W(w)$ if $h \asymp \left( \frac{\log n}{n^2}
+\right)^{\frac{1}{2\beta+1}}$ and a kernel of sufficiently high order
+($p \geq \beta$) is used, whether or not there are any degenerate points in the
+underlying data generating process. This result appears to be new to the
+literature on nonparametric estimation with dyadic data. See
+\citet{gao2021minimax} for a contemporaneous review.
 
 \section{Distributional results}\label{sec:kernel_inference}
 

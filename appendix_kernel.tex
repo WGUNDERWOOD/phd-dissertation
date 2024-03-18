@@ -28,10 +28,7 @@ Aldous--Hoover representation theorem for exchangeable arrays
 
 Denote the kernel weight of the data point $W_{i j}$
 at the evaluation point $w$
-with bandwidth $h$
-(see Section~\ref{sec:assumptions} for details)
-by
-$k_h(W_{i j}, w)$.
+with bandwidth $h$ by $k_h(W_{i j}, w)$.
 Then the dyadic
 kernel density estimator
 is defined as
@@ -123,32 +120,6 @@ Note that $\cH^1_C(\cX)$
 is the class of functions which are $C$-Lipschitz on $\cX$,
 and observe that the functions in
 $\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
-
-\subsection{Assumptions}
-\label{sec:assumptions}
-
-\begin{remark}
-  By Lemma~\ref{lem:lipschitz_kernels_bounded},
-  Assumption~\ref{ass:kernel_data} implies that the densities
-  $f_W$, $f_{W \mid A}$ and $f_{W \mid AA}$ are all uniformly bounded by
-  $C_\rd \vcentcolon= 2 \sqrt{C_\rH} + 1/\Leb(\cW)$.
-\end{remark}
-
-\begin{remark}
-  The kernel functions required by
-  Assumption~\ref{ass:kernel_bandwidth}
-  can be constructed using
-  polynomials on $[w \pm h] \cap \cW$,
-  solving a family of linear systems to find the coefficients.
-\end{remark}
-
-\begin{remark}
-  By Lemma~\ref{lem:lipschitz_kernels_bounded},
-  Assumption~\ref{ass:kernel_bandwidth} implies that
-  if $h \leq 1$ then
-  $k_h$ is uniformly bounded by
-  $C_\rk / h$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
-\end{remark}
 
 \section{Main results}
 
@@ -325,75 +296,6 @@ interpreting our results in various classes of data distributions.
         \right)^{\frac{p \wedge \beta}{2(p \wedge \beta)+1}},
       \end{align*}
   \end{enumerate}
-
-\end{remark}
-
-\subsection{Minimax optimality}
-
-In this section we demonstrate
-minimax optimality of our estimator under uniform convergence
-by providing upper and lower bounds in expectation uniformly over
-some classes of dyadic distributions.
-
-\begin{theorem}[Minimax optimality of $\hat f_W$]
-  \label{thm:kernel_app_minimax}
-
-  Fix $\beta \geq 1$ and $C_\rH > 0$,
-  and take $\cW$ a compact interval with
-  positive Lebesgue measure.
-  Define $\cP = \cP(\cW, \beta, C_\rH)$
-  as the class of dyadic distributions
-  satisfying Assumption~\ref{ass:kernel_data}.
-  Define $\cP_\rd$ as the subclass of $\cP$
-  containing only those distributions
-  which are totally degenerate on $\cW$ in the sense that
-  $\sup_{w \in \cW} \Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$.
-  Then
-  \begin{align*}
-    \inf_{\tilde f_W}
-    \sup_{\P \in \cP}
-    \E_\P\left[
-      \sup_{w \in \cW}
-      \big|
-      \tilde f_W(w) - f_W(w)
-      \big|
-    \right]
-    &\asymp
-    \frac{1}{\sqrt n}, \\
-    \inf_{\tilde f_W}
-    \sup_{\P \in \cP_\rd}
-    \E_\P\left[
-      \sup_{w \in \cW}
-      \big|
-      \tilde f_W(w) - f_W(w)
-      \big|
-    \right]
-    &\asymp
-    \left(
-      \frac{\log n}{n^2}
-    \right)^{\frac{\beta}{2\beta+1}},
-  \end{align*}
-  where $\tilde f_W$ is any estimator depending only on
-  the data $\bW_n = (W_{i j}: 1 \leq i < j \leq n)$
-  distributed according to the dyadic law $\P$.
-  The constants in $\asymp$ depend only on
-  $\cW$, $\beta$ and $C_\rH$.
-
-\end{theorem}
-
-\begin{remark}
-
-  Theorem~\ref{thm:kernel_app_minimax}
-  verifies that the rates of uniform consistency derived
-  in Theorem~\ref{thm:app_uniform_consistency}
-  are minimax-optimal when using a kernel of sufficiently high order
-  $(p \geq \beta)$.
-  It also shows that both the
-  $L_n$ and $E_n$ terms are important
-  in the consistency of $\hat f_W$,
-  and that their relative magnitude
-  in the supremum norm is determined
-  by the degeneracy type of the underlying distribution.
 
 \end{remark}
 
@@ -6528,7 +6430,7 @@ We begin with a basic fact about Lipschitz functions.
 
 \subsubsection{Minimax optimality}
 
-Before proving Theorem~\ref{thm:kernel_app_minimax}
+Before proving Theorem~\ref{thm:kernel_minimax}
 we first give a lower bound result
 for parametric point estimation in
 Lemma~\ref{lem:neyman_pearson_bernoulli}.
@@ -6723,7 +6625,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:kernel_app_minimax}]
+\begin{proof}[Theorem~\ref{thm:kernel_minimax}]
 
   \proofparagraph{lower bound for $\cP$}
 
@@ -7181,7 +7083,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:app_variance_bounds}]
+\begin{proof}[Lemma~\ref{lem:variance_bounds}]
 
   By Lemma~\ref{lem:covariance_structure},
   the diagonal elements of $\Sigma_n$ are
@@ -8521,7 +8423,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     + h^{p \wedge \beta}.
   \end{align*}
   %
-  By Lemma~\ref{lem:app_variance_bounds}
+  By Lemma~\ref{lem:variance_bounds}
   with $\inf_\cW f_W(w) > 0$,
   the denominator is bounded below by
   %
@@ -8627,7 +8529,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   %
   uniformly in $w, w', w'' \in \cW$.
-  Therefore by Lemma~\ref{lem:app_variance_bounds},
+  Therefore by Lemma~\ref{lem:variance_bounds},
   with $\delta_n \leq n^{-2} h^2$,
   we have
   %
@@ -9472,7 +9374,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\hat f_W$ is uniformly bounded in probability.
   Noting that
   $\E[\hat f_W(w)] = \E[k_{i j}]$
-  and by Lemma~\ref{lem:app_variance_bounds},
+  and by Lemma~\ref{lem:variance_bounds},
   \begin{align*}
     &\sup_{w,w' \in \cW}
     \left|
@@ -9559,7 +9461,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   is an empirical process evaluated at
   $g_w \in \cF$.
   By the lower bound on $\Sigma_n(w,w)$
-  from Lemma~\ref{lem:app_variance_bounds}
+  from Lemma~\ref{lem:variance_bounds}
   with $\inf_\cW f_W(w) > 0$ and since $n h \gtrsim \log n$,
   the class $\cF$ has a constant envelope function
   given by $F(a) \lesssim \sqrt{n h}$.
@@ -10060,7 +9962,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   %
   So Lemma~\ref{lem:ustat_concentration}
-  and Lemma~\ref{lem:app_variance_bounds}
+  and Lemma~\ref{lem:variance_bounds}
   give the pointwise concentration inequality
   %
   \begin{align*}
@@ -10516,7 +10418,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   where $C_8 > 0$ is a constant and
   in the last line we use $1/h \lesssim n$.
   This converges to zero for any sufficiently large $t$,
-  so by Lemma~\ref{lem:app_variance_bounds} we have
+  so by Lemma~\ref{lem:variance_bounds} we have
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
@@ -10797,7 +10699,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and note that it is increasing on $\{t \geq a^2/4\}$.
   Applying this with $t = \Sigma_n(w,w)$
   and $a = \frac{\sqrt{\log n}}{n}$,
-  noting that by Lemma~\ref{lem:app_variance_bounds} we have
+  noting that by Lemma~\ref{lem:variance_bounds} we have
   $t = \Sigma_n(w,w) \gtrsim \frac{1}{n^2h}
   \gg \frac{\log n}{4n^2} = a^2/4$,
   shows that for $n$ large enough,
@@ -10811,7 +10713,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sup_{w \in \cW} \Sigma_n(w,w)
     + \frac{\sqrt{\log n}}{n} \sqrt{\sup_{w \in \cW} \Sigma_n(w,w)}.
   \end{align*}
-  Applying the bounds from Lemma~\ref{lem:app_variance_bounds}
+  Applying the bounds from Lemma~\ref{lem:variance_bounds}
   yields
   \begin{align*}
     \frac{\Dl^2}{n} + \frac{1}{n^2h}
@@ -10882,7 +10784,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   while Lemma~\ref{lem:bias} gives
   $\sup_{w \in \cW} \big| \E\big[\hat f_W(w)\big] - f_W(w) \big|
   \lesssim h^{p \wedge \beta}$.
-  By Lemma~\ref{lem:app_variance_bounds},
+  By Lemma~\ref{lem:variance_bounds},
   note that
   $\sup_{w \in \cW} \Sigma_n(w,w)^{-1/2}
   \lesssim \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$, and
