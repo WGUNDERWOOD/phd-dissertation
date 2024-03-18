@@ -8,7 +8,6 @@
 *** pngquant --quality=20-30 --ext=.png --force
 *** optipng -o5
 ** TODO Check margins and spacing etc
-** TODO Swap (i) for inlineroman
 ** TODO Comments before aligns
 ** TODO Check lemmas vs theorems
 * Structure

@@ -1180,8 +1180,8 @@ and \citet{gine2010confidence} and may be of independent interest.
 The strong approximation result in Lemma~\ref{lem:strong_approx_Ln} would be
 sufficient to develop valid and even optimal
 uniform inference procedures whenever both
-(i) $\Dl > 0$ (no degeneracy in $L_n$) and
-(ii) $n h \gg \log n$ ($L_n$ is leading).
+$\Dl > 0$ (no degeneracy in $L_n$) and
+$n h \gg \log n$ ($L_n$ is leading).
 In this special case, the recent Donsker-type results of
 \citet{davezies2021exchangeable}
 can be applied to analyze the limiting distribution
@@ -1378,20 +1378,20 @@ which depend on the degeneracy type of the dyadic distribution,
 to ensure the coverage rate converges in large samples.
 
 \begin{assumption}[Rate restriction for uniform confidence bands]
-  \label{ass:rates}\onehalfspacing
-
-  %Suppose that $f_W(w) > 0$ on $\cW$.
+  \label{ass:rates}
   Assume that one of the following holds:
-
+  %
   \begin{enumerate}[label=(\roman*)]
 
     \item
+      \label{it:rate_non}
       No degeneracy
       ($\Dl > 0$):
       $n^{-6/7} \log n \ll h
       \ll (n \log n)^{-\frac{1}{2(p \wedge \beta)}}$,
 
     \item
+      \label{it:rate_degen}
       Partial or total degeneracy
       ($\Dl = 0$):
       $n^{-2/3} (\log n)^{7/3} \ll h
@@ -1450,7 +1450,7 @@ IMSE-optimal bandwidth is
 $h \asymp (1/n^2)^{\frac{1}{2(p \wedge \beta)+1}}$.
 Both bandwidth choices satisfy Assumption~\ref{ass:rates}
 only in the case of no degeneracy.
-The degenerate cases in Assumption~\ref{ass:rates}(ii),
+The degenerate cases in Assumption~\ref{ass:rates}\ref{it:rate_degen},
 which require $p \wedge \beta > 1$,
 exhibit behavior more similar to that of standard
 nonparametric kernel-based estimation
@@ -1473,7 +1473,8 @@ the standardization (Studentization) when forming the $t$-statistic $T_n$.
 
 Importantly, regardless of the specific implementation details,
 Theorem~\ref{thm:infeasible_ucb} shows that any bandwidth sequence $h$
-satisfying both (i) and (ii)
+satisfying both
+\ref{it:rate_non} and \ref{it:rate_degen}
 in Assumption~\ref{ass:rates} leads to valid uniform inference which is robust
 and adaptive to the (unknown) degeneracy type.
 
