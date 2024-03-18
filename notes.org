@@ -9,6 +9,9 @@
 *** optipng -o5
 ** TODO Check margins and spacing etc
 ** TODO Discuss software implementations
+** TODO Swap (i) for inlineroman
+** TODO Comments before aligns
+** TODO No \[ equations
 * Structure
 ** Abstract
 *** Up to 350 words

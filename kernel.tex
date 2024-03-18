@@ -386,10 +386,10 @@ $\|g\|_\TV = \sup_{n \geq 1} \sup_{x_1 \leq \cdots \leq x_n}
 \sum_{i=1}^{n-1} |g(x_{i+1}) - g(x_i)|$.
 For an integer $m\geq 0$,
 denote by $\mathcal{C}^m(\mathcal{X})$
-the space of all $m$-times continuously differentiable functions
-on $\mathcal{X}$.
-For $\beta > 0$ and $C>0$,
-define the H\"{o}lder class on $\mathcal{X}$ to be
+the space of all functions from $\R$ to $\R$
+which are $m$ times continuously differentiable on $\mathcal{X}$.
+For and $C>0$, define the H\"{o}lder class
+with smoothness $\beta > 0$ by
 $\cH^\beta_C(\cX) =
 \big\{
   g \in \cC^{\flbeta}(\cX): \
@@ -403,6 +403,8 @@ $\cH^\beta_C(\cX) =
 $
 where $\flbeta$ denotes the largest integer
 which is strictly less than $\beta$.
+Note that $\cH^1_C(\cX)$
+is the class of $C$-Lipschitz functions on $\cX$.
 For $a \in \R$ and $b \geq 0$,
 we write $[a \pm b]$ for the interval $[a-b, a+b]$.
 For non-negative sequences
@@ -517,13 +519,103 @@ if $h \leq 1$ then
 $k_h$ is uniformly bounded by
 $C_\rk h^{-1}$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
 
+\subsection{Bias characterization}
+\label{sec:kernel_bias}
+
+We begin our analysis of the dyadic kernel density estimator with a simple
+exercise in characterizing and bounding its bias
+$B_n(w) = \E \big[ \hat f_W(w) \big] - f_W(w)$.
+Lemma~\ref{lem:kernel_bias} is a standard result for the non-random
+smoothing or misspecification bias
+in kernel density estimation with higher-order kernels
+and boundary bias correction, and it
+does not rely directly on the dyadic structure of the data.
+
+\begin{lemma}[Bias of $\hat f_W$]
+  \label{lem:kernel_bias}
+
+  Suppose that Assumptions \ref{ass:kernel_data} and
+  \ref{ass:kernel_bandwidth} hold.
+  For $w \in \cW$
+  define the leading bias term as
+  \begin{align*}
+    b_p(w)
+    &=
+    \frac{f_W^{(p)}(w)}{p!}
+    \int_{\cW}
+    k_h(s,w)
+    \left(
+      \frac{s-w}{h}
+    \right)^p
+    \diff{s}.
+  \end{align*}
+  for $1 \leq p \leq \flbeta$.
+  Then we have the following bias bounds.
+  \begin{enumerate}[label=(\roman*)]
+
+    \item If $p \leq \flbeta - 1$,
+      \begin{align*}
+        \sup_{w \in \cW}
+        \big|
+        B_n(w)
+        - h^p b_p(w)
+        \big|
+        \leq
+        \frac{2 C_\rk C_\rH}{(p+1)!}
+        h^{p+1}.
+      \end{align*}
+
+    \item If $p = \flbeta$,
+      \begin{align*}
+        \sup_{w \in \cW}
+        \big|
+        B_n(w)
+        - h^p b_p(w)
+        \big|
+        \leq
+        \frac{2 C_\rk C_\rH}{\flbeta !}
+        h^\beta.
+      \end{align*}
+
+    \item If $p \geq \flbeta+1$,
+      \begin{align*}
+        \sup_{w \in \cW}
+        \big|
+        B_n(w)
+        \big|
+        \leq
+        \frac{2 C_\rk C_\rH}{\flbeta !}
+        h^\beta.
+      \end{align*}
+
+  \end{enumerate}
+  Noting that
+  $\sup_{\cW} |b_p(w)| \leq 2 C_\rk C_\rH / p!$,
+  we deduce that for $h \leq 1$,
+  \begin{align*}
+    \sup_{w \in \cW}
+    \big|
+    B_n(w)
+    \big|
+    \leq
+    \frac{4 C_\rk C_\rH}{(p \wedge \flbeta)!}
+    h^{p \wedge \beta}
+    \lesssim
+    h^{p \wedge \beta}.
+  \end{align*}
+
+\end{lemma}
+
 \subsection{Hoeffding-type decomposition and degeneracy}
 \label{sec:degeneracy}
 
-The estimator $\hat{f}_W(w)$ is akin to a
+Our next step is to consider the stochastic part
+$\hat f_W(w) - \E \big[ \hat f_W(w) \big]$
+of the classical bias--variance decomposition.
+This term is akin to a
 U-statistic and thus admits a Hoeffding-type decomposition,
 presented in Lemma~\ref{lem:hoeffding},
-which is the starting point for our analysis.
+which is a key element in our analysis.
 
 \begin{lemma}[Hoeffding-type decomposition for $\hat f_W$]
   \label{lem:hoeffding}
@@ -531,11 +623,11 @@ which is the starting point for our analysis.
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth}
   hold.
-  Define the linear term
-  (H\'{a}jek projection),
+  Define the linear term,
   quadratic term
   and error term
   of $\hat f_W(w)$ as
+  %
   \begin{align*}
     L_n(w)
     &=
@@ -572,19 +664,23 @@ which is the starting point for our analysis.
     k_h(W_{i j},w)
     - \E\left[k_h(W_{i j},w) \mid A_i, A_j\right].
   \end{align*}
-  Then the following Hoeffding-type decomposition holds:
+  %
+  Then, recalling the bias term $B_n$ from
+  Section~\ref{sec:kernel_bias},
+  we have the Hoeffding-type decomposition
+  %
   \begin{align}
     \label{eq:h-decomposition}
-    \hat f_W(w)
-    = \E\big[\hat f_W(w)\big]
-    + L_n(w)
+    \hat f_W(w) - f_W(w)
+    = L_n(w)
     + Q_n(w)
-    + E_n(w).
+    + E_n(w)
+    + B_n(w).
   \end{align}
   Further,
   the stochastic processes
   $L_n$, $Q_n$ and $E_n$
-  are all mean-zero, since
+  are all mean-zero with
   \begin{equation*}
     \E\big[L_n(w)\big]
     = \E\big[Q_n(w)\big]
@@ -593,7 +689,7 @@ which is the starting point for our analysis.
   \end{equation*}
   for all $w \in \cW$.
   Also they are mutually orthogonal
-  in $L^2(\P)$ as
+  in $L^2(\P)$, satisfying
   \begin{equation*}
     \E\big[
       L_n(w) Q_n(w')
@@ -610,139 +706,104 @@ which is the starting point for our analysis.
 
 \end{lemma}
 
-\TODO{check new bias result here}
-
-Lemma~\ref{lem:bias}
-is a standard result in kernel density estimation
-with boundary bias correction,
-and does not rely on the dyadic structure of the data.
-
-\begin{lemma}[Bias of $\hat f_W$]
-  \label{lem:bias}
-
-  Suppose that Assumptions \ref{ass:kernel_data} and
-  \ref{ass:kernel_bandwidth} hold.
-  For $w \in \cW$
-  define the leading bias term as
-  \begin{align*}
-    B_p(w)
-    &=
-    \frac{f_W^{(p)}(w)}{p!}
-    \int_{\cW}
-    k_h(s,w)
-    \left(
-      \frac{s-w}{h}
-    \right)^p
-    \diff{s}.
-  \end{align*}
-  for $1 \leq p \leq \flbeta$.
-  Then we have the following bias bounds.
-  \begin{enumerate}[label=(\roman*)]
-
-    \item If $p \leq \flbeta - 1$,
-      \begin{align*}
-        \sup_{w \in \cW}
-        \big|
-        \E\big[\hat f_W(w)\big]
-        - f_W(w)
-        - h^p B_p(w)
-        \big|
-        \leq
-        \frac{2 C_\rk C_\rH}{(p+1)!}
-        h^{p+1}.
-      \end{align*}
-
-    \item If $p = \flbeta$,
-      \begin{align*}
-        \sup_{w \in \cW}
-        \big|
-        \E\big[\hat f_W(w)\big]
-        - f_W(w)
-        - h^p B_p(w)
-        \big|
-        \leq
-        \frac{2 C_\rk C_\rH}{\flbeta !}
-        h^\beta.
-      \end{align*}
-
-    \item If $p \geq \flbeta+1$,
-      \begin{align*}
-        \sup_{w \in \cW}
-        \big|
-        \E\big[\hat f_W(w)\big]
-        - f_W(w)
-        \big|
-        \leq
-        \frac{2 C_\rk C_\rH}{\flbeta !}
-        h^\beta.
-      \end{align*}
-
-  \end{enumerate}
-  Noting that
-  $\sup_{\cW} |B_p(w)| \leq 2 C_\rk C_\rH / p!$,
-  we deduce that for $h \leq 1$,
-  \begin{align*}
-    \sup_{w \in \cW}
-    \big|
-    \E\big[\hat f_W(w)\big]
-    - f_W(w)
-    \big|
-    \leq
-    \frac{4 C_\rk C_\rH}{(p \wedge \flbeta)!}
-    h^{p \wedge \beta}
-    \lesssim
-    h^{p \wedge \beta}.
-  \end{align*}
-
-\end{lemma}
-
-The non-random term $B_n$ captures the smoothing (or misspecification) bias,
-while the three stochastic processes $L_n$, $E_n$ and $Q_n$
-capture the variance of the estimator.
-
-The stochastic process $L_n$ is akin to the H\'{a}jek projection of a U-process,
-which can (and often will) exhibit degeneracy at some
+The stochastic process $L_n$ is akin to the H{\'a}jek projection of a U-process,
+which can exhibit degeneracy, in the sense that $\Var[L_n(w)] = 0$, at some
 or possibly all points $w \in \cW$.
-To characterize different types of degeneracy,
-we introduce the following non-negative lower and upper degeneracy constants:
+To characterize the different possible types of degeneracy
+in Lemma~\ref{lem:trichotomy},
+we first introduce the following lower and upper degeneracy constants:
 %
-\[
+\begin{align*}
   \Dl^2 := \inf_{w \in \cW} \Var\left[f_{W \mid A}(w \mid A_i)\right]
   \qquad \text{ and } \qquad
   \Du^2 := \sup_{w \in \cW} \Var\left[f_{W \mid A}(w \mid A_i)\right].
-\]
+\end{align*}
 %
-The following lemma describes the stochastic order of
-different terms in the Hoeffding-type decomposition,
+\begin{lemma}[Trichotomy of degeneracy]
+  \label{lem:trichotomy}
+
+  Grant Assumptions~\ref{ass:kernel_data}
+  and~\ref{ass:kernel_bandwidth}.
+  Then the type of degeneracy exhibited by $\hat f_W(w)$
+  is precisely one of the following three possibilities.
+  %
+  \begin{enumerate}[label=(\roman*)]
+
+    \item Total degeneracy:
+      $\Du = \Dl = 0$.
+      Then
+      $L_n(w) = 0$ for all $w \in \cW$
+      almost surely.
+
+    \item No degeneracy:
+      $\Dl > 0$. Then
+      $\inf_{w \in \cW} \Var[L_n(w)] \geq \frac{2 \Dl}{n}$
+      for all large enough n.
+
+    \item Partial degeneracy:
+      $\Du > \Dl = 0$.
+      There exists $w \in \cW$ with
+      $\Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$;
+      such a point is labeled \emph{degenerate} and satisfies
+      $\Var[L_n(w)] \leq 64 C_\rk C_\rH C_\rd \frac{h}{n}$.
+      There is also a point $w' \in \cW$ with
+      $\Var\left[f_{W \mid A}(w' \mid A_i)\right] > 0$;
+      such a point is labeled \emph{non-degenerate} and satisfies
+      $\Var[L_n(w')] \geq
+      \frac{2}{n} \Var\left[f_{W \mid A}(w' \mid A_i)\right]$
+      for all large enough $n$.
+
+  \end{enumerate}
+
+\end{lemma}
+
+The following lemma describes the uniform stochastic order of
+the different terms in the Hoeffding-type decomposition,
 explicitly accounting for potential degeneracy.
 
-\begin{lemma}[Bias and variance] \label{lem:variance}
-  Suppose Assumptions \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth}
-  hold. Then the bias satisfies
-  $\sup_{w \in \cW} \big| B_n(w) \big| \lesssim h^{p\wedge\beta}$,
-  and the variance terms satisfy
+\begin{lemma}[Uniform concentration]
+  \label{lem:uniform_concentration}
+
+  Suppose Assumptions \ref{ass:kernel_data} and
+  \ref{ass:kernel_bandwidth} hold. Then
   %
   \begin{align*}
     \E\left[ \sup_{w \in \cW} |L_n(w)| \right]
     &\lesssim
     \frac{\Du}{\sqrt n},
-    &
-    \E\left[ \sup_{w \in \cW} |E_n(w)| \right]
-    &\lesssim \sqrt{\frac{\log n}{n^2h}},
-    &
-    \E\left[ \sup_{w \in \cW} |Q_n(w)| \right]
-    \lesssim \frac{1}{n}.
+    &\E\left[ \sup_{w \in \cW} |Q_n(w)| \right]
+    &\lesssim
+    \frac{1}{n},
+    &\E\left[ \sup_{w \in \cW} |E_n(w)| \right]
+    &\lesssim
+    \sqrt{\frac{\log n}{n^2h}}.
   \end{align*}
 \end{lemma}
 
-Lemma~\ref{lem:variance} captures the potential total degeneracy of $L_n$ by
-showing that if
-$\Du=0$ then $L_n=0$ everywhere on $\cW$ almost surely.
-The following lemma
-captures the potential partial degeneracy of $L_n$, where
-$\Du > \Dl = 0$.
-For $w,w' \in \cW$,
-define the covariance function of the dyadic kernel density estimator as
+%\begin{lemma}[Bias and variance] \label{lem:variance}
+%  Suppose Assumptions \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth}
+%  hold. Then the bias satisfies
+%  $\sup_{w \in \cW} \big| B_n(w) \big| \lesssim h^{p\wedge\beta}$,
+%  and the variance terms satisfy
+%  %
+%  \begin{align*}
+%    \E\left[ \sup_{w \in \cW} |L_n(w)| \right]
+%    &\lesssim
+%    \frac{\Du}{\sqrt n},
+%    &
+%    \E\left[ \sup_{w \in \cW} |E_n(w)| \right]
+%    &\lesssim \sqrt{\frac{\log n}{n^2h}},
+%    &
+%    \E\left[ \sup_{w \in \cW} |Q_n(w)| \right]
+%    \lesssim \frac{1}{n}.
+%  \end{align*}
+%\end{lemma}
+
+Lemma~\ref{lem:uniform_concentration} captures the potential total degeneracy
+of $L_n$ by illustrating how if $\Du=0$ then $L_n=0$ everywhere on $\cW$ almost
+surely. The following lemma captures the potential partial degeneracy of $L_n$,
+where $\Du > \Dl = 0$. For $w,w' \in \cW$, define the covariance function of
+the dyadic kernel density estimator as
 %
 \begin{equation*}
   \Sigma_n(w,w')
@@ -778,40 +839,40 @@ define the covariance function of the dyadic kernel density estimator as
   %
 \end{lemma}
 
-Combining Lemmas~\ref{lem:variance} and~\ref{lem:variance_bounds},
-we have the following trichotomy
-for degeneracy of dyadic distributions
-based on $\Dl$ and $\Du$:
-%
-\begin{inlineroman}
-\item
-  total degeneracy if $\Du = \Dl = 0$,
-\item
-  partial degeneracy if $\Du > \Dl = 0$,
-\item
-  no degeneracy if $\Dl > 0$.
-\end{inlineroman}
-%
-In the case of no degeneracy,
-it can be shown that
-$\inf_{w \in \cW} \Var[L_n(w)] \gtrsim n^{-1}$,
-while in the case of total degeneracy,
-$L_n(w) = 0$ for all $w \in \cW$ almost surely.
-When the dyadic distribution is partially degenerate,
-there exists at least one point
-$w\in\cW$ such that
-$\Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$
-and $\Var[L_n(w)]\lesssim h n^{-1}$,
-and there also exists at least one point
-$w'\in \cW$ such that
-$\Var\left[f_{W \mid A}(w' \mid A_i)\right] > 0$ and
-$\Var[L_n(w')] \gtrsim \frac{1}{n}$.
-We say $w$ is a \emph{degenerate point}
-if $\Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$,
-and otherwise say it is a
-\emph{non-degenerate point}.
+%Combining Lemmas~\ref{lem:variance} and~\ref{lem:variance_bounds},
+%we have the following trichotomy
+%for degeneracy of dyadic distributions
+%based on $\Dl$ and $\Du$:
+%%
+%\begin{inlineroman}
+%\item
+%  total degeneracy if $\Du = \Dl = 0$,
+%\item
+%  partial degeneracy if $\Du > \Dl = 0$,
+%\item
+%  no degeneracy if $\Dl > 0$.
+%\end{inlineroman}
+%%
+%In the case of no degeneracy,
+%it can be shown that
+%$\inf_{w \in \cW} \Var[L_n(w)] \gtrsim n^{-1}$,
+%while in the case of total degeneracy,
+%$L_n(w) = 0$ for all $w \in \cW$ almost surely.
+%When the dyadic distribution is partially degenerate,
+%there exists at least one point
+%$w\in\cW$ such that
+%$\Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$
+%and $\Var[L_n(w)]\lesssim h n^{-1}$,
+%and there also exists at least one point
+%$w'\in \cW$ such that
+%$\Var\left[f_{W \mid A}(w' \mid A_i)\right] > 0$ and
+%$\Var[L_n(w')] \gtrsim \frac{1}{n}$.
+%We say $w$ is a \emph{degenerate point}
+%if $\Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$,
+%and otherwise say it is a
+%\emph{non-degenerate point}.
 
-As a simple example,
+As a simple example of the different types of degeneracy,
 consider the family of dyadic distributions $\P_{\pi}$
 indexed by $\pi = (\pi_1, \pi_2, \pi_3)$
 with $\sum_{i=1}^3 \pi_i = 1$ and $\pi_i \geq 0$,
@@ -836,7 +897,7 @@ how to handle missing edges in practice.
 Also note that the parameter of interest in this paper is the Lebesgue density
 of a continuous random variable $W_{i j}$
 rather than the probability of network edge existence,
-which is the focus of graphon estimation
+which is the focus of the graphon estimation
 literature \citep{gao2021minimax}.
 
 In line with Assumption~\ref{ass:kernel_data}, $\bA_n$ and $\bV_n$ are i.i.d.\
@@ -926,9 +987,9 @@ regardless of the presence of partial or total degeneracy.
 
 \section{Point estimation results}\label{sec:point_estimation}
 
-Using Lemma~\ref{lem:variance},
-the next theorem establishes the uniform
-convergence rate of $\hat{f}_W$.
+Using Lemmas~\ref{lem:kernel_bias} and \ref{lem:uniform_concentration},
+the next theorem establishes an upper bound on the
+uniform convergence rate of $\hat f_W$.
 %
 \begin{theorem}[Uniform convergence rate]%
   \label{thm:uniform_consistency}%
@@ -948,10 +1009,12 @@ convergence rate of $\hat{f}_W$.
   \end{align*}
 \end{theorem}
 %
-The constant in Theorem~\ref{thm:uniform_consistency}
+The implicit constant in Theorem~\ref{thm:uniform_consistency}
 depends only on $\cW$, $\beta$, $C_\rH$
 and the choice of kernel.
-We interpret this result in light of the degeneracy trichotomy.
+We interpret this result in light of the degeneracy trichotomy
+from Lemma~\ref{lem:trichotomy}.
+%
 \begin{enumerate}[label=(\roman*)]\onehalfspacing
   \item Partial or no degeneracy:
     $\Du > 0$.
@@ -980,11 +1043,10 @@ functions $k_h(\cdot,w)$, enabling boundary-adaptive density estimation.
 
 \subsection{Minimax optimality}
 
-We establish the minimax rate under the
-supremum norm for density estimation
-with dyadic data.
-This implies minimax optimality of the kernel density estimator $\hat
-f_W$, regardless of the degeneracy type of the dyadic distribution.
+We establish the minimax rate under the supremum norm for density estimation
+with dyadic data. This implies minimax optimality of the kernel density
+estimator $\hat f_W$, regardless of the degeneracy type of the dyadic
+distribution.
 
 \begin{theorem}[Uniform minimax optimality]
   \label{thm:kernel_minimax}
@@ -1077,7 +1139,7 @@ Section~SA3 of the supplemental appendix.
 \subsection{Strong approximation}
 
 By the Hoeffding-type decomposition
-\eqref{eq:h-decomposition} and Lemma~\ref{lem:variance},
+\eqref{eq:h-decomposition} and Lemma~\ref{lem:uniform_concentration},
 it suffices to consider the distributional properties
 of the stochastic process $(L_n(w)+E_n(w):w\in\cW)$.
 Our approach combines the K\'omlos--Major--Tusn\'ady (KMT) approximation
@@ -1120,7 +1182,7 @@ and \citet{gine2010confidence} and may be of independent interest.
 % donsker case
 The strong approximation result in Lemma~\ref{lem:strong_approx_Ln} would be
 sufficient to develop valid and even optimal
-uniform inference procedures whenever
+uniform inference procedures whenever both
 (i) $\Dl > 0$ (no degeneracy in $L_n$) and
 (ii) $n h \gg \log n$ ($L_n$ is leading).
 In this special case, the recent Donsker-type results of
@@ -1192,23 +1254,6 @@ $Z_n^E$ that approximates $\tilde Z_n^E$.
   for all $w, w' \in \cW$.
   %
 \end{lemma}
-
-%We also show that
-%$Z_n^E$ has continuous trajectories
-%and that for any $\delta_n \in (0, 1/(2h)]$,
-%%
-%\begin{align*}
-%\E\bigg[
-%\sup_{|w-w'| \leq \delta_n}
-%\big|
-%Z_n^E(w)
-%- Z_n^E(w')
-%\big|
-%\bigg]
-%&\lesssim
-%\frac{\delta_n}{h}
-%\sqrt{\log \frac{1}{h\delta_n}}.
-%\end{align*}
 
 Combining Lemmas \ref{lem:conditional_strong_approx_En}
 and~\ref{lem:unconditional_strong_approx_En},
@@ -1286,7 +1331,7 @@ and unconditional strong approximation errors for
 $E_n$ in Lemmas \ref{lem:conditional_strong_approx_En}
 and \ref{lem:unconditional_strong_approx_En}, respectively.
 The fourth term is from the smoothing bias result
-in Lemma~\ref{lem:variance}.
+in Lemma~\ref{lem:kernel_bias}.
 The denominator is the lower bound on the standard
 deviation $\Sigma_n(w,w)^{1/2}$
 formulated in Lemma~\ref{lem:variance_bounds}.

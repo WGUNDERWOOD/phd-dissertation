@@ -88,216 +88,130 @@ for $\sum_{i=1}^{n-1} \sum_{j=i+1}^n$
 and $\sum_{i<j<r}$
 for $\sum_{i=1}^{n-2} \sum_{j=i+1}^{n-1} \sum_{r=j+1}^n$.
 
-\subsubsection{Function classes}
-
-Let $\cX \subseteq \R$ be an interval and $\beta > 0$.
-Define $\flbeta$ as the largest integer
-which is \emph{strictly} smaller than $\beta$.
-Let $\cC^{\flbeta}(\cX)$ be the class
-of functions from $\R$ to $\R$ which are
-$\flbeta$ times continuously differentiable on $\cX$.
-Note that $\cC^0(\cX)$ is the class of functions
-which are continuous on $\cX$.
-For $C > 0$, define the H{\"o}lder class with smoothness
-$\beta > 0$ by
-%
-\begin{align*}
-  \cH^\beta_C(\cX)
-  &=
-  \Big\{
-    g \in \cC^{\flbeta}(\cX): \
-    \max_{1 \leq r \leq \flbeta}
-    \big| g^{(r)}(x) \big| \leq C
-    \text{ and }
-    \big| g^{(\flbeta)}(x) - g^{(\flbeta)}(x') \big|
-    \leq C |x-x'|^{\beta - \flbeta} \\
-    &\quad\qquad\text{for all }
-    x, x' \in \cX
-  \Big\}.
-\end{align*}
-%
-Note that $\cH^1_C(\cX)$
-is the class of functions which are $C$-Lipschitz on $\cX$,
-and observe that the functions in
-$\cH^\beta_C(\cX)$ are not uniformly bounded on $\cX$.
-
 \section{Main results}
 
-\subsection{Uniform consistency}
+%\subsection{Uniform consistency}
 
-We show uniform consistency of the
-dyadic kernel density estimator.
-Lemma~\ref{lem:hoeffding}
-provides a U-statistic decomposition of the estimator
-and Lemma~\ref{lem:uniform_concentration}
-employs this decomposition to establish
-uniform concentration.
-Theorem~\ref{thm:app_uniform_consistency}
-then combines this with the bias result from Lemma~\ref{lem:bias}
-to show uniform consistency.
-Lemma~\ref{lem:trichotomy} provides a useful trichotomy for
-interpreting our results in various classes of data distributions.
+%We show uniform consistency of the
+%dyadic kernel density estimator.
+%Lemma~\ref{lem:hoeffding}
+%provides a U-statistic decomposition of the estimator
+%and Lemma~\ref{lem:uniform_concentration}
+%employs this decomposition to establish
+%uniform concentration.
+%Theorem~\ref{thm:app_uniform_consistency}
+%then combines this with the bias result from Lemma~\ref{lem:bias}
+%to show uniform consistency.
+%Lemma~\ref{lem:trichotomy} provides a useful trichotomy for
+%interpreting our results in various classes of data distributions.
 
-\begin{lemma}[Trichotomy of degeneracy]
-  \label{lem:trichotomy}
+%\begin{lemma}[Uniform concentration of $\hat f_W$]
+%  \label{lem:uniform_concentration}
+%
+%  Suppose Assumptions
+%  \ref{ass:kernel_data}
+%  and
+%  \ref{ass:kernel_bandwidth}
+%  hold.
+%  Then with $L_n$, $Q_n$ and $E_n$ defined as in
+%  Lemma~\ref{lem:hoeffding},
+%  we have
+%  \begin{align*}
+%    \E\left[ \sup_{w \in \cW} |L_n(w)| \right]
+%    &\lesssim
+%    \frac{\Du}{\sqrt n},
+%    &\E\left[ \sup_{w \in \cW} |Q_n(w)| \right]
+%    &\lesssim
+%    \frac{1}{n},
+%    &\E\left[ \sup_{w \in \cW} |E_n(w)| \right]
+%    &\lesssim
+%    \sqrt{\frac{\log n}{n^2h}},
+%  \end{align*}
+%  where $\lesssim$ is up to constants which
+%  depend on the underlying data distribution
+%  and the choice of kernel.
+%  Note that the $Q_n$
+%  term is dominated by the $L_n$
+%  term uniformly in the bandwidth $h$.
+%  Therefore by Lemma~\ref{lem:hoeffding}
+%  \begin{align*}
+%    \E\left[
+%      \sup_{w \in \cW}
+%      \big|\hat f_W(w) - \E[\hat f_W(w)]\big|
+%    \right]
+%    &\lesssim
+%    \frac{\Du}{\sqrt n}
+%    + \sqrt{\frac{\log n}{n^2h}}.
+%  \end{align*}
+%
+%\end{lemma}
 
-  Suppose that Assumptions~\ref{ass:kernel_data}
-  and~\ref{ass:kernel_bandwidth} hold,
-  and define the non-negative
-  upper and lower degeneracy constants
-  \begin{align*}
-    \Du^2
-    &=
-    \sup_{w \in \cW}
-    \Var\left[
-      f_{W \mid A}(w \mid A_i)
-    \right],
-    &\Dl^2
-    &=
-    \inf_{w \in \cW}
-    \Var\left[
-      f_{W \mid A}(w \mid A_i)
-    \right]
-  \end{align*}
-  respectively.
-  Then precisely one of the following three statements must hold.
-  \begin{enumerate}[label=(\roman*)]
+%\begin{theorem}[Uniform consistency of $\hat f_W$]
+%  \label{thm:app_uniform_consistency}
+%
+%  Suppose Assumptions \ref{ass:kernel_data}
+%  and \ref{ass:kernel_bandwidth} hold. Then
+%  \begin{align*}
+%    \E\left[
+%      \sup_{w \in \cW}
+%      \big|\hat f_W(w) - f_W(w)\big|
+%    \right]
+%    &\lesssim
+%    h^{p \wedge \beta}
+%    + \frac{\Du}{\sqrt n}
+%    + \sqrt{\frac{\log n}{n^2h}},
+%  \end{align*}
+%  where $\lesssim$ is up to constants which
+%  depend on the underlying data distribution
+%  and the choice of kernel.
+%
+%\end{theorem}
 
-    \item Total degeneracy:
-      $\Du = \Dl = 0$.
-      Then
-      $L_n(w) = 0$ for all $w \in \cW$
-      almost surely.
-
-    \item No degeneracy:
-      $\Dl > 0$. Then
-      $\inf_{w \in \cW} \Var[L_n(w)] \geq \frac{2 \Dl}{n}$
-      for all large enough n.
-
-    \item Partial degeneracy:
-      $\Du > \Dl = 0$.
-      There exists $w \in \cW$ with
-      $\Var\left[f_{W \mid A}(w \mid A_i)\right] = 0$;
-      such a point is labeled \emph{degenerate} and satisfies
-      $\Var[L_n(w)] \leq 64 C_\rk C_\rH C_\rd \frac{h}{n}$.
-      There also exists a point $w' \in \cW$ with
-      $\Var\left[f_{W \mid A}(w' \mid A_i)\right] > 0$;
-      such a point is labeled \emph{non-degenerate} and satisfies
-      $\Var[L_n(w')] \geq
-      \frac{2}{n} \Var\left[f_{W \mid A}(w' \mid A_i)\right]$
-      for all large enough $n$.
-
-  \end{enumerate}
-
-\end{lemma}
-
-\begin{lemma}[Uniform concentration of $\hat f_W$]
-  \label{lem:uniform_concentration}
-
-  Suppose Assumptions
-  \ref{ass:kernel_data}
-  and
-  \ref{ass:kernel_bandwidth}
-  hold.
-  Then with $L_n$, $Q_n$ and $E_n$ defined as in
-  Lemma~\ref{lem:hoeffding},
-  we have
-  \begin{align*}
-    \E\left[ \sup_{w \in \cW} |L_n(w)| \right]
-    &\lesssim
-    \frac{\Du}{\sqrt n},
-    &\E\left[ \sup_{w \in \cW} |Q_n(w)| \right]
-    &\lesssim
-    \frac{1}{n},
-    &\E\left[ \sup_{w \in \cW} |E_n(w)| \right]
-    &\lesssim
-    \sqrt{\frac{\log n}{n^2h}},
-  \end{align*}
-  where $\lesssim$ is up to constants which
-  depend on the underlying data distribution
-  and the choice of kernel.
-  Note that the $Q_n$
-  term is dominated by the $L_n$
-  term uniformly in the bandwidth $h$.
-  Therefore by Lemma~\ref{lem:hoeffding}
-  \begin{align*}
-    \E\left[
-      \sup_{w \in \cW}
-      \big|\hat f_W(w) - \E[\hat f_W(w)]\big|
-    \right]
-    &\lesssim
-    \frac{\Du}{\sqrt n}
-    + \sqrt{\frac{\log n}{n^2h}}.
-  \end{align*}
-
-\end{lemma}
-
-\begin{theorem}[Uniform consistency of $\hat f_W$]
-  \label{thm:app_uniform_consistency}
-
-  Suppose Assumptions \ref{ass:kernel_data}
-  and \ref{ass:kernel_bandwidth} hold. Then
-  \begin{align*}
-    \E\left[
-      \sup_{w \in \cW}
-      \big|\hat f_W(w) - f_W(w)\big|
-    \right]
-    &\lesssim
-    h^{p \wedge \beta}
-    + \frac{\Du}{\sqrt n}
-    + \sqrt{\frac{\log n}{n^2h}},
-  \end{align*}
-  where $\lesssim$ is up to constants which
-  depend on the underlying data distribution
-  and the choice of kernel.
-
-\end{theorem}
-
-\begin{remark}
-
-  In light of the degeneracy trichotomy
-  in Lemma~\ref{lem:trichotomy},
-  we interpret Theorem~\ref{thm:app_uniform_consistency}.
-  \begin{enumerate}[label=(\roman*)]
-
-    \item Partial or no degeneracy:
-      when $\Du > 0$,
-      any bandwidth sequence satisfying
-      $\frac{\log n}{n} \lesssim h \lesssim n^{-\frac{1}{2(p \wedge \beta)}}$
-      gives the bandwidth-independent ``parametric'' rate noted by
-      \citet{graham2022kernel}:
-      \begin{align*}
-        \E\left[
-          \sup_{w \in \cW}
-          \big|\hat f_W(w) - \E[\hat f_W(w)]\big|
-        \right]
-        \lesssim
-        \frac{1}{\sqrt n},
-      \end{align*}
-
-    \item Total degeneracy:
-      when $\Du = 0$,
-      minimizing the bound with
-      $h \asymp
-      \left( \frac{\log n}{n^2} \right)^{\frac{1}{2(p \wedge \beta)+1}}$
-      yields
-      %
-      \begin{align*}
-        \E\left[
-          \sup_{w \in \cW}
-          \big|\hat f_W(w) - f_W(w)\big|
-        \right]
-        &\lesssim
-        h^{p \wedge \beta}
-        + \sqrt{\frac{\log n}{n^2h}}
-        \lesssim
-        \left(
-          \frac{\log n}{n^2}
-        \right)^{\frac{p \wedge \beta}{2(p \wedge \beta)+1}},
-      \end{align*}
-  \end{enumerate}
-
-\end{remark}
+%\begin{remark}
+%
+%  In light of the degeneracy trichotomy
+%  in Lemma~\ref{lem:trichotomy},
+%  we interpret Theorem~\ref{thm:app_uniform_consistency}.
+%  \begin{enumerate}[label=(\roman*)]
+%
+%    \item Partial or no degeneracy:
+%      when $\Du > 0$,
+%      any bandwidth sequence satisfying
+%      $\frac{\log n}{n} \lesssim h \lesssim n^{-\frac{1}{2(p \wedge \beta)}}$
+%      gives the bandwidth-independent ``parametric'' rate noted by
+%      \citet{graham2022kernel}:
+%      \begin{align*}
+%        \E\left[
+%          \sup_{w \in \cW}
+%          \big|\hat f_W(w) - \E[\hat f_W(w)]\big|
+%        \right]
+%        \lesssim
+%        \frac{1}{\sqrt n},
+%      \end{align*}
+%
+%    \item Total degeneracy:
+%      when $\Du = 0$,
+%      minimizing the bound with
+%      $h \asymp
+%      \left( \frac{\log n}{n^2} \right)^{\frac{1}{2(p \wedge \beta)+1}}$
+%      yields
+%      %
+%      \begin{align*}
+%        \E\left[
+%          \sup_{w \in \cW}
+%          \big|\hat f_W(w) - f_W(w)\big|
+%        \right]
+%        &\lesssim
+%        h^{p \wedge \beta}
+%        + \sqrt{\frac{\log n}{n^2h}}
+%        \lesssim
+%        \left(
+%          \frac{\log n}{n^2}
+%        \right)^{\frac{p \wedge \beta}{2(p \wedge \beta)+1}},
+%      \end{align*}
+%  \end{enumerate}
+%
+%\end{remark}
 
 \subsection{Covariance structure}
 
@@ -398,6 +312,8 @@ In particular, this theorem can be used
 for random vectors or for stochastic processes
 indexed by a compact rectangle in $\R^d$
 with a.s.\ continuous sample paths.
+
+\TODO{leave these technical strong approx results here}
 
 \begin{lemma}[Strong approximation of $L_n$]
   \label{lem:app_strong_approx_Ln}
@@ -717,7 +633,7 @@ with a.s.\ continuous sample paths.
 
 We use the strong approximation and bias results
 from Theorem~\ref{thm:app_strong_approx_fW}
-and Lemma~\ref{lem:bias}
+and Lemma~\ref{lem:kernel_bias}
 respectively to construct uniform confidence bands for
 the true density function $f_W$.
 From now on we will drop the prime notation for copies of processes
@@ -764,79 +680,56 @@ which is a standard assumption when constructing confidence bands.
 \end{lemma}
 
 For the coverage rate error
-in the upcoming Theorem~\ref{thm:app_infeasible_ucb}
+in the upcoming Theorem~\ref{thm:infeasible_ucb}
 to converge to zero in large samples,
 we require further restrictions on the bandwidth sequence.
 These restrictions depend on the degeneracy type
 of the dyadic distribution,
-and are given as Assumption~\ref{ass:app_rates}.
+and are given as Assumption~\ref{ass:rates}.
 
-\begin{assumption}[Rate restriction for uniform confidence bands]
-  \label{ass:app_rates}
-
-  Suppose that one of the following holds.
-
-  \begin{enumerate}[label=(\roman*)]
-
-    \item
-      No degeneracy:
-      $\Dl > 0$ and
-      $n^{-6/7} \log n \ll h
-      \ll (n \log n)^{-\frac{1}{2(p \wedge \beta)}}$.
-
-    \item
-      Partial or total degeneracy:
-      $\Dl = 0$ and
-      $n^{-2/3} (\log n)^{7/3} \ll h
-      \ll (n^2 \log n)^{-\frac{1}{2(p \wedge \beta) + 1}}$.
-
-  \end{enumerate}
-
-\end{assumption}
-
-\begin{theorem}[Infeasible uniform confidence bands]
-  \label{thm:app_infeasible_ucb}
-
-  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
-  and \ref{ass:app_rates}
-  hold and suppose that $f_W(w) > 0$ on $\cW$.
-  Let $\alpha \in (0,1)$ be a confidence level
-  and define $q_{1-\alpha}$ as the quantile
-  satisfying
-  \begin{align*}
-    \P\left(
-      \sup_{w \in \cW}
-      \left| Z_n^T(w) \right|
-      \leq q_{1-\alpha}
-    \right)
-    &=
-    1 - \alpha.
-  \end{align*}
-  Then
-  \begin{align*}
-    \P\left(
-      f_W(w)
-      \in
-      \left[
-        \hat f_W(w)
-        \pm
-        q_{1-\alpha}
-        \sqrt{\Sigma_n(w,w)}
-      \, \right]
-      \, \textup{for all }
-      w \in \cW
-    \right)
-    \to 1 - \alpha.
-  \end{align*}
-\end{theorem}
+%\begin{theorem}[Infeasible uniform confidence bands]
+%  \label{thm:infeasible_ucb}
+%
+%  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
+%  and \ref{ass:rates}
+%  hold and suppose that $f_W(w) > 0$ on $\cW$.
+%  Let $\alpha \in (0,1)$ be a confidence level
+%  and define $q_{1-\alpha}$ as the quantile
+%  satisfying
+%  \begin{align*}
+%    \P\left(
+%      \sup_{w \in \cW}
+%      \left| Z_n^T(w) \right|
+%      \leq q_{1-\alpha}
+%    \right)
+%    &=
+%    1 - \alpha.
+%  \end{align*}
+%  Then
+%  \begin{align*}
+%    \P\left(
+%      f_W(w)
+%      \in
+%      \left[
+%        \hat f_W(w)
+%        \pm
+%        q_{1-\alpha}
+%        \sqrt{\Sigma_n(w,w)}
+%      \, \right]
+%      \, \textup{for all }
+%      w \in \cW
+%    \right)
+%    \to 1 - \alpha.
+%  \end{align*}
+%\end{theorem}
 
 \begin{remark}
 
-  By Theorem~\ref{thm:app_uniform_consistency},
+  By Theorem~\ref{thm:uniform_consistency},
   the asymptotically optimal bandwidth choice
   under uniform convergence is given by
   $h \asymp (n^{-2} \log n)^{\frac{1}{2(p \wedge \beta)+1}}$.
-  This bandwidth satisfies Assumption~\ref{ass:app_rates}
+  This bandwidth satisfies Assumption~\ref{ass:rates}
   only in the case of no degeneracy.
   Thus in degenerate cases, one must undersmooth by choosing
   a bandwidth which is smaller than the optimal bandwidth.
@@ -1159,7 +1052,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
   \label{lem:feasible_gaussian_approx}
 
   Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
-  and \ref{ass:app_rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
+  and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
   Then
   %
   \begin{align*}
@@ -1187,7 +1080,7 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
   \label{thm:kernel_app_ucb}
 
   Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
-  and \ref{ass:app_rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
+  and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
   and define $\hat q_{1-\alpha}$ as the
   conditional quantile satisfying
@@ -1717,7 +1610,7 @@ approximation results for the counterfactual density estimator.
   \label{thm:counterfactual_infeasible_ucb}
 
   Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth},
-  \ref{ass:app_rates} and \ref{ass:counterfactual}
+  \ref{ass:rates} and \ref{ass:counterfactual}
   hold and suppose that $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
   and define $q^{1 \triangleright 0}_{1-\alpha}$ as the quantile
@@ -5523,7 +5416,7 @@ We begin with a basic fact about Lipschitz functions.
   which is a contradiction.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:bias}]
+\begin{proof}[Lemma~\ref{lem:kernel_bias}]
 
   Begin by defining
   \begin{align*}
@@ -5561,7 +5454,7 @@ We begin with a basic fact about Lipschitz functions.
     \frac{f_W^{(p)}(w)}{p!}
     (s-w)^p
     \diff{s}
-    = h^p B_p(w).
+    = h^p b_p(w).
   \end{align*}
   Further, by the order of the kernel,
   \begin{align*}
@@ -5593,7 +5486,7 @@ We begin with a basic fact about Lipschitz functions.
     \big|
     \E[\hat f_W(w)]
     - f_W(w)
-    - h^p B_p(w)
+    - h^p b_p(w)
     \big| \\
     &\quad=
     \sup_{w \in \cW}
@@ -5602,7 +5495,7 @@ We begin with a basic fact about Lipschitz functions.
     k_h(s,w)
     \big(f_W(s) - P_{p-1}(s,w)\big)
     \diff{s}
-    - h^p B_p(w)
+    - h^p b_p(w)
     \right| \\
     &\quad=
     \sup_{w \in \cW}
@@ -5614,7 +5507,7 @@ We begin with a basic fact about Lipschitz functions.
       + P_{p}(s,w) - P_{p-1}(s,w)
     \big)
     \diff{s}
-    - h^p B_p(w)
+    - h^p b_p(w)
     \right| \\
     &\quad=
     \sup_{w \in \cW}
@@ -5657,7 +5550,7 @@ We begin with a basic fact about Lipschitz functions.
     \big|
     \E[\hat f_W(w)]
     - f_W(w)
-    - h^p B_p(w)
+    - h^p b_p(w)
     \big| \\
     &\quad=
     \sup_{w \in \cW}
@@ -5666,7 +5559,7 @@ We begin with a basic fact about Lipschitz functions.
     k_h(s,w)
     \big(f_W(s) - P_{\flbeta - 1}(s,w)\big)
     \diff{s}
-    - h^p B_p(w)
+    - h^p b_p(w)
     \right| \\
     &\quad=
     \sup_{w \in \cW}
@@ -5678,7 +5571,7 @@ We begin with a basic fact about Lipschitz functions.
       + P_{\flbeta}(s,w) - P_{\flbeta - 1}(s,w)
     \big)
     \diff{s}
-    - h^{\flbeta} B_{\flbeta}(w)
+    - h^{\flbeta} b_{\flbeta}(w)
     \right| \\
     &\quad=
     \sup_{w \in \cW}
@@ -6422,9 +6315,9 @@ We begin with a basic fact about Lipschitz functions.
   of $\frac{\log n}{n^2h} \to 0$.
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:app_uniform_consistency}]
+\begin{proof}[Theorem~\ref{thm:uniform_consistency}]
 
-  This follows from Lemma~\ref{lem:bias}
+  This follows from Lemma~\ref{lem:kernel_bias}
   and Lemma~\ref{lem:uniform_concentration}.
 \end{proof}
 
@@ -6855,7 +6748,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   with a boundary bias-corrected
   Lipschitz kernel of order $p \geq \beta$
   and using a bandwidth of $h$.
-  Firstly Lemma~\ref{lem:bias} gives
+  Firstly Lemma~\ref{lem:kernel_bias} gives
   \begin{align*}
     \sup_{\P \in \cP}
     \sup_{w \in \cW}
@@ -8393,7 +8286,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   %
   By Theorem~\ref{thm:app_strong_approx_fW}
-  and Lemma~\ref{lem:bias},
+  and Lemma~\ref{lem:kernel_bias},
   the numerator can be bounded above by
   %
   \begin{align*}
@@ -8437,7 +8330,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   and the result follows.
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:app_infeasible_ucb}]
+\begin{proof}[Theorem~\ref{thm:infeasible_ucb}]
 
   Note that the covariance structure of $Z_n^T$ is given by
   %
@@ -8774,7 +8667,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   \proofparagraph{validity of the infeasible uniform confidence band}
 
-  Under Assumption~\ref{ass:app_rates} and with a
+  Under Assumption~\ref{ass:rates} and with a
   sufficiently slowly diverging sequence $R_n$,
   the strong approximation rate established in
   Lemma~\ref{lem:infeasible_t_statistic} is
@@ -9370,7 +9263,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{uniform consistency of the $\hat f_W(w) \hat f_W(w')$ term}
 
   By boundedness of $f_W$ and
-  Theorem~\ref{thm:app_uniform_consistency},
+  Theorem~\ref{thm:uniform_consistency},
   $\hat f_W$ is uniformly bounded in probability.
   Noting that
   $\E[\hat f_W(w)] = \E[k_{i j}]$
@@ -9475,7 +9368,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   By Lipschitz properties
   of $L_n$ and $\Sigma_n$
   derived in the proofs of Lemma~\ref{lem:uniform_concentration}
-  and Theorem~\ref{thm:app_infeasible_ucb}
+  and Theorem~\ref{thm:infeasible_ucb}
   respectively,
   we have
   \begin{align*}
@@ -10095,7 +9988,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim
     \delta_n h^{-3}.
   \end{align*}
-  Also as noted in the proof of Theorem~\ref{thm:app_infeasible_ucb},
+  Also as noted in the proof of Theorem~\ref{thm:infeasible_ucb},
   \begin{align*}
     \sup_{|w_1-w_2| \leq \delta_n}
     \sup_{|w_1'-w_2'| \leq \delta_n}
@@ -10582,7 +10475,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   The Lipschitz constraint is satisfied because
   as established in
   the proof of
-  Theorem~\ref{thm:app_infeasible_ucb},
+  Theorem~\ref{thm:infeasible_ucb},
   \begin{align*}
     \big|
     \Sigma_n(w,w')
@@ -10781,7 +10674,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
   {\sqrt{\Sigma_n(w,w)}} \right|
   \lesssim_\P \sqrt{\log n}$,
-  while Lemma~\ref{lem:bias} gives
+  while Lemma~\ref{lem:kernel_bias} gives
   $\sup_{w \in \cW} \big| \E\big[\hat f_W(w)\big] - f_W(w) \big|
   \lesssim h^{p \wedge \beta}$.
   By Lemma~\ref{lem:variance_bounds},
@@ -11027,7 +10920,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{trajectory regularity of $Z_n^T$}
 
   During the proof of
-  Theorem~\ref{thm:app_infeasible_ucb}
+  Theorem~\ref{thm:infeasible_ucb}
   we established that
   $Z_n^T$ satisfies the following
   trajectory regularity property:
@@ -11091,7 +10984,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}.
   \end{align*}
   Applying the same elementary result as for $Z_n^T$
-  in the proof of Theorem~\ref{thm:app_infeasible_ucb} yields
+  in the proof of Theorem~\ref{thm:infeasible_ucb} yields
   \begin{align*}
     \E\left[
       \big(
@@ -11120,7 +11013,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{conditional trajectory regularity of $\hat Z_n^T$}
 
   Just as for $Z_n^T$
-  in the proof of Theorem~\ref{thm:app_infeasible_ucb}
+  in the proof of Theorem~\ref{thm:infeasible_ucb}
   we apply Lemma~\ref{lem:gaussian_process_maximal},
   this time conditionally,
   to obtain that also
@@ -11372,7 +11265,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   we apply the anti-concentration
   result for $Z_n^T$
   from the proof of
-  Theorem~\ref{thm:app_infeasible_ucb}:
+  Theorem~\ref{thm:infeasible_ucb}:
   \begin{align*}
     \sup_{t \in \R}
     \P\left(
@@ -11723,7 +11616,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   Now we analyze these based on the degeneracy type
   and verify that they hold under
-  Assumption~\ref{ass:app_rates}.
+  Assumption~\ref{ass:rates}.
   \begin{enumerate}[label=(\roman*)]
 
     \item No degeneracy:
@@ -12000,7 +11893,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   %
   uniformly in $w \in \cW$, following the proof of
-  Lemma~\ref{lem:bias} and using H{\"o}lder continuity
+  Lemma~\ref{lem:kernel_bias} and using H{\"o}lder continuity
   of $f_{W \mid XX}^1(\,\cdot \mid x_1, x_2)$.
   %
 \end{proof}
@@ -12338,5 +12231,5 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{proof}[Theorem~\ref{thm:counterfactual_infeasible_ucb}]
   This proof proceeds in the same manner as the proof of
-  Theorem~\ref{thm:app_infeasible_ucb}.
+  Theorem~\ref{thm:infeasible_ucb}.
 \end{proof}
