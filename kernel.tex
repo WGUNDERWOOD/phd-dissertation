@@ -32,7 +32,6 @@ maximal inequalities are of potential independent interest.
 \section{Introduction}
 \label{sec:introduction}
 
-\TODO{check paper overview correct after rearranging results}
 Dyadic data, also known as graphon data,
 plays an important role in the statistical, social,
 behavioral and biomedical sciences.
@@ -167,17 +166,19 @@ and the underlying dyadic data $\bW_n$ exhibits
 statistical dependence due to its network structure.
 
 Section~\ref{sec:kernel_setup} outlines the setup and presents the main
-assumptions
-imposed throughout the paper. We first discuss a Hoeffding-type decomposition of
-the U-statistic-like $\hat{f}_W$ which is more general than the standard
+assumptions imposed throughout the paper.
+We demonstrate in Theorem~\ref{thm:kernel_bias} how the smoothing
+bias of the dyadic kernel density estimator can be controlled,
+and then discuss a Hoeffding-type decomposition of
+the U-statistic-like $\hat{f}_W$. This is more general than the standard
 Hoeffding decomposition for second-order U-statistics due
-to its dyadic data structure.
+to the intrinsic dyadic data structure.
 In particular,
 \eqref{eq:h-decomposition} shows that $\hat{f}_W(w)$ decomposes into a sum
 of the four terms $B_n(w)$, $L_n(w)$, $E_n(w)$ and $Q_n(w)$,
 where $E_n(w)$ is not present in the classical second-order U-statistic theory.
 The first term $B_n(w)$ captures the usual smoothing bias, the second term
-$L_n(w)$ is akin to the H\'{a}jek projection for second-order U-statistics, the
+$L_n(w)$ is akin to the H{\'a}jek projection for second-order U-statistics, the
 third term $E_n(w)$ is a mean-zero double
 average of conditionally independent terms,
 and the fourth term $Q_n(w)$ is a negligible totally degenerate
@@ -187,7 +188,7 @@ fluctuations of the process $\hat{f}_W$
 are captured by $L_n$ and $E_n$,
 both of which are known to be asymptotically distributed
 as Gaussian random variables pointwise in $w\in\cW$ \citep{graham2022kernel}.
-However, the H\'{a}jek projection term $L_n$ will often
+However, the H{\'a}jek projection term $L_n$ will often
 be ``degenerate'' at some
 or possibly all evaluation points $w\in\cW$.
 
@@ -369,9 +370,9 @@ Section~\ref{sec:conclusion} concludes the paper.
 Appendix~\ref{app:kernel}
 includes other technical and methodological
 results, proofs and additional details omitted here to conserve space.
-Section~SA3 may be of independent interest, containing
+Section~\ref{sec:kernel_technical} may be of independent interest, containing
 two generic strong approximation theorems for empirical processes,
-a generalized Vorob'ev--Berkes--Philipp theorem
+a generalized Vorob'ev--Berkes--Philipp theorem,
 and a maximal inequality for i.n.i.d.\ random variables.
 
 \subsection{Notation}
@@ -385,7 +386,7 @@ For an integer $m\geq 0$,
 denote by $\mathcal{C}^m(\mathcal{X})$
 the space of all functions from $\R$ to $\R$
 which are $m$ times continuously differentiable on $\mathcal{X}$.
-For and $C>0$, define the H\"{o}lder class
+For $C>0$, define the H\"{o}lder class
 with smoothness $\beta > 0$ by
 $\cH^\beta_C(\cX) =
 \big\{
@@ -424,7 +425,7 @@ $a \vee b = \max\{a,b\}$.
 
 We impose the following two assumptions throughout this paper.
 %
-\begin{assumption}[Data generation]\label{ass:kernel_data}\onehalfspacing
+\begin{assumption}[Data generation]\label{ass:kernel_data}
   %
   % A and V variables
   Let $\bA_n = (A_i: 1 \leq i \leq n)$ be i.i.d.\
@@ -475,7 +476,6 @@ $f_{W \mid AA}(w \mid a_1,a_2) = f_V(v)
 \big|\partial W(a_1,a_2,v)/\partial v\big|^{-1}$.
 
 \begin{assumption}[Kernels and bandwidth]\label{ass:kernel_bandwidth}%
-  \onehalfspacing
 
   Let $h = h(n) > 0$
   be a sequence of bandwidths
@@ -522,14 +522,14 @@ $C_\rk h^{-1}$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
 We begin our analysis of the dyadic kernel density estimator with a simple
 exercise in characterizing and bounding its bias
 $B_n(w) = \E \big[ \hat f_W(w) \big] - f_W(w)$.
-Lemma~\ref{lem:kernel_bias} is a standard result for the non-random
+Theorem~\ref{thm:kernel_bias} is a standard result for the non-random
 smoothing or misspecification bias
 in kernel density estimation with higher-order kernels
 and boundary bias correction, and it
 does not rely directly on the dyadic structure of the data.
 
-\begin{lemma}[Bias bound]
-  \label{lem:kernel_bias}
+\begin{theorem}[Bias bound]
+  \label{thm:kernel_bias}
 
   Suppose that Assumptions \ref{ass:kernel_data} and
   \ref{ass:kernel_bandwidth} hold.
@@ -546,54 +546,28 @@ does not rely directly on the dyadic structure of the data.
     \right)^p
     \diff{s}.
   \end{align*}
-  for $1 \leq p \leq \flbeta$.
-  Then we have the following bias bounds.
+  %
+  for $1 \leq p \leq \flbeta$. Then we have the following bias bounds.
+  %
   \begin{enumerate}[label=(\roman*)]
+    \item If $p \leq \flbeta - 1$, then
+      $\sup_{w \in \cW} | B_n(w) - h^p b_p(w) |
+      \leq \frac{2 C_\rk C_\rH}{(p+1)!} h^{p+1}$.
 
-    \item If $p \leq \flbeta - 1$,
-      \begin{align*}
-        \sup_{w \in \cW}
-        \big|
-        B_n(w)
-        - h^p b_p(w)
-        \big|
-        \leq
-        \frac{2 C_\rk C_\rH}{(p+1)!}
-        h^{p+1}.
-      \end{align*}
+    \item If $p = \flbeta$, then
+      $\sup_{w \in \cW} | B_n(w) - h^p b_p(w) |
+      \leq \frac{2 C_\rk C_\rH}{\flbeta !} h^\beta$.
 
-    \item If $p = \flbeta$,
-      \begin{align*}
-        \sup_{w \in \cW}
-        \big|
-        B_n(w)
-        - h^p b_p(w)
-        \big|
-        \leq
-        \frac{2 C_\rk C_\rH}{\flbeta !}
-        h^\beta.
-      \end{align*}
-
-    \item If $p \geq \flbeta+1$,
-      \begin{align*}
-        \sup_{w \in \cW}
-        \big|
-        B_n(w)
-        \big|
-        \leq
-        \frac{2 C_\rk C_\rH}{\flbeta !}
-        h^\beta.
-      \end{align*}
-
+    \item If $p \geq \flbeta+1$, then
+      $\sup_{w \in \cW} | B_n(w) |
+      \leq \frac{2 C_\rk C_\rH}{\flbeta !} h^\beta$.
   \end{enumerate}
-  Noting that
-  $\sup_{\cW} |b_p(w)| \leq 2 C_\rk C_\rH / p!$,
+  %
+  Noting that $\sup_{\cW} |b_p(w)| \leq 2 C_\rk C_\rH / p!$,
   we deduce that for $h \leq 1$,
+  %
   \begin{align*}
-    \sup_{w \in \cW}
-    \big|
-    B_n(w)
-    \big|
+    \sup_{w \in \cW} | B_n(w) |
     \leq
     \frac{4 C_\rk C_\rH}{(p \wedge \flbeta)!}
     h^{p \wedge \beta}
@@ -601,7 +575,7 @@ does not rely directly on the dyadic structure of the data.
     h^{p \wedge \beta}.
   \end{align*}
 
-\end{lemma}
+\end{theorem}
 
 \subsection{Hoeffding-type decomposition and degeneracy}
 \label{sec:degeneracy}
@@ -629,8 +603,8 @@ which is a key element in our analysis.
     L_n(w)
     &=
     \frac{2}{n} \sum_{i=1}^n
-    l_i(w), \\
-    Q_n(w)
+    l_i(w),
+    &Q_n(w)
     &=
     \frac{2}{n(n-1)}
     \sum_{i=1}^{n-1}
@@ -674,31 +648,18 @@ which is a key element in our analysis.
     + E_n(w)
     + B_n(w).
   \end{align}
+  %
   Further,
   the stochastic processes
   $L_n$, $Q_n$ and $E_n$
   are all mean-zero with
-  \begin{equation*}
-    \E\big[L_n(w)\big]
-    = \E\big[Q_n(w)\big]
-    = \E\big[E_n(w)\big]
-    = 0
-  \end{equation*}
+  $\E\big[L_n(w)\big] = \E\big[Q_n(w)\big] = \E\big[E_n(w)\big] = 0$
   for all $w \in \cW$.
   Also they are mutually orthogonal
   in $L^2(\P)$, satisfying
-  \begin{equation*}
-    \E\big[
-      L_n(w) Q_n(w')
-    \big]
-    = \E\big[
-      L_n(w) E_n(w')
-    \big]
-    = \E\big[
-      Q_n(w) E_n(w')
-    \big]
-    = 0
-  \end{equation*}
+  $\E\big[ L_n(w) Q_n(w') \big]
+  = \E\big[ L_n(w) E_n(w') \big]
+  = \E\big[ Q_n(w) E_n(w') \big] = 0$
   for all $w, w' \in \cW$.
 
 \end{lemma}
@@ -911,7 +872,7 @@ the standard normal distribution.
 Note that $f_W(w)$ is strictly positive for all $w \in \R$.
 Consider the parameter choices:
 %
-\begin{enumerate}[label=(\roman*)]\onehalfspacing
+\begin{enumerate}[label=(\roman*)]
 
   \item $\pi = \left( \frac{1}{2}, 0, \frac{1}{2} \right)$:\quad
     $\P_\pi$ is degenerate at all $w \in \R$,
@@ -984,7 +945,8 @@ regardless of the presence of partial or total degeneracy.
 
 \section{Point estimation results}\label{sec:point_estimation}
 
-Using Lemmas~\ref{lem:kernel_bias} and \ref{lem:uniform_concentration},
+Using Theorem~\ref{thm:kernel_bias} and
+Lemma~\ref{lem:uniform_concentration},
 the next theorem establishes an upper bound on the
 uniform convergence rate of $\hat f_W$.
 %
@@ -1012,7 +974,7 @@ and the choice of kernel.
 We interpret this result in light of the degeneracy trichotomy
 from Lemma~\ref{lem:trichotomy}.
 %
-\begin{enumerate}[label=(\roman*)]\onehalfspacing
+\begin{enumerate}[label=(\roman*)]
   \item Partial or no degeneracy:
     $\Du > 0$.
     Any bandwidths satisfying
@@ -1328,7 +1290,7 @@ and unconditional strong approximation errors for
 $E_n$ in Lemmas \ref{lem:conditional_strong_approx_En}
 and \ref{lem:unconditional_strong_approx_En}, respectively.
 The fourth term is from the smoothing bias result
-in Lemma~\ref{lem:kernel_bias}.
+in Theorem~\ref{thm:kernel_bias}.
 The denominator is the lower bound on the standard
 deviation $\Sigma_n(w,w)^{1/2}$
 formulated in Lemma~\ref{lem:variance_bounds}.
@@ -1558,7 +1520,7 @@ Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_Tn}.
 %
 \begin{lemma}[Consistency of $\hat \Sigma_n$ and $\hat \Sigma_n^+$]
   \label{lem:sdp}
-  Suppose that Assumptions~\ref{ass:kernel_data}
+  Suppose Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold
   and that
   $n h \gtrsim \log n$ and
@@ -1628,8 +1590,8 @@ band that is implementable in practice.
 Define the Studentized $t$-statistic process
 %
 \begin{align*}
-\hat T_n(w) =
-\frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\hat \Sigma_n^+(w,w)}}.
+  \hat T_n(w) =
+  \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\hat \Sigma_n^+(w,w)}}.
 \end{align*}
 %
 Let $\hat Z_n^T(w)$ be a process which,
@@ -1698,7 +1660,7 @@ resampling from the Gaussian process defined by the law of
 $\hat Z_n^T \mid \bW_n$.
 
 The bandwidth restrictions in Theorem~\ref{thm:kernel_ucb} are the same
-as those required for the infeasible version
+as those for the infeasible version
 given in Theorem~\ref{thm:infeasible_ucb}, namely those imposed in Assumption
 \ref{ass:rates}. This follows from the rates of convergence obtained in
 Lemma~\ref{lem:sdp}, coupled with some careful technical work given in
@@ -1808,8 +1770,7 @@ kernel density estimation for constructing uniform confidence bands
 for $f_W$ is summarized in Algorithm~\ref{alg:method}.
 
 \begin{algorithm}[ht]
-  \caption{Feasible uniform confidence bands for
-  dyadic kernel density estimation}
+  \caption{Feasible uniform confidence bands}
   \label{alg:method}
   \setstretch{1.5}
 
@@ -1829,18 +1790,16 @@ for $f_W$ is summarized in Algorithm~\ref{alg:method}.
   For each $w \in \cW_d$, construct the density estimate $\hat f_W(w)$
   using $k'_{h}$ as in Section~\ref{sec:introduction}. \\
 
-  For $w, w' \in \cW_d$, construct the
-  covariance estimate $\hat \Sigma_n(w,w')$
+  For $w, w' \in \cW_d$, estimate the
+  covariance $\hat \Sigma_n(w,w')$
   using $k'_{h}$ as in Section~\ref{sec:covariance_estimation}. \\
 
-  Construct the $d \times d$ positive semi-definite
+  Construct positive semi-definite
   covariance estimate $\hat \Sigma_n^+$
   as in Section~\ref{sec:covariance_estimation}. \\
 
-  For $B \geq 1$,
-  let $(\hat Z_{n,r}^T: 1\leq r\leq B)$ be i.i.d.\ Gaussian vectors
-  from $\hat{Z}_n^T$ as in
-  Section~\ref{sec:feasible_confidence_bands}. \\
+  For $B \geq 1$, let $(\hat Z_{n,r}^T: 1\leq r\leq B)$ be i.i.d.\
+  from $\hat{Z}_n^T$ as in Section~\ref{sec:feasible_confidence_bands}. \\
 
   For $\alpha \in (0,1)$, set
   $\hat q_{1-\alpha} = \inf_{q \in \R}
@@ -1940,7 +1899,6 @@ degenerate point $w = 0$.
   %
   \label{fig:results}
   %
-  \vspace{-.8em}
 \end{figure}
 
 Next, Table~\ref{tab:results} presents numerical results.
@@ -1977,8 +1935,6 @@ which is robust to unknown degenerate points
 in the underlying dyadic distribution.
 
 \begin{table}[ht]
-  \caption{Numerical results for three values of the parameter $\pi$.}
-  \vspace{-1em}
   \begin{center}
     \begin{tabular}{|c|c|c|c|c|cc|cc|}
       \hline
@@ -2018,6 +1974,7 @@ in the underlying dyadic distribution.
   % evaluation points = 50
   % repeats = 2000
   % resample = 10000
+  \caption{Numerical results for three values of the parameter $\pi$.}
   \label{tab:results}
 \end{table}
 
@@ -2124,15 +2081,15 @@ $\hat\kappa(X_i^0, X_i^1, x)
 p_X^1(x)}{\hat p_X^1(x)}$
 be a plug-in estimate of the influence function for $\hat\psi(x)$
 and define the leave-one-out
-conditional expectation estimators\newline
+conditional expectation estimators
 $S_i^{1 \triangleright 0}(w)
 = \frac{1}{n-1} \big( \sum_{j=1}^{i-1} k_h(W_{j i}^1,w) \hat\psi(X_j^1)
 + \sum_{j=i+1}^n k_h(W_{i j}^1,w) \hat\psi(X_j^1) \big)$
-and\newline
+and
 $\tilde S_i^{1 \triangleright 0}(w)
 = \frac{1}{n-1} \sum_{j=1}^n \I\{j \neq i\}
 \hat\kappa(X_i^0, X_i^1, X_j^1) S_j^{1 \triangleright 0}(w)$.
-Then define the covariance estimator
+Define the covariance estimator
 %
 \begin{align*}
   \hat\Sigma_n^{1 \triangleright 0}(w,w')
@@ -2183,7 +2140,7 @@ $\P\big(\sup_{w \in \cW}\big| \hat Z_n^{T, 1 \triangleright 0}(w) \big|
   \leq \hat q_{1-\alpha}^{\,1 \triangleright 0}
 \bigm\vert \bW_n^1, \bX_n^0, \bX_n^1 \big)
 = 1 - \alpha$.
-Then, assuming that the covariance estimator is appropriately consistent,
+Then if the covariance estimator is appropriately consistent,
 %
 \begin{align*}
   \P\left(
@@ -2245,9 +2202,6 @@ all increasing.
 %
 %
 \begin{table}[ht]
-  \caption{Summary statistics for the DOTS trade networks.}
-  \label{tab:trade_network_stats}
-  \vspace{-1em}
   \begin{center}
     \begin{tabular}{|c|c|c|c|c|c|}
       \hline
@@ -2264,7 +2218,8 @@ all increasing.
       \hline
     \end{tabular}
   \end{center}
-  \vspace{-2em}
+  \caption{Summary statistics for the DOTS trade networks.}
+  \label{tab:trade_network_stats}
 \end{table}
 
 For counterfactual analysis we use the
@@ -2300,7 +2255,7 @@ the counterfactual distribution drifts further from the truth
 in 2005 compared with 2000, indicating a more significant shift
 in the GDP distribution.
 
-\begin{figure}[t]
+\begin{figure}[ht]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
@@ -2548,6 +2503,7 @@ $\hat\mu(x_1, x_2)
 = e_1^\T \hat\beta(x_1, x_2)$ where
 $e_1$ is the first standard
 unit vector in $\R^q$ for $q=\binom{2m+\gamma}{\gamma}$ and
+%
 \begin{align}
   \nonumber
   \hat{\beta}(x_1, x_2)

@@ -341,9 +341,9 @@ the resulting sample paths.
 \begin{lemma}[Conditional strong approximation of $E_n$]
   \label{lem:app_conditional_strong_approx_En}
 
-  Suppose that Assumptions
+  Suppose Assumptions
   \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth} hold.
-  For each $n \geq 2$
+  For $n \geq 2$
   and $t_n > 0$ with $\left|\log t_n\right| \lesssim \log n$,
   there exists on some probability space
   a copy of
@@ -561,14 +561,14 @@ properties to ensure the approximating processes are jointly Gaussian.
 
 The main result Theorem~\ref{thm:strong_approx_Tn}
 now follows easily using Theorem~\ref{thm:app_strong_approx_fW},
-the bias bound from Lemma~\ref{lem:kernel_bias},
+the bias bound from Theorem~\ref{thm:kernel_bias},
 and properties of $\Sigma_n$ established in Lemma~\ref{lem:variance_bounds}.
 
 %\subsection{Infeasible uniform confidence bands}
 
 %We use the strong approximation and bias results
 %from Theorem~\ref{thm:app_strong_approx_fW}
-%and Lemma~\ref{lem:kernel_bias}
+%and Theorem~\ref{thm:kernel_bias}
 %respectively to construct uniform confidence bands for
 %the true density function $f_W$.
 %In this section we will assume oracle knowledge of the true
@@ -764,12 +764,11 @@ alternative representation which is more amenable to computation.
     S_i(w)
     &=
     \frac{1}{n-1}
-    \left(
-      \sum_{j = 1}^{i-1}
-      k_h(W_{j i}, w)
-      + \sum_{j = i+1}^n
-      k_h(W_{i j}, w)
-    \right)
+    \sum_{j = 1}^{i-1}
+    k_h(W_{j i}, w)
+    + \frac{1}{n-1}
+    \sum_{j = i+1}^n
+    k_h(W_{i j}, w)
   \end{align*}
   is an estimator of
   $\E[k_h(W_{i j},w) \mid A_i]$.
@@ -853,6 +852,7 @@ verified.
   $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Then $\hat \Sigma_n^+(w,w) \geq 0$
   almost surely for all $w \in \cW$ and
+  %
   \begin{align*}
     \frac{\Dl^2}{n} + \frac{1}{n^2h}
     &\lesssim_\P
@@ -881,11 +881,15 @@ in the interest of clarity.
   \ref{ass:kernel_bandwidth} hold and suppose that
   $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define for $w \in \cW$
+  the Studentized $t$-statistic process
+  %
   \begin{align*}
     \hat T_n(w) = \frac{\hat f_W(w) - f_W(w)}
     {\sqrt{\hat\Sigma_n^+(w,w)}}.
   \end{align*}
+  %
   Then
+  %
   \begin{align*}
     \sup_{w \in \cW}
     \left| \hat T_n(w) - T_n(w) \right|
@@ -1058,7 +1062,7 @@ We begin with an assumption describing the counterfactual setup.
 The counterfactual density of
 $W_{i j}$ in population $1$
 had $X_i, X_j$
-followed the distribution in population $0$ by
+followed the distribution in population $0$ is
 %
 \begin{align*}
   f_W^{1 \triangleright 0}(w)
@@ -1094,7 +1098,7 @@ with
 $\hat\psi(x) =
 \I\{\hat p_X^{\,1}(x) > 0\}\hat p_X^{\,0}(x) / \hat p_X^{\,1}(x)$
 and $\hat p_X^{\,r}(x) = \frac{1}{n}\sum_{i = 1}^n \I\{X_i^r = x\}$.
-Note that since $p_X^r(x) > 0$,
+Since $p_X^r(x) > 0$,
 %
 \begin{align*}
   \hat\psi(x) - \psi(x)
@@ -1430,7 +1434,8 @@ approximation results for the counterfactual density estimator.
       \Big)
       \right. \\
       &\left.
-      \qquad\qquad\,
+      \qquad\qquad\quad
+      \times
       \Big(
         \psi_i
         \E\big[
@@ -1468,9 +1473,9 @@ approximation results for the counterfactual density estimator.
   Let Assumptions \ref{ass:kernel_data},
   \ref{ass:kernel_bandwidth} and
   \ref{ass:counterfactual}
-  hold and suppose that
+  hold and suppose
   $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
-  Define for $w \in \cW$
+  Define
   %
   \begin{align*}
     T_n^{1 \triangleright 0}(w)
@@ -1724,7 +1729,7 @@ conditional distribution.
   For a distribution $\Q$ and some $q \geq 1$,
   define the $(\Q,q)$-norm of $f \in \cF$ as
   $\|f\|_{\Q,q}^q = \E_{X \sim \Q}[f(X)^q]$
-  and suppose that
+  and suppose
   $\|F\|_{\bar\P,2} < \infty$.
   For $f \in \cF$
   define the empirical process
@@ -1733,9 +1738,9 @@ conditional distribution.
     &=
     \frac{1}{\sqrt n}
     \sum_{i=1}^n
-    \Big(
+    \big(
       f(X_i) - \E[f(X_i)]
-    \Big).
+    \big).
   \end{align*}
   Let $\sigma > 0$ satisfy
   $\sup_{f \in \cF}
@@ -1859,6 +1864,7 @@ of i.n.i.d.\ variables.
   then
   for some universal positive constants
   $C_1,$ $C_2$ and $C_3$,
+  %
   \begin{align*}
     \P\left(
       \sup_{x \in \R}
@@ -1868,13 +1874,16 @@ of i.n.i.d.\ variables.
     \right)
     \leq C_2 e^{-C_3 t}.
   \end{align*}
+  %
   Further, $Z_n$
   has the same covariance structure as $G_n$
   in the sense that for all $x,\, x' \in \R$,
+  %
   \begin{align*}
     \E\big[Z_n(x) Z_n(x')\big]
     = \E\big[G_n(x) G_n(x')\big].
   \end{align*}
+  %
   By independently sampling from the law of
   $Z_n$ conditional on $X_1', \ldots, X_n'$,
   we can assume that
@@ -2289,7 +2298,6 @@ they are needed.
   Take $n \geq 2$.
   Let $X_i \sim \cN(0, \sigma_i^2)$
   for $1 \leq i \leq n$
-  (not necessarily independent),
   with $\sigma_i^2 \leq \sigma^2$.
   Then
   %
@@ -2309,10 +2317,12 @@ they are needed.
     &\leq
     2 \sigma \sqrt{\log n}.
   \end{align}
+  %
   If $\Sigma_1$ and $\Sigma_2$ are constant
   positive semi-definite $n \times n$ matrices
   and $N \sim \cN(0,I_n)$,
   then
+  %
   \begin{align}
     \label{eq:gaussian_difference_psd}
     \E\Big[
@@ -2493,7 +2503,7 @@ they are needed.
   \end{align*}
   giving
   Equation~\ref{eq:gaussian_difference_psd}.
-  If further $\Sigma_1$
+  If $\Sigma_1$
   is positive definite,
   then by
   Theorem~X.3.8 in
@@ -2939,8 +2949,8 @@ they are needed.
     C e^{-t}.
   \end{align*}
   %
-  From this last inequality we can deduce the following moment bound
-  by integration of tail probabilities.
+  From this last inequality we deduce a moment bound
+  by integration of tail probabilities:
   %
   \begin{align*}
     \E\left[
@@ -3201,6 +3211,7 @@ on each of the points $-1$ and $1$.
   Then, noting that the supremum is measurable
   because $\cT$ is a subset of a separable metric space
   and is therefore itself separable,
+  %
   \begin{align*}
     \E
     \left[
@@ -3223,6 +3234,7 @@ on each of the points $-1$ and $1$.
       \right|
     \right].
   \end{align*}
+  %
   This gives the following corollary.
   Let $X_1, \ldots, X_n$ be mutually independent
   and also independent of $\varepsilon_1, \ldots, \varepsilon_n$.
@@ -3230,7 +3242,8 @@ on each of the points $-1$ and $1$.
   from a measurable space $(S, \cS)$ to $\R$,
   with measurable envelope $F$.
   Define $M = \max_i F(X_i)$.
-  Then we obtain that
+  Then we obtain
+  %
   \begin{align*}
     \E
     \left[
@@ -3259,10 +3272,8 @@ on each of the points $-1$ and $1$.
 
 \begin{proof}[Lemma~\ref{lem:contraction}]
 
-  We apply Theorem~4.12
-  from \citet{ledoux1991probability}
-  with $F$ as the identity function
-  and
+  Apply Theorem~4.12 from \citet{ledoux1991probability} with $F$ the identity
+  function and
   %
   \begin{align*}
     \psi_i(s)
@@ -3357,11 +3368,11 @@ on each of the points $-1$ and $1$.
     \right].
   \end{align*}
   %
-  To see the corollary,
-  set
-  $\cT = \left\{\big(f(X_1), \ldots, f(X_n)\big) : f \in \cF\right\}$
-  and note that for fixed realization
+  For the corollary, set
+  $\cT = \left\{\big(f(X_1), \ldots, f(X_n)\big) : f \in \cF\right\}$.
+  For a fixed realization
   $X_1, \ldots, X_n$,
+  %
   \begin{align*}
     \E_\varepsilon
     \left[
@@ -3420,8 +3431,9 @@ on each of the points $-1$ and $1$.
   with finite envelope $F$.
   Let $\varepsilon_1, \ldots, \varepsilon_n$
   be independent Rademacher variables
-  which are independent of $X_1, \ldots, X_n$.
-  Then for any $q \in (1, \infty)$,
+  independent of $X_1, \ldots, X_n$.
+  For $q \in (1, \infty)$,
+  %
   \begin{align*}
     \E \left[
       \sup_{f \in \cF}
@@ -3857,8 +3869,8 @@ Lemma~\ref{lem:bv_characterization}.
   Also define the class of
   half-interval indicator functions $\cI = \{\I[0,t]: t \in [0,1]\}$.
   For any topological vector space $\cX$,
-  define the symmetric convex hull of a subset $\cY \subseteq \cX$
-  as
+  define the symmetric convex hull of a subset $\cY \subseteq \cX$ as
+  %
   \begin{align*}
     \symconv \cY
     &=
@@ -3875,10 +3887,11 @@ Lemma~\ref{lem:bv_characterization}.
       n \in \N
     \right\}.
   \end{align*}
+  %
   Denote its topological closure by
   $\overline\symconv \ \cY$.
-  Then under the topology induced
-  by pointwise convergence,
+  Under the pointwise convergence topology,
+  %
   \begin{align*}
     \cV_1 \subseteq \overline\symconv \ \cI.
   \end{align*}
@@ -4174,7 +4187,7 @@ Lemma~\ref{lem:bv_characterization}.
       - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
     \Big),
   \end{align*}
-  which is a mean-zero Gaussian process with continuous trajectories.
+  which is a mean-zero continuous Gaussian process.
   Its covariance structure is
   \begin{align*}
     &\E[Z_n(x) Z_n(x')] \\
@@ -4525,7 +4538,8 @@ Lemma~\ref{lem:bv_characterization}.
   to a mean-zero Gaussian
   process
   $Z_n$ on the compact interval $\cX_n$
-  with covariance structure given by
+  with covariance structure
+  %
   \begin{align*}
     \E\big[
       Z_n(x)
@@ -5133,7 +5147,7 @@ We begin with a basic fact about Lipschitz functions.
   which is a contradiction.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:kernel_bias}]
+\begin{proof}[Theorem~\ref{thm:kernel_bias}]
 
   Begin by defining
   \begin{align*}
@@ -5627,7 +5641,8 @@ We begin with a basic fact about Lipschitz functions.
   $\Dl > 0$
   then eventually
   $\inf_{w \in \cW} \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big] \geq \Dl/2$.
-  Finally note that
+  Finally
+  %
   \begin{align*}
     \inf_{w \in \cW}\Var[L_n(w)]
     &=
@@ -5734,7 +5749,8 @@ We begin with a basic fact about Lipschitz functions.
   probability measures on $\cW$.
   Since
   $\frac{C_\rk}{h}$
-  is an envelope function for $\cF_1$,
+  is an envelope for $\cF_1$,
+  %
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
@@ -5859,12 +5875,13 @@ We begin with a basic fact about Lipschitz functions.
     \leq 2 C_\rk C_\rd.
   \end{align*}
   %
-  For any $\varepsilon \in (0,1]$,
+  For $\varepsilon \in (0,1]$,
   take an $(\varepsilon C_4/C_3)$-cover of $\cW$
   of cardinality at most $C_3 \Leb(\cW) / (\varepsilon C_4)$.
-  By the above smooth parameterization properties,
+  By the above parameterization properties,
   this cover induces an
   $\varepsilon C_4$-cover for both $\cF_2$ and $\cF_3$:
+  %
   \begin{align*}
     \sup_\Q
     N\big(\cF_2, \rho_\Q, \varepsilon C_4 \big)
@@ -5879,6 +5896,7 @@ We begin with a basic fact about Lipschitz functions.
     \leq
     C_3 \Leb(\cW) / (\varepsilon C_4).
   \end{align*}
+  %
   Hence
   $\cF_1$,
   $\cF_2$ and
@@ -6034,7 +6052,7 @@ We begin with a basic fact about Lipschitz functions.
 
 \begin{proof}[Theorem~\ref{thm:uniform_consistency}]
 
-  This follows from Lemma~\ref{lem:kernel_bias}
+  This follows from Theorem~\ref{thm:kernel_bias}
   and Lemma~\ref{lem:uniform_concentration}.
 \end{proof}
 
@@ -6465,7 +6483,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   with a boundary bias-corrected
   Lipschitz kernel of order $p \geq \beta$
   and using a bandwidth of $h$.
-  Firstly Lemma~\ref{lem:kernel_bias} gives
+  Firstly Theorem~\ref{thm:kernel_bias} gives
   \begin{align*}
     \sup_{\P \in \cP}
     \sup_{w \in \cW}
@@ -6827,10 +6845,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
 \begin{proof}[Lemma~\ref{lem:app_strong_approx_Ln}]
 
-  To obtain the strong approximation,
-  we apply the KMT corollary from
+  For the strong approximation,
+  apply the KMT corollary from
   Lemma~\ref{lem:kmt_corollary}.
-  Define the functions
+  Define
   \begin{align*}
     k_h^A(a, w) = 2\E[k_h(W_{i j},w) \mid A_i = a],
   \end{align*}
@@ -6905,7 +6923,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \E[k_h^A(A_i',w)]\big),
   \end{align*}
   %
-  then for some positive constants
+  then for positive constants
   $C_1, C_2, C_3$,
   by defining the processes as zero outside $\cW$
   we have
@@ -7088,8 +7106,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \leq
     l_{n,\infty}.
   \end{align*}
+  %
   Also, the following $L^2$ Lipschitz condition holds
   uniformly with $l_{n,2} = 2 C_\rL \sqrt{C_\rd} h^{-3/2}$:
+  %
   \begin{align*}
     &\E\big[
       \big|
@@ -7113,7 +7133,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     l_{n,2}
     |w-w'|.
   \end{align*}
-  So we can apply
+  %
+  So we apply
   Lemma~\ref{lem:yurinskii_corollary}
   conditionally on $\bA_n$
   to the $\frac{1}{2}n(n-1)$ observations,
@@ -7254,8 +7275,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \lesssim
     h^{-1} |w-w'|.
   \end{align*}
-  Therefore by
-  the regularity result for Gaussian processes in
+  So by the regularity result for Gaussian processes in
   Lemma~\ref{lem:gaussian_process_maximal},
   with $\delta_n \in (0, 1/(2h)]$:
   \begin{align*}
@@ -7867,15 +7887,17 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       $Z_n^L$ is independent of $Z_n^E$.
 
   \end{enumerate}
+  %
   Note that the independence of
   $Z_n^L$ and $Z_n^E$
   follows since $Z_n^L$
   depends only on $\bA_n$ and some independent random noise,
   while $Z_n^E$ is independent of $\bA_n$.
   Therefore $(Z_n^L, Z_n^E)$ are jointly Gaussian.
-  To obtain the strong approximation result
+  To get the strong approximation result
   for $\hat f_W$,
-  define the mean-zero Gaussian process
+  define the Gaussian process
+  %
   \begin{align*}
     Z_n^f(w)
     &=
@@ -7883,10 +7905,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     + \frac{1}{n} Z_n^Q(w)
     + \frac{1}{\sqrt{n^2h}} Z_n^E(w),
   \end{align*}
-  where $Z_n^Q(w)$
-  is a mean-zero Gaussian process
-  independent of everything else and
+  %
+  where $Z_n^Q(w)$ is a mean-zero Gaussian process
+  independent of everything else
   with covariance
+  %
   \begin{align*}
     \E\big[
       Z_n^Q(w)
@@ -8002,8 +8025,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     {\sqrt{\Sigma_n(w,w)}}.
   \end{align*}
   %
-  By Theorem~\ref{thm:app_strong_approx_fW}
-  and Lemma~\ref{lem:kernel_bias},
+  By Theorems~\ref{thm:app_strong_approx_fW} and \ref{thm:kernel_bias},
   the numerator can be bounded above by
   %
   \begin{align*}
@@ -8193,20 +8215,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{b(c-a) + a(b-a)}
     {\sqrt{b c}\big(\sqrt{b c} + a\big)},
   \end{align*}
-  with
-  \begin{align*}
-    a&= \Sigma_n(w,w'),
-    &b                &= \Sigma_n(w,w),
-    &c                &= \Sigma_n(w',w')
-  \end{align*}
-  and noting that
-  $|c-a| \lesssim n^{-1} h^{-3} |w-w'|$
-  and
-  $|b-a| \lesssim n^{-1} h^{-3} |w-w'|$
-  and
+  with $a = \Sigma_n(w,w')$,
+  $b = \Sigma_n(w,w)$,
+  and $c = \Sigma_n(w',w')$,
+  and noting $|c-a| \lesssim n^{-1} h^{-3} |w-w'|$
+  and $|b-a| \lesssim n^{-1} h^{-3} |w-w'|$ and
   $\frac{\Dl^2}{n} + \frac{1}{n^2h}
-  \lesssim a,b,c
-  \lesssim \frac{\Du^2}{n} + \frac{1}{n^2h}$
+  \lesssim a,b,c \lesssim \frac{\Du^2}{n} + \frac{1}{n^2h}$,
   yields
   %
   \begin{align*}
@@ -9130,9 +9145,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     n^4 |w-w'|
   \end{align*}
   %
-  uniformly over $w,w' \in \cW$.
-  Therefore by compactness of $\cW$
-  we have the covering number bound
+  uniformly over $w,w' \in \cW$. By compactness of $\cW$ we have the covering
+  number bound
   %
   \begin{align*}
     N(\cF, \|\cdot\|_\infty, \varepsilon)
@@ -9719,9 +9733,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   Therefore since $\sqrt{\Sigma_n(w,w)} \gtrsim \sqrt{n^2h}$
   and $|S_{i j r}| \lesssim h^{-2}$,
-  using the elementary fact
+  using
   $\frac{a}{\sqrt b} - \frac{c}{\sqrt d}
   = \frac{a-c}{\sqrt b} + c \frac{d-b}{\sqrt{b d} \sqrt{b+d}}$,
+  %
   \begin{align*}
     &\sup_{|w_1-w_2| \leq \delta_n}
     \sup_{|w_1'-w_2'| \leq \delta_n}
@@ -10352,7 +10367,6 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \subsubsection{Feasible uniform confidence bands}
 
 \begin{proof}[Lemma~\ref{lem:studentized_t_statistic}]
-
   \begin{align*}
     \sup_{w \in \cW}
     \left| \hat T_n(w) - T_n(w) \right|
@@ -10391,7 +10405,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
   {\sqrt{\Sigma_n(w,w)}} \right|
   \lesssim_\P \sqrt{\log n}$,
-  while Lemma~\ref{lem:kernel_bias} gives
+  while Theorem~\ref{thm:kernel_bias} gives
   $\sup_{w \in \cW} \big| \E\big[\hat f_W(w)\big] - f_W(w) \big|
   \lesssim h^{p \wedge \beta}$.
   By Lemma~\ref{lem:variance_bounds},
@@ -11613,7 +11627,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   %
   uniformly in $w \in \cW$, following the proof of
-  Lemma~\ref{lem:kernel_bias} and using H{\"o}lder continuity
+  Theorem~\ref{thm:kernel_bias} and using H{\"o}lder continuity
   of $f_{W \mid XX}^1(\,\cdot \mid x_1, x_2)$.
   %
 \end{proof}

@@ -580,6 +580,7 @@ which  we further discuss the underlying challenges,
 while Appendix~\ref{sec:mondrian_proofs} gives all the technical details.
 
 \subsection{Central limit theorem}
+\label{sec:mondrian_clt}
 
 Theorem~\ref{thm:clt} gives our first main result.
 
@@ -1635,25 +1636,6 @@ same conditions as Theorem~\ref{thm:mondrian_minimax},
 %
 with appropriate tuning of $\lambda$ and $B$.
 
-\TODO{explain this table}
-
-\begin{table}
-  \begin{center}
-    \begin{tabular}{|c|c|}
-      \hline
-      \textbf{Estimator} & \textbf{Minimax condition} \\
-      \hline
-      Mondrian tree &
-      $\beta \in (0, 1]$ \\
-      Mondrian random forest &
-      $\beta \in (0, 2]$ \\
-      Debiased Mondrian random forest &
-      \hspace*{2mm}$\beta \in (0, \infty)$ \\
-      \hline
-    \end{tabular}
-  \end{center}
-\end{table}
-
 \subsection{Interpretation}
 
 The debiased Mondrian random forest estimator defined in \eqref{eq:debiased}
@@ -1688,6 +1670,7 @@ and the debiasing scale parameters $a_r$ for $0 \leq r \leq J$.
 
 \subsection{Selecting the base lifetime parameter
 \texorpdfstring{$\lambda$}{lambda}}%
+\label{sec:lifetime_selection}
 
 The most important parameter is the base Mondrian lifetime parameter $\lambda$,
 which plays the role of a complexity parameter and thus governs the overall
@@ -1965,7 +1948,8 @@ where
 $\bar a^d = \frac{1}{J+1} \sum_{r=0}^{J} a_r^d$
 gives the generalized cross-validation (GCV) formula
 %
-\begin{align*}
+\begin{align}
+  \label{eq:gcv}
   \GCV(\lambda, J)
   &=
   \frac{1}{n}
@@ -1974,7 +1958,7 @@ gives the generalized cross-validation (GCV) formula
     \frac{Y_i - \hat\mu_\rd(X_i)}
     {1 - \bar a^d \lambda^d / n}
   \right)^2.
-\end{align*}
+\end{align}
 %
 The lifetime can then be selected by computing
 $\hat\lambda_{\LOOCV} \in \argmin_\lambda \LOOCV(\lambda, J)$
@@ -2014,54 +1998,106 @@ We suggest for concreteness taking $a_r = 1.05^r$.
 
 \section{Illustrative example: weather forecasting}%
 
-\TODO{write this section}
+As an illustrative example of our methodology, we consider a simple application
+to a weather forecasting problem. We emphasize that the main aim of this
+section is to provide intuition and understanding for how a Mondrian random
+forest may be used in practice, and we refrain from an in-depth analysis of the
+results obtained. Indeed, our central assumption of i.i.d.\ data is most likely
+violated when treating weather data due to the inherent time-series structure.
+Nonetheless, we use data from the \cite{bomgovau} containing daily weather
+information from 2007--2017 at 49 different locations across Australia, with a
+total of $n = 125\,927$ samples. We consider the classification problem of
+predicting whether or not it will rain on the following day using two
+covariates: the humidity and pressure at 3pm on the current day. Outliers are
+removed and the covariates are normalized to $[0,1]^2$. We fit a Mondrian
+random forest, selecting the lifetime parameter with the GCV method detailed in
+Section~\ref{sec:lifetime_selection}. Figure~\ref{fig:weather_data} plots the
+data, using colors to indicate the response values, and illustrates how a
+single Mondrian tree is fitted by sampling from an independent Mondrian process
+and computing local averages within each cell. The general pattern of rain
+being predicted by high humidity and low pressure is apparent, with the tree
+estimator taking the form of a step function on rectangles. This illustrates
+the first-order bias of Mondrian random trees, as discussed in
+Section~\ref{sec:mondrian_clt}.
 
-\begin{figure}
+\begin{figure}[ht]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[scale=0.6]{graphics/weather_data.png}%
+    \includegraphics[scale=0.8]{graphics/weather_data.png}%
   \end{subfigure}
   \begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[scale=0.6]{graphics/weather_data_filled_partition.png}%
+    \includegraphics[scale=0.8]{graphics/weather_data_filled_partition.png}%
   \end{subfigure}
+  \caption{Australian weather forecasting data. Colors indicate the response
+    variable of dry ($Y_i = 0$) or wet ($Y_i = 1$) on the following day.
+    Right: a Mondrian random tree fitted with a lifetime of $\lambda = 5$,
+  selected by generalized cross-validation.}
+  \label{fig:weather_data}
 \end{figure}
 
-\begin{figure}
+Figure~\ref{fig:weather_forest} then
+demonstrates the effect of increasing the forest size $B$ on the smoothness
+(and therefore also the bias) of the resulting regression function estimate
+$\hat \mu(x)$.
+
+\begin{figure}[ht]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[scale=0.6]{graphics/weather_forest_2.png}%
+    \includegraphics[scale=0.8]{graphics/weather_forest_2.png}%
   \end{subfigure}
   \begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[scale=0.6]{graphics/weather_forest_30.png}%
+    \includegraphics[scale=0.8]{graphics/weather_forest_30.png}%
   \end{subfigure}
+  \caption{Fitting Mondrian random forests to the Australian weather data.
+    Left: with $B=2$ trees, individual cells are clearly visible and the step
+    function persists. Right: with $B=30$ trees, the estimate is much smoother
+  as the individual tree estimates average out.}
+  \label{fig:weather_forest}
 \end{figure}
 
-\begin{figure}
+In Figure~\ref{fig:weather_gcv} we show the mean squared error
+and generalized cross-validation (GCV) scores computed using \eqref{eq:gcv} for
+each lifetime parameter $\lambda$. As expected, the mean squared error
+decreases as $\lambda$ increases and the model overfits, but GCV is minimized
+at an interior point and approximately balances the bias and variance. We also
+identify three design points at which to conduct inference.
+Table~\ref{tab:weather_ci} presents numerical results for estimation and
+inference at these specified design points. The predicted chance of rain
+is found to vary substantially given different covariate values,
+and the resulting confidence intervals are somewhat narrow due to the
+large sample size.
+
+\begin{figure}[ht]
   \centering
   \begin{subfigure}{0.54\textwidth}
     \centering
-    \includegraphics[scale=0.6]{graphics/weather_gcv.png}%
+    \includegraphics[scale=0.77]{graphics/weather_gcv.png}%
   \end{subfigure}
   \begin{subfigure}{0.45\textwidth}
     \centering
-    \includegraphics[scale=0.6]{graphics/weather_forest_design.png}%
+    \includegraphics[scale=0.77]{graphics/weather_forest_design.png}%
   \end{subfigure}
+  \caption{Left: mean squared error and generalized cross-validation scores
+    for Mondrian random forests with the Australian weather data.
+    Right: three design points are identified to present further numerical
+  results in Table~\ref{tab:weather_ci}.}
+  \label{fig:weather_gcv}
 \end{figure}
 
-\begin{table}
+\begin{table}[ht]
   \begin{center}
     \begin{tabular}{|c|c|r|c|c|}
       \hline
-      \textbf{Point} & \textbf{Humidity} & \textbf{Pressure} &
-      \textbf{Chance of rain} & \textbf{95\% confidence interval} \\
+      Point & Humidity & Pressure &
+      Chance of rain & 95\% confidence interval \\
       \hline
       $1$ & $20\%$ & $1020\,\textrm{mbar}$ &
-      $\phantom{0}4.3\%$ &
-      \hspace*{-0mm}$4.1\%$ -- $4.6\%$ \\
+      $4.3\%$ &
+      $4.1\%$ -- $4.6\%$ \\
       $2$ & $70\%$ & $1000\,\textrm{mbar}$ &
       $53.0\%$ &
       $52.0\%$ -- $54.0\%$ \\
@@ -2071,6 +2107,11 @@ We suggest for concreteness taking $a_r = 1.05^r$.
       \hline
     \end{tabular}
   \end{center}
+  \caption{Estimated chance of rain $\hat \mu(x)$ and
+    $95\%$ confidence intervals for the true probability of rain $\mu(x)$
+    computed using a Mondrian random forest with $\lambda = 5$ chosen by GCV
+  and with $B = 200$ trees.}
+  \label{tab:weather_ci}
 \end{table}
 
 \section{Conclusion}%
