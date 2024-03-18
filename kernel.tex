@@ -238,8 +238,7 @@ construction \citep{komlos1975approximation}, building on ideas in
 \citet{gine2004kernel} and \citet{gine2010confidence}. The resulting rate of
 strong approximation is optimal, and follows from a generic strong approximation
 result of potential independent interest given in
-Section~SA3 of
-the online supplemental appendix.
+Section~\ref{sec:kernel_technical}.
 Our main result for $L_n$ is given as Lemma~\ref{lem:strong_approx_Ln},
 and makes explicit the potential presence of degenerate points.
 
@@ -255,9 +254,7 @@ This result follows from a generic
 strong approximation result which
 gives a novel rate of strong approximation for
 (local) empirical processes based on i.n.i.d. data,
-given in
-Section~SA3 of
-the online supplemental appendix.
+given in Section~\ref{sec:kernel_technical}.
 Lemma~\ref{lem:conditional_strong_approx_En}
 gives our conditional strong approximation for $E_n$.
 
@@ -271,11 +268,10 @@ establish an unconditional strong approximation for $E_n$ in
 Lemma~\ref{lem:unconditional_strong_approx_En}. We then employ a
 generalization of the celebrated Vorob'ev--Berkes--Philipp theorem
 \citep{dudley1999uniform}, given in
-Section~SA3 of
-the online supplemental appendix,
+given in Section~\ref{sec:kernel_technical},
 to deduce a \emph{joint} strong
 approximation for $(L_n,E_n)$ and, in particular, for $L_n+E_n$.
-Thus we obtain our main result in Theorem~\ref{thm:strong_approx_fW},
+Thus we obtain our main result in Theorem~\ref{thm:strong_approx_Tn},
 which establishes a valid strong approximation for $\hat{f}_W$
 and its associated $t$-process.
 This uniform inference result complements the recent contribution of
@@ -295,7 +291,7 @@ following prior work by \citet{Chernozhukov-Chetverikov-Kato_2017_AoP}.
 The distributional
 approximation therein is applied to the
 H\'{a}jek projection term $L_n$ only, whereas
-our main construction leading to Theorem~\ref{thm:strong_approx_fW} gives a
+our main construction leading to Theorem~\ref{thm:strong_approx_Tn} gives a
 strong approximation for the entire U-process-like
 $\hat{f}_W$ and its associated $t$-process, uniformly on $\cW$.
 As a consequence, our uniform inference theory is robust to potential
@@ -370,7 +366,8 @@ applications of our main results,
 including dyadic density hypothesis testing and nonparametric
 and semiparametric dyadic regression.
 Section~\ref{sec:conclusion} concludes the paper.
-The online supplemental appendix includes other technical and methodological
+Appendix~\ref{app:kernel}
+includes other technical and methodological
 results, proofs and additional details omitted here to conserve space.
 Section~SA3 may be of independent interest, containing
 two generic strong approximation theorems for empirical processes,
@@ -531,7 +528,7 @@ in kernel density estimation with higher-order kernels
 and boundary bias correction, and it
 does not rely directly on the dyadic structure of the data.
 
-\begin{lemma}[Bias of $\hat f_W$]
+\begin{lemma}[Bias bound]
   \label{lem:kernel_bias}
 
   Suppose that Assumptions \ref{ass:kernel_data} and
@@ -1134,7 +1131,7 @@ This section is largely concerned with distributional properties and thus
 frequently requires copies of stochastic processes.
 For succinctness of notation, we will not differentiate between a process
 and its copy, but details are available in
-Section~SA3 of the supplemental appendix.
+Section~\ref{sec:kernel_technical}.
 
 \subsection{Strong approximation}
 
@@ -1159,8 +1156,7 @@ $(T_n(w):w\in\cW)$.
 
 The following lemma is an application of our generic
 KMT approximation result for empirical processes,
-given in Section~SA3 of
-the online supplemental appendix,
+given in Section~\ref{sec:kernel_technical},
 which builds on earlier work by \citet{gine2004kernel}
 and \citet{gine2010confidence} and may be of independent interest.
 
@@ -1294,7 +1290,7 @@ inference procedure which is fully adaptive to
 such potential unknown degeneracy.
 
 \begin{theorem}[Strong approximation of $T_n$]
-  \label{thm:strong_approx_fW}
+  \label{thm:strong_approx_Tn}
 
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold and
@@ -1337,7 +1333,7 @@ deviation $\Sigma_n(w,w)^{1/2}$
 formulated in Lemma~\ref{lem:variance_bounds}.
 
 In the absence of degenerate points ($\Dl > 0$) and if
-$n h^{7/2}\gtrsim 1$, Theorem~\ref{thm:strong_approx_fW}
+$n h^{7/2}\gtrsim 1$, Theorem~\ref{thm:strong_approx_Tn}
 offers a strong approximation of the $t$-process at the rate
 $(\log n)/\sqrt{n}+\sqrt{n}h^{p\wedge\beta}$, which matches the celebrated KMT
 approximation rate for i.i.d.\ data plus the
@@ -1351,7 +1347,7 @@ if a fourth-order (boundary-adaptive) kernel is used
 and $f_W$ is sufficiently smooth.
 
 In the presence of partial or total degeneracy ($\Dl =0$),
-Theorem~\ref{thm:strong_approx_fW} provides a strong approximation for the
+Theorem~\ref{thm:strong_approx_Tn} provides a strong approximation for the
 $t$-process at the rate
 $\sqrt{h}\log n + n^{-1/4}h^{-3/8}(\log n)^{3/8} R_n +
 n^{-1/6}(\log n)^{2/3} + n h^{1/2+p\wedge\beta}$.
@@ -1359,7 +1355,7 @@ If, for example, $n h^{p\wedge\beta}\lesssim 1$,
 then our result can achieve a strong
 approximation rate of $n^{-1/7}$
 up to $\log n $ terms.
-Theorem~\ref{thm:strong_approx_fW}
+Theorem~\ref{thm:strong_approx_Tn}
 appears to be the first in the dyadic literature
 which is also robust to the presence of (unknown)
 degenerate points in the underlying dyadic distribution.
@@ -1556,7 +1552,7 @@ Denote by $\hat\Sigma_n^+$ any (approximately) optimal solution to
 (\ref{eq:sdp}). The following lemma establishes uniform convergence rates
 for both $\hat \Sigma_n$ and $\hat \Sigma_n^+$. It allows us to use
 these estimators to construct feasible versions of $T_n$ and its associated
-Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_fW}.
+Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_Tn}.
 %
 \begin{lemma}[Consistency of $\hat \Sigma_n$ and $\hat \Sigma_n^+$]
   \label{lem:sdp}
@@ -1648,9 +1644,7 @@ $ \P\big(\sup_{w \in \cW}
 \bigm\vert \bW_n \big)
 = 1 - \alpha$,
 %
-which is shown to be well-defined in
-Section~SA5 of
-the online supplemental appendix.
+which is shown to be well defined in Section~\ref{sec:kernel_proofs}.
 
 \begin{theorem}[Feasible uniform confidence bands]
   \label{thm:kernel_ucb}
@@ -1703,8 +1697,8 @@ The bandwidth restrictions in Theorem~\ref{thm:kernel_ucb} are the same
 as those required for the infeasible version
 given in Theorem~\ref{thm:infeasible_ucb}, namely those imposed in Assumption
 \ref{ass:rates}. This follows from the rates of convergence obtained in
-Lemma~\ref{lem:sdp}, coupled with some careful technical work given in the
-supplemental appendix to handle the potential presence
+Lemma~\ref{lem:sdp}, coupled with some careful technical work given in
+Section~\ref{sec:kernel_proofs} to handle the potential presence
 of degenerate points in $\Sigma_n$.
 
 \subsection{Bandwidth selection and robust bias-corrected inference}
@@ -2104,7 +2098,7 @@ where $\hat\psi(x) = \hat p_X^{\,0}(x) / \hat p_X^{\,1}(x)$ and
 $\hat p_X^{\,r}(x) = \frac{1}{n}\sum_{i = 1}^n \I\{X_i^r = x\}$,
 with $\I$ the indicator function.
 
-Section~SA2.10 of the online supplemental appendix provides technical details:
+Section~\ref{sec:kernel_app_counterfactual} provides technical details:
 we show how an asymptotic
 linear representation for $\hat\psi(x)$ leads to a
 Hoeffding-type decomposition of $\hat f_W^{\,1 \triangleright 0}(w)$,
@@ -2536,7 +2530,7 @@ We gave some other statistical
 applications of our methodology as well as
 potential avenues for future research.
 From a technical perspective,
-the online supplemental appendix contains several generic results
+Appendix~\ref{app:kernel} contains several generic results
 concerning strong approximation methods and maximal inequalities
 for empirical processes that may be of independent interest.
 This work has been presented as

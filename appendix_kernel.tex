@@ -3,46 +3,49 @@
 \chapter{Supplement to Dyadic Kernel Density Estimators}
 \label{app:kernel}
 
-\section{Introduction}
+%\subsection{Setup and estimator}
+%
+%%Fix $n \geq 2$ and suppose there is
+%%a probability space carrying the latent random variables
+%%$\bA_n=(A_i: 1\leq i\leq n)$ and $\bV_n=(V_{i j}: 1\leq i<j\leq n)$.
+%%Suppose that the $A_i$ are i.i.d., the $V_{i j}$ are i.i.d., and
+%%that $\bA_n$ is independent of $\bV_n$.
+%%Define the observable dyadic random variables
+%%$W_{i j} = W(A_i, A_j, V_{i j})$
+%%where $W$ is some unknown real-valued function.
+%There are $\frac{1}{2}n(n-1)$ such variables;
+%one for each unordered pair of distinct indices $i<j$.
+%Note that if $i<j$ and $i'<j'$ are all distinct,
+%then $W_{i j}$ is independent of $W_{i' j'}$.
+%However, $W_{i j}$ is
+%not in general independent of $W_{i j'}$,
+%as they may both depend on the latent variable $A_i$.
+%This data generating process is justified by the
+%Aldous--Hoover representation theorem for exchangeable arrays
+%\citep{aldous1981representations, hoover1979relations}.
 
-\subsection{Setup and estimator}
+%Denote the kernel weight of the data point $W_{i j}$
+%at the evaluation point $w$
+%with bandwidth $h$ by $k_h(W_{i j}, w)$.
+%Then the dyadic
+%kernel density estimator
+%is defined as
+%\begin{align*}
+%  \hat f_W(w) = \frac{2}{n(n-1)}
+%  \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} k_h(W_{i j}, w).
+%\end{align*}
 
-Fix $n \geq 2$ and suppose there is
-a probability space carrying the latent random variables
-$\bA_n=(A_i: 1\leq i\leq n)$ and $\bV_n=(V_{i j}: 1\leq i<j\leq n)$.
-Suppose that the $A_i$ are i.i.d., the $V_{i j}$ are i.i.d., and
-that $\bA_n$ is independent of $\bV_n$.
-Define the observable dyadic random variables
-$W_{i j} = W(A_i, A_j, V_{i j})$
-where $W$ is some unknown real-valued function.
-There are $\frac{1}{2}n(n-1)$ such variables;
-one for each unordered pair of distinct indices $i<j$.
-Note that if $i<j$ and $i'<j'$ are all distinct,
-then $W_{i j}$ is independent of $W_{i' j'}$.
-However, $W_{i j}$ is
-not in general independent of $W_{i j'}$,
-as they may both depend on the latent variable $A_i$.
-This data generating process is justified by the
-Aldous--Hoover representation theorem for exchangeable arrays
-\citep{aldous1981representations, hoover1979relations}.
+\section{Supplementary main results}
 
-Denote the kernel weight of the data point $W_{i j}$
-at the evaluation point $w$
-with bandwidth $h$ by $k_h(W_{i j}, w)$.
-Then the dyadic
-kernel density estimator
-is defined as
-\begin{align*}
-  \hat f_W(w) = \frac{2}{n(n-1)}
-  \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} k_h(W_{i j}, w).
-\end{align*}
+In this section we provide more detailed versions of some of the
+results presented in the main text, alongside some intermediate
+lemmas which were skipped for conciseness.
+We begin with some extra notation used throughout this appendix.
 
 \subsection{Notation}
 
-\subsubsection{Norms}
-
 For real vectors,
-$\|\cdot\|_p$ is the standard $L^p$
+$\|\cdot\|_p$ is the standard $\ell^p$
 norm defined for $p \in [1, \infty]$.
 For real square matrices,
 $\|\cdot\|_p$ is the operator
@@ -63,13 +66,6 @@ to denote the largest absolute entry of a real matrix.
 For real-valued functions,
 $\|\cdot\|_\infty$
 denotes the (essential) supremum norm.
-The total variation norm of a
-real-valued function of a single real variable is
-$\|g\|_\TV = \sup_{n \geq 1} \sup_{x_1 \leq \cdots \leq x_n}
-\sum_{i=1}^{n-1} |g(x_{i+1}) - g(x_i)|$.
-
-\subsubsection{Sets}
-
 For a bounded set $\cX \subseteq \R$ and $a \geq 0$
 we use $[\cX \pm a]$ to denote the compact interval
 $[\inf \cX - a, \ \sup \cX + a]$.
@@ -77,9 +73,6 @@ For measurable subsets of $\R^d$
 we use $\Leb$ to denote the Lebesgue measure,
 and for finite sets we use $|\cdot|$
 for the cardinality.
-
-\subsubsection{Sums}
-
 Write $\sum_i$
 for $\sum_{i=1}^n$
 when clear from context.
@@ -87,8 +80,6 @@ Similarly use $\sum_{i<j}$
 for $\sum_{i=1}^{n-1} \sum_{j=i+1}^n$
 and $\sum_{i<j<r}$
 for $\sum_{i=1}^{n-2} \sum_{j=i+1}^{n-1} \sum_{r=j+1}^n$.
-
-\section{Main results}
 
 %\subsection{Uniform consistency}
 
@@ -213,65 +204,13 @@ for $\sum_{i=1}^{n-2} \sum_{j=i+1}^{n-1} \sum_{r=j+1}^n$.
 %
 %\end{remark}
 
-\subsection{Covariance structure}
-
-\begin{lemma}[Covariance structure]
-  \label{lem:covariance_structure}
-
-  Suppose Assumptions~\ref{ass:kernel_data}
-  and~\ref{ass:kernel_bandwidth} hold.
-  Define the covariance function of the
-  dyadic kernel density estimator by
-  \begin{align*}
-    \Sigma_n(w,w')
-    &=
-    \Cov\Big[
-      \hat f_W(w),
-      \hat f_W(w')
-    \Big]
-  \end{align*}
-  for $w,w' \in \cW$.
-  Then $\Sigma_n$ admits the following
-  representations.
-  \begin{align*}
-    \Sigma_n(w,w')
-    &=
-    \frac{2}{n(n-1)}
-    \Cov\hspace*{-0.7mm}\big[
-      k_h(W_{i j},w),
-      k_h(W_{i j},w')
-    \big] \\
-    &\quad+
-    \frac{4(n-2)}{n(n-1)}
-    \Cov\hspace*{-0.7mm}\big[
-      k_h(W_{i j},w),
-      k_h(W_{i r},w')
-    \big] \\
-    &=
-    \frac{2}{n(n-1)}
-    \Cov\hspace*{-0.7mm}\big[
-      k_h(W_{i j},w),
-      k_h(W_{i j},w')
-    \big] \\
-    &\quad+
-    \frac{4(n-2)}{n(n-1)}
-    \Cov\hspace*{-0.7mm}\big[
-      \E[k_h(W_{i j},w) \mid A_i],
-      \E[k_h(W_{i j},w') \mid A_i]
-    \big],
-  \end{align*}
-  %
-  where $1 \leq i < j < r \leq n$.
-
-\end{lemma}
-
 \subsection{Strong approximation}
 \label{sec:strong_approx}
 
-In this section we give a strong approximation
-for the empirical process $\hat f_W$.
+In this section we give a detailed construction of the
+strong approximation of the dyadic empirical process $\hat f_W$.
 We begin by using the
-K\'omlos--Major--Tusn\'ady (KMT) approximation
+K{\'o}mlos--Major--Tusn{\'a}dy (KMT) approximation
 to obtain a strong approximation for $L_n$
 in Lemma~\ref{lem:app_strong_approx_Ln}.
 Since $E_n$ is an empirical process of i.n.i.d.\ variables,
@@ -286,8 +225,8 @@ in Lemma~\ref{lem:app_unconditional_strong_approx_En}.
 These approximations are combined to give a
 strong approximation for $\hat f_W$
 in Theorem~\ref{thm:app_strong_approx_fW}.
-We do not need to construct a strong approximation
-for the negligible $Q_n$.
+We do not need to approximate
+the negligible $Q_n$.
 
 This section is largely concerned with
 distributional properties,
@@ -305,7 +244,7 @@ to the new space.
 Many of the technical details regarding
 the copying and embedding of stochastic processes
 are covered by the
-Vorob'ev--Berkes--Philipp Theorem,
+Vorob'ev--Berkes--Philipp theorem,
 which is stated and discussed in
 Lemma~\ref{lem:vbp}.
 In particular, this theorem can be used
@@ -313,7 +252,17 @@ for random vectors or for stochastic processes
 indexed by a compact rectangle in $\R^d$
 with a.s.\ continuous sample paths.
 
-\TODO{leave these technical strong approx results here}
+We begin by presenting more detailed versions of
+Lemmas~\ref{lem:strong_approx_Ln},
+\ref{lem:conditional_strong_approx_En}
+and \ref{lem:unconditional_strong_approx_En}
+as Lemmas~\ref{lem:app_strong_approx_Ln},
+\ref{lem:app_conditional_strong_approx_En}
+and \ref{lem:app_unconditional_strong_approx_En}
+respectively, taking care to describe how copies of
+the relevant stochastic processes are constructed,
+and also providing smoothness properties for
+the resulting sample paths.
 
 \begin{lemma}[Strong approximation of $L_n$]
   \label{lem:app_strong_approx_Ln}
@@ -547,17 +496,9 @@ with a.s.\ continuous sample paths.
 
 \end{lemma}
 
-\begin{remark}
-
-  Note that the process $\tilde Z_n^{E\prime}$,
-  constructed in Lemma~\ref{lem:app_conditional_strong_approx_En},
-  is a conditionally Gaussian process but is
-  not in general a Gaussian process.
-  The process $Z_n^{E\dprime}$,
-  constructed in Lemma~\ref{lem:app_unconditional_strong_approx_En},
-  is a true Gaussian process.
-
-\end{remark}
+We combine these strong approximations to deduce a coupling for $\hat f_W$ in
+Theorem~\ref{thm:app_strong_approx_fW}, taking care with independence
+properties to ensure the approximating processes are jointly Gaussian.
 
 \begin{theorem}[Strong approximation of $\hat f_W$]
   \label{thm:app_strong_approx_fW}
@@ -618,74 +559,26 @@ with a.s.\ continuous sample paths.
   \end{align*}
 \end{theorem}
 
-\begin{remark}
-  The interpretation of
-  Theorem~\ref{thm:app_strong_approx_fW}
-  is deferred to
-  Section~\ref{sec:infeasible_confidence_bands},
-  in which we scale the processes by their pointwise variance
-  in order to better understand the role of degeneracy
-  on strong approximation rates.
-\end{remark}
+The main result Theorem~\ref{thm:strong_approx_Tn}
+now follows easily using Theorem~\ref{thm:app_strong_approx_fW},
+the bias bound from Lemma~\ref{lem:kernel_bias},
+and properties of $\Sigma_n$ established in Lemma~\ref{lem:variance_bounds}.
 
-\subsection{Infeasible uniform confidence bands}
-\label{sec:infeasible_confidence_bands}
+%\subsection{Infeasible uniform confidence bands}
 
-We use the strong approximation and bias results
-from Theorem~\ref{thm:app_strong_approx_fW}
-and Lemma~\ref{lem:kernel_bias}
-respectively to construct uniform confidence bands for
-the true density function $f_W$.
-From now on we will drop the prime notation for copies of processes
-in the interest of clarity.
-In this section we will assume oracle knowledge of the true
-covariance function $\Sigma_n$,
-which is not typically available in practice.
-For feasible versions of these results which use a covariance estimator,
-see Section~\ref{sec:app_feasible_confidence_bands}.
-We also assume that the true density $f_W$
-is bounded away from zero on the domain of inference,
-which is a standard assumption when constructing confidence bands.
-
-\begin{lemma}[Infeasible Gaussian approximation
-  of the standardized $t$-statistic]
-  \label{lem:infeasible_t_statistic}
-
-  Let Assumptions \ref{ass:kernel_data} and
-  \ref{ass:kernel_bandwidth}
-  hold and suppose that
-  $f_W(w) > 0$ on $\cW$.
-  Define for $w \in \cW$
-  %
-  \begin{align*}
-    T_n(w) = \frac{\hat f_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}}
-    \quad\text{and}\quad
-    Z_n^T(w) = \frac{Z_n^f(w)}{\sqrt{\Sigma_n(w,w)}}.
-  \end{align*}
-  %
-  Then with $R_n \to \infty$ as in
-  Theorem~\ref{thm:app_strong_approx_fW},
-  %
-  \begin{align*}
-    &\sup_{w \in \cW} \left| T_n(w) - Z_n^T(w) \right| \\
-    &\quad\lesssim_\P
-    \frac{
-      n^{-1/2} \log n
-      + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
-      + n^{-2/3} h^{-1/2} (\log n)^{2/3}
-    + n^{1/2} h^{p \wedge \beta}}
-    {\Dl + 1/\sqrt{n h}}.
-  \end{align*}
-
-\end{lemma}
-
-For the coverage rate error
-in the upcoming Theorem~\ref{thm:infeasible_ucb}
-to converge to zero in large samples,
-we require further restrictions on the bandwidth sequence.
-These restrictions depend on the degeneracy type
-of the dyadic distribution,
-and are given as Assumption~\ref{ass:rates}.
+%We use the strong approximation and bias results
+%from Theorem~\ref{thm:app_strong_approx_fW}
+%and Lemma~\ref{lem:kernel_bias}
+%respectively to construct uniform confidence bands for
+%the true density function $f_W$.
+%In this section we will assume oracle knowledge of the true
+%covariance function $\Sigma_n$,
+%which is not typically available in practice.
+%For feasible versions of these results which use a covariance estimator,
+%see Section~\ref{sec:app_feasible_confidence_bands}.
+%We also assume that the true density $f_W$
+%is bounded away from zero on the domain of inference,
+%which is a standard assumption when constructing confidence bands.
 
 %\begin{theorem}[Infeasible uniform confidence bands]
 %  \label{thm:infeasible_ucb}
@@ -723,33 +616,55 @@ and are given as Assumption~\ref{ass:rates}.
 %  \end{align*}
 %\end{theorem}
 
-\begin{remark}
-
-  By Theorem~\ref{thm:uniform_consistency},
-  the asymptotically optimal bandwidth choice
-  under uniform convergence is given by
-  $h \asymp (n^{-2} \log n)^{\frac{1}{2(p \wedge \beta)+1}}$.
-  This bandwidth satisfies Assumption~\ref{ass:rates}
-  only in the case of no degeneracy.
-  Thus in degenerate cases, one must undersmooth by choosing
-  a bandwidth which is smaller than the optimal bandwidth.
-  This robust bias correction can be achieved in practice by selecting an
-  approximately optimal bandwidth
-  for a kernel of order $p$, but then using a kernel of higher order
-  $p' > p$ for constructing the confidence bands.
-
-\end{remark}
+%\subsection{Covariance structure}
 
 \subsection{Covariance estimation}
 
-We provide a consistent estimator for the
-covariance function $\Sigma_n$.
-In Lemma~\ref{lem:covariance_estimation}
-we define the estimator and demonstrate that it
-converges in probability in a suitable sense
-In Lemma~\ref{lem:alternative_covariance_estimator}
-we give an alternative representation
-which is more amenable to computation.
+In this section we carefully construct a consistent estimator for the
+covariance function $\Sigma_n$. Firstly we characterize $\Sigma_n$ in
+Lemma~\ref{lem:covariance_structure}. In Lemma~\ref{lem:covariance_estimation}
+we define the estimator and demonstrate that it converges in probability in a
+suitable sense. In Lemma~\ref{lem:alternative_covariance_estimator} we give an
+alternative representation which is more amenable to computation.
+
+\begin{lemma}[Covariance structure]
+  \label{lem:covariance_structure}
+
+  Suppose Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
+  hold. Then $\Sigma_n$, as defined in Section~\ref{sec:degeneracy}, admits the
+  following representations.
+  %
+  \begin{align*}
+    \Sigma_n(w,w')
+    &=
+    \frac{2}{n(n-1)}
+    \Cov\hspace*{-0.7mm}\big[
+      k_h(W_{i j},w),
+      k_h(W_{i j},w')
+    \big] \\
+    &\quad+
+    \frac{4(n-2)}{n(n-1)}
+    \Cov\hspace*{-0.7mm}\big[
+      k_h(W_{i j},w),
+      k_h(W_{i r},w')
+    \big] \\
+    &=
+    \frac{2}{n(n-1)}
+    \Cov\hspace*{-0.7mm}\big[
+      k_h(W_{i j},w),
+      k_h(W_{i j},w')
+    \big] \\
+    &\quad+
+    \frac{4(n-2)}{n(n-1)}
+    \Cov\hspace*{-0.7mm}\big[
+      \E[k_h(W_{i j},w) \mid A_i],
+      \E[k_h(W_{i j},w') \mid A_i]
+    \big],
+  \end{align*}
+  %
+  where $1 \leq i < j < r \leq n$.
+
+\end{lemma}
 
 \begin{lemma}[Covariance estimation]
   \label{lem:covariance_estimation}
@@ -861,23 +776,17 @@ which is more amenable to computation.
 
 \end{lemma}
 
-\begin{remark}
-
-  The covariance estimator $\hat \Sigma_n$
-  is not necessarily almost surely positive semi-definite.
-
-\end{remark}
-
 \subsection{Positive semi-definite covariance estimation}
 \label{sec:PSD}
 
-In this section we provide a
+We show how to obtain a
 positive semi-definite estimator $\hat \Sigma_n^+$
 which is uniformly entrywise-consistent for $\Sigma_n$.
 Define $\hat \Sigma_n$ as in
 Lemma~\ref{lem:covariance_estimation}
 and consider the following optimization problem
 over bivariate functions.
+%
 \begin{equation}
   \label{eq:app_sdp}
   \begin{aligned}
@@ -924,28 +833,17 @@ over bivariate functions.
 
 \end{lemma}
 
-\begin{remark}
+The optimization problem (\ref{eq:app_sdp}) is stated for functions rather than
+matrices so is infinite-dimensional. However, when restricting to finite-size
+matrices, Lemma~\ref{lem:app_sdp} still holds and does not depend on the size
+of the matrices. Furthermore, the problem then becomes a semi-definite program
+and so can be solved to arbitrary precision in polynomial time in the size of
+the matrices \citep{laurent2005semidefinite}.
 
-  The optimization problem (\ref{eq:app_sdp}) is stated for functions
-  rather than matrices so is infinite-dimensional.
-  However, when restricting to finite-size matrices,
-  Lemma~\ref{lem:app_sdp} still holds and does not depend on
-  the size of the matrices.
-  Furthermore, the problem
-  then becomes a semi-definite program and so can be solved to
-  arbitrary precision in polynomial time
-  in the size of the matrices
-  \citep{laurent2005semidefinite}.
-
-  The Lipschitz-type constraint in the
-  optimization problem (\ref{eq:app_sdp})
-  ensures that $\hat \Sigma_n^+$
-  is sufficiently smooth
-  and is a technicality required by
-  some of the later proofs.
-  In practice this constraint is readily verified.
-
-\end{remark}
+The Lipschitz-type constraint in the optimization problem (\ref{eq:app_sdp})
+ensures that $\hat \Sigma_n^+$ is sufficiently smooth and is a technicality
+required by some of the later proofs. In practice this constraint is readily
+verified.
 
 \begin{lemma}[Positive semi-definite variance estimator bounds]
   \label{lem:variance_estimator_bounds}
@@ -974,6 +872,8 @@ Now we use the strong approximation derived in
 Section~\ref{sec:strong_approx} and the
 positive semi-definite covariance estimator introduced in
 Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
+From now on we will drop the prime notation for copies of processes
+in the interest of clarity.
 
 \begin{lemma}[Proximity of the standardized and studentized $t$-statistics]
   \label{lem:studentized_t_statistic}
@@ -1076,65 +976,61 @@ Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
 
 \end{lemma}
 
-\begin{theorem}[Feasible uniform confidence bands]
-  \label{thm:kernel_app_ucb}
+These intermediate lemmas can be used to establish the valid and feasible
+uniform confidence bands presented in Theorem~\ref{thm:kernel_ucb} in the main
+text.
 
-  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
-  and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
-  Let $\alpha \in (0,1)$ be a confidence level
-  and define $\hat q_{1-\alpha}$ as the
-  conditional quantile satisfying
-  \begin{align*}
-    \P\left(
-      \sup_{w \in \cW}
-      \left| \hat Z_n^T(w) \right|
-      \leq \hat q_{1-\alpha}
-      \Bigm\vert \bW_n
-    \right)
-    &=
-    1 - \alpha.
-  \end{align*}
-  Then
-  \begin{align*}
-    \P\left(
-      f_W(w)
-      \in
-      \left[
-        \hat f_W(w)
-        \pm
-        \hat q_{1-\alpha}
-        \sqrt{\hat\Sigma_n^+(w,w)}
-      \,\right]
-      \,\textup{for all }
-      w \in \cW
-    \right)
-    \to 1 - \alpha.
-  \end{align*}
-
-\end{theorem}
-
-\begin{remark}
-
-  In practice, suprema over $\cW$ can be
-  replaced by maxima over a sufficiently fine finite partition of $\cW$.
-  The conditional quantile $\hat q_{1-\alpha}$
-  can be estimated by Monte Carlo
-  simulation,
-  resampling from the Gaussian process defined by the law of
-  $\hat Z_n^T \mid \bW_n$.
-\end{remark}
+%\begin{theorem}[Feasible uniform confidence bands]
+%  \label{thm:kernel_ucb}
+%
+%  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
+%  and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
+%  Let $\alpha \in (0,1)$ be a confidence level
+%  and define $\hat q_{1-\alpha}$ as the
+%  conditional quantile satisfying
+%  \begin{align*}
+%    \P\left(
+%      \sup_{w \in \cW}
+%      \left| \hat Z_n^T(w) \right|
+%      \leq \hat q_{1-\alpha}
+%      \Bigm\vert \bW_n
+%    \right)
+%    &=
+%    1 - \alpha.
+%  \end{align*}
+%  Then
+%  \begin{align*}
+%    \P\left(
+%      f_W(w)
+%      \in
+%      \left[
+%        \hat f_W(w)
+%        \pm
+%        \hat q_{1-\alpha}
+%        \sqrt{\hat\Sigma_n^+(w,w)}
+%      \,\right]
+%      \,\textup{for all }
+%      w \in \cW
+%    \right)
+%    \to 1 - \alpha.
+%  \end{align*}
+%
+%\end{theorem}
 
 \subsection{Counterfactual
 dyadic density estimation}
 \label{subsec:counterfactual}
 
-As an application we provide methodology for estimation and inference
-on counterfactual dyadic density functions,
-following the reweighting approach of
-\citet{dinardo1996distribution}.
-We give the counterfactual data
-generating process as
-Assumption~\ref{ass:counterfactual}.
+In this section we give a detailed analysis of the counterfactual
+estimator of Section~\ref{sec:counterfactual}.
+We begin with an assumption describing the counterfactual setup.
+%As an application we provide methodology for estimation and inference
+%on counterfactual dyadic density functions,
+%following the reweighting approach of
+%\citet{dinardo1996distribution}.
+%We give the counterfactual data
+%generating process as
+%Assumption~\ref{ass:counterfactual}.
 
 \begin{assumption}[Counterfactual data generation]
   \label{ass:counterfactual}
@@ -1776,6 +1672,7 @@ we have that
 \end{align*}
 
 \section{Technical lemmas}
+\label{sec:kernel_technical}
 
 In this section we present some lemmas which provide the
 technical foundations for several of our main results.
@@ -2276,6 +2173,8 @@ We begin with some definitions.
 
 \section{Additional empirical results}%
 
+\TODO{move to main paper}
+
 We present some additional empirical results
 using the International Monetary Fund's
 Direction of Trade Statistics (DOTS) data set,
@@ -2446,6 +2345,9 @@ leading to less estimated variance in the fitted values.
 \end{figure}
 
 \section{Proofs}
+\label{sec:kernel_proofs}
+
+\TODO{check these are still in the right order}
 
 \subsection{Preliminary lemmas}
 
@@ -8275,9 +8177,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
 \subsubsection{Infeasible uniform confidence bands}
 
-\begin{proof}[Lemma~\ref{lem:infeasible_t_statistic}]
+\begin{proof}[Theorem~\ref{thm:strong_approx_Tn}]
 
-  Note that
+  Define $Z_n^T(w) = \frac{Z_n^f(w)}{\sqrt{\Sigma_n(w,w)}}$ so that
   %
   \begin{align*}
     \left| T_n(w) - Z_n^T(w) \right|
@@ -8670,7 +8572,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Under Assumption~\ref{ass:rates} and with a
   sufficiently slowly diverging sequence $R_n$,
   the strong approximation rate established in
-  Lemma~\ref{lem:infeasible_t_statistic} is
+  Theorem~\ref{thm:strong_approx_Tn} is
   %
   \begin{align*}
     &\sup_{w \in \cW} \left| T_n(w) - Z_n^T(w) \right| \\
@@ -11517,7 +11419,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   To control the remaining term,
   note that by
-  Lemma~\ref{lem:infeasible_t_statistic}
+  Theorem~\ref{thm:strong_approx_Tn}
   and Lemma~\ref{lem:studentized_t_statistic},
   %
   \begin{align*}
@@ -11646,7 +11548,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{enumerate}
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:kernel_app_ucb}]
+\begin{proof}[Theorem~\ref{thm:kernel_ucb}]
 
   \proofparagraph{existence of the conditional quantile}
 
@@ -11659,6 +11561,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and the Gaussian process maximal inequality from
   Lemma~\ref{lem:gaussian_process_maximal},
   we see that for any $\varepsilon > 0$,
+  %
   \begin{align*}
     \sup_{t \in \R}
     \P\left(
@@ -11828,6 +11731,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \end{proof}
 
 \subsubsection{Counterfactual dyadic density estimation}
+\label{sec:kernel_app_counterfactual}
+
 \begin{proof}[Lemma~\ref{lem:counterfactual_bias}]
 
   Writing
@@ -12226,7 +12131,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{proof}[Lemma~\ref{lem:counterfactual_infeasible_t_statistic}]
   The proof is exactly the same as the proof of
-  Lemma~\ref{lem:infeasible_t_statistic}.
+  Theorem~\ref{thm:strong_approx_Tn}.
 \end{proof}
 
 \begin{proof}[Theorem~\ref{thm:counterfactual_infeasible_ucb}]

@@ -12,6 +12,8 @@
 ** TODO Swap (i) for inlineroman
 ** TODO Comments before aligns
 ** TODO No \[ equations
+** TODO No caps for theorem etc
+** TODO Check lemmas vs theorems
 * Structure
 ** Abstract
 *** Up to 350 words
