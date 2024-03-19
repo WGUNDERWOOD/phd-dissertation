@@ -4615,14 +4615,13 @@ behavior of the number of cells in a Mondrian refinement.
 Lemma~\ref{lem:refinement_tail} provides such a result, again making
 use of the subcell trick to convert a crude upper bound based on
 Lemma~\ref{lem:refinement_inequalities} into a useful tail inequality.
-
-\TODO{check from here}
+We assume for simplicity that all of the lifetimes are identical.
 
 \begin{lemma}[Tail bound on the number of cells in a Mondrian forest refinement]
   \label{lem:refinement_tail}
 
-  Let $T_b \sim \cM(D, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
-  Then
+  Let $T_b \sim \cM(D, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$. Then
+  \TODO{tidy this}
   %
   \begin{align*}
     \P\left(
@@ -4639,13 +4638,13 @@ Lemma~\ref{lem:refinement_inequalities} into a useful tail inequality.
 
 \begin{proof}[Lemma~\ref{lem:refinement_tail}]
 
-  We begin with a rather coarse estimate and refine it using
-  the subcell trick.
-  By Lemma~\ref{lem:refinement_inequalities}
-  \TODO{which eq}
-  and union bounds,
+  We begin with a rather coarse estimate and refine it using the subcell trick.
+  By Lemma~\ref{lem:refinement_inequalities} \eqref{eq:refinement_2} and
+  union bounds, for any $t > 0$, recalling that $\# T_{b j}$ denotes the number
+  of splits made by $T_b$ in dimension $j$,
   %
-  \begin{align*}
+  \begin{align}
+    \nonumber
     \P\left(
       \# \bigwedge_{b=1}^B T_b
       > t
@@ -4653,30 +4652,39 @@ Lemma~\ref{lem:refinement_inequalities} into a useful tail inequality.
     &\leq
     \P\left(
       \prod_{j=1}^d
-      \sum_{b=1}^B \# T_b^j
+      \left( 
+        1 + \sum_{b=1}^B \# T_{b j}
+      \right)
       > t
-    \right)
-    \leq
-    d\,
+    \right) \\
+    \nonumber
+    &\leq
+    \sum_{j=1}^d
     \P\left(
+      1 + \sum_{b=1}^B \# T_{b j}
+      > t^{1/d}
+    \right) \\
+    \nonumber
+    &\leq
+    d\, \P\left(
       \sum_{b=1}^B \# T_b
       > t^{1/d}
-    \right)
-    \leq
-    dB\,
+    \right) \\
+    \label{eq:refinement_tail_coarse}
+    &\leq
+    d B\,
     \P\left(
       \# T_b > \frac{t^{1/d}}{B}
     \right).
-  \end{align*}
+  \end{align}
   %
   Now by the subcell trick, partition $D$ into
   at most $(1 + 1/\varepsilon)^d$ cells
-  $D_\varepsilon \in \cD_\varepsilon$
+  $D' \in \cD_\varepsilon$
   with side lengths at most
-  $(|D^1| \varepsilon, \ldots, |D^d| \varepsilon)$.
-  Since a split in $\bigwedge_b T_b$ induces a split
-  in at least one of
-  $\bigwedge_b (T_b \cap D_\varepsilon)$,
+  $(|D_1|_1 \varepsilon, \ldots, |D_d|_1 \varepsilon)$.
+  Since every cell in $\bigwedge_b T_b$ corresponds to
+  a cell in at least one of $\bigwedge_b (T_b \cap D')$,
   %
   \begin{align*}
     \P\left(
@@ -4685,19 +4693,20 @@ Lemma~\ref{lem:refinement_inequalities} into a useful tail inequality.
     \right)
     &\leq
     \P\left(
-      \sum_{D_\varepsilon \in \cD_\varepsilon}
-      \# \bigwedge_{b=1}^B (T_b \cap D_\varepsilon)
+      \sum_{D' \in \cD_\varepsilon}
+      \# \bigwedge_{b=1}^B (T_b \cap D')
       > t
     \right)
     \leq
-    \sum_{D_\varepsilon \in \cD_\varepsilon}
+    \sum_{D' \in \cD_\varepsilon}
     \P\left(
-      \# \bigwedge_{b=1}^B (T_b \cap D_\varepsilon)
+      \# \bigwedge_{b=1}^B (T_b \cap D')
       > \frac{t}{\# \cD_\varepsilon}
     \right).
   \end{align*}
   %
-  Applying the coarse estimate above gives
+  Applying the coarse estimate above to $\# \bigwedge_b (T_b \cap D')$ gives
+  \TODO{check from here}
   %
   \begin{align*}
     \P\left(
@@ -4705,17 +4714,16 @@ Lemma~\ref{lem:refinement_inequalities} into a useful tail inequality.
       > t
     \right)
     &\leq
-    \# \cD_\varepsilon
-    dB\,
+    d B \sum_{D' \in \cD_\varepsilon}
     \P\left(
-      \# (T_b \cap D_\varepsilon)
+      \# (T_b \cap D')
       > \frac{t^{1/d}}{B \# \cD_\varepsilon^{1/d}}
     \right) \\
     &\leq
     (1 + 1/\varepsilon)^d
     dB\,
     \P\left(
-      \# (T_b \cap D_\varepsilon)
+      \# (T_b \cap D')
       > \frac{t^{1/d}}{B (1 + 1/\varepsilon)}
     \right).
   \end{align*}
@@ -4760,168 +4768,168 @@ Lemma~\ref{lem:refinement_inequalities} into a useful tail inequality.
   %
 \end{proof}
 
-\begin{definition}[Active cells]
-
-  For $x \in D$ and trees $T_b$ for $1 \leq b \leq B$,
-  define the active cells in the refinement at $x$ by
-  %
-  \begin{align*}
-    \cA(x)
-    = \left\{
-      D' \in \bigwedge_{b=1}^B T_b :
-      \text{ there exists } b
-      \text{ and } D'' \in T_b
-      \text{ with } D' \subseteq D''
-      \text{ and } x \in D''
-    \right\}.
-  \end{align*}
-
-\end{definition}
-
-\begin{lemma}[Active cells]
-  \label{lem:active_cells}
-
-  Let $T_b \sim \cM(D, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
-  Then the number of active cells can be controlled pointwise by
-  %
-  \begin{align*}
-    \P\left( \# \cA(x)
-      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
-    \right)
-    &\leq
-    2^{d+5} dB (1 + 2 d \lambda |D|)^{d+1} e^{-t}.
-  \end{align*}
-  %
-  and uniformly by
-  %
-  \begin{align*}
-    \P\left(
-      \sup_{x \in D} \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right)
-    &\leq
-    2^{11d^2}
-    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |D|)^{2d+1} e^{-t}.
-  \end{align*}
-  %
-\end{lemma}
-
-\begin{proof}[Lemma~\ref{lem:active_cells}]
-
-  For $\varepsilon > 0$ and $x \in D$
-  define $D_x^{\varepsilon}$ as the cell with side $j$
-  given by $[x_j - \varepsilon, x_j + \varepsilon] \cap D^j$
-  for $1 \leq j \leq d$.
-  Note that if $D' \in \cA(x)$ and
-  $\max_b \max_{D_b} \max_j |D_b^j| \leq \varepsilon$
-  then $D' \subseteq D_x^\varepsilon$.
-  Therefore with $0 < \varepsilon \leq \lambda |D|$,
-  %
-  \begin{align*}
-    \P\left( \# \cA(x) > t \right)
-    &\leq
-    \P\left(
-      \# \bigwedge_{b=1}^B
-      \left( T_b \cap D_x^{\varepsilon/\lambda} \right)
-      > t
-    \right)
-    + \P\left(
-      \max_{1 \leq b \leq B}
-      \max_{D_b \in T_b}
-      \max_{1 \leq j \leq d}
-      |D_b^j| > \frac{\varepsilon}{\lambda}
-    \right).
-  \end{align*}
-  %
-  Thus by a union bound and
-  Lemmas~\ref{lem:largest_cell_tail}
-  and~\ref{lem:refinement_tail},
-  noting that
-  $|D_x^{\varepsilon/\lambda}| \leq 2 d \varepsilon / \lambda$,
-  %
-  \begin{align*}
-    \P\left( \# \cA(x) > t \right)
-    &\leq
-    2^{d+1} dB (1 + 2 d \varepsilon)^d
-    e^{-t^{1/d} B^{-1} (1 + 2 d \varepsilon)^{-1}
-    2^{-d} / 3}
-    + 5d B (1 + \lambda |D|)^{d+1}
-    e^{-\varepsilon}.
-  \end{align*}
-  %
-  Noting $\varepsilon \leq \lambda |D|$,
-  replacing $t$ by
-  $2^{d^2} 3^d B^d (1+2d\varepsilon)^d t^d$
-  and setting $\varepsilon = t$ gives
-  %
-  \begin{align*}
-    \P\left( \# \cA(x)
-      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
-    \right)
-    &\leq
-    2^{d+1} dB (1 + 2 d \lambda |D|)^d e^{-t}
-    + 5d B (1 + \lambda |D|)^{d+1}
-    e^{-t} \\
-    &\leq
-    2^{d+3} dB (1 + 2 d \lambda |D|)^{d+1} e^{-t}, \\
-    \P\left( \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right)
-    &\leq
-    2^{d+5} dB (1 + 2 d \lambda |D|)^{d+1} e^{-t}.
-  \end{align*}
-  %
-  Next note that $\cA(x)$ depends on $x$ only
-  through $\bigwedge_b T_b(x)$ so that
-  %
-  \begin{align*}
-    &\P\left(
-      \sup_{x \in D} \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right) \\
-    &\quad=
-    \P\left(
-      \max_{D' \in \bigwedge_b T_b} \# \cA(D')
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right) \\
-    &\quad\leq
-    \sum_{l=1}^k
-    \P\left(
-      \max_{D' \in \bigwedge_b T_b} \# \cA(D')
-      > 2^{d(d+3)} d^d B^d t^{2d},
-      \# \bigwedge_{b=1}^B T_b = l
-    \right)
-    + \P\left(
-      \# \bigwedge_{b=1}^B T_b > k
-    \right) \\
-    &\quad\leq
-    k \sup_{x \in D}
-    \P\left( \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right)
-    + \P\left(
-      \# \bigwedge_{b=1}^B T_b > k
-    \right) \\
-    &\quad\leq
-    2^{d+5} k d B (1 + 2 d \lambda |D|)^{d+1} e^{-t}
-    + 2^{d+1} dB (1 + \lambda |D|)^d
-    e^{-k^{1/d} B^{-1} (1+\lambda |D|)^{-1}
-    2^{-d} / 3}.
-  \end{align*}
-  %
-  Setting
-  $k = \lceil 3^d 2^{d^2} B^d (1+\lambda|D|)^d t ^d \rceil$
-  gives
-  %
-  \begin{align*}
-    \P\left(
-      \sup_{x \in D} \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right)
-    &\leq
-    2^{11d^2}
-    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |D|)^{2d+1} e^{-t}.
-  \end{align*}
-  %
-\end{proof}
+%\begin{definition}[Active cells]
+%
+%  For $x \in D$ and trees $T_b$ for $1 \leq b \leq B$,
+%  define the active cells in the refinement at $x$ by
+%  %
+%  \begin{align*}
+%    \cA(x)
+%    = \left\{
+%      D' \in \bigwedge_{b=1}^B T_b :
+%      \text{ there exists } b
+%      \text{ and } D'' \in T_b
+%      \text{ with } D' \subseteq D''
+%      \text{ and } x \in D''
+%    \right\}.
+%  \end{align*}
+%
+%\end{definition}
+%
+%\begin{lemma}[Active cells]
+%  \label{lem:active_cells}
+%
+%  Let $T_b \sim \cM(D, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
+%  Then the number of active cells can be controlled pointwise by
+%  %
+%  \begin{align*}
+%    \P\left( \# \cA(x)
+%      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
+%    \right)
+%    &\leq
+%    2^{d+5} dB (1 + 2 d \lambda |D|)^{d+1} e^{-t}.
+%  \end{align*}
+%  %
+%  and uniformly by
+%  %
+%  \begin{align*}
+%    \P\left(
+%      \sup_{x \in D} \# \cA(x)
+%      > 2^{d(d+3)} d^d B^d t^{2d}
+%    \right)
+%    &\leq
+%    2^{11d^2}
+%    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |D|)^{2d+1} e^{-t}.
+%  \end{align*}
+%  %
+%\end{lemma}
+%
+%\begin{proof}[Lemma~\ref{lem:active_cells}]
+%
+%  For $\varepsilon > 0$ and $x \in D$
+%  define $D_x^{\varepsilon}$ as the cell with side $j$
+%  given by $[x_j - \varepsilon, x_j + \varepsilon] \cap D^j$
+%  for $1 \leq j \leq d$.
+%  Note that if $D' \in \cA(x)$ and
+%  $\max_b \max_{D_b} \max_j |D_b^j| \leq \varepsilon$
+%  then $D' \subseteq D_x^\varepsilon$.
+%  Therefore with $0 < \varepsilon \leq \lambda |D|$,
+%  %
+%  \begin{align*}
+%    \P\left( \# \cA(x) > t \right)
+%    &\leq
+%    \P\left(
+%      \# \bigwedge_{b=1}^B
+%      \left( T_b \cap D_x^{\varepsilon/\lambda} \right)
+%      > t
+%    \right)
+%    + \P\left(
+%      \max_{1 \leq b \leq B}
+%      \max_{D_b \in T_b}
+%      \max_{1 \leq j \leq d}
+%      |D_b^j| > \frac{\varepsilon}{\lambda}
+%    \right).
+%  \end{align*}
+%  %
+%  Thus by a union bound and
+%  Lemmas~\ref{lem:largest_cell_tail}
+%  and~\ref{lem:refinement_tail},
+%  noting that
+%  $|D_x^{\varepsilon/\lambda}| \leq 2 d \varepsilon / \lambda$,
+%  %
+%  \begin{align*}
+%    \P\left( \# \cA(x) > t \right)
+%    &\leq
+%    2^{d+1} dB (1 + 2 d \varepsilon)^d
+%    e^{-t^{1/d} B^{-1} (1 + 2 d \varepsilon)^{-1}
+%    2^{-d} / 3}
+%    + 5d B (1 + \lambda |D|)^{d+1}
+%    e^{-\varepsilon}.
+%  \end{align*}
+%  %
+%  Noting $\varepsilon \leq \lambda |D|$,
+%  replacing $t$ by
+%  $2^{d^2} 3^d B^d (1+2d\varepsilon)^d t^d$
+%  and setting $\varepsilon = t$ gives
+%  %
+%  \begin{align*}
+%    \P\left( \# \cA(x)
+%      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
+%    \right)
+%    &\leq
+%    2^{d+1} dB (1 + 2 d \lambda |D|)^d e^{-t}
+%    + 5d B (1 + \lambda |D|)^{d+1}
+%    e^{-t} \\
+%    &\leq
+%    2^{d+3} dB (1 + 2 d \lambda |D|)^{d+1} e^{-t}, \\
+%    \P\left( \# \cA(x)
+%      > 2^{d(d+3)} d^d B^d t^{2d}
+%    \right)
+%    &\leq
+%    2^{d+5} dB (1 + 2 d \lambda |D|)^{d+1} e^{-t}.
+%  \end{align*}
+%  %
+%  Next note that $\cA(x)$ depends on $x$ only
+%  through $\bigwedge_b T_b(x)$ so that
+%  %
+%  \begin{align*}
+%    &\P\left(
+%      \sup_{x \in D} \# \cA(x)
+%      > 2^{d(d+3)} d^d B^d t^{2d}
+%    \right) \\
+%    &\quad=
+%    \P\left(
+%      \max_{D' \in \bigwedge_b T_b} \# \cA(D')
+%      > 2^{d(d+3)} d^d B^d t^{2d}
+%    \right) \\
+%    &\quad\leq
+%    \sum_{l=1}^k
+%    \P\left(
+%      \max_{D' \in \bigwedge_b T_b} \# \cA(D')
+%      > 2^{d(d+3)} d^d B^d t^{2d},
+%      \# \bigwedge_{b=1}^B T_b = l
+%    \right)
+%    + \P\left(
+%      \# \bigwedge_{b=1}^B T_b > k
+%    \right) \\
+%    &\quad\leq
+%    k \sup_{x \in D}
+%    \P\left( \# \cA(x)
+%      > 2^{d(d+3)} d^d B^d t^{2d}
+%    \right)
+%    + \P\left(
+%      \# \bigwedge_{b=1}^B T_b > k
+%    \right) \\
+%    &\quad\leq
+%    2^{d+5} k d B (1 + 2 d \lambda |D|)^{d+1} e^{-t}
+%    + 2^{d+1} dB (1 + \lambda |D|)^d
+%    e^{-k^{1/d} B^{-1} (1+\lambda |D|)^{-1}
+%    2^{-d} / 3}.
+%  \end{align*}
+%  %
+%  Setting
+%  $k = \lceil 3^d 2^{d^2} B^d (1+\lambda|D|)^d t ^d \rceil$
+%  gives
+%  %
+%  \begin{align*}
+%    \P\left(
+%      \sup_{x \in D} \# \cA(x)
+%      > 2^{d(d+3)} d^d B^d t^{2d}
+%    \right)
+%    &\leq
+%    2^{11d^2}
+%    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |D|)^{2d+1} e^{-t}.
+%  \end{align*}
+%  %
+%\end{proof}
 
