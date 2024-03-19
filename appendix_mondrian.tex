@@ -3,9 +3,6 @@
 \chapter{Supplement to Inference with Mondrian Random Forests}
 \label{app:mondrian}
 
-\section{Proofs and technical results}%
-\label{sec:mondrian_proofs}
-
 In this section we present the full proofs of all our results,
 and also state some useful technical preliminary and
 intermediate lemmas.
@@ -18,7 +15,7 @@ We write $\I_{i b}(x) = \I \left\{ X_i \in T_b(x) \right\}$
 and $N_b(x) = \sum_{i=1}^{n} \I_{i b}(x)$,
 as well as $\I_b(x) = \I \left\{ N_b(x) \geq 1 \right\}$.
 
-\subsection{Preliminary lemmas}
+\section{Preliminary lemmas}
 
 We begin by bounding the maximum size of any cell
 in a Mondrian forest containing $x$.
@@ -965,775 +962,8 @@ and bounds from Lemma~\ref{lem:binomial_bound}.
   %
 \end{proof}
 
-\pagebreak
-
-\TODO{technical results from GitHub here, not used in main paper but nice}
-\TODO{check notation in these aligns with main paper}
-\TODO{write a little about each of these}
-\TODO{decide which results to keep in the dissertation}
-
-\begin{lemma}[Expected number of cells in a Mondrian forest refinement]
-  \label{lem:refinement}
-
-  Take $C = \bigotimes_{j=1}^d C^j$
-  and $\lambda_b > 0$ for $1 \leq b \leq B$.
-  Let $T_b \sim \cM(C, \lambda_b)$ be independent Mondrian processes
-  and write $\bigwedge_{b=1}^B T_b$ for the common refinement
-  of their partitions.
-  Then the expected number of cells in this refinement is
-  %
-  \begin{align*}
-    \E\left[\# \bigwedge_{b=1}^B T_b \right]
-    &= \prod_{j=1}^d \left(
-      1 + |C^j| \sum_{b=1}^B \lambda_b
-    \right).
-  \end{align*}
-  %
-\end{lemma}
-
-\begin{proof}[Lemma~\ref{lem:refinement}]
-
-  By \cite[Proposition~2]{mourtada2020minimax}
-  we have the result for a single tree:
-  %
-  \begin{align*}
-    \E\left[\# T_b \right]
-    &= \prod_{j=1}^d \left(
-      1 + |C^j| \lambda_b
-    \right).
-  \end{align*}
-  %
-  We proceed by induction on $B$.
-  Denote the restriction of a tree $T$ to a cell $C$ by $T \cap C$.
-  By the tower law,
-  %
-  \begin{align*}
-    \E\left[\# \bigwedge_{b=1}^B T_b \right]
-    &=
-    \E\left[
-      \sum_{C_B \in T_B}
-      \#
-      \left(
-        \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
-      \right)
-    \right]
-    = \E\left[
-      \sum_{C_B \in T_B}
-      \E\left[
-        \#
-        \left(
-          \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
-        \right)
-        \biggm| T_B
-      \right]
-    \right].
-  \end{align*}
-  %
-  Now by the restriction property of Mondrian processes
-  \cite[Fact~2]{mourtada2020minimax},
-  observe that $T_b \cap C_B \sim \cM(C_B, \lambda_b)$
-  conditional on $T_B$.
-  Then by the induction hypothesis,
-  %
-  \begin{align*}
-    \E\left[
-      \#
-      \left(
-        \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
-      \right)
-      \biggm| T_B
-    \right]
-    &=
-    \prod_{j=1}^d \left(
-      1 + |C_B^j| \sum_{b=1}^{B-1} \lambda_b
-    \right)
-    = \E\big[
-      \# T_{C_B} \mid T_B
-    \big]
-  \end{align*}
-  %
-  where $T_{C_B} \sim \cM(C_B, \sum_{b=1}^{B-1} \lambda_B)$
-  independently, conditional on $T_B$,
-  by the result for a single tree.
-  The restriction property finally shows that
-  $\sum_{C_B \in T_B} \# T_{C_B}$ is equal in distribution
-  to $\# T$ where $T \sim \cM(C, \sum_{b=1}^B \lambda_b)$
-  and so
-  %
-  \begin{align*}
-    \E\left[\# \bigwedge_{b=1}^B T_b \right]
-    &=
-    \E\left[
-      \sum_{C_B \in T_B}
-      \E\big[
-        \# T_{C_B} \mid T_B
-      \big]
-    \right]
-    =
-    \E\big[\# T \big]
-    = \prod_{j=1}^d \left(
-      1 + |C^j| \sum_{b=1}^B \lambda_b
-    \right).
-  \end{align*}
-\end{proof}
-
-\begin{lemma}[Tail bound for the number of cells in a Mondrian tree]
-  \label{lem:cells_tail}
-
-  Let $T \sim \cM(C, \lambda)$. Then
-  %
-  \begin{align*}
-    \P\left(
-      \# T > 3 (1 + \lambda |C|)^d
-      (t + 1 + d \log(1 + \lambda |C|))
-    \right)
-    &\leq
-    e^{-t}.
-  \end{align*}
-
-\end{lemma}
-
-\begin{proof}[Lemma~\ref{lem:cells_tail}]
-
-  We refer to this method as the ``subcell trick''
-  and attribute it to \cite{mourtada2017universal}.
-  For $\varepsilon > 0$ partition $C$ into
-  at most $(1 + 1/\varepsilon)^d$ cells $C_\varepsilon \in \cC_\varepsilon$
-  with side lengths at most $(|C^1| \varepsilon, \ldots, |C^d| \varepsilon)$.
-  Since a split in $T$ induces a split in some
-  $T \cap C_\varepsilon$,
-  %
-  \begin{align*}
-    \P\left(\# T > t \right)
-    &\leq
-    \P\left(\sum_{C_\varepsilon \in \cC_\varepsilon}
-    \# (T \cap C_\varepsilon) > t \right)
-    \leq
-    \sum_{C_\varepsilon \in \cC_\varepsilon}
-    \P\left(
-      \# (T \cap C_\varepsilon) >
-      \frac{t}{\# \cC_\varepsilon}
-    \right).
-  \end{align*}
-  %
-  Now $\# (T \cap C_\varepsilon)$ is dominated by a Yule process
-  with parameter $|C_\varepsilon|$ stopped at time $\lambda$
-  \cite[proof of Lemma~2]{mourtada2017universal},
-  so using that fact that if
-  $X \sim \Yule(a)$
-  then $\P(X_t > n) \leq (1-e^{-at})^{n-1}$,
-  %
-  \begin{align*}
-    \P\left(\# T > t \right)
-    &\leq
-    \# \cC_\varepsilon \,
-    (1 - e^{-\lambda |C| \varepsilon})^{t / \# \cC_\varepsilon - 1}
-    \leq
-    (1 + 1/\varepsilon)^d
-    (1 - e^{-\lambda |C| \varepsilon})^{t (1 + 1/\varepsilon)^{-d} - 1}.
-  \end{align*}
-  %
-  Setting $\varepsilon = \frac{1}{\lambda |C|}$,
-  noting $1-1/e \leq e^{-1/3}$
-  and replacing $t$ by
-  $3 (1 + \lambda |C|)^d
-  (t + 1 + d \log(1 + \lambda |C|))$
-  yields
-  %
-  \begin{align*}
-    &\P\left(\# T > t \right)
-    \leq
-    (1 + \lambda |C|)^d
-    (1 - 1/e)^{t (1 + \lambda |C|)^{-d} - 1}
-    \leq
-    2 (1 + \lambda |C|)^d
-    e^{-t (1 + \lambda |C|)^{-d} / 3}, \\
-    &\P\left(\# T >
-      3
-      (1 + \lambda |C|)^d
-      (t + 1 + d \log(1 + \lambda |C|))
-    \right)
-    \leq
-    e^{-t}.
-  \end{align*}
-\end{proof}
-
-\begin{definition}[Canonical order of cells in a Mondrian tree]
-
-  Let $T \sim \cM(C, \lambda)$.
-  Each cell in a fixed realization of $T$ can be described by
-  a word from the alphabet $\{l, r\}$,
-  where $l$ indicates the cell to the left of a split
-  and $r$ indicates the cell to the right.
-  For example, if there are no splits we have one cell
-  described by the empty word.
-  After one split there are two cells, denoted
-  $l$ and $r$.
-  Now suppose that the cell $r$ splits again, giving two splits and three cells,
-  denoted $l$, $r l$ and $r r$.
-  Define the canonical ordering of the cells of $T$ by applying
-  the lexicographic order to their words, with $l < r$.
-  Note that it does not matter which coordinate each split occurs in:
-  in two dimensions, $l$ might refer to the ``left'' or ``bottom''
-  and $r$ to the ``right'' or ``top'' cell.
-
-\end{definition}
-
-\begin{lemma}[Cells in a Mondrian tree have identically distributed shapes]
-  \label{lem:cells_identically_distributed}
-
-  Let $T \sim \cM(C, \lambda)$
-  with canonically ordered cells
-  $C_1, \ldots, C_{\# T}$.
-  For any $\varepsilon_1, \ldots, \varepsilon_d \geq 0$
-  and $1 \leq i \leq k$, we have
-  %
-  \begin{align*}
-    \P\left(
-      |C_i^1| \leq \varepsilon_1,
-      \ldots, |C_i^d| \leq \varepsilon_d,
-      \# T = k
-    \right)
-    &=
-    \P\left(
-      |C_1^1| \leq \varepsilon_1,
-      \ldots, |C_1^d| \leq \varepsilon_d,
-      \# T = k
-    \right).
-  \end{align*}
-  %
-  Therefore by marginalizing over $\# T$,
-  if $E_j$ are i.i.d.\ $\Exp(1)$ variables,
-  %
-  \begin{align*}
-    \P\left(
-      |C_i^1| > \varepsilon_1,
-      \ldots, |C_i^d| > \varepsilon_d
-    \right)
-    &=
-    \prod_{j=1}^d
-    \P\left(
-      \frac{E_j}{\lambda} \wedge |C^j|
-      > \varepsilon_j
-    \right)
-    = \prod_{j=1}^d
-    \I\{|C^j| > \varepsilon_j\}
-    e^{-\lambda \varepsilon_j}.
-  \end{align*}
-
-\end{lemma}
-
-\begin{proof}[Lemma~\ref{lem:cells_identically_distributed}]
-
-  Let $w$ be the word associated with the cell $C_i \in T$.
-  Note that $i=1$ if and only if $r \notin w$.
-  So suppose $r \in w$.
-  Let $\widetilde w$ be the word obtained by replacing all occurrences
-  of $r$ in $w$ with an $l$.
-  Each such replacement corresponds to a split in $T$.
-  Let $\widetilde T$ be the same process as $T$ but with the following
-  modification: for each split where a replacement was made,
-  change the uniform random variable $U$
-  (from the definition of $T$) to $1-U$.
-  Since $U$ is independent of everything else in the construction of $T$,
-  we observe that $\widetilde T \sim \cM(C, \lambda)$ also.
-  Further, there is almost surely exactly one cell in $\widetilde T$
-  which has the same shape as $C$.
-  Denote this cell $\widetilde C$ and note that
-  the replacements imply that its word in $\widetilde T$
-  is $\widetilde w$.
-  Thus $\widetilde C = \widetilde C_1$ in $\widetilde T$ and so
-  $(|C_i^1|, \ldots, |C_i^d|, \# T)
-  = (|\widetilde C_1^1|, \ldots, |\widetilde C_1^d|, \# \widetilde T)$
-  a.s.
-  Equality of the distributions follows immediately.
-\end{proof}
-
-\begin{lemma}[Tail bound on largest Mondrian cell]
-  \label{lem:largest_cell_tail}
-
-  Let $T \sim \cM(C, \lambda)$.
-  For any $\varepsilon > 0$,
-  %
-  \begin{align*}
-    \P\left(
-      \max_{C' \in T}
-      \max_{1 \leq j \leq d}
-      |C'^j| > \varepsilon
-    \right)
-    &\leq
-    5d (1 + \lambda |C|)^{d+1}
-    e^{-\lambda \varepsilon}.
-  \end{align*}
-  %
-  and so also
-  %
-  \begin{align*}
-    \P\left(
-      \max_{C' \in T}
-      |C'| > \varepsilon
-    \right)
-    &\leq
-    5 d (1 + \lambda |C|)^{d+1}
-    e^{-\lambda \varepsilon / d}.
-  \end{align*}
-  %
-\end{lemma}
-
-\begin{proof}[Lemma~\ref{lem:largest_cell_tail}]
-
-  Let $C_i$ be the canonically ordered cells of $T$
-  and take $k \geq 1$.
-  By union bounds and
-  Lemma~\ref{lem:cells_identically_distributed},
-  %
-  \begin{align*}
-    \P\left(
-      \max_{C' \in T}
-      \max_{1 \leq j \leq d}
-      |C'^j| > \varepsilon
-    \right)
-    &\leq
-    \sum_{l=1}^k
-    \P\left(
-      \max_{1 \leq i \leq l}
-      \max_{1 \leq j \leq d}
-      |C_i^j| > \varepsilon,
-      \# T = l
-    \right)
-    + \P\left( \# T > k \right) \\
-    &\leq
-    \sum_{l=1}^k
-    \sum_{i=1}^l
-    \sum_{j=1}^d
-    \P\big(
-      |C_i^j| > \varepsilon,
-      \# T = l
-    \big)
-    + \P\left( \# T > k \right) \\
-    &\leq
-    \sum_{l=1}^k
-    l d \,
-    \P\big(
-      |C_1^j| > \varepsilon,
-      \# T = l
-    \big)
-    + \P\left( \# T > k \right) \\
-    &\leq
-    k d \,
-    \P\big(|C_1^j| > \varepsilon \big)
-    + \P\left( \# T > k \right).
-  \end{align*}
-  %
-  For the first term we use the exact distribution of
-  $C_1$ from Lemma~\ref{lem:cells_identically_distributed}
-  and for the second term we apply Lemma~\ref{lem:cells_tail}.
-  %
-  \begin{align*}
-    \P\left(
-      \max_{C' \in T}
-      \max_{1 \leq j \leq d}
-      |C'^j| > \varepsilon
-    \right)
-    &\leq
-    k d \, \P\big(|C_1^j| > \varepsilon \big)
-    + \P\left( \# T > k \right) \\
-    &\leq
-    k d \, e^{-\lambda \varepsilon}
-    + 2 (1 + \lambda |C|)^d
-    e^{-k (1 + \lambda |C|)^{-d} / 3}.
-  \end{align*}
-  %
-  Finally set
-  $k = \big\lceil 3 \lambda \varepsilon (1 + \lambda |C|)^d \big\rceil$
-  and note the bound is trivial unless $\varepsilon \leq |C|$.
-  %
-  \begin{align*}
-    \P\left(
-      \max_{C' \in T}
-      \max_{1 \leq j \leq d}
-      |C'^j| > \varepsilon
-    \right)
-    &\leq
-    \big( 3 \lambda \varepsilon (1 + \lambda |C|)^d + 1 \big)
-    d \, e^{-\lambda \varepsilon}
-    + 2 (1 + \lambda |C|)^d
-    e^{-\lambda \varepsilon} \\
-    &\leq
-    3d (1 + \lambda |C|)^{d+1}
-    e^{-\lambda \varepsilon}
-    + 2 (1 + \lambda |C|)^d
-    e^{-\lambda \varepsilon} \\
-    &\leq
-    5d (1 + \lambda |C|)^{d+1}
-    e^{-\lambda \varepsilon}.
-  \end{align*}
-  %
-\end{proof}
-
-\begin{lemma}[Some inequalities regarding forest refinements]
-  \label{lem:refinement_inequalities}
-
-  Let $T_b$ be trees on a $d$-dimensional cell $C$
-  for $1 \leq b \leq B$.
-  Then
-  %
-  \begin{align*}
-    \# \bigwedge_{b=1}^B T_b
-    &\leq \prod_{b=1}^B \# T_b
-  \end{align*}
-  %
-  and this bound is achievable whenever $B \leq d$.
-  If $\# T_b^j$ denotes the number of cuts
-  made by $T_b$ in dimension $j$ then
-  %
-  \begin{align*}
-    \# \bigwedge_{b=1}^B T_b
-    &\leq \prod_{j=1}^d
-    \sum_{b=1}^B \# T_b^j
-  \end{align*}
-  %
-  and this is bound is achievable whenever $B \geq d$.
-
-\end{lemma}
-
-\begin{proof}[Lemma~\ref{lem:refinement_inequalities}]
-
-  The first inequality follows because every cell in
-  $\bigwedge_b T_b$ is the intersection of cells
-  $C_b \in T_b$ for $1 \leq b \leq B$.
-  This bound is achievable when $B \leq d$ by setting
-  $T_b$ to be a tree with cuts only in dimension $b$,
-  so that every such intersection of cells
-  gives a cell in the refinement.
-
-  For the second inequality we construct a new forest of trees.
-  In particular, for each $1 \leq j \leq d$ define
-  $A_j$ to be the set of locations in $C^j$ where some tree $T_b$
-  makes a cut in dimension $j$.
-  Now define $T'_j$ to be a tree which has cuts
-  only in dimension $j$ and at the locations prescribed by $A_j$.
-  Clearly since every cut in $T'_j$
-  comes from a cut from $T_b$ in dimension $j$,
-  we have $\# T'_j \leq \sum_b \# T_b^j$.
-  Applying the first inequality to the new forest yields
-  $\# \bigwedge_j T'_j \leq \prod_j \# T'_j
-  \leq \prod_j \sum_b \# T_b^j$.
-  Finally note $\bigwedge_b T_b$
-  is a sub-tree of $\bigwedge_j T'_j$ and the result follows.
-  This bound is achievable when $B \geq d$ by fixing
-  $T_b$ to have cuts only in dimension $b$ when $b \leq d$
-  and to be empty otherwise.
-  %
-\end{proof}
-
-\begin{lemma}[Tail bound on the number of cells in a Mondrian forest refinement]
-  \label{lem:refinement_tail}
-
-  Let $T_b \sim \cM(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
-  Then
-  %
-  \begin{align*}
-    \P\left(
-      \# \bigwedge_{b=1}^B T_b
-      > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
-      \left(
-        t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
-      \right)^d
-    \right)
-    &\leq e^{-t}.
-  \end{align*}
-
-\end{lemma}
-
-\begin{proof}[Lemma~\ref{lem:refinement_tail}]
-
-  We begin with a rather coarse estimate and refine it using
-  the subcell trick.
-  By Lemma~\ref{lem:refinement_inequalities}
-  and union bounds,
-  %
-  \begin{align*}
-    \P\left(
-      \# \bigwedge_{b=1}^B T_b
-      > t
-    \right)
-    &\leq
-    \P\left(
-      \prod_{j=1}^d
-      \sum_{b=1}^B \# T_b^j
-      > t
-    \right)
-    \leq
-    d\,
-    \P\left(
-      \sum_{b=1}^B \# T_b
-      > t^{1/d}
-    \right)
-    \leq
-    dB\,
-    \P\left(
-      \# T_b > \frac{t^{1/d}}{B}
-    \right).
-  \end{align*}
-  %
-  Now by the subcell trick, partition $C$ into
-  at most $(1 + 1/\varepsilon)^d$ cells
-  $C_\varepsilon \in \cC_\varepsilon$
-  with side lengths at most
-  $(|C^1| \varepsilon, \ldots, |C^d| \varepsilon)$.
-  Since a split in $\bigwedge_b T_b$ induces a split
-  in at least one of
-  $\bigwedge_b (T_b \cap C_\varepsilon)$,
-  %
-  \begin{align*}
-    \P\left(
-      \# \bigwedge_{b=1}^B T_b
-      > t
-    \right)
-    &\leq
-    \P\left(
-      \sum_{C_\varepsilon \in \cC_\varepsilon}
-      \# \bigwedge_{b=1}^B (T_b \cap C_\varepsilon)
-      > t
-    \right)
-    \leq
-    \sum_{C_\varepsilon \in \cC_\varepsilon}
-    \P\left(
-      \# \bigwedge_{b=1}^B (T_b \cap C_\varepsilon)
-      > \frac{t}{\# \cC_\varepsilon}
-    \right).
-  \end{align*}
-  %
-  Applying the coarse estimate above gives
-  %
-  \begin{align*}
-    \P\left(
-      \# \bigwedge_{b=1}^B T_b
-      > t
-    \right)
-    &\leq
-    \# \cC_\varepsilon
-    dB\,
-    \P\left(
-      \# (T_b \cap C_\varepsilon)
-      > \frac{t^{1/d}}{B \# \cC_\varepsilon^{1/d}}
-    \right) \\
-    &\leq
-    (1 + 1/\varepsilon)^d
-    dB\,
-    \P\left(
-      \# (T_b \cap C_\varepsilon)
-      > \frac{t^{1/d}}{B (1 + 1/\varepsilon)}
-    \right).
-  \end{align*}
-  %
-  By Lemma~\ref{lem:cells_tail}
-  and setting $\varepsilon = \frac{1}{\lambda |C|}$,
-  %
-  \begin{align*}
-    \P\left(
-      \# \bigwedge_{b=1}^B T_b
-      > t
-    \right)
-    &\leq
-    2 (1 + 1/\varepsilon)^d
-    dB\,
-    (1 + \lambda |C| \varepsilon)^d
-    e^{-t^{1/d} B^{-1} (1+1/\varepsilon)^{-1}
-    (1 + \lambda |C| \varepsilon)^{-d} / 3} \\
-    &\leq
-    2^{d+1} dB (1 + \lambda |C|)^d
-    e^{-t^{1/d} B^{-1} (1+\lambda |C|)^{-1}
-    2^{-d} / 3}.
-  \end{align*}
-  %
-  Finally replacing $t$ by
-  $3^d 2^{d^2} B^d (1+\lambda|C|)^d
-  \left(
-    t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
-  \right)^d$
-  we have
-  %
-  \begin{align*}
-    \P\left(
-      \# \bigwedge_{b=1}^B T_b
-      > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
-      \left(
-        t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
-      \right)^d
-    \right)
-    &\leq e^{-t}.
-  \end{align*}
-  %
-\end{proof}
-
-\begin{definition}[Active cells]
-
-  For $x \in C$ and trees $T_b$ for $1 \leq b \leq B$,
-  define the active cells in the refinement at $x$ by
-  %
-  \begin{align*}
-    \cA(x)
-    = \left\{
-      C' \in \bigwedge_{b=1}^B T_b :
-      \text{ there exists } b
-      \text{ and } C'' \in T_b
-      \text{ with } C' \subseteq C''
-      \text{ and } x \in C''
-    \right\}.
-  \end{align*}
-
-\end{definition}
-
-\begin{lemma}[Active cells]
-  \label{lem:active_cells}
-
-  Let $T_b \sim \cM(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
-  Then the number of active cells can be controlled pointwise by
-  %
-  \begin{align*}
-    \P\left( \# \cA(x)
-      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
-    \right)
-    &\leq
-    2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
-  \end{align*}
-  %
-  and uniformly by
-  %
-  \begin{align*}
-    \P\left(
-      \sup_{x \in C} \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right)
-    &\leq
-    2^{11d^2}
-    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
-  \end{align*}
-  %
-\end{lemma}
-
-\begin{proof}[Lemma~\ref{lem:active_cells}]
-
-  For $\varepsilon > 0$ and $x \in C$
-  define $C_x^{\varepsilon}$ as the cell with side $j$
-  given by $[x_j - \varepsilon, x_j + \varepsilon] \cap C^j$
-  for $1 \leq j \leq d$.
-  Note that if $C' \in \cA(x)$ and
-  $\max_b \max_{C_b} \max_j |C_b^j| \leq \varepsilon$
-  then $C' \subseteq C_x^\varepsilon$.
-  Therefore with $0 < \varepsilon \leq \lambda |C|$,
-  %
-  \begin{align*}
-    \P\left( \# \cA(x) > t \right)
-    &\leq
-    \P\left(
-      \# \bigwedge_{b=1}^B
-      \left( T_b \cap C_x^{\varepsilon/\lambda} \right)
-      > t
-    \right)
-    + \P\left(
-      \max_{1 \leq b \leq B}
-      \max_{C_b \in T_b}
-      \max_{1 \leq j \leq d}
-      |C_b^j| > \frac{\varepsilon}{\lambda}
-    \right).
-  \end{align*}
-  %
-  Thus by a union bound and
-  Lemmas~\ref{lem:largest_cell_tail}
-  and~\ref{lem:refinement_tail},
-  noting that
-  $|C_x^{\varepsilon/\lambda}| \leq 2 d \varepsilon / \lambda$,
-  %
-  \begin{align*}
-    \P\left( \# \cA(x) > t \right)
-    &\leq
-    2^{d+1} dB (1 + 2 d \varepsilon)^d
-    e^{-t^{1/d} B^{-1} (1 + 2 d \varepsilon)^{-1}
-    2^{-d} / 3}
-    + 5d B (1 + \lambda |C|)^{d+1}
-    e^{-\varepsilon}.
-  \end{align*}
-  %
-  Noting $\varepsilon \leq \lambda |C|$,
-  replacing $t$ by
-  $2^{d^2} 3^d B^d (1+2d\varepsilon)^d t^d$
-  and setting $\varepsilon = t$ gives
-  %
-  \begin{align*}
-    \P\left( \# \cA(x)
-      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
-    \right)
-    &\leq
-    2^{d+1} dB (1 + 2 d \lambda |C|)^d e^{-t}
-    + 5d B (1 + \lambda |C|)^{d+1}
-    e^{-t} \\
-    &\leq
-    2^{d+3} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}, \\
-    \P\left( \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right)
-    &\leq
-    2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
-  \end{align*}
-  %
-  Next note that $\cA(x)$ depends on $x$ only
-  through $\bigwedge_b T_b(x)$ so that
-  %
-  \begin{align*}
-    &\P\left(
-      \sup_{x \in C} \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right) \\
-    &\quad=
-    \P\left(
-      \max_{C' \in \bigwedge_b T_b} \# \cA(C')
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right) \\
-    &\quad\leq
-    \sum_{l=1}^k
-    \P\left(
-      \max_{C' \in \bigwedge_b T_b} \# \cA(C')
-      > 2^{d(d+3)} d^d B^d t^{2d},
-      \# \bigwedge_{b=1}^B T_b = l
-    \right)
-    + \P\left(
-      \# \bigwedge_{b=1}^B T_b > k
-    \right) \\
-    &\quad\leq
-    k \sup_{x \in C}
-    \P\left( \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right)
-    + \P\left(
-      \# \bigwedge_{b=1}^B T_b > k
-    \right) \\
-    &\quad\leq
-    2^{d+5} k d B (1 + 2 d \lambda |C|)^{d+1} e^{-t}
-    + 2^{d+1} dB (1 + \lambda |C|)^d
-    e^{-k^{1/d} B^{-1} (1+\lambda |C|)^{-1}
-    2^{-d} / 3}.
-  \end{align*}
-  %
-  Setting
-  $k = \lceil 3^d 2^{d^2} B^d (1+\lambda|C|)^d t ^d \rceil$
-  gives
-  %
-  \begin{align*}
-    \P\left(
-      \sup_{x \in C} \# \cA(x)
-      > 2^{d(d+3)} d^d B^d t^{2d}
-    \right)
-    &\leq
-    2^{11d^2}
-    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
-  \end{align*}
-  %
-\end{proof}
-
-\pagebreak
+\section{Proofs of the main results}
+\label{sec:mondrian_proofs}
 
 \subsection{Proofs for Mondrian random forests}
 
@@ -4826,3 +4056,813 @@ of the debiased Mondrian random forest estimator.
     n^{-\frac{2\beta}{d + 2 \beta}}.
   \end{align*}
 \end{proof}
+
+\section{Further properties of the Mondrian process}
+
+In section, we state and prove a collection of lemmas concerning
+various properties of the Mondrian process. While they are not used directly
+in our analysis of Mondrian random forest estimators, we believe that
+these results, along with the techniques displayed during their proofs,
+may be of potential independent interest.
+
+Our analysis of Mondrian random forest estimators in the main text
+is for the most part
+conducted pointwise, in the sense that we first fix $x \in [0,1]^d$
+and then analyze $\hat\mu(x)$. This means that we interact with the Mondrian
+process
+only through $T(x)$; that is, the cell in $T$ which contains the point $x$.
+As such, we rely only on local properties of $T$, and may consider just a
+single Mondrian cell. The lemmas in this section take a more global approach
+to analyzing the Mondrian process, and we aim to make statements about the
+entire process $T$, rather than individual cells $T(x)$.
+Such results could be useful for a future investigation of the uniform
+properties of Mondrian forest estimators, as well as
+being interesting in their own right.
+
+\TODO{
+  check notation in these aligns with main paper:
+  $D$ not $C$ for cells
+}
+\TODO{write a little about each of these}
+\TODO{decide which results to keep in the dissertation}
+
+We begin with a tail bound for the number of cells appearing
+in a Mondrian tree, offering a multiplicative
+exponential inequality which
+complements the exact expectation result given in
+\citet[Proposition~2]{mourtada2020minimax}.
+The resulting bound in probability is the same up to
+logarithmic terms, and the sharp tail decay is useful
+in combination with union bounds in our upcoming results.
+
+\begin{lemma}[Tail bound for the number of cells in a Mondrian tree]
+  \label{lem:cells_tail}
+
+  Let $D \subseteq \R^d$ be a rectangle and
+  $T \sim \cM(D, \lambda)$. Writing
+  $\# T$ for the number of cells in $T$,
+  %
+  \begin{align*}
+    \P\left(
+      \# T > 3 (1 + \lambda |D|)^d
+      (t + 1 + d \log(1 + \lambda |D|))
+    \right)
+    &\leq
+    e^{-t}.
+  \end{align*}
+
+\end{lemma}
+
+\begin{proof}[Lemma~\ref{lem:cells_tail}]
+
+  We refer to this method as the ``subcell trick''
+  and attribute it to \cite{mourtada2017universal}.
+  For $\varepsilon > 0$, partition $D$ into
+  at most $(1 + 1/\varepsilon)^d$ cells $D_\varepsilon \in \cD_\varepsilon$
+  with side lengths at most $(|D^1| \varepsilon, \ldots, |D^d| \varepsilon)$.
+  Since a split in $T$ induces a split in some
+  $T \cap D_\varepsilon$,
+  %
+  \begin{align*}
+    \P\left(\# T > t \right)
+    &\leq
+    \P\left(\sum_{D_\varepsilon \in \cD_\varepsilon}
+    \# (T \cap D_\varepsilon) > t \right)
+    \leq
+    \sum_{D_\varepsilon \in \cD_\varepsilon}
+    \P\left(
+      \# (T \cap D_\varepsilon) >
+      \frac{t}{\# \cD_\varepsilon}
+    \right).
+  \end{align*}
+  %
+  Now $\# (T \cap D_\varepsilon)$ is dominated by a Yule process
+  with parameter $|D_\varepsilon|$ stopped at time $\lambda$
+  \cite[proof of Lemma~2]{mourtada2017universal},
+  so using that fact that if
+  $X \sim \Yule(a)$
+  then $\P(X_t > n) \leq (1-e^{-at})^{n-1}$,
+  %
+  \begin{align*}
+    \P\left(\# T > t \right)
+    &\leq
+    \# \cD_\varepsilon \,
+    (1 - e^{-\lambda |D| \varepsilon})^{t / \# \cD_\varepsilon - 1}
+    \leq
+    (1 + 1/\varepsilon)^d
+    (1 - e^{-\lambda |D| \varepsilon})^{t (1 + 1/\varepsilon)^{-d} - 1}.
+  \end{align*}
+  %
+  Set $\varepsilon = \frac{1}{\lambda |D|}$,
+  note $1-1/e \leq e^{-1/3}$
+  and replace $t$ by
+  $3 (1 + \lambda |D|)^d
+  (t + 1 + d \log(1 + \lambda |D|))$:
+  %
+  \begin{align*}
+    &\P\left(\# T > t \right)
+    \leq
+    (1 + \lambda |D|)^d
+    (1 - 1/e)^{t (1 + \lambda |D|)^{-d} - 1}
+    \leq
+    2 (1 + \lambda |D|)^d
+    e^{-t (1 + \lambda |D|)^{-d} / 3}, \\
+    &\P\left(\# T >
+      3
+      (1 + \lambda |D|)^d
+      (t + 1 + d \log(1 + \lambda |D|))
+    \right)
+    \leq
+    e^{-t}.
+  \end{align*}
+\end{proof}
+
+Next we provide a rigorous justification to the observation that the cells
+in a Mondrian process should have the same shape distribution, though
+of course they are not independent. To state and prove this result,
+we need a way to identify a particular cell by endowing the
+cells in a Mondrian tree with a natural order.
+
+\TODO{does this have a name?}
+\TODO{check from here}
+
+\begin{definition}[Canonical order of cells in a Mondrian tree]
+
+  Let $T \sim \cM(C, \lambda)$.
+  Each cell in a fixed realization of $T$ can be described by
+  a word from the alphabet $\{l, r\}$,
+  where $l$ indicates the cell to the left of a split
+  and $r$ indicates the cell to the right.
+  For example, if there are no splits we have one cell
+  described by the empty word.
+  After one split there are two cells, denoted
+  $l$ and $r$.
+  Now suppose that the cell $r$ splits again, giving two splits and three cells,
+  denoted $l$, $r l$ and $r r$.
+  Define the canonical ordering of the cells of $T$ by applying
+  the lexicographic order to their words, with $l < r$.
+  Note that it does not matter which coordinate each split occurs in:
+  in two dimensions, $l$ might refer to the ``left'' or ``bottom''
+  and $r$ to the ``right'' or ``top'' cell.
+
+\end{definition}
+
+\begin{lemma}[Cells in a Mondrian tree have identically distributed shapes]
+  \label{lem:cells_identically_distributed}
+
+  Let $T \sim \cM(D, \lambda)$
+  with canonically ordered cells
+  $D_1, \ldots, D_{\# T}$.
+  For any $\varepsilon_1, \ldots, \varepsilon_d \geq 0$
+  and $1 \leq i \leq k$, we have
+  %
+  \begin{align*}
+    \P\left(
+      |D_i^1| \leq \varepsilon_1,
+      \ldots, |D_i^d| \leq \varepsilon_d,
+      \# T = k
+    \right)
+    &=
+    \P\left(
+      |D_1^1| \leq \varepsilon_1,
+      \ldots, |D_1^d| \leq \varepsilon_d,
+      \# T = k
+    \right).
+  \end{align*}
+  %
+  Therefore by marginalizing over $\# T$,
+  if $E_j$ are i.i.d.\ $\Exp(1)$ variables,
+  %
+  \begin{align*}
+    \P\left(
+      |D_i^1| > \varepsilon_1,
+      \ldots, |D_i^d| > \varepsilon_d
+    \right)
+    &=
+    \prod_{j=1}^d
+    \P\left(
+      \frac{E_j}{\lambda} \wedge |D^j|
+      > \varepsilon_j
+    \right)
+    = \prod_{j=1}^d
+    \I\{|D^j| > \varepsilon_j\}
+    e^{-\lambda \varepsilon_j}.
+  \end{align*}
+
+\end{lemma}
+
+\begin{proof}[Lemma~\ref{lem:cells_identically_distributed}]
+
+  Let $w$ be the word associated with the cell $D_i \in T$.
+  Note that $i=1$ if and only if $r \notin w$.
+  So suppose $r \in w$.
+  Let $\widetilde w$ be the word obtained by replacing all occurrences
+  of $r$ in $w$ with an $l$.
+  Each such replacement corresponds to a split in $T$.
+  Let $\widetilde T$ be the same process as $T$ but with the following
+  modification: for each split where a replacement was made,
+  change the uniform random variable $U$
+  (from the definition of $T$) to $1-U$.
+  Since $U$ is independent of everything else in the construction of $T$,
+  we observe that $\widetilde T \sim \cM(D, \lambda)$ also.
+  Further, there is almost surely exactly one cell in $\widetilde T$
+  which has the same shape as $D$.
+  Denote this cell $\widetilde D$ and note that
+  the replacements imply that its word in $\widetilde T$
+  is $\widetilde w$.
+  Thus $\widetilde D = \widetilde D_1$ in $\widetilde T$ and so
+  $(|D_i^1|, \ldots, |D_i^d|, \# T)
+  = (|\widetilde D_1^1|, \ldots, |\widetilde D_1^d|, \# \widetilde T)$
+  a.s.
+  Equality of the distributions follows immediately.
+\end{proof}
+
+\begin{lemma}[Tail bound on largest Mondrian cell]
+  \label{lem:largest_cell_tail}
+
+  Let $T \sim \cM(C, \lambda)$.
+  For any $\varepsilon > 0$,
+  %
+  \begin{align*}
+    \P\left(
+      \max_{C' \in T}
+      \max_{1 \leq j \leq d}
+      |C'^j| > \varepsilon
+    \right)
+    &\leq
+    5d (1 + \lambda |C|)^{d+1}
+    e^{-\lambda \varepsilon}.
+  \end{align*}
+  %
+  and so also
+  %
+  \begin{align*}
+    \P\left(
+      \max_{C' \in T}
+      |C'| > \varepsilon
+    \right)
+    &\leq
+    5 d (1 + \lambda |C|)^{d+1}
+    e^{-\lambda \varepsilon / d}.
+  \end{align*}
+  %
+\end{lemma}
+
+\begin{proof}[Lemma~\ref{lem:largest_cell_tail}]
+
+  Let $C_i$ be the canonically ordered cells of $T$
+  and take $k \geq 1$.
+  By union bounds and
+  Lemma~\ref{lem:cells_identically_distributed},
+  %
+  \begin{align*}
+    \P\left(
+      \max_{C' \in T}
+      \max_{1 \leq j \leq d}
+      |C'^j| > \varepsilon
+    \right)
+    &\leq
+    \sum_{l=1}^k
+    \P\left(
+      \max_{1 \leq i \leq l}
+      \max_{1 \leq j \leq d}
+      |C_i^j| > \varepsilon,
+      \# T = l
+    \right)
+    + \P\left( \# T > k \right) \\
+    &\leq
+    \sum_{l=1}^k
+    \sum_{i=1}^l
+    \sum_{j=1}^d
+    \P\big(
+      |C_i^j| > \varepsilon,
+      \# T = l
+    \big)
+    + \P\left( \# T > k \right) \\
+    &\leq
+    \sum_{l=1}^k
+    l d \,
+    \P\big(
+      |C_1^j| > \varepsilon,
+      \# T = l
+    \big)
+    + \P\left( \# T > k \right) \\
+    &\leq
+    k d \,
+    \P\big(|C_1^j| > \varepsilon \big)
+    + \P\left( \# T > k \right).
+  \end{align*}
+  %
+  For the first term we use the exact distribution of
+  $C_1$ from Lemma~\ref{lem:cells_identically_distributed}
+  and for the second term we apply Lemma~\ref{lem:cells_tail}.
+  %
+  \begin{align*}
+    \P\left(
+      \max_{C' \in T}
+      \max_{1 \leq j \leq d}
+      |C'^j| > \varepsilon
+    \right)
+    &\leq
+    k d \, \P\big(|C_1^j| > \varepsilon \big)
+    + \P\left( \# T > k \right) \\
+    &\leq
+    k d \, e^{-\lambda \varepsilon}
+    + 2 (1 + \lambda |C|)^d
+    e^{-k (1 + \lambda |C|)^{-d} / 3}.
+  \end{align*}
+  %
+  Finally set
+  $k = \big\lceil 3 \lambda \varepsilon (1 + \lambda |C|)^d \big\rceil$
+  and note the bound is trivial unless $\varepsilon \leq |C|$.
+  %
+  \begin{align*}
+    \P\left(
+      \max_{C' \in T}
+      \max_{1 \leq j \leq d}
+      |C'^j| > \varepsilon
+    \right)
+    &\leq
+    \big( 3 \lambda \varepsilon (1 + \lambda |C|)^d + 1 \big)
+    d \, e^{-\lambda \varepsilon}
+    + 2 (1 + \lambda |C|)^d
+    e^{-\lambda \varepsilon} \\
+    &\leq
+    3d (1 + \lambda |C|)^{d+1}
+    e^{-\lambda \varepsilon}
+    + 2 (1 + \lambda |C|)^d
+    e^{-\lambda \varepsilon} \\
+    &\leq
+    5d (1 + \lambda |C|)^{d+1}
+    e^{-\lambda \varepsilon}.
+  \end{align*}
+  %
+\end{proof}
+
+\begin{lemma}[Expected number of cells in a Mondrian forest refinement]
+  \label{lem:refinement}
+
+  Take $C = \bigotimes_{j=1}^d C^j$
+  and $\lambda_b > 0$ for $1 \leq b \leq B$.
+  Let $T_b \sim \cM(C, \lambda_b)$ be independent Mondrian processes
+  and write $\bigwedge_{b=1}^B T_b$ for the common refinement
+  of their partitions.
+  Then the expected number of cells in this refinement is
+  %
+  \begin{align*}
+    \E\left[\# \bigwedge_{b=1}^B T_b \right]
+    &= \prod_{j=1}^d \left(
+      1 + |C^j| \sum_{b=1}^B \lambda_b
+    \right).
+  \end{align*}
+  %
+\end{lemma}
+
+\begin{proof}[Lemma~\ref{lem:refinement}]
+
+  By \cite[Proposition~2]{mourtada2020minimax}
+  we have the result for a single tree:
+  %
+  \begin{align*}
+    \E\left[\# T_b \right]
+    &= \prod_{j=1}^d \left(
+      1 + |C^j| \lambda_b
+    \right).
+  \end{align*}
+  %
+  We proceed by induction on $B$.
+  Denote the restriction of a tree $T$ to a cell $C$ by $T \cap C$.
+  By the tower law,
+  %
+  \begin{align*}
+    \E\left[\# \bigwedge_{b=1}^B T_b \right]
+    &=
+    \E\left[
+      \sum_{C_B \in T_B}
+      \#
+      \left(
+        \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
+      \right)
+    \right]
+    = \E\left[
+      \sum_{C_B \in T_B}
+      \E\left[
+        \#
+        \left(
+          \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
+        \right)
+        \biggm| T_B
+      \right]
+    \right].
+  \end{align*}
+  %
+  Now by the restriction property of Mondrian processes
+  \cite[Fact~2]{mourtada2020minimax},
+  observe that $T_b \cap C_B \sim \cM(C_B, \lambda_b)$
+  conditional on $T_B$.
+  Then by the induction hypothesis,
+  %
+  \begin{align*}
+    \E\left[
+      \#
+      \left(
+        \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
+      \right)
+      \biggm| T_B
+    \right]
+    &=
+    \prod_{j=1}^d \left(
+      1 + |C_B^j| \sum_{b=1}^{B-1} \lambda_b
+    \right)
+    = \E\big[
+      \# T_{C_B} \mid T_B
+    \big]
+  \end{align*}
+  %
+  where $T_{C_B} \sim \cM(C_B, \sum_{b=1}^{B-1} \lambda_B)$
+  independently, conditional on $T_B$,
+  by the result for a single tree.
+  The restriction property finally shows that
+  $\sum_{C_B \in T_B} \# T_{C_B}$ is equal in distribution
+  to $\# T$ where $T \sim \cM(C, \sum_{b=1}^B \lambda_b)$
+  and so
+  %
+  \begin{align*}
+    \E\left[\# \bigwedge_{b=1}^B T_b \right]
+    &=
+    \E\left[
+      \sum_{C_B \in T_B}
+      \E\big[
+        \# T_{C_B} \mid T_B
+      \big]
+    \right]
+    =
+    \E\big[\# T \big]
+    = \prod_{j=1}^d \left(
+      1 + |C^j| \sum_{b=1}^B \lambda_b
+    \right).
+  \end{align*}
+\end{proof}
+
+\begin{lemma}[Some inequalities regarding forest refinements]
+  \label{lem:refinement_inequalities}
+
+  Let $T_b$ be trees on a $d$-dimensional cell $C$
+  for $1 \leq b \leq B$.
+  Then
+  %
+  \begin{align*}
+    \# \bigwedge_{b=1}^B T_b
+    &\leq \prod_{b=1}^B \# T_b
+  \end{align*}
+  %
+  and this bound is achievable whenever $B \leq d$.
+  If $\# T_b^j$ denotes the number of cuts
+  made by $T_b$ in dimension $j$ then
+  %
+  \begin{align*}
+    \# \bigwedge_{b=1}^B T_b
+    &\leq \prod_{j=1}^d
+    \sum_{b=1}^B \# T_b^j
+  \end{align*}
+  %
+  and this is bound is achievable whenever $B \geq d$.
+
+\end{lemma}
+
+\begin{proof}[Lemma~\ref{lem:refinement_inequalities}]
+
+  The first inequality follows because every cell in
+  $\bigwedge_b T_b$ is the intersection of cells
+  $C_b \in T_b$ for $1 \leq b \leq B$.
+  This bound is achievable when $B \leq d$ by setting
+  $T_b$ to be a tree with cuts only in dimension $b$,
+  so that every such intersection of cells
+  gives a cell in the refinement.
+
+  For the second inequality we construct a new forest of trees.
+  In particular, for each $1 \leq j \leq d$ define
+  $A_j$ to be the set of locations in $C^j$ where some tree $T_b$
+  makes a cut in dimension $j$.
+  Now define $T'_j$ to be a tree which has cuts
+  only in dimension $j$ and at the locations prescribed by $A_j$.
+  Clearly since every cut in $T'_j$
+  comes from a cut from $T_b$ in dimension $j$,
+  we have $\# T'_j \leq \sum_b \# T_b^j$.
+  Applying the first inequality to the new forest yields
+  $\# \bigwedge_j T'_j \leq \prod_j \# T'_j
+  \leq \prod_j \sum_b \# T_b^j$.
+  Finally note $\bigwedge_b T_b$
+  is a sub-tree of $\bigwedge_j T'_j$ and the result follows.
+  This bound is achievable when $B \geq d$ by fixing
+  $T_b$ to have cuts only in dimension $b$ when $b \leq d$
+  and to be empty otherwise.
+  %
+\end{proof}
+
+\begin{lemma}[Tail bound on the number of cells in a Mondrian forest refinement]
+  \label{lem:refinement_tail}
+
+  Let $T_b \sim \cM(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
+  Then
+  %
+  \begin{align*}
+    \P\left(
+      \# \bigwedge_{b=1}^B T_b
+      > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
+      \left(
+        t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
+      \right)^d
+    \right)
+    &\leq e^{-t}.
+  \end{align*}
+
+\end{lemma}
+
+\begin{proof}[Lemma~\ref{lem:refinement_tail}]
+
+  We begin with a rather coarse estimate and refine it using
+  the subcell trick.
+  By Lemma~\ref{lem:refinement_inequalities}
+  and union bounds,
+  %
+  \begin{align*}
+    \P\left(
+      \# \bigwedge_{b=1}^B T_b
+      > t
+    \right)
+    &\leq
+    \P\left(
+      \prod_{j=1}^d
+      \sum_{b=1}^B \# T_b^j
+      > t
+    \right)
+    \leq
+    d\,
+    \P\left(
+      \sum_{b=1}^B \# T_b
+      > t^{1/d}
+    \right)
+    \leq
+    dB\,
+    \P\left(
+      \# T_b > \frac{t^{1/d}}{B}
+    \right).
+  \end{align*}
+  %
+  Now by the subcell trick, partition $C$ into
+  at most $(1 + 1/\varepsilon)^d$ cells
+  $C_\varepsilon \in \cC_\varepsilon$
+  with side lengths at most
+  $(|C^1| \varepsilon, \ldots, |C^d| \varepsilon)$.
+  Since a split in $\bigwedge_b T_b$ induces a split
+  in at least one of
+  $\bigwedge_b (T_b \cap C_\varepsilon)$,
+  %
+  \begin{align*}
+    \P\left(
+      \# \bigwedge_{b=1}^B T_b
+      > t
+    \right)
+    &\leq
+    \P\left(
+      \sum_{C_\varepsilon \in \cC_\varepsilon}
+      \# \bigwedge_{b=1}^B (T_b \cap C_\varepsilon)
+      > t
+    \right)
+    \leq
+    \sum_{C_\varepsilon \in \cC_\varepsilon}
+    \P\left(
+      \# \bigwedge_{b=1}^B (T_b \cap C_\varepsilon)
+      > \frac{t}{\# \cC_\varepsilon}
+    \right).
+  \end{align*}
+  %
+  Applying the coarse estimate above gives
+  %
+  \begin{align*}
+    \P\left(
+      \# \bigwedge_{b=1}^B T_b
+      > t
+    \right)
+    &\leq
+    \# \cC_\varepsilon
+    dB\,
+    \P\left(
+      \# (T_b \cap C_\varepsilon)
+      > \frac{t^{1/d}}{B \# \cC_\varepsilon^{1/d}}
+    \right) \\
+    &\leq
+    (1 + 1/\varepsilon)^d
+    dB\,
+    \P\left(
+      \# (T_b \cap C_\varepsilon)
+      > \frac{t^{1/d}}{B (1 + 1/\varepsilon)}
+    \right).
+  \end{align*}
+  %
+  By Lemma~\ref{lem:cells_tail}
+  and setting $\varepsilon = \frac{1}{\lambda |C|}$,
+  %
+  \begin{align*}
+    \P\left(
+      \# \bigwedge_{b=1}^B T_b
+      > t
+    \right)
+    &\leq
+    2 (1 + 1/\varepsilon)^d
+    dB\,
+    (1 + \lambda |C| \varepsilon)^d
+    e^{-t^{1/d} B^{-1} (1+1/\varepsilon)^{-1}
+    (1 + \lambda |C| \varepsilon)^{-d} / 3} \\
+    &\leq
+    2^{d+1} dB (1 + \lambda |C|)^d
+    e^{-t^{1/d} B^{-1} (1+\lambda |C|)^{-1}
+    2^{-d} / 3}.
+  \end{align*}
+  %
+  Finally replacing $t$ by
+  $3^d 2^{d^2} B^d (1+\lambda|C|)^d
+  \left(
+    t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
+  \right)^d$
+  we have
+  %
+  \begin{align*}
+    \P\left(
+      \# \bigwedge_{b=1}^B T_b
+      > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
+      \left(
+        t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
+      \right)^d
+    \right)
+    &\leq e^{-t}.
+  \end{align*}
+  %
+\end{proof}
+
+\begin{definition}[Active cells]
+
+  For $x \in C$ and trees $T_b$ for $1 \leq b \leq B$,
+  define the active cells in the refinement at $x$ by
+  %
+  \begin{align*}
+    \cA(x)
+    = \left\{
+      C' \in \bigwedge_{b=1}^B T_b :
+      \text{ there exists } b
+      \text{ and } C'' \in T_b
+      \text{ with } C' \subseteq C''
+      \text{ and } x \in C''
+    \right\}.
+  \end{align*}
+
+\end{definition}
+
+\begin{lemma}[Active cells]
+  \label{lem:active_cells}
+
+  Let $T_b \sim \cM(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
+  Then the number of active cells can be controlled pointwise by
+  %
+  \begin{align*}
+    \P\left( \# \cA(x)
+      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
+    \right)
+    &\leq
+    2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
+  \end{align*}
+  %
+  and uniformly by
+  %
+  \begin{align*}
+    \P\left(
+      \sup_{x \in C} \# \cA(x)
+      > 2^{d(d+3)} d^d B^d t^{2d}
+    \right)
+    &\leq
+    2^{11d^2}
+    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
+  \end{align*}
+  %
+\end{lemma}
+
+\begin{proof}[Lemma~\ref{lem:active_cells}]
+
+  For $\varepsilon > 0$ and $x \in C$
+  define $C_x^{\varepsilon}$ as the cell with side $j$
+  given by $[x_j - \varepsilon, x_j + \varepsilon] \cap C^j$
+  for $1 \leq j \leq d$.
+  Note that if $C' \in \cA(x)$ and
+  $\max_b \max_{C_b} \max_j |C_b^j| \leq \varepsilon$
+  then $C' \subseteq C_x^\varepsilon$.
+  Therefore with $0 < \varepsilon \leq \lambda |C|$,
+  %
+  \begin{align*}
+    \P\left( \# \cA(x) > t \right)
+    &\leq
+    \P\left(
+      \# \bigwedge_{b=1}^B
+      \left( T_b \cap C_x^{\varepsilon/\lambda} \right)
+      > t
+    \right)
+    + \P\left(
+      \max_{1 \leq b \leq B}
+      \max_{C_b \in T_b}
+      \max_{1 \leq j \leq d}
+      |C_b^j| > \frac{\varepsilon}{\lambda}
+    \right).
+  \end{align*}
+  %
+  Thus by a union bound and
+  Lemmas~\ref{lem:largest_cell_tail}
+  and~\ref{lem:refinement_tail},
+  noting that
+  $|C_x^{\varepsilon/\lambda}| \leq 2 d \varepsilon / \lambda$,
+  %
+  \begin{align*}
+    \P\left( \# \cA(x) > t \right)
+    &\leq
+    2^{d+1} dB (1 + 2 d \varepsilon)^d
+    e^{-t^{1/d} B^{-1} (1 + 2 d \varepsilon)^{-1}
+    2^{-d} / 3}
+    + 5d B (1 + \lambda |C|)^{d+1}
+    e^{-\varepsilon}.
+  \end{align*}
+  %
+  Noting $\varepsilon \leq \lambda |C|$,
+  replacing $t$ by
+  $2^{d^2} 3^d B^d (1+2d\varepsilon)^d t^d$
+  and setting $\varepsilon = t$ gives
+  %
+  \begin{align*}
+    \P\left( \# \cA(x)
+      > 2^{d^2} 3^d B^d (1+2dt)^d t^d
+    \right)
+    &\leq
+    2^{d+1} dB (1 + 2 d \lambda |C|)^d e^{-t}
+    + 5d B (1 + \lambda |C|)^{d+1}
+    e^{-t} \\
+    &\leq
+    2^{d+3} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}, \\
+    \P\left( \# \cA(x)
+      > 2^{d(d+3)} d^d B^d t^{2d}
+    \right)
+    &\leq
+    2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
+  \end{align*}
+  %
+  Next note that $\cA(x)$ depends on $x$ only
+  through $\bigwedge_b T_b(x)$ so that
+  %
+  \begin{align*}
+    &\P\left(
+      \sup_{x \in C} \# \cA(x)
+      > 2^{d(d+3)} d^d B^d t^{2d}
+    \right) \\
+    &\quad=
+    \P\left(
+      \max_{C' \in \bigwedge_b T_b} \# \cA(C')
+      > 2^{d(d+3)} d^d B^d t^{2d}
+    \right) \\
+    &\quad\leq
+    \sum_{l=1}^k
+    \P\left(
+      \max_{C' \in \bigwedge_b T_b} \# \cA(C')
+      > 2^{d(d+3)} d^d B^d t^{2d},
+      \# \bigwedge_{b=1}^B T_b = l
+    \right)
+    + \P\left(
+      \# \bigwedge_{b=1}^B T_b > k
+    \right) \\
+    &\quad\leq
+    k \sup_{x \in C}
+    \P\left( \# \cA(x)
+      > 2^{d(d+3)} d^d B^d t^{2d}
+    \right)
+    + \P\left(
+      \# \bigwedge_{b=1}^B T_b > k
+    \right) \\
+    &\quad\leq
+    2^{d+5} k d B (1 + 2 d \lambda |C|)^{d+1} e^{-t}
+    + 2^{d+1} dB (1 + \lambda |C|)^d
+    e^{-k^{1/d} B^{-1} (1+\lambda |C|)^{-1}
+    2^{-d} / 3}.
+  \end{align*}
+  %
+  Setting
+  $k = \lceil 3^d 2^{d^2} B^d (1+\lambda|C|)^d t ^d \rceil$
+  gives
+  %
+  \begin{align*}
+    \P\left(
+      \sup_{x \in C} \# \cA(x)
+      > 2^{d(d+3)} d^d B^d t^{2d}
+    \right)
+    &\leq
+    2^{11d^2}
+    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
+  \end{align*}
+  %
+\end{proof}
+

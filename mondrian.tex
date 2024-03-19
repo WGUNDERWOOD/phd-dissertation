@@ -237,7 +237,7 @@ We also give advice on choosing the number of trees,
 and other parameters associated with the debiasing procedure.
 
 Concluding remarks are given in Section~\ref{sec:mondrian_conclusion},
-while Appendix~\ref{sec:mondrian_proofs} contains all the mathematical
+while Appendix~\ref{app:mondrian} contains all the mathematical
 proofs of our theoretical results.
 
 \subsection{Notation}
@@ -451,7 +451,7 @@ Then the Mondrian random forest estimator of $\mu(x)$ is
 %
 If there are no samples $X_i$ in $T_b(x)$ then $N_b(x) = 0$,
 so we define $0/0 = 0$
-(see Appendix~\ref{sec:mondrian_proofs} for details).
+(see Section~\ref{sec:mondrian_proofs} for details).
 To ensure the bias and variance of the Mondrian random forest estimator
 converge to zero (see Section~\ref{sec:mondrian_inference}),
 and to avoid boundary issues,
@@ -577,7 +577,7 @@ using a central limit theorem for martingale difference sequences
 with respect to an appropriate filtration.
 Section~\ref{sec:overview_proofs} gives an overview our proof strategy in
 which  we further discuss the underlying challenges,
-while Appendix~\ref{sec:mondrian_proofs} gives all the technical details.
+while Section~\ref{sec:mondrian_proofs} gives all the technical details.
 
 \subsection{Central limit theorem}
 \label{sec:mondrian_clt}
@@ -716,7 +716,7 @@ In Theorem~\ref{thm:bias} we give some explicit examples
 of calculating the limiting bias if $\beta > 2$
 or when $X_i$ are uniformly distributed.
 The general form of $B_r(x)$ is provided in
-Appendix~\ref{sec:mondrian_proofs}
+Section~\ref{sec:mondrian_proofs}
 but is somewhat unwieldy except
 in specific situations.
 Nonetheless the most important properties are that $B_r(x)$
@@ -882,7 +882,7 @@ This section provides some insight into
 the general approach we use to establish the main results
 in the preceding sections. We focus on the technical innovations
 forming the core of our arguments, and refer the reader to
-Appendix~\ref{sec:mondrian_proofs} for detailed proofs,
+Section~\ref{sec:mondrian_proofs} for detailed proofs,
 including those for the debiased estimator discussed in the upcoming
 Section~\ref{sec:debiased}.
 
@@ -1341,7 +1341,7 @@ random forest estimator $\hat\mu_\rd(x)$ and give its limiting variance.
 The strategy and challenges associated with proving
 Theorem~\ref{thm:clt_debiased} are identical to those discussed earlier
 surrounding Theorem~\ref{thm:clt}.
-In fact in Appendix~\ref{sec:mondrian_proofs}
+In fact in Section~\ref{sec:mondrian_proofs}
 we provide a direct proof only for Theorem~\ref{thm:clt_debiased}
 and deduce Theorem~\ref{thm:clt} as a special case.
 
@@ -2003,15 +2003,25 @@ to a weather forecasting problem. We emphasize that the main aim of this
 section is to provide intuition and understanding for how a Mondrian random
 forest may be used in practice, and we refrain from an in-depth analysis of the
 results obtained. Indeed, our central assumption of i.i.d.\ data is most likely
-violated when treating weather data due to the inherent time-series structure.
+violated when treating weather data due to the inherent time-series structure
+of sequential observations.
 Nonetheless, we use data from the \cite{bomgovau} containing daily weather
 information from 2007--2017 at 49 different locations across Australia, with a
 total of $n = 125\,927$ samples. We consider the classification problem of
 predicting whether or not it will rain on the following day using two
-covariates: the humidity and pressure at 3pm on the current day. Outliers are
-removed and the covariates are normalized to $[0,1]^2$. We fit a Mondrian
-random forest, selecting the lifetime parameter with the GCV method detailed in
-Section~\ref{sec:lifetime_selection}. Figure~\ref{fig:weather_data} plots the
+covariates: the humidity and pressure at 3pm on the current day.
+For the purpose of fitting into our setting of nonparametric regression,
+we consider estimating the probability of rain by setting
+$Y_i = 1$ if there is rain on the following day and $Y_i = 0$ otherwise.
+Outliers are removed to justify the assumption that the density of the
+covariates
+should be bounded away from zero, and the features are normalized, linearly
+scaling
+them into $[0,1]^2$. We fit a Mondrian
+random forest to the data, selecting the lifetime parameter with the
+generalized cross-validation (GCV)
+method detailed in Section~\ref{sec:lifetime_selection}.
+Figure~\ref{fig:weather_data} plots the
 data, using colors to indicate the response values, and illustrates how a
 single Mondrian tree is fitted by sampling from an independent Mondrian process
 and computing local averages within each cell. The general pattern of rain
@@ -2060,13 +2070,16 @@ $\hat \mu(x)$.
 \end{figure}
 
 In Figure~\ref{fig:weather_gcv} we show the mean squared error
-and generalized cross-validation (GCV) scores computed using \eqref{eq:gcv} for
+and GCV scores computed using \eqref{eq:gcv} for
 each lifetime parameter $\lambda$. As expected, the mean squared error
-decreases as $\lambda$ increases and the model overfits, but GCV is minimized
-at an interior point and approximately balances the bias and variance. We also
+decreases as $\lambda$ increases and the model overfits, but the GCV score 
+is minimized
+at a value which appropriately balances the bias and variance. We also
 identify three design points at which to conduct inference.
 Table~\ref{tab:weather_ci} presents numerical results for estimation and
-inference at these specified design points. The predicted chance of rain
+inference at these specified design points, using a Mondrian random forest
+with $B=200$ trees and $\lambda = 5$ selected by GCV.
+The predicted chance of rain
 is found to vary substantially given different covariate values,
 and the resulting confidence intervals are somewhat narrow due to the
 large sample size.
@@ -2107,10 +2120,7 @@ large sample size.
       \hline
     \end{tabular}
   \end{center}
-  \caption{Estimated chance of rain $\hat \mu(x)$ and
-    $95\%$ confidence intervals for the true probability of rain $\mu(x)$
-    computed using a Mondrian random forest with $\lambda = 5$ chosen by GCV
-  and with $B = 200$ trees.}
+  \caption{Numerical results for the Australian weather data.}
   \label{tab:weather_ci}
 \end{table}
 
