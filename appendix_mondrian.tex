@@ -4081,7 +4081,8 @@ being interesting in their own right.
 
 \TODO{
   check notation in these aligns with main paper:
-  $D$ not $C$ for cells
+  $D$ not $C$ for cells.
+  index should be subscript not superscript.
 }
 \TODO{write a little about each of these}
 \TODO{decide which results to keep in the dissertation}
@@ -4118,26 +4119,27 @@ in combination with union bounds in our upcoming results.
   We refer to this method as the ``subcell trick''
   and attribute it to \cite{mourtada2017universal}.
   For $\varepsilon > 0$, partition $D$ into
-  at most $(1 + 1/\varepsilon)^d$ cells $D_\varepsilon \in \cD_\varepsilon$
-  with side lengths at most $(|D^1| \varepsilon, \ldots, |D^d| \varepsilon)$.
-  Since a split in $T$ induces a split in some
-  $T \cap D_\varepsilon$,
+  at most $(1 + 1/\varepsilon)^d$ cells $D' \in \cD_\varepsilon$
+  with side lengths at most $(|D_1| \varepsilon, \ldots, |D_d| \varepsilon)$.
+  Denote the restriction of a tree $T$ to a subcell $D'$ by $T \cap D'$.
+  Since a split in $T$ induces a split in at least one $T \cap D'$,
+  by a union bound
   %
   \begin{align*}
     \P\left(\# T > t \right)
     &\leq
-    \P\left(\sum_{D_\varepsilon \in \cD_\varepsilon}
-    \# (T \cap D_\varepsilon) > t \right)
+    \P\left(\sum_{D' \in \cD_\varepsilon}
+    \# (T \cap D') > t \right)
     \leq
-    \sum_{D_\varepsilon \in \cD_\varepsilon}
+    \sum_{D' \in \cD_\varepsilon}
     \P\left(
-      \# (T \cap D_\varepsilon) >
+      \# (T \cap D') >
       \frac{t}{\# \cD_\varepsilon}
     \right).
   \end{align*}
   %
-  Now $\# (T \cap D_\varepsilon)$ is dominated by a Yule process
-  with parameter $|D_\varepsilon|$ stopped at time $\lambda$
+  Now $\# (T \cap D')$ is dominated by a Yule process
+  with parameter $|D'|$ stopped at time $\lambda$
   \cite[proof of Lemma~2]{mourtada2017universal},
   so using that fact that if
   $X \sim \Yule(a)$
@@ -4183,12 +4185,8 @@ of course they are not independent. To state and prove this result,
 we need a way to identify a particular cell by endowing the
 cells in a Mondrian tree with a natural order.
 
-\TODO{does this have a name?}
-\TODO{check from here}
-
 \begin{definition}[Canonical order of cells in a Mondrian tree]
-
-  Let $T \sim \cM(C, \lambda)$.
+  Let $T \sim \cM(D, \lambda)$.
   Each cell in a fixed realization of $T$ can be described by
   a word from the alphabet $\{l, r\}$,
   where $l$ indicates the cell to the left of a split
@@ -4204,78 +4202,98 @@ cells in a Mondrian tree with a natural order.
   Note that it does not matter which coordinate each split occurs in:
   in two dimensions, $l$ might refer to the ``left'' or ``bottom''
   and $r$ to the ``right'' or ``top'' cell.
-
 \end{definition}
 
 \begin{lemma}[Cells in a Mondrian tree have identically distributed shapes]
   \label{lem:cells_identically_distributed}
 
   Let $T \sim \cM(D, \lambda)$
-  with canonically ordered cells
-  $D_1, \ldots, D_{\# T}$.
-  For any $\varepsilon_1, \ldots, \varepsilon_d \geq 0$
-  and $1 \leq i \leq k$, we have
+  with ordered cells $D'_1, \ldots, D'_{\# T}$.
+  For $\varepsilon_1, \ldots, \varepsilon_d \geq 0$
+  and $1 \leq i \leq k$,
   %
   \begin{align*}
     \P\left(
-      |D_i^1| \leq \varepsilon_1,
-      \ldots, |D_i^d| \leq \varepsilon_d,
+      |D'_{i1}| \leq \varepsilon_1,
+      \ldots, |D'_{id}| \leq \varepsilon_d,
       \# T = k
     \right)
     &=
     \P\left(
-      |D_1^1| \leq \varepsilon_1,
-      \ldots, |D_1^d| \leq \varepsilon_d,
+      |D'_{11}| \leq \varepsilon_1,
+      \ldots, |D'_{1d}| \leq \varepsilon_d,
       \# T = k
     \right).
   \end{align*}
   %
-  Therefore by marginalizing over $\# T$,
-  if $E_j$ are i.i.d.\ $\Exp(1)$ variables,
+  Marginalizing over $\# T$
+  with $E_j$ i.i.d.\ $\Exp(1)$,
+  \citet[Proposition~1]{mourtada2020minimax} gives
   %
   \begin{align*}
     \P\left(
-      |D_i^1| > \varepsilon_1,
-      \ldots, |D_i^d| > \varepsilon_d
+      |D'_{i1}| > \varepsilon_1,
+      \ldots, |D'_{id}| > \varepsilon_d
     \right)
     &=
     \prod_{j=1}^d
     \P\left(
-      \frac{E_j}{\lambda} \wedge |D^j|
+      \frac{E_j}{\lambda} \wedge |D_j|
       > \varepsilon_j
     \right)
     = \prod_{j=1}^d
-    \I\{|D^j| > \varepsilon_j\}
+    \I\{|D_j| > \varepsilon_j\}
     e^{-\lambda \varepsilon_j}.
   \end{align*}
 
 \end{lemma}
 
+We observe a version of the famous Poisson process inspection or waiting time
+paradox in the sizes of Mondrian cells. The above
+Lemma~\ref{lem:cells_identically_distributed} shows that for a large enough
+lifetime $\lambda$, the volume of any cell $D$ has the same distribution as the
+volume of a corner cell, and is asymptotically
+$\E[|D|] \asymp \E \left[ \prod_{j=1}^{d} (E_j / \lambda) \right]
+= 1/\lambda^d$.
+This is consistent with \citet[Proposition~2]{mourtada2020minimax} who give
+$\E[\# T] \asymp \lambda^d$.
+However, if instead of selecting a cell directly,
+we instead select a fixed interior point $x$
+and query the cell $T(x)$ which contains it, we find that
+$\E[|T(x)|] \asymp \E \left[
+\prod_{j=1}^{d} ((E_{1j} + E_{2j}) / \lambda) \right]
+= 2^d/\lambda^d$, where $E_{1j}, E_{2j}$ are i.i.d.\ $\Exp(1)$,
+by \citet[Proposition~1]{mourtada2020minimax}.
+Since $T(x)$ contains $x$ by construction, a size-biasing phenomenon occurs
+and we see that $T(x)$ is on average larger than a typical Mondrian cell.
+
 \begin{proof}[Lemma~\ref{lem:cells_identically_distributed}]
 
   Let $w$ be the word associated with the cell $D_i \in T$.
-  Note that $i=1$ if and only if $r \notin w$.
+  Note that $i=1$ if and only if $r \notin w$, as then $D_i$ is the left child
+  of every split.
   So suppose $r \in w$.
-  Let $\widetilde w$ be the word obtained by replacing all occurrences
+  Let $\tilde w$ be the word obtained by replacing all occurrences
   of $r$ in $w$ with an $l$.
   Each such replacement corresponds to a split in $T$.
-  Let $\widetilde T$ be the same process as $T$ but with the following
+  Let $\tilde T$ be the same process as $T$ but with the following
   modification: for each split where a replacement was made,
-  change the uniform random variable $U$
-  (from the definition of $T$) to $1-U$.
-  Since $U$ is independent of everything else in the construction of $T$,
-  we observe that $\widetilde T \sim \cM(D, \lambda)$ also.
-  Further, there is almost surely exactly one cell in $\widetilde T$
-  which has the same shape as $D$.
-  Denote this cell $\widetilde D$ and note that
-  the replacements imply that its word in $\widetilde T$
-  is $\widetilde w$.
-  Thus $\widetilde D = \widetilde D_1$ in $\widetilde T$ and so
-  $(|D_i^1|, \ldots, |D_i^d|, \# T)
-  = (|\widetilde D_1^1|, \ldots, |\widetilde D_1^d|, \# \widetilde T)$
-  a.s.
-  Equality of the distributions follows immediately.
+  change the uniform random variable $S$
+  (from the definition of $T$, see Section~\ref{sec:mondrian_process}) to $1-S$.
+  Since $S$ is independent of everything else in the construction of $T$,
+  we observe that $\tilde T \sim \cM(D, \lambda)$ also.
+  Further, there is almost surely exactly one cell in $\tilde T$
+  which has the same shape as $D$, as the uniform distribution has no atoms.
+  Denote this cell by $\tilde D$ and note that
+  the replacements imply that its word in $\tilde T$
+  is $\tilde w$.
+  Thus $\tilde D = \tilde D_1$ in $\tilde T$ and so
+  $(|D_{i1}|, \ldots, |D_{i d}|, \# T)
+  = (|\tilde D_{11}|, \ldots, |\tilde D_{1d}|, \# \tilde T)$.
+  Equality of the distributions follows.
 \end{proof}
+
+\TODO{check from here}
 
 \begin{lemma}[Tail bound on largest Mondrian cell]
   \label{lem:largest_cell_tail}
@@ -4431,7 +4449,6 @@ cells in a Mondrian tree with a natural order.
   \end{align*}
   %
   We proceed by induction on $B$.
-  Denote the restriction of a tree $T$ to a cell $C$ by $T \cap C$.
   By the tower law,
   %
   \begin{align*}
