@@ -2642,7 +2642,7 @@ results for the debiased Mondrian random forest estimator.
 
   \proofparagraph{calculating the limiting variance}
   %
-  Thus by \cite[Theorem~3.2]{hall2014martingale}
+  Thus by \citet[Theorem~3.2]{hall2014martingale}
   we conclude that
   %
   \begin{align*}
@@ -4081,8 +4081,9 @@ being interesting in their own right.
 
 \TODO{
   check notation in these aligns with main paper:
-  $D$ not $C$ for cells.
+  DONE $D$ not $C$ for cells.
   index should be subscript not superscript.
+  check linear dimension vs volume.
 }
 \TODO{write a little about each of these}
 \TODO{decide which results to keep in the dissertation}
@@ -4105,8 +4106,8 @@ in combination with union bounds in our upcoming results.
   %
   \begin{align*}
     \P\left(
-      \# T > 3 (1 + \lambda |D|)^d
-      (t + 1 + d \log(1 + \lambda |D|))
+      \# T > 3 (1 + \lambda |D|_1)^d
+      (t + 1 + d \log(1 + \lambda |D|_1))
     \right)
     &\leq
     e^{-t}.
@@ -4117,7 +4118,7 @@ in combination with union bounds in our upcoming results.
 \begin{proof}[Lemma~\ref{lem:cells_tail}]
 
   We refer to this method as the ``subcell trick''
-  and attribute it to \cite{mourtada2017universal}.
+  and attribute it to \citet{mourtada2017universal}.
   For $\varepsilon > 0$, partition $D$ into
   at most $(1 + 1/\varepsilon)^d$ cells $D' \in \cD_\varepsilon$
   with side lengths at most $(|D_1| \varepsilon, \ldots, |D_d| \varepsilon)$.
@@ -4139,8 +4140,8 @@ in combination with union bounds in our upcoming results.
   \end{align*}
   %
   Now $\# (T \cap D')$ is dominated by a Yule process
-  with parameter $|D'|$ stopped at time $\lambda$
-  \cite[proof of Lemma~2]{mourtada2017universal},
+  with parameter $|D'|_1$ stopped at time $\lambda$
+  \citep[proof of Lemma~2]{mourtada2017universal},
   so using that fact that if
   $X \sim \Yule(a)$
   then $\P(X_t > n) \leq (1-e^{-at})^{n-1}$,
@@ -4149,30 +4150,30 @@ in combination with union bounds in our upcoming results.
     \P\left(\# T > t \right)
     &\leq
     \# \cD_\varepsilon \,
-    (1 - e^{-\lambda |D| \varepsilon})^{t / \# \cD_\varepsilon - 1}
+    (1 - e^{-\lambda |D|_1 \varepsilon})^{t / \# \cD_\varepsilon - 1}
     \leq
     (1 + 1/\varepsilon)^d
-    (1 - e^{-\lambda |D| \varepsilon})^{t (1 + 1/\varepsilon)^{-d} - 1}.
+    (1 - e^{-\lambda |D|_1 \varepsilon})^{t (1 + 1/\varepsilon)^{-d} - 1}.
   \end{align*}
   %
-  Set $\varepsilon = \frac{1}{\lambda |D|}$,
+  Set $\varepsilon = \frac{1}{\lambda |D|_1}$,
   note $1-1/e \leq e^{-1/3}$
   and replace $t$ by
-  $3 (1 + \lambda |D|)^d
-  (t + 1 + d \log(1 + \lambda |D|))$:
+  $3 (1 + \lambda |D|_1)^d
+  (t + 1 + d \log(1 + \lambda |D|_1))$:
   %
   \begin{align*}
     &\P\left(\# T > t \right)
     \leq
-    (1 + \lambda |D|)^d
-    (1 - 1/e)^{t (1 + \lambda |D|)^{-d} - 1}
+    (1 + \lambda |D|_1)^d
+    (1 - 1/e)^{t (1 + \lambda |D|_1)^{-d} - 1}
     \leq
-    2 (1 + \lambda |D|)^d
-    e^{-t (1 + \lambda |D|)^{-d} / 3}, \\
+    2 (1 + \lambda |D|_1)^d
+    e^{-t (1 + \lambda |D|_1)^{-d} / 3}, \\
     &\P\left(\# T >
       3
-      (1 + \lambda |D|)^d
-      (t + 1 + d \log(1 + \lambda |D|))
+      (1 + \lambda |D|_1)^d
+      (t + 1 + d \log(1 + \lambda |D|_1))
     \right)
     \leq
     e^{-t}.
@@ -4293,58 +4294,47 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
   Equality of the distributions follows.
 \end{proof}
 
-\TODO{check from here}
+As our next result we provide a tail bound for the size of the largest
+Mondrian cell. The cells within a Mondrian tree are of course not independent,
+and in fact there should intuitively be some negative correlation between their
+sizes, due to the fact that they must all fit within the original cell $D$.
 
 \begin{lemma}[Tail bound on largest Mondrian cell]
   \label{lem:largest_cell_tail}
 
-  Let $T \sim \cM(C, \lambda)$.
+  Let $T \sim \cM(D, \lambda)$.
   For any $\varepsilon > 0$,
   %
   \begin{align*}
     \P\left(
-      \max_{C' \in T}
+      \max_{D' \in T}
       \max_{1 \leq j \leq d}
-      |C'^j| > \varepsilon
+      |D'_j| > \varepsilon
     \right)
     &\leq
-    5d (1 + \lambda |C|)^{d+1}
+    5d (1 + \lambda |D|_1)^{d+1}
     e^{-\lambda \varepsilon}.
-  \end{align*}
-  %
-  and so also
-  %
-  \begin{align*}
-    \P\left(
-      \max_{C' \in T}
-      |C'| > \varepsilon
-    \right)
-    &\leq
-    5 d (1 + \lambda |C|)^{d+1}
-    e^{-\lambda \varepsilon / d}.
   \end{align*}
   %
 \end{lemma}
 
 \begin{proof}[Lemma~\ref{lem:largest_cell_tail}]
 
-  Let $C_i$ be the canonically ordered cells of $T$
-  and take $k \geq 1$.
-  By union bounds and
-  Lemma~\ref{lem:cells_identically_distributed},
+  Let $D_i$ be the ordered cells of $T$ and take $k \geq 1$.
+  By union bounds and Lemma~\ref{lem:cells_identically_distributed},
   %
   \begin{align*}
     \P\left(
-      \max_{C' \in T}
+      \max_{D' \in T}
       \max_{1 \leq j \leq d}
-      |C'^j| > \varepsilon
+      |D'_j| > \varepsilon
     \right)
     &\leq
     \sum_{l=1}^k
     \P\left(
       \max_{1 \leq i \leq l}
       \max_{1 \leq j \leq d}
-      |C_i^j| > \varepsilon,
+      |D_{i j}| > \varepsilon,
       \# T = l
     \right)
     + \P\left( \# T > k \right) \\
@@ -4353,7 +4343,7 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
     \sum_{i=1}^l
     \sum_{j=1}^d
     \P\big(
-      |C_i^j| > \varepsilon,
+      |D_{i j}| > \varepsilon,
       \# T = l
     \big)
     + \P\left( \# T > k \right) \\
@@ -4361,76 +4351,177 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
     \sum_{l=1}^k
     l d \,
     \P\big(
-      |C_1^j| > \varepsilon,
+      |D_{1j}| > \varepsilon,
       \# T = l
     \big)
     + \P\left( \# T > k \right) \\
     &\leq
     k d \,
-    \P\big(|C_1^j| > \varepsilon \big)
+    \P\big(|D_{1 j}| > \varepsilon \big)
     + \P\left( \# T > k \right).
   \end{align*}
   %
   For the first term we use the exact distribution of
-  $C_1$ from Lemma~\ref{lem:cells_identically_distributed}
+  $D_1$ from Lemma~\ref{lem:cells_identically_distributed}
   and for the second term we apply Lemma~\ref{lem:cells_tail}.
   %
   \begin{align*}
     \P\left(
-      \max_{C' \in T}
+      \max_{D' \in T}
       \max_{1 \leq j \leq d}
-      |C'^j| > \varepsilon
+      |D'_j| > \varepsilon
     \right)
     &\leq
-    k d \, \P\big(|C_1^j| > \varepsilon \big)
+    k d \, \P\big(|D_{1 j}| > \varepsilon \big)
     + \P\left( \# T > k \right) \\
     &\leq
     k d \, e^{-\lambda \varepsilon}
-    + 2 (1 + \lambda |C|)^d
-    e^{-k (1 + \lambda |C|)^{-d} / 3}.
+    + 2 (1 + \lambda |D|_1)^d
+    e^{-k (1 + \lambda |D|_1)^{-d} / 3}.
   \end{align*}
   %
   Finally set
-  $k = \big\lceil 3 \lambda \varepsilon (1 + \lambda |C|)^d \big\rceil$
-  and note the bound is trivial unless $\varepsilon \leq |C|$.
+  $k = \big\lceil 3 \lambda \varepsilon (1 + \lambda |D|_1)^d \big\rceil$
+  and note the bound is trivial unless $\varepsilon \leq |D|_1$.
   %
   \begin{align*}
     \P\left(
-      \max_{C' \in T}
+      \max_{D' \in T}
       \max_{1 \leq j \leq d}
-      |C'^j| > \varepsilon
+      |D'_j| > \varepsilon
     \right)
     &\leq
-    \big( 3 \lambda \varepsilon (1 + \lambda |C|)^d + 1 \big)
+    \big( 3 \lambda \varepsilon (1 + \lambda |D|_1)^d + 1 \big)
     d \, e^{-\lambda \varepsilon}
-    + 2 (1 + \lambda |C|)^d
+    + 2 (1 + \lambda |D|_1)^d
     e^{-\lambda \varepsilon} \\
     &\leq
-    3d (1 + \lambda |C|)^{d+1}
+    3d (1 + \lambda |D|_1)^{d+1}
     e^{-\lambda \varepsilon}
-    + 2 (1 + \lambda |C|)^d
+    + 2 (1 + \lambda |D|_1)^d
     e^{-\lambda \varepsilon} \\
     &\leq
-    5d (1 + \lambda |C|)^{d+1}
+    5d (1 + \lambda |D|_1)^{d+1}
     e^{-\lambda \varepsilon}.
   \end{align*}
   %
 \end{proof}
 
+For the remainder of this section, we turn our attention to the partitions
+generated by Mondrian random forests. In particular, we study the refinement
+generated by overlaying $B$ independent Mondrian processes with possibly
+different lifetime parameters, and intersecting their resulting individual
+partitions.
+
+
+\begin{definition}[Partition refinement]%
+  \label{def:mondrian_refinement}
+
+  Let $T_1, \ldots, T_B$ be partitions of a set.
+  Their common refinement is
+  %
+  \begin{align*}
+    \bigwedge_{b=1}^B T_b
+    = \left\{
+      \bigcap_{b=1}^B D_b:
+      D_b \in T_b
+    \right\}
+    \bigsetminus
+    \left\{ \emptyset \right\}.
+  \end{align*}
+  %
+\end{definition}
+
+We begin our analysis of Mondrian forest refinements with a pair of simple
+inequalities for bounding the total number of refined cells
+in Lemma~\ref{lem:refinement_inequalities}. This result does not depend at all
+on the probabilistic structure of the Mondrian process, and holds for any
+rectangular partitions.
+
+\begin{lemma}[Inequalities for refinements of rectangular partitions]
+  \label{lem:refinement_inequalities}
+
+  Let $T_1, \ldots, T_B$ be rectangular partitions of a $d$-dimensional
+  rectangle $D$. Then
+  %
+  \begin{align}
+    \label{eq:refinement_1}
+    \# \bigwedge_{b=1}^B T_b
+    &\leq \prod_{b=1}^B \# T_b,
+  \end{align}
+  %
+  and for all $B \leq d$ there exist $T_b$ such that
+  \eqref{eq:refinement_1} holds with equality.
+  If $\# T_{b j}$ denotes the number of splits
+  made by $T_b$ in dimension $j$, then
+  %
+  \begin{align}
+    \label{eq:refinement_2}
+    \# \bigwedge_{b=1}^B T_b
+    &\leq \prod_{j=1}^d
+    \left( 1 + \sum_{b=1}^B \# T_{b j} \right),
+  \end{align}
+  %
+  and for all $B \geq d$ there exist $T_b$ such that
+  \eqref{eq:refinement_2} holds with equality.
+
+\end{lemma}
+
+\begin{proof}[Lemma~\ref{lem:refinement_inequalities}]
+
+  The first inequality \eqref{eq:refinement_1}
+  follows because every cell in
+  $\bigwedge_b T_b$ is the intersection of cells
+  $D_b \in T_b$ for $1 \leq b \leq B$, and there at at most
+  $\prod_{b=1}^{B} \# T_b$ ways to choose these.
+  This bound is achievable when $B \leq d$ by setting
+  $T_b$ to be a tree with splits only in dimension $b$,
+  so that every such intersection of cells
+  gives a cell in the refinement.
+
+  For the second inequality \eqref{eq:refinement_2},
+  we construct a new forest of trees.
+  In particular, for each $1 \leq j \leq d$ define
+  $A_j$ to be the set of locations in $D_j$ where a tree $T_b$
+  makes a split in dimension $j$ for some $b$.
+  Define $T'_j$ to be a tree which has splits
+  only in dimension $j$ and at the locations prescribed by $A_j$.
+  Clearly since every split in $T'_j$
+  comes from a split in some $T_b$ in dimension $j$,
+  we have $\# T'_j \leq 1 + \sum_b \# T_{b j}$.
+  Applying the first inequality to this new forest yields
+  $\# \bigwedge_j T'_j \leq \prod_j \# T'_j
+  \leq \prod_j \big( 1 + \sum_b \# T_{b j} \big)$.
+  Finally note that $\bigwedge_j T'_j$
+  is a refinement of $\bigwedge_b T_b$ and the result follows.
+  This bound is achievable when $B \geq d$ by letting
+  $T_b$ have splits only in dimension $b$ when $b \leq d$
+  and to be the trivial partition otherwise.
+  %
+\end{proof}
+
+The inequalities in Lemma~\ref{lem:refinement_inequalities} provide
+rather crude bounds for the number of cells in a Mondrian forest
+refinement as they do not take into account the random structure.
+Indeed, it should be clear that the ``worst case'' scenarios, involving
+trees which contain splits only in a single direction, should be extremely
+unlikely under the Mondrian law. In Lemma~\ref{lem:refinement} we confirm
+this intuition and provide an exact value for the expected number of cells
+in a Mondrian refinement by direct calculation. This result strictly generalizes
+the single tree version provided as \citet[Proposition~2]{mourtada2020minimax}.
+
 \begin{lemma}[Expected number of cells in a Mondrian forest refinement]
   \label{lem:refinement}
 
-  Take $C = \bigotimes_{j=1}^d C^j$
-  and $\lambda_b > 0$ for $1 \leq b \leq B$.
-  Let $T_b \sim \cM(C, \lambda_b)$ be independent Mondrian processes
-  and write $\bigwedge_{b=1}^B T_b$ for the common refinement
-  of their partitions.
-  Then the expected number of cells in this refinement is
+  Let $D$ be a $d$-dimensional rectangle
+  and take $\lambda_b > 0$ for $1 \leq b \leq B$.
+  Let $T_b \sim \cM(D, \lambda_b)$ be independent.
+  Then the expected number of cells in their refinement is exactly
   %
   \begin{align*}
     \E\left[\# \bigwedge_{b=1}^B T_b \right]
     &= \prod_{j=1}^d \left(
-      1 + |C^j| \sum_{b=1}^B \lambda_b
+      1 + |D_j| \sum_{b=1}^B \lambda_b
     \right).
   \end{align*}
   %
@@ -4438,15 +4529,16 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
 
 \begin{proof}[Lemma~\ref{lem:refinement}]
 
-  By \cite[Proposition~2]{mourtada2020minimax}
+  By \citet[Proposition~2]{mourtada2020minimax}
   we have the result for a single tree:
   %
-  \begin{align*}
+  \begin{align}
+    \label{eq:single_tree}
     \E\left[\# T_b \right]
     &= \prod_{j=1}^d \left(
-      1 + |C^j| \lambda_b
+      1 + |D_j| \lambda_b
     \right).
-  \end{align*}
+  \end{align}
   %
   We proceed by induction on $B$.
   By the tower law,
@@ -4455,140 +4547,89 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
     \E\left[\# \bigwedge_{b=1}^B T_b \right]
     &=
     \E\left[
-      \sum_{C_B \in T_B}
+      \sum_{D' \in T_B}
       \#
-      \left(
-        \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
-      \right)
+      \bigwedge_{b=1}^{B-1} (T_b \cap D')
     \right]
     = \E\left[
-      \sum_{C_B \in T_B}
+      \sum_{D' \in T_B}
       \E\left[
         \#
-        \left(
-          \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
-        \right)
+        \bigwedge_{b=1}^{B-1} (T_b \cap D')
         \biggm| T_B
       \right]
     \right].
   \end{align*}
   %
   Now by the restriction property of Mondrian processes
-  \cite[Fact~2]{mourtada2020minimax},
-  observe that $T_b \cap C_B \sim \cM(C_B, \lambda_b)$
+  \citep[Fact~2]{mourtada2020minimax},
+  observe that $T_b \cap D' \sim \cM(D', \lambda_b)$
   conditional on $T_B$.
   Then by the induction hypothesis,
   %
   \begin{align*}
     \E\left[
       \#
-      \left(
-        \bigwedge_{b=1}^{B-1} (T_b \cap C_B)
-      \right)
+      \bigwedge_{b=1}^{B-1} (T_b \cap D')
       \biggm| T_B
     \right]
     &=
     \prod_{j=1}^d \left(
-      1 + |C_B^j| \sum_{b=1}^{B-1} \lambda_b
+      1 + |D'_j| \sum_{b=1}^{B-1} \lambda_b
     \right)
     = \E\big[
-      \# T_{C_B} \mid T_B
+      \# T_{D'} \mid T_B
     \big]
   \end{align*}
   %
-  where $T_{C_B} \sim \cM(C_B, \sum_{b=1}^{B-1} \lambda_B)$
-  independently, conditional on $T_B$,
-  by the result for a single tree.
-  The restriction property finally shows that
-  $\sum_{C_B \in T_B} \# T_{C_B}$ is equal in distribution
-  to $\# T$ where $T \sim \cM(C, \sum_{b=1}^B \lambda_b)$
-  and so
+  where $T_{D'} \sim \cM\big(D', \sum_{b=1}^{B-1} \lambda_B\big)$
+  conditional on $T_B$,
+  by the result for a single tree \eqref{eq:single_tree}.
+  The restriction property finally shows that there exist realizations
+  of $T_{D'}$ which ensure that
+  $\sum_{D' \in T_B} \# T_{D'}$ is equal in distribution
+  to $\# T$, where $T \sim \cM(D, \sum_{b=1}^B \lambda_b)$,
+  so by \eqref{eq:single_tree},
   %
   \begin{align*}
     \E\left[\# \bigwedge_{b=1}^B T_b \right]
     &=
     \E\left[
-      \sum_{C_B \in T_B}
+      \sum_{D' \in T_B}
       \E\big[
-        \# T_{C_B} \mid T_B
+        \# T_{D'} \mid T_B
       \big]
     \right]
     =
     \E\big[\# T \big]
     = \prod_{j=1}^d \left(
-      1 + |C^j| \sum_{b=1}^B \lambda_b
+      1 + |D^j| \sum_{b=1}^B \lambda_b
     \right).
   \end{align*}
-\end{proof}
-
-\begin{lemma}[Some inequalities regarding forest refinements]
-  \label{lem:refinement_inequalities}
-
-  Let $T_b$ be trees on a $d$-dimensional cell $C$
-  for $1 \leq b \leq B$.
-  Then
-  %
-  \begin{align*}
-    \# \bigwedge_{b=1}^B T_b
-    &\leq \prod_{b=1}^B \# T_b
-  \end{align*}
-  %
-  and this bound is achievable whenever $B \leq d$.
-  If $\# T_b^j$ denotes the number of cuts
-  made by $T_b$ in dimension $j$ then
-  %
-  \begin{align*}
-    \# \bigwedge_{b=1}^B T_b
-    &\leq \prod_{j=1}^d
-    \sum_{b=1}^B \# T_b^j
-  \end{align*}
-  %
-  and this is bound is achievable whenever $B \geq d$.
-
-\end{lemma}
-
-\begin{proof}[Lemma~\ref{lem:refinement_inequalities}]
-
-  The first inequality follows because every cell in
-  $\bigwedge_b T_b$ is the intersection of cells
-  $C_b \in T_b$ for $1 \leq b \leq B$.
-  This bound is achievable when $B \leq d$ by setting
-  $T_b$ to be a tree with cuts only in dimension $b$,
-  so that every such intersection of cells
-  gives a cell in the refinement.
-
-  For the second inequality we construct a new forest of trees.
-  In particular, for each $1 \leq j \leq d$ define
-  $A_j$ to be the set of locations in $C^j$ where some tree $T_b$
-  makes a cut in dimension $j$.
-  Now define $T'_j$ to be a tree which has cuts
-  only in dimension $j$ and at the locations prescribed by $A_j$.
-  Clearly since every cut in $T'_j$
-  comes from a cut from $T_b$ in dimension $j$,
-  we have $\# T'_j \leq \sum_b \# T_b^j$.
-  Applying the first inequality to the new forest yields
-  $\# \bigwedge_j T'_j \leq \prod_j \# T'_j
-  \leq \prod_j \sum_b \# T_b^j$.
-  Finally note $\bigwedge_b T_b$
-  is a sub-tree of $\bigwedge_j T'_j$ and the result follows.
-  This bound is achievable when $B \geq d$ by fixing
-  $T_b$ to have cuts only in dimension $b$ when $b \leq d$
-  and to be empty otherwise.
   %
 \end{proof}
+
+While the exact expectation calculation in Lemma~\ref{lem:refinement} is neat,
+in some situations it may be desirable to have sharper control on the tail
+behavior of the number of cells in a Mondrian refinement.
+Lemma~\ref{lem:refinement_tail} provides such a result, again making
+use of the subcell trick to convert a crude upper bound based on
+Lemma~\ref{lem:refinement_inequalities} into a useful tail inequality.
+
+\TODO{check from here}
 
 \begin{lemma}[Tail bound on the number of cells in a Mondrian forest refinement]
   \label{lem:refinement_tail}
 
-  Let $T_b \sim \cM(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
+  Let $T_b \sim \cM(D, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
   Then
   %
   \begin{align*}
     \P\left(
       \# \bigwedge_{b=1}^B T_b
-      > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
+      > 3^d 2^{d^2} B^d (1+\lambda|D|)^d
       \left(
-        t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
+        t + \log\left( 2^{d+1} dB (1 + \lambda |D|)^d \right)
       \right)^d
     \right)
     &\leq e^{-t}.
@@ -4601,6 +4642,7 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
   We begin with a rather coarse estimate and refine it using
   the subcell trick.
   By Lemma~\ref{lem:refinement_inequalities}
+  \TODO{which eq}
   and union bounds,
   %
   \begin{align*}
@@ -4627,14 +4669,14 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
     \right).
   \end{align*}
   %
-  Now by the subcell trick, partition $C$ into
+  Now by the subcell trick, partition $D$ into
   at most $(1 + 1/\varepsilon)^d$ cells
-  $C_\varepsilon \in \cC_\varepsilon$
+  $D_\varepsilon \in \cD_\varepsilon$
   with side lengths at most
-  $(|C^1| \varepsilon, \ldots, |C^d| \varepsilon)$.
+  $(|D^1| \varepsilon, \ldots, |D^d| \varepsilon)$.
   Since a split in $\bigwedge_b T_b$ induces a split
   in at least one of
-  $\bigwedge_b (T_b \cap C_\varepsilon)$,
+  $\bigwedge_b (T_b \cap D_\varepsilon)$,
   %
   \begin{align*}
     \P\left(
@@ -4643,15 +4685,15 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
     \right)
     &\leq
     \P\left(
-      \sum_{C_\varepsilon \in \cC_\varepsilon}
-      \# \bigwedge_{b=1}^B (T_b \cap C_\varepsilon)
+      \sum_{D_\varepsilon \in \cD_\varepsilon}
+      \# \bigwedge_{b=1}^B (T_b \cap D_\varepsilon)
       > t
     \right)
     \leq
-    \sum_{C_\varepsilon \in \cC_\varepsilon}
+    \sum_{D_\varepsilon \in \cD_\varepsilon}
     \P\left(
-      \# \bigwedge_{b=1}^B (T_b \cap C_\varepsilon)
-      > \frac{t}{\# \cC_\varepsilon}
+      \# \bigwedge_{b=1}^B (T_b \cap D_\varepsilon)
+      > \frac{t}{\# \cD_\varepsilon}
     \right).
   \end{align*}
   %
@@ -4663,23 +4705,23 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
       > t
     \right)
     &\leq
-    \# \cC_\varepsilon
+    \# \cD_\varepsilon
     dB\,
     \P\left(
-      \# (T_b \cap C_\varepsilon)
-      > \frac{t^{1/d}}{B \# \cC_\varepsilon^{1/d}}
+      \# (T_b \cap D_\varepsilon)
+      > \frac{t^{1/d}}{B \# \cD_\varepsilon^{1/d}}
     \right) \\
     &\leq
     (1 + 1/\varepsilon)^d
     dB\,
     \P\left(
-      \# (T_b \cap C_\varepsilon)
+      \# (T_b \cap D_\varepsilon)
       > \frac{t^{1/d}}{B (1 + 1/\varepsilon)}
     \right).
   \end{align*}
   %
   By Lemma~\ref{lem:cells_tail}
-  and setting $\varepsilon = \frac{1}{\lambda |C|}$,
+  and setting $\varepsilon = \frac{1}{\lambda |D|}$,
   %
   \begin{align*}
     \P\left(
@@ -4689,28 +4731,28 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
     &\leq
     2 (1 + 1/\varepsilon)^d
     dB\,
-    (1 + \lambda |C| \varepsilon)^d
+    (1 + \lambda |D| \varepsilon)^d
     e^{-t^{1/d} B^{-1} (1+1/\varepsilon)^{-1}
-    (1 + \lambda |C| \varepsilon)^{-d} / 3} \\
+    (1 + \lambda |D| \varepsilon)^{-d} / 3} \\
     &\leq
-    2^{d+1} dB (1 + \lambda |C|)^d
-    e^{-t^{1/d} B^{-1} (1+\lambda |C|)^{-1}
+    2^{d+1} dB (1 + \lambda |D|)^d
+    e^{-t^{1/d} B^{-1} (1+\lambda |D|)^{-1}
     2^{-d} / 3}.
   \end{align*}
   %
   Finally replacing $t$ by
-  $3^d 2^{d^2} B^d (1+\lambda|C|)^d
+  $3^d 2^{d^2} B^d (1+\lambda|D|)^d
   \left(
-    t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
+    t + \log\left( 2^{d+1} dB (1 + \lambda |D|)^d \right)
   \right)^d$
   we have
   %
   \begin{align*}
     \P\left(
       \# \bigwedge_{b=1}^B T_b
-      > 3^d 2^{d^2} B^d (1+\lambda|C|)^d
+      > 3^d 2^{d^2} B^d (1+\lambda|D|)^d
       \left(
-        t + \log\left( 2^{d+1} dB (1 + \lambda |C|)^d \right)
+        t + \log\left( 2^{d+1} dB (1 + \lambda |D|)^d \right)
       \right)^d
     \right)
     &\leq e^{-t}.
@@ -4720,17 +4762,17 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
 
 \begin{definition}[Active cells]
 
-  For $x \in C$ and trees $T_b$ for $1 \leq b \leq B$,
+  For $x \in D$ and trees $T_b$ for $1 \leq b \leq B$,
   define the active cells in the refinement at $x$ by
   %
   \begin{align*}
     \cA(x)
     = \left\{
-      C' \in \bigwedge_{b=1}^B T_b :
+      D' \in \bigwedge_{b=1}^B T_b :
       \text{ there exists } b
-      \text{ and } C'' \in T_b
-      \text{ with } C' \subseteq C''
-      \text{ and } x \in C''
+      \text{ and } D'' \in T_b
+      \text{ with } D' \subseteq D''
+      \text{ and } x \in D''
     \right\}.
   \end{align*}
 
@@ -4739,7 +4781,7 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
 \begin{lemma}[Active cells]
   \label{lem:active_cells}
 
-  Let $T_b \sim \cM(C, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
+  Let $T_b \sim \cM(D, \lambda)$ be i.i.d.\ for $1 \leq b \leq B$.
   Then the number of active cells can be controlled pointwise by
   %
   \begin{align*}
@@ -4747,47 +4789,47 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
       > 2^{d^2} 3^d B^d (1+2dt)^d t^d
     \right)
     &\leq
-    2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
+    2^{d+5} dB (1 + 2 d \lambda |D|)^{d+1} e^{-t}.
   \end{align*}
   %
   and uniformly by
   %
   \begin{align*}
     \P\left(
-      \sup_{x \in C} \# \cA(x)
+      \sup_{x \in D} \# \cA(x)
       > 2^{d(d+3)} d^d B^d t^{2d}
     \right)
     &\leq
     2^{11d^2}
-    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
+    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |D|)^{2d+1} e^{-t}.
   \end{align*}
   %
 \end{lemma}
 
 \begin{proof}[Lemma~\ref{lem:active_cells}]
 
-  For $\varepsilon > 0$ and $x \in C$
-  define $C_x^{\varepsilon}$ as the cell with side $j$
-  given by $[x_j - \varepsilon, x_j + \varepsilon] \cap C^j$
+  For $\varepsilon > 0$ and $x \in D$
+  define $D_x^{\varepsilon}$ as the cell with side $j$
+  given by $[x_j - \varepsilon, x_j + \varepsilon] \cap D^j$
   for $1 \leq j \leq d$.
-  Note that if $C' \in \cA(x)$ and
-  $\max_b \max_{C_b} \max_j |C_b^j| \leq \varepsilon$
-  then $C' \subseteq C_x^\varepsilon$.
-  Therefore with $0 < \varepsilon \leq \lambda |C|$,
+  Note that if $D' \in \cA(x)$ and
+  $\max_b \max_{D_b} \max_j |D_b^j| \leq \varepsilon$
+  then $D' \subseteq D_x^\varepsilon$.
+  Therefore with $0 < \varepsilon \leq \lambda |D|$,
   %
   \begin{align*}
     \P\left( \# \cA(x) > t \right)
     &\leq
     \P\left(
       \# \bigwedge_{b=1}^B
-      \left( T_b \cap C_x^{\varepsilon/\lambda} \right)
+      \left( T_b \cap D_x^{\varepsilon/\lambda} \right)
       > t
     \right)
     + \P\left(
       \max_{1 \leq b \leq B}
-      \max_{C_b \in T_b}
+      \max_{D_b \in T_b}
       \max_{1 \leq j \leq d}
-      |C_b^j| > \frac{\varepsilon}{\lambda}
+      |D_b^j| > \frac{\varepsilon}{\lambda}
     \right).
   \end{align*}
   %
@@ -4795,7 +4837,7 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
   Lemmas~\ref{lem:largest_cell_tail}
   and~\ref{lem:refinement_tail},
   noting that
-  $|C_x^{\varepsilon/\lambda}| \leq 2 d \varepsilon / \lambda$,
+  $|D_x^{\varepsilon/\lambda}| \leq 2 d \varepsilon / \lambda$,
   %
   \begin{align*}
     \P\left( \# \cA(x) > t \right)
@@ -4803,11 +4845,11 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
     2^{d+1} dB (1 + 2 d \varepsilon)^d
     e^{-t^{1/d} B^{-1} (1 + 2 d \varepsilon)^{-1}
     2^{-d} / 3}
-    + 5d B (1 + \lambda |C|)^{d+1}
+    + 5d B (1 + \lambda |D|)^{d+1}
     e^{-\varepsilon}.
   \end{align*}
   %
-  Noting $\varepsilon \leq \lambda |C|$,
+  Noting $\varepsilon \leq \lambda |D|$,
   replacing $t$ by
   $2^{d^2} 3^d B^d (1+2d\varepsilon)^d t^d$
   and setting $\varepsilon = t$ gives
@@ -4817,16 +4859,16 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
       > 2^{d^2} 3^d B^d (1+2dt)^d t^d
     \right)
     &\leq
-    2^{d+1} dB (1 + 2 d \lambda |C|)^d e^{-t}
-    + 5d B (1 + \lambda |C|)^{d+1}
+    2^{d+1} dB (1 + 2 d \lambda |D|)^d e^{-t}
+    + 5d B (1 + \lambda |D|)^{d+1}
     e^{-t} \\
     &\leq
-    2^{d+3} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}, \\
+    2^{d+3} dB (1 + 2 d \lambda |D|)^{d+1} e^{-t}, \\
     \P\left( \# \cA(x)
       > 2^{d(d+3)} d^d B^d t^{2d}
     \right)
     &\leq
-    2^{d+5} dB (1 + 2 d \lambda |C|)^{d+1} e^{-t}.
+    2^{d+5} dB (1 + 2 d \lambda |D|)^{d+1} e^{-t}.
   \end{align*}
   %
   Next note that $\cA(x)$ depends on $x$ only
@@ -4834,18 +4876,18 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
   %
   \begin{align*}
     &\P\left(
-      \sup_{x \in C} \# \cA(x)
+      \sup_{x \in D} \# \cA(x)
       > 2^{d(d+3)} d^d B^d t^{2d}
     \right) \\
     &\quad=
     \P\left(
-      \max_{C' \in \bigwedge_b T_b} \# \cA(C')
+      \max_{D' \in \bigwedge_b T_b} \# \cA(D')
       > 2^{d(d+3)} d^d B^d t^{2d}
     \right) \\
     &\quad\leq
     \sum_{l=1}^k
     \P\left(
-      \max_{C' \in \bigwedge_b T_b} \# \cA(C')
+      \max_{D' \in \bigwedge_b T_b} \# \cA(D')
       > 2^{d(d+3)} d^d B^d t^{2d},
       \# \bigwedge_{b=1}^B T_b = l
     \right)
@@ -4853,7 +4895,7 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
       \# \bigwedge_{b=1}^B T_b > k
     \right) \\
     &\quad\leq
-    k \sup_{x \in C}
+    k \sup_{x \in D}
     \P\left( \# \cA(x)
       > 2^{d(d+3)} d^d B^d t^{2d}
     \right)
@@ -4861,24 +4903,24 @@ and we see that $T(x)$ is on average larger than a typical Mondrian cell.
       \# \bigwedge_{b=1}^B T_b > k
     \right) \\
     &\quad\leq
-    2^{d+5} k d B (1 + 2 d \lambda |C|)^{d+1} e^{-t}
-    + 2^{d+1} dB (1 + \lambda |C|)^d
-    e^{-k^{1/d} B^{-1} (1+\lambda |C|)^{-1}
+    2^{d+5} k d B (1 + 2 d \lambda |D|)^{d+1} e^{-t}
+    + 2^{d+1} dB (1 + \lambda |D|)^d
+    e^{-k^{1/d} B^{-1} (1+\lambda |D|)^{-1}
     2^{-d} / 3}.
   \end{align*}
   %
   Setting
-  $k = \lceil 3^d 2^{d^2} B^d (1+\lambda|C|)^d t ^d \rceil$
+  $k = \lceil 3^d 2^{d^2} B^d (1+\lambda|D|)^d t ^d \rceil$
   gives
   %
   \begin{align*}
     \P\left(
-      \sup_{x \in C} \# \cA(x)
+      \sup_{x \in D} \# \cA(x)
       > 2^{d(d+3)} d^d B^d t^{2d}
     \right)
     &\leq
     2^{11d^2}
-    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |C|)^{2d+1} e^{-t}.
+    B^{d+1} (t ^d + 1) (1 + 2 d \lambda |D|)^{2d+1} e^{-t}.
   \end{align*}
   %
 \end{proof}
