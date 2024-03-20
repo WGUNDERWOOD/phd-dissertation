@@ -1,14 +1,5 @@
 #+title: PhD Dissertation
 * Tasks
-** TODO Remake plots in a consistent style
-*** TODO Weather plots
-*** TODO Kernel plots
-*** TODO Eigenvalue plots
-*** Check fonts and font sizes
-*** pngquant --quality=20-30 --ext=.png --force
-*** optipng -o3
-*** TODO DPI too high for larger images
-** TODO Check figure locations on pages
 ** Final layout check
 * Structure
 ** Introduction
