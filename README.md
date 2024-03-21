@@ -2,3 +2,12 @@
 
 My PhD dissertation in Operations Research and Financial Engineering
 at Princeton University
+
+## Building with Nix
+
+The necessary packages are detailed in `shell.nix` and can be installed using
+the [Nix](https://nixos.org/) package manager.
+To do this, simply install Nix and run
+`nix-shell`.
+The dissertation PDF document can be built by running
+`nix-shell --pure --run "just"`.
