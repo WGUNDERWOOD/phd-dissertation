@@ -5,7 +5,7 @@
 % packages
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{amsthm}
+\usepackage[amsmath,thmmarks,noconfig]{ntheorem}
 \usepackage{mathtools}
 \usepackage{multirow}
 \usepackage{pgfplots}
@@ -20,13 +20,15 @@
 \usepackage[longnamesfirst]{natbib}
 \usepackage[hypertexnames=false,hidelinks]{hyperref}
 \usepackage[norefs,nocites]{refcheck}
+\usepackage[all]{nowidow}
+\usepackage{float}
 
 % settings
 \pgfplotsset{compat=1.9}
 \newcommand{\TODO}[1]{\textcolor{red}{\textsc{TODO}: #1}}
 \setcitestyle{round}
 \captionsetup[subfigure]{justification=centering}
-\captionsetup[table]{aboveskip=0mm,belowskip=0mm}
+\captionsetup[table]{aboveskip=5mm,belowskip=0mm}
 
 % blackboard
 \renewcommand{\P}{\ensuremath{\mathbb{P}}}
@@ -126,7 +128,11 @@
 \newcommand{\diff}[1]{\,\mathrm{d}#1}
 
 % theorem environments
-\newtheoremstyle{break}{\topsep}{\topsep}{\itshape}{}{\bfseries}{}{\newline}{}%
+\renewtheoremstyle{break}{%
+  \item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
+  \textnormal ##2}\hbox{\strut}}}]}%
+  {\item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
+  ##2\ \normalfont (##3)}\hbox{\strut}}}]}
 \theoremstyle{break}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
@@ -137,12 +143,17 @@
 \newtheorem{remark}{Remark}[section]
 
 % proof environments
-\newtheoremstyle{breakproof}{\topsep}{\topsep}{}{}{\bfseries}{}{\newline}{}%
-\theoremstyle{breakproof}
 \let\proof\relax
-\newtheorem*{proof}{Proof}
+\newtheoremstyle{proof}{%
+  \item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
+  }\hbox{\strut}}}]}%
+  {\item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
+  \normalfont (##3)}\hbox{\strut}}}]}
+\theoremstyle{proof}
+\theorembodyfont{\upshape}
+\theoremsymbol{\ensuremath{\square}}
+\newtheorem{proof}{Proof}
 \AtBeginEnvironment{proof}{\setcounter{proofparagraphcounter}{0}}%
-\AtEndEnvironment{proof}{\null\hfill$\square$}%
 
 % proof paragraphs
 \titleformat{\paragraph}[hang]{\bfseries\upshape}{}{0pt}{}[]

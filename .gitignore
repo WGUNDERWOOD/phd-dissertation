@@ -10,4 +10,5 @@
 *.pdf
 *.sha256
 *.synctex.gz
+*.thm
 *.toc
