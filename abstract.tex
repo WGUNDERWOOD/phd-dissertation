@@ -3,21 +3,24 @@
 % TODO 350 words max
 
 % why np is important
-Nonparametric methodology is a cornerstone of modern statistics,
-offering a collection of principled techniques for analyzing data
-which defies many classically imposed parametric assumptions.
-
-% np estimation
-
-% np inference
-
+Nonparametric methodology is a cornerstone of modern statistics, offering
+techniques for analyzing data which defies many classically
+imposed parametric assumptions. While contemporary
+procedures such as random forests and kernel methods are widely popular due to
+their performance, flexibility and computational efficiency, the statistical
+estimation and inference properties of such approaches are somewhat less
+well understood in certain cases. The availability of
+sound inferential techniques is especially vital,
+allowing researchers to not only make high-quality
+predictions but also to robustly quantify their uncertainty.
 % overview
-In this dissertation we study estimation and inference in modern nonparametric
-statistics through the lens of three distinct problems.
-%
-We begin in the regression setting, focusing on a popular class of estimators
-which is a relative newcomer to the nonparametric literature: random forests
-and regression trees. In particular, we study the Mondrian random forest, a
+In this dissertation we develop and analyze
+procedures for robust and practical statistical
+estimation and inference in some modern nonparametric settings
+involving complex estimators and nontraditional data.
+
+% mondrian
+We begin in the regression setting, and study the Mondrian random forest, a
 recently introduced random forest variant in which the underlying partitions
 are drawn from a stochastic process known as the Mondrian process. We present a
 comprehensive analysis of the statistical properties of Mondrian random
@@ -29,42 +32,33 @@ Mondrian random forests which allow them to achieve minimax-optimal estimation
 rates in smooth function classes and with covariates of arbitrary dimension,
 assuming appropriate tuning of parameters.
 
-Next, we turn our attention to nonparametric estimation in the
-dependent data setting, considering dyadic data associated with the edges
-of a network. We investigate the problem of estimating a dyadic Lebesgue
-density function using a kernel-based density estimator,
-and provide methodology and results for minimax-optimal estimation and
-uniform inference across the support of the data.
-A central feature in dyadic
-data analysis is the potential presence of degenerate points at which
-the nonparametric estimation rate varies, complicating the process
-of providing uniform guarantees. Nonetheless our methods for inference,
-such as the construction of uniform confidence bands for the true density
-function, as well as counterfactual procedures,
-remain valid even in such degenerate cases.
-We provide illustrations with both simulated and real-world data,
-and our technical contributions regarding strong approximations and
-maximal inequalities may be of independent interest.
+% kernel
+Next, we turn our attention to nonparametric estimation in the dependent data
+setting, considering dyadic data associated with the edges of a network. We
+investigate the problem of estimating a dyadic Lebesgue density function using
+a kernel-based density estimator, and provide methodology and results for
+minimax-optimal estimation and uniform inference across the support of the
+data. A central feature in dyadic data analysis is the potential presence of
+degenerate points at which the nonparametric estimation rate varies,
+complicating the process of providing uniform guarantees. Nonetheless our
+methods for inference, such as the construction of uniform confidence bands for
+the true density function, as well as counterfactual procedures, remain valid
+even in such degenerate cases. We provide illustrations with both simulated and
+real-world data, and our technical contributions regarding strong
+approximations and maximal inequalities may be of independent interest.
 
-We devote the final part to a development of some new technical
-probabilistic tools with applications in nonparametric inference.
-The presence of empirical processes or other high-dimensional random
-objects often makes statistical inference especially challenging
-in nonparametric settings, and traditional distributional methods
-such as central limit theorems are frequently unsuitable.
+% yurinskii
+We devote the final part to a development of some new probabilistic tools with
+applications to nonparametric inference. Distributional analysis is often
+challenging in such settings due to the presence of high-dimensional objects;
+traditional methods such as central limit theorems are frequently unsuitable.
 Instead, coupling theory has become a popular approach in recent years,
-providing tools for constructing (typically Gaussian) random variables
-which strongly approximate the desired estimator.
-Yurinskii's coupling stands out in particular
-for its applicability in high-dimensional and non-i.i.d.\ settings,
-alongside its simple formulation and ease of use.
-We provide some substantial generalizations to Yurinskii's
-coupling, giving a coupling for approximate martingale data in
-$\ell^p$-norm under weaker covariance conditions than previously imposed.
-We further allow for the coupling variable to follow a Gaussian mixture
-distribution, and present a novel third-order argument giving faster
-rates in certain settings. We showcase our main result with applications
-to mixingale data, factor models, martingale empirical processes,
-as well as nonparametric partitioning-based and local polynomial
-regression procedures.
-
+providing tools for constructing random variables which approximate the desired
+estimator. Yurinskii's coupling stands out for its applicability in
+high-dimensional and non-i.i.d.\ settings. We provide some generalizations to
+Yurinskii's coupling, treating approximate martingale data under weaker
+conditions than previously imposed. We allow for the coupling variable to
+follow a Gaussian mixture distribution, and a third-order method gives faster
+rates in certain situations. We showcase our main results with applications to
+factor models and martingale empirical processes, as well as nonparametric
+partitioning-based and local polynomial regression procedures.

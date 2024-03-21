@@ -2,6 +2,11 @@
 * Tasks
 ** TODO Punctuation in captions
 ** TODO Final layout check
+* Formatting
+** Page numbers no more than 0.5in from bottom
+** Typeface 10-12pt
+** 1in margin on all sides
+** Double spacing
 * Structure
 ** Introduction
 *** From job application research statement

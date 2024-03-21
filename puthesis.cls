@@ -1,26 +1,6 @@
-%%
-%% This is file `puthesis.cls',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% puthesis.dtx  (with options: `class')
-%%
-%% IMPORTANT NOTICE:
-%%
-%% For the copyright see the source file.
-%%
-%% You are *not* allowed to modify this file.
-%%
-%% You are *not* allowed to distribute this file.
-%% For distribution of the original source see
-%% the terms for copying and modification in the file  puthesis.dtx.
-%%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{puthesis}
-         [2011/02/16 v1.4.2 Princeton University Thesis class]
 \RequirePackage{setspace}
-% the next two lines are needed to make packages using xcolor happy
 \RequirePackage{xcolor}
 \def\current@color{ Black}
 \newcounter{subyear}
@@ -33,9 +13,11 @@
 \def\adviser#1{\gdef\@adviser{#1}}
 \long\def\@abstract{\@latex@error{No \noexpand\abstract given}\@ehc}
 \newcommand*{\frontmatter}{
-  \pagenumbering{roman}
+  %\pagenumbering{roman}
   }
-\newcommand*{\mainmatter}{\pagenumbering{arabic}}
+\newcommand*{\mainmatter}{
+  %\pagenumbering{arabic}
+}
 \newcommand*{\makelot}{}
 \newcommand*{\makelof}{}
 \newcommand*{\makelos}{}
@@ -89,7 +71,7 @@
   \vspace*{0in}
   \begin{center}
     \copyright\ Copyright by \@author, \number\year. \\
-    All Rights Reserved
+    All rights reserved.
   \end{center}
   \clearpage}
 \newcommand*{\makeabstract}{
@@ -138,16 +120,15 @@
 }
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{report}}
 \ProcessOptions
-%% Not necessary to specify the point size - we inherit it from above
-%% \LoadClass[12pt]{report}
 \LoadClass{report}
-\setlength{\oddsidemargin}{.5in}   %{.4375in}
-\setlength{\evensidemargin}{.5in} %{.4375in}
-\setlength{\topmargin}{-.5in}  %{-.5625in}
-\setlength{\textheight}{9in}
-\setlength{\textwidth}{6in}
+\setlength{\oddsidemargin}{0.2in}
+\setlength{\evensidemargin}{0.2in}
+\setlength{\topmargin}{0in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\textheight}{8.9in}
+\setlength{\textwidth}{6.1in}
+\setlength{\footskip}{0.5in}
 \long\def\abstract#1{\gdef\@abstract{#1}}
 \AtBeginDocument{\begincmd}
 \endinput
-%%
-%% End of file `puthesis.cls'.
