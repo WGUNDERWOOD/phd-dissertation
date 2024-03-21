@@ -19,6 +19,9 @@ todo:
 longlines:
 	@long-lines *.tex refs.bib notes.org
 
+count:
+    @texcount -brief -inc {{DISS}}.tex
+
 build:
 	@tex-build {{DISS}}.tex
 
