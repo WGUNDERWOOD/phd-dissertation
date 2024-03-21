@@ -3316,7 +3316,7 @@ results for the debiased Mondrian random forest estimator.
   %
   where $E_{1j}$, $E_{2j}$, $E_{3j}$, and $E_{4j}$
   are independent and $\Exp(1)$.
-  Define their non-truncated versions as
+  Define their non-truncated versions
   %
   \begin{align*}
     |\tilde T_{b r}(x)|
@@ -3419,7 +3419,7 @@ results for the debiased Mondrian random forest estimator.
     \right).
   \end{align*}
   %
-  Now we remove the superfluous units in the denominators.
+  We remove the superfluous units in the denominators.
   Firstly, by independence of the trees,
   %
   \begin{align*}
@@ -3565,10 +3565,8 @@ results for the debiased Mondrian random forest estimator.
     \diff s,
   \end{align*}
   %
-  where we used
-  $\int_0^\infty \frac{e^{-t}}{a + t} \diff t = e^a \Gamma(0, a)$
-  with $\Gamma(0, a) = \int_a^\infty \frac{e^{-t}}{t} \diff t$
-  the upper incomplete gamma function. Now
+  as $\int_0^\infty \frac{e^{-t}}{a + t} \diff t = e^a \Gamma(0, a)$
+  with $\Gamma(0, a) = \int_a^\infty \frac{e^{-t}}{t} \diff t$. Now
   %
   \begin{align*}
     &2
@@ -3947,9 +3945,9 @@ of the debiased Mondrian random forest estimator.
 
   \proofparagraph{conclusion}
 
-  Again by the proof of Theorem~\ref{thm:clt_debiased}
+  By the proof of Theorem~\ref{thm:clt_debiased}
   with $\varepsilon_i$ being $\pm 1$ with equal probability,
-  and by the previous parts,
+  and by previous parts,
   %
   \begin{align*}
     \hat\Sigma_\rd(x)
