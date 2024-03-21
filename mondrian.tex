@@ -8,7 +8,7 @@
 Random forests are popular methods for classification and regression, and many
 different variants have been proposed in recent years. One interesting example
 is the Mondrian random forest, in which the underlying trees are constructed
-according to a Mondrian process. In this paper we give a central limit theorem
+according to a Mondrian process. In this chapter we give a central limit theorem
 for the estimates made by a Mondrian random forest in the regression setting.
 When combined with a bias characterization and a consistent variance estimator,
 this allows one to perform asymptotically valid statistical inference, such as
@@ -78,7 +78,7 @@ fitted in an online manner as well as being subject to a rigorous statistical
 analysis, while also retaining some of the appealing features of other random
 forest methods.
 
-This paper studies the statistical properties of Mondrian random forests. We
+This chapter studies the statistical properties of Mondrian random forests. We
 focus on this purely random forest variant not only because of its importance
 in the development of random forest theory in general, but also because the
 Mondrian process is, to date, the only known recursive tree mechanism involving
@@ -109,7 +109,7 @@ using Mondrian random forests.
 
 \subsection{Contributions}
 
-Our paper contributes to the literature on the foundational statistical
+This chapter contributes to the literature on the foundational statistical
 properties of Mondrian random forest regression estimation with two main
 results. Firstly, we give a central limit theorem for the classical Mondrian
 random forest point estimator, and propose valid large-sample inference
@@ -132,7 +132,7 @@ technical challenge by establishing new theoretical results for Mondrian
 partitions and their associated Mondrian trees and forests, which may be of
 independent interest.
 
-The second main contribution of our paper is to propose a debiasing approach
+The second main contribution of the chapter is to propose a debiasing approach
 for the Mondrian random forest point estimator. We accomplish this by first
 precisely characterizing the probability limit of the large sample conditional
 bias, and then applying a debiasing procedure based on the generalized
@@ -154,7 +154,7 @@ procedures based on robust bias correction
 
 \subsection{Organization}
 
-Our paper is structured as follows. In Section~\ref{sec:mondrian_setup} we
+This chapter is structured as follows. In Section~\ref{sec:mondrian_setup} we
 introduce the Mondrian process and give our assumptions on the data generating
 process, using a H{\"o}lder smoothness condition on the regression function to
 control the bias of various estimators. We define the Mondrian random forest
@@ -285,7 +285,7 @@ parameters $\lambda$.
 
 \subsection{Data generation}
 
-Throughout this paper, we assume that the data satisfies
+Throughout this chapter, we assume that the data satisfies
 Assumption~\ref{ass:mondrian_data}. We begin with a definition of H{\"o}lder
 continuity which will be used for controlling the bias of various estimators.
 
@@ -373,7 +373,7 @@ the sub-linear polynomial growth $B \asymp n^{\xi}$, satisfying the conditions
 imposed in our main results. Large forests usually do not present computational
 challenges in practice as the ensemble estimator is easily parallelizable over
 the trees. We emphasize places where this ``large forest'' condition is
-important to our theory as they arise throughout the paper.
+important to our theory as they arise throughout the chapter.
 
 \section{Inference with Mondrian random forests}%
 \label{sec:mondrian_inference}
@@ -525,7 +525,7 @@ the bias of the Mondrian random forest estimator.
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold.
   Then for each $1 \leq r \leq \lfloor \flbeta / 2 \rfloor$ there exists
   $B_r(x) \in \R$, which is a function only of
-  the derivatives of $f$ and $\mu$ at $x$ up to order $2r$, such that
+  the derivatives of $f$ and $\mu$ at $x$ up to order $2r$, with
   %
   \begin{align*}
     \E \left[ \hat \mu(x) \mid \bX, \bT \right]
@@ -632,8 +632,8 @@ estimator is consistent and establish its rate of convergence.
 %
 \begin{theorem}[Variance estimation]%
   \label{thm:variance_estimation}
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold, and
-  that $\E[Y_i^4 \mid X_i ]$ is bounded almost surely. Then
+  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator}, and
+  suppose $\E[Y_i^4 \mid X_i ]$ is bounded almost surely. Then
   %
   \begin{align*}
     \hat\Sigma(x)
@@ -1009,7 +1009,7 @@ section we allow for non-identical linear coefficients, some of which may be
 negative, and for differing lifetime parameters across the trees. Since the
 basic Mondrian random forest estimator is a special case of this more general
 debiased version, we will discuss only the latter throughout the rest of the
-paper.
+chapter.
 
 We use the explicit form of the bias given in Theorem~\ref{thm:bias} to
 construct a debiased version of the Mondrian forest estimator. Let $J \geq 0$
@@ -1177,10 +1177,8 @@ in Section~\ref{sec:mondrian_inference}, define the estimator
 %
 \begin{theorem}[Variance estimation]%
   \label{thm:variance_estimation_debiased}
-  Suppose Assumptions~\ref{ass:mondrian_data}
-  and \ref{ass:estimator} hold and that
-  $\E[Y_i^4 \mid X_i ]$ is bounded almost surely.
-  Then
+  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator}, and
+  suppose $\E[Y_i^4 \mid X_i ]$ is bounded almost surely. Then
   %
   \begin{align*}
     \hat\Sigma_\rd(x)
@@ -1278,9 +1276,9 @@ by \citet{mourtada2020minimax}.
 \begin{theorem}[Minimax optimality of the debiased
   Mondrian random forest estimator]%
   \label{thm:mondrian_minimax}
-  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator}.
-  Fix $J \geq \lfloor \flbeta / 2 \rfloor$,
-  take $\lambda \asymp n^{\frac{1}{d + 2 \beta}}$, and suppose
+  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator},
+  and let $J \geq \lfloor \flbeta / 2 \rfloor$,
+  $\lambda \asymp n^{\frac{1}{d + 2 \beta}}$ and
   $B \gtrsim n^{\frac{2 \beta - 2}{d + 2 \beta}}$. Then
   %
   \begin{align*}
@@ -1305,8 +1303,8 @@ mean squared error. While selecting an optimal debiasing order $J$ needs only
 knowledge of an upper bound on the smoothness $\beta$, choosing an optimal
 sequence of $\lambda$ values does assume that $\beta$ is known a priori. The
 problem of adapting to $\beta$ from data is challenging and beyond the scope of
-this paper; we provide some practical advice for tuning parameter selection in
-Section~\ref{sec:parameter_selection}.
+this dissertation; we provide some practical advice for tuning parameter
+selection in Section~\ref{sec:parameter_selection}.
 
 Theorem~\ref{thm:mondrian_minimax} complements the minimaxity results proven by
 \citet{mourtada2020minimax} for Mondrian trees (with $\beta \leq 1$) and for
@@ -1442,7 +1440,7 @@ for $\partial^{2 J + 2}_j \mu(x) / \partial x_j^{2 J + 2}$,
   \partial^{2 J + 2}_j \mu(x).
 \end{align*}
 %
-Now suppose that the model is homoscedastic so $\sigma^2(x) = \sigma^2$ and
+Now suppose the model is homoscedastic so $\sigma^2(x) = \sigma^2$ and
 the limiting variance of $\hat\mu_\rd$ is
 %
 \begin{align*}
@@ -1574,7 +1572,7 @@ Then the derivative estimator is
 \end{align*}
 %
 and the variance estimator $\hat\sigma^2$ is
-the based on the residual sum of squared errors of this model:
+based on the residual sum of squared errors of this model:
 %
 \begin{align*}
   \hat\sigma^2
