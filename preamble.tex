@@ -129,10 +129,12 @@
 
 % theorem environments
 \renewtheoremstyle{break}{%
-  \item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
-  \textnormal ##2}\hbox{\strut}}}]}%
-  {\item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
-  ##2\ \normalfont (##3)}\hbox{\strut}}}]}
+\item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
+  ##2}\hbox{\strut}}}]%
+}{%
+\item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
+  ##2\ \normalfont (##3)}\hbox{\strut}}}]%
+}
 \theoremstyle{break}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}{Lemma}[section]
@@ -145,10 +147,12 @@
 % proof environments
 \let\proof\relax
 \newtheoremstyle{proof}{%
-  \item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
-  }\hbox{\strut}}}]}%
-  {\item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
-  \normalfont (##3)}\hbox{\strut}}}]}
+\item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
+  }\hbox{\strut}}}]%
+}{%
+\item[\rlap{\vbox{\hbox{\hskip\labelsep \bfseries\upshape ##1\ %
+  \normalfont (##3)}\hbox{\strut}}}]%
+}
 \theoremstyle{proof}
 \theorembodyfont{\upshape}
 \theoremsymbol{\ensuremath{\square}}
