@@ -1482,42 +1482,42 @@ feasible inference methods based on robust bias correction and proper
 Studentization deliver valid uniform inference which is robust to unknown
 degenerate points in the underlying dyadic distribution.
 
+\vspace{4mm}
 \begin{table}[ht]
-  \begin{center}
-    \begin{tabular}{|c|c|c|c|c|cc|cc|}
-      \hline
-      \multirow{2}{*}{$ \pi $}
-      & \multirow{2}{*}{Degeneracy type}
-      & \multirow{2}{*}{$ \hat h_{\ROT} $}
-      & \multirow{2}{*}{$ p $}
-      & \multirow{2}{*}{RIMSE}
-      & \multicolumn{2}{|c|}{UCB}
-      & \multicolumn{2}{|c|}{PCI} \\
-      \cline{6-9}
-      & & & &
-      & CR & AW
-      & CR & AW \\
-      \hline
-      \multirow{2}{*}{$ \left(\frac{1}{2}, 0, \frac{1}{2}\right) $}
-      & \multirow{2}{*}{Total}
-      & \multirow{2}{*}{0.161}
-      & 2 & 0.00048 & 87.1\% & 0.0028 & 6.5\% & 0.0017 \\
-      & &  & 4 & 0.00068 & 95.2\% & 0.0042 & 9.7\% & 0.0025 \\
-      \hline
-      \multirow{2}{*}{$ \left(\frac{1}{4}, 0, \frac{3}{4}\right) $}
-      & \multirow{2}{*}{Partial}
-      & \multirow{2}{*}{0.158}
-      & 2 & 0.00228 & 94.5\% & 0.0112 & 75.6\% & 0.0083 \\
-      & &  & 4 & 0.00234 & 94.7\% & 0.0124 & 65.3\% & 0.0087 \\
-      \hline
-      \multirow{2}{*}{$ \left(\frac{1}{5}, \frac{1}{5}, \frac{3}{5}\right) $}
-      & \multirow{2}{*}{None}
-      & \multirow{2}{*}{0.145}
-      & 2 & 0.00201 & 94.2\% & 0.0106 & 73.4\% & 0.0077 \\
-      & &  & 4 & 0.00202 & 95.6\% & 0.0117 & 64.3\% & 0.0080 \\
-      \hline
-    \end{tabular}
-  \end{center}
+  \centering
+  \begin{tabular}{|c|c|c|c|c|cc|cc|}
+    \hline
+    \multirow{2}{*}{$ \pi $}
+    & \multirow{2}{*}{Degeneracy type}
+    & \multirow{2}{*}{$ \hat h_{\ROT} $}
+    & \multirow{2}{*}{$ p $}
+    & \multirow{2}{*}{RIMSE}
+    & \multicolumn{2}{|c|}{UCB}
+    & \multicolumn{2}{|c|}{PCI} \\
+    \cline{6-9}
+    & & & &
+    & CR & AW
+    & CR & AW \\
+    \hline
+    \multirow{2}{*}{$ \left(\frac{1}{2}, 0, \frac{1}{2}\right) $}
+    & \multirow{2}{*}{Total}
+    & \multirow{2}{*}{0.161}
+    & 2 & 0.00048 & 87.1\% & 0.0028 & 6.5\% & 0.0017 \\
+    & &  & 4 & 0.00068 & 95.2\% & 0.0042 & 9.7\% & 0.0025 \\
+    \hline
+    \multirow{2}{*}{$ \left(\frac{1}{4}, 0, \frac{3}{4}\right) $}
+    & \multirow{2}{*}{Partial}
+    & \multirow{2}{*}{0.158}
+    & 2 & 0.00228 & 94.5\% & 0.0112 & 75.6\% & 0.0083 \\
+    & &  & 4 & 0.00234 & 94.7\% & 0.0124 & 65.3\% & 0.0087 \\
+    \hline
+    \multirow{2}{*}{$ \left(\frac{1}{5}, \frac{1}{5}, \frac{3}{5}\right) $}
+    & \multirow{2}{*}{None}
+    & \multirow{2}{*}{0.145}
+    & 2 & 0.00201 & 94.2\% & 0.0106 & 73.4\% & 0.0077 \\
+    & &  & 4 & 0.00202 & 95.6\% & 0.0117 & 64.3\% & 0.0080 \\
+    \hline
+  \end{tabular}
   \caption{Numerical results for three values of the parameter $\pi$.}
   \label{tab:results}
 \end{table}
@@ -1681,22 +1681,22 @@ mixture of a point mass at $-\infty$ and a Lebesgue density on $\R$. The local
 nature of our estimator means that observations taking the value of $-\infty$
 can simply be removed from the data set. Table~\ref{tab:trade_network_stats}
 gives summary statistics for these trade networks, and shows how the networks
-tend to become more connected over time, with edge density, average degree and
-clustering coefficient all increasing.
-%
+become more connected over time, with edge density, average degree and
+clustering coefficient increasing.
+
+\vspace{4mm}
 \begin{table}[ht]
-  \begin{center}
-    \begin{tabular}{|c|c|c|c|c|c|}
-      \hline
-      Year & Nodes & Edges & Edge density & Average degree
-      & Clustering coefficient \\
-      \hline
-      1995 & 207 & 11\,603 & 0.5442 & 112.1 & 0.7250 \\
-      2000 & 207 & 12\,528 & 0.5876 & 121.0 & 0.7674 \\
-      2005 & 207 & 12\,807 & 0.6007 & 123.7 & 0.7745 \\
-      \hline
-    \end{tabular}
-  \end{center}
+  \centering
+  \begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    Year & Nodes & Edges & Edge density & Average degree
+    & Clustering coefficient \\
+    \hline
+    1995 & 207 & 11\,603 & 0.5442 & 112.1 & 0.7250 \\
+    2000 & 207 & 12\,528 & 0.5876 & 121.0 & 0.7674 \\
+    2005 & 207 & 12\,807 & 0.6007 & 123.7 & 0.7745 \\
+    \hline
+  \end{tabular}
   \caption{Summary statistics for the DOTS trade networks.}
   \label{tab:trade_network_stats}
 \end{table}

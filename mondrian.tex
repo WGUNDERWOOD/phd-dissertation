@@ -1661,6 +1661,23 @@ practice very difficult to estimate statistically. As such we recommend
 removing only the first one or two bias terms, taking $J \in \{0,1,2\}$ to
 avoid overly inflating the variance of the estimator.
 
+\begin{figure}[b!]
+  \centering
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[scale=0.64]{graphics/weather_data.png}%
+  \end{subfigure}
+  \begin{subfigure}{0.49\textwidth}
+    \centering
+    \includegraphics[scale=0.64]{graphics/weather_data_filled_partition.png}%
+  \end{subfigure}
+  \caption{Australian weather forecasting data. Colors indicate the response
+    variable of dry ($Y_i = 0$) or wet ($Y_i = 1$) on the following day.
+    Right: a Mondrian random tree fitted with a lifetime of $\lambda = 5$,
+  selected by generalized cross-validation.}
+  \label{fig:weather_data}
+\end{figure}
+
 \subsection{Selecting the debiasing coefficients}%
 
 As mentioned in Section~\ref{sec:debiased}, we take $a_r$ to be a fixed
@@ -1679,7 +1696,9 @@ violated when treating weather data due to the inherent time-series structure
 of sequential observations.
 Nonetheless, we use data from the \cite{bomgovau} containing daily weather
 information from 2007--2017 at 49 different locations across Australia, with a
-total of $n = 125\,927$ samples. We consider the classification problem of
+total of $n = 125\,927$ samples.
+
+We consider the classification problem of
 predicting whether or not it will rain on the following day using two
 covariates: the humidity and pressure at 3pm on the current day.
 For the purpose of fitting into our setting of nonparametric regression,
@@ -1697,29 +1716,11 @@ within each cell. The general pattern of rain being predicted by high humidity
 and low pressure is apparent, with the tree estimator taking the form of a step
 function on rectangles. This illustrates the first-order bias of Mondrian
 random trees, as discussed in Section~\ref{sec:mondrian_clt}.
-
-\begin{figure}[ht]
-  \centering
-  \begin{subfigure}{0.49\textwidth}
-    \centering
-    \includegraphics[scale=0.64]{graphics/weather_data.png}%
-  \end{subfigure}
-  \begin{subfigure}{0.49\textwidth}
-    \centering
-    \includegraphics[scale=0.64]{graphics/weather_data_filled_partition.png}%
-  \end{subfigure}
-  \caption{Australian weather forecasting data. Colors indicate the response
-    variable of dry ($Y_i = 0$) or wet ($Y_i = 1$) on the following day.
-    Right: a Mondrian random tree fitted with a lifetime of $\lambda = 5$,
-  selected by generalized cross-validation.}
-  \label{fig:weather_data}
-\end{figure}
-
 Figure~\ref{fig:weather_forest} then demonstrates the effect of increasing the
 forest size $B$ on the smoothness (and therefore also the bias) of the
 resulting regression function estimate $\hat \mu(x)$.
 
-\begin{figure}[ht]
+\begin{figure}[b!]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1748,7 +1749,7 @@ predicted chance of rain is found to vary substantially given different
 covariate values, and the resulting confidence intervals are somewhat narrow
 due to the large sample size.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1765,25 +1766,25 @@ due to the large sample size.
   \label{fig:weather_gcv}
 \end{figure}
 
-\begin{table}[ht]
-  \begin{center}
-    \begin{tabular}{|c|c|r|c|c|}
-      \hline
-      Point & Humidity & Pressure &
-      Chance of rain & 95\% confidence interval \\
-      \hline
-      $1$ & $20\%$ & $1020\,\textrm{mbar}$ &
-      $4.3\%$ &
-      $4.1\%$ -- $4.6\%$ \\
-      $2$ & $70\%$ & $1000\,\textrm{mbar}$ &
-      $53.0\%$ &
-      $52.0\%$ -- $54.0\%$ \\
-      $3$ & $80\%$ & $990\,\textrm{mbar}$ &
-      $77.5\%$ &
-      $74.4\%$ -- $80.6\%$ \\
-      \hline
-    \end{tabular}
-  \end{center}
+\vspace{4mm}
+\begin{table}[h]
+  \centering
+  \begin{tabular}{|c|c|r|c|c|}
+    \hline
+    Point & Humidity & Pressure &
+    Chance of rain & 95\% confidence interval \\
+    \hline
+    $1$ & $20\%$ & $1020\,\textrm{mbar}$ &
+    $4.3\%$ &
+    $4.1\%$ -- $4.6\%$ \\
+    $2$ & $70\%$ & $1000\,\textrm{mbar}$ &
+    $53.0\%$ &
+    $52.0\%$ -- $54.0\%$ \\
+    $3$ & $80\%$ & $990\,\textrm{mbar}$ &
+    $77.5\%$ &
+    $74.4\%$ -- $80.6\%$ \\
+    \hline
+  \end{tabular}
   \caption{Numerical results for the Australian weather data.}
   \label{tab:weather_ci}
 \end{table}
