@@ -21,133 +21,105 @@ parameter tuning.
 \section{Introduction}
 
 % background on random forests
-Random forests, first introduced by \citet{breiman2001random},
-are a workhorse in modern machine learning
-for classification and regression tasks.
+Random forests, first introduced by \citet{breiman2001random}, are a workhorse
+in modern machine learning for classification and regression tasks.
 % why random forests are good
-Their desirable traits include computational efficiency
-(via parallelization and greedy heuristics)
-in big data settings, simplicity of configuration and
-amenability to tuning parameter selection, ability to
-adapt to latent structure in high-dimensional data sets, and flexibility in
-handling mixed data types.
+Their desirable traits include computational efficiency (via parallelization
+and greedy heuristics) in big data settings, simplicity of configuration and
+amenability to tuning parameter selection, ability to adapt to latent structure
+in high-dimensional data sets, and flexibility in handling mixed data types.
 % example applications
-Random forests have achieved great empirical successes in many
-fields of study, including
-healthcare, finance, online commerce,
-text analysis, bioinformatics, image classification, and ecology.
+Random forests have achieved great empirical successes in many fields of study,
+including healthcare, finance, online commerce, text analysis, bioinformatics,
+image classification, and ecology.
 
 Since Breiman introduced random forests over twenty years ago, the study of
-their statistical properties remains an active area of research:
-see \citet{Scornet-Biau-Vert_2015_AOS}, \citet{Chi-Vossler-Fan-Lv_2022_AOS},
+their statistical properties remains an active area of research: see
+\citet{Scornet-Biau-Vert_2015_AOS}, \citet{Chi-Vossler-Fan-Lv_2022_AOS},
 \citet{klusowski2021universal}, and references therein, for a sample of recent
-developments. Many fundamental questions about Breiman's random forests
-remain unanswered, owing in part to the subtle ingredients
-present in the estimation procedure which
-make standard analytical tools ineffective.
-These technical difficulties stem from the way the constituent trees greedily
-partition the covariate space, utilizing both the covariate and response
-data. This creates complicated dependencies on the data that are often
-exceedingly hard to untangle without overly stringent assumptions, thereby
-hampering theoretical progress.
+developments. Many fundamental questions about Breiman's random forests remain
+unanswered, owing in part to the subtle ingredients present in the estimation
+procedure which make standard analytical tools ineffective. These technical
+difficulties stem from the way the constituent trees greedily partition the
+covariate space, utilizing both the covariate and response data. This creates
+complicated dependencies on the data that are often exceedingly hard to
+untangle without overly stringent assumptions, thereby hampering theoretical
+progress.
 
 \subsection{Prior work}
 
 To address the aforementioned technical challenges while retaining the
-phenomenology of Breiman's random forests, a variety of stylized
-versions of random forest procedures have been proposed and
-studied in the literature.
+phenomenology of Breiman's random forests, a variety of stylized versions of
+random forest procedures have been proposed and studied in the literature.
 These include centered random forests
-\citep{biau2012analysis, arnould2023interpolation}
-and median random forests
-\citep{duroux2016impact, arnould2023interpolation}.
-Each tree in a centered random forest is constructed by first choosing a
-covariate uniformly at random and then splitting the cell at the midpoint along
-the direction of the chosen covariate. Median random forests operate in a
-similar way, but involve the covariate data by splitting at the empirical
-median along the direction of the randomly chosen covariate.
-Known as purely random forests, these procedures simplify Breiman's
-original---albeit more data-adaptive---version by growing trees that partition
-the covariate space in a way that is statistically independent
-of the response data.
+\citep{biau2012analysis,arnould2023interpolation} and median random forests
+\citep{duroux2016impact,arnould2023interpolation}. Each tree in a centered
+random forest is constructed by first choosing a covariate uniformly at random
+and then splitting the cell at the midpoint along the direction of the chosen
+covariate. Median random forests operate in a similar way, but involve the
+covariate data by splitting at the empirical median along the direction of the
+randomly chosen covariate. Known as purely random forests, these procedures
+simplify Breiman's original---albeit more data-adaptive---version by growing
+trees that partition the covariate space in a way that is statistically
+independent of the response data.
 
 Yet another variant of random forests, Mondrian random forests
-\citep{lakshminarayanan2014mondrian},
-have received significant attention in the statistics
-and machine learning communities
-in recent years
+\citep{lakshminarayanan2014mondrian}, have received significant attention in
+the statistics and machine learning communities in recent years
 \citep{ma2020isolation, mourtada2020minimax, scillitoe2021uncertainty,
-  mourtada2021amf, vicuna2021reducing, gao2022towards,
-o2022stochastic}.
-Like other purely random forest variants,
-Mondrian random forests offer a simplified modification of
-Breiman's original proposal
-in which the partition is generated independently of the data
-and according to a canonical stochastic process known as
-the Mondrian process \citep{roy2008mondrian}.
-The Mondrian process takes a single parameter $\lambda > 0$
-known as the ``lifetime''
-and enjoys various mathematical properties.
-These properties allow Mondrian random forests to be
-fitted in an online manner as well as being
-subject to a rigorous statistical analysis,
-while also retaining some of the appealing features
-of other random forest methods.
+mourtada2021amf, vicuna2021reducing, gao2022towards, o2022stochastic}. Like
+other purely random forest variants, Mondrian random forests offer a simplified
+modification of Breiman's original proposal in which the partition is generated
+independently of the data and according to a canonical stochastic process known
+as the Mondrian process \citep{roy2008mondrian}. The Mondrian process takes a
+single parameter $\lambda > 0$ known as the ``lifetime'' and enjoys various
+mathematical properties. These properties allow Mondrian random forests to be
+fitted in an online manner as well as being subject to a rigorous statistical
+analysis, while also retaining some of the appealing features of other random
+forest methods.
 
-This paper studies the statistical properties of Mondrian random forests.
-We focus on this purely random forest variant not only because of its
-importance in the development of random forest theory in general,
-but also because the Mondrian process is, to date,
-the only known recursive tree mechanism involving randomization,
-pure or data-dependent, for which the resulting random forest is
+This paper studies the statistical properties of Mondrian random forests. We
+focus on this purely random forest variant not only because of its importance
+in the development of random forest theory in general, but also because the
+Mondrian process is, to date, the only known recursive tree mechanism involving
+randomization, pure or data-dependent, for which the resulting random forest is
 minimax-optimal for point estimation over a class of smooth regression
-functions in arbitrary dimension \citep{mourtada2020minimax}.
-In fact, when the covariate dimension exceeds one,
-the aforementioned centered and median random forests are both minimax
-\emph{suboptimal}, due to their large biases, over the class of Lipschitz
-smooth regression functions \citep{klusowski2021sharp}.
-It is therefore natural to
-focus our study of inference for random forests on versions that at the very
-least exhibit competitive bias and variance, as this will have important
-implications for the trade-off between precision and confidence.
+functions in arbitrary dimension \citep{mourtada2020minimax}. In fact, when the
+covariate dimension exceeds one, the aforementioned centered and median random
+forests are both minimax \emph{suboptimal}, due to their large biases, over the
+class of Lipschitz smooth regression functions \citep{klusowski2021sharp}. It
+is therefore natural to focus our study of inference for random forests on
+versions that at the very least exhibit competitive bias and variance, as this
+will have important implications for the trade-off between precision and
+confidence.
 
-Despite their recent popularity, relatively little is
-known about the formal
-statistical properties of Mondrian random forests.
-Focusing on nonparametric regression, \citet{mourtada2020minimax}
-recently showed that Mondrian forests containing just a single tree
-(called a Mondrian tree) can be minimax-optimal in integrated mean squared
-error
-whenever the regression function is
-$\beta$-H{\"o}lder continuous for some $\beta \in (0, 1]$.
-The authors also showed that, when appropriately tuned,
-large Mondrian random forests can be similarly
-minimax-optimal for $\beta \in (0, 2]$, while the constituent trees cannot.
-See also \citet{o2022stochastic} for analogous results for more general
-Mondrian tree and forest constructions.
-These results formally demonstrate the value of ensembling with random forests
-from a point estimation perspective.
-No results are currently available in the literature for
-statistical inference using Mondrian random forests.
+Despite their recent popularity, relatively little is known about the formal
+statistical properties of Mondrian random forests. Focusing on nonparametric
+regression, \citet{mourtada2020minimax} recently showed that Mondrian forests
+containing just a single tree (called a Mondrian tree) can be minimax-optimal
+in integrated mean squared error whenever the regression function is
+$\beta$-H{\"o}lder continuous for some $\beta \in (0, 1]$. The authors also
+showed that, when appropriately tuned, large Mondrian random forests can be
+similarly minimax-optimal for $\beta \in (0, 2]$, while the constituent trees
+cannot. See also \citet{o2022stochastic} for analogous results for more general
+Mondrian tree and forest constructions. These results formally demonstrate the
+value of ensembling with random forests from a point estimation perspective. No
+results are currently available in the literature for statistical inference
+using Mondrian random forests.
 
 \subsection{Contributions}
 
-Our paper contributes to the literature on
-the foundational statistical properties
-of Mondrian random forest regression estimation with two main results.
-Firstly, we give a central limit theorem
-for the classical Mondrian random forest point estimator,
-and propose valid large-sample inference procedures employing a consistent
-standard error estimator.
-We establish this result by
-deploying a martingale central limit theorem
+Our paper contributes to the literature on the foundational statistical
+properties of Mondrian random forest regression estimation with two main
+results. Firstly, we give a central limit theorem for the classical Mondrian
+random forest point estimator, and propose valid large-sample inference
+procedures employing a consistent standard error estimator. We establish this
+result by deploying a martingale central limit theorem
 \citep[Theorem~3.2]{hall2014martingale} because we need to handle delicate
-probabilistic features of the Mondrian random forest estimator.
-In particular, we deal with the existence of
-Mondrian cells which are ``too small''
-and lead to a reduced effective (local) sample size
-for some trees in the forest.
-Such pathological cells are in fact typical in Mondrian random forests and
+probabilistic features of the Mondrian random forest estimator. In particular,
+we deal with the existence of Mondrian cells which are ``too small'' and lead
+to a reduced effective (local) sample size for some trees in the forest. Such
+pathological cells are in fact typical in Mondrian random forests and
 complicate the probability limits of certain sample averages; in fact, small
 Mondrian random forests (or indeed a single Mondrian tree) remain random even
 in the limit due to the lack of ensembling. The presence of ``small'' cells
@@ -161,169 +133,129 @@ partitions and their associated Mondrian trees and forests, which may be of
 independent interest.
 
 The second main contribution of our paper is to propose a debiasing approach
-for the Mondrian random forest point estimator.
-We accomplish this by first precisely characterizing the probability limit
-of the large sample conditional bias, and then applying a debiasing procedure
-based on the generalized jackknife \citep{schucany1977improvement}.
-We thus exhibit a Mondrian random forest variant which is minimax-optimal
-in pointwise mean squared error when the
-regression function is $\beta$-H{\"o}lder
-for any $\beta > 0$.
-Our method works by generating an ensemble of Mondrian random forests
-carefully chosen to have smaller misspecification bias
-when extra smoothness is available,
-resulting in minimax optimality even for $\beta > 2$.
-This result complements \citet{mourtada2020minimax} by demonstrating the
-existence of a class of Mondrian random forests that can efficiently exploit
-the additional smoothness of the unknown regression function for minimax
-optimal point estimation.
-Our proposed debiasing procedure is also useful when conducting
-statistical inference because it provides a principled method
-for ensuring that the bias is negligible relative
-to the standard deviation of the estimator.
-More specifically, we use our debiasing approach to construct
-valid inference procedures based on robust bias correction
+for the Mondrian random forest point estimator. We accomplish this by first
+precisely characterizing the probability limit of the large sample conditional
+bias, and then applying a debiasing procedure based on the generalized
+jackknife \citep{schucany1977improvement}. We thus exhibit a Mondrian random
+forest variant which is minimax-optimal in pointwise mean squared error when
+the regression function is $\beta$-H{\"o}lder for any $\beta > 0$. Our method
+works by generating an ensemble of Mondrian random forests carefully chosen to
+have smaller misspecification bias when extra smoothness is available,
+resulting in minimax optimality even for $\beta > 2$. This result complements
+\citet{mourtada2020minimax} by demonstrating the existence of a class of
+Mondrian random forests that can efficiently exploit the additional smoothness
+of the unknown regression function for minimax optimal point estimation. Our
+proposed debiasing procedure is also useful when conducting statistical
+inference because it provides a principled method for ensuring that the bias is
+negligible relative to the standard deviation of the estimator. More
+specifically, we use our debiasing approach to construct valid inference
+procedures based on robust bias correction
 \citep{calonico2018jasa,calonico2022bernoulli}.
 
 \subsection{Organization}
 
-Our paper is structured as follows.
-In Section~\ref{sec:mondrian_setup} we introduce the Mondrian process and give
-our
-assumptions on the data generating process,
-using a H{\"o}lder smoothness condition on the regression function
-to control the bias of various estimators.
-We define the Mondrian random forest estimator and give our assumptions
-on its lifetime parameter and the number of trees.
-We give our notation for the following sections.
+Our paper is structured as follows. In Section~\ref{sec:mondrian_setup} we
+introduce the Mondrian process and give our assumptions on the data generating
+process, using a H{\"o}lder smoothness condition on the regression function to
+control the bias of various estimators. We define the Mondrian random forest
+estimator and give our assumptions on its lifetime parameter and the number of
+trees. We give our notation for the following sections.
 
 Section~\ref{sec:mondrian_inference} presents our first set of main results,
-beginning with a central limit theorem for the centered Mondrian
-random forest estimator (Theorem~\ref{thm:clt}) in which we
-characterize the limiting variance.
-Theorem~\ref{thm:bias} complements this result by
-precisely calculating the limiting bias of the estimator,
-with the aim of subsequently applying a debiasing procedure.
-To enable valid feasible statistical inference,
-we provide a consistent variance estimator
-in Theorem~\ref{thm:variance_estimation}
-and briefly discuss implications for lifetime parameter selection.
+beginning with a central limit theorem for the centered Mondrian random forest
+estimator (Theorem~\ref{thm:clt}) in which we characterize the limiting
+variance. Theorem~\ref{thm:bias} complements this result by precisely
+calculating the limiting bias of the estimator, with the aim of subsequently
+applying a debiasing procedure. To enable valid feasible statistical inference,
+we provide a consistent variance estimator in
+Theorem~\ref{thm:variance_estimation} and briefly discuss implications for
+lifetime parameter selection.
 
-In Section~\ref{sec:debiased} we define debiased Mondrian random forests,
-a collection of estimators
-based on linear combinations of Mondrian random forests
-with varying lifetime parameters.
-These parameters are carefully chosen to annihilate leading terms
-in our bias characterization,
-yielding an estimator with provably superior bias properties
-(Theorem~\ref{thm:bias_debiased}).
-In Theorem~\ref{thm:clt_debiased} we verify that a central limit theorem
-continues to hold for the debiased Mondrian random forest.
-We again state the limiting variance,
-discuss the implications for the lifetime parameter, and provide
-a consistent variance estimator
-(Theorem~\ref{thm:variance_estimation_debiased})
-for constructing confidence intervals
-(Theorem~\ref{thm:confidence_debiased}).
-As a final corollary of the improved bias properties,
-we demonstrate in Theorem~\ref{thm:mondrian_minimax} that the debiased Mondrian
-random forest estimator is minimax-optimal in pointwise mean squared error
-for all $\beta > 0$, provided that $\beta$ is known a priori.
+In Section~\ref{sec:debiased} we define debiased Mondrian random forests, a
+collection of estimators based on linear combinations of Mondrian random
+forests with varying lifetime parameters. These parameters are carefully chosen
+to annihilate leading terms in our bias characterization, yielding an estimator
+with provably superior bias properties (Theorem~\ref{thm:bias_debiased}). In
+Theorem~\ref{thm:clt_debiased} we verify that a central limit theorem continues
+to hold for the debiased Mondrian random forest. We again state the limiting
+variance, discuss the implications for the lifetime parameter, and provide a
+consistent variance estimator (Theorem~\ref{thm:variance_estimation_debiased})
+for constructing confidence intervals (Theorem~\ref{thm:confidence_debiased}).
+As a final corollary of the improved bias properties, we demonstrate in
+Theorem~\ref{thm:mondrian_minimax} that the debiased Mondrian random forest
+estimator is minimax-optimal in pointwise mean squared error for all
+$\beta > 0$, provided that $\beta$ is known a priori.
 
-Section~\ref{sec:parameter_selection} discusses tuning
-parameter selection, beginning with a data-driven approach to
-selecting the crucial lifetime parameter using polynomial estimation,
-alongside other practical suggestions.
-We also give advice on choosing the number of trees,
-and other parameters associated with the debiasing procedure.
+Section~\ref{sec:parameter_selection} discusses tuning parameter selection,
+beginning with a data-driven approach to selecting the crucial lifetime
+parameter using polynomial estimation, alongside other practical suggestions.
+We also give advice on choosing the number of trees, and other parameters
+associated with the debiasing procedure.
 
-Concluding remarks are given in Section~\ref{sec:mondrian_conclusion},
-while Appendix~\ref{app:mondrian} contains all the mathematical
-proofs of our theoretical results.
+Concluding remarks are given in Section~\ref{sec:mondrian_conclusion}, while
+Appendix~\ref{app:mondrian} contains all the mathematical proofs of our
+theoretical results.
 
 \subsection{Notation}
 
-We write $\|\cdot\|_2$ for the usual Euclidean $\ell^2$ norm on $\R^d$.
-The natural numbers are $\N = \{0, 1, 2, \ldots \}$.
-We use $a \wedge b$ for the minimum and $a \vee b$ for the maximum
-of two real numbers.
-For a set $A$, we use $A^{\comp}$ for the complement
-whenever the background space is clear from context.
-We use $C$ to denote a positive constant whose value may change
-from line to line.
-For non-negative sequences
-$a_n$ and $b_n$, write
-$a_n \lesssim b_n$ or $a_n = O(b_n)$
-to indicate that
-$a_n / b_n$ is bounded for $n\geq 1$.
-Write $a_n \ll b_n$ or $a_n = o(b_n)$ if $a_n / b_n \to 0$.
-If $a_n \lesssim b_n \lesssim a_n$,
-write $a_n \asymp b_n$.
-For random non-negative sequences
-$A_n$ and $B_n$, similarly write
-$A_n \lesssim_\P B_n$ or $A_n = O_\P(B_n)$ if
-$A_n / B_n$ is bounded in probability,
-and $A_n = o_\P(B_n)$ if $A_n / B_n \to 0$ in probability.
-Convergence of random variables $X_n$ in distribution to a law $\P$
-is denoted by $X_n \rightsquigarrow \P$.
+We write $\|\cdot\|_2$ for the usual Euclidean $\ell^2$ norm on $\R^d$. The
+natural numbers are $\N = \{0, 1, 2, \ldots \}$. We use $a \wedge b$ for the
+minimum and $a \vee b$ for the maximum of two real numbers. For a set $A$, we
+use $A^{\comp}$ for the complement whenever the background space is clear from
+context. We use $C$ to denote a positive constant whose value may change from
+line to line. For non-negative sequences $a_n$ and $b_n$, write
+$a_n \lesssim b_n$ or $a_n = O(b_n)$ to indicate that $a_n / b_n$ is bounded
+for $n\geq 1$. Write $a_n \ll b_n$ or $a_n = o(b_n)$ if $a_n / b_n \to 0$. If
+$a_n \lesssim b_n \lesssim a_n$, write $a_n \asymp b_n$. For random
+non-negative sequences $A_n$ and $B_n$, similarly write $A_n \lesssim_\P B_n$
+or $A_n = O_\P(B_n)$ if $A_n / B_n$ is bounded in probability,
+and $A_n = o_\P(B_n)$ if $A_n / B_n \to 0$ in probability. Convergence of
+random variables $X_n$ in distribution to a law $\P$ is denoted by
+$X_n \rightsquigarrow \P$.
 
 \section{Setup}
 \label{sec:mondrian_setup}
 
-When using a Mondrian random forest, there are two sources of randomness.
-The first is of course the data,
-and here we consider the nonparametric regression setting
-with $d$-dimensional covariates.
-The second source is a collection of
-independent trees drawn from a Mondrian process,
-which we define in the subsequent section,
-using a specified lifetime parameter.
+When using a Mondrian random forest, there are two sources of randomness. The
+first is of course the data, and here we consider the nonparametric regression
+setting with $d$-dimensional covariates. The second source is a collection of
+independent trees drawn from a Mondrian process, which we define in the
+subsequent section, using a specified lifetime parameter.
 
 \subsection{The Mondrian process}
 \label{sec:mondrian_process}
 
-The Mondrian process was introduced by
-\citet{roy2008mondrian} and offers a canonical method
-for generating random rectangular partitions,
-which can be used as the trees for a random forest
-\citep{lakshminarayanan2014mondrian}.
-For the reader's convenience, we give a brief description of this process
-here; see \citet[Section~3]{mourtada2020minimax}
-for a more complete definition.
+The Mondrian process was introduced by \citet{roy2008mondrian} and offers a
+canonical method for generating random rectangular partitions, which can be
+used as the trees for a random forest \citep{lakshminarayanan2014mondrian}. For
+the reader's convenience, we give a brief description of this process here; see
+\citet[Section~3]{mourtada2020minimax} for a more complete definition.
 
-For a fixed dimension $d$ and lifetime parameter $\lambda > 0$,
-the Mondrian process is a stochastic process taking values
-in the set of finite rectangular partitions of $[0,1]^d$.
-For a rectangle $D = \prod_{j=1}^d [a_j, b_j] \subseteq [0,1]^d$,
-we denote the side aligned with dimension $j$ by $D_j = [a_j, b_j]$,
-write $D_j^- = a_j$ and $D_j^+ = b_j$ for its left and right
-endpoints respectively,
-and use $|D_j| = D_j^+ - D_j^-$ for its length.
-The volume of $D$ is $|D| = \prod_{j=1}^{d} |D_j|$
-and its linear dimension (or half-perimeter) is $|D|_1 = \sum_{j=1}^{d} |D_j|$.
+For a fixed dimension $d$ and lifetime parameter $\lambda > 0$, the Mondrian
+process is a stochastic process taking values in the set of finite rectangular
+partitions of $[0,1]^d$. For a rectangle
+$D = \prod_{j=1}^d [a_j, b_j] \subseteq [0,1]^d$,
+we denote the side aligned with dimension $j$ by $D_j = [a_j, b_j]$, write
+$D_j^- = a_j$ and $D_j^+ = b_j$ for its left and right endpoints respectively,
+and use $|D_j| = D_j^+ - D_j^-$ for its length. The volume of $D$ is
+$|D| = \prod_{j=1}^{d} |D_j|$ and its linear dimension (or half-perimeter) is
+$|D|_1 = \sum_{j=1}^{d} |D_j|$.
 
 To sample a partition $T$ from the Mondrian process
-$\cM \big( [0,1]^d, \lambda \big)$
-we start at time $t=0$ with the trivial partition
-of $[0,1]^d$ which has no splits.
-We then repeatedly apply the following procedure to each cell $D$
-in the partition.
-Let $t_D$ be the time at which the cell was formed,
-and sample $E_D \sim \Exp \left( |D|_1 \right)$.
-If $t_D + E_D \leq \lambda$, then we split $D$.
-This is done by first selecting a split dimension $J$ with
-$\P(J=j) = |D_j| / |D|_1$, and then sampling a split location
-$S_J \sim \Unif\big[D_J^-, D_J^+\big]$.
-The cell $D$ splits into the two new cells
-$\{x \in D : x_J \leq S_J\}$ and $\{x \in D : x_J > S_J\}$,
-each with formation time $t_D + E_D$.
-The final outcome is the partition $T$ consisting of the cells $D$
-which were not split because $t_D + E_D > \lambda$.
-The cell in $T$ containing a point $x \in [0,1]^d$
-is written $T(x)$.
+$\cM \big( [0,1]^d, \lambda \big)$ we start at time $t=0$ with the trivial
+partition of $[0,1]^d$ which has no splits. We then repeatedly apply the
+following procedure to each cell $D$ in the partition. Let $t_D$ be the time at
+which the cell was formed, and sample $E_D \sim \Exp \left( |D|_1 \right)$. If
+$t_D + E_D \leq \lambda$, then we split $D$. This is done by first selecting a
+split dimension $J$ with $\P(J=j) = |D_j| / |D|_1$, and then sampling a split
+location $S_J \sim \Unif\big[D_J^-, D_J^+\big]$. The cell $D$ splits into the
+two new cells $\{x \in D : x_J \leq S_J\}$ and $\{x \in D : x_J > S_J\}$, each
+with formation time $t_D + E_D$. The final outcome is the partition $T$
+consisting of the cells $D$ which were not split because $t_D + E_D > \lambda$.
+The cell in $T$ containing a point $x \in [0,1]^d$ is written $T(x)$.
 Figure~\ref{fig:mondrian_process} shows typical realizations of
-$T \sim \cM\big( [0,1]^d, \lambda \big)$ for
-$d=2$ and with different lifetime parameters $\lambda$.
+$T \sim \cM\big( [0,1]^d, \lambda \big)$ for $d=2$ and with different lifetime
+parameters $\lambda$.
 %
 \begin{figure}[ht]
   \centering
@@ -346,113 +278,83 @@ $d=2$ and with different lifetime parameters $\lambda$.
     \caption{$\lambda = 30$}
   \end{subfigure}
   %
-  \caption{
-    The Mondrian process
-    $T \sim \cM \big( [0,1]^d, \lambda \big)$
-    with $d=2$ and lifetime parameters $\lambda$.
-  }
+  \caption{The Mondrian process $T \sim \cM \big( [0,1]^d, \lambda \big)$ with
+  $d=2$ and lifetime parameters $\lambda$.}
   \label{fig:mondrian_process}
 \end{figure}
 
 \subsection{Data generation}
 
-Throughout this paper,
-we assume that the data satisfies Assumption~\ref{ass:mondrian_data}.
-We begin with a definition of H{\"o}lder continuity
-which will be used for controlling the bias of various estimators.
+Throughout this paper, we assume that the data satisfies
+Assumption~\ref{ass:mondrian_data}. We begin with a definition of H{\"o}lder
+continuity which will be used for controlling the bias of various estimators.
 
 \begin{definition}[H{\"o}lder continuity]%
 
-  Take $\beta > 0$ and define
-  $\flbeta$ to be the largest integer which is strictly less than $\beta$.
-  We say a function $g: [0,1]^d \to \R$
-  is $\beta$-H{\"o}lder continuous and
-  write $g \in \cH^\beta$ if
-  $g$ is $\flbeta$ times differentiable and
+  Take $\beta > 0$ and define $\flbeta$ to be the largest integer which is
+  strictly less than $\beta$. We say a function $g: [0,1]^d \to \R$ is
+  $\beta$-H{\"o}lder continuous and write $g \in \cH^\beta$ if $g$ is $\flbeta$
+  times differentiable and
   $\max_{|\nu| = \flbeta}
   \left| \partial^\nu g(x) - \partial^{\nu} g(x') \right|
   \leq C \|x-x'\|_2^{\beta - \flbeta}$
-  for some constant $C > 0$
-  and all $x, x' \in [0,1]^d$.
-  Here, $\nu \in \N^d$ is a multi-index with
-  $|\nu| = \sum_{j=1}^d \nu_j$ and
-  $\partial^{\nu} g(x) =
-  \partial^{|\nu|} g(x) \big/ \prod_{j=1}^d \partial x_j^{\nu_j}$.
-  We say $g$ is Lipschitz if $g \in \cH^1$.
+  for some constant $C > 0$ and all $x, x' \in [0,1]^d$. Here, $\nu \in \N^d$
+  is a multi-index with $|\nu| = \sum_{j=1}^d \nu_j$ and
+  $\partial^{\nu} g(x) = \partial^{|\nu|} g(x) \big/
+  \prod_{j=1}^d \partial x_j^{\nu_j}$. We say $g$ is Lipschitz if $g \in \cH^1$.
 
 \end{definition}
 
 \begin{assumption}[Data generation]%
   \label{ass:mondrian_data}
 
-  Fix $d \geq 1$ and
-  let $(X_i, Y_i)$ be i.i.d.\ samples from a distribution
-  on $\R^d \times \R$,
-  writing $\bX = (X_1, \ldots, X_n)$
-  and $\bY = (Y_1, \ldots, Y_n)$.
-  Suppose $X_i$ has a Lebesgue density function $f(x)$
-  on $[0,1]^d$ which is bounded away from zero
-  and satisfies $f \in \cH^\beta$ for some $\beta \geq 1$.
-  Suppose $\E[Y_i^2 \mid X_i]$ is bounded,
-  let $\mu(X_i) = \E[Y_i \mid X_i]$
-  and assume $\mu \in \cH^\beta$.
+  Fix $d \geq 1$ and let $(X_i, Y_i)$ be i.i.d.\ samples from a distribution on
+  $\R^d \times \R$, writing $\bX = (X_1, \ldots, X_n)$ and
+  $\bY = (Y_1, \ldots, Y_n)$. Suppose $X_i$ has a Lebesgue density function
+  $f(x)$ on $[0,1]^d$ which is bounded away from zero and satisfies
+  $f \in \cH^\beta$ for some $\beta \geq 1$. Suppose $\E[Y_i^2 \mid X_i]$ is
+  bounded, let $\mu(X_i) = \E[Y_i \mid X_i]$ and assume $\mu \in \cH^\beta$.
   Write $\varepsilon_i = Y_i - \mu(X_i)$ and assume
-  $\sigma^2(X_i) = \E[\varepsilon_i^2 \mid X_i]$ is Lipschitz
-  and bounded away from zero.
+  $\sigma^2(X_i) = \E[\varepsilon_i^2 \mid X_i]$
+  is Lipschitz and bounded away from zero.
 
 \end{assumption}
 
-Some comments are in order surrounding Assumption~\ref{ass:mondrian_data}.
-The requirement that the covariate density $f(x)$
-be strictly positive on all of $[0,1]^d$ may seem strong,
-particularly when $d$ is moderately large.
-However, since our theory is presented pointwise in $x$,
-it is sufficient for this to hold only on some neighborhood of $x$.
-To see this, note that continuity implies the density
-is positive on some hypercube containing $x$. Upon rescaling
-the covariates, we can map this hypercube onto $[0,1]^d$.
-The same argument of course holds for the H{\"o}lder smoothness
-assumptions and the upper and lower bounds on the conditional variance
-function.
+Some comments are in order surrounding Assumption~\ref{ass:mondrian_data}. The
+requirement that the covariate density $f(x)$ be strictly positive on all of
+$[0,1]^d$ may seem strong, particularly when $d$ is moderately large. However,
+since our theory is presented pointwise in $x$, it is sufficient for this to
+hold only on some neighborhood of $x$. To see this, note that continuity
+implies the density is positive on some hypercube containing $x$. Upon
+rescaling the covariates, we can map this hypercube onto $[0,1]^d$. The same
+argument of course holds for the H{\"o}lder smoothness assumptions and the
+upper and lower bounds on the conditional variance function.
 
 \subsection{Mondrian random forests}
 
 We define the basic Mondrian random forest estimator
-\eqref{eq:mondrian_estimator}
-as in \citet{lakshminarayanan2014mondrian} and
-\citet{mourtada2020minimax},
-and will later extend it to a debiased version
-in Section~\ref{sec:debiased}.
-For a lifetime parameter $\lambda > 0$ and
-forest size $B \geq 1$,
-let $\bT = (T_1, \ldots, T_B)$ be a Mondrian forest
-where $T_b \sim \cM\big([0,1]^d, \lambda\big)$ are
-mutually independent Mondrian trees which are
-independent of the data.
-For $x \in [0,1]^d$, write
-$N_b(x) = \sum_{i=1}^{n} \I \left\{ X_i \in T_b(x) \right\}$
-for the number of samples in $T_b(x)$,
-with $\I$ denoting an indicator function.
-Then the Mondrian random forest estimator of $\mu(x)$ is
+\eqref{eq:mondrian_estimator} as in \citet{lakshminarayanan2014mondrian} and
+\citet{mourtada2020minimax}, and will later extend it to a debiased version in
+Section~\ref{sec:debiased}. For a lifetime parameter $\lambda > 0$ and forest
+size $B \geq 1$, let $\bT = (T_1, \ldots, T_B)$ be a Mondrian forest where
+$T_b \sim \cM\big([0,1]^d, \lambda\big)$ are mutually independent Mondrian trees
+which are independent of the data. For $x \in [0,1]^d$, write
+$N_b(x) = \sum_{i=1}^{n} \I \left\{ X_i \in T_b(x) \right\}$ for the number of
+samples in $T_b(x)$, with $\I$ denoting an indicator function. Then the
+Mondrian random forest estimator of $\mu(x)$ is
 %
 \begin{align}
   \label{eq:mondrian_estimator}
-  \hat\mu(x)
-  =
-  \frac{1}{B}
-  \sum_{b=1}^B
-  \frac{\sum_{i=1}^n Y_i \, \I\big\{ X_i \in T_b(x) \big\}}
-  {N_b(x)}.
+  \hat\mu(x) = \frac{1}{B} \sum_{b=1}^B
+  \frac{\sum_{i=1}^n Y_i \, \I\big\{ X_i \in T_b(x) \big\}} {N_b(x)}.
 \end{align}
 %
-If there are no samples $X_i$ in $T_b(x)$ then $N_b(x) = 0$,
-so we define $0/0 = 0$
-(see Section~\ref{sec:mondrian_proofs} for details).
-To ensure the bias and variance of the Mondrian random forest estimator
-converge to zero (see Section~\ref{sec:mondrian_inference}),
-and to avoid boundary issues,
-we impose some basic conditions on
-$x$, $\lambda$, and $B$ in Assumption~\ref{ass:estimator}.
+If there are no samples $X_i$ in $T_b(x)$ then $N_b(x) = 0$, so we define
+$0/0 = 0$ (see Section~\ref{sec:mondrian_proofs} for details). To ensure the
+bias and variance of the Mondrian random forest estimator converge to zero (see
+Section~\ref{sec:mondrian_inference}), and to avoid boundary issues, we impose
+some basic conditions on $x$, $\lambda$, and $B$ in
+Assumption~\ref{ass:estimator}.
 
 \begin{assumption}[Mondrian random forest estimator]%
   \label{ass:estimator}
@@ -465,21 +367,19 @@ $x$, $\lambda$, and $B$ in Assumption~\ref{ass:estimator}.
   %
 \end{assumption}
 
-Assumption~\ref{ass:estimator} implies that
-the size of the forest $B$ grows with $n$.
-For the purpose of mitigating the computational burden,
-we suggest the sub-linear polynomial growth $B \asymp n^{\xi}$,
-satisfying the conditions imposed in our main results.
-Large forests usually do not present computational challenges in
-practice as the ensemble estimator is easily parallelizable over the trees.
-We emphasize places where this ``large forest'' condition is important
-to our theory as they arise throughout the paper.
+Assumption~\ref{ass:estimator} implies that the size of the forest $B$ grows
+with $n$. For the purpose of mitigating the computational burden, we suggest
+the sub-linear polynomial growth $B \asymp n^{\xi}$, satisfying the conditions
+imposed in our main results. Large forests usually do not present computational
+challenges in practice as the ensemble estimator is easily parallelizable over
+the trees. We emphasize places where this ``large forest'' condition is
+important to our theory as they arise throughout the paper.
 
 \section{Inference with Mondrian random forests}%
 \label{sec:mondrian_inference}
 
-Our analysis begins with a bias--variance decomposition
-for the Mondrian random forest estimator:
+Our analysis begins with a bias--variance decomposition for the Mondrian random
+forest estimator:
 %
 \begin{align}
   \nonumber
