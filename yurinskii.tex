@@ -28,78 +28,51 @@ Yurinskii's coupling \citep{yurinskii1978error} has proven to be an important
 theoretical tool for developing non-asymptotic distributional approximations in
 mathematical statistics and applied probability. For a sum $S$ of $n$
 independent zero-mean $d$-dimensional random vectors, this coupling technique
-constructs (on a suitably enlarged probability space)
-a zero-mean $d$-dimensional
-Gaussian vector $T$ with the same covariance matrix as $S$ and which is close
-to $S$ in probability, bounding the discrepancy $\|S-T\|$ as a function of $n$,
-$d$, the choice of the norm, and some features of the underlying distribution.
-See, for example, \citet[Chapter 10]{pollard2002user} for a textbook
-introduction.
+constructs (on a suitably enlarged probability space) a zero-mean
+$d$-dimensional Gaussian vector $T$ with the same covariance matrix as $S$ and
+which is close to $S$ in probability, bounding the discrepancy $\|S-T\|$ as a
+function of $n$, $d$, the choice of the norm, and some features of the
+underlying distribution. See, for example, \citet[Chapter 10]{pollard2002user}
+for a textbook introduction.
 
 When compared to other coupling approaches, such as the celebrated Hungarian
 construction \citep{komlos1975approximation} or Zaitsev's coupling
 \citep{zaitsev1987estimates,zaitsev1987gaussian}, Yurinskii's approach stands
-out for its simplicity, robustness, and wider applicability, while also offering
-tighter couplings in some applications (see below for more discussion and
-examples). These features have led many scholars to use Yurinskii's coupling to
-study the distributional features of high-dimensional statistical procedures in
-a variety of settings, often with the end goal of developing uncertainty
-quantification or hypothesis testing methods. For example, in recent years,
-Yurinskii's coupling has been used
-%\item
-to construct Gaussian approximations for the suprema of empirical processes
-\citep{chernozhukov2014gaussian};
-%
-%\item
-to establish distribution theory for non-Donsker stochastic $t$-processes
-generated in nonparametric series regression \citep{belloni2015some};
-%
-%\item
-to prove distributional approximations for
-high-dimensional $\ell^p$-norms \citep{biau2015high};
-%
-%\item
-to develop distribution theory for vector-valued martingales
-\citep{belloni2018high,li2020uniform};
-%
-%\item
-to derive a law of the iterated logarithm for stochastic gradient descent
-optimization methods \citep{anastasiou2019normal};
-%
-%\item
-to establish uniform distributional results for nonparametric
-high-dimensional quantile processes \citep{belloni2019conditional};
-%
-%\item
-to develop distribution theory for non-Donsker stochastic
-$t$-processes generated in partitioning-based series regression
-\citep{cattaneo2020large};
-%
-%\item
-to deduce Bernstein--von Mises theorems in high-dimensional settings
-\citep{ray2021bernstein};
-%
-%\item
-and to develop distribution theory for non-Donsker U-processes based on dyadic
-network data \citep{cattaneo2024uniform}.
-%
-%\end{inlineroman}
-%
-There are also many other early applications of Yurinskii's coupling:
-\citet{dudley1983invariance} and \citet{dehling1983limit} establish invariance
-principles for Banach space-valued random variables, and \citet{lecam1988} and
-\citet{sheehy1992uniform} obtain uniform Donsker results for empirical
-processes, to name just a few.
+out for its simplicity, robustness, and wider applicability, while also
+offering tighter couplings in some applications (see below for more discussion
+and examples). These features have led many scholars to use Yurinskii's
+coupling to study the distributional features of high-dimensional statistical
+procedures in a variety of settings, often with the end goal of developing
+uncertainty quantification or hypothesis testing methods. For example, in
+recent years, Yurinskii's coupling has been used to construct Gaussian
+approximations for the suprema of empirical processes
+\citep{chernozhukov2014gaussian}; to establish distribution theory for
+non-Donsker stochastic $t$-processes generated in nonparametric series
+regression \citep{belloni2015some}; to prove distributional approximations for
+high-dimensional $\ell^p$-norms \citep{biau2015high}; to develop distribution
+theory for vector-valued martingales \citep{belloni2018high,li2020uniform}; to
+derive a law of the iterated logarithm for stochastic gradient descent
+optimization methods \citep{anastasiou2019normal}; to establish uniform
+distributional results for nonparametric high-dimensional quantile processes
+\citep{belloni2019conditional}; to develop distribution theory for non-Donsker
+stochastic $t$-processes generated in partitioning-based series regression
+\citep{cattaneo2020large}; to deduce Bernstein--von Mises theorems in
+high-dimensional settings \citep{ray2021bernstein}; and to develop distribution
+theory for non-Donsker U-processes based on dyadic network data
+\citep{cattaneo2024uniform}. There are also many other early applications of
+Yurinskii's coupling: \citet{dudley1983invariance} and \citet{dehling1983limit}
+establish invariance principles for Banach space-valued random variables, and
+\citet{lecam1988} and \citet{sheehy1992uniform} obtain uniform Donsker results
+for empirical processes, to name just a few.
 
-This chapter presents a new Yurinskii coupling which encompasses and
-improves upon all of the results previously available in the
-literature, offering four new features:
+This chapter presents a new Yurinskii coupling which encompasses and improves
+upon all of the results previously available in the literature, offering four
+new features:
 %
 \begin{enumerate}[label=(\roman*),leftmargin=*]
   \item
     \label{it:contribution_approximate_martingale}
-    It applies to vector-valued
-    \textit{approximate martingale} data.
+    It applies to vector-valued \textit{approximate martingale} data.
   \item
     \label{it:contribution_gaussian_mixture}
     It allows for a \textit{Gaussian mixture} coupling distribution.
@@ -114,42 +87,37 @@ literature, offering four new features:
 \end{enumerate}
 %
 
-Closest to our work are the unpublished manuscript by
-\citet{belloni2018high} and the recent paper by
-\citet{li2020uniform},
-which both investigated distribution theory for martingale
-data using Yurinskii's coupling and related methods. Specifically,
-\citet{li2020uniform}
-established a Gaussian $\ell^2$-norm Yurinskii coupling for
-mixingales and martingales under the assumption that the covariance structure
-has a minimum eigenvalue bounded away from zero. As formally demonstrated in
-this chapter (Section~\ref{sec:kde}), such eigenvalue assumptions can be
-prohibitively strong in practically relevant applications. In contrast, our
-Yurinskii coupling does not impose any restrictions on covariance degeneracy
-\ref{it:contribution_degeneracy}, in addition to offering several other new
-features not present in \citet{li2020uniform}, including
-\ref{it:contribution_approximate_martingale},
+Closest to our work are the unpublished manuscript by \citet{belloni2018high}
+and the recent paper by \citet{li2020uniform}, which both investigated
+distribution theory for martingale data using Yurinskii's coupling and related
+methods. Specifically, \citet{li2020uniform} established a Gaussian
+$\ell^2$-norm Yurinskii coupling for mixingales and martingales under the
+assumption that the covariance structure has a minimum eigenvalue bounded away
+from zero. As formally demonstrated in this chapter (Section~\ref{sec:kde}),
+such eigenvalue assumptions can be prohibitively strong in practically relevant
+applications. In contrast, our Yurinskii coupling does not impose any
+restrictions on covariance degeneracy \ref{it:contribution_degeneracy}, in
+addition to offering several other new features not present in
+\citet{li2020uniform}, including \ref{it:contribution_approximate_martingale},
 \ref{it:contribution_gaussian_mixture}, \ref{it:contribution_third_order}, and
 applicability to general $\ell^p$-norms. In addition, we correct a slight
 technical inaccuracy in their proof relating to the derivation of bounds in
 probability (Remark \ref{rem:coupling_bounds_probability}).
-\citet{belloni2018high} did not establish a Yurinskii coupling for
-martingales, but rather a central limit theorem for smooth functions
-of high-dimensional martingales
-using the celebrated second-order Lindeberg method
-\citep[see][and references therein]{chatterjee2006generalization},
-explicitly accounting for covariance
-degeneracy. As a consequence, their result could be leveraged to deduce a
-Yurinskii coupling for martingales with additional, non-trivial technical work
-(see Appendix~\ref{sec:yurinskii_proofs}
-for details). Nevertheless, a
-Yurinskii coupling derived from \citet{belloni2018high} would not feature
+\citet{belloni2018high} did not establish a Yurinskii coupling for martingales,
+but rather a central limit theorem for smooth functions of high-dimensional
+martingales using the celebrated second-order Lindeberg method
+\citep[see][and references therein]{chatterjee2006generalization}, explicitly
+accounting for covariance degeneracy. As a consequence, their result could be
+leveraged to deduce a Yurinskii coupling for martingales with additional,
+non-trivial technical work (see Appendix~\ref{sec:yurinskii_proofs} for
+details). Nevertheless, a Yurinskii coupling derived from
+\citet{belloni2018high} would not feature
 \ref{it:contribution_approximate_martingale},
 \ref{it:contribution_gaussian_mixture}, \ref{it:contribution_third_order}, or
-general $\ell^p$-norms, as our results do. We discuss
-further the connections between our work and the related literature in the
-upcoming sections, both when introducing our main theoretical results and when
-presenting the examples and statistical applications.
+general $\ell^p$-norms, as our results do. We discuss further the connections
+between our work and the related literature in the upcoming sections, both when
+introducing our main theoretical results and when presenting the examples and
+statistical applications.
 
 The most general coupling result of this chapter
 (Theorem~\ref{thm:sa_dependent}) is presented in
@@ -207,8 +175,7 @@ process literature \citep{van1996weak} with our
 Corollary~\ref{cor:sa_martingale}. This statement appears to be the first of
 its kind for martingale data, and when specialized to independent
 (and not necessarily identically distributed) data, it is
-shown to be superior to the best known % best is an adverb, so no hyphen here
-comparable strong approximation result
+shown to be superior to the best known comparable strong approximation result
 available in the literature \citep{berthet2006revisiting}. Our improvement
 comes from using Yurinskii's coupling for the $\ell^\infty$-norm, where
 \citet{berthet2006revisiting} apply Zaitsev's coupling
@@ -221,8 +188,7 @@ we deduce a strong approximation for partitioning-based least squares series
 estimators with time series data, applying Corollary~\ref{cor:sa_martingale}
 directly and additionally imposing only a mild mixing condition on the
 regressors. We show that our Yurinskii coupling for martingale vectors delivers
-the same distributional approximation rate as the best % here too
-known result for
+the same distributional approximation rate as the best known result for
 independent data, and discuss how this can be leveraged to yield a feasible
 statistical inference procedure. We also show that if the residuals have
 vanishing conditional third moment, an improved rate of Gaussian approximation
@@ -236,13 +202,11 @@ separability properties. The bandwidth restrictions we require are relatively
 mild, and, as far as we know, they have not been improved upon even with
 independent data.
 
-Section \ref{sec:yurinskii_conclusion} concludes.
-All proofs are collected in Appendix~\ref{sec:yurinskii_proofs},
-which also includes other technical lemmas of
-potential independent interest, alongside
-some further results on applications of our theory to
-deriving high-dimensional central limit theorems for martingales
-in Appendix~\ref{sec:high_dim_clt}.
+Section \ref{sec:yurinskii_conclusion} concludes. All proofs are collected in
+Appendix~\ref{sec:yurinskii_proofs}, which also includes other technical lemmas
+of potential independent interest, alongside some further results on
+applications of our theory to deriving high-dimensional central limit theorems
+for martingales in Appendix~\ref{sec:high_dim_clt}.
 
 \subsection{Notation}
 
@@ -298,35 +262,25 @@ related to the existing literature.
 \begin{theorem}[Strong approximation for vector-valued approximate martingales]%
   \label{thm:sa_dependent}
 
-  Take a complete probability space with a countably generated
-  filtration $\cH_0, \ldots, \cH_n$
-  for some $n \geq 1$, supporting the
-  $\R^d$-valued square-integrable random vectors
-  $X_1, \ldots, X_n$.
-  Let $S = \sum_{i=1}^n X_i$ and
-  define
+  Take a complete probability space with a countably generated filtration
+  $\cH_0, \ldots, \cH_n$ for some $n \geq 1$, supporting the $\R^d$-valued
+  square-integrable random vectors $X_1, \ldots, X_n$. Let $S = \sum_{i=1}^n
+  X_i$ and define
   %
   \begin{align*}
     \tilde X_i
-    &=
-    \sum_{r=1}^n \big(\E[X_{r} \mid \cH_{i}] - \E[X_{r} \mid \cH_{i-1}]\big)
+    &= \sum_{r=1}^n \big(\E[X_{r} \mid \cH_{i}] - \E[X_{r} \mid \cH_{i-1}]\big)
     & &\text{and}
-    &U
-    &=
-    \sum_{i=1}^{n} \big(
-      X_i - \E[ X_i \mid \cH_n]
-      + \E[ X_i \mid \cH_0 ]
-    \big).
+    &U &= \sum_{i=1}^{n} \big( X_i - \E[ X_i \mid \cH_n]
+    + \E[ X_i \mid \cH_0 ] \big).
   \end{align*}
   %
   Let $V_i = \Var[\tilde X_i \mid \cH_{i-1}]$ and
   define $\Omega = \sum_{i=1}^n V_i - \Sigma$
   where $\Sigma$ is an almost surely positive semi-definite $\cH_0$-measurable
-  $d \times d$ random matrix.
-  Then, for each $\eta > 0$ and $p \in [1,\infty]$,
-  there exists, on an enlarged probability space,
-  an $\R^d$-valued random vector $T$ with
-  $T \mid \cH_0 \sim \cN(0, \Sigma)$ such that
+  $d \times d$ random matrix. Then, for each $\eta > 0$ and $p \in [1,\infty]$,
+  there exists, on an enlarged probability space, an $\R^d$-valued random
+  vector $T$ with $T \mid \cH_0 \sim \cN(0, \Sigma)$ such that
   %
   \begin{align}
     \label{eq:sa_dependent}
@@ -349,9 +303,8 @@ related to the existing literature.
   \end{align}
   %
   where $Z, Z_1,\dots ,Z_n$ are i.i.d.\ standard Gaussian random variables on
-  $\R^d$ independent of $\cH_n$,
-  the second infimum is taken over all positive semi-definite
-  $d \times d$ non-random matrices $M$,
+  $\R^d$ independent of $\cH_n$, the second infimum is taken over all positive
+  semi-definite $d \times d$ non-random matrices $M$,
   %
   \begin{align*}
     \beta_{p,k}
@@ -384,9 +337,8 @@ related to the existing literature.
   \end{align*}
 \end{theorem}
 
-This theorem offers four novel contributions to the literature on
-coupling theory and strong approximation,
-as discussed in the introduction.
+This theorem offers four novel contributions to the literature on coupling
+theory and strong approximation, as discussed in the introduction.
 % approximate martingales
 Firstly \ref{it:contribution_approximate_martingale}, it allows for approximate
 vector-valued martingales, with the variables $\tilde X_i$ forming martingale
@@ -731,12 +683,11 @@ explicitly considered Yurinskii's coupling for martingales. More specifically,
 $\ell^2$-norm Yurinskii coupling
 for martingales under a strong assumption on the minimum eigenvalue of the
 martingale quadratic variation, while \citet[Theorem~2.1]{belloni2018high}
-established a
-central limit theorem for vector-valued martingale sequences employing the
-standard second-order Lindeberg method, implying that their proof could be
-adapted to deduce a Yurinskii coupling for martingales with the help of a
-conditional version of Strassen's theorem \citep{chen2020jackknife} and some
-additional nontrivial technical work.
+established a central limit theorem for vector-valued martingale sequences
+employing the standard second-order Lindeberg method, implying that their proof
+could be adapted to deduce a Yurinskii coupling for martingales with the help
+of a conditional version of Strassen's theorem \citep{chen2020jackknife} and
+some additional nontrivial technical work.
 
 Corollary~\ref{cor:sa_martingale} improves over this prior work as follows.
 With respect to \citet{li2020uniform}, our result establishes an $\ell^p$-norm
@@ -863,20 +814,14 @@ immediately yields the following result.
   \begin{align}
     \label{eq:sa_indep_order_2}
     \P\big(\|S-T\|_p > \eta\big)
-    &\leq
-    24 \left(
-      \frac{\beta_{p,2} \phi_p(d)^2}{\eta^3}
-    \right)^{1/3}.
+    &\leq 24 \left( \frac{\beta_{p,2} \phi_p(d)^2}{\eta^3} \right)^{1/3}.
   \end{align}
   %
   If further $\pi_3 = 0$ then
   %
   \begin{align*}
     \P\big(\|S-T\|_p > \eta\big)
-    &\leq
-    24 \left(
-      \frac{\beta_{p,3} \phi_p(d)^3}{\eta^4}
-    \right)^{1/4}.
+    &\leq 24 \left( \frac{\beta_{p,3} \phi_p(d)^3}{\eta^4} \right)^{1/4}.
   \end{align*}
   %
 \end{corollary}
@@ -890,8 +835,7 @@ in \citet[Theorem~1]{lecam1988} and \citet[Theorem~10]{pollard2002user}. Thus,
 in the independent data setting, our result improves on prior work as follows:
 \begin{inlineroman}
 \item
-  it establishes a coupling to a multivariate Gaussian mixture distribution;
-  and
+  it establishes a coupling to a multivariate Gaussian mixture distribution; and
 \item
   it permits a third-order coupling if $\pi_3=0$.
 \end{inlineroman}
