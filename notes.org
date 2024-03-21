@@ -1,6 +1,7 @@
 #+title: PhD Dissertation
 * Tasks
-** Final layout check
+** TODO Punctuation in captions
+** TODO Final layout check
 * Structure
 ** Introduction
 *** From job application research statement
