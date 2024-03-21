@@ -4,61 +4,50 @@
 
 % why np is important
 Nonparametric methodology is a cornerstone of modern statistics, offering
-techniques for analyzing data which defies many classically
-imposed parametric assumptions. While contemporary
-procedures such as random forests and kernel methods are widely popular due to
-their performance, flexibility and computational efficiency, the statistical
-estimation and inference properties of such approaches are somewhat less
-well understood in certain cases. The availability of
-sound inferential techniques is especially vital,
-allowing researchers to not only make high-quality
-predictions but also to robustly quantify their uncertainty.
-% overview
-In this dissertation we develop and analyze
-procedures for robust and practical statistical
-estimation and inference in some modern nonparametric settings
-involving complex estimators and nontraditional data.
+techniques for analyzing data under minimal assumptions in a broad range of
+scenarios. While contemporary procedures such as random forests and kernel
+methods are popular due to their performance, flexibility and efficiency, the
+statistical properties of such approaches are less well understood in certain
+cases. The availability of sound inferential techniques is especially vital,
+allowing researchers to not only make high-quality predictions but also to
+quantify their uncertainty. We develop and analyze procedures for robust and
+practical statistical estimation and inference in some modern nonparametric
+settings involving complex estimators and nontraditional data.
 
 % mondrian
-We begin in the regression setting, and study the Mondrian random forest, a
-recently introduced random forest variant in which the underlying partitions
-are drawn from a stochastic process known as the Mondrian process. We present a
-comprehensive analysis of the statistical properties of Mondrian random
-forests, including a central limit theorem for the estimated regression
-function and a characterization of the large-sample bias. We show how these
-main results allow for feasible and valid nonparametric inference such as
-constructing confidence intervals. We further provide a debiasing procedure for
-Mondrian random forests which allow them to achieve minimax-optimal estimation
-rates in smooth function classes and with covariates of arbitrary dimension,
-assuming appropriate tuning of parameters.
+We begin in the regression setting where we study the Mondrian random forest, a
+recently introduced random forest variant in which the partitions are drawn
+from a Mondrian process. We present a comprehensive analysis of the statistical
+properties of Mondrian random forests, including a central limit theorem for
+the estimated regression function and a characterization of the large-sample
+bias. We show how these main results allow for feasible and valid nonparametric
+inference such as constructing confidence intervals. We further provide a
+debiasing procedure for Mondrian random forests which allow them to achieve
+minimax-optimal estimation rates in smooth function classes and with covariates
+of arbitrary dimension, assuming appropriate tuning of parameters.
 
 % kernel
-Next, we turn our attention to nonparametric estimation in the dependent data
-setting, considering dyadic data associated with the edges of a network. We
+Next, we turn our attention to nonparametric estimation with dependent data,
+considering dyadic samples associated with the edges of a network. We
 investigate the problem of estimating a dyadic Lebesgue density function using
-a kernel-based density estimator, and provide methodology and results for
-minimax-optimal estimation and uniform inference across the support of the
-data. A central feature in dyadic data analysis is the potential presence of
-degenerate points at which the nonparametric estimation rate varies,
-complicating the process of providing uniform guarantees. Nonetheless our
-methods for inference, such as the construction of uniform confidence bands for
-the true density function, as well as counterfactual procedures, remain valid
-even in such degenerate cases. We provide illustrations with both simulated and
-real-world data, and our technical contributions regarding strong
-approximations and maximal inequalities may be of independent interest.
+a kernel-based density estimator, and present results for minimax-optimal
+estimation and uniform inference. A central feature in dyadic data analysis is
+the potential presence of degenerate points, complicating the uniform analysis.
+Nonetheless our methods for inference, including uniform confidence bands as
+well as counterfactual procedures, remain valid even in such degenerate cases.
+We provide illustrations with both simulated and real-world data, and our
+technical contributions regarding strong approximations and maximal
+inequalities may be of independent interest.
 
 % yurinskii
-We devote the final part to a development of some new probabilistic tools with
-applications to nonparametric inference. Distributional analysis is often
-challenging in such settings due to the presence of high-dimensional objects;
-traditional methods such as central limit theorems are frequently unsuitable.
-Instead, coupling theory has become a popular approach in recent years,
-providing tools for constructing random variables which approximate the desired
-estimator. Yurinskii's coupling stands out for its applicability in
-high-dimensional and non-i.i.d.\ settings. We provide some generalizations to
-Yurinskii's coupling, treating approximate martingale data under weaker
-conditions than previously imposed. We allow for the coupling variable to
-follow a Gaussian mixture distribution, and a third-order method gives faster
-rates in certain situations. We showcase our main results with applications to
-factor models and martingale empirical processes, as well as nonparametric
-partitioning-based and local polynomial regression procedures.
+We devote the final part to developing some new probabilistic results with
+applications to nonparametric inference. Coupling theory has become a popular
+approach for distributional analysis in recent years, and Yurinskii's coupling
+stands out for its wide applicability and explicit formulation.
+We present some generalizations of Yurinskii's coupling, treating approximate
+martingale data under weaker conditions than previously imposed. We allow for
+the coupling variable to follow a Gaussian mixture distribution, and a
+third-order method gives faster rates in certain situations. We showcase our
+main results with applications to factor models and martingale empirical
+processes, as well as nonparametric partitioning-based and local polynomial
+regression procedures.
