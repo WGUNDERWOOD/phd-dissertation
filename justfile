@@ -11,7 +11,7 @@ alias w := warn
 all: spell todo longlines format build warn
 
 spell:
-	@spell-check *.tex refs.bib
+	@spell-check -a *.tex refs.bib
 
 todo:
 	@todo-finder *.tex refs.bib notes.org
