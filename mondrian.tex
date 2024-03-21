@@ -390,90 +390,69 @@ forest estimator:
   &=
   \nonumber
   \left(
-    \frac{1}{B}
-    \sum_{b=1}^B
-    \frac{\sum_{i=1}^n \varepsilon_i \, \I\big\{ X_i \in T_b(x) \big\}}
-    {N_b(x)}
+    \frac{1}{B} \sum_{b=1}^B
+    \frac{\sum_{i=1}^n \varepsilon_i \, \I\big\{ X_i \in T_b(x) \big\}} {N_b(x)}
   \right) \\
   \label{eq:bias_variance}
   &\quad+
   \left(
-    \frac{1}{B}
-    \sum_{b=1}^B
+    \frac{1}{B} \sum_{b=1}^B
     \frac{\sum_{i=1}^n \big(\mu(X_i) - \mu(x)\big) \,
-    \I\big\{ X_i \in T_b(x) \big\}}
-    {N_b(x)}
+    \I\big\{ X_i \in T_b(x) \big\}} {N_b(x)}
   \right).
 \end{align}
 %
-Our approach to inference is summarized as follows.
-Firstly, we provide a central limit theorem
-(weak convergence to a Gaussian)
-for the first ``variance'' term in \eqref{eq:bias_variance}.
-Secondly, we precisely compute the probability limit of the second
-``bias'' term.
-By ensuring that the standard deviation dominate the bias,
-we can conclude that a corresponding central limit theorem
-holds for the Mondrian random forest.
-With an appropriate estimator for the limiting variance,
-we establish procedures for valid and feasible statistical inference
-on the unknown regression function $\mu(x)$.
+Our approach to inference is summarized as follows. Firstly, we provide a
+central limit theorem (weak convergence to a Gaussian) for the first
+``variance'' term in \eqref{eq:bias_variance}. Secondly, we precisely compute
+the probability limit of the second ``bias'' term. By ensuring that the
+standard deviation dominate the bias, we can conclude that a corresponding
+central limit theorem holds for the Mondrian random forest. With an appropriate
+estimator for the limiting variance, we establish procedures for valid and
+feasible statistical inference on the unknown regression function $\mu(x)$.
 
-We begin with the aforementioned central limit theorem,
-which forms the core of our methodology for performing statistical inference.
-Before stating our main result,
-we highlight some of the challenges involved.
-At first glance, the summands in the first term in \eqref{eq:bias_variance}
-seem to be independent over $1 \leq i \leq n$, conditional
-on the forest $\bT$, depending only on $X_i$ and $\varepsilon_i$.
-However, the $N_b(x)$ appearing in the denominator depends on all $X_i$
-simultaneously, violating this independence assumption
-and rendering classical central limit theorems inapplicable.
-A natural preliminary attempt to resolve this issue is to observe that
+We begin with the aforementioned central limit theorem, which forms the core of
+our methodology for performing statistical inference. Before stating our main
+result, we highlight some of the challenges involved. At first glance, the
+summands in the first term in \eqref{eq:bias_variance} seem to be independent
+over $1 \leq i \leq n$, conditional on the forest $\bT$, depending only on
+$X_i$ and $\varepsilon_i$. However, the $N_b(x)$ appearing in the denominator
+depends on all $X_i$ simultaneously, violating this independence assumption and
+rendering classical central limit theorems inapplicable. A natural preliminary
+attempt to resolve this issue is to observe that
 %
 \begin{align*}
   N_b(x)&=
   \sum_{i=1}^{n} \I\big\{X_i \in T_b(x)\big\}
-  \approx
-  n \, \P \big( X_i \in T_b(x) \mid T_b \big)
-  \approx
-  n f(x) |T_b(x)|
+  \approx n \, \P \big( X_i \in T_b(x) \mid T_b \big)
+  \approx n f(x) |T_b(x)|
 \end{align*}
 %
-with high probability.
-One could attempt to use this by
-approximating the estimator with an average of
-i.i.d.\ random variables, or by
-employing a central limit theorem
-conditional on $\bX$ and $\bT$.
-However, such an approach fails because
-$\E \left[ \frac{1}{|T_b(x)|^2} \right] = \infty$;
-the possible existence of small cells causes the law of the
-inverse cell volume to have heavy tails.
-For similar reasons, attempts to directly establish a central limit theorem
-based on $2 + \delta$ moments, such as the Lyapunov central limit theorem,
-are ineffective.
+with high probability. One could attempt to use this by approximating the
+estimator with an average of i.i.d.\ random variables, or by employing a
+central limit theorem conditional on $\bX$ and $\bT$. However, such an approach
+fails because $\E \left[ \frac{1}{|T_b(x)|^2} \right] = \infty$; the possible
+existence of small cells causes the law of the inverse cell volume to have
+heavy tails. For similar reasons, attempts to directly establish a central
+limit theorem based on $2 + \delta$ moments, such as the Lyapunov central limit
+theorem, are ineffective.
 
 We circumvent these problems by directly analyzing
-$\frac{\I\{N_b(x) \geq 1\}}{N_b(x)}$.
-We establish concentration properties
-for this non-linear function of $X_i$ via the Efron--Stein inequality
-\citep[Section 3.1]{boucheron2016concentration}
-along with a sequence of somewhat delicate preliminary lemmas regarding
-inverse moments of truncated (conditional) binomial random variables.
-In particular, we show that
+$\frac{\I\{N_b(x) \geq 1\}}{N_b(x)}$. We establish concentration properties for
+this non-linear function of $X_i$ via the Efron--Stein inequality
+\citep[Section 3.1]{boucheron2016concentration} along with a sequence of
+somewhat delicate preliminary lemmas regarding inverse moments of truncated
+(conditional) binomial random variables. In particular, we show that
 $\E \left[ \frac{\I \{N_b(x) \geq 1\}}{N_b(x)} \right]
-\lesssim \frac{\lambda^d}{n}$
-and
+\lesssim \frac{\lambda^d}{n}$ and
 $\E \left[ \frac{\I \{N_b(x) \geq 1\}}{N_b(x)^2} \right]
 \lesssim \frac{\lambda^{2d} \log n}{n^2}$.
-Asymptotic normality is then established
-using a central limit theorem for martingale difference sequences
-\citep[Theorem~3.2]{hall2014martingale}
-with respect to an appropriate filtration.
-Section~\ref{sec:overview_proofs} gives an overview our proof strategy in
-which  we further discuss the underlying challenges,
-while Section~\ref{sec:mondrian_proofs} gives all the technical details.
+Asymptotic normality is then established using a central limit theorem for
+martingale difference sequences \citep[Theorem~3.2]{hall2014martingale} with
+respect to an appropriate filtration. Section~\ref{sec:overview_proofs} gives
+an overview our proof strategy in which  we further discuss the underlying
+challenges, while Section~\ref{sec:mondrian_proofs} gives all the technical
+details.
 
 \subsection{Central limit theorem}
 \label{sec:mondrian_clt}
@@ -490,70 +469,52 @@ Theorem~\ref{thm:clt} gives our first main result.
   %
   \begin{align*}
     \sqrt{\frac{n}{\lambda^d}}
-    \Big(
-      \hat \mu(x)
-      - \E \big[ \hat \mu(x) \mid \bX, \bT \big]
-    \Big)
-    &\rightsquigarrow
-    \cN\big(0, \Sigma(x)\big)
-    &                &\text{where}
-    &\Sigma(x)
-    &=
-    \frac{\sigma^2(x)}{f(x)}
-    \left(
-      \frac{4 - 4 \log 2}{3 }
-    \right)^d.
+    \Big( \hat \mu(x) - \E \big[ \hat \mu(x) \mid \bX, \bT \big] \Big)
+    &\rightsquigarrow \cN\big(0, \Sigma(x)\big)
+    & &\text{where}
+    &\Sigma(x) &=
+    \frac{\sigma^2(x)}{f(x)} \left( \frac{4 - 4 \log 2}{3 } \right)^d.
   \end{align*}
 \end{theorem}
 
-The condition of $B \to \infty$ is crucial,
-ensuring sufficient ``mixing'' of different Mondrian cells to escape the
-heavy-tailed phenomenon detailed in the preceding discussion.
-For concreteness, the large forest condition allows us to deal
-with expressions such as
-$\E \left[ \frac{1}{|T_b(x)| |T_{b'}(x)|} \right] =
-\E \left[ \frac{1}{|T_b(x)|} \right] \E \left[ \frac{1}{|T_{b'}(x)|} \right]
+The condition of $B \to \infty$ is crucial, ensuring sufficient ``mixing'' of
+different Mondrian cells to escape the heavy-tailed phenomenon detailed in the
+preceding discussion. For concreteness, the large forest condition allows us to
+deal with expressions such as
+$\E \left[ \frac{1}{|T_b(x)| |T_{b'}(x)|} \right]
+= \E \left[ \frac{1}{|T_b(x)|} \right] \E \left[ \frac{1}{|T_{b'}(x)|} \right]
 \approx \lambda^{2d} < \infty$
-where $b \neq b'$, by independence of the trees, rather than
-the ``no ensembling'' single tree analog
+where $b \neq b'$, by independence of the trees, rather than the ``no
+ensembling'' single tree analog
 $\E \left[ \frac{1}{|T_b(x)|^2} \right] = \infty$.
 
-We take this opportunity to contrast Mondrian random forests with
-more classical kernel-based smoothing methods.
-The lifetime $\lambda$ plays a similar role to the inverse bandwidth
-in determining the effective sample size $n / \lambda^d$, and thus the
-associated rate of convergence.
-However, due to the Mondrian process
-construction, some cells are typically ``too small''
-(equivalent to an insufficiently large bandwidth)
-to give an appropriate effective sample size.
-Similarly, classical methods based on non-random partitioning
-such as spline estimators
-\citep{huang2003local,cattaneo2020large}
-typically impose a quasi-uniformity assumption to ensure
-all the cells are of comparable size,
-a property which does not hold
-for the Mondrian process (not even with probability approaching one).
+We take this opportunity to contrast Mondrian random forests with more
+classical kernel-based smoothing methods. The lifetime $\lambda$ plays a
+similar role to the inverse bandwidth in determining the effective sample size
+$n / \lambda^d$, and thus the associated rate of convergence. However, due to
+the Mondrian process construction, some cells are typically ``too small''
+(equivalent to an insufficiently large bandwidth) to give an appropriate
+effective sample size. Similarly, classical methods based on non-random
+partitioning such as spline estimators \citep{huang2003local,cattaneo2020large}
+typically impose a quasi-uniformity assumption to ensure all the cells are of
+comparable size, a property which does not hold for the Mondrian process (not
+even with probability approaching one).
 
 \subsection*{Bias characterization}
 
-We turn to the second term in \eqref{eq:bias_variance},
-which captures the bias of the Mondrian random forest
-estimator conditional on the covariates $\bX$ and the forest $\bT$.
-As such it is a random quantity which,
-as we will demonstrate, converges in probability.
-We precisely characterize the limiting non-random bias,
-including high-degree polynomials in $\lambda$ which for now
-may seem ignorable.
-Indeed the magnitude of the bias is determined by its leading term,
-typically of order $1/\lambda^2$ whenever $\beta \geq 2$,
-and this suffices for ensuring a negligible contribution from the bias
-with an appropriate choice of lifetime parameter.
-However, the advantage of specifying higher-order bias terms
-is made apparent in Section~\ref{sec:debiased} when we construct
-a debiased Mondrian random forest estimator.
-There, we target and annihilate the higher-order terms in order
-to furnish superior estimation and inference properties.
+We turn to the second term in \eqref{eq:bias_variance}, which captures the bias
+of the Mondrian random forest estimator conditional on the covariates $\bX$ and
+the forest $\bT$. As such it is a random quantity which, as we will
+demonstrate, converges in probability. We precisely characterize the limiting
+non-random bias, including high-degree polynomials in $\lambda$ which for now
+may seem ignorable. Indeed the magnitude of the bias is determined by its
+leading term, typically of order $1/\lambda^2$ whenever $\beta \geq 2$, and
+this suffices for ensuring a negligible contribution from the bias with an
+appropriate choice of lifetime parameter. However, the advantage of specifying
+higher-order bias terms is made apparent in Section~\ref{sec:debiased} when we
+construct a debiased Mondrian random forest estimator. There, we target and
+annihilate the higher-order terms in order to furnish superior estimation and
+inference properties.
 
 Theorem~\ref{thm:bias} gives our main result on
 the bias of the Mondrian random forest estimator.
@@ -564,8 +525,7 @@ the bias of the Mondrian random forest estimator.
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold.
   Then for each $1 \leq r \leq \lfloor \flbeta / 2 \rfloor$ there exists
   $B_r(x) \in \R$, which is a function only of
-  the derivatives of $f$ and $\mu$ at $x$ up to order $2r$,
-  such that
+  the derivatives of $f$ and $\mu$ at $x$ up to order $2r$, such that
   %
   \begin{align*}
     \E \left[ \hat \mu(x) \mid \bX, \bT \right]
@@ -599,33 +559,23 @@ the bias of the Mondrian random forest estimator.
   \begin{align*}
     \frac{B_r(x)}{\lambda^{2r}}
     &=
-    \frac{1}{\lambda^{2r}}
-    \sum_{|\nu|=r}
-    \partial^{2 \nu} \mu(x)
-    \prod_{j=1}^d
-    \frac{1}{\nu_j + 1}.
+    \frac{1}{\lambda^{2r}} \sum_{|\nu|=r} \partial^{2 \nu} \mu(x)
+    \prod_{j=1}^d \frac{1}{\nu_j + 1}.
   \end{align*}
   %
 \end{theorem}
 
-In Theorem~\ref{thm:bias} we give some explicit examples
-of calculating the limiting bias if $\beta > 2$
-or when $X_i$ are uniformly distributed.
-The general form of $B_r(x)$ is provided in
-Section~\ref{sec:mondrian_proofs}
-but is somewhat unwieldy except
-in specific situations.
-Nonetheless the most important properties are that $B_r(x)$
-are non-random and
-do not depend on the lifetime $\lambda$,
-crucial facts for our debiasing procedure given in
-Section~\ref{sec:debiased}.
-If the forest size $B$ does not diverge to infinity
-then we suffer the first-order bias term $\frac{1}{\lambda \sqrt B}$.
-This phenomenon was explained by \citet{mourtada2020minimax},
-who noted that it allows single Mondrian trees to achieve
-minimax optimality only when $\beta \in (0, 1]$.
-In contrast, large forests remove this first-order bias
+In Theorem~\ref{thm:bias} we give some explicit examples of calculating the
+limiting bias if $\beta > 2$ or when $X_i$ are uniformly distributed. The
+general form of $B_r(x)$ is provided in Section~\ref{sec:mondrian_proofs} but
+is somewhat unwieldy except in specific situations. Nonetheless the most
+important properties are that $B_r(x)$ are non-random and do not depend on the
+lifetime $\lambda$, crucial facts for our debiasing procedure given in
+Section~\ref{sec:debiased}. If the forest size $B$ does not diverge to infinity
+then we suffer the first-order bias term $\frac{1}{\lambda \sqrt B}$. This
+phenomenon was explained by \citet{mourtada2020minimax}, who noted that it
+allows single Mondrian trees to achieve minimax optimality only when
+$\beta \in (0, 1]$. In contrast, large forests remove this first-order bias
 and as such are optimal for all $\beta \in (0, 2]$.
 
 Using Theorem~\ref{thm:clt} and Theorem~\ref{thm:bias} together,
@@ -650,8 +600,7 @@ $\lambda \asymp n^{\frac{1}{d + 2(2 \wedge \beta)}}$
 and $B \gtrsim n^{\frac{2(2 \wedge \beta) - 2}{d + 2(2 \wedge \beta)}}$.
 Such a choice of $\lambda$ gives the convergence rate
 $n^{\frac{-(2 \wedge \beta)}{d + 2(2 \wedge \beta)}}$
-which is the minimax-optimal rate of convergence
-\citep{stone1982optimal}
+which is the minimax-optimal rate of convergence \citep{stone1982optimal}
 for $\beta$-H{\"o}lder functions with $\beta \in (0,2]$
 as shown by \citet[Theorem~2]{mourtada2020minimax}.
 In Section~\ref{sec:debiased} we will show how the Mondrian random forest
@@ -669,22 +618,13 @@ $\Sigma(x)$. To this end, define
   \label{eq:sigma2_hat}
   \hat\sigma^2(x)
   &=
-  \frac{1}{B}
-  \sum_{b=1}^{B}
-  \sum_{i=1}^n
-  \frac{\big(Y_i - \hat \mu(x)\big)^2 \, \I\{X_i \in T_b(x)\}}
-  {N_b(x)}, \\
+  \frac{1}{B} \sum_{b=1}^{B} \sum_{i=1}^n
+  \frac{\big(Y_i - \hat \mu(x)\big)^2 \, \I\{X_i \in T_b(x)\}} {N_b(x)}, \\
   \nonumber
   \hat\Sigma(x)
   &=
-  \hat\sigma^2(x)
-  \frac{n}{\lambda^d}
-  \sum_{i=1}^n
-  \left(
-    \frac{1}{B}
-    \sum_{b=1}^B
-    \frac{\I\{X_i \in T_b(x)\}}{N_b(x)}
-  \right)^2.
+  \hat\sigma^2(x) \frac{n}{\lambda^d} \sum_{i=1}^n
+  \left( \frac{1}{B} \sum_{b=1}^B \frac{\I\{X_i \in T_b(x)\}}{N_b(x)} \right)^2.
 \end{align}
 %
 In Theorem~\ref{thm:variance_estimation} we show that this variance
@@ -692,18 +632,15 @@ estimator is consistent and establish its rate of convergence.
 %
 \begin{theorem}[Variance estimation]%
   \label{thm:variance_estimation}
-  Suppose Assumptions~\ref{ass:mondrian_data}
-  and \ref{ass:estimator} hold, and that
-  $\E[Y_i^4 \mid X_i ]$ is bounded almost surely.
-  Then
+  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold, and
+  that $\E[Y_i^4 \mid X_i ]$ is bounded almost surely. Then
   %
   \begin{align*}
     \hat\Sigma(x)
     = \Sigma(x)
     + O_\P \left(
       \frac{(\log n)^{d+1}}{\lambda}
-      + \frac{1}{\sqrt B}
-      + \sqrt{\frac{\lambda^d \log n}{n}}
+      + \frac{1}{\sqrt B} + \sqrt{\frac{\lambda^d \log n}{n}}
     \right).
   \end{align*}
 
@@ -711,26 +648,23 @@ estimator is consistent and establish its rate of convergence.
 
 \subsection{Confidence intervals}
 
-Theorem~\ref{thm:confidence} shows how to construct valid confidence
-intervals for the regression function $\mu(x)$ under the
-lifetime and forest size assumptions previously discussed.
-For details on feasible and practical selection of
-the lifetime parameter $\lambda$,
-see Section~\ref{sec:parameter_selection}.
+Theorem~\ref{thm:confidence} shows how to construct valid confidence intervals
+for the regression function $\mu(x)$ under the lifetime and forest size
+assumptions previously discussed. For details on feasible and practical
+selection of the lifetime parameter $\lambda$, see
+Section~\ref{sec:parameter_selection}.
 %
 \begin{theorem}[Feasible confidence intervals using a Mondrian random forest]%
   \label{thm:confidence}
   %
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold,
   $\E[Y_i^4 \mid X_i ]$ is bounded almost surely,
-  and $\frac{\lambda^d \log n}{n} \to 0$.
-  Assume that
+  and $\frac{\lambda^d \log n}{n} \to 0$. Assume that
   $\lambda \gg n^{\frac{1}{d + 2(2 \wedge \beta)}}$
   and $B \gg n^{\frac{2 (2 \wedge \beta) - 2}{d + 2 (2 \wedge \beta)}}$.
   For a confidence level $\alpha \in (0, 1)$,
   let $q_{1 - \alpha / 2}$ be the normal quantile satisfying
-  $\P \left( \cN(0, 1) \leq q_{1 - \alpha / 2} \right) = 1 - \alpha / 2$.
-  Then
+  $\P \left( \cN(0, 1) \leq q_{1 - \alpha / 2} \right) = 1 - \alpha / 2$. Then
   %
   \begin{align*}
     \P \left(
@@ -751,45 +685,37 @@ see Section~\ref{sec:parameter_selection}.
 \end{theorem}
 
 When coupled with an appropriate lifetime selection method,
-Theorem~\ref{thm:confidence} gives a fully feasible procedure
-for uncertainty quantification in Mondrian random forests.
-Our procedure requires no adjustment of the original Mondrian random
-forest estimator beyond ensuring that the bias is negligible,
-and in particular does not rely on sample splitting.
-The construction of confidence intervals is just one corollary
-of the weak convergence result given in Theorem~\ref{thm:clt},
-and follows immediately from Slutsky's theorem
-with a consistent variance estimator.
-Other applications include hypothesis testing on the value
-of $\mu(x)$ at a design point $x$ by inversion of the confidence interval,
-as well as parametric specification testing by comparison with
-a $\sqrt{n}$-consistent parametric regression estimator.
-The construction of simultaneous confidence
-intervals for finitely many points $x_1, \ldots, x_D$
-can be accomplished either using standard multiple testing corrections
-or by first establishing a multivariate
-central limit theorem using the Cram{\'e}r--Wold theorem
-and formulating a consistent multivariate variance estimator.
+Theorem~\ref{thm:confidence} gives a fully feasible procedure for uncertainty
+quantification in Mondrian random forests. Our procedure requires no adjustment
+of the original Mondrian random forest estimator beyond ensuring that the bias
+is negligible, and in particular does not rely on sample splitting. The
+construction of confidence intervals is just one corollary of the weak
+convergence result given in Theorem~\ref{thm:clt}, and follows immediately from
+Slutsky's theorem with a consistent variance estimator. Other applications
+include hypothesis testing on the value of $\mu(x)$ at a design point $x$ by
+inversion of the confidence interval, as well as parametric specification
+testing by comparison with a $\sqrt{n}$-consistent parametric regression
+estimator. The construction of simultaneous confidence intervals for finitely
+many points $x_1, \ldots, x_D$ can be accomplished either using standard
+multiple testing corrections or by first establishing a multivariate central
+limit theorem using the Cram{\'e}r--Wold theorem and formulating a consistent
+multivariate variance estimator.
 
 \section{Overview of proof strategy}%
 \label{sec:overview_proofs}
 
-This section provides some insight into
-the general approach we use to establish the main results
-in the preceding sections. We focus on the technical innovations
-forming the core of our arguments, and refer the reader to
-Section~\ref{sec:mondrian_proofs} for detailed proofs,
-including those for the debiased estimator discussed in the upcoming
-Section~\ref{sec:debiased}.
+This section provides some insight into the general approach we use to
+establish the main results in the preceding sections. We focus on the technical
+innovations forming the core of our arguments, and refer the reader to
+Section~\ref{sec:mondrian_proofs} for detailed proofs, including those for the
+debiased estimator discussed in the upcoming Section~\ref{sec:debiased}.
 
 \subsection*{Preliminary results}
 
-The starting point for our proofs is a result characterizing
-the exact distribution of the shape of a Mondrian cell $T(x)$.
-This property is a direct consequence of the fact that the restriction of a
-Mondrian process to a subcell remains a Mondrian process
-\citep{mourtada2020minimax}.
-We have that
+The starting point for our proofs is a result characterizing the exact
+distribution of the shape of a Mondrian cell $T(x)$. This property is a direct
+consequence of the fact that the restriction of a Mondrian process to a subcell
+remains a Mondrian process \citep{mourtada2020minimax}. We have that
 %
 \begin{align*}
   |T(x)_j|
@@ -797,95 +723,65 @@ We have that
   + \left( \frac{E_{j2}}{\lambda} \wedge (1-x_j) \right)
 \end{align*}
 %
-for all $1 \leq j \leq d$,
-recalling that $T(x)_j$ is the side of the cell $T(x)$
-aligned with axis $j$,
-and where $E_{j1}$ and $E_{j2}$
-are mutually independent $\Exp(1)$ random variables.
-Our assumptions that $x \in (0,1)$ and $\lambda \to \infty$
-mean that the ``boundary terms'' $x_j$ and $1-x_j$ are
+for all $1 \leq j \leq d$, recalling that $T(x)_j$ is the side of the cell
+$T(x)$ aligned with axis $j$, and where $E_{j1}$ and $E_{j2}$ are mutually
+independent $\Exp(1)$ random variables. Our assumptions that $x \in (0,1)$ and
+$\lambda \to \infty$ mean that the ``boundary terms'' $x_j$ and $1-x_j$ are
 eventually ignorable and so
 %
 \begin{align*}
-  |T(x)_j|
-  &= \frac{E_{j1} + E_{j2}}{\lambda}
+  |T(x)_j| &= \frac{E_{j1} + E_{j2}}{\lambda}
 \end{align*}
 %
-with high probability.
-Controlling the size of the largest cell in the forest
-containing $x$ is now straightforward with a union
-bound, exploiting the sharp tail decay of the
-exponential distribution, and thus
+with high probability. Controlling the size of the largest cell in the forest
+containing $x$ is now straightforward with a union bound, exploiting the sharp
+tail decay of the exponential distribution, and thus
 %
 \begin{align*}
-  \max_{1 \leq b \leq B}
-  \max_{1 \leq j \leq d}
-  |T_b(x)_j|
+  \max_{1 \leq b \leq B} \max_{1 \leq j \leq d} |T_b(x)_j|
   \lesssim_\P \frac{\log B}{\lambda}.
 \end{align*}
 %
-This shows that up to logarithmic terms, none of the cells
-in the forest at $x$ are significantly larger than average,
-ensuring that the Mondrian random forest estimator is
-``localized'' around $x$ on the scale of $1/\lambda$,
-an important property for the upcoming bias
-characterization.
+This shows that up to logarithmic terms, none of the cells in the forest at $x$
+are significantly larger than average, ensuring that the Mondrian random forest
+estimator is ``localized'' around $x$ on the scale of $1/\lambda$, an important
+property for the upcoming bias characterization.
 
-Having provided upper bounds for the sizes of Mondrian cells,
-we also must establish some lower bounds in order to
-quantify the ``small cells'' phenomenon mentioned previously.
-The first step towards this is to bound the first two moments
-of the truncated inverse Mondrian cell volume; we show that
+Having provided upper bounds for the sizes of Mondrian cells, we also must
+establish some lower bounds in order to quantify the ``small cells'' phenomenon
+mentioned previously. The first step towards this is to bound the first two
+moments of the truncated inverse Mondrian cell volume; we show that
 %
 \begin{align*}
-  \E\left[
-    1 \wedge
-    \frac{1}{n |T(x)|}
-  \right]
-  &\asymp
-  \frac{\lambda^d}{n}
+  \E\left[ 1 \wedge \frac{1}{n |T(x)|} \right]
+  &\asymp \frac{\lambda^d}{n}
   &&\text{and}
   &\frac{\lambda^{2d}}{n^2}
   &\lesssim
-  \E\left[
-    1 \wedge
-    \frac{1}{n^2 |T(x)|^2}
-  \right]
-  \lesssim
-  \frac{\lambda^{2d} \log n}{n^2}.
+  \E\left[ 1 \wedge \frac{1}{n^2 |T(x)|^2} \right]
+  \lesssim \frac{\lambda^{2d} \log n}{n^2}.
 \end{align*}
 %
 These bounds are computed directly using the exact distribution of $|T(x)|$.
 Note that $\E\left[ \frac{1}{|T(x)|^2} \right] = \infty$ because
-$\frac{1}{E_{j1} + E_{j2}}$ has only $2 - \delta$ finite moments,
-so the truncation is crucial here.
-Since we ``nearly'' have two moments, this truncation is
-at the expense of only a logarithmic term.
-Nonetheless, third and higher truncated moments will not enjoy such tight
-bounds, demonstrating both the fragility of this result and
-the inadequacy of
-tools such as the Lyapunov central limit theorem which require
-$2 + \delta$ moments.
+$\frac{1}{E_{j1} + E_{j2}}$ has only $2 - \delta$ finite moments, so the
+truncation is crucial here. Since we ``nearly'' have two moments, this
+truncation is at the expense of only a logarithmic term. Nonetheless, third and
+higher truncated moments will not enjoy such tight bounds, demonstrating both
+the fragility of this result and the inadequacy of tools such as the Lyapunov
+central limit theorem which require $2 + \delta$ moments.
 
-To conclude this investigation into the ``small cell'' phenomenon,
-we apply the previous bounds to
-ensure that the empirical effective sample sizes
-$N_b(x) = \sum_{i=1}^{n} \I \left\{ X_i \in T_b(x) \right\}$
-are approximately of the order $n / \lambda^d$ in an appropriate sense;
-we demonstrate that
+To conclude this investigation into the ``small cell'' phenomenon, we apply the
+previous bounds to ensure that the empirical effective sample sizes
+$N_b(x) = \sum_{i=1}^{n} \I \left\{ X_i \in T_b(x) \right\}$ are approximately
+of the order $n / \lambda^d$ in an appropriate sense; we demonstrate that
 %
 \begin{align*}
-  \E\left[
-    \frac{\I\{N_b(x) \geq 1\}}{N_b(x)}
-  \right]
-  &\lesssim
-  \frac{\lambda^d}{n}
+  \E\left[ \frac{\I\{N_b(x) \geq 1\}}{N_b(x)} \right]
+  &\lesssim \frac{\lambda^d}{n}
   &&\text{and}
-  &\E\left[
-    \frac{\I\{N_b(x) \geq 1\}}{N_b(x)^2}
-  \right]
-  &\lesssim
-  \frac{\lambda^{2d} \log n}{n^2},
+  &\E\left[ \frac{\I\{N_b(x) \geq 1\}}{N_b(x)^2} \right]
+  &\lesssim \frac{\lambda^{2d} \log n}{n^2},
 \end{align*}
 %
 as well as similar bounds for ``mixed'' terms such as
@@ -896,51 +792,37 @@ $\E \left[
 \right]
 \lesssim \frac{\lambda^{2d}}{n^2}$
 %
-when $b \neq b'$, which arise from covariance terms across
-multiple trees.
-The proof of this result is involved and technical, and proceeds by
-induction. The idea is to construct a class of subcells by taking
-all possible intersections of the cells in $T_b$ and $T_{b'}$
-(we show two trees here for clarity; there may be more)
-and noting that each $N_b(x)$ is the sum of the number of points
-in each such ``refined cell'' intersected with $T_b(x)$.
-We then swap out each refined cell one at a time and replace
-the number of data points it contains with its volume multiplied by $n f(x)$,
-showing that the expectation on the left hand side does not increase too much
-using a moment bound for inverse binomial random variables
-based on Bernstein's inequality.
-By induction and independence of the trees,
-eventually the problem is reduced to computing moments
-of truncated inverse Mondrian cell volumes, as above.
+when $b \neq b'$, which arise from covariance terms across multiple trees. The
+proof of this result is involved and technical, and proceeds by induction. The
+idea is to construct a class of subcells by taking all possible intersections
+of the cells in $T_b$ and $T_{b'}$ (we show two trees here for clarity; there
+may be more) and noting that each $N_b(x)$ is the sum of the number of points
+in each such ``refined cell'' intersected with $T_b(x)$. We then swap out each
+refined cell one at a time and replace the number of data points it contains
+with its volume multiplied by $n f(x)$, showing that the expectation on the
+left hand side does not increase too much using a moment bound for inverse
+binomial random variables based on Bernstein's inequality. By induction and
+independence of the trees, eventually the problem is reduced to computing
+moments of truncated inverse Mondrian cell volumes, as above.
 
 \subsection*{Central limit theorem}
 
-To prove our main central limit theorem result
-(Theorem~\ref{thm:clt}),
-we use the martingale central limit theorem given by
-\citet[Theorem~3.2]{hall2014martingale}.
-For each $1 \leq i \leq n$ define
-$\cH_{n i}$ to be the filtration
-generated by $\bT$, $\bX$ and
-$(\varepsilon_j : 1 \leq j \leq i)$,
-noting that $\cH_{n i} \subseteq \cH_{(n+1)i}$
-because $B$ increases as $n$ increases.
-Define the $\cH_{n i}$-measurable and square integrable
-variables
+To prove our main central limit theorem result (Theorem~\ref{thm:clt}), we use
+the martingale central limit theorem given by
+\citet[Theorem~3.2]{hall2014martingale}. For each $1 \leq i \leq n$ define
+$\cH_{n i}$ to be the filtration generated by $\bT$, $\bX$ and
+$(\varepsilon_j : 1 \leq j \leq i)$, noting that
+$\cH_{n i} \subseteq \cH_{(n+1)i}$ because $B$ increases as $n$ increases.
+Define the $\cH_{n i}$-measurable and square integrable variables
 %
 \begin{align*}
-  S_i(x)
-  &=
-  \sqrt{\frac{n}{\lambda^d}}
-  \frac{1}{B} \sum_{b=1}^B
-  \frac{\I \{X_i \in T_b(x)\} \varepsilon_i}
-  {N_{b}(x)},
+  S_i(x) &=
+  \sqrt{\frac{n}{\lambda^d}} \frac{1}{B} \sum_{b=1}^B
+  \frac{\I \{X_i \in T_b(x)\} \varepsilon_i} {N_{b}(x)},
 \end{align*}
 %
-which satisfy the martingale
-difference property
-$\E [ S_i(x) \mid \cH_{n i} ] = 0$.
-Further,
+which satisfy the martingale difference property
+$\E [ S_i(x) \mid \cH_{n i} ] = 0$. Further,
 %
 \begin{align*}
   \sqrt{\frac{n}{\lambda^d}}
@@ -954,34 +836,26 @@ Further,
 \end{align*}
 %
 To establish weak convergence to $\cN\big(0, \Sigma(x)\big)$,
-it suffices to check that
-%
-$\max_i |S_i(x)| \to 0$ in probability,
+it suffices to check that $\max_i |S_i(x)| \to 0$ in probability,
 $\E\left[\max_i S_i(x)^2\right] \lesssim 1$,
 and $\sum_i S_i(x)^2 \to \Sigma(x)$ in probability.
-Checking the first two of these is straightforward given the
-denominator moment bounds derived above.
-For the third condition, we demonstrate that
-$\sum_i S_i(x)^2$ concentrates by checking its variance is vanishing.
-To do this, first observe that $S_i(x)^2$ is the square of a sum
-over the $B$ trees. Expanding this square, we see that the diagonal
-terms (where $b = b'$) provide a negligible contribution due to
-the large forest assumption.
-For the other terms, we apply the law of total variance and the
-moment bounds detailed earlier. Here, it is crucial that $b \neq b'$
-in order to exploit the independence of the trees and avoid
-having to control any higher moments.
-The law of total variance requires that we bound
+Checking the first two of these is straightforward given the denominator moment
+bounds derived above. For the third condition, we demonstrate that
+$\sum_i S_i(x)^2$ concentrates by checking its variance is vanishing. To do
+this, first observe that $S_i(x)^2$ is the square of a sum over the $B$ trees.
+Expanding this square, we see that the diagonal terms (where $b = b'$) provide
+a negligible contribution due to the large forest assumption. For the other
+terms, we apply the law of total variance and the moment bounds detailed
+earlier. Here, it is crucial that $b \neq b'$ in order to exploit the
+independence of the trees and avoid having to control any higher moments. The
+law of total variance requires that we bound
 %
 \begin{align*}
   \Var \left[
     \E \left[
-      \sum_{i=1}^n
-      \sum_{b=1}^B
-      \sum_{b' \neq b}
+      \sum_{i=1}^n \sum_{b=1}^B \sum_{b' \neq b}
       \frac{\I\{X_i \in T_b(x) \cap T_{b'}(x)\} \varepsilon_i^2}
-      {N_{b}(x) N_{b'}(x)}
-      \Bigm| \bX, \bY
+      {N_{b}(x) N_{b'}(x)} \Bigm| \bX, \bY
     \right]
   \right],
 \end{align*}
@@ -991,15 +865,13 @@ $(X_i, \varepsilon_i)$, and so we apply the Efron--Stein inequality.
 The important insight here is that replacing a sample
 $(X_i, \varepsilon_i)$ with an independent copy
 $(\tilde X_i, \tilde \varepsilon_i)$ can change the value of
-$N_b(x)$ by at most one.
-Further, this can happen only on the event
+$N_b(x)$ by at most one. Further, this can happen only on the event
 $\{ X_i \in T_{b}(x) \} \cup \{ \tilde X_i \in T_{b}(x) \}$,
 which occurs with probability on the order $1/\lambda^d$
 (the expected cell volume).
 
-The final part of the central limit theorem proof is to calculate
-the limiting variance $\Sigma(x)$.
-The penultimate step showed that we must have
+The final part of the central limit theorem proof is to calculate the limiting
+variance $\Sigma(x)$. The penultimate step showed that we must have
 %
 \begin{align*}
   \Sigma(x)
@@ -1012,11 +884,10 @@ The penultimate step showed that we must have
   \right],
 \end{align*}
 %
-assuming the limit exists, so it remains to check this and calculate
-the limit. It is a straightforward but tedious exercise to verify
-that each term can be replaced with its conditional expectation
-given $T_b$ and $T_{b'}$, using some further properties of
-the binomial and exponential distributions. This yields
+assuming the limit exists, so it remains to check this and calculate the limit.
+It is a straightforward but tedious exercise to verify that each term can be
+replaced with its conditional expectation given $T_b$ and $T_{b'}$, using some
+further properties of the binomial and exponential distributions. This yields
 %
 \begin{align*}
   \Sigma(x)
@@ -1036,9 +907,9 @@ the binomial and exponential distributions. This yields
 \end{align*}
 %
 where $E_1$, $E_2$, $E'_1$, and $E'_2$ are independent $\Exp(1)$,
-by the cell shape distribution and independence of the trees.
-This final expectation is calculated by integration, using
-various incomplete gamma function identities.
+by the cell shape distribution and independence of the trees. This final
+expectation is calculated by integration, using various incomplete gamma
+function identities.
 
 \subsection*{Bias characterization}
 
@@ -1050,8 +921,7 @@ characterize the probability limit of the conditional bias
   \E \left[ \hat \mu(x) \mid \bX, \bT \right]
   - \mu(x)
   &=
-  \frac{1}{B}
-  \sum_{b=1}^B
+  \frac{1}{B} \sum_{b=1}^B
   \sum_{i=1}^n \big( \mu(X_i) - \mu(x) \big)
   \frac{\I\{X_i \in T_b(x)\}}{N_b(x)}.
 \end{align*}
@@ -1070,20 +940,17 @@ to see
   \frac{1}{\lambda \sqrt B}.
 \end{align*}
 %
-While this may seem a crude approximation, it is already known that
-fixed-size Mondrian forests have suboptimal bias properties
-when compared to forests with a diverging number of trees.
-In fact, the error $\frac{1}{\lambda \sqrt B}$
+While this may seem a crude approximation, it is already known that fixed-size
+Mondrian forests have suboptimal bias properties when compared to forests with
+a diverging number of trees. In fact, the error $\frac{1}{\lambda \sqrt B}$
 exactly accounts for the first-order bias of individual Mondrian trees noted by
 \citet{mourtada2020minimax}.
 
-Next we show that $\E \left[ \hat \mu(x) \mid \bX \right]$
-converges in probability to its expectation, again using
-the Efron--Stein theorem for this non-linear function of the i.i.d.\
-variables $X_i$. The Lipschitz property of $\mu$
-and the upper bound on the maximum cell size give
-$|\mu(X_i) - \mu(x)|
-\lesssim \max_{1 \leq j \leq d} |T_b(x)_j|
+Next we show that $\E \left[ \hat \mu(x) \mid \bX \right]$ converges in
+probability to its expectation, again using the Efron--Stein theorem for this
+non-linear function of the i.i.d.\ variables $X_i$. The Lipschitz property of
+$\mu$ and the upper bound on the maximum cell size give
+$|\mu(X_i) - \mu(x)| \lesssim \max_{1 \leq j \leq d} |T_b(x)_j|
 \lesssim_\P \frac{\log B}{\lambda}$
 whenever $X_i \in T_b(x)$,
 so we combine this with moment bounds for the denominator $N_b(x)$ to see
@@ -1094,8 +961,7 @@ so we combine this with moment bounds for the denominator $N_b(x)$ to see
   - \E \left[ \hat \mu(x) \right]
   \right|
   \lesssim_\P
-  \frac{\log n}{\lambda}
-  \sqrt{\frac{\lambda^d}{n}}
+  \frac{\log n}{\lambda} \sqrt{\frac{\lambda^d}{n}}.
 \end{align*}
 
 The next step is to approximate the resulting non-random bias
@@ -1105,8 +971,7 @@ distribution to deduce that
 %
 \begin{align*}
   \E \left[ \frac{\I\{N_b(x) \geq 1\}}{N_b(x)} \Bigm| \bT \right]
-  \approx
-  \frac{1}{n \int_{T_b(x)} f(s) \diff s}
+  \approx \frac{1}{n \int_{T_b(x)} f(s) \diff s}
 \end{align*}
 %
 in an appropriate sense, and hence,
@@ -1114,8 +979,7 @@ by conditioning on $\bT$ and $\bX$ without $X_i$, we write
 %
 \begin{align}
   \label{eq:bias_ratio}
-  \E \left[ \hat \mu(x) \right]
-  - \mu(x)
+  \E \left[ \hat \mu(x) \right] - \mu(x)
   &\approx
   \E \left[
     \frac{\int_{T_b(x)} (\mu(s) - \mu(x)) f(s) \diff s}
@@ -1123,106 +987,79 @@ by conditioning on $\bT$ and $\bX$ without $X_i$, we write
   \right].
 \end{align}
 %
-Next we apply the multivariate version of Taylor's theorem to the integrands
-in both the numerator and the denominator in \eqref{eq:bias_ratio},
-and then apply the Maclaurin series of $\frac{1}{1+x}$
-and the multinomial theorem to recover a single polynomial in $1/\lambda$.
-The error term is on the order of $1/\lambda^\beta$ and depends on
-the smoothness of $\mu$ and $f$,
-and the polynomial coefficients are given by
-various expectations involving exponential random variables.
-The final step is to verify using symmetry of Mondrian cells that all
-the odd monomial coefficients are zero,
-and to calculate some explicit examples of the
-form of the limiting bias.
+Next we apply the multivariate version of Taylor's theorem to the integrands in
+both the numerator and the denominator in \eqref{eq:bias_ratio}, and then apply
+the Maclaurin series of $\frac{1}{1+x}$ and the multinomial theorem to recover
+a single polynomial in $1/\lambda$. The error term is on the order of
+$1/\lambda^\beta$ and depends on the smoothness of $\mu$ and $f$, and the
+polynomial coefficients are given by various expectations involving exponential
+random variables. The final step is to verify using symmetry of Mondrian cells
+that all the odd monomial coefficients are zero, and to calculate some explicit
+examples of the form of the limiting bias.
 
 \section{Debiased Mondrian random forests}%
 \label{sec:debiased}
 
-In this section we give our next main contribution,
-proposing a variant of the Mondrian random forest estimator
-which corrects for higher-order bias with an approach based on
-generalized jackknifing \citep{schucany1977improvement}.
-This estimator retains the basic form of a Mondrian random forest estimator
-in the sense that it is a linear combination of Mondrian tree estimators,
-but in this section we allow for non-identical linear coefficients,
-some of which may be negative, and for differing
-lifetime parameters across the trees.
-Since the basic Mondrian random forest estimator is a special
-case of this more general debiased version,
-we will discuss only the latter throughout the rest of the paper.
+In this section we give our next main contribution, proposing a variant of the
+Mondrian random forest estimator which corrects for higher-order bias with an
+approach based on generalized jackknifing \citep{schucany1977improvement}. This
+estimator retains the basic form of a Mondrian random forest estimator in the
+sense that it is a linear combination of Mondrian tree estimators, but in this
+section we allow for non-identical linear coefficients, some of which may be
+negative, and for differing lifetime parameters across the trees. Since the
+basic Mondrian random forest estimator is a special case of this more general
+debiased version, we will discuss only the latter throughout the rest of the
+paper.
 
-We use the explicit form of the bias given in Theorem~\ref{thm:bias}
-to construct a debiased version of the Mondrian forest estimator.
-Let $J \geq 0$ be the bias correction order.
-As such, with $J=0$ we retain the original Mondrian forest estimator,
-with $J=1$ we remove second-order bias,
-and with $J = \lfloor\flbeta / 2 \rfloor$ we remove bias terms
-up to and including order $2 \lfloor\flbeta / 2 \rfloor$,
-giving the maximum possible bias reduction achievable
-in the H{\"o}lder class $\cH^\beta$.
-As such, only bias terms of order $1/\lambda^\beta$ will remain.
+We use the explicit form of the bias given in Theorem~\ref{thm:bias} to
+construct a debiased version of the Mondrian forest estimator. Let $J \geq 0$
+be the bias correction order. As such, with $J=0$ we retain the original
+Mondrian forest estimator, with $J=1$ we remove second-order bias, and with
+$J = \lfloor\flbeta / 2 \rfloor$ we remove bias terms up to and including order
+$2 \lfloor\flbeta / 2 \rfloor$, giving the maximum possible bias reduction
+achievable in the H{\"o}lder class $\cH^\beta$. As such, only bias terms of
+order $1/\lambda^\beta$ will remain.
 
 For $0 \leq r \leq J$ let $\hat \mu_r(x)$ be a Mondrian forest estimator
-based on the trees
-$T_{b r} \sim \cM\big([0,1]^d, \lambda_r \big)$
+based on the trees $T_{b r} \sim \cM\big([0,1]^d, \lambda_r \big)$
 for $1 \leq b \leq B$, where $\lambda_r = a_r \lambda$ for some $a_r > 0$
-and $\lambda > 0$.
-Write $\bT$ to denote the collection of all the trees,
-and suppose they are mutually independent.
-We find values of $a_r$
-along with coefficients $\omega_r$ in order
-to annihilate the leading $J$ bias terms of the
-debiased Mondrian random forest estimator
+and $\lambda > 0$. Write $\bT$ to denote the collection of all the trees,
+and suppose they are mutually independent. We find values of $a_r$ along with
+coefficients $\omega_r$ in order to annihilate the leading $J$ bias terms of
+the debiased Mondrian random forest estimator
 %
 \begin{align}
   \label{eq:debiased}
   \hat \mu_\rd(x)
-  &=
-  \sum_{r=0}^J
-  \omega_r \hat \mu_r(x)
-  = \sum_{r=0}^{J}
-  \omega_r
-  \frac{1}{B}
-  \sum_{b=1}^B
-  \frac{\sum_{i=1}^n Y_i \,
-  \I\big\{ X_i \in T_{r b}(x) \big\}}
-  {N_{r b}(x)}.
+  &= \sum_{r=0}^J \omega_r \hat \mu_r(x)
+  = \sum_{r=0}^{J} \omega_r
+  \frac{1}{B} \sum_{b=1}^B
+  \frac{\sum_{i=1}^n Y_i \, \I\big\{ X_i \in T_{r b}(x) \big\}} {N_{r b}(x)}.
 \end{align}
 %
-This ensemble estimator retains the ``forest'' structure
-of the original estimators,
-but with varying lifetime parameters $\lambda_r$ and coefficients $\omega_r$.
-Thus we want to solve
+This ensemble estimator retains the ``forest'' structure of the original
+estimators, but with varying lifetime parameters $\lambda_r$ and coefficients
+$\omega_r$. Thus we want to solve
 %
 \begin{align*}
-  \sum_{r=0}^{J}
-  \omega_r
-  \left(
-    \mu(x)
-    + \sum_{s=1}^{J}
-    \frac{B_{s}(x)}{a_r^{2s} \lambda^{2s}}
-  \right)
+  \sum_{r=0}^{J} \omega_r
+  \left( \mu(x) + \sum_{s=1}^{J} \frac{B_{s}(x)}{a_r^{2s} \lambda^{2s}} \right)
   &= \mu(x)
 \end{align*}
 %
 for all $\lambda$, or equivalently the system of linear equations
 $\sum_{r=0}^{J} \omega_r = 1$
-and $\sum_{r=0}^{J} \omega_r a_r^{-2s} = 0$
-for each $1 \leq s \leq J$.
-We solve these as follows.
-Define the $(J+1) \times (J+1)$ Vandermonde matrix
+and $\sum_{r=0}^{J} \omega_r a_r^{-2s} = 0$ for each $1 \leq s \leq J$.
+We solve these as follows. Define the $(J+1) \times (J+1)$ Vandermonde matrix
 $A_{r s} = a_{r-1}^{2-2s}$,
 let $\omega = (\omega_0, \ldots, \omega_J)^\T \in \R^{J+1}$
 and $e_0 = (1, 0, \ldots, 0)^\T \in \R^{J+1}$.
 Then a solution for the debiasing coefficients is given by
 $\omega = A^{-1} e_0$ whenever $A$ is non-singular.
 In practice we can take $a_r$ to be a fixed geometric or arithmetic sequence
-to ensure this is the case,
-appealing to the Vandermonde determinant formula
+to ensure this is the case, appealing to the Vandermonde determinant formula
 $\det A = \prod_{0 \leq r < s \leq J} (a_r^{-2} - a_s^{-2})
-\neq 0$ whenever $a_r$ are distinct.
-For example, we could set
+\neq 0$ whenever $a_r$ are distinct. For example, we could set
 $a_r = (1 + \gamma)^r$ or $a_r = 1 + \gamma r$ for some $\gamma > 0$.
 Because we assume $\beta$, and therefore the choice of $J$, do not
 depend on $n$, there is no need to quantify
@@ -1236,8 +1073,7 @@ limit theorem holds for the debiased
 random forest estimator $\hat\mu_\rd(x)$ and give its limiting variance.
 The strategy and challenges associated with proving
 Theorem~\ref{thm:clt_debiased} are identical to those discussed earlier
-surrounding Theorem~\ref{thm:clt}.
-In fact in Section~\ref{sec:mondrian_proofs}
+surrounding Theorem~\ref{thm:clt}. In fact in Section~\ref{sec:mondrian_proofs}
 we provide a direct proof only for Theorem~\ref{thm:clt_debiased}
 and deduce Theorem~\ref{thm:clt} as a special case.
 
@@ -1259,8 +1095,7 @@ and deduce Theorem~\ref{thm:clt} as a special case.
     \cN\big(0, \Sigma_\rd(x)\big)
   \end{align*}
   %
-  where, with
-  $\ell_{r r'} = \frac{2 a_r}{3} \left( 1 - \frac{a_{r}}{a_{r'}}
+  where, with $\ell_{r r'} = \frac{2 a_r}{3} \left( 1 - \frac{a_{r}}{a_{r'}}
   \log\left(\frac{a_{r'}}{a_{r}} + 1\right) \right)$,
   the limiting variance of the debiased estimator is
   %
@@ -1268,10 +1103,7 @@ and deduce Theorem~\ref{thm:clt} as a special case.
     \Sigma_\rd(x)
     &=
     \frac{\sigma^2(x)}{f(x)}
-    \sum_{r=0}^{J}
-    \sum_{r'=0}^{J}
-    \omega_r
-    \omega_{r'}
+    \sum_{r=0}^{J} \sum_{r'=0}^{J} \omega_r \omega_{r'}
     \left( \ell_{r r'} + \ell_{r' r} \right)^d.
   \end{align*}
   %
@@ -1283,12 +1115,10 @@ $\Sigma_\rd(x) = \Sigma(x)$, and recovering Theorem~\ref{thm:clt}.
 
 \subsection*{Bias characterization}
 
-In Theorem~\ref{thm:bias_debiased}
-we verify that this debiasing procedure does indeed annihilate the desired
-bias terms, and its proof is a consequence
-of Theorem~\ref{thm:bias} and
-the construction of the debiased Mondrian random forest estimator
-$\hat\mu_\rd(x)$.
+In Theorem~\ref{thm:bias_debiased} we verify that this debiasing procedure does
+indeed annihilate the desired bias terms, and its proof is a consequence of
+Theorem~\ref{thm:bias} and the construction of the debiased Mondrian random
+forest estimator $\hat\mu_\rd(x)$.
 
 \begin{theorem}[Bias of the debiased Mondrian random forest estimator]%
   \label{thm:bias_debiased}
@@ -1298,9 +1128,7 @@ $\hat\mu_\rd(x)$.
   %
   \begin{align*}
     \E \big[ \hat \mu_\rd(x) \mid \bX, \bT \big]
-    &=
-    \mu(x)
-    + \I\{2J+2 < \beta \}
+    &= \mu(x) + \I\{2J+2 < \beta \}
     \frac{\bar\omega B_{J+1}(x)}{\lambda^{2J + 2}} \\
     &\quad+
     O_\P \left(
@@ -1326,9 +1154,8 @@ but its form is left unspecified.
 
 \subsection*{Variance estimation}
 
-As before, we propose a variance estimator
-in order to conduct feasible inference and show that
-it is consistent.
+As before, we propose a variance estimator in order to conduct feasible
+inference and show that it is consistent.
 With $\hat\sigma^2(x)$ as in \eqref{eq:sigma2_hat}
 in Section~\ref{sec:mondrian_inference}, define the estimator
 %
@@ -1399,13 +1226,11 @@ and forest size $B$.
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold,
   $\E[Y_i^4 \mid X_i ]$ is bounded almost surely,
   and $\frac{\lambda^d \log n}{n} \to 0$.
-  Fix $J \geq \lfloor \flbeta / 2 \rfloor$ and
-  assume that
+  Fix $J \geq \lfloor \flbeta / 2 \rfloor$ and assume that
   $\lambda \gg n^{\frac{1}{d + 2 \beta}}$
   and $B \gg n^{\frac{2 \beta - 2}{d + 2 \beta}}$.
   For a confidence level $\alpha \in (0, 1)$,
-  let $q_{1 - \alpha / 2}$ be as in Theorem~\ref{thm:confidence}.
-  Then
+  let $q_{1 - \alpha / 2}$ be as in Theorem~\ref{thm:confidence}. Then
   %
   \begin{align*}
     \P \left(
@@ -1426,20 +1251,17 @@ and forest size $B$.
 \end{theorem}
 
 One important benefit of our debiasing technique is made clear in
-Theorem~\ref{thm:confidence_debiased}: the restrictions imposed
-on the lifetime parameter $\lambda$ are substantially relaxed,
-especially in smooth classes with large $\beta$.
-As well as the high-level of benefit of relaxed conditions,
-this is also useful for practical selection of appropriate lifetimes
-for estimation and inference respectively;
-see Section~\ref{sec:parameter_selection} for more details.
-Nonetheless, such improvements do not come without concession.
-The limiting variance $\Sigma_\rd(x)$ of the debiased estimator
-is larger than that of the unbiased version
-(the extent of this increase depends on the choice of the
-debiasing parameters $a_r$),
-leading to wider confidence intervals and larger estimation error in
-small samples despite the theoretical asymptotic improvements.
+Theorem~\ref{thm:confidence_debiased}: the restrictions imposed on the lifetime
+parameter $\lambda$ are substantially relaxed, especially in smooth classes
+with large $\beta$. As well as the high-level of benefit of relaxed conditions,
+this is also useful for practical selection of appropriate lifetimes for
+estimation and inference respectively; see
+Section~\ref{sec:parameter_selection} for more details. Nonetheless, such
+improvements do not come without concession. The limiting variance
+$\Sigma_\rd(x)$ of the debiased estimator is larger than that of the unbiased
+version (the extent of this increase depends on the choice of the debiasing
+parameters $a_r$), leading to wider confidence intervals and larger estimation
+error in small samples despite the theoretical asymptotic improvements.
 
 \subsection{Minimax optimality}
 
@@ -1456,20 +1278,14 @@ by \citet{mourtada2020minimax}.
 \begin{theorem}[Minimax optimality of the debiased
   Mondrian random forest estimator]%
   \label{thm:mondrian_minimax}
-  Grant Assumptions~\ref{ass:mondrian_data}
-  and \ref{ass:estimator}.
+  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator}.
   Fix $J \geq \lfloor \flbeta / 2 \rfloor$,
-  take $\lambda \asymp n^{\frac{1}{d + 2 \beta}}$,
-  and suppose
-  $B \gtrsim n^{\frac{2 \beta - 2}{d + 2 \beta}}$.
-  Then
+  take $\lambda \asymp n^{\frac{1}{d + 2 \beta}}$, and suppose
+  $B \gtrsim n^{\frac{2 \beta - 2}{d + 2 \beta}}$. Then
   %
   \begin{align*}
     \E \left[
-      \big(
-        \hat \mu_\rd(x)
-        - \mu(x)
-      \big)^2
+      \big( \hat \mu_\rd(x) - \mu(x) \big)^2
     \right]^{1/2}
     &\lesssim
     \sqrt{\frac{\lambda^d}{n}}
@@ -1482,36 +1298,27 @@ by \citet{mourtada2020minimax}.
 \end{theorem}
 
 The sequence of lifetime parameters $\lambda$ required in
-Theorem~\ref{thm:mondrian_minimax} are
-chosen to balance the bias and standard deviation bounds implied by
-Theorem~\ref{thm:bias_debiased} and Theorem~\ref{thm:clt_debiased}
-respectively, in order to minimize the pointwise mean squared error.
-While selecting an optimal debiasing order $J$ needs only
-knowledge of an upper bound on the smoothness $\beta$,
-choosing an optimal sequence of $\lambda$ values
-does assume that $\beta$ is known a priori.
-The problem of adapting to $\beta$ from data is challenging
-and beyond the scope of this paper; we provide some practical advice
-for tuning parameter selection
-in Section~\ref{sec:parameter_selection}.
+Theorem~\ref{thm:mondrian_minimax} are chosen to balance the bias and standard
+deviation bounds implied by Theorem~\ref{thm:bias_debiased} and
+Theorem~\ref{thm:clt_debiased} respectively, in order to minimize the pointwise
+mean squared error. While selecting an optimal debiasing order $J$ needs only
+knowledge of an upper bound on the smoothness $\beta$, choosing an optimal
+sequence of $\lambda$ values does assume that $\beta$ is known a priori. The
+problem of adapting to $\beta$ from data is challenging and beyond the scope of
+this paper; we provide some practical advice for tuning parameter selection in
+Section~\ref{sec:parameter_selection}.
 
-Theorem~\ref{thm:mondrian_minimax} complements the minimaxity results
-proven by \citet{mourtada2020minimax} for
-Mondrian trees (with $\beta \leq 1$) and for Mondrian random forests
-(with $\beta \leq 2$), with one modification:
-our version is stated in pointwise rather than integrated
-mean squared error.
-This is because our debiasing procedure is designed to handle
-interior smoothing bias and as such does not provide any correction
-for boundary bias.
-We leave the development of such boundary corrections to future work,
-but constructions similar to higher-order boundary-correcting
-kernels should be possible.
-If the region of integration is a compact set
-in the interior of $[0,1]^d$
-then we do obtain an optimal integrated mean squared error bound:
-if $\delta \in (0, 1/2)$ is fixed then under the
-same conditions as Theorem~\ref{thm:mondrian_minimax},
+Theorem~\ref{thm:mondrian_minimax} complements the minimaxity results proven by
+\citet{mourtada2020minimax} for Mondrian trees (with $\beta \leq 1$) and for
+Mondrian random forests (with $\beta \leq 2$), with one modification: our
+version is stated in pointwise rather than integrated mean squared error. This
+is because our debiasing procedure is designed to handle interior smoothing
+bias and as such does not provide any correction for boundary bias. We leave
+the development of such boundary corrections to future work, but constructions
+similar to higher-order boundary-correcting kernels should be possible. If the
+region of integration is a compact set in the interior of $[0,1]^d$ then we do
+obtain an optimal integrated mean squared error bound: if $\delta \in (0, 1/2)$
+is fixed then under the same conditions as Theorem~\ref{thm:mondrian_minimax},
 %
 \begin{align*}
   \E \left[
@@ -1534,35 +1341,28 @@ with appropriate tuning of $\lambda$ and $B$.
 
 \subsection{Interpretation}
 
-The debiased Mondrian random forest estimator defined in \eqref{eq:debiased}
-is a linear combination of Mondrian random forests,
-and as such contains both a sum over $0 \leq r \leq J$,
-representing the debiasing procedure,
-and a sum over $1 \leq b \leq B$, representing the forest averaging.
-We have thus far been interpreting this estimator as a debiased
-version of the standard Mondrian random forest given in
-\eqref{eq:mondrian_estimator},
-but it is of course equally valid to swap the order of these sums.
-This gives rise to an alternative point of view:
-we replace each Mondrian random tree with a ``debiased'' version,
-and then take a forest of such modified trees.
-This perspective is perhaps more in line with existing
-techniques for constructing
-randomized ensembles, where the outermost operation
-represents a $B$-fold average
-of randomized base learners, not necessarily locally constant decision trees,
-each of which has a small bias component
-\citep{caruana2004ensemble, zhou2019deep, friedberg2020local}.
+The debiased Mondrian random forest estimator defined in \eqref{eq:debiased} is
+a linear combination of Mondrian random forests, and as such contains both a
+sum over $0 \leq r \leq J$, representing the debiasing procedure, and a sum
+over $1 \leq b \leq B$, representing the forest averaging. We have thus far
+been interpreting this estimator as a debiased version of the standard Mondrian
+random forest given in \eqref{eq:mondrian_estimator}, but it is of course
+equally valid to swap the order of these sums. This gives rise to an
+alternative point of view: we replace each Mondrian random tree with a
+``debiased'' version, and then take a forest of such modified trees. This
+perspective is perhaps more in line with existing techniques for constructing
+randomized ensembles, where the outermost operation represents a $B$-fold
+average of randomized base learners, not necessarily locally constant decision
+trees, each of which has a small bias component \citep{caruana2004ensemble,
+zhou2019deep, friedberg2020local}.
 
 \section{Tuning parameter selection}%
 \label{sec:parameter_selection}
 
-We discuss various procedures for selecting the parameters
-involved in fitting a debiased Mondrian random forest;
-namely the base lifetime parameter $\lambda$,
-the number of trees in each forest $B$,
-the order of the bias correction $J$,
-and the debiasing scale parameters $a_r$ for $0 \leq r \leq J$.
+We discuss various procedures for selecting the parameters involved in fitting
+a debiased Mondrian random forest; namely the base lifetime parameter
+$\lambda$, the number of trees in each forest $B$, the order of the bias
+correction $J$, and the debiasing scale parameters $a_r$ for $0 \leq r \leq J$.
 
 \subsection{Selecting the base lifetime parameter
 \texorpdfstring{$\lambda$}{lambda}}%
@@ -1570,31 +1370,26 @@ and the debiasing scale parameters $a_r$ for $0 \leq r \leq J$.
 
 The most important parameter is the base Mondrian lifetime parameter $\lambda$,
 which plays the role of a complexity parameter and thus governs the overall
-bias--variance trade-off of the estimator.
-Correct tuning of $\lambda$ is especially important in two main respects:
+bias--variance trade-off of the estimator. Correct tuning of $\lambda$ is
+especially important in two main respects:
 %
 firstly, in order to use the central limit theorem established in
 Theorem~\ref{thm:clt_debiased}, we must have that the bias converges to zero,
 requiring $\lambda \gg n^{\frac{1}{d + 2\beta}}$.
 %
 Secondly, the minimax optimality result of Theorem~\ref{thm:mondrian_minimax}
-is valid
-only in the regime $\lambda \asymp n^{\frac{1}{d + 2\beta}}$,
-and thus requires careful determination
-in the more realistic finite-sample setting.
-For clarity, in this section we use the notation
-$\hat\mu_\rd(x; \lambda, J)$ for the debiased Mondrian random forest
-with lifetime $\lambda$ and debiasing order $J$.
-Similarly write $\hat\Sigma_\rd(x; \lambda, J)$ for the
-associated variance estimator.
+is valid only in the regime $\lambda \asymp n^{\frac{1}{d + 2\beta}}$, and thus
+requires careful determination in the more realistic finite-sample setting. For
+clarity, in this section we use the notation $\hat\mu_\rd(x; \lambda, J)$ for
+the debiased Mondrian random forest with lifetime $\lambda$ and debiasing order
+$J$. Similarly write $\hat\Sigma_\rd(x; \lambda, J)$ for the associated
+variance estimator.
 
 For minimax-optimal point estimation when $\beta$ is known,
 choose any sequence $\lambda \asymp n^{\frac{1}{d + 2\beta}}$
-and use $\hat\mu_\rd(x; \lambda, J)$ with
-$J = \lfloor \flbeta / 2 \rfloor$,
+and use $\hat\mu_\rd(x; \lambda, J)$ with $J = \lfloor \flbeta / 2 \rfloor$,
 following the theory given in Theorem~\ref{thm:mondrian_minimax}.
-For an explicit example of how to choose the lifetime,
-one can instead use
+For an explicit example of how to choose the lifetime, one can instead use
 $\hat\mu_\rd\big(x; \hat\lambda_{\AIMSE}(J-1), J-1\big)$
 so that the leading bias is explicitly characterized by
 Theorem~\ref{thm:bias_debiased},
@@ -1608,15 +1403,12 @@ Set $J = \lfloor \flbeta / 2 \rfloor$ as before,
 and use $\hat\mu_\rd\big(x; \hat\lambda_{\AIMSE}(J-1), J\big)$
 and $\hat\Sigma_\rd\big(x; \hat\lambda_{\AIMSE}(J-1), J\big)$
 to construct a confidence interval.
-The reasoning for this is that we select a lifetime tailored
-for a more biased estimator than we actually use.
-This results in an inflated lifetime estimate, guaranteeing
-the resulting bias is negligible when it is
-plugged into the fully debiased estimator.
-This approach to tuning parameter selection
-and debiasing for valid nonparametric
-inference corresponds to an application of robust bias correction
-\citep{calonico2018jasa,calonico2022bernoulli},
+The reasoning for this is that we select a lifetime tailored for a more biased
+estimator than we actually use. This results in an inflated lifetime estimate,
+guaranteeing the resulting bias is negligible when it is plugged into the fully
+debiased estimator. This approach to tuning parameter selection and debiasing
+for valid nonparametric inference corresponds to an application of robust bias
+correction \citep{calonico2018jasa,calonico2022bernoulli},
 where the point estimator is bias-corrected
 and the robust standard error estimator incorporates the additional
 sampling variability introduced by the bias correction.
@@ -1627,11 +1419,9 @@ An alternative inference approach based on Lepskii's method
 \citep{lepskii1992asymptotically,birge2001alternative}
 could be developed with the latter goal in mind.
 
-It remains to propose a concrete method for computing
-$\hat\lambda_{\AIMSE}(J)$
-in the finite-sample setting; we suggest two such procedures
-based on plug-in selection with polynomial estimation and
-cross-validation respectively,
+It remains to propose a concrete method for computing $\hat\lambda_{\AIMSE}(J)$
+in the finite-sample setting; we suggest two such procedures based on plug-in
+selection with polynomial estimation and cross-validation respectively,
 building on classical ideas from the nonparametric
 smoothing literature \citep{fan2020statistical}.
 
@@ -1652,8 +1442,7 @@ for $\partial^{2 J + 2}_j \mu(x) / \partial x_j^{2 J + 2}$,
   \partial^{2 J + 2}_j \mu(x).
 \end{align*}
 %
-Now suppose that the model is homoscedastic so
-$\sigma^2(x) = \sigma^2$ and
+Now suppose that the model is homoscedastic so $\sigma^2(x) = \sigma^2$ and
 the limiting variance of $\hat\mu_\rd$ is
 %
 \begin{align*}
@@ -1799,14 +1588,12 @@ the based on the residual sum of squared errors of this model:
 
 \subsubsection*{Lifetime selection with cross-validation}
 
-As an alternative to the analytic plug-in methods described above,
-one can use a cross-validation approach.
-While leave-one-out cross-validation (LOOCV) can be applied directly,
-the linear smoother structure of the (debiased) Mondrian random forest
-estimator allows a computationally simpler formulation.
-Writing $\hat\mu_\rd^{-i}(x)$ for a debiased Mondrian random
-forest estimator fitted without using the $i$th data sample,
-it is easy to show that
+As an alternative to the analytic plug-in methods described above, one can use
+a cross-validation approach. While leave-one-out cross-validation (LOOCV) can
+be applied directly, the linear smoother structure of the (debiased) Mondrian
+random forest estimator allows a computationally simpler formulation. Writing
+$\hat\mu_\rd^{-i}(x)$ for a debiased Mondrian random forest estimator fitted
+without using the $i$th data sample, it is easy to show that
 %
 \begin{align*}
   \LOOCV(\lambda, J)
@@ -1836,12 +1623,9 @@ it is easy to show that
 avoiding refitting the model leaving each sample out in turn.
 Supposing $X_i \sim \Unif\big([0,1]^d\big)$ and
 replacing $1/N_{r b}(X_i)$ with their average expectation
-$ \frac{1}{J+1}
-\sum_{r=0}^{J}
-\E \left[ 1/N_{r b}(X_i) \right]
+$ \frac{1}{J+1} \sum_{r=0}^{J} \E \left[ 1/N_{r b}(X_i) \right]
 \approx \bar a^d \lambda^d / n$
-where
-$\bar a^d = \frac{1}{J+1} \sum_{r=0}^{J} a_r^d$
+where $\bar a^d = \frac{1}{J+1} \sum_{r=0}^{J} a_r^d$
 gives the generalized cross-validation (GCV) formula
 %
 \begin{align}
@@ -1858,8 +1642,7 @@ gives the generalized cross-validation (GCV) formula
 %
 The lifetime can then be selected by computing
 $\hat\lambda_{\LOOCV} \in \argmin_\lambda \LOOCV(\lambda, J)$
-or
-$\hat\lambda_{\GCV} \in \argmin_\lambda \GCV(\lambda, J)$.
+or $\hat\lambda_{\GCV} \in \argmin_\lambda \GCV(\lambda, J)$.
 
 \subsection{Choosing the number \texorpdfstring{$B$}{B} of trees
 in each forest}%
@@ -1868,29 +1651,24 @@ The next parameter to choose is the number of trees in each forest, $B$.
 If no debiasing is applied, we suggest taking
 $B = \sqrt{n}$ to satisfy the constraint in Theorem~\ref{thm:confidence}.
 If debiasing is used then we recommend setting
-$B = n^{\frac{2J-1}{2J}}$,
-consistent with Theorem~\ref{thm:confidence_debiased}
+$B = n^{\frac{2J-1}{2J}}$, consistent with Theorem~\ref{thm:confidence_debiased}
 and Theorem~\ref{thm:mondrian_minimax}.
 
 \subsection{Setting the debiasing order \texorpdfstring{$J$}{J}}%
 
-When constructing a debiased Mondrian random forest estimator,
-we must decide how many orders of bias to remove.
-Of course this requires having some form of oracle knowledge of the
-H{\"o}lder smoothness of $\mu$ and $f$,
-which is in practice very difficult to estimate statistically.
-As such we recommend removing only the first one or two
-bias terms, taking $J \in \{0,1,2\}$
-to avoid overly inflating the variance of the estimator.
+When constructing a debiased Mondrian random forest estimator, we must decide
+how many orders of bias to remove. Of course this requires having some form of
+oracle knowledge of the H{\"o}lder smoothness of $\mu$ and $f$, which is in
+practice very difficult to estimate statistically. As such we recommend
+removing only the first one or two bias terms, taking $J \in \{0,1,2\}$ to
+avoid overly inflating the variance of the estimator.
 
 \subsection{Selecting the debiasing coefficients}%
 
-As mentioned in Section~\ref{sec:debiased},
-we take $a_r$ to be a fixed geometric or arithmetic sequence.
-For example, we could set
-$a_r = (1+\gamma)^r$
-or $a_r = 1 + \gamma r$ for some $\gamma > 0$.
-We suggest for concreteness taking $a_r = 1.05^r$.
+As mentioned in Section~\ref{sec:debiased}, we take $a_r$ to be a fixed
+geometric or arithmetic sequence. For example, we could set
+$a_r = (1+\gamma)^r$ or $a_r = 1 + \gamma r$ for some $\gamma > 0$. We suggest
+for concreteness taking $a_r = 1.05^r$.
 
 \section{Illustrative example: weather forecasting}%
 
@@ -1910,21 +1688,17 @@ For the purpose of fitting into our setting of nonparametric regression,
 we consider estimating the probability of rain by setting
 $Y_i = 1$ if there is rain on the following day and $Y_i = 0$ otherwise.
 Outliers are removed to justify the assumption that the density of the
-covariates
-should be bounded away from zero, and the features are normalized, linearly
-scaling
-them into $[0,1]^2$. We fit a Mondrian
-random forest to the data, selecting the lifetime parameter with the
-generalized cross-validation (GCV)
-method detailed in Section~\ref{sec:lifetime_selection}.
-Figure~\ref{fig:weather_data} plots the
-data, using colors to indicate the response values, and illustrates how a
-single Mondrian tree is fitted by sampling from an independent Mondrian process
-and computing local averages within each cell. The general pattern of rain
-being predicted by high humidity and low pressure is apparent, with the tree
-estimator taking the form of a step function on rectangles. This illustrates
-the first-order bias of Mondrian random trees, as discussed in
-Section~\ref{sec:mondrian_clt}.
+covariates should be bounded away from zero, and the features are normalized,
+linearly scaling them into $[0,1]^2$. We fit a Mondrian random forest to the
+data, selecting the lifetime parameter with the generalized cross-validation
+(GCV) method detailed in Section~\ref{sec:lifetime_selection}.
+Figure~\ref{fig:weather_data} plots the data, using colors to indicate the
+response values, and illustrates how a single Mondrian tree is fitted by
+sampling from an independent Mondrian process and computing local averages
+within each cell. The general pattern of rain being predicted by high humidity
+and low pressure is apparent, with the tree estimator taking the form of a step
+function on rectangles. This illustrates the first-order bias of Mondrian
+random trees, as discussed in Section~\ref{sec:mondrian_clt}.
 
 \begin{figure}[ht]
   \centering
@@ -1943,10 +1717,9 @@ Section~\ref{sec:mondrian_clt}.
   \label{fig:weather_data}
 \end{figure}
 
-Figure~\ref{fig:weather_forest} then
-demonstrates the effect of increasing the forest size $B$ on the smoothness
-(and therefore also the bias) of the resulting regression function estimate
-$\hat \mu(x)$.
+Figure~\ref{fig:weather_forest} then demonstrates the effect of increasing the
+forest size $B$ on the smoothness (and therefore also the bias) of the
+resulting regression function estimate $\hat \mu(x)$.
 
 \begin{figure}[ht]
   \centering
@@ -1965,20 +1738,17 @@ $\hat \mu(x)$.
   \label{fig:weather_forest}
 \end{figure}
 
-In Figure~\ref{fig:weather_gcv} we show the mean squared error
-and GCV scores computed using \eqref{eq:gcv} for
-each lifetime parameter $\lambda$. As expected, the mean squared error
-decreases as $\lambda$ increases and the model overfits, but the GCV score 
-is minimized
-at a value which appropriately balances the bias and variance. We also
-identify three design points at which to conduct inference.
-Table~\ref{tab:weather_ci} presents numerical results for estimation and
-inference at these specified design points, using a Mondrian random forest
-with $B=200$ trees and $\lambda = 5$ selected by GCV.
-The predicted chance of rain
-is found to vary substantially given different covariate values,
-and the resulting confidence intervals are somewhat narrow due to the
-large sample size.
+In Figure~\ref{fig:weather_gcv} we show the mean squared error and GCV scores
+computed using \eqref{eq:gcv} for each lifetime parameter $\lambda$. As
+expected, the mean squared error decreases as $\lambda$ increases and the model
+overfits, but the GCV score is minimized at a value which appropriately
+balances the bias and variance. We also identify three design points at which
+to conduct inference. Table~\ref{tab:weather_ci} presents numerical results for
+estimation and inference at these specified design points, using a Mondrian
+random forest with $B=200$ trees and $\lambda = 5$ selected by GCV. The
+predicted chance of rain is found to vary substantially given different
+covariate values, and the resulting confidence intervals are somewhat narrow
+due to the large sample size.
 
 \begin{figure}[ht]
   \centering
@@ -2023,22 +1793,18 @@ large sample size.
 \section{Conclusion}%
 \label{sec:mondrian_conclusion}
 
-We presented a central limit theorem for the Mondrian random forest
-estimator and showed how it can be used to perform statistical inference
-on an unknown nonparametric regression function.
-We introduced a debiased version of Mondrian random forests, exploiting higher
-order smoothness, and
-demonstrated their advantages for statistical inference and their
-minimax optimality properties.
-Finally we discussed tuning parameter selection, enabling fully
-feasible and practical estimation and inference procedures.
-Implementations of this chapter's methodology,
-along with replication files for the empirical results,
+We presented a central limit theorem for the Mondrian random forest estimator
+and showed how it can be used to perform statistical inference on an unknown
+nonparametric regression function. We introduced a debiased version of Mondrian
+random forests, exploiting higher order smoothness, and demonstrated their
+advantages for statistical inference and their minimax optimality properties.
+Finally we discussed tuning parameter selection, enabling fully feasible and
+practical estimation and inference procedures. Implementations of this
+chapter's methodology, along with replication files for the empirical results,
 are provided by a Julia package available at
 \href{https://github.com/WGUNDERWOOD/MondrianForests.jl}%
 {\texttt{github.com/wgunderwood/MondrianForests.jl}}.
 This work has been presented as
-%
 \cite{%
   underwood2024talkmichigan,%
   underwood2024talkillinois,%
