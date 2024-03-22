@@ -164,7 +164,7 @@ trees. We give our notation for the following sections.
 Section~\ref{sec:mondrian_inference} presents our first set of main results,
 beginning with a central limit theorem for the centered Mondrian random forest
 estimator (Theorem~\ref{thm:clt}) in which we characterize the limiting
-variance. Theorem~\ref{thm:bias} complements this result by precisely
+variance. Theorem~\ref{thm:mondrian_bias} complements this result by precisely
 calculating the limiting bias of the estimator, with the aim of subsequently
 applying a debiasing procedure. To enable valid feasible statistical inference,
 we provide a consistent variance estimator in
@@ -175,13 +175,14 @@ In Section~\ref{sec:debiased} we define debiased Mondrian random forests, a
 collection of estimators based on linear combinations of Mondrian random
 forests with varying lifetime parameters. These parameters are carefully chosen
 to annihilate leading terms in our bias characterization, yielding an estimator
-with provably superior bias properties (Theorem~\ref{thm:bias_debiased}). In
-Theorem~\ref{thm:clt_debiased} we verify that a central limit theorem continues
-to hold for the debiased Mondrian random forest. We again state the limiting
-variance, discuss the implications for the lifetime parameter, and provide a
-consistent variance estimator (Theorem~\ref{thm:variance_estimation_debiased})
-for constructing confidence intervals (Theorem~\ref{thm:confidence_debiased}).
-As a final corollary of the improved bias properties, we demonstrate in
+with provably superior bias properties
+(Theorem~\ref{thm:mondrian_bias_debiased}). In Theorem~\ref{thm:clt_debiased}
+we verify that a central limit theorem continues to hold for the debiased
+Mondrian random forest. We again state the limiting variance, discuss the
+implications for the lifetime parameter, and provide a consistent variance
+estimator (Theorem~\ref{thm:variance_estimation_debiased}) for constructing
+confidence intervals (Theorem~\ref{thm:confidence_debiased}). As a final
+corollary of the improved bias properties, we demonstrate in
 Theorem~\ref{thm:mondrian_minimax} that the debiased Mondrian random forest
 estimator is minimax-optimal in pointwise mean squared error for all
 $\beta > 0$, provided that $\beta$ is known a priori.
@@ -331,6 +332,7 @@ argument of course holds for the H{\"o}lder smoothness assumptions and the
 upper and lower bounds on the conditional variance function.
 
 \subsection{Mondrian random forests}
+\label{sec:mondrian_forests}
 
 We define the basic Mondrian random forest estimator
 \eqref{eq:mondrian_estimator} as in \citet{lakshminarayanan2014mondrian} and
@@ -516,11 +518,11 @@ construct a debiased Mondrian random forest estimator. There, we target and
 annihilate the higher-order terms in order to furnish superior estimation and
 inference properties.
 
-Theorem~\ref{thm:bias} gives our main result on
+Theorem~\ref{thm:mondrian_bias} gives our main result on
 the bias of the Mondrian random forest estimator.
 
 \begin{theorem}[Bias of the Mondrian random forest estimator]%
-  \label{thm:bias}
+  \label{thm:mondrian_bias}
   %
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold.
   Then for each $1 \leq r \leq \lfloor \flbeta / 2 \rfloor$ there exists
@@ -565,7 +567,8 @@ the bias of the Mondrian random forest estimator.
   %
 \end{theorem}
 
-In Theorem~\ref{thm:bias} we give some explicit examples of calculating the
+In Theorem~\ref{thm:mondrian_bias} we give some explicit examples of
+calculating the
 limiting bias if $\beta > 2$ or when $X_i$ are uniformly distributed. The
 general form of $B_r(x)$ is provided in Section~\ref{sec:mondrian_proofs} but
 is somewhat unwieldy except in specific situations. Nonetheless the most
@@ -578,7 +581,7 @@ allows single Mondrian trees to achieve minimax optimality only when
 $\beta \in (0, 1]$. In contrast, large forests remove this first-order bias
 and as such are optimal for all $\beta \in (0, 2]$.
 
-Using Theorem~\ref{thm:clt} and Theorem~\ref{thm:bias} together,
+Using Theorem~\ref{thm:clt} and Theorem~\ref{thm:mondrian_bias} together,
 along with an appropriate choice of lifetime parameter $\lambda$,
 gives a central limit theorem for the Mondrian random forest estimator
 which can be used, for example, to build confidence intervals
@@ -914,7 +917,7 @@ function identities.
 \subsection*{Bias characterization}
 
 Our second substantial technical result is the bias characterization
-given as Theorem~\ref{thm:bias}, in which we precisely
+given as Theorem~\ref{thm:mondrian_bias}, in which we precisely
 characterize the probability limit of the conditional bias
 %
 \begin{align*}
@@ -1011,7 +1014,7 @@ basic Mondrian random forest estimator is a special case of this more general
 debiased version, we will discuss only the latter throughout the rest of the
 chapter.
 
-We use the explicit form of the bias given in Theorem~\ref{thm:bias} to
+We use the explicit form of the bias given in Theorem~\ref{thm:mondrian_bias} to
 construct a debiased version of the Mondrian forest estimator. Let $J \geq 0$
 be the bias correction order. As such, with $J=0$ we retain the original
 Mondrian forest estimator, with $J=1$ we remove second-order bias, and with
@@ -1115,15 +1118,15 @@ $\Sigma_\rd(x) = \Sigma(x)$, and recovering Theorem~\ref{thm:clt}.
 
 \subsection*{Bias characterization}
 
-In Theorem~\ref{thm:bias_debiased} we verify that this debiasing procedure does
-indeed annihilate the desired bias terms, and its proof is a consequence of
-Theorem~\ref{thm:bias} and the construction of the debiased Mondrian random
-forest estimator $\hat\mu_\rd(x)$.
+In Theorem~\ref{thm:mondrian_bias_debiased} we verify that this debiasing
+procedure does indeed annihilate the desired bias terms, and its proof is a
+consequence of Theorem~\ref{thm:mondrian_bias} and the construction of the
+debiased Mondrian random forest estimator $\hat\mu_\rd(x)$.
 
 \begin{theorem}[Bias of the debiased Mondrian random forest estimator]%
-  \label{thm:bias_debiased}
+  \label{thm:mondrian_bias_debiased}
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold.
-  Then in the notation of Theorem~\ref{thm:bias} and with
+  Then in the notation of Theorem~\ref{thm:mondrian_bias} and with
   $\bar\omega = \sum_{r=0}^J \omega_r a_r^{-2J - 2}$,
   %
   \begin{align*}
@@ -1141,7 +1144,7 @@ forest estimator $\hat\mu_\rd(x)$.
   %
 \end{theorem}
 
-Theorem~\ref{thm:bias_debiased} has the following consequence:
+Theorem~\ref{thm:mondrian_bias_debiased} has the following consequence:
 the leading bias term is characterized in terms of
 $B_{J+1}(x)$ whenever $J < \beta/2 - 1$,
 or equivalently $J < \lfloor \flbeta/2 \rfloor$,
@@ -1297,7 +1300,7 @@ by \citet{mourtada2020minimax}.
 
 The sequence of lifetime parameters $\lambda$ required in
 Theorem~\ref{thm:mondrian_minimax} are chosen to balance the bias and standard
-deviation bounds implied by Theorem~\ref{thm:bias_debiased} and
+deviation bounds implied by Theorem~\ref{thm:mondrian_bias_debiased} and
 Theorem~\ref{thm:clt_debiased} respectively, in order to minimize the pointwise
 mean squared error. While selecting an optimal debiasing order $J$ needs only
 knowledge of an upper bound on the smoothness $\beta$, choosing an optimal
@@ -1390,7 +1393,7 @@ following the theory given in Theorem~\ref{thm:mondrian_minimax}.
 For an explicit example of how to choose the lifetime, one can instead use
 $\hat\mu_\rd\big(x; \hat\lambda_{\AIMSE}(J-1), J-1\big)$
 so that the leading bias is explicitly characterized by
-Theorem~\ref{thm:bias_debiased},
+Theorem~\ref{thm:mondrian_bias_debiased},
 and with $\hat\lambda_{\AIMSE}(J-1)$ as defined below.
 This is no longer minimax-optimal as $J-1 < J$
 does not satisfy the conditions of Theorem~\ref{thm:mondrian_minimax}.
@@ -1672,9 +1675,11 @@ avoid overly inflating the variance of the estimator.
     \includegraphics[scale=0.64]{graphics/weather_data_filled_partition.png}%
   \end{subfigure}
   \caption{Australian weather forecasting data. Colors indicate the response
-    variable of dry ($Y_i = 0$) or wet ($Y_i = 1$) on the following day.
-    Right: a Mondrian random tree fitted with a lifetime of $\lambda = 5$,
-  selected by generalized cross-validation.}
+    variable of dry (orange) or wet (blue) on the following
+    day. Right: the data is overlaid with a Mondrian random tree,
+    fitted with a lifetime of $\lambda = 5$
+    selected by generalized cross-validation. Cell colors represent the response
+  proportions.}
   \label{fig:weather_data}
 \end{figure}
 
@@ -1687,38 +1692,18 @@ for concreteness taking $a_r = 1.05^r$.
 
 \section{Illustrative example: weather forecasting}%
 
-As an illustrative example of our methodology, we consider a simple application
+To demonstrate our methodology for estimation and inference with Mondrian random
+forests, we consider a simple application
 to a weather forecasting problem. We emphasize that the main aim of this
 section is to provide intuition and understanding for how a Mondrian random
 forest may be used in practice, and we refrain from an in-depth analysis of the
-results obtained. Indeed, our central assumption of i.i.d.\ data is most likely
-violated when treating weather data due to the inherent time-series structure
-of sequential observations.
-Nonetheless, we use data from the \cite{bomgovau} containing daily weather
-information from 2007--2017 at 49 different locations across Australia, with a
-total of $n = 125\,927$ samples.
-
-We consider the classification problem of
-predicting whether or not it will rain on the following day using two
-covariates: the humidity and pressure at 3pm on the current day.
-For the purpose of fitting into our setting of nonparametric regression,
-we consider estimating the probability of rain by setting
-$Y_i = 1$ if there is rain on the following day and $Y_i = 0$ otherwise.
-Outliers are removed to justify the assumption that the density of the
-covariates should be bounded away from zero, and the features are normalized,
-linearly scaling them into $[0,1]^2$. We fit a Mondrian random forest to the
-data, selecting the lifetime parameter with the generalized cross-validation
-(GCV) method detailed in Section~\ref{sec:lifetime_selection}.
-Figure~\ref{fig:weather_data} plots the data, using colors to indicate the
-response values, and illustrates how a single Mondrian tree is fitted by
-sampling from an independent Mondrian process and computing local averages
-within each cell. The general pattern of rain being predicted by high humidity
-and low pressure is apparent, with the tree estimator taking the form of a step
-function on rectangles. This illustrates the first-order bias of Mondrian
-random trees, as discussed in Section~\ref{sec:mondrian_clt}.
-Figure~\ref{fig:weather_forest} then demonstrates the effect of increasing the
-forest size $B$ on the smoothness (and therefore also the bias) of the
-resulting regression function estimate $\hat \mu(x)$.
+results obtained. Indeed, our core assumption of i.i.d.\ data is almost
+certainly
+violated when treating weather data, due to the inherent time-series structure
+of the sequential observations.
+Nonetheless, we use data from the \cite{bomgovau}, containing daily weather
+information from the years 2007--2017, at 49 different
+locations across Australia, with a total of $n = 125\,927$ samples.
 
 \begin{figure}[b!]
   \centering
@@ -1728,28 +1713,52 @@ resulting regression function estimate $\hat \mu(x)$.
   \end{subfigure}
   \begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[scale=0.64]{graphics/weather_forest_30.png}%
+    \includegraphics[scale=0.64]{graphics/weather_forest_design.png}%
   \end{subfigure}
   \caption{Fitting Mondrian random forests to the Australian weather data.
     Left: with $B=2$ trees, individual cells are clearly visible and the step
     function persists. Right: with $B=30$ trees, the estimate is much smoother
-  as the individual tree estimates average out.}
+  as the individual tree estimates average out.
+  Three design points are identified for further analysis.}
   \label{fig:weather_forest}
 \end{figure}
 
-In Figure~\ref{fig:weather_gcv} we show the mean squared error and GCV scores
-computed using \eqref{eq:gcv} for each lifetime parameter $\lambda$. As
-expected, the mean squared error decreases as $\lambda$ increases and the model
-overfits, but the GCV score is minimized at a value which appropriately
-balances the bias and variance. We also identify three design points at which
-to conduct inference. Table~\ref{tab:weather_ci} presents numerical results for
-estimation and inference at these specified design points, using a Mondrian
-random forest with $B=200$ trees and $\lambda = 5$ selected by GCV. The
-predicted chance of rain is found to vary substantially given different
-covariate values, and the resulting confidence intervals are somewhat narrow
-due to the large sample size.
+We consider the classification problem of predicting whether or not it will
+rain on the following day using two covariates: the percentage relative
+humidity and pressure in mbar at 3pm on the current day. For the purpose of
+framing this as a nonparametric regression problem, we consider estimating the
+probability of rain as the regression function by setting $Y_i = 1$ if there is
+rain on the following day and $Y_i = 0$ otherwise. Outliers with pressure less
+than 985\,mbar or more than 1040\,mbar were removed to justify the assertion in
+Assumption~\ref{ass:mondrian_data} that the density of the covariates should be
+bounded away from zero, and the features are linearly scaled
+to provide normalized samples $(X_i, Y_i) \in [0, 1]^2 \times \{0, 1\}$.
+We fit a Mondrian random forest to the data as defined in
+Section~\ref{sec:mondrian_forests}, selecting the
+lifetime parameter with the generalized cross-validation (GCV) method detailed
+in Section~\ref{sec:lifetime_selection}. Figure~\ref{fig:weather_data} plots
+the data, using colors to indicate the response values, and illustrates how a
+single Mondrian tree is fitted by sampling from an independent Mondrian process
+and computing local averages
+(equivalent to response proportions with binary outcomes)
+within each cell. The general pattern of rain
+being predicted by high humidity and low pressure is apparent, with the tree
+estimator taking the form of a step function on axis-aligned rectangles.
+This illustrates
+the first-order bias of Mondrian random trees, as discussed in
+Section~\ref{sec:mondrian_clt}, with the piecewise constant estimator providing
+a poor approximation for the smooth true regression function.
 
-\begin{figure}[t]
+Figure~\ref{fig:weather_forest} then
+demonstrates the effect of increasing the forest size $B$.
+As more trees are included in the Mondrian random forest,
+the regression estimate $\hat \mu(x)$ becomes smoother and therefore also
+enjoys improved bias properties as shown in
+Theorem~\ref{thm:mondrian_bias}, assuming a correct model specification.
+We also identify three design points at which to conduct inference
+by constructing confidence intervals.
+
+\begin{figure}[b!]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1757,32 +1766,73 @@ due to the large sample size.
   \end{subfigure}
   \begin{subfigure}{0.49\textwidth}
     \centering
-    \includegraphics[scale=0.64]{graphics/weather_forest_design.png}%
+    \includegraphics[scale=0.64]{graphics/weather_debiased_forest_design.png}%
   \end{subfigure}
   \caption{Left: mean squared error and generalized cross-validation scores
     for Mondrian random forests with the Australian weather data.
-    Right: three design points are identified to present further numerical
-  results in Table~\ref{tab:weather_ci}.}
+  Three design points are identified for further analysis.}
   \label{fig:weather_gcv}
 \end{figure}
 
+In Figure~\ref{fig:weather_gcv} we show the mean squared error and GCV scores
+computed using \eqref{eq:gcv} with $B=400$ trees
+for each lifetime parameter $\lambda$. As
+expected, the mean squared error decreases monotonically
+as $\lambda$ increases and the model
+overfits, but the GCV score is minimized at a value which appropriately
+balances the bias and variance. We also fit a debiased Mondrian forest
+with bias correction order $J = 1$ as described in
+Section~\ref{sec:debiased}, using $B=15$ trees with each debiasing level
+for a total of $30$ trees.
+We continue to use the same lifetime parameter
+$\lambda$ selected through GCV without debiasing, following the approach
+recommended in Section~\ref{sec:lifetime_selection}.
+The resulting debiased Mondrian random forest estimate is noticeably
+less smooth than the version without bias correction, as expected due to
+both the inflated variance resulting from the debiasing procedure
+and the undersmoothing enacted by the lifetime selection method.
+
+Table~\ref{tab:weather_ci} presents numerical results for
+estimation and inference at these specified design points, using a Mondrian
+random forest with $B=200$ trees and $\lambda = 5$ selected by GCV. The
+predicted chance of rain $\hat\mu(x)$ is found to vary substantially given
+different covariate values, and the resulting confidence intervals (CI) are
+relatively narrow due to the large sample size and moderate lifetime parameter.
+\TODO{describe new table debiasing}
+
+\TODO{get GCV curve smoother, check all num trees in text}
+\TODO{include design points earlier, keep another plot: debiased rf}
+
 \vspace{4mm}
-\begin{table}[h]
+\begin{table}[ht]
   \centering
-  \begin{tabular}{|c|c|r|c|c|}
+  \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline
-    Point & Humidity & Pressure &
-    Chance of rain & 95\% confidence interval \\
+    \multirow{2}{*}{Point}
+    & \multirow{2}{*}{Humidity}
+    & \multirow{2}{*}{Pressure}
+    & \multicolumn{2}{|c|}{Without debiasing}
+    & \multicolumn{2}{|c|}{With debiasing} \\
+    \cline{4-7}
+    & &
+    & $\hat\mu(x)$ & 95\% CI
+    & $\hat\mu(x)$ & 95\% CI \\
     \hline
     $1$ & $20\%$ & $1020\,\textrm{mbar}$ &
-    $4.3\%$ &
-    $4.1\%$ -- $4.6\%$ \\
+    $\phantom{0}4.3\%$ &
+    $4.1\%$ -- $4.6\%$ &
+    $\phantom{0}2.4\%$ &
+    $2.0\%$ -- $2.8\%$ \\
     $2$ & $70\%$ & $1000\,\textrm{mbar}$ &
     $53.0\%$ &
-    $52.0\%$ -- $54.0\%$ \\
-    $3$ & $80\%$ & $990\,\textrm{mbar}$ &
+    $52.0\%$ -- $54.0\%$ &
+    $62.2\%$ &
+    $60.1\%$ -- $64.2\%$ \\
+    $3$ & $80\%$ & $\phantom{0}990\,\textrm{mbar}$ &
     $77.5\%$ &
-    $74.4\%$ -- $80.6\%$ \\
+    $74.4\%$ -- $80.6\%$ &
+    $92.0\%$ &
+    $85.6\%$ -- $98.5\%$ \\
     \hline
   \end{tabular}
   \caption{Numerical results for the Australian weather data.}

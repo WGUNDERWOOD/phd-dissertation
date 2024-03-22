@@ -984,7 +984,7 @@ results for the Mondrian random forest estimator without debiasing.
 See Section~\ref{sec:overview_proofs} in the main text
 for details on our approach to this proof.
 
-\begin{proof}[Theorem~\ref{thm:bias}]
+\begin{proof}[Theorem~\ref{thm:mondrian_bias}]
 
   \proofparagraph{removing the dependence on the trees}
 
@@ -1405,8 +1405,8 @@ for details on our approach to this proof.
   \end{align*}
   %
   Note that since $f$ and $\mu$ are Lipschitz
-  and by integrating the tail probability given in Lemma~\ref{lem:largest_cell},
-  the Maclaurin remainder term is bounded by
+  and by integrating the tail probability given in
+  Lemma~\ref{lem:largest_cell}, the Maclaurin remainder term is bounded by
   %
   \begin{align*}
     &\E \left[
@@ -1979,7 +1979,7 @@ for details on our approach to this proof.
 
 \begin{proof}[Theorem~\ref{thm:confidence}]
   %
-  By Theorem~\ref{thm:bias}
+  By Theorem~\ref{thm:mondrian_bias}
   and Theorem~\ref{thm:variance_estimation},
   %
   \begin{align*}
@@ -3758,10 +3758,10 @@ The new bias characterization with debiasing is a purely algebraic
 consequence of the original bias characterization and the construction
 of the debiased Mondrian random forest estimator.
 
-\begin{proof}[Theorem~\ref{thm:bias_debiased}]
+\begin{proof}[Theorem~\ref{thm:mondrian_bias_debiased}]
 
-  By the definition of the debiased estimator and Theorem~\ref{thm:bias},
-  since $J$ and $a_r$ are fixed,
+  By the definition of the debiased estimator and
+  Theorem~\ref{thm:mondrian_bias}, since $J$ and $a_r$ are fixed,
   %
   \begin{align*}
     \E \big[ \hat \mu_\rd(x) \mid \bX, \bT \big]
@@ -3860,15 +3860,14 @@ of the debiased Mondrian random forest estimator.
   which is bounded and Lipschitz,
   where $\E[Y_i^4 \mid X_i]$ is bounded almost surely.
   So its conditional bias is controlled
-  by Theorem~\ref{thm:bias} and is at most
+  by Theorem~\ref{thm:mondrian_bias} and is at most
   $O_\P \left( \frac{1}{\lambda} +
   \frac{\log n}{\lambda} \sqrt{\lambda^d / n} \right)$.
   Its variance is
   at most $\frac{\lambda^d}{n}$ by Theorem~\ref{thm:clt_debiased}.
   Consistency of the second term in \eqref{eq:sigma2_hat_proof}
-  follows directly from Theorems~\ref{thm:bias} and \ref{thm:clt_debiased}
-  with the same bias and variance bounds.
-  Therefore
+  follows directly from Theorems~\ref{thm:mondrian_bias} and
+  \ref{thm:clt_debiased} with the same bias and variance bounds. Therefore
   %
   \begin{align*}
     \hat\sigma^2(x)
@@ -3965,7 +3964,7 @@ of the debiased Mondrian random forest estimator.
 
 \begin{proof}[Theorem~\ref{thm:confidence_debiased}]
   %
-  By Theorem~\ref{thm:bias_debiased}
+  By Theorem~\ref{thm:mondrian_bias_debiased}
   and Theorem~\ref{thm:variance_estimation_debiased},
   %
   \begin{align*}
@@ -4004,7 +4003,7 @@ of the debiased Mondrian random forest estimator.
 \begin{proof}[Theorem~\ref{thm:mondrian_minimax}]
 
   The bias--variance decomposition along with
-  Theorem~\ref{thm:bias_debiased}
+  Theorem~\ref{thm:mondrian_bias_debiased}
   and the proof of Theorem~\ref{thm:clt_debiased}
   with $J = \lfloor \flbeta / 2 \rfloor$ gives
   %
@@ -4034,8 +4033,8 @@ of the debiased Mondrian random forest estimator.
     + \frac{1}{\lambda^2 B}.
   \end{align*}
   %
-  Note that we used an $L^2$ version of Theorem~\ref{thm:bias_debiased}
-  which is immediate from the proof of Theorem~\ref{thm:bias},
+  Note that we used an $L^2$ version of Theorem~\ref{thm:mondrian_bias_debiased}
+  which is immediate from the proof of Theorem~\ref{thm:mondrian_bias},
   since we obtain the bound in probability through
   Chebyshev's inequality.
   Now since
