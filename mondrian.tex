@@ -152,9 +152,6 @@ specifically, we use our debiasing approach to construct valid inference
 procedures based on robust bias correction
 \citep{calonico2018jasa,calonico2022bernoulli}.
 
-\TODO{discuss weather}
-\TODO{discuss new tech results in appendix}
-
 \subsection{Organization}
 
 This chapter is structured as follows. In Section~\ref{sec:mondrian_setup} we
@@ -196,9 +193,16 @@ parameter using polynomial estimation, alongside other practical suggestions.
 We also give advice on choosing the number of trees, and other parameters
 associated with the debiasing procedure.
 
+In Section~\ref{sec:mondrian_weather} we present an illustrative example
+application of our proposed methodology for estimation and inference in the
+setting of weather forecasting in Australia. We demonstrate the use of
+generalized cross-validation for parameter selection, as well as the
+construction of point estimates and confidence intervals.
+
 Concluding remarks are given in Section~\ref{sec:mondrian_conclusion}, while
 Appendix~\ref{app:mondrian} contains all the mathematical proofs of our
-theoretical results.
+theoretical contributions, along with some other technical results which
+may be of interest.
 
 \subsection{Notation}
 
@@ -1694,6 +1698,7 @@ $a_r = (1+\gamma)^r$ or $a_r = 1 + \gamma r$ for some $\gamma > 0$. We suggest
 for concreteness taking $a_r = 1.05^r$.
 
 \section{Illustrative example: weather forecasting}%
+\label{sec:mondrian_weather}
 
 To demonstrate our methodology for estimation and inference with Mondrian random
 forests, we consider a simple application
@@ -1720,7 +1725,7 @@ locations across Australia, with a total of $n = 125\,927$ samples.
   \end{subfigure}
   \caption{Fitting Mondrian random forests to the Australian weather data.
     Left: with $B=2$ trees, individual cells are clearly visible and the step
-    function persists. Right: with $B=30$ trees, the estimate is much smoother
+    function persists. Right: with $B=40$ trees, the estimate is much smoother
     as the individual tree estimates average out.
   Three design points are identified for further analysis.}
   \label{fig:weather_forest}
@@ -1753,7 +1758,7 @@ Section~\ref{sec:mondrian_clt}, with the piecewise constant estimator providing
 a poor approximation for the smooth true regression function.
 
 Figure~\ref{fig:weather_forest} then
-demonstrates the effect of increasing the forest size $B$.
+demonstrates the effect of increasing the forest size from $B=2$ to $B=40$.
 As more trees are included in the Mondrian random forest,
 the regression estimate $\hat \mu(x)$ becomes smoother and therefore also
 enjoys improved bias properties as shown in
@@ -1774,7 +1779,8 @@ for the numerical results.
   \end{subfigure}
   \caption{Left: mean squared error and generalized cross-validation scores
     for Mondrian random forests with the Australian weather data.
-  Three design points are identified for further analysis.}
+    Right: a debiased Mondrian random forest with $B=20$, giving $40$ trees 
+  in total. Three design points are identified for further analysis.}
   \label{fig:weather_gcv}
 \end{figure}
 
@@ -1786,8 +1792,8 @@ as $\lambda$ increases and the model
 overfits, but the GCV score is minimized at a value which appropriately
 balances the bias and variance. We then fit a debiased Mondrian forest
 with bias correction order $J = 1$ as described in
-Section~\ref{sec:debiased}, using $B=15$ trees with each debiasing level
-for a total of $30$ trees.
+Section~\ref{sec:debiased}, using $B=20$ trees at each debiasing level
+for a total of $40$ trees.
 We continue to use the same lifetime parameter
 $\lambda$ selected through GCV without debiasing, following the approach
 recommended in Section~\ref{sec:lifetime_selection}.
@@ -1798,9 +1804,10 @@ and the undersmoothing enacted by the lifetime selection method.
 
 Table~\ref{tab:weather_ci} presents numerical results for estimation and
 inference at these specified design points. We first give the outcomes without
-debiasing, using a Mondrian random forest with $B=200$ trees and $\lambda = 5$
+debiasing, using a Mondrian random forest with $B = 400$ trees and $\lambda = 5$
 selected by GCV. We then show the results with a first-order ($J=1$) debiased
-Mondrian random forest using $B = 200$ (so a total of $400$ trees) and the same
+Mondrian random forest using $B = 200$ (so again a total of $400$ trees)
+and the same
 value of $\lambda = 5$. The predicted chance of rain $\hat\mu(x)$ is found to
 vary substantially across different covariate values, and the resulting
 confidence intervals (CI) are generally narrow due to the large sample size and
@@ -1808,8 +1815,6 @@ moderate lifetime parameter. Th forest with debiasing exhibits more extreme
 predictions away from $50\%$ and wider confidence intervals in general, in line
 with the illustration in Figure~\ref{fig:weather_gcv}.
 
-\TODO{get GCV curve smoother, check all num trees in text}
-\TODO{can we do even more trees?}
 \TODO{check this whole section carefully}
 
 \vspace{4mm}
@@ -1828,23 +1833,24 @@ with the illustration in Figure~\ref{fig:weather_gcv}.
     & $\hat\mu(x)$ & 95\% CI \\
     \hline
     $1$ & $20\%$ & $1020\,\textrm{mbar}$ &
-    $\phantom{0}4.3\%$ &
-    $4.1\%$ -- $4.6\%$ &
-    $\phantom{0}2.4\%$ &
-    $2.0\%$ -- $2.8\%$ \\
+    $\phantom{0}4.2\%$ &
+    $3.9\%$ -- $4.5\%$ &
+    $\phantom{0}2.0\%$ &
+    $1.6\%$ -- $2.4\%$ \\
     $2$ & $70\%$ & $1000\,\textrm{mbar}$ &
-    $53.0\%$ &
-    $52.0\%$ -- $54.0\%$ &
-    $62.2\%$ &
-    $60.1\%$ -- $64.2\%$ \\
-    $3$ & $80\%$ & $\phantom{0}990\,\textrm{mbar}$ &
-    $77.5\%$ &
-    $74.4\%$ -- $80.6\%$ &
-    $92.0\%$ &
-    $85.6\%$ -- $98.5\%$ \\
+    $52.6\%$ &
+    $51.7\%$ -- $53.6\%$ &
+    $59.8\%$ &
+    $57.8\%$ -- $61.9\%$ \\
+    $3$ & $80\%$ & $\phantom{1}990\,\textrm{mbar}$ &
+    $78.1\%$ &
+    $75.0\%$ -- $81.2\%$ &
+    $93.2\%$ &
+    $86.7\%$ -- $99.6\%$ \\
     \hline
   \end{tabular}
-  \caption{Numerical results for the Australian weather data.}
+  \caption{Numerical results for the Australian weather data
+  at three specified design points.}
   \label{tab:weather_ci}
 \end{table}
 
