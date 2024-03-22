@@ -1717,29 +1717,27 @@ We consider the classification problem of predicting whether or not it will
 rain on the following day using two covariates: the percentage relative
 humidity, and the pressure in mbar, both at 3pm on the current day. For the
 purpose of framing this as a nonparametric regression problem, we consider
-estimating the
-probability of rain as the regression function by setting $Y_i = 1$ if there is
-rain on the following day and $Y_i = 0$ otherwise. Outliers with pressure less
-than 985\,mbar or more than 1040\,mbar were removed to justify the assertion in
-Assumption~\ref{ass:mondrian_data} that the density of the covariates should be
-bounded away from zero, and the features were linearly scaled
-to provide normalized samples $(X_i, Y_i) \in [0, 1]^2 \times \{0, 1\}$.
+estimating the probability of rain as the regression function by setting
+$Y_i = 1$ if there is rain on the following day and $Y_i = 0$ otherwise.
+Outliers with pressure less than 985\,mbar or more than 1040\,mbar were removed
+to justify the assertion in Assumption~\ref{ass:mondrian_data} that the density
+of the covariates should be bounded away from zero, and the features were
+linearly scaled to provide normalized samples
+$(X_i, Y_i) \in [0, 1]^2 \times \{0, 1\}$.
 We fit a Mondrian random forest to the data as defined in
-Section~\ref{sec:mondrian_forests}, selecting the
-lifetime parameter with the generalized cross-validation (GCV) method detailed
-in Section~\ref{sec:lifetime_selection}. Figure~\ref{fig:weather_data} plots
-the data, using colors to indicate the response values, and illustrates how a
+Section~\ref{sec:mondrian_forests}, selecting the lifetime parameter with the
+generalized cross-validation (GCV) method detailed in
+Section~\ref{sec:lifetime_selection}. Figure~\ref{fig:weather_data} plots the
+data, using colors to indicate the response values, and illustrates how a
 single Mondrian tree is fitted by sampling from an independent Mondrian process
-and then computing local averages
-(equivalent to response proportions in this special setting with binary outcomes)
-within each cell. The general pattern of rain
-being predicted by high humidity and low pressure is apparent, with the
-preliminary tree
-estimator taking the form of a step function on axis-aligned rectangles.
-This illustrates
-the first-order bias of Mondrian random trees discussed in
-Section~\ref{sec:mondrian_clt}, with the piecewise constant estimator providing
-a poor approximation for the smooth true regression function.
+and then computing local averages (equivalent to response proportions in this
+special setting with binary outcomes) within each cell. The general pattern of
+rain being predicted by high humidity and low pressure is apparent, with the
+preliminary tree estimator taking the form of a step function on axis-aligned
+rectangles. This illustrates the first-order bias of Mondrian random trees
+discussed in Section~\ref{sec:mondrian_clt}, with the piecewise constant
+estimator providing a poor approximation for the smooth true regression
+function.
 
 \begin{figure}[t]
   \centering
@@ -1809,21 +1807,20 @@ both the inflated variance resulting from the debiasing procedure,
 and the undersmoothing enacted by the lifetime selection method.
 
 Table~\ref{tab:weather_ci} presents numerical results for estimation and
-inference at the three specified design points. We first give the outcomes without
-debiasing, using a Mondrian random forest with $B = 400$ trees and $\lambda = 5$
-selected by GCV. We then show the results with a first-order ($J=1$) debiased
-Mondrian random forest using $B = 200$ (so again a total of $400$ trees)
-and the same
-value of $\lambda = 5$. The predicted chance of rain $\hat\mu(x)$ is found to
-vary substantially across different covariate values, and the resulting
-confidence intervals (CI) are generally narrow due to the large sample size and
-moderate lifetime parameter. The forest with debiasing exhibits more extreme
-predictions away from $50\%$ and wider confidence intervals in general, in line
-with the illustration in Figure~\ref{fig:weather_gcv}.
-Interestingly, the confidence intervals for the non-debiased and debiased
-estimators do not intersect, indicating that the original estimator
-is severely biased, and providing further justification for our
-modified debiased random forest estimator.
+inference at the three specified design points. We first give the outcomes
+without debiasing, using a Mondrian random forest with $B = 400$ trees and
+$\lambda = 5$ selected by GCV. We then show the results with a first-order
+($J=1$) debiased Mondrian random forest using $B = 200$ (so again a total of
+$400$ trees) and the same value of $\lambda = 5$. The predicted chance of rain
+$\hat\mu(x)$ is found to vary substantially across different covariate values,
+and the resulting confidence intervals (CI) are generally narrow due to the
+large sample size and moderate lifetime parameter. The forest with debiasing
+exhibits more extreme predictions away from $50\%$ and wider confidence
+intervals in general, in line with the illustration in
+Figure~\ref{fig:weather_gcv}. Interestingly, the confidence intervals for the
+non-debiased and debiased estimators do not intersect, indicating that the
+original estimator is severely biased, and providing further justification for
+our modified debiased random forest estimator.
 
 \vspace{4mm}
 \begin{table}[ht]
