@@ -152,6 +152,9 @@ specifically, we use our debiasing approach to construct valid inference
 procedures based on robust bias correction
 \citep{calonico2018jasa,calonico2022bernoulli}.
 
+\TODO{discuss weather}
+\TODO{discuss new tech results in appendix}
+
 \subsection{Organization}
 
 This chapter is structured as follows. In Section~\ref{sec:mondrian_setup} we
@@ -1718,7 +1721,7 @@ locations across Australia, with a total of $n = 125\,927$ samples.
   \caption{Fitting Mondrian random forests to the Australian weather data.
     Left: with $B=2$ trees, individual cells are clearly visible and the step
     function persists. Right: with $B=30$ trees, the estimate is much smoother
-  as the individual tree estimates average out.
+    as the individual tree estimates average out.
   Three design points are identified for further analysis.}
   \label{fig:weather_forest}
 \end{figure}
@@ -1756,7 +1759,8 @@ the regression estimate $\hat \mu(x)$ becomes smoother and therefore also
 enjoys improved bias properties as shown in
 Theorem~\ref{thm:mondrian_bias}, assuming a correct model specification.
 We also identify three design points at which to conduct inference
-by constructing confidence intervals.
+by constructing confidence intervals; see Table~\ref{tab:weather_ci}
+for the numerical results.
 
 \begin{figure}[b!]
   \centering
@@ -1780,7 +1784,7 @@ for each lifetime parameter $\lambda$. As
 expected, the mean squared error decreases monotonically
 as $\lambda$ increases and the model
 overfits, but the GCV score is minimized at a value which appropriately
-balances the bias and variance. We also fit a debiased Mondrian forest
+balances the bias and variance. We then fit a debiased Mondrian forest
 with bias correction order $J = 1$ as described in
 Section~\ref{sec:debiased}, using $B=15$ trees with each debiasing level
 for a total of $30$ trees.
@@ -1792,16 +1796,21 @@ less smooth than the version without bias correction, as expected due to
 both the inflated variance resulting from the debiasing procedure
 and the undersmoothing enacted by the lifetime selection method.
 
-Table~\ref{tab:weather_ci} presents numerical results for
-estimation and inference at these specified design points, using a Mondrian
-random forest with $B=200$ trees and $\lambda = 5$ selected by GCV. The
-predicted chance of rain $\hat\mu(x)$ is found to vary substantially given
-different covariate values, and the resulting confidence intervals (CI) are
-relatively narrow due to the large sample size and moderate lifetime parameter.
-\TODO{describe new table debiasing}
+Table~\ref{tab:weather_ci} presents numerical results for estimation and
+inference at these specified design points. We first give the outcomes without
+debiasing, using a Mondrian random forest with $B=200$ trees and $\lambda = 5$
+selected by GCV. We then show the results with a first-order ($J=1$) debiased
+Mondrian random forest using $B = 200$ (so a total of $400$ trees) and the same
+value of $\lambda = 5$. The predicted chance of rain $\hat\mu(x)$ is found to
+vary substantially across different covariate values, and the resulting
+confidence intervals (CI) are generally narrow due to the large sample size and
+moderate lifetime parameter. Th forest with debiasing exhibits more extreme
+predictions away from $50\%$ and wider confidence intervals in general, in line
+with the illustration in Figure~\ref{fig:weather_gcv}.
 
 \TODO{get GCV curve smoother, check all num trees in text}
-\TODO{include design points earlier, keep another plot: debiased rf}
+\TODO{can we do even more trees?}
+\TODO{check this whole section carefully}
 
 \vspace{4mm}
 \begin{table}[ht]

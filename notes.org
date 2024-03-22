@@ -1,6 +1,5 @@
 #+title: PhD Dissertation
 * Tasks
-** TODO Punctuation in captions
 ** TODO Final layout check
 * Formatting
 ** Page numbers no more than 0.5in from bottom
