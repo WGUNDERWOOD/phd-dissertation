@@ -1671,7 +1671,30 @@ practice very difficult to estimate statistically. As such we recommend
 removing only the first one or two bias terms, taking $J \in \{0,1,2\}$ to
 avoid overly inflating the variance of the estimator.
 
-\begin{figure}[b!]
+\subsection{Selecting the debiasing coefficients}%
+
+As mentioned in Section~\ref{sec:debiased}, we take $a_r$ to be a fixed
+geometric or arithmetic sequence. For example, we could set
+$a_r = (1+\gamma)^r$ or $a_r = 1 + \gamma r$ for some $\gamma > 0$. We suggest
+for concreteness taking $a_r = 1.05^r$.
+
+\section{Illustrative example: weather forecasting}%
+\label{sec:mondrian_weather}
+
+To demonstrate our methodology for estimation and inference with Mondrian random
+forests, we consider a simple application
+to a weather forecasting problem. We emphasize that the main aim of this
+section is to provide intuition and understanding for how a Mondrian random
+forest may be used in practice, and we refrain from an in-depth analysis of the
+specific results obtained. Indeed, our core assumption of i.i.d.\ data is almost
+certainly
+violated when treating weather data, due to the inherent time-series structure
+of the sequential observations.
+Nonetheless, we use data from the \cite{bomgovau}, containing daily weather
+information from the years 2007--2017, at 49 different
+locations across Australia, with a total of $n = 125\,927$ samples.
+
+\begin{figure}[t]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1690,30 +1713,35 @@ avoid overly inflating the variance of the estimator.
   \label{fig:weather_data}
 \end{figure}
 
-\subsection{Selecting the debiasing coefficients}%
+We consider the classification problem of predicting whether or not it will
+rain on the following day using two covariates: the percentage relative
+humidity, and the pressure in mbar, both at 3pm on the current day. For the
+purpose of framing this as a nonparametric regression problem, we consider
+estimating the
+probability of rain as the regression function by setting $Y_i = 1$ if there is
+rain on the following day and $Y_i = 0$ otherwise. Outliers with pressure less
+than 985\,mbar or more than 1040\,mbar were removed to justify the assertion in
+Assumption~\ref{ass:mondrian_data} that the density of the covariates should be
+bounded away from zero, and the features were linearly scaled
+to provide normalized samples $(X_i, Y_i) \in [0, 1]^2 \times \{0, 1\}$.
+We fit a Mondrian random forest to the data as defined in
+Section~\ref{sec:mondrian_forests}, selecting the
+lifetime parameter with the generalized cross-validation (GCV) method detailed
+in Section~\ref{sec:lifetime_selection}. Figure~\ref{fig:weather_data} plots
+the data, using colors to indicate the response values, and illustrates how a
+single Mondrian tree is fitted by sampling from an independent Mondrian process
+and then computing local averages
+(equivalent to response proportions in this special setting with binary outcomes)
+within each cell. The general pattern of rain
+being predicted by high humidity and low pressure is apparent, with the
+preliminary tree
+estimator taking the form of a step function on axis-aligned rectangles.
+This illustrates
+the first-order bias of Mondrian random trees discussed in
+Section~\ref{sec:mondrian_clt}, with the piecewise constant estimator providing
+a poor approximation for the smooth true regression function.
 
-As mentioned in Section~\ref{sec:debiased}, we take $a_r$ to be a fixed
-geometric or arithmetic sequence. For example, we could set
-$a_r = (1+\gamma)^r$ or $a_r = 1 + \gamma r$ for some $\gamma > 0$. We suggest
-for concreteness taking $a_r = 1.05^r$.
-
-\section{Illustrative example: weather forecasting}%
-\label{sec:mondrian_weather}
-
-To demonstrate our methodology for estimation and inference with Mondrian random
-forests, we consider a simple application
-to a weather forecasting problem. We emphasize that the main aim of this
-section is to provide intuition and understanding for how a Mondrian random
-forest may be used in practice, and we refrain from an in-depth analysis of the
-results obtained. Indeed, our core assumption of i.i.d.\ data is almost
-certainly
-violated when treating weather data, due to the inherent time-series structure
-of the sequential observations.
-Nonetheless, we use data from the \cite{bomgovau}, containing daily weather
-information from the years 2007--2017, at 49 different
-locations across Australia, with a total of $n = 125\,927$ samples.
-
-\begin{figure}[b!]
+\begin{figure}[t]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1731,43 +1759,19 @@ locations across Australia, with a total of $n = 125\,927$ samples.
   \label{fig:weather_forest}
 \end{figure}
 
-We consider the classification problem of predicting whether or not it will
-rain on the following day using two covariates: the percentage relative
-humidity and pressure in mbar at 3pm on the current day. For the purpose of
-framing this as a nonparametric regression problem, we consider estimating the
-probability of rain as the regression function by setting $Y_i = 1$ if there is
-rain on the following day and $Y_i = 0$ otherwise. Outliers with pressure less
-than 985\,mbar or more than 1040\,mbar were removed to justify the assertion in
-Assumption~\ref{ass:mondrian_data} that the density of the covariates should be
-bounded away from zero, and the features are linearly scaled
-to provide normalized samples $(X_i, Y_i) \in [0, 1]^2 \times \{0, 1\}$.
-We fit a Mondrian random forest to the data as defined in
-Section~\ref{sec:mondrian_forests}, selecting the
-lifetime parameter with the generalized cross-validation (GCV) method detailed
-in Section~\ref{sec:lifetime_selection}. Figure~\ref{fig:weather_data} plots
-the data, using colors to indicate the response values, and illustrates how a
-single Mondrian tree is fitted by sampling from an independent Mondrian process
-and computing local averages
-(equivalent to response proportions with binary outcomes)
-within each cell. The general pattern of rain
-being predicted by high humidity and low pressure is apparent, with the tree
-estimator taking the form of a step function on axis-aligned rectangles.
-This illustrates
-the first-order bias of Mondrian random trees, as discussed in
-Section~\ref{sec:mondrian_clt}, with the piecewise constant estimator providing
-a poor approximation for the smooth true regression function.
-
-Figure~\ref{fig:weather_forest} then
+Figure~\ref{fig:weather_forest}
 demonstrates the effect of increasing the forest size from $B=2$ to $B=40$.
 As more trees are included in the Mondrian random forest,
 the regression estimate $\hat \mu(x)$ becomes smoother and therefore also
 enjoys improved bias properties as shown in
 Theorem~\ref{thm:mondrian_bias}, assuming a correct model specification.
-We also identify three design points at which to conduct inference
-by constructing confidence intervals; see Table~\ref{tab:weather_ci}
-for the numerical results.
+We also choose three specific design points in the covariate space,
+namely (20\%, 1020\,mbar), (70\%, 1000\,mbar), and (80\%, 990\,mbar),
+at which to conduct inference
+by constructing confidence intervals. See Table~\ref{tab:weather_ci}
+for the results.
 
-\begin{figure}[b!]
+\begin{figure}[t]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1786,24 +1790,26 @@ for the numerical results.
 
 In Figure~\ref{fig:weather_gcv} we show the mean squared error and GCV scores
 computed using \eqref{eq:gcv} with $B=400$ trees
-for each lifetime parameter $\lambda$. As
+for several candidate lifetime parameters $\lambda$. As
 expected, the mean squared error decreases monotonically
 as $\lambda$ increases and the model
 overfits, but the GCV score is minimized at a value which appropriately
-balances the bias and variance. We then fit a debiased Mondrian forest
+balances the bias and variance; we take $\lambda = 5$.
+We then fit a debiased Mondrian forest
 with bias correction order $J = 1$ as described in
 Section~\ref{sec:debiased}, using $B=20$ trees at each debiasing level
-for a total of $40$ trees.
+$r \in \{0, 1\}$ for a total of $40$ trees.
 We continue to use the same lifetime parameter
-$\lambda$ selected through GCV without debiasing, following the approach
-recommended in Section~\ref{sec:lifetime_selection}.
+$\lambda = 5$ selected through GCV without debiasing, following the approach
+recommended in Section~\ref{sec:lifetime_selection} to ensure valid inference
+through negligible bias.
 The resulting debiased Mondrian random forest estimate is noticeably
 less smooth than the version without bias correction, as expected due to
-both the inflated variance resulting from the debiasing procedure
+both the inflated variance resulting from the debiasing procedure,
 and the undersmoothing enacted by the lifetime selection method.
 
 Table~\ref{tab:weather_ci} presents numerical results for estimation and
-inference at these specified design points. We first give the outcomes without
+inference at the three specified design points. We first give the outcomes without
 debiasing, using a Mondrian random forest with $B = 400$ trees and $\lambda = 5$
 selected by GCV. We then show the results with a first-order ($J=1$) debiased
 Mondrian random forest using $B = 200$ (so again a total of $400$ trees)
@@ -1811,11 +1817,13 @@ and the same
 value of $\lambda = 5$. The predicted chance of rain $\hat\mu(x)$ is found to
 vary substantially across different covariate values, and the resulting
 confidence intervals (CI) are generally narrow due to the large sample size and
-moderate lifetime parameter. Th forest with debiasing exhibits more extreme
+moderate lifetime parameter. The forest with debiasing exhibits more extreme
 predictions away from $50\%$ and wider confidence intervals in general, in line
 with the illustration in Figure~\ref{fig:weather_gcv}.
-
-\TODO{check this whole section carefully}
+Interestingly, the confidence intervals for the non-debiased and debiased
+estimators do not intersect, indicating that the original estimator
+is severely biased, and providing further justification for our
+modified debiased random forest estimator.
 
 \vspace{4mm}
 \begin{table}[ht]
@@ -1825,8 +1833,8 @@ with the illustration in Figure~\ref{fig:weather_gcv}.
     \multirow{2}{*}{Point}
     & \multirow{2}{*}{Humidity}
     & \multirow{2}{*}{Pressure}
-    & \multicolumn{2}{|c|}{Without debiasing}
-    & \multicolumn{2}{|c|}{With debiasing} \\
+    & \multicolumn{2}{|c|}{No debiasing, $J=0$}
+    & \multicolumn{2}{|c|}{Debiasing, $J=1$} \\
     \cline{4-7}
     & &
     & $\hat\mu(x)$ & 95\% CI
