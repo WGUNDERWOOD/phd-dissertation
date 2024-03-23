@@ -1651,10 +1651,8 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
   %
 \end{proof}
 
-Applying Lemma~\ref{lem:sa_martingale}
-and the martingale approximation
-immediately yields
-Theorem~\ref{thm:sa_dependent}.
+Lemma~\ref{lem:sa_martingale} and the martingale approximation
+immediately yield Theorem~\ref{thm:sa_dependent}.
 
 \begin{proof}[Theorem~\ref{thm:sa_dependent}]
   Apply Lemma~\ref{lem:sa_martingale} to
@@ -1680,8 +1678,8 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
 
   \proofparagraph{bounding $\gamma(M)$}
 
-  With $M = \nu^2 I_d$
-  and by Markov's inequality,
+  With $M = \nu^2 I_d$,
+  by Markov's inequality,
   $\gamma(M) = \P\big(\Omega \npreceq M\big)
   = \P\big(\|\Omega\|_2 > \nu^2 \big)
   \leq \nu^{-2} \E[\|\Omega\|_2]$.
@@ -1802,8 +1800,7 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
     +\P\big(\|U\|_p>\eta\big).
   \end{align*}
   %
-  In general, set
-  $t = 2^{1/3} \phi_p(d)^{1/3} \beta_{p,2}^{-1/3} \eta$
+  Set $t = 2^{1/3} \phi_p(d)^{1/3} \beta_{p,2}^{-1/3} \eta$
   and $\nu = \E[\|\Omega\|_2]^{1/3} \phi_p(d)^{-1/3} \eta^{1/3}$,
   then replace $\eta$ with $\eta / 6$ to see
   %
@@ -1839,7 +1836,7 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
 
 After establishing Proposition~\ref{pro:sa_simplified},
 Corollaries~\ref{cor:sa_mixingale}, \ref{cor:sa_martingale}
-and \ref{cor:sa_indep} follow easily, as in the main text.
+and \ref{cor:sa_indep} follow easily, as shown in the main text.
 
 \begin{proof}[Corollary~\ref{cor:sa_mixingale}]
   Proposition~\ref{pro:sa_simplified} with
@@ -2594,7 +2591,7 @@ the same bound holds for $T(x)$ with
     \frac{k}{n}
   \end{align*}
   %
-  as $k^3 / n \to 0$. Also, note that by the martingale structure, since
+  as $k^3 / n \to 0$. Note that by the martingale structure, since
   $p(W_i)$ is bounded and supported on a region with volume at most of the order
   $1/k$, and as $W_i$ has a Lebesgue density,
   %
@@ -2715,7 +2712,7 @@ the same bound holds for $T(x)$ with
   \end{align*}
   %
   Finally, we verify the variance bounds for the Gaussian process.
-  Since $\sigma^2(w)$ is bounded above,
+  With $\sigma^2(w)$ bounded above,
   %
   \begin{align*}
     \Var[G(w)]
@@ -3232,7 +3229,7 @@ the same bound holds for $T(x)$ with
     \tilde\varepsilon_i.
   \end{align*}
   %
-  To bound this we use that for all $1 \leq j \leq k$,
+  Note that for all $1 \leq j \leq k$,
   by the Lipschitz property of the kernel and monomials,
   %
   \begin{align*}
@@ -3399,10 +3396,11 @@ the same bound holds for $T(x)$ with
     C_1 e^{-t}.
   \end{align*}
   %
-  By Lemma~2 in \citet{van2013bernstein} with
+  \citet[Lemma~2]{van2013bernstein} with
   $\psi(x) =
   \exp\Big(\big(\sqrt{1+2 x / \sqrt{\log n}}-1 \big)^2
-  \log n \Big)-1$,
+  \log n \Big)-1$
+  now shows that
   %
   \begin{align*}
     \Bigvvvert \sum_{i=1}^n u_i(f,f') \Bigvvvert_\psi
@@ -3671,8 +3669,7 @@ the same bound holds for $T(x)$ with
   $\Cov[u_{i j}(w), u_{i' j}(w)] = 0$ for $ i \neq i'$.
   Also $|u_{i j}(w)| \lesssim h^{-m} \log n$
   and $\Var[u_{i j}(w)] \lesssim h^{-m}$.
-  Thus by
-  Lemma~\ref{lem:exponential_mixing}\ref{eq:exponential_mixing_bernstein}
+  By Lemma~\ref{lem:exponential_mixing}\ref{eq:exponential_mixing_bernstein}
   for a constant $C_3>0$,
   %
   \begin{align*}
@@ -4001,7 +3998,7 @@ literature. Proposition~\ref{pro:bootstrap} gives a feasible implementation via
 the Gaussian multiplier bootstrap, enabling valid
 resampling-based inference using
 the resulting conditional Gaussian distribution. Finally in
-Section~\ref{sec:lp} we provide an explicit example application: distributional
+Section~\ref{sec:lp} we provide an example application: distributional
 approximation for $\ell^p$-norms of high-dimensional martingale vectors
 in Kolmogorov--Smirnov distance, relying on some recent results
 concerning Gaussian perimetric inequalities
@@ -4044,7 +4041,7 @@ Corollary~\ref{cor:sa_martingale}:
   \label{pro:clt}
 
   Assume the setup of Corollary~\ref{cor:sa_martingale},
-  with $\Sigma$ non-random.
+  and take $\Sigma$ non-random.
   For a class $\cA$ of measurable subsets of $\R^d$,
   %
   \begin{equation}%
@@ -4059,7 +4056,7 @@ Corollary~\ref{cor:sa_martingale}:
 \begin{proof}[Proposition~\ref{pro:clt}]
 
   This follows from Strassen's theorem (Lemma~\ref{lem:strassen}), but we
-  provide a proof for completeness. Note
+  provide a proof for completeness.
   %
   \begin{align*}
     \P(S \in A)

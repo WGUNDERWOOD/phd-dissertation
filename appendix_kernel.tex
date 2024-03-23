@@ -2897,7 +2897,7 @@ they are needed.
 
     \item
       $H$ is a symmetric function in its arguments in that
-      $H(X_1, X_2) = H(X_2, X_1)$ almost surely.
+      $H(X_1, X_2) = H(X_2, X_1)$.
 
     \item
       $H$ is degenerate in the sense that
@@ -3617,7 +3617,7 @@ on each of the points $-1$ and $1$.
     \right]
     &\leq
     C_1 \|F\|_{\P_n,2}
-    J(\sigma_n / \|F\|_{\P_n,2}, \cF, F).
+    \, J(\sigma_n / \|F\|_{\P_n,2}, \cF, F).
   \end{align*}
   %
   Taking marginal expectations
@@ -3640,7 +3640,7 @@ on each of the points $-1$ and $1$.
     \right]
     \leq
     C_1 \|F\|_{\bar\P,2}
-    J(\E[\sigma_n^2]^{1/2} / \|F\|_{\bar\P,2}, \cF, F).
+    \, J(\E[\sigma_n^2]^{1/2} / \|F\|_{\bar\P,2}, \cF, F).
   \end{align*}
   %
   Now use symmetrization
@@ -3779,7 +3779,7 @@ on each of the points $-1$ and $1$.
     Z
     &\lesssim
     \|F\|_{\bar\P,2}
-    J(\Delta \vee \sqrt{DZ}, \cF, F).
+    \, J(\Delta \vee \sqrt{DZ}, \cF, F).
   \end{align*}
   The final steps proceed as
   in the proof of Theorem~5.2
@@ -3928,12 +3928,14 @@ Lemma~\ref{lem:bv_characterization}.
   induced by the canonical order on $\R$,
   giving $A_n = \{a_1, a_2, \ldots\}$,
   and define the sequence of functions
+  %
   \begin{align*}
     g_n(x)
     = \sum_{k = 1}^{|A_n|-1}
     \I[0,a_k]
     \big( g(a_k) - g(a_{k+1}) \big),
   \end{align*}
+  %
   where clearly
   $\I[0, a_k] \in \cI$
   and
@@ -3949,7 +3951,7 @@ Lemma~\ref{lem:bv_characterization}.
   $\cI$.
   Further, note that for
   $a_k \in A_n$,
-  we have
+  %
   \begin{align*}
     g_n(a_k)
     = \sum_{j = k}^{|A_n|-1}
@@ -3958,6 +3960,7 @@ Lemma~\ref{lem:bv_characterization}.
     = g(a_k) - g(1)
     = g(a_k).
   \end{align*}
+  %
   Hence if $x \in S$,
   then eventually $x \in A_n$
   so $g_n(x) \to g(x)$.
@@ -5524,12 +5527,9 @@ We begin with a basic fact about Lipschitz functions.
     &=
     0,
   \end{align*}
-  where we used mutual independence of
-  $\bA_n$ and $\bV_n$
-  and also
-  $\E[q_{rs}(w) \mid A_i] = 0$
-  and
-  $\E[e_{i j}(w) \mid A_i, A_j] = 0$.
+  by independence of $\bA_n$ and $\bV_n$
+  and as $\E[q_{rs}(w) \mid A_i] = 0$
+  and $\E[e_{i j}(w) \mid A_i, A_j] = 0$.
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:trichotomy}]
@@ -5547,6 +5547,7 @@ We begin with a basic fact about Lipschitz functions.
   this implies that $f_{W \mid A}(w) = f_W(w)$
   for all $w \in \cW$
   almost surely. Thus
+  %
   \begin{align*}
     \E\left[
       k_h(W_{i j},w) \mid A_i
@@ -5566,10 +5567,9 @@ We begin with a basic fact about Lipschitz functions.
       k_h(W_{i j},w)
     \right]
   \end{align*}
-  for all $w \in \cW$
-  almost surely.
-  Hence $l_i(w) = 0$
-  and therefore $L_n(w) = 0$
+  %
+  for all $w \in \cW$ almost surely.
+  Hence $l_i(w) = 0$ and so $L_n(w) = 0$
   for all $w \in \cW$ almost surely.
 
   \proofparagraph{no degeneracy}
@@ -5718,12 +5718,10 @@ We begin with a basic fact about Lipschitz functions.
       : w \in \cW
     \Big\}.
   \end{align*}
-  For $\cF_1$,
-  take $0 < \varepsilon \leq \Leb(\cW)$
-  and let $\cW_\varepsilon$ be an
-  $\varepsilon$-cover of $\cW$
-  of cardinality at most $\Leb(\cW)/\varepsilon$.
-  Since
+  For $\cF_1$, take $0 < \varepsilon \leq \Leb(\cW)$
+  and $\cW_\varepsilon$ an $\varepsilon$-cover of $\cW$
+  of cardinality at most $\Leb(\cW)/\varepsilon$. As
+  %
   \begin{align*}
     \sup_{s, w, w' \in \cW}
     \left|
@@ -5733,6 +5731,7 @@ We begin with a basic fact about Lipschitz functions.
     &\leq
     \frac{C_\mathrm{L}}{h^2}
   \end{align*}
+  %
   almost surely,
   we see that
   \begin{align*}
@@ -5745,6 +5744,7 @@ We begin with a basic fact about Lipschitz functions.
     \leq
     \frac{\Leb(\cW)}{\varepsilon},
   \end{align*}
+  %
   where $\Q$ ranges over Borel
   probability measures on $\cW$.
   Since
@@ -7721,7 +7721,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \mid \bA_n
     \right].
   \end{align*}
-  We can bound $\tilde \rho$ as follows,
+  We bound $\tilde \rho$ as follows,
   since $\tilde Z_n^{E\dprime}$ and $\sqrt{n^2h} E_n$
   have the same conditional covariance structure:
   \begin{align*}
@@ -7757,7 +7757,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   applies directly to $Z_n^E$
   and conditionally to $\tilde Z_n^{E\prime}$,
   with $\delta_n \in (0, 1/(2h)]$,
-  yielding
+  demonstrating that
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -7783,6 +7784,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{\delta_n}{h}
     \sqrt{\log \frac{1}{h \delta_n}}.
   \end{align*}
+  %
   Continuity of trajectories follows from this.
 
   \proofparagraph{conclusion}
@@ -10222,7 +10224,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   for all $w,w',w'' \in \cW$.
   Denote the (random) objective function
-  in the optimization problem (\ref{eq:app_sdp}) by
+  in (\ref{eq:app_sdp}) by
+  %
   \begin{align*}
     \objective(M) = \sup_{w,w' \in \cW}
     \left|
@@ -10230,6 +10233,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\sqrt{\hat \Sigma_n(w,w) + \hat \Sigma_n(w',w')}}
     \right|.
   \end{align*}
+  %
   By Lemma~\ref{lem:covariance_estimation}
   with $w = w'$ we deduce that
   $\sup_{w \in \cW}
@@ -11481,6 +11485,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   Thus by Lemma~\ref{lem:slow_convergence},
   this can be replaced by
+  %
   \begin{align*}
     \P\left(
       \sup_{t \in \R} \big| F_Z(t \mid \bW_n) - F_T(t) \big|
@@ -11488,8 +11493,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right)
     &\leq \varepsilon_n
   \end{align*}
+  %
   for some $\varepsilon_n \to 0$.
   Therefore
+  %
   \begin{align*}
     \P\left(
       \sup_{w \in \cW}
@@ -11534,18 +11541,20 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + \varepsilon_n
     \leq 1 - \alpha + 3\varepsilon_n,
   \end{align*}
-  where in the last line we used the fact that for any
+  %
+  where we used the fact that for any
   real-valued random variable $X$ with distribution function $F$,
   we have
   $\big|\P\big(F(X) \leq t\big) - t\big| \leq \Delta$,
   where $\Delta$ is the size of the
   largest jump discontinuity in $F$.
-  By taking an expectation and uniform integrability,
+  By uniform integrability,
   $\sup_{t \in \R} \big| F_Z(t) - F_T(t) \big| = o(\varepsilon_n)$.
   Since $F_Z$ has no jumps,
   we must have $\Delta \leq \varepsilon_n$ for $F_T$.
   Finally a lower bound is constructed in an analogous manner,
   giving
+  %
   \begin{align*}
     \P\left(
       \sup_{w \in \cW}
@@ -11633,7 +11642,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:counterfactual_hoeffding}]
-
+  %
   \begin{align*}
     \hat f_W^{\,1 \triangleright 0}(w)
     &=
@@ -11847,9 +11856,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Arguing by mean-zero properties and conditional independence,
   %
   \begin{align*}
-    &\Sigma_n^{1 \triangleright 0}(w,w') \\
-    &\quad=
-    \Cov\left[
+    &\Sigma_n^{1 \triangleright 0}(w,w')
+    = \Cov\left[
       \hat f_W^{\,1 \triangleright 0}(w),
       \hat f_W^{\,1 \triangleright 0}(w')
     \right] \\

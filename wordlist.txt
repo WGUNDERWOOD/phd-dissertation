@@ -35,6 +35,7 @@ asymptotics
 Atchad
 Athey
 Avilez
+Baehr
 Balaji
 Balasubramanian
 Balog
@@ -70,6 +71,7 @@ boundedness
 breakproof
 Breiman
 Breiman's
+Budway
 Buzun
 Calonico
 cardinality

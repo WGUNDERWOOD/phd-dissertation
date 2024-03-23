@@ -1473,10 +1473,9 @@ for details on our approach to this proof.
     + \frac{1}{\lambda^\beta}.
   \end{align*}
   %
-  We continue to evaluate this expectation.
-  First, by Taylor's theorem and with
-  $\nu$ a multi-index,
-  since $f \in \cH^\beta$,
+  We evaluate the expectation.
+  By Taylor's theorem, with $\nu$ a multi-index,
+  as $f \in \cH^\beta$,
   %
   \begin{align*}
     \left(
@@ -1587,11 +1586,11 @@ for details on our approach to this proof.
     \right) .
   \end{align*}
   %
-  Now we show this is a polynomial in $\lambda$.
-  For $1 \leq j \leq d$, define the independent variables
+  We show this is a polynomial in $1/\lambda$.
+  For $1 \leq j \leq d$, define
   $E_{1j*} \sim \Exp(1) \wedge (\lambda x_j)$
   and $E_{2j*} \sim \Exp(1) \wedge (\lambda (1-x_j))$
-  so
+  independent so
   $T_b(x) = \prod_{j=1}^{d} [x_j - E_{1j*} / \lambda, x_j + E_{2j*} / \lambda]$.
   Then
   %
@@ -1617,11 +1616,11 @@ for details on our approach to this proof.
   So by independence over $j$,
   %
   \begin{align}
-    \nonumber
+    \label{eq:bias_calc}
     &\E \left[
       \frac{ T_b(x)^{\nu' + \nu''} (T_b(x)^\nu)^u}{|T_b(x)|^{|u|+1}}
     \right] \\
-    \label{eq:bias_calc}
+    \nonumber
     &\quad=
     \lambda^{- |\nu'| - |\nu''| - |\nu| \cdot u}
     \prod_{j=1}^d
@@ -1969,10 +1968,9 @@ for details on our approach to this proof.
 \subsection*{Proof of variance estimator consistency}
 
 \begin{proof}[Theorem~\ref{thm:variance_estimation}]
-  Follows from the debiased version.
-  See the proof of Theorem~\ref{thm:variance_estimation_debiased}
-  and set $J=0$,
-  $a_0 = 1$, and $\omega_0 = 1$.
+  This follows from the debiased version in
+  Theorem~\ref{thm:variance_estimation_debiased}
+  with $J=0$, $a_0 = 1$, and $\omega_0 = 1$.
 \end{proof}
 
 \subsection*{Proof of confidence interval validity}
@@ -2634,7 +2632,7 @@ results for the debiased Mondrian random forest estimator.
     \to 0,
   \end{align*}
   %
-  where we applied Lemma~\ref{lem:simple_moment_denominator}.
+  where we used Lemma~\ref{lem:simple_moment_denominator}.
   So
   $\sum_{i=1}^{n} S_i(x)^2 - n \,\E \left[ S_i(x)^2 \right]
   = O_\P \left( \frac{1}{\sqrt B} + \sqrt{\frac{\lambda^d \log n}{n}} \right)
@@ -2939,7 +2937,7 @@ results for the debiased Mondrian random forest estimator.
   for large $t$,
   increasing $C$ as necessary.
   Thus with probability at least $1 - e^{-t/C}$,
-  again increasing $C$,
+  increasing $C$,
   %
   \begin{align*}
     N_{-i b' r' \setminus b r}(x)
@@ -3362,9 +3360,8 @@ results for the debiased Mondrian random forest estimator.
       &\qquad\qquad+
       \P(E_{2j} \geq a_r \lambda (1 - x_j))
       + \P(E_{4j} \geq a_{r'} \lambda (1 - x_j))
-    \big) \\
-    &\quad\leq
-    e^{-C \lambda}
+    \big)
+    \leq e^{-C \lambda}
   \end{align*}
   %
   for some $C > 0$ and sufficiently large $\lambda$.
@@ -4421,7 +4418,7 @@ partitions.
 
 We begin our analysis of Mondrian forest refinements with a pair of simple
 inequalities for bounding the total number of refined cells
-in Lemma~\ref{lem:refinement_inequalities}. This result does not depend at all
+in Lemma~\ref{lem:refinement_inequalities}. This result does not depend
 on the probabilistic structure of the Mondrian process, and holds for any
 rectangular partitions.
 
