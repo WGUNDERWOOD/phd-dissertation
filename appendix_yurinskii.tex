@@ -4002,7 +4002,8 @@ Section~\ref{sec:lp} we provide an example application: distributional
 approximation for $\ell^p$-norms of high-dimensional martingale vectors
 in Kolmogorov--Smirnov distance, relying on some recent results
 concerning Gaussian perimetric inequalities
-\citep{nazarov2003maximal,kozbur2021dimension, giessing2023anti}.
+\citep{nazarov2003maximal,kozbur2021dimension,
+giessing2023anti,chernozhukov2017detailed}.
 
 We begin this section with some notation. Assume the setup of
 Corollary~\ref{cor:sa_martingale} and suppose $\Sigma$ is
@@ -4503,65 +4504,3 @@ preceding discussion regarding methods for bounding this object.
   high-dimensional central limit theorems over arbitrary classes of
   Borel sets as in our Proposition~\ref{pro:clt}.
 \end{remark}
-
-%We again make some comparisons with the existing literature.
-%\citet{belloni2018high} obtained a central limit theorem for the maximum of a
-%multivariate martingale using a coupling due to
-%\citet{chernozhukov2014gaussian}. Assuming the martingale differences $X_i$ are
-%bounded and the eigenvalues of $\Var[T]/n$ are bounded away from zero and using
-%their Theorem~3.1, along with Gaussian anti-concentration, establishes that for
-%all $\eta > 0$,
-%
-%\begin{align*}
-%\sup_{t \in \R}
-%\left|
-%\P\left(
-%\max_{1 \leq j \leq d}
-%S_j \leq t
-%\right)
-%- \P\left(
-%\max_{1 \leq j \leq d}
-%T_j \leq t
-%\right)
-%\right|
-%&\lesssim
-%\frac{n (\log 2d)^{7/2}}{\eta^3}
-%+ \frac{\E[\|\Omega\|_2] \log 2d}{\eta^2}
-%+ \eta \sqrt{\frac{\log 2d}{n}},
-%\end{align*}
-%
-%requiring that
-%$\E[\|\Omega\|_2] / n \to 0$
-%up to logs whenever $d$ is at most polynomial in $n$.
-%On the other hand, following the approach of our
-%Proposition~\ref{pro:application_lp}
-%gives under the same conditions
-%
-%\begin{align*}
-%  \sup_{t \in \R}
-%  \left|
-%  \P\hspace*{-0.5mm}\left(
-%    \max_{1 \leq j \leq d}
-%    S_j \leq t
-%  \right)
-%  - \P\hspace*{-0.5mm}\left(
-%    \max_{1 \leq j \leq d}
-%    T_j \leq t
-%  \right)
-%  \right|
-%  &\lesssim
-%  \bigg(\frac{n d (\log 2d)^{3/2}}{\eta^3}\bigg)^{1/3}
-%  \hspace*{-2mm}+
-%  \left(\frac{\E[\|\Omega\|_2] \log 2d}{\eta^2}\right)^{1/3}
-%  \hspace*{-2mm}+
-%  \eta \sqrt{\frac{\log 2d}{n}},
-%\end{align*}
-%
-%which requires both
-%$\E[\|\Omega\|_2] / n \to 0$
-%and $d^2/n \to 0$ up to logs.
-%While our assumptions are more restrictive than those of
-%\citet{belloni2018high},
-%our approach is valid
-%not only for the maximum statistic but also more generally
-%for the $\ell^p$-norm where $1 \leq p \leq \infty$.
