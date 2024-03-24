@@ -6,6 +6,8 @@
 ** Typeface 10-12pt
 ** 1in margin on all sides
 ** Double spacing
+** TODO arxiv refs
+** TODO Publishers
 * Structure
 ** Introduction
 *** From job application research statement
