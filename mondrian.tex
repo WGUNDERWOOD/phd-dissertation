@@ -35,7 +35,7 @@ image classification, and ecology.
 
 Since Breiman introduced random forests over twenty years ago, the study of
 their statistical properties remains an active area of research: see
-\citet{Scornet-Biau-Vert_2015_AOS}, \citet{Chi-Vossler-Fan-Lv_2022_AOS},
+\citet{scornet2015consistency}, \citet{chi2022asymptotic},
 \citet{klusowski2021universal}, and references therein, for a sample of recent
 developments. Many fundamental questions about Breiman's random forests remain
 unanswered, owing in part to the subtle ingredients present in the estimation
@@ -67,7 +67,8 @@ Yet another variant of random forests, Mondrian random forests
 \citep{lakshminarayanan2014mondrian}, have received significant attention in
 the statistics and machine learning communities in recent years
 \citep{ma2020isolation, mourtada2020minimax, scillitoe2021uncertainty,
-mourtada2021amf, vicuna2021reducing, gao2022towards, o2022stochastic}. Like
+mourtada2021amf, vicuna2021reducing, gao2022towards, oreilly2022stochastic}.
+Like
 other purely random forest variants, Mondrian random forests offer a simplified
 modification of Breiman's original proposal in which the partition is generated
 independently of the data and according to a canonical stochastic process known
@@ -101,7 +102,8 @@ in integrated mean squared error whenever the regression function is
 $\beta$-H{\"o}lder continuous for some $\beta \in (0, 1]$. The authors also
 showed that, when appropriately tuned, large Mondrian random forests can be
 similarly minimax-optimal for $\beta \in (0, 2]$, while the constituent trees
-cannot. See also \citet{o2022stochastic} for analogous results for more general
+cannot. See also \citet{oreilly2022stochastic} for analogous results for more
+general
 Mondrian tree and forest constructions. These results formally demonstrate the
 value of ensembling with random forests from a point estimation perspective. No
 results are currently available in the literature for statistical inference
@@ -150,7 +152,7 @@ inference because it provides a principled method for ensuring that the bias is
 negligible relative to the standard deviation of the estimator. More
 specifically, we use our debiasing approach to construct valid inference
 procedures based on robust bias correction
-\citep{calonico2018jasa,calonico2022bernoulli}.
+\citep{calonico2018effect,calonico2022coverage}.
 
 \subsection{Organization}
 
@@ -1418,7 +1420,7 @@ estimator than we actually use. This results in an inflated lifetime estimate,
 guaranteeing the resulting bias is negligible when it is plugged into the fully
 debiased estimator. This approach to tuning parameter selection and debiasing
 for valid nonparametric inference corresponds to an application of robust bias
-correction \citep{calonico2018jasa,calonico2022bernoulli},
+correction \citep{calonico2018effect,calonico2022coverage},
 where the point estimator is bias-corrected
 and the robust standard error estimator incorporates the additional
 sampling variability introduced by the bias correction.
@@ -1692,7 +1694,8 @@ specific results obtained. Indeed, our core assumption of i.i.d.\ data is almost
 certainly
 violated when treating weather data, due to the inherent time-series structure
 of the sequential observations.
-Nonetheless, we use data from the \cite{bomgovau}, containing daily weather
+Nonetheless, we use data from the \cite{bureau2017daily}, containing daily
+weather
 information from the years 2007--2017, at 49 different
 locations across Australia, with a total of $n = 125\,927$ samples.
 

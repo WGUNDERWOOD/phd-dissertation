@@ -62,10 +62,11 @@ Various distributional features of dyadic data are of interest in applications.
 Most of the statistical literature focuses on parametric analysis, almost
 exclusively considering moments of (transformations of) the identically
 distributed $W_{i j}$. See \citet{davezies2021exchangeable},
-\citet{gao2021minimax}, \citet{MatsushitaOtsu2021}, and references therein, for
+\citet{gao2021minimax}, \citet{matsushita2021jackknife}, and references
+therein, for
 contemporary contributions and overviews. More recently, however, a few
 nonparametric procedures for dyadic data have been proposed in the literature
-\citep{graham2021dyadicregression,graham2022kernel}.
+\citep{graham2021minimax,graham2022kernel}.
 
 With the aim of estimating density-like functions associated with $W_{i j}$
 using nonparametric kernel-based methods, we investigate the statistical
@@ -167,7 +168,7 @@ convergence rate for estimating $f_W$, again allowing for possible degeneracy,
 and verify that it is achieved by $\hat f_W$. This result appears to be new to
 the literature, complementing recent work on parametric moment estimation using
 graphon data \citep{gao2021minimax} and on nonparametric kernel-based
-regression using dyadic data \citep{graham2021dyadicregression}.
+regression using dyadic data \citep{graham2021minimax}.
 
 Section~\ref{sec:kernel_inference} presents a distributional analysis of the
 stochastic process $\hat{f}_W$ uniformly in $w \in \cW$. Because $\hat{f}_W$ is
@@ -233,7 +234,7 @@ anti-concentration methods, following \citet{chernozhukov2014anti}. This
 illustration improves on the recent work of \citet{chiang2022inference}, which
 obtained simultaneous confidence intervals for the dyadic density $f_W$ based
 on a high-dimensional central limit theorem over rectangles, following prior
-work by \citet{Chernozhukov-Chetverikov-Kato_2017_AoP}. The distributional
+work by \citet{chernozhukov2017central}. The distributional
 approximation therein is applied to the H\'{a}jek projection term $L_n$ only,
 whereas our main construction leading to Theorem~\ref{thm:strong_approx_Tn}
 gives a strong approximation for the entire U-process-like $\hat{f}_W$ and its
@@ -260,8 +261,7 @@ integrated mean squared error (IMSE) bandwidth selection and provide a simple
 rule-of-thumb implementation for applications
 \citep{wand1994kernel,simonoff2012smoothing}. Thirdly, we provide feasible,
 valid uniform inference methods for $f_W$ by employing robust bias correction
-\citep{Calonico-Cattaneo-Farrell_2018_JASA,
-Calonico-Cattaneo-Farrell_2022_Bernoulli}. Algorithm~\ref{alg:method}
+\citep{calonico2018effect, calonico2022coverage}. Algorithm~\ref{alg:method}
 summarizes our entire feasible methodology.
 
 Section~\ref{sec:simulations} reports empirical evidence for our proposed
@@ -1088,8 +1088,8 @@ bandwidth choices will lead to a non-negligible smoothing bias in the
 distributional approximation for $T_n$. Different approaches are available in
 the literature to address this issue, including undersmoothing or ignoring the
 bias \citep{hall2001bootstrapping}, bias correction \citep{hall1992effect},
-robust bias correction \citep{Calonico-Cattaneo-Farrell_2018_JASA,
-Calonico-Cattaneo-Farrell_2022_Bernoulli} and Lepskii's method
+robust bias correction \citep{calonico2018effect, calonico2022coverage} and
+Lepskii's method
 \citep{lepskii1992asymptotically,birge2001alternative}, among others. In the
 next section we develop a feasible uniform inference procedure, based on robust
 bias correction methods, which amounts to first selecting an optimal bandwidth
@@ -1204,7 +1204,8 @@ influence the ability of our methodology to handle large and possibly sparse
 networks.
 
 The bias-corrected variance estimator in
-\citet[Section~3.2]{MatsushitaOtsu2021} takes a similar form to our estimator
+\citet[Section~3.2]{matsushita2021jackknife} takes a similar form to our
+estimator
 $\hat\Sigma_n$ but in the parametric setting, and is therefore also not
 guaranteed to be positive semi-definite in finite samples. Our approach
 addresses this issue, ensuring a positive semi-definite estimator
@@ -1339,8 +1340,8 @@ $\hat{f}_W$ and $\hat{\Sigma}^+_n$ are recomputed with the new higher-order
 kernel. The change in centering is equivalent to a bias correction of the
 original AIMSE-optimal point estimator, while the change in scale captures the
 additional variability introduced by the bias correction itself. As shown
-formally in \citet{Calonico-Cattaneo-Farrell_2018_JASA,
-Calonico-Cattaneo-Farrell_2022_Bernoulli} for the case of kernel-based density
+formally in \citet{calonico2018effect, calonico2022coverage} for the case of
+kernel-based density
 estimation with i.i.d.\ data, this approach leads to higher-order refinements
 in the distributional approximation whenever additional smoothness is available
 ($p'\leq\beta$). In the present dyadic setting, this procedure is valid so long
@@ -1926,7 +1927,7 @@ $q=\binom{2m+\gamma}{\gamma}$ and
   \right),
 \end{align}
 with $k_{i j} = k_h(X_i-x_1, X_j-x_2)$ and $r_{i j} = r(X_i-x_1, X_j-x_2)$.
-\citet{graham2021dyadicregression} established pointwise distribution theory
+\citet{graham2021minimax} established pointwise distribution theory
 for the special case of the dyadic Nadaraya--Watson kernel regression estimator
 ($\gamma=0$), but no uniform analogues have yet been given. It can be shown
 that the ``denominator'' matrix in \eqref{eq:locpol} converges uniformly to its
