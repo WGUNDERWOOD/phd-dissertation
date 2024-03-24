@@ -5,7 +5,8 @@
 *.fdb_latexmk
 *.fls
 *.log
-*.log
+*.lof
+*.lot
 *.out
 *.pdf
 *.sha256

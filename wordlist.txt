@@ -1,6 +1,5 @@
 # accept
 Aad
-abbrvnat
 aboveskip
 Abraar
 adaptivity
@@ -25,6 +24,7 @@ Amir
 Anastasiou
 Andreas
 Anticoncentration
+apalike
 ApS
 Arcones
 arg

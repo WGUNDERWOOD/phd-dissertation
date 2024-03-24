@@ -286,7 +286,8 @@ parameters $\lambda$.
     \caption{$\lambda = 30$}
   \end{subfigure}
   %
-  \caption{The Mondrian process $T \sim \cM \big( [0,1]^d, \lambda \big)$ with
+  \caption[The Mondrian process]{
+    The Mondrian process $T \sim \cM \big( [0,1]^d, \lambda \big)$ with
   $d=2$ and lifetime parameters $\lambda$.}
   \label{fig:mondrian_process}
 \end{figure}
@@ -1704,7 +1705,8 @@ locations across Australia, with a total of $n = 125\,927$ samples.
     \centering
     \includegraphics[scale=0.64]{graphics/weather_data_filled_partition.png}%
   \end{subfigure}
-  \caption{Australian weather forecasting data. Colors indicate the response
+  \caption[Australian weather forecasting data]{
+    Australian weather forecasting data. Colors indicate the response
     variable of dry (orange) or wet (blue) on the following
     day. Right: the data is overlaid with a Mondrian random tree,
     fitted with a lifetime of $\lambda = 5$
@@ -1749,7 +1751,8 @@ function.
     \centering
     \includegraphics[scale=0.64]{graphics/weather_forest_design.png}%
   \end{subfigure}
-  \caption{Fitting Mondrian random forests to the Australian weather data.
+  \caption[Fitting Mondrian random forests to the Australian weather data]{
+    Fitting Mondrian random forests to the Australian weather data.
     Left: with $B=2$ trees, individual cells are clearly visible and the step
     function persists. Right: with $B=40$ trees, the estimate is much smoother
     as the individual tree estimates average out.
@@ -1779,9 +1782,10 @@ for the results.
     \centering
     \includegraphics[scale=0.64]{graphics/weather_debiased_forest_design.png}%
   \end{subfigure}
-  \caption{Left: mean squared error and generalized cross-validation scores
+  \caption[Cross-validation and debiasing for the Australian weather data]{
+    Left: mean squared error and generalized cross-validation scores
     for Mondrian random forests with the Australian weather data.
-    Right: a debiased Mondrian random forest with $B=20$, giving $40$ trees 
+    Right: a debiased Mondrian random forest with $B=20$, giving $40$ trees
   in total. Three design points are identified for further analysis.}
   \label{fig:weather_gcv}
 \end{figure}
@@ -1854,7 +1858,8 @@ our modified debiased random forest estimator.
     $86.7\%$ -- $99.6\%$ \\
     \hline
   \end{tabular}
-  \caption{Numerical results for the Australian weather data
+  \caption[Numerical results for the Australian weather data]{
+    Numerical results for the Australian weather data
   at three specified design points.}
   \label{tab:weather_ci}
 \end{table}

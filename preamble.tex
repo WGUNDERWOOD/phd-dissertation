@@ -28,7 +28,11 @@
 \newcommand{\TODO}[1]{\textcolor{red}{\textsc{TODO}: #1}}
 \setcitestyle{round}
 \captionsetup[subfigure]{justification=centering}
-\captionsetup[table]{aboveskip=6mm,belowskip=0mm}
+
+% tables numbered as figures
+\def\table{\def\figurename{Table}\figure}
+\let\endtable\endfigure
+\renewcommand\listfigurename{List of Figures and Tables}
 
 % blackboard
 \renewcommand{\P}{\ensuremath{\mathbb{P}}}
