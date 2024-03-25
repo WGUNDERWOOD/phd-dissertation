@@ -24,7 +24,7 @@ Amir
 Anastasiou
 Andreas
 Anticoncentration
-apalike
+apacite
 ApS
 Arcones
 arg
@@ -102,6 +102,7 @@ Crump
 Cucuringu
 Cun
 Cuny
+cz
 D'Haultf
 Dalibor
 Davezies
@@ -293,6 +294,7 @@ Melly
 Merlev
 metrizable
 Mihai
+Mikl
 minimax
 minimaxity
 Minsker

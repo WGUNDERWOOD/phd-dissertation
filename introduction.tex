@@ -12,21 +12,22 @@ typically positing only higher-level restrictions such as moment conditions,
 independence criteria, and smoothness assumptions. Examples of such procedures
 abound in modern data science and machine learning, encompassing histograms,
 kernel estimators, smoothing splines, decision trees, nearest neighbor methods,
-random forests, neural networks and many more.
+random forests, neural networks, and many more.
 
 % nonparametric estimation is good
 The benefits of the nonparametric framework are clear; statistical procedures
 can be formulated in cases where the stringent assumptions of parametric models
-are unreasonable, demonstrably violated, or untestable. Further, the resulting
+are untestable, demonstrably violated, or simply unreasonable.
+Further, the resulting
 methods often as a consequence inherit desirable robustness properties against
 various forms of misspecification or misuse. The class of problems which can be
-formulated is also correspondingly larger: arbitrary distributions and
+formulated is correspondingly larger: arbitrary distributions and
 relationships between variables can be characterized and estimated in a
 principled and general manner.
 
 % nonparametric estimation is hard
 Nonetheless, these attractive properties do come at a price. In particular, as
-the name may suggest, the nonparametric approach forgoes the ability to reduce
+its name suggests, the nonparametric approach forgoes the ability to reduce
 a complex statistical problem to that of estimating a fixed finite number of
 parameters. Rather, nonparametric procedures typically involve making inference
 about a growing number of parameters simultaneously, as witnessed in
@@ -46,30 +47,32 @@ calculus.
 In addition to providing accurate point estimates of unknown (possibly
 high-dimensional or infinite-dimensional) quantities of interest, modern
 nonparametric procedures are also expected to come equipped with methodologies
-for conducting statistical inference. The importance of inferential techniques
-is difficult to overstate, with contemporary nonparametric methods forming a
+for conducting statistical inference. The availability of such inferential
+techniques is paramount, with contemporary nonparametric methods forming a
 ubiquitous component of modern data science tool kits; valid uncertainty
 quantification is essential for hypothesis testing, error bar construction,
 assessing statistical significance, and performing power analyses. Inference is
-one of the central concepts in classical statistics, and despite the rapid
+a central concept in classical statistics, and despite the rapid
 recent development of theory for modern nonparametric estimators, their
 applicability to statistical inference is in certain cases rather less well
-studied; theoretically sound and practically implementable inference procedures
-are often absent in the literature.
+studied: theoretically sound and practically implementable inference procedures
+are sometimes absent in the literature.
 
 % complex data
 In any statistical modeling problem, the selection and application of an
 estimator must naturally be tailored to the available data. Today, much of the
 data produced and analyzed does not necessarily fit neatly into the classical
 framework of independent and identically distributed samples, and instead might
-consist of time series, networks, or high-dimensional data, to name just a few.
+consist of time series, stochastic processes, networks,
+or high-dimensional or functional data, to name just a few.
 Therefore it is important to understand how nonparametric methods might be
 adapted to correctly handle these data types, maintaining fast estimation rates
 and valid techniques for statistical inference. The technical challenges
 associated with such an endeavor are non-trivial; many standard techniques are
-ineffective in the presence of dependent data. As such, the development of new
-mathematical results in probability theory and related fields is central to a
-comprehensive treatment of nonparametric statistics with complex data.
+ineffective in the presence of dependent or infinite-dimensional data for
+example. As such, the development of new mathematical results in probability
+theory plays an important role in the comprehensive treatment of nonparametric
+statistics with complex data.
 
 \section*{Overview of the dissertation}
 
