@@ -140,6 +140,7 @@ Epanechnikov
 eq
 Erdogdu
 Erwan
+ESAIM
 ess
 estimand
 Evarist
@@ -337,6 +338,7 @@ Nikitas
 Nikodym
 Nikolay
 Niu
+Nonasymptotic
 nonparametric
 normed
 NSFC

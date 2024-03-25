@@ -66,7 +66,7 @@ distributed $W_{i j}$. See \citet{davezies2021exchangeable},
 therein, for
 contemporary contributions and overviews. More recently, however, a few
 nonparametric procedures for dyadic data have been proposed in the literature
-\citep{graham2021minimax,graham2022kernel}.
+\citep{graham2021minimax,graham2024kernel}.
 
 With the aim of estimating density-like functions associated with $W_{i j}$
 using nonparametric kernel-based methods, we investigate the statistical
@@ -86,7 +86,7 @@ becomes a kernel density estimator for the Lebesgue density function
 $f_W(w) = \E\big[f_{W \mid AA}(w \mid A_i,A_j)\big]$, where
 $f_{W \mid AA}(w \mid A_i,A_j)$ denotes the conditional Lebesgue density of
 $W_{i j}$ given $A_i$ and $A_j$. Setting $k_h(\cdot,w)=K((\cdot-w)/h)/h$,
-\citet{graham2022kernel} recently introduced the dyadic point estimator
+\citet{graham2024kernel} recently introduced the dyadic point estimator
 $\hat{f}_W(w)$ and studied its large sample properties pointwise in
 $w\in\cW=\mathbb{R}$, while \citet{chiang2020empirical} established its rate of
 convergence uniformly in $w\in\cW$ for a compact interval $\cW$ strictly
@@ -150,7 +150,7 @@ average of conditionally independent terms, and the fourth term $Q_n(w)$ is a
 negligible totally degenerate second-order U-process. The leading stochastic
 fluctuations of the process $\hat{f}_W$ are captured by $L_n$ and $E_n$, both
 of which are known to be asymptotically distributed as Gaussian random
-variables pointwise in $w\in\cW$ \citep{graham2022kernel}. However, the
+variables pointwise in $w\in\cW$ \citep{graham2024kernel}. However, the
 H{\'a}jek projection term $L_n$ will often be ``degenerate'' at some or
 possibly all evaluation points $w\in\cW$.
 
@@ -259,7 +259,7 @@ and a feasible simulation-based approximation of the infeasible Gaussian
 process underlying our strong approximation results. Secondly, we discuss
 integrated mean squared error (IMSE) bandwidth selection and provide a simple
 rule-of-thumb implementation for applications
-\citep{wand1994kernel,simonoff2012smoothing}. Thirdly, we provide feasible,
+\citep{wand1994kernel,simonoff1996smoothing}. Thirdly, we provide feasible,
 valid uniform inference methods for $f_W$ by employing robust bias correction
 \citep{calonico2018effect, calonico2022coverage}. Algorithm~\ref{alg:method}
 summarizes our entire feasible methodology.
@@ -407,7 +407,7 @@ $f_{W \mid AA}(w \mid a_1,a_2)
 
 This assumption allows for all standard compactly supported and possibly
 boundary-corrected kernel functions
-\citep{wand1994kernel,simonoff2012smoothing}, constructed for example by taking
+\citep{wand1994kernel,simonoff1996smoothing}, constructed for example by taking
 polynomials on a compact interval and solving a linear system for the
 coefficients. Assumption~\ref{ass:kernel_bandwidth} implies that if $h \leq 1$
 then $k_h$ is uniformly bounded by
@@ -681,7 +681,7 @@ The trichotomy of total/partial/no  degeneracy is useful for understanding the
 distributional properties of the dyadic kernel density estimator
 $\hat{f}_W(w)$. Crucially, our need for uniformity in $w$ complicates the
 simpler degeneracy/no degeneracy dichotomy observed previously in the
-literature \citep{graham2022kernel}. More specifically, from a pointwise-in-$w$
+literature \citep{graham2024kernel}. More specifically, from a pointwise-in-$w$
 perspective, partial degeneracy causes no issues, while it is a fundamental
 problem when conducting inference uniformly over $w \in \cW$. We develop
 inference methods that are valid uniformly over $w \in \cW$, regardless of the
@@ -749,7 +749,7 @@ light of the degeneracy trichotomy from Lemma~\ref{lem:trichotomy}.
     $n^{-1} \log n \lesssim h \lesssim n^{-\frac{1}{2(p\wedge\beta)}}$ yield
     $\E\big[\sup_{w \in \cW}\big|\hat f_W(w)
     - f_W(w)\big| \big] \lesssim \frac{1}{\sqrt n}$, the ``parametric''
-    bandwidth-independent rate noted by \citet{graham2022kernel}.
+    bandwidth-independent rate noted by \citet{graham2024kernel}.
 
   \item Total degeneracy: $\Du = 0$.
     Minimizing the bound in Theorem~\ref{thm:uniform_consistency} with

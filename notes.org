@@ -6,18 +6,8 @@
 ** Typeface 10-12pt
 ** 1in margin on all sides
 ** Double spacing
-** TODO arxiv refs
-** TODO Publishers
+** TODO Check refs
 * Structure
-** Introduction
+** TODO Introduction
 *** From job application research statement
 *** From paper abstracts and introductions
-* Advanced degree application
-** Contribution to the dissertation
-*** I am the main author of the three papers
-*** upon which this dissertation is based.
-*** For each of these works, I conducted most of the
-*** investigative research,
-*** direction determination, literature review, technical writing,
-*** manuscript preparation, and critical revision.
-*** The introductory sections of the dissertation are entirely my own.
