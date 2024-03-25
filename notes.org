@@ -7,3 +7,4 @@
 ** 1in margin on all sides
 ** Double spacing
 ** TODO Check refs
+** TODO Find most blank pages
