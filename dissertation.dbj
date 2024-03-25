@@ -471,8 +471,8 @@ End of customized bst file
 %--------------------
 %ABBREVIATE WORD `PAGES' (if not using external language file)
 %   %: (def) `Page(s)'
-% pp,%: `Page' abbreviated
-  ppx,%: `Page' omitted
+  pp,%: `Page' abbreviated
+% ppx,%: `Page' omitted
 %--------------------
 %ABBREVIATE WORD `EDITORS':
     %: (def) `Editor(s)'

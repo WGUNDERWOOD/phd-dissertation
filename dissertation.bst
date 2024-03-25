@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,nm-rev,jnrlst,keyxyr,dt-beg,yr-par,yrp-per,note-yr,pgsep-s,num-xser,edpar,ppx,xedn,nfss,')
+%% merlin.mbs  (with options: `ay,nat,nm-rev,jnrlst,keyxyr,dt-beg,yr-par,yrp-per,note-yr,pgsep-s,num-xser,edpar,pp,xedn,nfss,')
 %% ----------------------------------------
 %% *** diss ***
 %% 
@@ -235,10 +235,10 @@ FUNCTION {bbl.in}
 { "in" }
 
 FUNCTION {bbl.pages}
-{ "" }
+{ "pp." }
 
 FUNCTION {bbl.page}
-{ "" }
+{ "p." }
 
 FUNCTION {bbl.chapter}
 { "chapter" }
@@ -773,12 +773,16 @@ FUNCTION {format.pages}
 { pages duplicate$ empty$ 'skip$
     { duplicate$ multi.page.check
         {
+          bbl.pages swap$
           n.dashify
         }
         {
+          bbl.page swap$
         }
       if$
+      tie.or.space.prefix
       "pages" bibinfo.check
+      * *
     }
   if$
 }

@@ -8,7 +8,6 @@
 ** Double spacing
 ** TODO arxiv refs
 ** TODO Publishers
-** DONE Cite talks properly
 * Structure
 ** Introduction
 *** From job application research statement
