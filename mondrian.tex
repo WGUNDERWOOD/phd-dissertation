@@ -1653,7 +1653,7 @@ gives the generalized cross-validation (GCV) formula
 \end{align}
 %
 The lifetime can then be selected by computing
-$\hat\lambda_{\LOOCV} \in \argmin_\lambda \LOOCV(\lambda, J)$
+either $\hat\lambda_{\LOOCV} \in \argmin_\lambda \LOOCV(\lambda, J)$
 or $\hat\lambda_{\GCV} \in \argmin_\lambda \GCV(\lambda, J)$.
 
 \subsection{Choosing the number \texorpdfstring{$B$}{B} of trees
@@ -1677,10 +1677,10 @@ avoid overly inflating the variance of the estimator.
 
 \subsection{Selecting the debiasing coefficients}%
 
-As mentioned in Section~\ref{sec:debiased}, we take $a_r$ to be a fixed
-geometric or arithmetic sequence. For example, we could set
-$a_r = (1+\gamma)^r$ or $a_r = 1 + \gamma r$ for some $\gamma > 0$. We suggest
-for concreteness taking $a_r = 1.05^r$.
+As in Section~\ref{sec:debiased}, we take $a_r$ to be a fixed
+geometric or arithmetic sequence. For example, one could set
+$a_r = (1+\gamma)^r$ or $a_r = 1 + \gamma r$ for some $\gamma > 0$.
+We suggest taking $a_r = 1.05^r$.
 
 \section{Illustrative example: weather forecasting}%
 \label{sec:mondrian_weather}
@@ -1872,7 +1872,7 @@ our modified debiased random forest estimator.
 \label{sec:mondrian_conclusion}
 
 We presented a central limit theorem for the Mondrian random forest estimator
-and showed how it can be used to perform statistical inference on an unknown
+and showed how to perform statistical inference on an unknown
 nonparametric regression function. We introduced a debiased version of Mondrian
 random forests, exploiting higher order smoothness, and demonstrated their
 advantages for statistical inference and their minimax optimality properties.
@@ -1880,9 +1880,8 @@ Finally we discussed tuning parameter selection, enabling fully feasible and
 practical estimation and inference procedures. Implementations of this
 chapter's methodology, along with replication files for the empirical results,
 are provided by a Julia package available at
-\href{https://github.com/WGUNDERWOOD/MondrianForests.jl}%
-{\texttt{github.com/wgunderwood/MondrianForests.jl}}.
-This work has been presented by Underwood at
+\github{wgunderwood/MondrianForests.jl}.
+This work was presented by Underwood at
 the University of Illinois Statistics Seminar (2024),
 the University of Michigan Statistics Seminar (2024),
 and the University of Pittsburgh Statistics Seminar (2024).

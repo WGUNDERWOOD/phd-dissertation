@@ -7,7 +7,3 @@
 ** 1in margin on all sides
 ** Double spacing
 ** TODO Check refs
-* Structure
-** TODO Introduction
-*** From job application research statement
-*** From paper abstracts and introductions
