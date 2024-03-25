@@ -24,7 +24,7 @@
 \newcommand*{\begincmd}{
 \doublespacing
 \frontmatter\maketitlepage\makecopyrightpage\makeabstract
-\makeacknowledgements\makededication\tableofcontents\clearpage
+\makeacknowledgments\makededication\tableofcontents\clearpage
 \makelot\clearpage\makelof\clearpage\makelos
 \clearpage\mainmatter}
 \def\@submitted{\@submittedmonth~\@submittedyear}
@@ -32,7 +32,7 @@
 \def\@deptpref{Department of}
 \def\departmentprefix#1{\gdef\@deptpref{#1}}
 \def\department#1{\gdef\@dept{#1}}
-\long\def\acknowledgements#1{\gdef\@acknowledgements{#1}}
+\long\def\acknowledgments#1{\gdef\@acknowledgments{#1}}
 \def\dedication#1{\gdef\@dedication{#1}}
 \newcommand{\maketitlepage}{{
   \thispagestyle{empty}
@@ -83,14 +83,14 @@
   \@abstract
   \clearpage
   }
-\def\makeacknowledgements{
-  \ifx\@acknowledgements\undefined
+\def\makeacknowledgments{
+  \ifx\@acknowledgments\undefined
   \else
-    \addcontentsline{toc}{section}{Acknowledgements}
+    \addcontentsline{toc}{section}{Acknowledgments}
     \begin{center}
-      \Large \textbf{Acknowledgements}
+      \Large \textbf{Acknowledgments}
     \end{center}
-    \@acknowledgements
+    \@acknowledgments
     \clearpage
   \fi
   }
