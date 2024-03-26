@@ -626,10 +626,6 @@ Lemma~\ref{lem:covariance_structure}. In Lemma~\ref{lem:covariance_estimation}
 we define the estimator and demonstrate that it converges in probability in a
 suitable sense. In Lemma~\ref{lem:alternative_covariance_estimator} we give an
 alternative representation which is more amenable to computation.
-In Lemma~\ref{lem:variance_estimator_bounds} we verify that
-the estimated covariance function satisfies the same bounds
-as those given for the true covariance function
-in Lemma~\ref{lem:variance_bounds}.
 
 \begin{lemma}[Covariance structure]
   \label{lem:covariance_structure}
@@ -771,15 +767,12 @@ in Lemma~\ref{lem:variance_bounds}.
 \end{lemma}
 
 \subsection{Positive semi-definite covariance estimation}
-\label{sec:PSD}
+\label{sec:app_psd}
 
-We show how to obtain a
-positive semi-definite estimator $\hat \Sigma_n^+$
-which is uniformly entrywise-consistent for $\Sigma_n$.
-Define $\hat \Sigma_n$ as in
-Lemma~\ref{lem:covariance_estimation}
-and consider the following optimization problem
-over bivariate functions.
+We show how to obtain a positive semi-definite estimator $\hat \Sigma_n^+$
+which is uniformly entrywise-consistent for $\Sigma_n$. Define $\hat \Sigma_n$
+as in Lemma~\ref{lem:covariance_estimation} and consider the following
+optimization problem over bivariate functions.
 %
 \begin{equation}
   \label{eq:app_sdp}
@@ -865,7 +858,7 @@ verified.
 We use the strong approximation derived in
 Section~\ref{sec:strong_approx} and the
 positive semi-definite covariance estimator introduced in
-Section~\ref{sec:covariance_estimation} to construct feasible uniform
+Section~\ref{sec:app_psd} to construct feasible uniform
 confidence bands.
 We drop the prime notation for copies of processes
 in the interest of clarity.
@@ -977,7 +970,7 @@ in the interest of clarity.
 
 These intermediate lemmas can be used to establish the valid and feasible
 uniform confidence bands presented in Theorem~\ref{thm:kernel_ucb} in the main
-text.
+text. See Section~\ref{sec:kernel_proofs} for details.
 
 %\begin{theorem}[Feasible uniform confidence bands]
 %  \label{thm:kernel_ucb}
@@ -1462,7 +1455,7 @@ approximation results for the counterfactual density estimator.
 
 \end{lemma}
 
-\begin{lemma}[Infeasible Gaussian approximation
+\begin{lemma}[Gaussian approximation
   of the standardized counterfactual $t$-statistic]
   \label{lem:counterfactual_infeasible_t_statistic}
 
@@ -2167,6 +2160,9 @@ We begin with some definitions.
 \section{Proofs}
 \label{sec:kernel_proofs}
 
+We present full proofs of all the results stated in
+Chapter~\ref{ch:kernel} and Appendix~\ref{app:kernel}.
+
 \subsection{Preliminary lemmas}
 
 In this section we list some results
@@ -2659,7 +2655,7 @@ they are needed.
 
 \subsubsection{U-statistics}
 
-\begin{lemma}[General Hoeffding-type decomposition]
+\begin{lemma}[General second-order Hoeffding-type decomposition]
   \label{lem:general_hoeffding}
 
   Let $\cU$ be a vector space.
@@ -5032,8 +5028,6 @@ We give supplementary details for our main results on consistency, minimax
 optimality, strong approximation, covariance estimation, feasible inference and
 counterfactual estimation.
 
-\TODO{discuss these more}
-
 \subsubsection{Bias}
 
 We begin with a basic fact about Lipschitz functions.
@@ -7065,6 +7059,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   where we retain the single prime notation for clarity.
 \end{proof}
 
+\begin{proof}[Lemma~\ref{lem:strong_approx_Ln}]
+  See Lemma~\ref{lem:app_strong_approx_Ln}
+\end{proof}
+
 \begin{proof}[Lemma~\ref{lem:app_conditional_strong_approx_En}]
 
   We apply Lemma~\ref{lem:yurinskii_corollary} conditional on
@@ -7315,6 +7313,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $\tilde Z_n^{E\prime}$ depend on the choice of $t_n$,
   necessitating the use of a divergent sequence $R_n$ to establish
   bounds in probability on the coupling error.
+\end{proof}
+
+\begin{proof}[Lemma~\ref{lem:conditional_strong_approx_En}]
+  See Lemma~\ref{lem:app_conditional_strong_approx_En}
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:app_unconditional_strong_approx_En}]
@@ -7831,6 +7833,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $\big(\bA_n', \tilde Z_n^{E\prime}\big)$
   and
   $\big(\tilde Z_n^{E\dprime}, Z_n^{E\dprime}\big)$.
+\end{proof}
+
+\begin{proof}[Lemma~\ref{lem:unconditional_strong_approx_En}]
+  See Lemma~\ref{lem:app_unconditional_strong_approx_En}
 \end{proof}
 
 \begin{proof}[Theorem~\ref{thm:app_strong_approx_fW}]
@@ -10181,9 +10187,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \subsubsection{Positive semi-definite covariance estimation}
 
-\begin{proof}[Lemma~\ref{lem:sdp}]
+\begin{proof}[Lemma~\ref{lem:app_sdp}]
 
-  \TODO{check this is still the right result}
   Firstly we prove that the true covariance function
   $\Sigma_n$
   is feasible for the optimization problem
@@ -10287,7 +10292,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   Since $\hat \Sigma_n^+$ is positive semi-definite,
   we must have $\hat \Sigma_n^+(w,w) \geq 0$.
-  Now Lemma~\ref{lem:sdp}
+  Now Lemma~\ref{lem:app_sdp}
   implies that for all $\varepsilon \in (0,1)$
   there exists a $C_\varepsilon$ such that
   %
@@ -10352,6 +10357,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
 \end{proof}
 
+\begin{proof}[Lemma~\ref{lem:sdp}]
+  See Lemma~\ref{lem:covariance_estimation}
+  and Lemma~\ref{lem:app_sdp}.
+\end{proof}
+
 \subsubsection{Feasible uniform confidence bands}
 
 \begin{proof}[Lemma~\ref{lem:studentized_t_statistic}]
@@ -10403,7 +10413,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sup_{w \in \cW} \hat \Sigma_n^+(w,w)^{-1/2}
   \lesssim_\P \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$
   by Lemma~\ref{lem:variance_estimator_bounds}.
-  Thus, applying Lemma~\ref{lem:sdp} to control the
+  Thus, applying Lemma~\ref{lem:app_sdp} to control the
   covariance estimation error,
   \begin{align*}
     \sup_{w \in \cW}
@@ -10502,8 +10512,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sup_{w \in \cW}
   \left|\frac{\hat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
   \lesssim_\P \sqrt{h \log n}$
-  by the proof of Lemma~\ref{lem:sdp}.
-  Thus by Lemma~\ref{lem:sdp},
+  by the proof of Lemma~\ref{lem:app_sdp}.
+  Thus by Lemma~\ref{lem:app_sdp},
   %
   \begin{align*}
     &\sup_{w, w' \in \cW}
@@ -10657,7 +10667,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   \proofparagraph{conditional $L^2$ regularity of $\hat Z_n^T$}
 
-  By Lemma~\ref{lem:sdp},
+  By Lemma~\ref{lem:app_sdp},
   with $n h \gtrsim \log n$,
   we have
   uniformly in $w,w'$,
