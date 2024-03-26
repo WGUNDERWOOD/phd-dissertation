@@ -1400,9 +1400,8 @@ approximation results for the counterfactual density estimator.
   the counterfactual covariance function is
   %
   \begin{align*}
-    &\Sigma_n^{1 \triangleright 0}(w,w') \\
-    &\quad=
-    \Cov\left[
+    &\Sigma_n^{1 \triangleright 0}(w,w')
+    = \Cov\left[
       \hat f_W^{1 \triangleright 0}(w),
       \hat f_W^{1 \triangleright 0}(w')
     \right] \\
@@ -1534,10 +1533,8 @@ approximation results for the counterfactual density estimator.
   \end{align*}
 \end{theorem}
 %
-To conclude this section we propose an estimator
-for the counterfactual covariance function
-$\Sigma_n^{1 \triangleright 0}$.
-First let
+We propose an estimator for the counterfactual covariance function
+$\Sigma_n^{1 \triangleright 0}$. First let
 %
 \begin{align*}
   \hat\kappa(X_i^0, X_i^1, x)
@@ -1771,13 +1768,15 @@ conditional distribution.
 
   Assume the same setup as in
   Lemma~\ref{lem:maximal_entropy},
-  and suppose further that $\cF$ forms a VC-type class
+  and suppose that $\cF$ forms a VC-type class
   in that
+  %
   \begin{align*}
     \sup_\Q N(\cF, \rho_\Q, \varepsilon \|F\|_{\Q,2})
     &\leq
     (C_1/\varepsilon)^{C_2}
   \end{align*}
+  %
   for all $\varepsilon \in (0,1]$,
   for some constants
   $C_1 \geq e$
@@ -1785,13 +1784,16 @@ conditional distribution.
   and $C_2 \geq 1$.
   Then for $\delta \in (0,1]$
   we have the covering integral bound
+  %
   \begin{align*}
     J\big(\delta, \cF, F\big)
     &\leq
     3 \delta
     \sqrt{C_2 \log (C_1/\delta)},
   \end{align*}
+  %
   and so by Lemma~\ref{lem:maximal_entropy},
+  %
   \begin{align*}
     \E \left[
       \sup_{f \in \cF}
@@ -1809,6 +1811,7 @@ conditional distribution.
     \frac{\|M\|_{\P,2} C_2 \log \big(C_1 \|F\|_{\bar\P,2}/\sigma\big)}
     {\sqrt{n}},
   \end{align*}
+  %
   where $\lesssim$ is up to a universal constant.
 
 \end{lemma}
@@ -1991,11 +1994,8 @@ while preserving some pairwise distributions.
 We begin with some definitions.
 
 \begin{definition}[Tree]
-  A \emph{tree} is
-  an undirected graph with finitely many vertices
-  which is connected and
-  contains no cycles
-  or self-loops.
+  A \emph{tree} is a finite undirected graph which is connected and contains no
+  cycles or self-loops.
 \end{definition}
 
 \begin{definition}[Polish Borel probability space]
@@ -2085,9 +2085,7 @@ We begin with some definitions.
     \P_{13}(0,1) = \P_{13}(1,0) =
     \P_{23}(0,1) = \P_{23}(1,0).
   \end{align*}
-  That is, each measure $\P_i$
-  places equal mass on 0 and 1,
-  while $\P_{i j}$
+  Each measure $\P_i$ places equal mass on 0 and 1, while $\P_{i j}$
   asserts that each pair of realizations is a.s.\ not equal.
   The graph of these laws forms a triangle,
   which is not a tree.
@@ -2149,7 +2147,7 @@ We begin with some definitions.
       satisfying
       $\P\big(\|X_{i+1}'' - X_i''\| > t)\leq r_i$
       for each $1 \leq i \leq n$.
-      That is, all of the approximation inequalities
+      That is, all of the inequalities
       can be satisfied simultaneously
       on the same probability space.
 
@@ -2752,8 +2750,8 @@ they are needed.
   $M = \|H\|_\infty$
   and
   $\sigma^2 = \E\big[\E[H(X_1, \ldots, X_m) \mid X_1]^2\big]$.
-  Define the (not necessarily degenerate)
-  U-statistic
+  Define the U-statistic
+  %
   \begin{align*}
     U_n
     &=
@@ -2799,8 +2797,8 @@ they are needed.
     \sum_{i<j}
     &\Big(
       f(X_i, X_j)
-      - \E\big[f(X_i,X_j) \mid X_i\big] \\
-      &\quad-
+      - \E\big[f(X_i,X_j) \mid X_i\big]
+      -
       \E\big[f(X_i,X_j) \mid X_j\big]
       + \E\big[f(X_i,X_j)\big]
     \Big)
@@ -2876,7 +2874,8 @@ they are needed.
   $H: S^2 \to \R^{d \times d}$
   is a measurable matrix-valued function
   of two variables
-  satisfying the following assumptions:
+  satisfying the following:
+  %
   \begin{enumerate}[label=(\roman*)]
 
     \item
@@ -2894,6 +2893,7 @@ they are needed.
       $\E[H(X_1, x_2)] = 0$ for all $x_2 \in S$.
 
   \end{enumerate}
+  %
   Let $U_n = \sum_i \sum_{j \neq i} H(X_i, X_j)$
   be a U-statistic,
   and define the variance-type constant
@@ -3000,6 +3000,7 @@ they are needed.
   \proofparagraph{concentration of the original U-statistic}
 
   Hence we have
+  %
   \begin{align*}
     &\P\left(
       \|U_n\|_2
@@ -3013,10 +3014,11 @@ they are needed.
       \geq
       C_1 \sigma n (t + \log d)
       + C_1 M \sqrt{n} (t + \log d)^{3/2}
-    \right) \\
-    &\quad\leq
+    \right)
+    \leq
     D_2 e^{-t}.
   \end{align*}
+  %
   The main result follows by setting
   $C = C_1 + C_1 D_2$.
 
@@ -3107,13 +3109,13 @@ they are needed.
     8C M n
     \int_0^\infty
     e^{s^{-2/3}}
-    \diff{s} \\
-    &\lesssim
+    \diff{s}
+    \lesssim
     Mn(\log d)^{3/2}.
   \end{align*}
 \end{proof}
 
-\subsection{Technical results}
+\subsection{Technical lemmas}
 
 \subsubsection{Maximal inequalities for i.n.i.d.\ empirical processes}
 
@@ -4578,8 +4580,8 @@ Lemma~\ref{lem:bv_characterization}.
     \big\{
       g_n(\cdot, x):
       x \in \cX_n
-    \big\}, \\
-    \Env(\cG_n)
+    \big\},
+    &\Env(\cG_n)
     &=
     M_n, \\
     \cG_n^\delta
@@ -4589,17 +4591,15 @@ Lemma~\ref{lem:bv_characterization}.
       - g_n(\cdot, x'):
       x, x' \in \cX_n,
       |x-x'| \leq \delta_n
-    \big\}, \\
-    \Env(\cG_n^\delta)
+    \big\},
+    &\Env(\cG_n^\delta)
     &=
     l_{n,\infty} \delta_n.
   \end{align*}
-  We first show that
-  for each $n$
-  these are VC-type classes.
-  To see this,
-  note that by the uniform Lipschitz assumption
-  we have that
+  %
+  We first show these are VC-type.
+  By the uniform Lipschitz assumption,
+  %
   \begin{align*}
     \big\|
     g_n(\cdot, x)
@@ -4607,6 +4607,7 @@ Lemma~\ref{lem:bv_characterization}.
     \big\|_\infty
     &\leq l_{n,\infty} |x-x'|
   \end{align*}
+  %
   for all $x,x' \in \cX_n$.
   Therefore with $\Q$ ranging over the
   finitely-supported distributions
@@ -4644,16 +4645,15 @@ Lemma~\ref{lem:bv_characterization}.
   we construct a cover in the following way.
   Let $\cF_n$ be an $\varepsilon$-cover
   for $(\cG_n, \|\cdot\|_\infty)$.
-  Then by the triangle inequality,
+  By the triangle inequality,
   $\cF_n - \cF_n$ is a $2\varepsilon$-cover
   for $(\cG_n - \cG_n, \|\cdot\|_\infty)$
   of cardinality at most $|\cF_n|^2$,
-  where the subtractions are defined as set subtractions.
+  where the subtractions are set subtractions.
   Since $\cG_n^\delta \subseteq \cG_n - \cG_n$,
-  we see that
-  $\cF_n - \cF_n$ is a $2\varepsilon$-external cover
-  for $\cG_n^\delta$.
-  Thus
+  we see that $\cF_n - \cF_n$ is a $2\varepsilon$-external cover
+  for $\cG_n^\delta$. Thus
+  %
   \begin{align*}
     \sup_\Q
     N\big(\cG_n^\delta, \rho_\Q, \varepsilon l_{n,\infty} \Leb(\cX_n)\big)
@@ -4947,9 +4947,8 @@ Lemma~\ref{lem:bv_characterization}.
     }
   \end{align*}
   %
-  satisfies $\log |\delta_n| \lesssim C_1 \log n$
-  up to a universal constant,
-  so taking $s$ a large enough multiple of $\sqrt{\log n}$ gives
+  gives $\log |\delta_n| \lesssim C_1 \log n$ for a universal constant,
+  so with $s$ a large enough multiple of $\sqrt{\log n}$,
   %
   \begin{align*}
     &\P\left(
@@ -4977,10 +4976,8 @@ Lemma~\ref{lem:bv_characterization}.
     \sqrt{M_n + \sigma_n \sqrt{\log n}}}
     {n^{1/4} t_n^2}
     \sqrt{l_{n,2} \sqrt {\log n}
-    + \frac{l_{n,\infty}}{\sqrt n} \log n}
+    + \frac{l_{n,\infty}}{\sqrt n} \log n}.
   \end{align*}
-  %
-  up to constants depending only on $C_1$.
   %
 \end{proof}
 
@@ -5028,6 +5025,7 @@ We give supplementary details for our main results on consistency, minimax
 optimality, strong approximation, covariance estimation, feasible inference and
 counterfactual estimation.
 
+\TODO{do we need these headers?}
 \subsubsection{Bias}
 
 We begin with a basic fact about Lipschitz functions.
