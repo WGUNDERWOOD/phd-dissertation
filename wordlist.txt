@@ -125,6 +125,7 @@ Dongyu
 Donsker
 Duroux
 dy
+DyadicKDE
 Dylov
 Econometrica
 Edgeworth
@@ -224,6 +225,7 @@ Jia
 Jianhua
 Jianqing
 Jinchi
+jl
 Kang
 Karthik
 Kashy
@@ -310,6 +312,7 @@ modelling
 modularities
 monadic
 mondrian
+MondrianForests
 Monika
 monomial
 monomials
@@ -517,6 +520,7 @@ vy
 Wahrscheinlichkeitstheorie
 Wellner
 Wertz
+wgunderwood
 Whye
 Willem
 Woodroofe

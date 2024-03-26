@@ -5074,35 +5074,35 @@ We begin with a basic fact about Lipschitz functions.
 
 \end{lemma}
 
-  Applying Lemma~\ref{lem:lipschitz_kernels_bounded}
-  to the density and kernel functions defined in
-  Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
-  yields the following.
-  Firstly, since $k_h(\cdot, w)$ is $C_\rL / h^2$-Lipschitz
-  on $[w \pm h] \cap \cW$ and integrates to one,
-  we have by the first inequality in
-  Lemma~\ref{lem:lipschitz_kernels_bounded} that
-  \begin{align*}
-    |k_h(s,w)|
-    &\leq \frac{2 C_\rL + 1}{h} + \frac{1}{\Leb(\cW)}.
-  \end{align*}
-  Since each of
-  $f_{W \mid AA}(\cdot \mid a,a')$,
-  $f_{W \mid A}(\cdot \mid a)$ and
-  $f_W$ is non-negative and $C_\rH$-Lipschitz on $\cW$
-  and integrates to at most one over $\cW$,
-  taking $M = \frac{1}{\sqrt{C_\rH}} \wedge \Leb(\cW)$
-  in the second inequality in
-  Lemma~\ref{lem:lipschitz_kernels_bounded}
-  gives
-  \begin{align*}
-    f_{W \mid AA}(w \mid a,a')
-    &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}, \\
-    f_{W \mid A}(w \mid a)
-    &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}, \\
-    f_W(w)
-    &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}.
-  \end{align*}
+Applying Lemma~\ref{lem:lipschitz_kernels_bounded}
+to the density and kernel functions defined in
+Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
+yields the following.
+Firstly, since $k_h(\cdot, w)$ is $C_\rL / h^2$-Lipschitz
+on $[w \pm h] \cap \cW$ and integrates to one,
+we have by the first inequality in
+Lemma~\ref{lem:lipschitz_kernels_bounded} that
+\begin{align*}
+  |k_h(s,w)|
+  &\leq \frac{2 C_\rL + 1}{h} + \frac{1}{\Leb(\cW)}.
+\end{align*}
+Since each of
+$f_{W \mid AA}(\cdot \mid a,a')$,
+$f_{W \mid A}(\cdot \mid a)$ and
+$f_W$ is non-negative and $C_\rH$-Lipschitz on $\cW$
+and integrates to at most one over $\cW$,
+taking $M = \frac{1}{\sqrt{C_\rH}} \wedge \Leb(\cW)$
+in the second inequality in
+Lemma~\ref{lem:lipschitz_kernels_bounded}
+gives
+\begin{align*}
+  f_{W \mid AA}(w \mid a,a')
+  &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}, \\
+  f_{W \mid A}(w \mid a)
+  &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}, \\
+  f_W(w)
+  &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}.
+\end{align*}
 
 \begin{proof}[Lemma~\ref{lem:lipschitz_kernels_bounded}]
 
