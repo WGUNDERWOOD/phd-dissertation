@@ -626,6 +626,10 @@ Lemma~\ref{lem:covariance_structure}. In Lemma~\ref{lem:covariance_estimation}
 we define the estimator and demonstrate that it converges in probability in a
 suitable sense. In Lemma~\ref{lem:alternative_covariance_estimator} we give an
 alternative representation which is more amenable to computation.
+In Lemma~\ref{lem:variance_estimator_bounds} we verify that
+the estimated covariance function satisfies the same bounds
+as those given for the true covariance function
+in Lemma~\ref{lem:variance_bounds}.
 
 \begin{lemma}[Covariance structure]
   \label{lem:covariance_structure}
@@ -759,19 +763,10 @@ alternative representation which is more amenable to computation.
   \end{align*}
   %
   where
-  %
-  \begin{align*}
-    S_i(w)
-    &=
-    \frac{1}{n-1}
-    \sum_{j = 1}^{i-1}
-    k_h(W_{j i}, w)
-    + \frac{1}{n-1}
-    \sum_{j = i+1}^n
-    k_h(W_{i j}, w)
-  \end{align*}
-  is an estimator of
-  $\E[k_h(W_{i j},w) \mid A_i]$.
+  $S_i(w) = \frac{1}{n-1}
+  \sum_{j = 1}^{i-1} k_h(W_{j i}, w)
+  + \frac{1}{n-1} \sum_{j = i+1}^n k_h(W_{i j}, w)$
+  estimates $\E[k_h(W_{i j},w) \mid A_i]$.
 
 \end{lemma}
 
@@ -867,11 +862,12 @@ verified.
 
 \subsection{Feasible uniform confidence bands}
 
-Now we use the strong approximation derived in
+We use the strong approximation derived in
 Section~\ref{sec:strong_approx} and the
 positive semi-definite covariance estimator introduced in
-Section~\ref{sec:PSD} to construct feasible uniform confidence bands.
-From now on we will drop the prime notation for copies of processes
+Section~\ref{sec:covariance_estimation} to construct feasible uniform
+confidence bands.
+We drop the prime notation for copies of processes
 in the interest of clarity.
 
 \begin{lemma}[Proximity of the standardized and studentized $t$-statistics]
@@ -1084,7 +1080,7 @@ This counterfactual density can be estimated by
 the counterfactual dyadic kernel density estimator
 %
 \begin{align*}
-  \hat f_W^{\,1 \triangleright 0}(w)
+  \hat f_W^{1 \triangleright 0}(w)
   &=
   \frac{2}{n(n-1)}
   \sum_{i=1}^{n-1}
@@ -1096,20 +1092,20 @@ the counterfactual dyadic kernel density estimator
 %
 with
 $\hat\psi(x) =
-\I\{\hat p_X^{\,1}(x) > 0\}\hat p_X^{\,0}(x) / \hat p_X^{\,1}(x)$
-and $\hat p_X^{\,r}(x) = \frac{1}{n}\sum_{i = 1}^n \I\{X_i^r = x\}$.
+\I\{\hat p_X^{1}(x) > 0\}\hat p_X^{0}(x) / \hat p_X^{1}(x)$
+and $\hat p_X^{r}(x) = \frac{1}{n}\sum_{i = 1}^n \I\{X_i^r = x\}$.
 Since $p_X^r(x) > 0$,
 %
 \begin{align*}
   \hat\psi(x) - \psi(x)
   &=
-  \frac{\hat p_X^{\,0}(x) - p_X^0(x)}{p_X^1(x)}
+  \frac{\hat p_X^{0}(x) - p_X^0(x)}{p_X^1(x)}
   - \frac{p_X^0(x)}{p_X^1(x)}
-  \frac{\hat p_X^{\,1}(x) - p_X^1(x)}{p_X^1(x)} \\
+  \frac{\hat p_X^{1}(x) - p_X^1(x)}{p_X^1(x)} \\
   &\quad+
-  \frac{\hat p_X^{\,1}(x) - p_X^1(x)}{p_X^1(x)}
-  \frac{\hat p_X^{\,1}(x) p_X^0(x) - \hat p_X^{\,0}(x)p_X^1(x)}
-  {\hat p_X^{\,1}(x) p_X^1(x)} \\
+  \frac{\hat p_X^{1}(x) - p_X^1(x)}{p_X^1(x)}
+  \frac{\hat p_X^{1}(x) p_X^0(x) - \hat p_X^{0}(x)p_X^1(x)}
+  {\hat p_X^{1}(x) p_X^1(x)} \\
   &=
   \frac{1}{n}
   \sum_{r=1}^n \kappa(X_r^0, X_r^1, x)
@@ -1131,7 +1127,7 @@ $\E[\kappa(X_i^0, X_i^1, x)] = 0$.
 We now establish uniform consistency and feasible strong
 approximation results for the counterfactual density estimator.
 
-\begin{lemma}[Bias of $\hat f_W^{\,1 \triangleright 0}$]
+\begin{lemma}[Bias of $\hat f_W^{1 \triangleright 0}$]
   \label{lem:counterfactual_bias}
 
   Suppose that Assumptions~\ref{ass:kernel_data},
@@ -1141,7 +1137,7 @@ approximation results for the counterfactual density estimator.
   \begin{align*}
     \sup_{w \in \cW}
     \big|
-    \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
+    \E\big[\hat f_W^{1 \triangleright 0}(w)\big]
     - f_W^{1 \triangleright 0}(w)
     \big|
     \lesssim
@@ -1151,7 +1147,7 @@ approximation results for the counterfactual density estimator.
 \end{lemma}
 
 \begin{lemma}[Hoeffding-type decomposition for
-  $\hat f_W^{\,1 \triangleright 0}$]
+  $\hat f_W^{1 \triangleright 0}$]
   \label{lem:counterfactual_hoeffding}
 
   Suppose that Assumptions~\ref{ass:kernel_data},
@@ -1317,8 +1313,8 @@ approximation results for the counterfactual density estimator.
   where $O_\P(1/n)$ is uniform in $w \in \cW$.
   %
   \begin{align*}
-    \hat f_W^{\,1 \triangleright 0}(w)
-    = \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
+    \hat f_W^{1 \triangleright 0}(w)
+    = \E\big[\hat f_W^{1 \triangleright 0}(w)\big]
     + L_n^{1 \triangleright 0}(w)
     + E_n^{1 \triangleright 0}(w)
     + O_\P\left( \frac{1}{n} \right).
@@ -1358,7 +1354,7 @@ approximation results for the counterfactual density estimator.
 
 \end{lemma}
 
-\begin{lemma}[Uniform consistency of $\hat f_W^{\,1 \triangleright 0}$]
+\begin{lemma}[Uniform consistency of $\hat f_W^{1 \triangleright 0}$]
   \label{lem:counterfactual_uniform_consistency}
 
   Suppose that Assumptions~\ref{ass:kernel_data},
@@ -1368,7 +1364,7 @@ approximation results for the counterfactual density estimator.
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
-      \big|\hat f_W^{\,1 \triangleright 0}(w)
+      \big|\hat f_W^{1 \triangleright 0}(w)
       - f_W^{1 \triangleright 0}(w)
     \right]
     &\lesssim
@@ -1379,7 +1375,7 @@ approximation results for the counterfactual density estimator.
 
 \end{lemma}
 
-\begin{lemma}[Strong approximation of $\hat f_W^{\,1 \triangleright 0}$]
+\begin{lemma}[Strong approximation of $\hat f_W^{1 \triangleright 0}$]
   \label{lem:counterfactual_sa}
 
   On an appropriately enlarged probability space
@@ -1387,13 +1383,13 @@ approximation results for the counterfactual density estimator.
   there exists a mean-zero Gaussian process
   $Z_n^{f, 1 \triangleright 0}$
   with the same covariance structure as
-  $\hat f_W^{\,1 \triangleright 0}(w)$ satisfying
+  $\hat f_W^{1 \triangleright 0}(w)$ satisfying
   %
   \begin{align*}
     &\sup_{w \in \cW}
     \left|
-    \hat f_W^{\,1 \triangleright 0}(w)
-    - \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
+    \hat f_W^{1 \triangleright 0}(w)
+    - \E\big[\hat f_W^{1 \triangleright 0}(w)\big]
     - Z_n^{f, 1 \triangleright 0}(w)
     \right| \\
     &\quad\lesssim_\P
@@ -1414,8 +1410,8 @@ approximation results for the counterfactual density estimator.
     &\Sigma_n^{1 \triangleright 0}(w,w') \\
     &\quad=
     \Cov\left[
-      \hat f_W^{\,1 \triangleright 0}(w),
-      \hat f_W^{\,1 \triangleright 0}(w')
+      \hat f_W^{1 \triangleright 0}(w),
+      \hat f_W^{1 \triangleright 0}(w')
     \right] \\
     &\quad=
     \frac{4}{n}
@@ -1479,7 +1475,7 @@ approximation results for the counterfactual density estimator.
   %
   \begin{align*}
     T_n^{1 \triangleright 0}(w)
-    &= \frac{\hat f_W^{\,1 \triangleright 0}(w)
+    &= \frac{\hat f_W^{1 \triangleright 0}(w)
     - f_W^{1 \triangleright 0}(w)}
     {\sqrt{\Sigma_n^{1 \triangleright 0}(w,w)}}
     \quad\text{and}\quad
@@ -1613,15 +1609,13 @@ Then set
   \hat\psi(X_i^1)^2
   \hat\psi(X_j^1)^2
   - \frac{4}{n}
-  \hat f_W^{\,1 \triangleright 0}(w)
-  \hat f_W^{\,1 \triangleright 0}(w').
+  \hat f_W^{1 \triangleright 0}(w)
+  \hat f_W^{1 \triangleright 0}(w').
 \end{align*}
 %
 We then use a positive semi-definite approximation to
 $\hat\Sigma_n^{1 \triangleright 0}$, denoted by
-$\hat\Sigma_n^{+, 1 \triangleright 0}$,
-following the methodology of
-Section~\ref{sec:PSD}.
+$\hat\Sigma_n^{+, 1 \triangleright 0}$.
 We omit the proof of consistency of these covariance estimators
 in the interest of brevity.
 To construct feasible uniform confidence bands,
@@ -1664,7 +1658,7 @@ we have that
     f_W^{1 \triangleright 0}(w)
     \in
     \left[
-      \hat f_W^{\,1 \triangleright 0}(w)
+      \hat f_W^{1 \triangleright 0}(w)
       \pm
       \hat q^{1 \triangleright 0}_{1-\alpha}
       \sqrt{\hat\Sigma_n^{+, 1 \triangleright 0}(w,w)}
@@ -10187,8 +10181,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \subsubsection{Positive semi-definite covariance estimation}
 
-\begin{proof}[Lemma~\ref{lem:app_sdp}]
+\begin{proof}[Lemma~\ref{lem:sdp}]
 
+  \TODO{check this is still the right result}
   Firstly we prove that the true covariance function
   $\Sigma_n$
   is feasible for the optimization problem
@@ -10292,7 +10287,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   Since $\hat \Sigma_n^+$ is positive semi-definite,
   we must have $\hat \Sigma_n^+(w,w) \geq 0$.
-  Now Lemma~\ref{lem:app_sdp}
+  Now Lemma~\ref{lem:sdp}
   implies that for all $\varepsilon \in (0,1)$
   there exists a $C_\varepsilon$ such that
   %
@@ -10408,7 +10403,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sup_{w \in \cW} \hat \Sigma_n^+(w,w)^{-1/2}
   \lesssim_\P \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$
   by Lemma~\ref{lem:variance_estimator_bounds}.
-  Thus, applying Lemma~\ref{lem:app_sdp} to control the
+  Thus, applying Lemma~\ref{lem:sdp} to control the
   covariance estimation error,
   \begin{align*}
     \sup_{w \in \cW}
@@ -10507,8 +10502,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sup_{w \in \cW}
   \left|\frac{\hat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
   \lesssim_\P \sqrt{h \log n}$
-  by the proof of Lemma~\ref{lem:app_sdp}.
-  Thus by Lemma~\ref{lem:app_sdp},
+  by the proof of Lemma~\ref{lem:sdp}.
+  Thus by Lemma~\ref{lem:sdp},
   %
   \begin{align*}
     &\sup_{w, w' \in \cW}
@@ -10662,7 +10657,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   \proofparagraph{conditional $L^2$ regularity of $\hat Z_n^T$}
 
-  By Lemma~\ref{lem:app_sdp},
+  By Lemma~\ref{lem:sdp},
   with $n h \gtrsim \log n$,
   we have
   uniformly in $w,w'$,
@@ -11569,7 +11564,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and $\kappa_{i j} = \kappa(X_i^0, X_i^1, X_j^1)$,
   %
   \begin{align*}
-    \E\big[\hat f_W^{\,1 \triangleright 0}(w)\big]
+    \E\big[\hat f_W^{1 \triangleright 0}(w)\big]
     &=
     \E\left[
       \frac{2}{n(n-1)}
@@ -11633,7 +11628,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \begin{proof}[Lemma~\ref{lem:counterfactual_hoeffding}]
   %
   \begin{align*}
-    \hat f_W^{\,1 \triangleright 0}(w)
+    \hat f_W^{1 \triangleright 0}(w)
     &=
     \frac{2}{n(n-1)}
     \sum_{i < j}
@@ -11713,7 +11708,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   So by the Hoeffding decomposition for third-order U-statistics,
   %
   \begin{align*}
-    \hat f_W^{\,1 \triangleright 0}(w)
+    \hat f_W^{1 \triangleright 0}(w)
     &=
     u
     + \frac{3}{n}
@@ -11736,7 +11731,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \big(v_{i j r} - u_{i j r}\big)
     + O_\P\left( \frac{1}{n} \right) \\
     &=
-    \E\big[\hat f_W^{\,1 \triangleright 0}(w) \big]
+    \E\big[\hat f_W^{1 \triangleright 0}(w) \big]
     + L_n^{1 \triangleright 0}(w)
     + Q_n^{1 \triangleright 0}(w)
     + T_n^{1 \triangleright 0}(w)
@@ -11847,8 +11842,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \begin{align*}
     &\Sigma_n^{1 \triangleright 0}(w,w')
     = \Cov\left[
-      \hat f_W^{\,1 \triangleright 0}(w),
-      \hat f_W^{\,1 \triangleright 0}(w')
+      \hat f_W^{1 \triangleright 0}(w),
+      \hat f_W^{1 \triangleright 0}(w')
     \right] \\
     &\quad=
     \frac{1}{n^2(n-1)^2(n-2)^2}

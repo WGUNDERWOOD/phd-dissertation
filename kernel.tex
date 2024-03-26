@@ -552,8 +552,8 @@ we first introduce the following lower and upper degeneracy constants:
   \Du^2 := \sup_{w \in \cW} \Var\left[f_{W \mid A}(w \mid A_i)\right].
 \end{align*}
 %
-\begin{lemma}[Trichotomy of degeneracy]
-  \label{lem:trichotomy}
+\begin{lemma}[Trichotomy of degeneracy]%
+  \label{lem:trichotomy}%
   %
   Grant Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}.
   Then the type of degeneracy exhibited by $\hat f_W(w)$
@@ -1128,20 +1128,20 @@ formalize our procedure for robust bias correction inference.
 \label{sec:covariance_estimation}
 
 Define the following plug-in covariance function
-estimator of $\Sigma_n$: for $w, w' \in \cW$,
+estimator of $\Sigma_n$. For $w, w' \in \cW$,
+let $S_i(w) = \frac{1}{n-1} \big( \sum_{j = 1}^{i-1} k_h(W_{j i}, w)
++ \sum_{j = i+1}^n k_h(W_{i j}, w) \big)$
+estimate $\E[k_h(W_{i j},w) \mid A_i]$ and take
 %
 \begin{align*}
   \hat \Sigma_n(w,w')
   &= \frac{4}{n^2} \sum_{i=1}^n S_i(w) S_i(w')
   - \frac{4}{n^2(n-1)^2} \sum_{i<j} k_h(W_{i j},w) k_h(W_{i j},w') \\
-  &\quad- \frac{4n-6}{n(n-1)} \hat f_W(w) \hat f_W(w'),
+  &\quad- \frac{4n-6}{n(n-1)} \hat f_W(w) \hat f_W(w').
 \end{align*}
 %
-where $S_i(w) = \frac{1}{n-1} \big( \sum_{j = 1}^{i-1} k_h(W_{j i}, w)
-+ \sum_{j = i+1}^n k_h(W_{i j}, w) \big)$
-estimates $\E[k_h(W_{i j},w) \mid A_i]$.
 Though $\hat\Sigma_n(w,w')$ is consistent in an appropriate sense as shown in
-Lemma~\ref{lem:sdp} below, it is not necessarily positive semi-definite, even
+Lemma~\ref{lem:sdp}, it is not necessarily positive semi-definite, even
 in the limit. We therefore propose a modified covariance estimator which is
 guaranteed to be positive semi-definite. Specifically, consider the following
 optimization problem where $C_\rk$ and $C_\rL$ are as in
@@ -1290,10 +1290,10 @@ presence of degenerate points in $\Sigma_n$.
 \subsection{Bandwidth selection and robust bias-corrected inference}
 \label{sec:bandwidth_selection}
 
-We give some practical suggestions for selecting the bandwidth parameter $h$.
+We give practical suggestions for selecting the bandwidth parameter $h$.
 Let $\nu(w)$ be a non-negative real-valued function on $\cW$ and suppose we use
 a kernel of order $p < \beta$ of the form $k_h(s,w) = K\big((s-w) / h\big)/h$.
-Then the $\nu$-weighted asymptotic IMSE (AIMSE) is minimized by
+The $\nu$-weighted asymptotic IMSE (AIMSE) is minimized by
 %
 \begin{align*}
   h^*_{\AIMSE}
@@ -1331,7 +1331,7 @@ be the sample variance and sample interquartile range respectively
 of the data $\bW_n$. Then
 $\hat{h}_{\ROT} = C(K) \big( \hat\sigma \wedge
 \frac{\hat\IQR}{1.349} \big) \big(\frac{n(n-1)}{2} \big)^{-1/5}$,
-where $C(K)=2.576$ for the triangular kernel $K(w) = (1 - |w|) \vee 0$,
+where we have $C(K)=2.576$ for the triangular kernel $K(w) = (1 - |w|) \vee 0$,
 and $C(K)=2.435$ for the Epanechnikov kernel
 $K(w) = \frac{3}{4}(1 - w^2) \vee 0$.
 
@@ -1343,35 +1343,7 @@ misspecification) bias of the distributional approximation. To circumvent this
 problem and construct feasible uniform confidence bands for $f_W$, we employ
 the following robust bias correction approach.
 
-Firstly, estimate the bandwidth $h^*_{\AIMSE}\asymp n^{-\frac{2}{2p+1}}$ using a
-kernel of order $p$, which leads to an AIMSE-optimal point estimator
-$\hat{f}_W$ in an $L^2(\nu)$ sense. Then use this bandwidth and a kernel of
-order $p' > p$ to construct the statistic $\hat T_n$ and the confidence band as
-detailed in Section~\ref{sec:feasible_confidence_bands}. Importantly, both
-$\hat{f}_W$ and $\hat{\Sigma}^+_n$ are recomputed with the new higher-order
-kernel. The change in centering is equivalent to a bias correction of the
-original AIMSE-optimal point estimator, while the change in scale captures the
-additional variability introduced by the bias correction itself. As shown
-formally in \citet{calonico2018effect, calonico2022coverage} for the case of
-kernel-based density
-estimation with i.i.d.\ data, this approach leads to higher-order refinements
-in the distributional approximation whenever additional smoothness is available
-($p'\leq\beta$). In the present dyadic setting, this procedure is valid so long
-as $n^{-2/3} (\log n)^{7/3} \ll n^{-\frac{2}{2p+1}}
-\ll (n^2 \log n)^{-\frac{1}{2p' + 1}}$,
-which is equivalent to $2 \leq p < p'$.
-For concreteness, we recommend taking $p = 2$ and $p' = 4$,
-and using the rule-of-thumb bandwidth choice $\hat{h}_{\ROT}$ defined above.
-In particular, this approach automatically delivers a KMT-optimal
-strong approximation whenever there are no degeneracies in the
-underlying dyadic data generating process.
-
-Our feasible robust bias correction method based on AIMSE-optimal dyadic
-kernel density estimation for constructing uniform confidence bands
-for $f_W$ is summarized in Algorithm~\ref{alg:method}.
-
-\vspace*{2mm}
-\begin{algorithm}[ht]
+\begin{algorithm}[t]
   \caption{Feasible uniform confidence bands}
   \label{alg:method}
   \setstretch{1.5}
@@ -1411,6 +1383,33 @@ for $f_W$ is summarized in Algorithm~\ref{alg:method}.
   %
 \end{algorithm}
 
+Firstly, estimate the bandwidth $h^*_{\AIMSE}\asymp n^{-\frac{2}{2p+1}}$ using a
+kernel of order $p$, which leads to an AIMSE-optimal point estimator
+$\hat{f}_W$ in an $L^2(\nu)$ sense. Then use this bandwidth and a kernel of
+order $p' > p$ to construct the statistic $\hat T_n$ and the confidence band as
+detailed in Section~\ref{sec:feasible_confidence_bands}. Importantly, both
+$\hat{f}_W$ and $\hat{\Sigma}^+_n$ are recomputed with the new higher-order
+kernel. The change in centering is equivalent to a bias correction of the
+original AIMSE-optimal point estimator, while the change in scale captures the
+additional variability introduced by the bias correction itself. As shown
+formally in \citet{calonico2018effect, calonico2022coverage} for the case of
+kernel-based density
+estimation with i.i.d.\ data, this approach leads to higher-order refinements
+in the distributional approximation whenever additional smoothness is available
+($p'\leq\beta$). In the present dyadic setting, this procedure is valid so long
+as $n^{-2/3} (\log n)^{7/3} \ll n^{-\frac{2}{2p+1}}
+\ll (n^2 \log n)^{-\frac{1}{2p' + 1}}$,
+which is equivalent to $2 \leq p < p'$.
+For concreteness, we recommend taking $p = 2$ and $p' = 4$,
+and using the rule-of-thumb bandwidth choice $\hat{h}_{\ROT}$ defined above.
+In particular, this approach automatically delivers a KMT-optimal
+strong approximation whenever there are no degeneracies in the
+underlying dyadic data generating process.
+
+Our feasible robust bias correction method based on AIMSE-optimal dyadic
+kernel density estimation for constructing uniform confidence bands
+for $f_W$ is summarized in Algorithm~\ref{alg:method}.
+
 \section{Simulations}
 \label{sec:simulations}
 
@@ -1444,7 +1443,7 @@ simultaneous (uniform) coverage over the evaluation points. Note that under
 partial degeneracy the confidence band narrows near the degenerate point
 $w = 0$.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
@@ -1498,7 +1497,7 @@ Studentization deliver valid uniform inference which is robust to unknown
 degenerate points in the underlying dyadic distribution.
 
 \vspace{4mm}
-\begin{table}[ht]
+\begin{table}[t]
   \centering
   \begin{tabular}{|c|c|c|c|c|cc|cc|}
     \hline
@@ -1700,8 +1699,7 @@ gives summary statistics for these trade networks, and shows how the networks
 become more connected over time, with edge density, average degree and
 clustering coefficient increasing.
 
-\vspace{4mm}
-\begin{table}[ht]
+\begin{table}[b!]
   \centering
   \begin{tabular}{|c|c|c|c|c|c|}
     \hline
@@ -1740,7 +1738,7 @@ that the counterfactual distribution drifts further from the truth in 2005
 compared with 2000, indicating a more significant shift in the GDP
 distribution.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
@@ -1778,7 +1776,7 @@ to capture the distribution of log GDP reasonably well. Such a parametric
 approach to the preliminary step may be favored in cases where a choice of
 model is clear or where the histogram estimators perform poorly.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
@@ -1817,7 +1815,7 @@ The confidence bands are also similar, with the band based on the parametric
 fit being slightly narrower in general. This could be due to the more stringent
 model specification leading to less estimated variance in the fitted values.
 
-\begin{figure}[ht]
+\begin{figure}[b!]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}

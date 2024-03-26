@@ -5,7 +5,8 @@
 
 In this section we present the full proofs of all our results,
 and also state some useful technical preliminary and
-intermediate lemmas.
+intermediate lemmas, along with some further properties
+of the Mondrian process not required for our primary analysis.
 See Section~\ref{sec:overview_proofs} in the main text
 for an overview of the main proof strategies and a discussion of
 the challenges involved.
@@ -44,16 +45,16 @@ at most on the order of $1/\lambda$.
 \end{lemma}
 
 \begin{proof}[Lemma~\ref{lem:largest_cell}]
-  We use the explicit distribution of the shape of Mondrian cells
-  given by \citet[Proposition~1]{mourtada2020minimax}.
-  In particular, we have
+  %
+  We use the distribution of the Mondrian cell shape
+  \citep[Proposition~1]{mourtada2020minimax}. We have
   $|T_b(x)_j| = \left( \frac{E_{bj1}}{\lambda} \wedge x_j \right)
   + \left( \frac{E_{bj2}}{\lambda} \wedge (1-x_j) \right)$
   where $E_{bj1}$ and $E_{bj2}$
-  are independent $\Exp(1)$ random variables for
+  are i.i.d.\ $\Exp(1)$ variables for
   $1 \leq b \leq B$ and $1 \leq j \leq d$.
   Thus $|T_b(x)_j| \leq \frac{E_{bj1} + E_{bj2}}{\lambda}$
-  and so by a union bound
+  so by a union bound
   %
   \begin{align*}
     \P \left(
@@ -81,12 +82,12 @@ at most on the order of $1/\lambda$.
   %
 \end{proof}
 
-The next result is another ``localization'' result, this time
-showing that the union over the forest
-of the cells $T_b(x)$ containing $x$ do not contain ``too many''
+Next is another localization result,
+showing that the union
+of the cells $T_b(x)$ containing $x$ does not contain ``too many''
 samples $X_i$.
-In other words, the Mondrian random forest estimator fitted at $x$
-should only depend on $n/\lambda^d$ (the effective sample size)
+Thus the Mondrian random forest estimator fitted at $x$
+only depends on $n/\lambda^d$ (the effective sample size)
 data points up to logarithmic terms.
 
 \begin{lemma}[Upper bound on the number of active data points]%
@@ -242,8 +243,8 @@ for our applications.
     \frac{1}{1 \vee (\frac{n p}{4} + a_j)} \\
     &\leq
     2 \prod_{j=1}^k
-    \frac{1}{1 \vee \left(\frac{9 n p}{40k} + a_j\right)} \\
-    &\leq
+    \frac{1}{1 \vee \left(\frac{9 n p}{40k} + a_j\right)}
+    \leq
     2 \prod_{j=1}^k
     \frac{40k/9}{1 \vee \left(n p + a_j\right)} \\
     &\leq
@@ -408,8 +409,7 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
   %
   conditional on $\bT$ and
   $N_b(D') : D' \in \cR \setminus (\cD \cup \{D\})$.
-  Further, for sufficiently large $t$
-  by Lemma~\ref{lem:active_data}
+  For sufficiently large $t$ by Lemma~\ref{lem:active_data}
   %
   \begin{align*}
     \P \left(
@@ -583,7 +583,7 @@ and the upper bound for the $k$th moment is significantly
 larger than the naive assumption of $(\lambda^d / n)^k$
 whenever $k \geq 3$.
 This ``small cell'' phenomenon in which the inverse volumes of Mondrian cells
-have heavy tails is a recurring challenge in our analysis.
+have heavy tails is a recurring challenge.
 
 \begin{lemma}[Inverse moments of the volume of a Mondrian cell]%
   \label{lem:moment_cell}
