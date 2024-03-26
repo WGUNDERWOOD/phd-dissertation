@@ -276,7 +276,7 @@ Figure~\ref{fig:mondrian_process} shows typical realizations of
 $T \sim \cM\big( [0,1]^d, \lambda \big)$ for $d=2$ and with different lifetime
 parameters $\lambda$.
 %
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
@@ -1710,7 +1710,7 @@ weather
 information from the years 2007--2017, at 49 different
 locations across Australia, with a total of $n = 125\,927$ samples.
 
-\begin{figure}[b!]
+\begin{figure}[t]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1758,7 +1758,7 @@ discussed in Section~\ref{sec:mondrian_clt}, with the piecewise constant
 estimator providing a poor approximation for the smooth true regression
 function.
 
-\begin{figure}[b!]
+\begin{figure}[t]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1791,7 +1791,7 @@ at which to conduct inference
 by constructing confidence intervals. See Table~\ref{tab:weather_ci}
 for the results.
 
-\begin{figure}[b!]
+\begin{figure}[t]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1830,24 +1830,8 @@ This is expected due to both the inflated variance resulting from the debiasing
 procedure, and the undersmoothing enacted by selecting a lifetime parameter
 using GCV on the original estimator without debiasing.
 
-Table~\ref{tab:weather_ci} presents numerical results for estimation and
-inference at the three specified design points. We first give the outcomes
-without debiasing, using a Mondrian random forest with $B = 400$ trees and
-$\lambda = 5$ selected by GCV. We then show the results with a first-order
-($J=1$) debiased Mondrian random forest using $B = 200$ (again a total of
-$400$ trees) and the same value of $\lambda = 5$. The predicted chance of rain
-$\hat\mu(x)$ is found to vary substantially across different covariate values,
-and the resulting confidence intervals (CI) are generally narrow due to the
-large sample size and moderate lifetime parameter. The forest with debiasing
-exhibits more extreme predictions away from $50\%$ and wider confidence
-intervals in general, in line with the illustration in
-Figure~\ref{fig:weather_gcv}. Interestingly, the confidence intervals for the
-non-debiased and debiased estimators do not intersect, indicating that the
-original estimator is severely biased, and providing further justification for
-our modified debiased random forest estimator.
-
 \vspace{4mm}
-\begin{table}[ht]
+\begin{table}[b!]
   \centering
   \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline
@@ -1883,6 +1867,22 @@ our modified debiased random forest estimator.
   at three specified design points.}
   \label{tab:weather_ci}
 \end{table}
+
+Table~\ref{tab:weather_ci} presents numerical results for estimation and
+inference at the three specified design points. We first give the outcomes
+without debiasing, using a Mondrian random forest with $B = 400$ trees and
+$\lambda = 5$ selected by GCV. We then show the results with a first-order
+($J=1$) debiased Mondrian random forest using $B = 200$ (again a total of
+$400$ trees) and the same value of $\lambda = 5$. The predicted chance of rain
+$\hat\mu(x)$ is found to vary substantially across different covariate values,
+and the resulting confidence intervals (CI) are generally narrow due to the
+large sample size and moderate lifetime parameter. The forest with debiasing
+exhibits more extreme predictions away from $50\%$ and wider confidence
+intervals in general, in line with the illustration in
+Figure~\ref{fig:weather_gcv}. Interestingly, the confidence intervals for the
+non-debiased and debiased estimators do not intersect, indicating that the
+original estimator is severely biased, and providing further justification for
+our modified debiased random forest estimator.
 
 \section{Conclusion}%
 \label{sec:mondrian_conclusion}

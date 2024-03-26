@@ -9,7 +9,8 @@ with the edges of a network. As such it plays an important role in statistics,
 econometrics and many other data science disciplines. We consider the problem
 of uniformly estimating a dyadic Lebesgue density function, focusing on
 nonparametric kernel-based estimators taking the form of dyadic empirical
-processes. Our main contributions include the minimax-optimal uniform
+processes. The main contributions of this chapter
+include the minimax-optimal uniform
 convergence rate of the dyadic kernel density estimator, along with strong
 approximation results for the associated standardized and Studentized
 $t$-processes. A consistent variance estimator enables the construction of
@@ -62,8 +63,7 @@ Various distributional features of dyadic data are of interest in applications.
 Most of the statistical literature focuses on parametric analysis, almost
 exclusively considering moments of (transformations of) the identically
 distributed $W_{i j}$. See \citet{davezies2021exchangeable},
-\citet{gao2021minimax}, \citet{matsushita2021jackknife}, and references
-therein, for
+\citet{gao2021minimax}, and \citet{matsushita2021jackknife} for
 contemporary contributions and overviews. More recently, however, a few
 nonparametric procedures for dyadic data have been proposed in the literature
 \citep{graham2021minimax,graham2024kernel}.
@@ -77,15 +77,15 @@ properties of a class of local stochastic processes given by
   = \frac{2}{n(n-1)} \sum_{i=1}^{n-1} \sum_{j=i+1}^n k_h(W_{i j},w),
 \end{align}
 %
-where $k_h(\cdot,w)$ is a kernel function that can change with the $n$-varying
+where $k_h(s,w)$ is a kernel function that can change with the $n$-varying
 bandwidth parameter $h=h(n)$ and the evaluation point $w \in \cW\subseteq \R$.
 For each $w\in\cW$ and with an appropriate choice of the kernel function
-(e.g.\ $k_h(\cdot,w)=K((\cdot-w)/h)/h$ for an interior point $w$ of $\cW$ and a
+(e.g.\ $k_h(s,w)=K((s-w)/h)/h$ for an interior point $w$ of $\cW$ and a
 fixed symmetric integrable kernel function $K$), the statistic $\hat{f}_W(w)$
 becomes a kernel density estimator for the Lebesgue density function
 $f_W(w) = \E\big[f_{W \mid AA}(w \mid A_i,A_j)\big]$, where
 $f_{W \mid AA}(w \mid A_i,A_j)$ denotes the conditional Lebesgue density of
-$W_{i j}$ given $A_i$ and $A_j$. Setting $k_h(\cdot,w)=K((\cdot-w)/h)/h$,
+$W_{i j}$ given $A_i$ and $A_j$. Setting $k_h(s,w)=K((s-w)/h)/h$,
 \citet{graham2024kernel} recently introduced the dyadic point estimator
 $\hat{f}_W(w)$ and studied its large sample properties pointwise in
 $w\in\cW=\mathbb{R}$, while \citet{chiang2020empirical} established its rate of
@@ -97,12 +97,12 @@ collection $\cW$ of design points. More generally, as we discuss below, the
 estimand $f_W(w)$ is useful in different applications because it forms the
 basis for counterfactual distributional analysis
 (Section~\ref{sec:counterfactual}) and other nonparametric and semiparametric
-methods (Section~\ref{sec:future}). We remark that while we assume throughout
+methods (Section~\ref{sec:future}). While we assume throughout
 that the network is complete, our approach generalizes in a straightforward way
 to networks with missing edges, as in Section~\ref{sec:trade_data}. This can be
 seen by setting $W_{i j} = -\infty$ whenever the edge $\{i, j\}$ is not
 present, so that the law of $W_{i j}$ is a mixture between a continuous
-distribution and a point mass at $-\infty$. We then apply our methodology to
+distribution and a point mass at $-\infty$. We apply our methodology to
 recover the continuous component of this distribution, following
 \citet{chiang2022inference}.
 
@@ -138,7 +138,8 @@ Section~\ref{sec:kernel_setup} outlines the setup and presents the main
 assumptions imposed throughout the chapter. We demonstrate in
 Theorem~\ref{thm:kernel_bias} how the smoothing bias of the dyadic kernel
 density estimator can be controlled, and then discuss a Hoeffding-type
-decomposition of the U-statistic-like $\hat{f}_W$. This is more general than
+decomposition of the U-statistic-like $\hat{f}_W$
+in Lemma~\ref{lem:hoeffding}. This is more general than
 the standard Hoeffding decomposition for second-order U-statistics due to the
 intrinsic dyadic data structure. In particular, \eqref{eq:h-decomposition}
 shows that $\hat{f}_W(w)$ decomposes into a sum of the four terms $B_n(w)$,
@@ -153,6 +154,12 @@ of which are known to be asymptotically distributed as Gaussian random
 variables pointwise in $w\in\cW$ \citep{graham2024kernel}. However, the
 H{\'a}jek projection term $L_n$ will often be ``degenerate'' at some or
 possibly all evaluation points $w\in\cW$.
+The three possible types of degeneracy are detailed in
+Lemma~\ref{lem:trichotomy},
+and we establish bounds in probability for each term in the Hoeffding-type
+decomposition in Lemma~\ref{lem:uniform_concentration}.
+We give an example of a simple family of dyadic distributions
+exhibiting all three degeneracy types.
 
 Section~\ref{sec:point_estimation} studies minimax convergence rates for point
 estimation of $f_W$ uniformly over $\cW$ and gives precise conditions under
@@ -201,7 +208,7 @@ variables $W_{i j}$ and indexed by an $n$-varying class of functions. When
 conditioning on $\bA_n$, the variables $W_{i j}$ are independent but not
 necessarily identically distributed (i.n.i.d.), and thus we establish a
 conditional-on-$\bA_n$ strong approximation for $E_n$ based on the Yurinskii
-coupling \citep{yurinskii1978error}, leveraging a recent refinement obtained by
+coupling \citep{yurinskii1978error}, leveraging a refinement obtained by
 \citet*[Lemma~38]{belloni2019conditional}. This result follows from a generic
 strong approximation result which gives a novel rate of strong approximation
 for (local) empirical processes based on i.n.i.d. data, given in
@@ -221,15 +228,16 @@ of the celebrated Vorob'ev--Berkes--Philipp theorem \citep{dudley1999uniform},
 given in given in Section~\ref{sec:kernel_technical}, to deduce a \emph{joint}
 strong approximation for $(L_n,E_n)$ and, in particular, for $L_n+E_n$. Thus we
 obtain our main result in Theorem~\ref{thm:strong_approx_Tn}, which establishes
-a valid strong approximation for $\hat{f}_W$ and its associated $t$-process.
+a valid strong approximation for the $t$-process associated with $\hat{f}_W$.
 This uniform inference result complements the recent contribution of
-\citet{davezies2021exchangeable}, which is not applicable here because
-$\hat{f}_W$ is non-Donsker in general.
+\citet{davezies2021exchangeable}, which is not applicable here as
+the $t$-process is non-Donsker in general.
 
-We illustrate the applicability of our strong approximation result for
+We illustrate the applicability of our strong approximation results for
 $\hat{f}_W$ and its associated $t$-process by constructing valid standardized
-uniform confidence bands for the unknown density function $f_W$. Instead of
-relying on extreme value theory \citep*[e.g.][]{gine2004kernel}, we employ
+uniform confidence bands for the unknown density function $f_W$
+in Theorem~\ref{thm:infeasible_ucb}. Instead of
+relying on extreme value theory \citep*[as in][]{gine2004kernel}, we employ
 anti-concentration methods, following \citet{chernozhukov2014anti}. This
 illustration improves on the recent work of \citet{chiang2022inference}, which
 obtained simultaneous confidence intervals for the dyadic density $f_W$ based
@@ -291,7 +299,7 @@ methods with a real dyadic data set recording bilateral trade between
 countries, using GDP as a covariate for the counterfactual analysis.
 
 Section~\ref{sec:future} discusses further statistical applications of our main
-results, including dyadic density hypothesis testing and nonparametric and
+results, including dyadic density testing and nonparametric and
 semiparametric dyadic regression. Section~\ref{sec:conclusion} concludes.
 Appendix~\ref{app:kernel} includes other technical and methodological results,
 proofs and additional details omitted here to conserve space.
@@ -308,19 +316,19 @@ $\|g\|_\TV = \sup_{n \geq 1} \sup_{x_1 \leq \cdots \leq x_n}
 \sum_{i=1}^{n-1} |g(x_{i+1}) - g(x_i)|$.
 For an integer $m\geq 0$, denote by $\mathcal{C}^m(\mathcal{X})$
 the space of all functions from $\R$ to $\R$
-which are $m$ times continuously differentiable on $\mathcal{X}$.
-For $C>0$, define the H\"{o}lder class with smoothness $\beta > 0$ by
+which are $m$ times continuously differentiable on
+a subset $\mathcal{X} \subseteq \R$.
+For $C>0$, define the H\"{o}lder class with smoothness parameter
+$\beta > 0$ to be
 $\cH^\beta_C(\cX) =
 \big\{
-  g \in \cC^{\flbeta}(\cX): \
+  g \in \cC^{\flbeta}(\cX) \! : \!
   \max_{1 \leq r \leq \flbeta}
-  \big| g^{(r)}(x) \big| \leq C
-  \text{ and }
+  \big| g^{(r)}(x) \big| \leq C,
   \big| g^{(\flbeta)}(x) - g^{(\flbeta)}(x') \big|
-  \leq C |x-x'|^{\beta - \flbeta}, \
+  \leq C |x-x'|^{\beta - \flbeta},
   \forall x, x' \in \cX
-\big\},
-$
+\big\}$,
 where $\flbeta$ denotes the largest integer which is strictly less than $\beta$.
 Note that $\cH^1_C(\cX)$ is the class of $C$-Lipschitz functions on $\cX$.
 For $a \in \R$ and $b \geq 0$, we write $[a \pm b]$ for the interval
@@ -337,7 +345,10 @@ For $a,b \in \R$, define $a\wedge b=\min\{a,b\}$ and $a \vee b = \max\{a,b\}$.
 
 \section{Setup}\label{sec:kernel_setup}
 
-We impose the following two assumptions throughout this chapter.
+We impose the following two assumptions throughout this chapter,
+which concern firstly the dyadic data generating process, and
+secondly the choice of kernel and bandwidth sequence.
+
 %
 \begin{assumption}[Data generation]\label{ass:kernel_data}
   %
@@ -367,7 +378,8 @@ We impose the following two assumptions throughout this chapter.
 In Assumption~\ref{ass:kernel_data} we require the density $f_W$ be in a
 $\beta$-smooth H\"older class of functions on the compact interval $\cW$.
 H\"older classes are well-established in the minimax estimation literature
-\citep{gine2021mathematical}, with the smoothness parameter $\beta$ appearing
+\citep{stone1982optimal,gine2021mathematical},
+with the smoothness parameter $\beta$ appearing
 in the minimax-optimal rate of convergence. If the H\"older condition is
 satisfied only piecewise, then our results remain valid provided that the
 boundaries between the pieces are known and treated as boundary points.
@@ -409,15 +421,15 @@ This assumption allows for all standard compactly supported and possibly
 boundary-corrected kernel functions
 \citep{wand1994kernel,simonoff1996smoothing}, constructed for example by taking
 polynomials on a compact interval and solving a linear system for the
-coefficients. Assumption~\ref{ass:kernel_bandwidth} implies that if $h \leq 1$
-then $k_h$ is uniformly bounded by
+coefficients. Assumption~\ref{ass:kernel_bandwidth} implies
+(see Lemma~\ref{lem:lipschitz_kernels_bounded} in Appendix~\ref{app:kernel})
+that if $h \leq 1$ then $k_h$ is uniformly bounded by
 $C_\rk h^{-1}$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
 
 \subsection{Bias characterization}
 \label{sec:kernel_bias}
 
-We begin our analysis of the dyadic kernel density estimator with a simple
-exercise in characterizing and bounding its bias
+We begin our with a simple exercise in characterizing and bounding the bias
 $B_n(w) = \E \big[ \hat f_W(w) \big] - f_W(w)$.
 Theorem~\ref{thm:kernel_bias} is a standard result for the
 non-random smoothing or misspecification bias in kernel density estimation with
@@ -485,8 +497,7 @@ Lemma~\ref{lem:hoeffding}, which is a key element in our analysis.
   \label{lem:hoeffding}
 
   Suppose that Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
-  hold. Define the linear term, quadratic term and error term of
-  $\hat f_W(w)$ as
+  hold. Define the linear, quadratic, and error terms
   %
   \begin{align*}
     L_n(w)
@@ -521,18 +532,18 @@ Lemma~\ref{lem:hoeffding}, which is a key element in our analysis.
     \hat f_W(w) - f_W(w) = L_n(w) + Q_n(w) + E_n(w) + B_n(w).
   \end{align}
   %
-  Further, the stochastic processes $L_n$, $Q_n$ and $E_n$ are mean-zero
+  The processes $L_n$, $Q_n$ and $E_n$ are mean-zero
   with $\E\big[L_n(w)\big] = \E\big[Q_n(w)\big] = \E\big[E_n(w)\big] = 0$
-  for all $w \in \cW$. Also they are mutually orthogonal in $L^2(\P)$,
+  for all $w \in \cW$. They are also orthogonal,
   satisfying $\E\big[ L_n(w) Q_n(w') \big] = \E\big[ L_n(w) E_n(w') \big]
   = \E\big[ Q_n(w) E_n(w') \big] = 0$ for all $w, w' \in \cW$.
   %
 \end{lemma}
 
-The stochastic process $L_n$ is akin to the H{\'a}jek projection of a U-process,
-which can exhibit degeneracy, in the sense that $\Var[L_n(w)] = 0$, at some
-or possibly all points $w \in \cW$. To characterize the different possible
-types of degeneracy in Lemma~\ref{lem:trichotomy},
+The process $L_n$ is the H{\'a}jek projection of a U-process,
+which can exhibit degeneracy if $\Var[L_n(w)] = 0$ at some
+or all points $w \in \cW$. To characterize the different possible
+degeneracy types in Lemma~\ref{lem:trichotomy},
 we first introduce the following lower and upper degeneracy constants:
 %
 \begin{align*}
@@ -596,10 +607,9 @@ degeneracy.
 Lemma~\ref{lem:uniform_concentration} captures the potential total degeneracy
 of $L_n$ by illustrating how if $\Du=0$ then $L_n=0$ everywhere on $\cW$ almost
 surely. The following lemma captures the potential partial degeneracy of $L_n$,
-where $\Du > \Dl = 0$. For $w,w' \in \cW$, define the covariance function of
-the dyadic kernel density estimator as
+where $\Du > \Dl = 0$. For $w,w' \in \cW$, define the covariance function
 %
-\begin{equation*}
+\begin{align*}
   \Sigma_n(w,w') =
   \E\Big[
     \Big(
@@ -611,7 +621,7 @@ the dyadic kernel density estimator as
       - \E\big[\hat f_W(w')\big]
     \Big)
   \Big].
-\end{equation*}
+\end{align*}
 %
 \begin{lemma}[Variance bounds]
   \label{lem:variance_bounds}
@@ -674,20 +684,20 @@ Consider the parameter choices:
 \end{enumerate}
 %
 Figure~\ref{fig:distribution} demonstrates these phenomena, plotting the
-unconditional density $f_W$ and the standard deviation of the conditional
+density $f_W$ and the standard deviation of the conditional
 density $f_{W|A}$ over $\cW = [-2,2]$ for each choice of the parameter $\pi$.
 
 The trichotomy of total/partial/no  degeneracy is useful for understanding the
 distributional properties of the dyadic kernel density estimator
 $\hat{f}_W(w)$. Crucially, our need for uniformity in $w$ complicates the
 simpler degeneracy/no degeneracy dichotomy observed previously in the
-literature \citep{graham2024kernel}. More specifically, from a pointwise-in-$w$
+literature \citep{graham2024kernel}. From a pointwise-in-$w$
 perspective, partial degeneracy causes no issues, while it is a fundamental
 problem when conducting inference uniformly over $w \in \cW$. We develop
-inference methods that are valid uniformly over $w \in \cW$, regardless of the
-presence of partial or total degeneracy.
+methods that are valid regardless of the presence of partial or total
+degeneracy.
 
-\begin{figure}[ht]
+\begin{figure}[t]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
@@ -720,7 +730,8 @@ presence of partial or total degeneracy.
 
 \section{Point estimation results}\label{sec:point_estimation}
 
-Using Theorem~\ref{thm:kernel_bias} and Lemma~\ref{lem:uniform_concentration},
+Using the bias bound from Theorem~\ref{thm:kernel_bias} and
+the concentration results from Lemma~\ref{lem:uniform_concentration},
 the next theorem establishes an upper bound on the uniform convergence rate of
 $\hat f_W$.
 %
@@ -760,8 +771,8 @@ light of the degeneracy trichotomy from Lemma~\ref{lem:trichotomy}.
 \end{enumerate}
 
 These results generalize \citet*[Theorem~1]{chiang2020empirical}
-by allowing for compactly supported data and more general kernel-like
-functions $k_h(\cdot,w)$, enabling boundary-adaptive density estimation.
+by allowing for compactly supported data and more general kernels
+$k_h(\cdot,w)$, enabling boundary-adaptive estimation.
 
 \subsection{Minimax optimality}
 
@@ -817,8 +828,8 @@ is determined by the bias $B_n$ and the leading variance term $E_n$ in
 \eqref{eq:h-decomposition}.
 
 Combining Theorems \ref{thm:uniform_consistency}~and~\ref{thm:kernel_minimax},
-we conclude that $\hat{f}_W(w)$ achieves the minimax-optimal rate of uniform
-convergence for estimating $f_W(w)$ if $h \asymp \left( \frac{\log n}{n^2}
+we conclude that $\hat{f}_W(w)$ achieves the minimax-optimal rate for uniformly
+estimating $f_W(w)$ if $h \asymp \left( \frac{\log n}{n^2}
 \right)^{\frac{1}{2\beta+1}}$ and a kernel of sufficiently high order
 ($p \geq \beta$) is used, whether or not there are any degenerate points in the
 underlying data generating process. This result appears to be new to the
@@ -849,7 +860,7 @@ are available in Section~\ref{sec:kernel_technical}.
 
 By the Hoeffding-type decomposition \eqref{eq:h-decomposition} and
 Lemma~\ref{lem:uniform_concentration}, it suffices to consider the
-distributional properties of the stochastic process $(L_n(w)+E_n(w):w\in\cW)$.
+distributional properties of the stochastic process $L_n + E_n$.
 Our approach combines the K{\'o}mlos--Major--Tusn{\'a}dy (KMT) approximation
 \citep{komlos1975approximation} to obtain a strong approximation of $L_n$ with
 a Yurinskii approximation \citep{yurinskii1978error} to obtain a
@@ -858,7 +869,7 @@ necessary because $E_n$ is akin to a local empirical process of i.n.i.d.\
 random variables, conditional on $\bA_n$, and therefore the KMT approximation
 is not applicable. These approximations are then combined to give a final
 (unconditional) strong approximation for $L_n+E_n$, and thus for the
-$t$-statistic process $(T_n(w):w\in\cW)$.
+$t$-statistic process $T_n$.
 
 The following lemma is an application of our generic KMT approximation result
 for empirical processes, given in Section~\ref{sec:kernel_technical}, which
@@ -907,7 +918,7 @@ refinement by \citet{belloni2019conditional}.
   %
   Suppose Assumptions \ref{ass:kernel_data}~and~\ref{ass:kernel_bandwidth} hold
   and take any $R_n \to \infty$. For each $n$ there exists $\tilde Z^E_n$
-  which is a mean-zero Gaussian process conditional on $\bA_n$ satisfying
+  a mean-zero Gaussian process conditional on $\bA_n$ satisfying
   $\sup_{w \in \cW}
   \big| \sqrt{n^2h} E_n(w) - \tilde Z_n^E(w) \big|
   \lesssim_\P \frac{(\log n)^{3/8} R_n}{n^{1/4}h^{3/8}}$,
@@ -918,7 +929,7 @@ refinement by \citet{belloni2019conditional}.
 \end{lemma}
 
 The process $\tilde Z_n^E$ is a Gaussian process conditional on $\bA_n$ but is
-not in general a Gaussian process unconditionally. The following lemma further
+not in general a Gaussian process unconditionally. The following lemma
 constructs an unconditional Gaussian process $Z_n^E$ that approximates
 $\tilde Z_n^E$.
 
@@ -1010,7 +1021,7 @@ $\sqrt{h}\log n + n^{-1/4}h^{-3/8}(\log n)^{3/8} R_n + n^{-1/6}(\log n)^{2/3}
 + n h^{1/2+p\wedge\beta}$. If, for example, $n h^{p\wedge\beta}\lesssim 1$,
 then our result can achieve a strong approximation rate of $n^{-1/7}$ up to
 $\log n $ terms. Theorem~\ref{thm:strong_approx_Tn} appears to be the first in
-the dyadic literature which is also robust to the presence of (unknown)
+the dyadic literature which is also robust to the presence of
 degenerate points in the underlying dyadic distribution.
 
 \subsection{Application: confidence bands}
@@ -1024,7 +1035,7 @@ robust bias correction methods. Before presenting our result on valid
 infeasible uniform confidence bands, we first impose in
 Assumption~\ref{ass:rates} some extra restrictions on the bandwidth sequence,
 which depend on the degeneracy type of the dyadic distribution, to ensure the
-coverage rate converges in large samples.
+coverage rate converges.
 
 \begin{assumption}[Rate restriction for uniform confidence bands]
   \label{ass:rates}
@@ -1162,9 +1173,10 @@ Section~\ref{sec:kernel_setup}.
 
 Denote by $\hat\Sigma_n^+$ any (approximately) optimal solution to
 (\ref{eq:sdp}). The following lemma establishes uniform convergence rates
-for both $\hat \Sigma_n$ and $\hat \Sigma_n^+$. It allows us to use
-these estimators to construct feasible versions of $T_n$ and its associated
-Gaussian approximation $Z_n^{T}$ defined in Theorem~\ref{thm:strong_approx_Tn}.
+for both $\hat \Sigma_n$ and $\hat \Sigma_n^+$. 
+We then use $\hat \Sigma_n^+$ to construct feasible versions of $T_n$ and its
+associated Gaussian approximation $Z_n^{T}$ defined in
+Theorem~\ref{thm:strong_approx_Tn}.
 %
 \begin{lemma}[Consistency of $\hat \Sigma_n$ and $\hat \Sigma_n^+$]
   \label{lem:sdp}
@@ -1795,7 +1807,7 @@ model is clear or where the histogram estimators perform poorly.
 \end{figure}
 
 To demonstrate the relative robustness of our counterfactual analysis to the
-choice of preliminary estimation step, we also provide results using a
+choice of preliminary estimation step, we provide results using a
 parametric estimator of the distribution of GDP. Figure~\ref{fig:trade_para}
 repeats the procedure used for Figure~\ref{fig:trade}, but this time replacing
 the histogram estimators by parametric estimators of the log GDP based on

@@ -2,7 +2,7 @@
 * Tasks
 ** TODO Final layout check
 *** TODO Find pages with most blank space and fix
-*** TODO Figure and table placement
+*** TODO Figure and table placement, floats
 *** TODO Widows and orphans
 ** TODO Pass
 *** DONE mondrian
@@ -13,6 +13,7 @@
 *** TODO yurinskii appendix
 ** TODO Spelling higher-order?
 ** TODO Table and algorithm stretch spacing
+** TODO Fix all labels
 * Formatting
 ** Page numbers no more than 0.5in from bottom
 ** Typeface 10-12pt
