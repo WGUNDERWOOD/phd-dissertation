@@ -3032,10 +3032,9 @@ they are needed.
 
   \proofparagraph{moment bound}
 
-  The final equation,
-  giving a moment bound for the simplified version,
-  can be deduced as follows.
+  We now obtain a moment bound for the simplified version.
   We already have that
+  %
   \begin{align*}
     \P\left(
       \|U_n\|_2
@@ -3046,8 +3045,10 @@ they are needed.
     &\leq
     C e^{-t}.
   \end{align*}
+  %
   This implies that for any $t \geq \log d$,
   we have
+  %
   \begin{align*}
     \P\left(
       \|U_n\|_2
@@ -5033,10 +5034,11 @@ Lemma~\ref{lem:bv_characterization}.
 
 \subsection{Main results}
 
-We give our main results on
-consistency, minimax optimality, strong approximation,
-covariance estimation, feasible inference
-and counterfactual estimation.
+We give supplementary details for our main results on consistency, minimax
+optimality, strong approximation, covariance estimation, feasible inference and
+counterfactual estimation.
+
+\TODO{discuss these more}
 
 \subsubsection{Bias}
 
@@ -5072,8 +5074,6 @@ We begin with a basic fact about Lipschitz functions.
 
 \end{lemma}
 
-\begin{remark}
-
   Applying Lemma~\ref{lem:lipschitz_kernels_bounded}
   to the density and kernel functions defined in
   Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
@@ -5103,8 +5103,6 @@ We begin with a basic fact about Lipschitz functions.
     f_W(w)
     &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}.
   \end{align*}
-
-\end{remark}
 
 \begin{proof}[Lemma~\ref{lem:lipschitz_kernels_bounded}]
 
@@ -5392,8 +5390,9 @@ We begin with a basic fact about Lipschitz functions.
       - \E[k_h(W_{i j},w)]
     \Big)
   \end{align*}
-  and apply Lemma~\ref{lem:general_hoeffding}
-  with
+  %
+  and apply Lemma~\ref{lem:general_hoeffding} with
+  %
   \begin{align*}
     u_{i j}
     &=
@@ -5439,7 +5438,6 @@ We begin with a basic fact about Lipschitz functions.
 
   \proofparagraph{expectation and covariance of $L_n$, $Q_n$ and $E_n$}
 
-  Observe that
   $L_n$, $Q_n$ and $E_n$
   are clearly mean-zero.
   For orthogonality,
@@ -6848,14 +6846,16 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   apply the KMT corollary from
   Lemma~\ref{lem:kmt_corollary}.
   Define
+  %
   \begin{align*}
     k_h^A(a, w) = 2\E[k_h(W_{i j},w) \mid A_i = a],
   \end{align*}
+  %
   which are of bounded variation in $a$ uniformly over $w$ since
+  %
   \begin{align*}
-    &\sup_{w \in \cW} \|k_h^A(\cdot,w)\|_\TV \\
-    &\quad=
-    2\sup_{w \in \cW}
+    &\sup_{w \in \cW} \|k_h^A(\cdot,w)\|_\T
+    = 2\sup_{w \in \cW}
     \sup_{m \in \N}
     \sup_{a_0 \leq \cdots \leq a_m}
     \sum_{i=1}^m
@@ -8935,13 +8935,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{proof}[Lemma~\ref{lem:covariance_estimation}]
 
-  \TODO{spacing}
   Throughout this proof we will write
   $k_{i j}$ for $k_h(W_{i j},w)$ and
   $k_{i j}'$ for $k_h(W_{i j},w')$,
   in the interest of brevity.
   Similarly we write $S_{i j r}$ to denote $S_{i j r}(w,w')$.
   The estimand and estimator are reproduced below for clarity.
+  %
   \begin{align*}
     \Sigma_n(w,w')
     &=
@@ -8972,25 +8972,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
   %
   where
   %
-  \begin{align*}
-    S_{i j r}
-    &=
-    \frac{1}{6}
-    \Big(
-      k_{i j}
-      k_{i r}'
-      + k_{i j}
-      k_{jr}'
-      + k_{i r}
-      k_{i j}'
-      + k_{i r}
-      k_{jr}'
-      + k_{jr}
-      k_{i j}'
-      + k_{jr}
-      k_{i r}'
-    \Big).
-  \end{align*}
+  $S_{i j r} = \frac{1}{6}
+  \big( k_{i j} k_{i r}'
+    + k_{i j} k_{jr}'
+    + k_{i r} k_{i j}'
+    + k_{i r} k_{jr}'
+    + k_{jr} k_{i j}'
+    + k_{jr} k_{i r}'
+  \big).$
   %
   We will prove uniform consistency of each of the three terms separately.
 
