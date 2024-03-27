@@ -15,8 +15,6 @@ results presented in the main text, alongside some intermediate
 lemmas which were skipped for conciseness.
 We begin with some extra notation used throughout this appendix.
 
-\subsection{Notation}
-
 For real vectors,
 $\|\cdot\|_p$ is the standard $\ell^p$
 norm defined for $p \in [1, \infty]$.
@@ -469,6 +467,7 @@ and properties of $\Sigma_n$ established in Lemma~\ref{lem:variance_bounds}.
 %\subsection{Covariance structure}
 
 \subsection{Covariance estimation}
+\label{sec:app_covariance_estimation}
 
 In this section we carefully construct a consistent estimator for the
 covariance function $\Sigma_n$. Firstly we characterize $\Sigma_n$ in
@@ -615,9 +614,6 @@ alternative representation which is more amenable to computation.
 
 \end{lemma}
 
-\subsection{Positive semi-definite covariance estimation}
-\label{sec:app_psd}
-
 We show how to obtain a positive semi-definite estimator $\hat \Sigma_n^+$
 which is uniformly entrywise-consistent for $\Sigma_n$. Define $\hat \Sigma_n$
 as in Lemma~\ref{lem:covariance_estimation} and consider the following
@@ -707,9 +703,8 @@ verified.
 We use the strong approximation derived in
 Section~\ref{sec:strong_approx} and the
 positive semi-definite covariance estimator introduced in
-Section~\ref{sec:app_psd} to construct feasible uniform
-confidence bands.
-We drop the prime notation for copies of processes
+Section~\ref{sec:app_covariance_estimation} to construct feasible uniform
+confidence bands. We drop the prime notation for copies of processes
 in the interest of clarity.
 
 \begin{lemma}[Proximity of the standardized and studentized $t$-statistics]
@@ -9353,9 +9348,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \lesssim 1,
   \end{align*}
   and similarly for the other summands in $S_{i j r}$,
-  giving the almost-sure bound
-  $|S_{i j r}^{(2)}| \lesssim 1$.
-  We also have
+  giving the almost sure bound
+  $|S_{i j r}^{(2)}| \lesssim 1$. Also,
+  %
   \begin{align*}
     \Var\big[ \E[k_{i j} \mid A_i] \E[k_{i r}' \mid A_i] \big]
     &\lesssim

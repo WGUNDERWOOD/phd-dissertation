@@ -9,7 +9,7 @@
 *** DONE kernel
 *** TODO yurinskii
 *** TODO mondrian appendix
-*** NOW kernel appendix
+*** DONE kernel appendix
 *** TODO yurinskii appendix
 ** TODO Spelling higher-order?
 ** TODO Table and algorithm stretch spacing
@@ -17,6 +17,7 @@
 ** TODO No hyphen after well
 ** TODO Remove comments
 ** TODO Subsubsections?
+** TODO Almost-sure spelling
 ** TODO Fix all labels
 ** TODO Warn when breaking an equation or hyphenating?
 * Formatting

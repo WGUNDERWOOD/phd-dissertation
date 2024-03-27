@@ -670,10 +670,9 @@ have heavy tails is a recurring challenge.
     \end{cases}
   \end{align*}
   %
-  If $k>2$ we simply use
+  If $k>2$ we use
   $\frac{1}{1 \vee (n |T(x)|)^k} \leq \frac{1}{1 \vee (n |T(x)|)^{k-1}}$
-  to reduce the value of $k$.
-  Now if $k = 1$ we let $t \to 0$, giving
+  to reduce $k$. Now if $k = 1$ we let $t \to 0$, giving
   %
   \begin{align*}
     \E \left[
@@ -729,8 +728,8 @@ explicit bound with no expectations on the right-hand side.
   Mondrian random forest denominators]%
   \label{lem:simple_moment_denominator}
   %
-  Grant Assumptions~\ref{ass:mondrian_data}
-  and \ref{ass:estimator}.
+  Suppose Assumptions~\ref{ass:mondrian_data}
+  and \ref{ass:estimator} hold.
   Let $T_b \sim \cM\big([0,1]^d, \lambda\big)$
   and $k_b \geq 1$ for $1 \leq b \leq B_0$.
   Then with $k = \sum_{b=1}^{B_0} k_b$,
@@ -974,9 +973,8 @@ results for the Mondrian random forest estimator without debiasing.
 \subsection*{Proof of central limit theorem}
 
 \begin{proof}[Theorem~\ref{thm:clt}]
-  Follows from the debiased version.
-  See the proof of Theorem~\ref{thm:clt_debiased} and set $J=0$,
-  $a_0 = 1$, and $\omega_0 = 1$.
+  From the debiased version
+  (Theorem~\ref{thm:clt_debiased}) with $J=0$, $a_0 = 1$, and $\omega_0 = 1$.
 \end{proof}
 
 \subsection*{Proof of bias characterization}
@@ -1000,9 +998,9 @@ for details on our approach to this proof.
     \frac{\I_{i b}(x)}{N_b(x)}.
   \end{align*}
   %
-  Now conditional on $\bX$,
+  Conditional on $\bX$,
   the terms in the outer sum depend only on $T_b$ so are i.i.d.
-  Since $\mu$ is Lipschitz,
+  As $\mu$ is Lipschitz,
   %
   \begin{align*}
     \Var \left[
@@ -1040,9 +1038,8 @@ for details on our approach to this proof.
     \frac{1}{\lambda^2 B},
   \end{align*}
   %
-  where we used the law of $T(x)_j$ from
-  \citet[Proposition~1]{mourtada2020minimax}.
-  So by Chebyshev's inequality,
+  using the law of $T(x)_j$ from \citet[Proposition~1]{mourtada2020minimax}.
+  By Chebyshev's inequality,
   %
   \begin{align*}
     \big|
@@ -1289,11 +1286,10 @@ for details on our approach to this proof.
     \right].
   \end{align*}
   %
-  By Lemma~\ref{lem:binomial_expectation}, since
+  By Lemma~\ref{lem:binomial_expectation}, as
   $N_{-i b}(x) \sim \Bin\left(n-1,
   \int_{T_b(x)} f(s) \diff s \right)$
-  given $\bT$
-  and $f$ is bounded away from zero,
+  given $\bT$ and $f$ is bounded below,
   %
   \begin{align*}
     \left|
@@ -1636,7 +1632,7 @@ for details on our approach to this proof.
   %
   The final step is to replace $E_{1j*}$
   by $E_{1j} \sim \Exp(1)$ and similarly for $E_{2j*}$.
-  Note that for a positive constant $C$,
+  For some $C > 0$,
   %
   \begin{align*}
     \P \left(
@@ -1718,8 +1714,7 @@ for details on our approach to this proof.
   $\sum_{|\nu|=1}^{\flbeta} \nu_j u_\nu$ is even, so
   $|\{\nu : \nu_j u_\nu \text{ is odd}\}|$ is even.
   Consider the effect of swapping $E_{1j}$ and $E_{2j}$,
-  an operation which by independence preserves their joint law,
-  in each of
+  an operation which preserves their joint law, in each of
   %
   \begin{align}
     \label{eq:bias_odd_1}
