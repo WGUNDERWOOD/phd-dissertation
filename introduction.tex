@@ -22,8 +22,7 @@ Further, the resulting
 methods often as a consequence inherit desirable robustness properties against
 various forms of misspecification or misuse. The class of problems which can be
 formulated is correspondingly larger: arbitrary distributions and
-relationships between variables can be characterized and estimated in a
-principled and general manner.
+relationships can be characterized and estimated in a principled manner.
 
 % nonparametric estimation is hard
 Nonetheless, these attractive properties do come at a price. In particular, as
@@ -77,9 +76,8 @@ statistics with complex data.
 \section*{Overview of the dissertation}
 
 % what we do
-This dissertation presents a selection of topics related to nonparametric
-estimation and inference, their applications to complex data, and the technical
-mathematical tools used in their theoretical analysis.
+This dissertation presents a selection of topics relating to nonparametric
+estimation and inference, and the associated technical mathematical tools.
 
 % mondrian
 Chapter~\ref{ch:mondrian}, titled ``Inference with Mondrian Random Forests,''
@@ -121,7 +119,7 @@ statistical inference, such as constructing confidence intervals, on the
 unknown regression function. We also provide a debiasing procedure for Mondrian
 random forests which allows them to achieve minimax-optimal estimation rates
 with H{\"o}lder smooth regression functions, for any smoothness parameter and
-in arbitrary dimension, assuming appropriate parameter tuning.
+in arbitrary dimension.
 
 % kernel
 Chapter~\ref{ch:kernel}, titled ``Dyadic Kernel Density Estimators,'' is based
@@ -142,8 +140,8 @@ data, and in particular we seek methods which are robust in the sense that our
 results should hold uniformly across the support of the data. Such uniformity
 guarantees allow for statistical inference in a broader range of settings,
 including specification testing and distributional counterfactual analysis. We
-specifically consider the problem of uniformly estimating a dyadic Lebesgue
-density function, focusing on kernel-based estimators taking the form of dyadic
+specifically consider the problem of uniformly estimating a dyadic
+density function, focusing on kernel estimators taking the form of dyadic
 empirical processes.
 
 % main contributions
@@ -163,11 +161,11 @@ to the potential presence of such points.
 % applications
 For implementation purposes, we discuss inference procedures based on positive
 semi-definite covariance estimators, mean squared error optimal bandwidth
-selectors, and robust bias correction techniques. We illustrate the empirical
+selectors, and robust bias correction. We illustrate the empirical
 finite-sample performance of our methods, both in simulations and with
 real-world trade data, for which we make comparisons between observed and
 counterfactual trade distributions in different years. Our technical results
-concerning strong approximations and maximal inequalities are of potential
+on strong approximations and maximal inequalities are of potential
 independent interest.
 
 % yurinskii
@@ -195,9 +193,9 @@ strong conditions.
 
 % what we do
 We present as our main result a Yurinskii coupling for approximate martingales
-in $\ell^p$-norm, under substantially weaker conditions than those previously
-imposed. Our formulation further allows for the coupling variable to follow a
-more general Gaussian mixture distribution, and we provide a novel third-order
+in $\ell^p$-norm, under substantially weaker conditions than previously
+imposed. Our formulation allows the coupling variable to follow a
+general Gaussian mixture distribution, and we provide a novel third-order
 coupling method which gives tighter approximations in certain situations. We
 specialize our main result to mixingales, martingales, and independent data,
 and derive uniform Gaussian mixture strong approximations for martingale

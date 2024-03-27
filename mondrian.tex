@@ -435,7 +435,7 @@ central limit theorem (weak convergence to a Gaussian) for the first
 ``variance'' term in \eqref{eq:mondrian_bias_variance}. Secondly, we precisely
 compute
 the probability limit of the second ``bias'' term. By ensuring that the
-standard deviation dominates the bias, we can conclude that a corresponding
+standard deviation dominates the bias, a corresponding
 central limit theorem holds for the Mondrian random forest. With an appropriate
 estimator for the limiting variance, we establish procedures for valid and
 feasible statistical inference on the unknown regression function $\mu(x)$.
@@ -488,16 +488,15 @@ details.
 \subsection{Central limit theorem}
 \label{sec:mondrian_clt}
 
-Theorem~\ref{thm:mondrian_clt} gives our first main result; a central
-limit theorem.
+Theorem~\ref{thm:mondrian_clt} gives our first main result.
 
 \begin{theorem}[Central limit theorem for the centered
   Mondrian random forest estimator]%
   \label{thm:mondrian_clt}
   %
   Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator}
-  hold,
-  $\E[Y_i^4 \mid X_i ]$ is bounded almost surely,
+  hold, and further assume that
+  $\E[Y_i^4 \mid X_i ]$ is bounded almost surely
   and $\frac{\lambda^d \log n}{n} \to 0$. Then
   %
   \begin{align*}
@@ -550,7 +549,6 @@ when we
 construct a debiased Mondrian random forest estimator. There, we target and
 annihilate the higher-order terms in order to furnish superior estimation and
 inference properties.
-
 Theorem~\ref{thm:mondrian_bias} gives our main result on
 the bias of the Mondrian random forest estimator.
 
@@ -614,8 +612,8 @@ infinity
 then we suffer the first-order bias term $\frac{1}{\lambda \sqrt B}$. This
 phenomenon was explained by \citet{mourtada2020minimax}, who noted that it
 allows single Mondrian trees to achieve minimax optimality only when
-$\beta \in (0, 1]$. In contrast, large forests remove this first-order bias
-and as such are optimal for all $\beta \in (0, 2]$.
+$\beta \in (0, 1]$. Large forests remove this first-order bias
+and are optimal for all $\beta \in (0, 2]$.
 
 Using Theorem~\ref{thm:mondrian_clt} and Theorem~\ref{thm:mondrian_bias}
 together,
@@ -700,8 +698,8 @@ Section~\ref{sec:mondrian_parameter_selection}.
 \begin{theorem}[Feasible confidence intervals using a Mondrian random forest]%
   \label{thm:mondrian_confidence}
   %
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator}
-  hold,
+  Suppose that Assumptions~\ref{ass:mondrian_data} and
+  \ref{ass:mondrian_estimator} hold,
   $\E[Y_i^4 \mid X_i ]$ is bounded almost surely,
   and $\frac{\lambda^d \log n}{n} \to 0$. Assume that
   $\lambda \gg n^{\frac{1}{d + 2(2 \wedge \beta)}}$
@@ -736,8 +734,9 @@ of the original Mondrian random forest estimator beyond ensuring that the bias
 is negligible, and in particular does not rely on sample splitting. The
 construction of confidence intervals is just one corollary of the weak
 convergence result given in Theorem~\ref{thm:mondrian_clt}, and follows
-immediately from
-Slutsky's theorem with a consistent variance estimator. Other applications
+immediately from Slutsky's theorem
+\citep[Chapter~7]{pollard2002user}
+with a consistent variance estimator. Other applications
 include hypothesis testing on the value of $\mu(x)$ at a design point $x$ by
 inversion of the confidence interval, as well as parametric specification
 testing by comparison with a $\sqrt{n}$-consistent parametric regression
@@ -761,10 +760,10 @@ Section~\ref{sec:mondrian_debiased}.
 
 \subsection*{Preliminary results}
 
-The starting point for our proofs is a result characterizing the exact
+The starting point for our proofs is a characterization of the exact
 distribution of the shape of a Mondrian cell $T(x)$. This property is a direct
 consequence of the fact that the restriction of a Mondrian process to a subcell
-remains a Mondrian process \citep[Fact~2]{mourtada2020minimax}. We have that
+remains Mondrian \citep[Fact~2]{mourtada2020minimax}. We have
 %
 \begin{align*}
   |T(x)_j|
@@ -775,8 +774,8 @@ remains a Mondrian process \citep[Fact~2]{mourtada2020minimax}. We have that
 for all $1 \leq j \leq d$, recalling that $T(x)_j$ is the side of the cell
 $T(x)$ aligned with axis $j$, and where $E_{j1}$ and $E_{j2}$ are mutually
 independent $\Exp(1)$ random variables. Our assumptions that $x \in (0,1)$ and
-$\lambda \to \infty$ mean that the boundary terms $x_j$ and $1-x_j$ are
-eventually ignorable and so
+$\lambda \to \infty$ make the boundary terms $x_j$ and $1-x_j$
+eventually ignorable so
 %
 \begin{align*}
   |T(x)_j| &= \frac{E_{j1} + E_{j2}}{\lambda}
@@ -976,7 +975,7 @@ characterize the probability limit of the conditional bias
   \frac{\I\{X_i \in T_b(x)\}}{N_b(x)}.
 \end{align*}
 %
-The first step in this proof is to pass to the ``infinite forest''
+The first step is to pass to the ``infinite forest''
 limit by taking an expectation conditional on $\bX$, or equivalently
 marginalizing over $\bT$, applying the conditional Markov inequality
 to see
@@ -1175,9 +1174,8 @@ debiased Mondrian random forest estimator $\hat\mu_\rd(x)$.
 
 \begin{theorem}[Bias of the debiased Mondrian random forest estimator]%
   \label{thm:mondrian_bias_debiased}
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator}
-  hold.
-  Then using the notation of Theorem~\ref{thm:mondrian_bias} and with
+  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator}.
+  In the notation of Theorem~\ref{thm:mondrian_bias} with
   $\bar\omega = \sum_{r=0}^J \omega_r a_r^{-2J - 2}$,
   %
   \begin{align*}
@@ -1738,16 +1736,14 @@ forests, we consider a simple application
 to a weather forecasting problem. We emphasize that the main aim of this
 section is to provide intuition and understanding for how a Mondrian random
 forest may be used in practice, and we refrain from an in-depth analysis of the
-specific results obtained. Indeed, our core assumption of i.i.d.\ data is almost
-certainly
-violated when treating weather data, due to the inherent time-series structure
-of the sequential observations.
+specific results obtained. Indeed, our assumption of i.i.d.\ data is
+certainly violated with weather data, due to the time-series
+structure of sequential observations.
 Nonetheless, we use data from the \cite{bureau2017daily}, containing daily
-weather
-information from the years 2007--2017, at 49 different
-locations across Australia, with a total of $n = 125\,927$ samples.
+weather information from 2007--2017, at 49 different
+locations across Australia, with $n = 125\,927$ samples.
 
-\begin{figure}[t]
+\begin{figure}[b!]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1795,7 +1791,7 @@ discussed in Section~\ref{sec:mondrian_clt}, with the piecewise constant
 estimator providing a poor approximation for the smooth true regression
 function.
 
-\begin{figure}[t]
+\begin{figure}[b!]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1828,7 +1824,7 @@ at which to conduct inference
 by constructing confidence intervals. See Table~\ref{tab:mondrian_weather_ci}
 for the results.
 
-\begin{figure}[t]
+\begin{figure}[b!]
   \centering
   \begin{subfigure}{0.49\textwidth}
     \centering
@@ -1869,7 +1865,7 @@ This is expected due to both the inflated variance resulting from the debiasing
 procedure, and the undersmoothing enacted by selecting a lifetime parameter
 using GCV on the original estimator without debiasing.
 
-\begin{table}[b!]
+\begin{table}[t]
   \centering
   \begin{tabular}{|c|c|c|c|c|c|c|}
     \hline
@@ -1927,18 +1923,16 @@ our modified debiased random forest estimator.
 \section{Conclusion}%
 \label{sec:mondrian_conclusion}
 
-We presented a central limit theorem for the Mondrian random forest estimator
+We gave a central limit theorem for the Mondrian random forest estimator
 and showed how to perform statistical inference on an unknown nonparametric
 regression function. We introduced debiased versions of the Mondrian random
-forest, exploiting any available higher-order smoothness, and demonstrated
-their advantages
-for statistical inference and their minimax optimality properties. We discussed
-tuning parameter selection, enabling fully feasible and practical estimation
-and inference procedures. An application to weather forecasting
-in Australia was presented
-as an illustrative example. Implementations of this chapter's methodology,
-along with replication files for the empirical results, are provided by a Julia
-package available at \github{wgunderwood/MondrianForests.jl}.
+forest, and demonstrated their advantages
+for statistical inference and minimax optimal estimation. We discussed
+tuning parameter selection, enabling a fully feasible and practical methodology.
+An application to weather forecasting was presented
+as an illustrative example. Implementations of this chapter's methodology and
+empirical results are provided by a Julia
+package at \github{wgunderwood/MondrianForests.jl}.
 This work is based on \citet{cattaneo2023inference}, and has been
 presented by Underwood at the University of Illinois Statistics Seminar (2024),
 the University of Michigan Statistics Seminar (2024), and the University of

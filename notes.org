@@ -2,6 +2,7 @@
 * Tasks
 ** TODO Final layout check
 *** TODO Find pages with most blank space and fix
+*** TODO Check refs
 *** TODO Figure and table placement, floats
 *** TODO Widows and orphans
 *** TODO Remove watermark
@@ -12,10 +13,9 @@
 *** TODO mondrian appendix
 *** TODO kernel appendix
 *** TODO yurinskii appendix
+** TODO Always use citep or citet
 * Formatting
-** Page numbers no more than 0.5in from bottom
-** Typeface 10-12pt
-** 1in margin on all sides
-** Double spacing
-** TODO subsubsection numbers?
-** TODO Check refs
+** DONE Page numbers no more than 0.5in from bottom
+** DONE Typeface 10-12pt
+** DONE 1in margin on all sides
+** DONE Double spacing
