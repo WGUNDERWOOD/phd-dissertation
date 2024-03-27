@@ -7,13 +7,13 @@
 *** TODO Widows and orphans
 *** TODO Remove watermark
 ** TODO Pass
-*** TODO mondrian
-*** TODO kernel
-*** TODO yurinskii
+*** DONE mondrian
+*** DONE kernel
+*** DONE yurinskii
 *** TODO mondrian appendix
 *** TODO kernel appendix
 *** TODO yurinskii appendix
-** TODO Always use citep or citet
+** TODO Single line align should be equation
 * Formatting
 ** DONE Page numbers no more than 0.5in from bottom
 ** DONE Typeface 10-12pt

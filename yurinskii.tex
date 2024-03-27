@@ -285,9 +285,7 @@ overlooked technicality relating to the derivation of bounds in probability
 from Yurinskii's coupling. As a first illustration of the power of our
 generalized $\ell^p$-norm Yurinskii coupling, we present in
 Section~\ref{sec:yurinskii_factor} a simple factor model example relating to
-all three of
-the aforementioned scenarios, discussing further how our contributions are
-related to the existing literature.
+all three of the aforementioned scenarios.
 
 \begin{theorem}[Strong approximation for vector-valued approximate martingales]
   \label{thm:yurinskii_sa_dependent}
@@ -484,8 +482,8 @@ define the functions $\phi_p : \N \to \R$ for $p \in [0, \infty]$,
 \begin{align*}
   \phi_p(d) =
   \begin{cases}
-    \sqrt{pd^{2/p} }  & \text{ if } p \in [1,\infty)\\
-    \sqrt{2\log 2d}   & \text{ if } p =\infty
+    \sqrt{pd^{2/p} } & \text{ if } p \in [1,\infty), \\
+    \sqrt{2\log 2d} & \text{ if } p =\infty,
   \end{cases}
 \end{align*}
 %
@@ -890,10 +888,8 @@ immediately yields the following result.
   %
 \end{corollary}
 
-Taking $\cH_0$ to be trivial, the first inequality
-\eqref{eq:yurinskii_sa_indep_order_2}
-in Corollary~\ref{cor:yurinskii_sa_indep} provides an $\ell^p$-norm
-approximation
+Taking $\cH_0$ to be trivial,
+\eqref{eq:yurinskii_sa_indep_order_2} provides an $\ell^p$-norm approximation
 analogous to that presented in \citet{belloni2019conditional}.
 By further
 restricting to $p=2$, we recover the original Yurinskii coupling as presented
@@ -1125,7 +1121,7 @@ $\log(N/h) \lesssim \log n$ and $n h \gtrsim \log n$,
   \big\|S(x) - S(x') \big\|_\infty
   &\lesssim_\P
   \delta
-  \sqrt{\frac{\log n}{n h^3}}, \quad\text{and}\quad
+  \sqrt{\frac{\log n}{n h^3}} \ \quad\text{and}\quad
   \sup_{|x-x'| \leq \delta}
   \big\|T(x) - T(x')\big\|_\infty
   \lesssim_\P
@@ -1145,8 +1141,8 @@ the resulting bound on the coupling error is
   + \delta \sqrt{\frac{\log n}{n h^3}},
 \end{align*}
 %
-where the mesh size $\delta$ can be optimized to obtain the tightest
-possible strong approximation.
+where the mesh size $\delta$ can then be approximately
+optimized to obtain the tightest possible strong approximation.
 
 The discretization strategy outlined above is at the core of the proof strategy
 for our upcoming Proposition~\ref{pro:yurinskii_emp_proc}. Since we will
@@ -1225,11 +1221,11 @@ The discussion in this section focuses on the strong approximation of the
 centered process $\hat g(x)-\E [ \hat g(x) ]$. In practice, the goal is often
 rather to approximate the feasible process $\hat g(x)- g(x)$. The difference
 between these is captured by the smoothing bias $\E [ \hat g(x) ] - g(x)$,
-which is straightforward to control with
+which is straightforward to control in this case with
 $\sup_{x \in \cX} \big| \E [ \hat g(x) ] - g(x) \big|
 \lesssim \frac{h}{a} e^{-a^2 / (2 h^2)}$.
 See Section \ref{sec:yurinskii_nonparametric} for further
-discussion.
+comments.
 
 \subsection{General result for martingale empirical processes}
 
@@ -1501,12 +1497,11 @@ Corollary~\ref{cor:yurinskii_sa_martingale}.
 We illustrate the applicability of our previous strong approximation results
 with two substantial and classical examples in nonparametric regression
 estimation. Firstly, we present an analysis of partitioning-based series
-estimators, in which we can apply Corollary~\ref{cor:yurinskii_sa_martingale}
-directly
-due to an intrinsic linear separability property. Secondly, we consider local
-polynomial estimators, this time using Proposition~\ref{pro:yurinskii_emp_proc}
-due to
-the presence of a non-linearly separable martingale empirical process.
+estimators, where we can apply Corollary~\ref{cor:yurinskii_sa_martingale}
+directly due to an intrinsic linear separability property. Secondly, we
+consider local polynomial estimators, this time using
+Proposition~\ref{pro:yurinskii_emp_proc} due to a non-linearly separable
+martingale empirical process.
 
 \subsection{Partitioning-based series estimators}
 \label{sec:yurinskii_series}
@@ -1552,12 +1547,12 @@ we can apply Corollary~\ref{cor:yurinskii_sa_martingale} directly to construct
 a Gaussian
 strong approximation. Specifically, we write
 %
-\begin{align*}
+\begin{equation*}
   \hat\mu(w) - \mu(w)
-  &= p(w)^\T H^{-1} S
+  = p(w)^\T H^{-1} S
   + p(w)^\T \big(\hat H^{-1} - H^{-1}\big) S
   + \Bias(w),
-\end{align*}
+\end{equation*}
 %
 where $H= \sum_{i=1}^n \E\left[p(W_i) p(W_i)^\T\right]$
 is the expected outer product matrix, $S = \sum_{i=1}^n p(W_i) \varepsilon_i$
@@ -1692,7 +1687,7 @@ Hence, for this approach to yield a valid strong approximation, the number of
 basis functions must satisfy $k^5/n \to 0$, a more restrictive assumption than
 our $k^3 / n \to 0$ (up to logs). This difference is due to
 \citet{li2020uniform} using the $\ell^2$-norm version of Yurinskii's coupling
-rather than the more recently established $\ell^\infty$-norm version. Further,
+rather than the recently established $\ell^\infty$ version. Further,
 our approach allows for an improved rate of distributional approximation
 whenever the residuals have zero conditional third moment.
 
@@ -1726,9 +1721,9 @@ $k^3(\log n)^6 / n \to 0$, giving
   &\to 0,
 \end{align*}
 %
-where $\rho(w,w') = \E[G(w)G(w')]$. Furthermore, by a Gaussian--Gaussian
+where $\rho(w,w') = \E[G(w)G(w')]$. Further, by a Gaussian--Gaussian
 comparison result \citep[Lemma~3.1]{chernozhukov2013gaussian} and
-anti-concentration again, it is not difficult to show (see the proof of
+anti-concentration, we show (see the proof of
 Proposition~\ref{pro:yurinskii_series}) that with $\bW = (W_1, \ldots, W_n)$ and
 $\bY = (Y_1, \ldots, Y_n)$,
 %
@@ -1846,7 +1841,7 @@ with $e_1 = (1, 0, \ldots, 0)^\T \in \R^k$ the first standard unit vector,
   \hat{\mu}(w)
   &=
   e_1^\T\hat{\beta}(w)
-  &\text{where}      &
+  &\text{where} &
   &\hat{\beta}(w)
   &=
   \argmin_{\beta \in \R^{k}}
@@ -2003,16 +1998,20 @@ approximating the supremum of the $t$-process based on i.i.d.\ data in
 Kolmogorov--Smirnov distance by bypassing the step where we first approximate
 the entire stochastic process (see Section~\ref{sec:yurinskii_emp_proc} for a
 discussion).
+Nonetheless, our approach targeting the entire process allows for a
+potential future
+treatment of other functionals as well as the supremum.
 
 We finally remark that in this setting of kernel-based local empirical
 processes, it is essential that our initial strong approximation result
 (Corollary~\ref{cor:yurinskii_sa_martingale}) does not impose a lower bound on
 the
 eigenvalues of the variance matrix $\Sigma$. This effect was demonstrated by
-Lemma \ref{lem:yurinskii_kde_eigenvalue} and its surrounding discussion in
-Section~\ref{sec:yurinskii_kde}, and as such, the result of
-\citet{li2020uniform} is
-unsuited for this application due to its strong minimum eigenvalue assumption.
+Lemma \ref{lem:yurinskii_kde_eigenvalue},
+Figure~\ref{fig:yurinskii_min_eig}, and their surrounding discussion in
+Section~\ref{sec:yurinskii_kde}. As such, the result of \citet{li2020uniform} is
+unsuited for this application, even in its simplest formulation,
+due to the strong minimum eigenvalue assumption.
 
 \section{Conclusion}
 \label{sec:yurinskii_conclusion}
@@ -2036,4 +2035,4 @@ martingales in developing uniform inference procedures for partitioning-based
 series estimators and local polynomial models in nonparametric regression. At
 each stage we addressed issues of feasibility, compared our work with the
 existing literature, and provided implementable statistical inference
-procedures. This work is based on \citet{cattaneo2022yurinskii}.
+procedures. The work in this chapter is based on \citet{cattaneo2022yurinskii}.

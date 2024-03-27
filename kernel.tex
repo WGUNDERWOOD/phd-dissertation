@@ -68,9 +68,9 @@ contemporary contributions and overviews. More recently, however, a few
 nonparametric procedures for dyadic data have been proposed in the literature
 \citep{graham2021minimax,graham2024kernel}.
 
-With the aim of estimating density-like functions associated with $W_{i j}$
-using nonparametric kernel-based methods, we investigate the statistical
-properties of a class of local stochastic processes given by
+With the aim of estimating functions associated with $W_{i j}$
+using nonparametric kernel methods, we investigate the statistical
+properties of the class of local stochastic processes
 %
 \begin{align}\label{eq:kernel_estimator}
   w \mapsto \hat{f}_W(w)
@@ -708,7 +708,7 @@ Figure~\ref{fig:kernel_distribution} demonstrates these phenomena, plotting the
 density $f_W$ and the standard deviation of the conditional
 density $f_{W|A}$ over $\cW = [-2,2]$ for each choice of the parameter $\pi$.
 
-The trichotomy of total/partial/no  degeneracy is useful for understanding the
+The trichotomy of total/partial/no degeneracy is useful for understanding the
 distributional properties of the dyadic kernel density estimator
 $\hat{f}_W(w)$. Crucially, our need for uniformity in $w$ complicates the
 simpler degeneracy/no degeneracy dichotomy observed previously in the
@@ -776,6 +776,10 @@ The implicit constant in Theorem~\ref{thm:kernel_uniform_consistency} depends
 only on
 $\cW$, $\beta$, $C_\rH$, and the choice of kernel. We interpret this result in
 light of the degeneracy trichotomy from Lemma~\ref{lem:kernel_trichotomy}.
+These results generalize \citet*[Theorem~1]{chiang2020empirical}
+by allowing for compactly supported data and more general kernels
+$k_h(\cdot,w)$, enabling boundary-adaptive estimation.
+
 %
 \begin{enumerate}[label=(\roman*)]
   \item Partial or no degeneracy: $\Du > 0$.
@@ -792,10 +796,6 @@ light of the degeneracy trichotomy from Lemma~\ref{lem:kernel_trichotomy}.
     \lesssim
     \big(\frac{\log n}{n^2} \big)^{\frac{p\wedge\beta}{2(p\wedge\beta)+1}}$.
 \end{enumerate}
-
-These results generalize \citet*[Theorem~1]{chiang2020empirical}
-by allowing for compactly supported data and more general kernels
-$k_h(\cdot,w)$, enabling boundary-adaptive estimation.
 
 \subsection{Minimax optimality}
 
@@ -910,7 +910,7 @@ and may be of independent interest.
   on $\cW$ satisfying
   $\E\big[ \sup_{w \in \cW} \big| \sqrt{n} L_n(w) - Z_n^L(w) \big| \big]
   \lesssim \frac{\Du \log n}{\sqrt{n}}$, where
-  $\E[Z_n^L(w)Z_n^L(w')] =  n\E[L_n(w)L_n(w')]$ for all $w, w' \in \cW$. The
+  $\E[Z_n^L(w)Z_n^L(w')] = n\E[L_n(w)L_n(w')]$ for all $w, w' \in \cW$. The
   process $Z_n^L$ is a function only of $\bA_n$ and some random noise
   independent of $(\bA_n, \bV_n)$.
 \end{lemma}
@@ -1013,10 +1013,10 @@ which is fully adaptive to such potential unknown degeneracy.
   $n$ there exists a centered Gaussian process $Z_n^{T}$ such that
   %
   \begin{align*}
-    &\sup_{w \in \cW} \left| T_n(w) - Z_n^{T}(w) \right| \\
-    &\quad\lesssim_\P
+    &\sup_{w \in \cW} \left| T_n(w) - Z_n^{T}(w) \right|
+    \lesssim_\P \!
     \frac{
-      n^{-1} \log n
+      n^{-1} \! \log n
       + n^{-5/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-7/6} h^{-1/2} (\log n)^{2/3}
     + h^{p\wedge\beta}}
@@ -1033,7 +1033,7 @@ $Q_n$.
 The second and third terms correspond to the conditional and unconditional
 strong approximation errors for $E_n$ in Lemmas
 \ref{lem:kernel_conditional_strong_approx_En} and
-\ref{lem:kernel_unconditional_strong_approx_En}, respectively.
+\ref{lem:kernel_unconditional_strong_approx_En}.
 The fourth term is from
 the smoothing bias result in Theorem~\ref{thm:kernel_bias}. The denominator is
 the lower bound on the standard deviation $\Sigma_n(w,w)^{1/2}$ formulated in
@@ -1234,7 +1234,7 @@ Theorem~\ref{thm:kernel_strong_approx_Tn}.
     &\lesssim_\P \frac{\sqrt{\log n}}{n}.
   \end{align*}
   %
-  Also, the optimization problem \eqref{eq:kernel_sdp} is a semi-definite
+  The optimization problem \eqref{eq:kernel_sdp} is a semi-definite
   program
   \citep[SDP,][]{laurent2005semidefinite} and has an approximately optimal
   solution $\hat\Sigma_n^+$ satisfying
@@ -1396,7 +1396,7 @@ misspecification) bias of the distributional approximation. To circumvent this
 problem and construct feasible uniform confidence bands for $f_W$, we employ
 the following robust bias correction approach.
 
-\begin{algorithm}[t]
+\begin{algorithm}[b!]
   \caption{Feasible uniform confidence bands}
   \label{alg:kernel_method}
   \setstretch{1.5}
@@ -1460,7 +1460,6 @@ and using the rule-of-thumb bandwidth choice $\hat{h}_{\ROT}$ defined above.
 In particular, this approach automatically delivers a KMT-optimal
 strong approximation whenever there are no degeneracies in the
 underlying dyadic data generating process.
-
 Our feasible robust bias correction method based on AIMSE-optimal dyadic
 kernel density estimation for constructing uniform confidence bands
 for $f_W$ is summarized in Algorithm~\ref{alg:kernel_method}.
@@ -1484,23 +1483,7 @@ interior point
 optimizer \citep{mosek}, ensuring positive semi-definite covariance estimates.
 Gaussian vectors are resampled $B = 10\,000$ times.
 
-In Figure~\ref{fig:kernel_results} we plot a typical outcome for each of the
-three
-degeneracy types (total, partial, none), using the Epanechnikov kernel of order
-$p=2$, with sample size $n=100$ (so $N=4950$ pairs of nodes) and with $d=100$
-equally-spaced evaluation points. Each plot contains the true density function
-$f_W$, the dyadic kernel density estimate $\hat f_W$ and two different
-approximate $95\%$ confidence bands for $f_W$. The first is the uniform
-confidence band (UCB) constructed using one of our main results,
-Theorem~\ref{thm:kernel_ucb}. The second is a sequence of pointwise confidence
-intervals (PCI) constructed by finding a confidence interval for each
-evaluation point separately. We show only $10$ pointwise confidence intervals
-for clarity. In general, the PCIs are too narrow as they fail to provide
-simultaneous (uniform) coverage over the evaluation points. Note that under
-partial degeneracy the confidence band narrows near the degenerate point
-$w = 0$.
-
-\begin{figure}[t]
+\begin{figure}[b!]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
@@ -1531,6 +1514,62 @@ $w = 0$.
   %
 \end{figure}
 
+In Figure~\ref{fig:kernel_results} we plot a typical outcome for each of the
+three
+degeneracy types (total, partial, none), using the Epanechnikov kernel of order
+$p=2$, with sample size $n=100$ (so $N=4950$ pairs of nodes) and with $d=100$
+equally-spaced evaluation points. Each plot contains the true density function
+$f_W$, the dyadic kernel density estimate $\hat f_W$ and two different
+approximate $95\%$ confidence bands for $f_W$. The first is the uniform
+confidence band (UCB) constructed using one of our main results,
+Theorem~\ref{thm:kernel_ucb}. The second is a sequence of pointwise confidence
+intervals (PCI) constructed by finding a confidence interval for each
+evaluation point separately. We show only $10$ pointwise confidence intervals
+for clarity. In general, the PCIs are too narrow as they fail to provide
+simultaneous (uniform) coverage over the evaluation points. Note that under
+partial degeneracy the confidence band narrows near the degenerate point
+$w = 0$.
+
+\begin{table}[b!]
+  \centering
+  \begin{tabular}{|c|c|c|c|c|cc|cc|}
+    \hline
+    \multirow{2}{*}{$ \pi $}
+    & \multirow{2}{*}{Degeneracy type}
+    & \multirow{2}{*}{$ \hat h_{\ROT} $}
+    & \multirow{2}{*}{$ p $}
+    & \multirow{2}{*}{RIMSE}
+    & \multicolumn{2}{|c|}{UCB}
+    & \multicolumn{2}{|c|}{PCI} \\
+    \cline{6-9}
+    & & & &
+    & CR & AW
+    & CR & AW \\
+    \hline
+    \multirow{2}{*}{$ \left(\frac{1}{2}, 0, \frac{1}{2}\right) $}
+    & \multirow{2}{*}{Total}
+    & \multirow{2}{*}{0.161}
+    & 2 & 0.00048 & 87.1\% & 0.0028 & 6.5\% & 0.0017 \\
+    & & & 4 & 0.00068 & 95.2\% & 0.0042 & 9.7\% & 0.0025 \\
+    \hline
+    \multirow{2}{*}{$ \left(\frac{1}{4}, 0, \frac{3}{4}\right) $}
+    & \multirow{2}{*}{Partial}
+    & \multirow{2}{*}{0.158}
+    & 2 & 0.00228 & 94.5\% & 0.0112 & 75.6\% & 0.0083 \\
+    & & & 4 & 0.00234 & 94.7\% & 0.0124 & 65.3\% & 0.0087 \\
+    \hline
+    \multirow{2}{*}{$ \left(\frac{1}{5}, \frac{1}{5}, \frac{3}{5}\right) $}
+    & \multirow{2}{*}{None}
+    & \multirow{2}{*}{0.145}
+    & 2 & 0.00201 & 94.2\% & 0.0106 & 73.4\% & 0.0077 \\
+    & & & 4 & 0.00202 & 95.6\% & 0.0117 & 64.3\% & 0.0080 \\
+    \hline
+  \end{tabular}
+  \caption[Numerical results for three values of the parameter $\pi$]{
+  Numerical results for three values of the parameter $\pi$.}
+  \label{tab:kernel_results}
+\end{table}
+
 Next, Table~\ref{tab:kernel_results} presents numerical results. For each
 degeneracy
 type (total, partial, none) and each kernel order ($p=2$, $p=4$), we run $2000$
@@ -1553,46 +1592,6 @@ undercover in every regime. Thus our simulation results show that the proposed
 feasible inference methods based on robust bias correction and proper
 Studentization deliver valid uniform inference which is robust to unknown
 degenerate points in the underlying dyadic distribution.
-
-\begin{table}[t]
-  \centering
-  \begin{tabular}{|c|c|c|c|c|cc|cc|}
-    \hline
-    \multirow{2}{*}{$ \pi $}
-    & \multirow{2}{*}{Degeneracy type}
-    & \multirow{2}{*}{$ \hat h_{\ROT} $}
-    & \multirow{2}{*}{$ p $}
-    & \multirow{2}{*}{RIMSE}
-    & \multicolumn{2}{|c|}{UCB}
-    & \multicolumn{2}{|c|}{PCI} \\
-    \cline{6-9}
-    & & & &
-    & CR & AW
-    & CR & AW \\
-    \hline
-    \multirow{2}{*}{$ \left(\frac{1}{2}, 0, \frac{1}{2}\right) $}
-    & \multirow{2}{*}{Total}
-    & \multirow{2}{*}{0.161}
-    & 2 & 0.00048 & 87.1\% & 0.0028 & 6.5\% & 0.0017 \\
-    & &  & 4 & 0.00068 & 95.2\% & 0.0042 & 9.7\% & 0.0025 \\
-    \hline
-    \multirow{2}{*}{$ \left(\frac{1}{4}, 0, \frac{3}{4}\right) $}
-    & \multirow{2}{*}{Partial}
-    & \multirow{2}{*}{0.158}
-    & 2 & 0.00228 & 94.5\% & 0.0112 & 75.6\% & 0.0083 \\
-    & &  & 4 & 0.00234 & 94.7\% & 0.0124 & 65.3\% & 0.0087 \\
-    \hline
-    \multirow{2}{*}{$ \left(\frac{1}{5}, \frac{1}{5}, \frac{3}{5}\right) $}
-    & \multirow{2}{*}{None}
-    & \multirow{2}{*}{0.145}
-    & 2 & 0.00201 & 94.2\% & 0.0106 & 73.4\% & 0.0077 \\
-    & &  & 4 & 0.00202 & 95.6\% & 0.0117 & 64.3\% & 0.0080 \\
-    \hline
-  \end{tabular}
-  \caption[Numerical results for three values of the parameter $\pi$]{
-  Numerical results for three values of the parameter $\pi$.}
-  \label{tab:kernel_results}
-\end{table}
 
 \section{Application: counterfactual dyadic density estimation}
 \label{sec:kernel_counterfactual}
@@ -1713,7 +1712,7 @@ $\E\big[\hat Z_n^{T, 1 \triangleright 0}(w)
 \hat \Sigma_n^{+, 1 \triangleright 0}(w',w')}}$.
 For $\alpha \in (0,1)$, define
 $\hat q_{1-\alpha}^{\,1 \triangleright 0}$
-as the conditional quantile satisfying
+as the quantile satisfying
 $\P\big(\sup_{w \in \cW}\big| \hat Z_n^{T, 1 \triangleright 0}(w) \big|
   \leq \hat q_{1-\alpha}^{\,1 \triangleright 0}
 \bigm\vert \bW_n^1, \bX_n^0, \bX_n^1 \big)
@@ -1758,7 +1757,7 @@ gives summary statistics for these trade networks, and shows how the networks
 become more connected over time, with edge density, average degree, and
 clustering coefficient increasing.
 
-\begin{table}[b!]
+\begin{table}[t]
   \centering
   \begin{tabular}{|c|c|c|c|c|c|}
     \hline
@@ -1796,8 +1795,7 @@ real and
 counterfactual density estimates along with their respective uniform confidence
 bands (UCB) at the nominal coverage rate of $95\%$. Our empirical results show
 that the counterfactual distribution drifts further from the truth in 2005
-compared with 2000, indicating a more significant shift in the GDP
-distribution.
+compared with 2000, indicating a shift in the GDP distribution.
 
 \begin{figure}[t]
   \centering
@@ -1828,16 +1826,7 @@ distribution.
   %
 \end{figure}
 
-In Figure~\ref{fig:kernel_gdp} we illustrate how, in the preliminary step of the
-counterfactual analysis, the distribution of log GDP is approximated using the
-histogram estimators $\hat p_X^{\,0}$ and $\hat p_X^{\,1}$ defined in
-Section~\ref{sec:kernel_counterfactual}. We also plot the density function of a
-normal distribution, fitted using maximum likelihood estimation, and this seems
-to capture the distribution of log GDP reasonably well. Such a parametric
-approach to the preliminary step may be favored in cases where a choice of
-model is clear or where the histogram estimators perform poorly.
-
-\begin{figure}[t]
+\begin{figure}[b!]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}
@@ -1865,6 +1854,15 @@ model is clear or where the histogram estimators perform poorly.
   %
 \end{figure}
 
+In Figure~\ref{fig:kernel_gdp} we illustrate how, in the preliminary step of the
+counterfactual analysis, the distribution of log GDP is approximated using the
+histogram estimators $\hat p_X^{\,0}$ and $\hat p_X^{\,1}$ defined in
+Section~\ref{sec:kernel_counterfactual}. We also plot the density function of a
+normal distribution, fitted using maximum likelihood estimation, and this seems
+to capture the distribution of log GDP reasonably well. Such a parametric
+approach to the preliminary step may be favored in cases where a choice of
+model is clear or where the histogram estimators perform poorly.
+
 To demonstrate the relative robustness of our counterfactual analysis to the
 choice of preliminary estimation step, we provide results using a
 parametric estimator of the distribution of GDP.
@@ -1878,7 +1876,7 @@ The confidence bands are also similar, with the band based on the parametric
 fit being slightly narrower in general. This could be due to the more stringent
 model specification leading to less estimated variance in the fitted values.
 
-\begin{figure}[b!]
+\begin{figure}[t]
   \centering
   %
   \begin{subfigure}{0.32\textwidth}

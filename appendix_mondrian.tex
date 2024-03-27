@@ -648,7 +648,7 @@ have heavy tails is a recurring challenge.
     \frac{1}{x_j(1-x_j)}
     \E \left[
       \frac{\I\{E_{j1} + E_{j2} \geq t\}}
-      {(E_{j1} +  E_{j2})^k \wedge 1}
+      {(E_{j1} + E_{j2})^k \wedge 1}
     \right]
     + d (1 - e^{-t}) \\
     &\leq
@@ -666,7 +666,7 @@ have heavy tails is a recurring challenge.
     \frac{1}{x_j(1-x_j)}
     \times
     \begin{cases}
-      1-t     & \text{if } k = 1  \\
+      1-t & \text{if } k = 1, \\
       -\log t & \text{if } k = 2.
     \end{cases}
   \end{align*}
@@ -2924,7 +2924,7 @@ results for the debiased Mondrian random forest estimator.
     &\quad\leq
     \P \left(
       \max_{1 \leq j \leq d} |T_{b' r'}(x)_j|
-      >  \frac{t}{2\lambda L d}
+      > \frac{t}{2\lambda L d}
     \right)
     +\P \left(
       |T_{b r}(x)|
@@ -3300,7 +3300,7 @@ results for the debiased Mondrian random forest estimator.
     \prod_{j=1}^{d}
     \left(
       \frac{E_{3j}}{a_{r'} \lambda} \wedge x_j
-      +  \frac{E_{4j}}{a_{r'} \lambda} \wedge (1 - x_j)
+      + \frac{E_{4j}}{a_{r'} \lambda} \wedge (1 - x_j)
     \right), \\
     |T_{b r }(x)\cap T_{b' r'}(x)|
     &= \prod_{j=1}^{d}
@@ -3308,7 +3308,7 @@ results for the debiased Mondrian random forest estimator.
       \frac{E_{1j}}{a_r \lambda} \wedge
       \frac{E_{3j}}{a_{r'} \lambda}
       \wedge x_j
-      +  \frac{E_{2j}}{a_r \lambda} \wedge
+      + \frac{E_{2j}}{a_r \lambda} \wedge
       \frac{E_{4j}}{a_{r'} \lambda}
       \wedge (1 - x_j)
     \right)
