@@ -141,6 +141,7 @@ the resulting sample paths.
   $C_1$, $C_2$, $C_3$,
   and for all $t > 0$.
   By integration of tail probabilities,
+  %
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
@@ -149,9 +150,11 @@ the resulting sample paths.
     &\lesssim
     \frac{\Du \log n}{\sqrt{n}}.
   \end{align*}
+  %
   Further,
   $Z_n^{L\prime}$ has the same covariance structure as
   $\sqrt{n} L_n'$ in the sense that for all $w, w' \in \cW$,
+  %
   \begin{align*}
     \E\left[
       Z_n^{L\prime}(w)
@@ -164,9 +167,11 @@ the resulting sample paths.
       L_n'(w')
     \right].
   \end{align*}
+  %
   It also satisfies the following
   trajectory regularity property
   for any $\delta_n \in (0, 1/2]$:
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -242,6 +247,7 @@ the resulting sample paths.
   $\tilde Z_n^{E\prime}$ has the same
   conditional covariance structure as
   $\sqrt{n^2h} E_n'$ in the sense that for all $w, w' \in \cW$,
+  %
   \begin{align*}
     \E\left[
       \tilde Z_n^{E\prime}(w)
@@ -256,9 +262,11 @@ the resulting sample paths.
       \bigm\vert \bA_n'
     \right].
   \end{align*}
+  %
   It also satisfies the following
   trajectory regularity property
   for any $\delta_n \in (0, 1/(2h)]$:
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -271,6 +279,7 @@ the resulting sample paths.
     \frac{\delta_n}{h}
     \sqrt{\log \frac{1}{h\delta_n}},
   \end{align*}
+  %
   and has continuous trajectories.
 
 \end{lemma}
@@ -294,6 +303,7 @@ the resulting sample paths.
   Gaussian process
   $Z^{E\dprime}_n$
   satisfying
+  %
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
@@ -302,6 +312,7 @@ the resulting sample paths.
     &\lesssim
     n^{-1/6} (\log n)^{2/3}.
   \end{align*}
+  %
   Further,
   $Z_n^{E\dprime}$ has the same
   (unconditional) covariance structure as
@@ -382,6 +393,7 @@ properties to ensure the approximating processes are jointly Gaussian.
   $\hat f_W'(w)$
   in the sense that for all
   $w, w' \in \cW$,
+  %
   \begin{align*}
     \E\big[Z_n^{f\prime}(w) Z_n^{f\prime}(w')\big]
     &=
@@ -391,9 +403,11 @@ properties to ensure the approximating processes are jointly Gaussian.
     \Big]
     = \Sigma_n(w,w').
   \end{align*}
+  %
   It also has continuous trajectories satisfying
   the following trajectory regularity property
   for any $\delta_n \in (0, 1/2]$:
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -409,6 +423,7 @@ properties to ensure the approximating processes are jointly Gaussian.
     \frac{\delta_n}{h}
     \sqrt{\log \frac{1}{h\delta_n}}.
   \end{align*}
+  %
 \end{theorem}
 
 The main result Theorem~\ref{thm:kernel_strong_approx_Tn}
@@ -576,6 +591,7 @@ optimization problem over bivariate functions.
 %
 \begin{equation}
   \label{eq:kernel_app_sdp}
+  %
   \begin{aligned}
     \minimize
     \qquad
@@ -596,6 +612,7 @@ optimization problem over bivariate functions.
     \textup{ for all }
     w, w', w'' \in \cW.
   \end{aligned}
+  %
 \end{equation}
 
 \begin{lemma}[Consistency of $\hat \Sigma_n^+$]
@@ -608,6 +625,7 @@ optimization problem over bivariate functions.
   has an approximately optimal solution $\hat\Sigma_n^+$
   which is uniformly entrywise-consistent
   for $\Sigma_n$ in the sense that
+  %
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
@@ -1465,6 +1483,7 @@ conditional distribution.
   $\|F\|_{\bar\P,2} < \infty$.
   For $f \in \cF$
   define the empirical process
+  %
   \begin{align*}
     G_n(f)
     &=
@@ -1474,6 +1493,7 @@ conditional distribution.
       f(X_i) - \E[f(X_i)]
     \big).
   \end{align*}
+  %
   Let $\sigma > 0$ satisfy
   $\sup_{f \in \cF}
   \|f\|_{\bar\P,2}
@@ -1598,11 +1618,13 @@ of i.n.i.d.\ variables.
   and a mean-zero Gaussian process $Z_n(x)$
   such that if we define
   the empirical process
+  %
   \begin{align*}
     G_n(x)
     = \frac{1}{\sqrt n} \sum_{i=1}^n
     \Big(g_n(X_i',x) - \E\big[g_n(X_i',x)\big]\Big),
   \end{align*}
+  %
   then
   for some universal positive constants
   $C_1$, $C_2$, and $C_3$,
@@ -1733,6 +1755,7 @@ of i.n.i.d.\ variables.
   Further, $Z_n$
   has the same covariance structure as $G_n$
   in the sense that for all $x, x' \in \cX_n$,
+  %
   \begin{align*}
     \E\big[Z_n(x) Z_n(x')\big]
     = \E\big[G_n(x) G_n(x')\big].
@@ -1801,12 +1824,14 @@ We begin with some definitions.
   $\cX_i$ (resp.\ $\cX_j$) is $\P_i$ (resp.\ $\P_j$)
   for each $(i,j) \in \cE$.
   Then there exists a law $\P$ on
+  %
   \begin{align*}
     \left(
       \prod_{i=1}^n \cX_i, \
       \bigotimes_{i=1}^n \cF_i
     \right)
   \end{align*}
+  %
   such that the projection of $\P$
   onto $\cX_i \times \cX_j$
   is $\P_{i j}$ for each $(i,j) \in \cE$,
@@ -1963,6 +1988,7 @@ they are needed.
   Then there exists a universal constant $C > 0$
   such that
   for any $t > 0$ and $q \geq 1$,
+  %
   \begin{align*}
     \P\left(
       \left\|
@@ -1989,6 +2015,7 @@ they are needed.
     C \sigma \sqrt{q + \log 2d}
     + C M (q + \log 2d).
   \end{align*}
+  %
   Another simplified version of this is as follows:
   suppose that
   $\|X_i\|_2 \leq M$ almost surely,
@@ -1997,6 +2024,7 @@ they are needed.
   Then since
   $\sigma^2 \leq n M^2$,
   we have
+  %
   \begin{align*}
     \P\left(
       \left\|
@@ -2103,6 +2131,7 @@ they are needed.
   For $t > 0$,
   Jensen's inequality on the concave logarithm function
   gives
+  %
   \begin{align*}
     \E\left[
       \max_{1 \leq i \leq n}
@@ -2187,6 +2216,7 @@ they are needed.
   $\big(\Sigma_1^{1/2} - \Sigma_2^{1/2}\big)^2$.
   The variances of of its components are the diagonal
   elements of this matrix, namely
+  %
   \begin{align*}
     \sigma_i^2
     &=
@@ -2198,6 +2228,7 @@ they are needed.
         \Sigma_1^{1/2} - \Sigma_2^{1/2}
     \big)^2\Big)_{ii}.
   \end{align*}
+  %
   Note that if $e_i$ is the
   $i$th standard unit basis vector,
   then for any real symmetric matrix $A$,
@@ -2206,6 +2237,7 @@ they are needed.
   so in particular
   $(A^2)_{ii} \leq \|A\|_2^2$.
   Therefore
+  %
   \begin{align*}
     \sigma_i^2
     &\leq
@@ -2215,9 +2247,11 @@ they are needed.
     =\vcentcolon
     \sigma^2.
   \end{align*}
+  %
   Applying
   \eqref{eq:kernel_app_gaussian_vector_maximal_abs}
   then gives
+  %
   \begin{align*}
     \E\Big[
       \big\|
@@ -2231,9 +2265,11 @@ they are needed.
     \Sigma_1^{1/2} - \Sigma_2^{1/2}
     \big\|_2.
   \end{align*}
+  %
   By Theorem~X.1.1
   in \citet{bhatia1997matrix},
   we can deduce
+  %
   \begin{align*}
     \big\|
     \Sigma_1^{1/2} - \Sigma_2^{1/2}
@@ -2243,6 +2279,7 @@ they are needed.
     \Sigma_1 - \Sigma_2
     \big\|_2^{1/2},
   \end{align*}
+  %
   giving
   \eqref{eq:kernel_app_gaussian_difference_psd}.
   If $\Sigma_1$
@@ -2250,6 +2287,7 @@ they are needed.
   then by
   Theorem~X.3.8 in
   \citet{bhatia1997matrix},
+  %
   \begin{align*}
     \big\|
     \Sigma_1^{1/2} - \Sigma_2^{1/2}
@@ -2261,6 +2299,7 @@ they are needed.
     \Sigma_1 - \Sigma_2
     \big\|_2,
   \end{align*}
+  %
   giving
   \eqref{eq:kernel_app_gaussian_difference_pd}.
 \end{proof}
@@ -2277,6 +2316,7 @@ they are needed.
   Define its covariance structure on $\cX \times \cX$
   by $\Sigma(x, x') = \E[Z(x) Z(x')]$,
   and the corresponding semimetric on $\cX$ by
+  %
   \begin{align*}
     \rho(x,x')
     &=
@@ -2285,12 +2325,14 @@ they are needed.
       - 2 \Sigma(x,x')
     + \Sigma(x',x')\big)^{1/2}.
   \end{align*}
+  %
   Let $N(\varepsilon, \cX, \rho)$
   denote the $\varepsilon$-covering number of $\cX$
   with respect to the semimetric $\rho$.
   Define $\sigma = \sup_x \Sigma(x,x)^{1/2}$.
   Then there exists a universal constant $C > 0$
   such that for any $\delta > 0$,
+  %
   \begin{align*}
     \E\left[
       \sup_{x \in \cX}
@@ -2333,6 +2375,7 @@ they are needed.
   $\E[Z(x)^2] = 1$
   for all $x \in \cX$.
   Then for any $\varepsilon > 0$,
+  %
   \begin{align*}
     \sup_{t \in \R}
     \P\left(
@@ -2379,6 +2422,7 @@ they are needed.
 
   Define the following deterministic sequence
   for $k \geq 1$.
+  %
   \begin{align*}
     \tau_k
     &=
@@ -2391,6 +2435,7 @@ they are needed.
     \vee
     (\tau_{k-1} +1)
   \end{align*}
+  %
   with $\tau_0 = 0$.
   Since $X_n = o_\P(1)$,
   each $\tau_k$ is finite
@@ -2417,6 +2462,7 @@ they are needed.
   (for $1 \leq i \leq n$)
   and any $u \in \cU$,
   the following decomposition holds:
+  %
   \begin{align*}
     \sum_{i=1}^n
     \sum_{\substack{j=1 \\ j \neq i}}^n
@@ -2438,6 +2484,7 @@ they are needed.
   We compute the left hand side minus the right hand side,
   beginning by observing that all of the
   $u_{i j}$ and $u$ terms clearly cancel.
+  %
   \begin{align*}
     &\sum_{i=1}^n
     \sum_{\substack{j=1 \\ j \neq i}}^n
@@ -2509,7 +2556,9 @@ they are needed.
     \sum_{1 \leq i_1 < \cdots < i_m \leq n}
     H(X_1, \ldots, X_n).
   \end{align*}
+  %
   Then for any $t > 0$,
+  %
   \begin{align*}
     \P\left(
       |U_n| > t
@@ -2519,6 +2568,7 @@ they are needed.
       - \frac{n t^2}{C_1(m) \sigma^2 + C_2(m) M t}
     \right),
   \end{align*}
+  %
   where $C_1(m)$, $C_2(m)$
   are positive constants depending only on $m$.
 
@@ -2566,6 +2616,7 @@ they are needed.
   define the $(\Q,q)$-norm of $f \in \cF$ by
   $\|f\|_{\Q,q}^q = \E_\Q[|f|^q]$.
   Assume that $\cF$ is VC-type in the following manner.
+  %
   \begin{align*}
     \sup_\Q
     N\big(
@@ -2574,6 +2625,7 @@ they are needed.
     &\leq
     (C_1/\varepsilon)^{C_2}
   \end{align*}
+  %
   for some constants
   $C_1 \geq e$
   and
@@ -2587,6 +2639,7 @@ they are needed.
   and define the random variable $M = \max_{i,j} |F(X_i, X_j)|$.
   Then there exists a universal constant $C_3 > 0$
   satisfying
+  %
   \begin{align*}
     n
     \E\left[
@@ -2647,6 +2700,7 @@ they are needed.
   Let $U_n = \sum_i \sum_{j \neq i} H(X_i, X_j)$
   be a U-statistic,
   and define the variance-type constant
+  %
   \begin{align*}
     \sigma^2
     &=
@@ -2659,8 +2713,10 @@ they are needed.
       \right\|_2
     \right].
   \end{align*}
+  %
   Then for a universal constant $C > 0$
   and for all $t > 0$,
+  %
   \begin{align*}
     \P\left(
       \|U_n\|_2
@@ -2718,6 +2774,7 @@ they are needed.
   there exists a universal constant $D_2$
   such that for any $t > 0$,
   we have
+  %
   \begin{align*}
     \P\left(
       \|U_n\|_2 \geq t
@@ -2736,6 +2793,7 @@ they are needed.
   for decoupled degenerate U-statistics.
   For some universal constant $C_1$
   and for any $t > 0$,
+  %
   \begin{align*}
     \P\left(
       \|\bar U_n\|_2
@@ -2900,6 +2958,7 @@ on each of the points $-1$ and $1$.
   random variables,
   independent of $X_1, \ldots, X_n$.
   Then
+  %
   \begin{align*}
     \E \left[
       \phi \left(
@@ -2929,6 +2988,7 @@ on each of the points $-1$ and $1$.
       \right)
     \right].
   \end{align*}
+  %
   Note that in particular this holds with $a_i = 0$
   and also holds with $\phi(t) = t \vee 0$.
 
@@ -3040,6 +3100,7 @@ on each of the points $-1$ and $1$.
   Hence
   by Theorem~4.12
   from \citet{ledoux1991probability},
+  %
   \begin{align*}
     \E
     \left[
@@ -3205,6 +3266,7 @@ on each of the points $-1$ and $1$.
       \right]^{1/q}
     \right),
   \end{align*}
+  %
   where $C_q$ is a positive constant depending only on $q$.
 
 \end{lemma}
@@ -3224,6 +3286,7 @@ on each of the points $-1$ and $1$.
   equipped with the norm
   $\|u\|_\cF = \sup_{f \in \cF} |u(f)|$.
   Then Remark~3.4 in \citet{kwapien1991hypercontraction} gives
+  %
   \begin{align*}
     \E \left[
       \sup_{f \in \cF}
@@ -3306,6 +3369,7 @@ on each of the points $-1$ and $1$.
   $\sigma_n^2 = \sup_\cF n^{-1} \sum_i f(X_i)^2$.
   By the i.n.i.d.\ symmetrization inequality
   (Lemma~\ref{lem:kernel_app_symmetrization}),
+  %
   \begin{align*}
     \E \left[
       \sup_{f \in \cF}
@@ -3491,11 +3555,13 @@ on each of the points $-1$ and $1$.
     +
     \frac{\|M\|_{\P,2}^2}{n},
   \end{align*}
+  %
   where $\lesssim$ indicates a bound up to a universal constant.
   Hence taking a square root we see that,
   following the notation from the proof of Theorem~5.2
   in the supplemental materials to
   \citet{chernozhukov2014gaussian},
+  %
   \begin{align*}
     \sqrt{\E[\sigma_n^2]}
     &\lesssim
@@ -3508,6 +3574,7 @@ on each of the points $-1$ and $1$.
     \|F\|_{\bar\P,2}
     \left( \Delta \vee \sqrt{DZ} \right),
   \end{align*}
+  %
   where
   $\Delta^2 = \|F\|_{\bar\P,2}^{-2}
   \big(\sigma^2 \vee (\|M\|_{\P,2}^2 / n) \big) \geq \delta^2$
@@ -3515,12 +3582,14 @@ on each of the points $-1$ and $1$.
   $D = \|M\|_{\P,2} n^{-1/2} \|F\|_{\bar\P,2}^{-2}$.
   Thus returning to our bound on $Z$,
   we now have
+  %
   \begin{align*}
     Z
     &\lesssim
     \|F\|_{\bar\P,2}
     \, J(\Delta \vee \sqrt{DZ}, \cF, F).
   \end{align*}
+  %
   The final steps proceed as
   in the proof of Theorem~5.2
   from \citet{chernozhukov2014gaussian},
@@ -3535,17 +3604,20 @@ on each of the points $-1$ and $1$.
 \begin{proof}[Lemma~\ref{lem:kernel_app_maximal_vc_inid}]
 
   We are assuming the VC-type condition that
+  %
   \begin{align*}
     \sup_\Q N(\cF, \rho_\Q, \varepsilon \|F\|_{\Q,2})
     &\leq
     (C_1/\varepsilon)^{C_2}
   \end{align*}
+  %
   for all $\varepsilon \in (0,1]$,
   for some constants
   $C_1 \geq e$
   and $C_2 \geq 1$.
   Hence for $\delta \in (0,1]$,
   the entropy integral can be bounded as follows.
+  %
   \begin{align*}
     J\big(\delta, \cF, F\big)
     &=
@@ -3654,12 +3726,14 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   convex combinations of elements of
   $\cI$ which converges pointwise to $g$.
   To do this, first define the sequence of meshes
+  %
   \begin{align*}
     A_n =
     \{s_k : 1 \leq k \leq n\}
     \cup
     \{k/n : 0 \leq k \leq n\}
   \end{align*}
+  %
   which satisfies
   $\bigcup_n A_n = S \cup ([0,1] \cap \Q)$.
   Endow $A_n$ with the ordering
@@ -3729,19 +3803,23 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   $g_n^-$ approximate $f^-/\|f^-\|_\TV$
   as above.
   Then since trivially
+  %
   \begin{align*}
     f =
     \|f^+\|_\TV f^+ / \|f^+\|_\TV
     - \|f^-\|_\TV f^- / \|f^-\|_\TV
     + \big(1 - \|f^+\|_\TV - \|f^-\|_\TV) \cdot 0,
   \end{align*}
+  %
   we have that
   the convex combination
+  %
   \begin{align*}
     g_n^+ \|f^+\|_\TV
     - g_n^- \|f^-\|_\TV
     + \big(1 - \|f^+\|_\TV - \|f^-\|_\TV) \cdot 0
   \end{align*}
+  %
   converges pointwise to $f$.
   This also holds if either of the total variations
   $\|f^\pm\|_\TV$
@@ -3767,6 +3845,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   and a standard Brownian motion
   $B_n(s): s \in [0,1]$
   such that if
+  %
   \begin{align*}
     \alpha_n(s)
     &\vcentcolon=
@@ -3779,10 +3858,12 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
     &\vcentcolon=
     B_n(s) - s B_n(1),
   \end{align*}
+  %
   then
   for some universal positive constants
   $C_1$, $C_2$, $C_3$,
   and for all $t > 0$,
+  %
   \begin{align*}
     \P\left(
       \sup_{s \in [0,1]}
@@ -3791,12 +3872,14 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
     \right)
     \leq C_2 e^{-C_3 t}.
   \end{align*}
+  %
   We can
   view $\alpha_n$ and $\beta_n$ as random functionals
   defined on the class of
   half-interval indicator functions
   $\cI = \big\{\I[0,s]: s \in [0,1]\big\}$
   in the following way.
+  %
   \begin{align*}
     \alpha_n(\I[0,s])
     &= \frac{1}{\sqrt{n}}
@@ -3806,6 +3889,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
     &= \int_0^1 \I[0,s](u) \diff{B_n(u)}
     - B_n(1) \int_0^1 \I[0,s](u) \diff{u},
   \end{align*}
+  %
   where the integrals are defined as It{\^o} and
   Riemann--Stieltjes integrals in
   the usual way for stochastic integration against semimartingales
@@ -4063,6 +4147,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
 
   Define the i.n.i.d.\
   and mean-zero variables
+  %
   \begin{align*}
     h_i(x)
     &=
@@ -4072,6 +4157,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
       - \E[g_n(X_i', x)]
     \Big),
   \end{align*}
+  %
   where $X_1', \ldots, X_n'$
   are independent copies of $X_1, \ldots, X_n$
   on some new probability space,
@@ -4079,6 +4165,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   $G_n(x) = \sum_{i=1}^n h_i(x)$
   in distribution.
   Also define the length-$|\cX_n^\delta|$ random vector
+  %
   \begin{align*}
     h_i^\delta
     &=
@@ -4086,6 +4173,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
       h_i(x): x \in \cX_n^\delta
     \big).
   \end{align*}
+  %
   By an extension of
   Yurinskii's coupling
   to general norms
@@ -4099,6 +4187,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   h_i^\delta
   $
   satisfying
+  %
   \begin{align*}
     \P\left(
       \bigg\|
@@ -4115,7 +4204,9 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
       + \frac{\beta s^2}{t_n^3}
     \right),
   \end{align*}
+  %
   where
+  %
   \begin{align*}
     \beta
     = \sum_{i=1}^n
@@ -4128,6 +4219,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
       \big]
     \Big),
   \end{align*}
+  %
   with
   $z_i \sim \cN(0, \Var[h_i^\delta])$
   independent and
@@ -4135,6 +4227,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   By the almost sure
   and variance bounds
   on $g_n$,
+  %
   \begin{align*}
     \E\big[\|h_i^\delta\|_2^2 \,
       \|h_i^\delta\|_\infty \,
@@ -4154,7 +4247,9 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
     \leq
     \frac{M_n \sigma_n^2 \Leb(\cX_n)}{n^{3/2}\delta_n}.
   \end{align*}
+  %
   By the fourth moment bound for Gaussian variables,
+  %
   \begin{align*}
     \E\big[
       \|z_i\|_2^4 \,
@@ -4220,10 +4315,12 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
     \leq
     \frac{12 C_1 \sigma_n^2 \log n}{n},
   \end{align*}
+  %
   where we used the moment
   generating function of a $\chi_1^2$ random variable.
   Therefore we can apply the Cauchy--Schwarz inequality
   to obtain
+  %
   \begin{align*}
     \E\big[\|z_i\|_2^2 \,
       \|z_i\|_\infty
@@ -4331,6 +4428,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   By continuity of $g_n$,
   each class is pointwise measurable
   (to see this, restrict the index sets to rationals).
+  %
   \begin{align*}
     \cG_n
     &=
@@ -4543,6 +4641,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   Next we bound the fluctuations in the Gaussian process
   $Z_n$.
   Let $\rho$ be the following semimetric:
+  %
   \begin{align*}
     \rho(x, x')^2
     &=
@@ -4556,6 +4655,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
     \leq
     l_{n,2}^2 \, |x - x'|^2.
   \end{align*}
+  %
   Hence
   $\rho(x, x')
   \leq
@@ -4564,6 +4664,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   the Gaussian process maximal inequality from
   Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   we obtain that
+  %
   \begin{align*}
     &\E\bigg[
       \sup_{|x - x'| \leq \delta_n}
@@ -4623,6 +4724,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
   %
   where we used that $\delta_n \leq \Leb(\cX_n)$.
   So by Markov's inequality,
+  %
   \begin{align*}
     \P\left(
       \sup_{|x - x'| \leq \delta_n}
@@ -4804,6 +4906,7 @@ We begin with a basic fact about Lipschitz functions.
   $\int_\cX g(x) \diff{x} \leq 1$.
   Then for any $M \in \big(0, \Leb(\cX)\big]$,
   we have
+  %
   \begin{align*}
     \sup_{x \in \cX} f(x)
     &\leq
@@ -4820,10 +4923,12 @@ Firstly, since $k_h(\cdot, w)$ is $C_\rL / h^2$-Lipschitz
 on $[w \pm h] \cap \cW$ and integrates to one,
 we have by the first inequality in
 Lemma~\ref{lem:kernel_app_lipschitz_kernels_bounded} that
+%
 \begin{align*}
   |k_h(s,w)|
   &\leq \frac{2 C_\rL + 1}{h} + \frac{1}{\Leb(\cW)}.
 \end{align*}
+%
 Since each of
 $f_{W \mid AA}(\cdot \mid a,a')$,
 $f_{W \mid A}(\cdot \mid a)$, and
@@ -4833,6 +4938,7 @@ taking $M = \frac{1}{\sqrt{C_\rH}} \wedge \Leb(\cW)$
 in the second inequality in
 Lemma~\ref{lem:kernel_app_lipschitz_kernels_bounded}
 gives
+%
 \begin{align*}
   f_{W \mid AA}(w \mid a,a')
   &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}, \\
@@ -4851,19 +4957,23 @@ gives
   for some $x \in \cX$.
   If $f(x) \geq 0$
   then by the Lipschitz property, for any $y \in \cX$,
+  %
   \begin{align*}
     f(y)
     \geq f(x) - C|y-x|
     > C \Leb(\cX) + \frac{1}{\Leb(\cX)} - C\Leb(\cX)
     = \frac{1}{\Leb(\cX)}.
   \end{align*}
+  %
   Similarly if $f(x) \leq 0$ then
+  %
   \begin{align*}
     f(y)
     \leq f(x) + C|y-x|
     < - C \Leb(\cX) - \frac{1}{\Leb(\cX)} + C\Leb(\cX)
     = -\frac{1}{\Leb(\cX)}.
   \end{align*}
+  %
   But then either
   $\int_\cX f(x) \diff{x} > \int_\cX 1/\Leb(\cX) \diff{x} = 1$
   or
@@ -4889,6 +4999,7 @@ gives
 \begin{proof}[Theorem~\ref{thm:kernel_bias}]
 
   Begin by defining
+  %
   \begin{align*}
     P_p(s,w)
     &=
@@ -4896,20 +5007,24 @@ gives
     \frac{f_W^{(r)}(w)}{r!}
     {(s-w)^r}
   \end{align*}
+  %
   for $s, w \in \cW$
   as the degree-$p$ Taylor polynomial of $f_W$,
   centered at $w$ and evaluated at $s$.
   Note that
   for $p \leq \flbeta-1$,
   by Taylor's theorem with Lagrange remainder,
+  %
   \begin{align*}
     f_W(s) - P_p(s,w)
     &=
     \frac{f_W^{(p+1)}(w')}{(p+1)!}
     (s-w)^{p+1}
   \end{align*}
+  %
   for some $w'$ between $w$ and $s$.
   Also note that for any $p$,
+  %
   \begin{align*}
     \int_{\cW}
     k_h(s,w)
@@ -4926,7 +5041,9 @@ gives
     \diff{s}
     = h^p b_p(w).
   \end{align*}
+  %
   Further, by the order of the kernel,
+  %
   \begin{align*}
     \E\big[\hat f_W(w)\big]
     - f_W(w)
@@ -5014,6 +5131,7 @@ gives
   \proofparagraph{order of kernel matches smoothness}
   Suppose that $p = \flbeta$.
   Then
+  %
   \begin{align*}
     &\sup_{w \in \cW}
     \big|
@@ -5078,6 +5196,7 @@ gives
   \proofparagraph{high-order kernel}
   Suppose that $p \geq \flbeta+1$.
   Then as in the previous part
+  %
   \begin{align*}
     \sup_{w \in \cW}
     \big|
@@ -5105,6 +5224,7 @@ gives
   \proofparagraph{Hoeffding-type decomposition}
 
   Note that
+  %
   \begin{align*}
     \hat f_W(w)
     - E_n(w)
@@ -5350,6 +5470,7 @@ gives
   almost surely.
   Therefore since $f_{W \mid A}(w \mid a) \leq C_\rd$,
   we have
+  %
   \begin{align*}
     \sup_{w \in \cW}
     \left|
@@ -5363,14 +5484,17 @@ gives
     &\leq
     16 C_\rk C_\rH C_\rd h
   \end{align*}
+  %
   whenever $h$ is small enough that
   $2 C_\rk C_\rH h \leq C_\rd$. Thus
+  %
   \begin{align*}
     \inf_{w \in \cW} \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big]
     &\geq
     \inf_{w \in \cW}\Var[f_{W \mid A}(w \mid A_i)]
     - 16 C_\rk C_\rH C_\rd h.
   \end{align*}
+  %
   Therefore if
   $\Dl > 0$
   then eventually
@@ -5401,16 +5525,19 @@ gives
   by compactness.
   Let $w$ be any such degenerate point.
   Then by the previous part,
+  %
   \begin{align*}
     \Var[L_n(w)] =
     \frac{4}{n} \Var\big[\E[k_h(W_{i j},w) \mid A_i]\big]
     &\leq
     64 C_\rk C_\rH C_\rd \frac{h}{n}.
   \end{align*}
+  %
   If conversely $w$ is not a degenerate point
   then
   $\Var[f_{W \mid A}(w \mid A_i)] > 0$
   so eventually
+  %
   \begin{align*}
     \Var[L_n(w)]
     = \frac{4}{n}
@@ -5429,6 +5556,7 @@ gives
   \proofparagraph{establishing VC-type classes}
 
   Consider the following function classes:
+  %
   \begin{align*}
     \cF_1
     &=
@@ -5452,6 +5580,7 @@ gives
       : w \in \cW
     \Big\}.
   \end{align*}
+  %
   For $\cF_1$, take $0 < \varepsilon \leq \Leb(\cW)$
   and $\cW_\varepsilon$ an $\varepsilon$-cover of $\cW$
   of cardinality at most $\Leb(\cW)/\varepsilon$. As
@@ -5468,6 +5597,7 @@ gives
   %
   almost surely,
   we see that
+  %
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
@@ -5493,7 +5623,9 @@ gives
     \frac{C_\rL}{C_\rk}
     \frac{\Leb(\cW)}{h \varepsilon}.
   \end{align*}
+  %
   Thus for all $\varepsilon \in (0,1]$,
+  %
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
@@ -5504,6 +5636,7 @@ gives
     \leq
     (C_1/(h\varepsilon))^{C_2},
   \end{align*}
+  %
   where
   $C_1 = \frac{C_\rL}{C_\rk} (\Leb(\cW) \vee 1)$
   and $C_2 = 1$.
@@ -5513,6 +5646,7 @@ gives
   $f_{W \mid AA}(\cdot \mid A_i, A_j)$ and
   $k_h(s, \cdot)$,
   with $|w-w'| \leq h$,
+  %
   \begin{align*}
     &\left|
     \E\big[ k_h(W_{i j},w) \mid A_i, A_j \big]
@@ -5663,6 +5797,7 @@ gives
   indexed by $\cF_3$.
   We apply Lemma~\ref{lem:kernel_app_maximal_vc_inid}
   with $\sigma = C_4$:
+  %
   \begin{align*}
     \E \left[
       \sup_{w \in \cW}
@@ -5677,10 +5812,12 @@ gives
     {\sqrt{n}}
     \lesssim 1.
   \end{align*}
+  %
   By Lemma~\ref{lem:kernel_trichotomy},
   the left hand side is zero whenever
   $\Du = 0$,
   so we can also write
+  %
   \begin{align*}
     \E \left[
       \sup_{w \in \cW}
@@ -5700,6 +5837,7 @@ gives
   so applying the U-process maximal inequality from
   Lemma~\ref{lem:kernel_app_uprocess_maximal}
   yields with $\sigma = C_4$
+  %
   \begin{align*}
     \E \left[
       \sup_{w \in \cW}
@@ -5723,6 +5861,7 @@ gives
   indexed by $\cF_1$.
   We apply Lemma~\ref{lem:kernel_app_maximal_vc_inid}
   conditionally with
+  %
   \begin{align*}
     \sigma^2
     &=
@@ -5749,10 +5888,12 @@ gives
     \leq 2h \frac{C_\rk^2}{h^2}
     \lesssim 1/h
   \end{align*}
+  %
   and noting that we have
   a sample size of
   $\frac{1}{2}n(n-1)$,
   giving
+  %
   \begin{align*}
     \E \left[
       \sup_{w \in \cW}
@@ -5778,6 +5919,7 @@ gives
     \lesssim
     \sqrt{\frac{\log n}{h}},
   \end{align*}
+  %
   where the last line follows by the bandwidth assumption
   of $\frac{\log n}{n^2h} \to 0$.
 \end{proof}
@@ -5812,6 +5954,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   Then for any estimator $\tilde \theta_n$
   which is a function of
   $(A_1, A_2, \ldots, A_n, V)$ only,
+  %
   \begin{align*}
     \P_{\theta_0}^n \left(
       \big| \tilde \theta_n - \theta_0 \big|
@@ -5834,6 +5977,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   the Neyman--Pearson lemma and Pinsker's inequality
   \citep{gine2021mathematical}
   give
+  %
   \begin{align*}
     \P_{\theta_0}^n \big(
       f=1
@@ -5881,6 +6025,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
         \Ber(\theta_{1,n})
     \right)},
   \end{align*}
+  %
   where $\TV$ is the total variation distance
   and $\KL$ is the Kullback--Leibler divergence.
   In the penultimate line
@@ -5889,6 +6034,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   noting that the law of $V$ is fixed and hence does not contribute.
   We now evaluate this Kullback--Leibler divergence at the specified
   parameter values.
+  %
   \begin{align*}
     \P_{\theta_0}^n \big(
       f=1
@@ -6009,6 +6155,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   Note that the function $W$ does not depend on $\theta$.
   The conditional and marginal densities of $W_{i j}$ are
   for $w \in [-1,1]$
+  %
   \begin{align*}
     f_{W \mid AA}(w \mid A_i, A_j)
     &=
@@ -6025,6 +6172,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \end{cases} \\
     f_W(w)&= \frac{1}{2} + (2\theta^2 - 1) C_\rH w.
   \end{align*}
+  %
   Clearly
   $f_W \in \cH^\beta_{C_\rH}(\cW)$ and
   $f_{W \mid AA}(\cdot \mid a, a') \in \cH^1_{C_\rH}(\cW)$.
@@ -6042,6 +6190,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   depending only on the data $\bW_n$,
   we can naturally define
   the non-negative parameter point estimator
+  %
   \begin{align*}
     \tilde \theta_n^2
     &\vcentcolon=
@@ -6050,7 +6199,9 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \right)
     \vee 0.
   \end{align*}
+  %
   This gives the inequality
+  %
   \begin{align*}
     \big|
     \tilde \theta_n^2 - \theta^2
@@ -6076,6 +6227,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   %
   Therefore since also $\tilde \theta \geq 0$
   and $\theta \geq \frac{1}{2}$,
+  %
   \begin{align*}
     \big|
     \tilde \theta_n - \theta
@@ -6090,6 +6242,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \tilde f_W(w)  - f_W(w)
     \right|.
   \end{align*}
+  %
   Now we apply the point estimation lower bound from
   Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli},
   setting $\theta_0 = \frac{1}{2}$
@@ -6099,6 +6252,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   is a function of $\bW_n$ only,
   thus is a function of $\bA_n$ and
   $\bV_n$ only and so satisfies the conditions.
+  %
   \begin{align*}
     &\P_{\theta_0} \left(
       \sup_{w \in \cW} \big| \tilde f_W(w) - f^{(0)}_W(w) \big|
@@ -6129,8 +6283,10 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \geq
     \frac{1}{2},
   \end{align*}
+  %
   where we set $C \geq \frac{\sqrt{32}}{C_\rH}$.
   Therefore we deduce that
+  %
   \begin{align*}
     \inf_{\tilde f_W}
     \sup_{\P \in \cP}
@@ -6144,7 +6300,9 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \right)
     \geq \frac{1}{4}
   \end{align*}
+  %
   and so
+  %
   \begin{align*}
     \inf_{\tilde f_W}
     \sup_{\P \in \cP}
@@ -6168,6 +6326,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   and $W_{i j} \vcentcolon= A_i + A_j + V_{i j} = V_{i j}$,
   so that $W_{i j}$ are i.i.d.\ with common density $f_W = f_V$.
   Define the class
+  %
   \begin{align*}
     \cF
     &=
@@ -6176,8 +6335,10 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
       f \in \cH^\beta_{C_\rH}(\cW)
     \right\}.
   \end{align*}
+  %
   Write $\E_f$ for the expectation under $W_{i j}$ having density $f$.
   Then by \citet{khasminskii1978lower},
+  %
   \begin{align*}
     \liminf_{n \to \infty}
     \inf_{\tilde f_W}
@@ -6189,6 +6350,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \right]
     > 0,
   \end{align*}
+  %
   where $\tilde f_W$ is any
   density estimator
   depending only on the $\frac{1}{2}n(n-1)$ i.i.d.\ data samples $\bW_n$.
@@ -6198,6 +6360,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   $\cP_0$ and therefore to a distribution in $\cP_\rd$.
   Thus for large enough $n$ and
   some positive constant $C$,
+  %
   \begin{align*}
     \inf_{\tilde f_W}
     \sup_{\P \in \cP_\rd}
@@ -6218,6 +6381,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   Lipschitz kernel of order $p \geq \beta$
   and using a bandwidth of $h$.
   Firstly Theorem~\ref{thm:kernel_bias} gives
+  %
   \begin{align*}
     \sup_{\P \in \cP}
     \sup_{w \in \cW}
@@ -6229,12 +6393,14 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \frac{4C_\rk C_\rH}{\flbeta !}
     h^\beta.
   \end{align*}
+  %
   Then,
   treating the degenerate and non-degenerate cases separately
   and noting that all inequalities hold uniformly over
   $\cP$ and $\cP_\rd$,
   the proof of Lemma~\ref{lem:kernel_uniform_concentration}
   shows that
+  %
   \begin{align*}
     \sup_{\P \in \cP}
     \E_\P\left[
@@ -6252,7 +6418,9 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     &\lesssim
     \sqrt{\frac{\log n}{n^2h}}.
   \end{align*}
+  %
   Thus combining these yields that
+  %
   \begin{align*}
     \sup_{\P \in \cP}
     \E_\P\left[
@@ -6272,6 +6440,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     h^\beta
     + \sqrt{\frac{\log n}{n^2h}}.
   \end{align*}
+  %
   Set $h = \left( \frac{\log n}{n^2} \right)^{\frac{1}{2\beta+1}}$
   and note that $\beta \geq 1$ implies that
   $\left(\frac{\log n}{n^2} \right)^{\frac{\beta}{2\beta+1}}
@@ -6396,12 +6565,14 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     + \frac{4(n-2)}{n(n-1)}
     \Cov[k_{i j}, k_{i r}'],
   \end{align*}
+  %
   giving the first representation.
   To obtain the second representation,
   note that since
   $W_{i j}$ and $W_{i r}$
   are independent conditional
   on $A_i$,
+  %
   \begin{align*}
     \Cov\big[
       k_{i j}
@@ -6446,6 +6617,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
 
   By Lemma~\ref{lem:kernel_app_covariance_structure},
   the diagonal elements of $\Sigma_n$ are
+  %
   \begin{align*}
     \Sigma_n(w,w)
     &=
@@ -6459,6 +6631,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
       \E[k_h(W_{i j},w) \mid A_i]
     \big].
   \end{align*}
+  %
   We bound each of the two terms separately.
   Firstly, note that since $k_h$ is bounded by $C_\rk/h$,
   %
@@ -6525,9 +6698,11 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \leq
     2 \Du^2
   \end{align*}
+  %
   for small enough $h$, by a result from
   the proof of Lemma~\ref{lem:kernel_trichotomy}.
   Also
+  %
   \begin{align*}
     \Var\big[
       \E[k_h(W_{i j},w) \mid A_i]
@@ -6540,9 +6715,11 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \geq
     \frac{\Dl^2}{2}
   \end{align*}
+  %
   for small enough $h$.
   Combining these four inequalities yields
   that for all large enough $n$,
+  %
   \begin{align*}
     &\frac{2}{n(n-1)}
     \frac{1}{4h}
@@ -6559,7 +6736,9 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     + \frac{4(n-2)}{n(n-1)}
     2 \Du^2,
   \end{align*}
+  %
   so that
+  %
   \begin{align*}
     \frac{\Dl^2}{n}
     + \frac{1}{n^2h}
@@ -6660,6 +6839,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   $C_1, C_2, C_3$,
   by defining the processes as zero outside $\cW$
   we have
+  %
   \begin{align*}
     \P\left(
       \sup_{w \in \cW}
@@ -6668,7 +6848,9 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \right)
     \leq C_2 e^{-C_3 t}.
   \end{align*}
+  %
   Integrating tail probabilities shows that
+  %
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
@@ -6683,6 +6865,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \lesssim
     \frac{\Du \log n}{\sqrt n}.
   \end{align*}
+  %
   Further,
   $Z_n^{L\prime}$ has the
   same covariance structure as $G_n^{L\prime}$ in the
@@ -6700,6 +6883,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   note that it was shown in the proof of
   Lemma~\ref{lem:kernel_uniform_concentration}
   that for all $w,w' \in \cW$,
+  %
   \begin{align*}
     \left|
     k_h^A(A_i,w)
@@ -6709,9 +6893,11 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     C
     |w-w'|
   \end{align*}
+  %
   for some constant $C > 0$.
   Therefore
   since the $A_i$ are i.i.d.,
+  %
   \begin{align*}
     &\E\left[
       \big|
@@ -6753,10 +6939,12 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \lesssim
     |w-w'|.
   \end{align*}
+  %
   Therefore by
   the regularity result for Gaussian processes in
   Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   with $\delta_n \in (0, 1/2]$:
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -6775,6 +6963,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \Du
     \delta_n \sqrt{\log 1/\delta_n},
   \end{align*}
+  %
   where the last inequality is because
   $Z_n^{L\prime} \equiv 0$ whenever $\Du = 0$.
   There is a modification of $Z_n^{L\prime}$
@@ -6834,6 +7023,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   The following uniform Lipschitz condition holds
   with $l_{n,\infty} = C_\rL h^{-2}$,
   by the Lipschitz property of the kernels:
+  %
   \begin{align*}
     \sup_{s,w,w' \in \cW}
     \left|
@@ -6876,6 +7066,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   conditionally on $\bA_n$
   to the $\frac{1}{2}n(n-1)$ observations,
   noting that
+  %
   \begin{align*}
     \sqrt{n^2h} E_n(w)
     =
@@ -6888,6 +7079,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
       - \E[k_h(W_{i j},w)  \mid  A_i, A_j]
     \Big),
   \end{align*}
+  %
   to deduce that for $t_n > 0$ there exist
   (an enlarged probability space)
   conditionally mean-zero
@@ -6896,6 +7088,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   with the same conditional covariance structure as
   $\sqrt{n^2 h} E_n(w)$ and
   satisfying
+  %
   \begin{align*}
     &\P\left(
       \sup_{w \in \cW}
@@ -6969,6 +7162,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   note that
   for $w, w' \in \cW$,
   by conditional independence,
+  %
   \begin{align*}
     &\E\left[
       \big|
@@ -7012,9 +7206,11 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \lesssim
     h^{-1} |w-w'|.
   \end{align*}
+  %
   So by the regularity result for Gaussian processes in
   Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   with $\delta_n \in (0, 1/(2h)]$:
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -7032,6 +7228,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \frac{\delta_n}{h}
     \sqrt{\log \frac{1}{h\delta_n}},
   \end{align*}
+  %
   and there exists a modification with continuous trajectories.
   Finally in order to have $\bA_n', \bV_n', E_n'$, and $\tilde Z_n^{E\prime}$
   all defined on the same probability space,
@@ -7127,6 +7324,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   Lemma~\ref{lem:kernel_app_gaussian_vector_maximal}
   applied conditionally on $\bA_n'$,
   we have
+  %
   \begin{align*}
     \E\left[
       \max_{w \in \cW_\delta}
@@ -7140,6 +7338,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     - \Sigma^E_{n,\delta}
     \right\|_2^{1/2},
   \end{align*}
+  %
   since $\log |\cW_\delta| \lesssim \log n$.
   Next, we apply some U-statistic theory to
   $\tilde\Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}$,
@@ -7220,12 +7419,15 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   $u = \E[u(A_i, A_j)]$.
   The following Hoeffding decomposition holds,
   by Lemma~\ref{lem:kernel_app_general_hoeffding}:
+  %
   \begin{align*}
     \tilde \Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}
     &=
     \tilde L +\tilde Q,
   \end{align*}
+  %
   where
+  %
   \begin{align*}
     \tilde L
     &=
@@ -7243,10 +7445,12 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
       u(A_i, A_j) - u(A_i) - u(A_j) + u
     \big).
   \end{align*}
+  %
   Next, we seek an almost sure upper bound on
   $\|u(A_i, A_j)\|_2$.
   Since this is a symmetric matrix,
   we have by H{\"o}lder's inequality
+  %
   \begin{align*}
     \|u(A_i, A_j)\|_2
     &\leq
@@ -7257,9 +7461,11 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \sum_{l=1}^{|\cW_\delta|}
     |u(A_i, A_j)_{kl}|.
   \end{align*}
+  %
   The terms on the right hand side can be bounded as follows,
   writing $w, w'$ for the $k$th and $l$th
   points in $\cW_\delta$ respectively:
+  %
   \begin{align*}
     |u(A_i, A_j)_{kl}|
     &=
@@ -7338,11 +7544,13 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     1/\delta_n
     + 1/h.
   \end{align*}
+  %
   Clearly the same bound holds for
   $\|u(A_i)\|_2$ and $\|u\|_2$, by Jensen's inequality.
   Therefore applying the matrix Bernstein inequality
   (Lemma~\ref{lem:kernel_app_matrix_bernstein})
   to the zero-mean matrix $\tilde L$ gives
+  %
   \begin{align*}
     \E\left[
       \left\|
@@ -7359,9 +7567,11 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \left(\frac{h}{\delta_n} + 1 \right)
     \sqrt{\frac{\log n}{n}}.
   \end{align*}
+  %
   Applying the matrix U-statistic concentration inequality
   (Lemma~\ref{lem:kernel_app_ustat_matrix_concentration})
   to the zero-mean matrix $\tilde Q$ gives
+  %
   \begin{align*}
     \E\left[
       \big\|
@@ -7436,6 +7646,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   \proofparagraph{regularity of $Z_n^E$ and $\tilde Z_n^{E\prime}$}
 
   Define the semimetrics
+  %
   \begin{align*}
     \rho(w, w')^2
     &=
@@ -7449,9 +7660,11 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
       \mid \bA_n
     \right].
   \end{align*}
+  %
   We bound $\tilde \rho$ as follows,
   since $\tilde Z_n^{E\dprime}$ and $\sqrt{n^2h} E_n$
   have the same conditional covariance structure:
+  %
   \begin{align*}
     \tilde\rho(w, w')
     &=
@@ -7469,10 +7682,12 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     h^{-1}
     |w-w'|,
   \end{align*}
+  %
   uniformly in $\bA_n'$,
   where the last line was shown in
   the proof of Lemma~\ref{lem:kernel_app_conditional_strong_approx_En}.
   Note that also
+  %
   \begin{align*}
     \rho(w, w')
     &=
@@ -7481,6 +7696,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     h^{-1}
     |w-w'|.
   \end{align*}
+  %
   Thus Lemma~\ref{lem:kernel_app_gaussian_process_maximal}
   applies directly to $Z_n^E$
   and conditionally to $\tilde Z_n^{E\prime}$,
@@ -7650,6 +7866,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
       Q_n(w')
     \big].
   \end{align*}
+  %
   As shown in the proof of
   Lemma~\ref{lem:kernel_uniform_concentration},
   the process
@@ -7661,6 +7878,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   |Z_n^Q(w)|\big]
   \lesssim 1$.
   Therefore the uniform approximation error is given by
+  %
   \begin{align*}
     &
     \sup_{w \in \cW}
@@ -7712,6 +7930,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   (as shown in Lemma~\ref{lem:kernel_hoeffding}),
   we have the following covariance
   structure:
+  %
   \begin{align*}
     \E\big[Z_n^f(w) Z_n^f(w')\big]
     &=
@@ -7817,6 +8036,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   Writing $k_{i j}'$
   for $k_h(W_{i j},w')$ etc.,
   note that by Lemma~\ref{lem:kernel_app_covariance_structure},
+  %
   \begin{align*}
     &\big|
     \Sigma_n(w,w')
@@ -7916,9 +8136,11 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \frac{\Du^2}{n}
     + \frac{1}{n^2h}.
   \end{align*}
+  %
   The $L^2$
   regularity of $Z_n^T$
   is
+  %
   \begin{align*}
     \E\left[
       \big(
@@ -7930,14 +8152,17 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \frac{\Sigma_n(w,w')}
     {\sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}}.
   \end{align*}
+  %
   Applying the elementary result
   that for $a,b,c > 0$,
+  %
   \begin{align*}
     1 - \frac{a}{\sqrt{b c}}
     &=
     \frac{b(c-a) + a(b-a)}
     {\sqrt{b c}\big(\sqrt{b c} + a\big)},
   \end{align*}
+  %
   with $a = \Sigma_n(w,w')$,
   $b = \Sigma_n(w,w)$,
   and $c = \Sigma_n(w',w')$,
@@ -8009,6 +8234,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   %
   Now apply the Gaussian process regularity result from
   Lemma~\ref{lem:kernel_app_gaussian_process_maximal}.
+  %
   \begin{align*}
     \E\left[
       \sup_{\rho(w,w') \leq \delta}
@@ -8036,7 +8262,9 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
       + \sqrt{\log 1/\delta}
     \right),
   \end{align*}
+  %
   and so
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -8061,6 +8289,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   result from Lemma~\ref{lem:kernel_app_anticoncentration},
   noting that $Z_n^T$ is separable,
   mean-zero, and has unit variance:
+  %
   \begin{align*}
     \sup_{t \in \R}
     \P\left(
@@ -8080,12 +8309,14 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
       \right]
     \right).
   \end{align*}
+  %
   To bound the supremum on the right hand side,
   apply the Gaussian process maximal inequality from
   Lemma~\ref{lem:kernel_app_gaussian_process_maximal}
   with
   $\sigma \leq 1$ and
   $N(\varepsilon, \cW, \rho) \lesssim n^2 h^{-2} \varepsilon^{-2}$:
+  %
   \begin{align*}
     \E\left[
       \sup_{w \in \cW}
@@ -8099,7 +8330,9 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \lesssim
     \sqrt{\log n}.
   \end{align*}
+  %
   Therefore
+  %
   \begin{align*}
     \sup_{t \in \R}
     \P\left(
@@ -8114,6 +8347,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \varepsilon
     \sqrt{\log n}.
   \end{align*}
+  %
   Letting $\varepsilon \to 0$
   shows that the distribution function of
   $\sup_{w \in \cW} \big|Z_n^T(w)\big|$
@@ -8206,7 +8440,9 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     1 - \alpha
     + 2 \varepsilon_n \sqrt{\log n}.
   \end{align*}
+  %
   The lower bound follows analogously:
+  %
   \begin{align*}
     &\P\left(
       \left|
@@ -8301,7 +8537,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\big|h_2(X_{i j})\big|
     &\leq M.
   \end{align*}
+  %
   Consider the sum
+  %
   \begin{align*}
     S_n
     &=
@@ -8309,7 +8547,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     h_1(X_{i j})
     h_2(X_{i r}).
   \end{align*}
+  %
   Then $S_n$ satisfies the concentration inequality
+  %
   \begin{align*}
     \P\big(
       |S_n| \geq t
@@ -8325,6 +8565,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \right\}
     \right)
   \end{align*}
+  %
   for some universal constant
   $C > 0$
   and for all $t>0$.
@@ -8344,6 +8585,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   Note that we can write $S_n$ as
   the second-order U-statistic
+  %
   \begin{align*}
     S_n
     &=
@@ -8352,7 +8594,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     h_{i j q r}
     (X_{i j}, X_{qr}),
   \end{align*}
+  %
   where
+  %
   \begin{align*}
     h_{i j q r}
     (a,b)
@@ -8360,6 +8604,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     h_1(a) h_2(b) \,
     \I\{j<r,\, q=i\}.
   \end{align*}
+  %
   Although this may look like a fourth-order
   U-statistic,
   it is in fact second-order.
@@ -8372,6 +8617,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   By the decoupling result of Theorem~1
   from \citet{delapena1995decoupling}, there exists a universal
   constant $C_1 > 0$ satisfying
+  %
   \begin{align*}
     \P\big(
       |S_n| \geq t
@@ -8381,7 +8627,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
       C_1 |\tilde S_n| \geq t
     \right),
   \end{align*}
+  %
   where
+  %
   \begin{align*}
     \tilde S_n
     &=
@@ -8390,6 +8638,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     h_{i j q r}
     (X_{i j}, X'_{qr}),
   \end{align*}
+  %
   with $(X'_{i j})$
   an independent copy of $(X_{i j})$.
 
@@ -8397,16 +8646,19 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   The U-statistic kernel $h_{i j q r}(X_{i j}, X'_{qr})$
   is totally degenerate in the sense that
+  %
   \begin{align*}
     \E[h_{i j q r}(X_{i j}, X'_{qr}) \mid X_{i j}]
     &=
     \E[h_{i j q r}(X_{i j}, X'_{qr}) \mid X'_{qr}]
     = 0.
   \end{align*}
+  %
   Define and bound the following quantities:
   %
   \begingroup
   \allowdisplaybreaks
+  %
   \begin{align*}
     A
     &=
@@ -8588,6 +8840,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   we have that for some universal constant
   $C_2 > 0$
   and for all $t > 0$,
+  %
   \begin{align*}
     \P\left(
       |\tilde S_n| \geq t
@@ -8619,6 +8872,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   By the previous parts
   and absorbing constants into a new constant $C > 0$,
   we therefore have
+  %
   \begin{align*}
     \P\left(
       |S_n| \geq t
@@ -8708,6 +8962,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Noting that
   $\E[\hat f_W(w)] = \E[k_{i j}]$
   and by Lemma~\ref{lem:kernel_variance_bounds},
+  %
   \begin{align*}
     &\sup_{w,w' \in \cW}
     \left|
@@ -8811,6 +9066,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and Theorem~\ref{thm:kernel_infeasible_ucb}
   respectively,
   we have
+  %
   \begin{align*}
     &\left|
     \frac{L_n(w)}
@@ -8879,7 +9135,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \lesssim
     \sqrt{\log n}.
   \end{align*}
+  %
   Thus
+  %
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
@@ -8938,6 +9196,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   in the definition of $S_{i j r}$.
   By conditional independence properties,
   we have the decomposition
+  %
   \begin{align}
     \nonumber
     &\frac{6}{n(n-1)(n-2)}
@@ -9018,6 +9277,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{j=i+1}^{r-1}
     \E[k_{i j} \mid \bA_n].
   \end{align}
+  %
   For the term in \eqref{eq:kernel_app_Sijr1_decomp1},
   note that conditional on $\bA_n$,
   we have that
@@ -9033,6 +9293,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   The same is true for $k_{i j}'$.
   Thus by Lemma~\ref{lem:kernel_app_dyadic_concentration}
   for some universal constant $C_1 > 0$:
+  %
   \begin{align*}
     &\P\left(
       \left|
@@ -9070,12 +9331,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \right\}
     \right),
   \end{align*}
+  %
   and therefore
   with $t \geq 1$
   and since
   $n h \gtrsim \log n$,
   introducing and adjusting a new
   constant $C_2$ where necessary,
+  %
   \begin{align*}
     &\P\left(
       \left|
@@ -9139,6 +9402,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     C_2
     n^{-t^{2/3} / C_2}.
   \end{align*}
+  %
   Now for the term
   in \eqref{eq:kernel_app_Sijr1_decomp2},
   note that
@@ -9150,6 +9414,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   (Lemma~\ref{lem:kernel_app_bernstein})
   applied conditionally
   gives for some constant $C_3 > 0$
+  %
   \begin{align*}
     &\P\left(
       \Bigg|
@@ -9185,11 +9450,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
     =
     2 n^{-t^2 / C_3}.
   \end{align*}
+  %
   The term in \eqref{eq:kernel_app_Sijr1_decomp3}
   is controlled in exactly the same way.
   Putting these together, noting the symmetry in $i,j,r$
   and taking a marginal expectation,
   we obtain the unconditional pointwise concentration inequality
+  %
   \begin{align*}
     \P\left(
       \Bigg|
@@ -9205,9 +9472,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
     C_2 n^{-t^{2/3} / C_2}
     + 4 n^{-t^2 / (4C_3)}.
   \end{align*}
+  %
   Multiplying by
   $\big(\Sigma_n(w,w) + \Sigma_n(w',w')\big)^{-1/2} \lesssim \sqrt{n^2h}$
   gives (adjusting constants if necessary)
+  %
   \begin{align*}
     &\P\left(
       \Bigg|
@@ -9240,6 +9509,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   it is unnecessary as Lemma~\ref{lem:kernel_app_ustat_concentration}
   is general enough to deal with the non-degenerate case directly.
   The quantity of interest here is
+  %
   \begin{align*}
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
@@ -9252,7 +9522,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
       - \E[S_{i j r}]
     \Big).
   \end{align*}
+  %
   Note that by conditional independence,
+  %
   \begin{align*}
     \big|
     \E\big[
@@ -9270,6 +9542,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \big|
     \lesssim 1,
   \end{align*}
+  %
   and similarly for the other summands in $S_{i j r}$,
   giving the almost sure bound
   $|S_{i j r}^{(2)}| \lesssim 1$. Also,
@@ -9346,6 +9619,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   = |w_1 - w_2| + |w_1' - w_2'|$.
   By the previous parts,
   we have that for fixed $w$ and $w'$:
+  %
   \begin{align*}
     &\P\Bigg(
       \Bigg|
@@ -9362,9 +9636,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + 4 n^{-t^2 / (4C_3)}
     + 4 n^{-t^2 / C_4}.
   \end{align*}
+  %
   Taking a union bound over $\cW_\delta \times \cW_\delta$,
   noting that $n h \gtrsim \log n$
   and adjusting constants gives
+  %
   \begin{align*}
     &\P\Bigg(
       \sup_{w, w' \in \cW_\delta}
@@ -9387,6 +9663,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \delta_n^{-2}
     n^{-t^{2/3} / C_5},
   \end{align*}
+  %
   for some constant $C_5 > 0$.
 
   \proofparagraph{regularity of the $S_{i j r}$ term}
@@ -9394,6 +9671,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Next we bound the fluctuations in $S_{i j r}(w,w')$.
   Writing $k_{i j}(w)$ for $k_h(W_{i j},w)$,
   note that
+  %
   \begin{align*}
     \big|
     k_{i j}(w_1)
@@ -9414,9 +9692,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
       + |w_1' - w_2'|
     \Big),
   \end{align*}
+  %
   using the Lipschitz property of the kernel.
   Similarly for the other summands in $S_{i j r}$.
   Therefore
+  %
   \begin{align*}
     \sup_{|w_1-w_2| \leq \delta_n}
     \sup_{|w_1'-w_2'| \leq \delta_n}
@@ -9427,7 +9707,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim
     \delta_n h^{-3}.
   \end{align*}
+  %
   Also as noted in the proof of Theorem~\ref{thm:kernel_infeasible_ucb},
+  %
   \begin{align*}
     \sup_{|w_1-w_2| \leq \delta_n}
     \sup_{|w_1'-w_2'| \leq \delta_n}
@@ -9439,6 +9721,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim
     \delta_n n^{-1}h^{-3}.
   \end{align*}
+  %
   Therefore since $\sqrt{\Sigma_n(w,w)} \gtrsim \sqrt{n^2h}$
   and $|S_{i j r}| \lesssim h^{-2}$,
   using
@@ -9463,6 +9746,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \lesssim
     \delta_n n^{6},
   \end{align*}
+  %
   where in the last line we use that
   $1/h \lesssim n$.
 
@@ -9510,6 +9794,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   We move on to the final term in
   the covariance estimator.
   We have the decomposition
+  %
   \begin{align*}
     \frac{2}{n(n-1)}
     \sum_{i<j}
@@ -9526,7 +9811,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{i<j}
     S_{i j}^{(2)},
   \end{align*}
+  %
   where
+  %
   \begin{align*}
     S_{i j}^{(1)}
     &=
@@ -9553,6 +9840,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   conditional on $\bA_n$,
   we obtain the pointwise in $w,w'$
   concentration inequality
+  %
   \begin{align*}
     &\P\left(
       \Bigg|
@@ -9601,6 +9889,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Thus by Lemma~\ref{lem:kernel_app_ustat_concentration},
   since the order of this U-statistic is fixed at two,
   for some universal positive constant $C_7$ we have
+  %
   \begin{align*}
     \P\left(
       \Bigg|
@@ -9633,6 +9922,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   As before, use a union bound
   on the mesh $\cW_\delta \times \cW_\delta$.
+  %
   \begin{align*}
     &\P\left(
       \sup_{w,w' \in \cW_\delta}
@@ -9678,6 +9968,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   Just as for the $S_{i j r}$ term,
   we have
+  %
   \begin{align*}
     \big|
     k_{i j}(w_1)
@@ -9699,6 +9990,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\delta_n = h^3\sqrt{\log n / (n h^2)}$,
   the fluctuations can be at most $\sqrt{\log n / (n h^2)}$,
   so we have for $t \geq 1$
+  %
   \begin{align*}
     &\P\left(
       \sup_{w,w' \in \cW}
@@ -9748,10 +10040,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \lesssim
     n^{5-t^2 / C_8},
   \end{align*}
+  %
   where $C_8 > 0$ is a constant and
   in the last line we use $1/h \lesssim n$.
   This converges to zero for any sufficiently large $t$,
   so by Lemma~\ref{lem:kernel_variance_bounds} we have
+  %
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
@@ -9831,6 +10125,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   to denote evaluation at $w'$
   rather than $w$.
   In this notation we may write
+  %
   \begin{align*}
     S_i(w)
     &=
@@ -9838,9 +10133,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{j \neq i}
     k_{i j}
   \end{align*}
+  %
   Let $\sum_{i \neq j \neq r}$
   indicate that all the indices are distinct.
   Then
+  %
   \begin{align*}
     \frac{4}{n^2}
     \sum_{i=1}^n
@@ -9899,6 +10196,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \hat f
     \hat f',
   \end{align*}
+  %
   and the result follows.
 \end{proof}
 
@@ -9945,6 +10243,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \left|\frac{\hat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
   \lesssim_\P \sqrt{h \log n}$
   and so
+  %
   \begin{align*}
     \objective(\Sigma_n)
     &= \sup_{w,w' \in \cW}
@@ -9970,6 +10269,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \lesssim_\P
     \frac{\sqrt{\log n}}{n}.
   \end{align*}
+  %
   Since the objective function
   is non-negative and because we have established
   at least one feasible function $M$ with
@@ -9983,12 +10283,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and we call such a solution $\varepsilon$-optimal.
   Let $\hat \Sigma_n^+$ be an $n^{-1}$-optimal solution.
   Then
+  %
   \begin{align*}
     \objective(\hat \Sigma_n^+)
     &\leq \objective^* + n^{-1}
     \leq \objective(\Sigma_n) + n^{-1}.
   \end{align*}
+  %
   Thus by the triangle inequality,
+  %
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
@@ -10037,6 +10340,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $t = \Sigma_n(w,w) \gtrsim \frac{1}{n^2h}
   \gg \frac{\log n}{4n^2} = a^2/4$,
   shows that for $n$ large enough,
+  %
   \begin{align*}
     \inf_{w \in \cW} \Sigma_n(w,w)
     - \frac{\sqrt{\log n}}{n} \sqrt{\inf_{w \in \cW} \Sigma_n(w,w)}
@@ -10047,8 +10351,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sup_{w \in \cW} \Sigma_n(w,w)
     + \frac{\sqrt{\log n}}{n} \sqrt{\sup_{w \in \cW} \Sigma_n(w,w)}.
   \end{align*}
+  %
   Applying the bounds from Lemma~\ref{lem:kernel_variance_bounds}
   yields
+  %
   \begin{align*}
     \frac{\Dl^2}{n} + \frac{1}{n^2h}
     - \frac{\sqrt{\log n}}{n}
@@ -10061,7 +10367,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + \frac{\sqrt{\log n}}{n}
     \left( \frac{\Du}{\sqrt n} + \frac{1}{\sqrt{n^2h}} \right)
   \end{align*}
+  %
   and so
+  %
   \begin{align*}
     \frac{\Dl^2}{n} + \frac{1}{n^2h}
     \lesssim_\P
@@ -10079,6 +10387,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:kernel_app_studentized_t_statistic}]
+  %
   \begin{align*}
     \sup_{w \in \cW}
     \left| \hat T_n(w) - T_n(w) \right|
@@ -10130,6 +10439,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   by Lemma~\ref{lem:kernel_app_variance_estimator_bounds}.
   Thus, applying Lemma~\ref{lem:kernel_app_sdp} to control the
   covariance estimation error,
+  %
   \begin{align*}
     \sup_{w \in \cW}
     \left| \hat T_n(w) - T_n(w) \right|
@@ -10167,6 +10477,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   Define the maximum discrepancy in the (conditional) covariances
   of $\hat Z_n^T$ and $Z_n^T$ by
+  %
   \begin{align*}
     \Delta
     &\vcentcolon=
@@ -10178,6 +10489,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\sqrt{\Sigma_n(w,w) \Sigma_n(w',w')}}
     \right|.
   \end{align*}
+  %
   This random variable can be bounded in probability
   in the following manner.
   First note that by the Cauchy--Schwarz inequality
@@ -10313,6 +10625,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   processes $Z_n^T$ and $\hat Z_n^T$
   both have pointwise (conditional) variances of 1.
   Therefore by Lemma~3.1 in \citet{chernozhukov2013gaussian},
+  %
   \begin{align*}
     \sup_{t \in \R}
     \left|
@@ -10334,8 +10647,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
       1 \vee \log \frac{1}{\Delta \delta_n}
     \Big)^{2/3}
   \end{align*}
+  %
   uniformly in the data. By the previous part and
   since $x (\log 1/x)^2$ is increasing on $\big(0, e^{-2}\big)$,
+  %
   \begin{align*}
     &\sup_{t \in \R}
     \left|
@@ -10369,6 +10684,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   we established that
   $Z_n^T$ satisfies the following
   trajectory regularity property:
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -10378,6 +10694,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     n h^{-1}
     \sqrt{\delta_n \log n},
   \end{align*}
+  %
   whenever $1/\delta_n$
   is at most polynomial in $n$.
 
@@ -10387,6 +10704,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   with $n h \gtrsim \log n$,
   we have
   uniformly in $w,w'$,
+  %
   \begin{align*}
     \big|
     \hat \Sigma_n^+(w,w')
@@ -10395,10 +10713,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim
     n^{-1} h^{-3} |w-w'|.
   \end{align*}
+  %
   Taking
   $\delta_n \leq n^{-2} h^2$,
   Lemma~\ref{lem:kernel_app_variance_estimator_bounds}
   gives
+  %
   \begin{align*}
     \inf_{|w-w'| \leq \delta_n}
     \hat \Sigma_n^+(w,w')
@@ -10414,8 +10734,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{\Dl^2}{n}
     + \frac{1}{n^2h}.
   \end{align*}
+  %
   The conditional $L^2$
   regularity of $\hat Z_n^T$ is
+  %
   \begin{align*}
     \E\left[
       \big(
@@ -10428,8 +10750,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \frac{\hat \Sigma_n^+(w,w')}
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}.
   \end{align*}
+  %
   Applying the same elementary result as for $Z_n^T$
   in the proof of Theorem~\ref{thm:kernel_infeasible_ucb} yields
+  %
   \begin{align*}
     \E\left[
       \big(
@@ -10440,8 +10764,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim_\P
     n^2 h^{-2} |w-w'|.
   \end{align*}
+  %
   Thus the conditional semimetric
   induced by $\hat Z_n^T$ on $\cW$ is
+  %
   \begin{align*}
     \hat\rho(w,w')
     &\vcentcolon=
@@ -10462,6 +10788,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   we apply Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   this time conditionally,
   to obtain that also
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -10472,6 +10799,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     n h^{-1}
     \sqrt{\delta_n \log n},
   \end{align*}
+  %
   whenever $1/\delta_n$
   is at most polynomial in $n$.
 
@@ -10482,14 +10810,17 @@ Theorem~3.3 in \citet{gine2000exponential}.
   to all of $\cW$.
   Write the previously established
   approximation rate as
+  %
   \begin{align*}
     r_n
     &=
     \frac{n^{-1/6}(\log n)^{5/6}}
     {\Dl^{1/3} + (n h)^{-1/6}}.
   \end{align*}
+  %
   Take $\varepsilon_n > 0$ and observe that
   uniformly in $t \in \R$,
+  %
   \begin{align*}
     &\P\left(
       \sup_{w \in \cW}
@@ -10706,11 +11037,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + r_n
     + \varepsilon_n^{-1} n h^{-1/2} \delta_n^{1/2} \sqrt{\log n}.
   \end{align*}
+  %
   To bound the remaining term,
   we apply the anti-concentration
   result for $Z_n^T$
   from the proof of
   Theorem~\ref{thm:kernel_infeasible_ucb}:
+  %
   \begin{align*}
     \sup_{t \in \R}
     \P\left(
@@ -10725,7 +11058,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \varepsilon
     \sqrt{\log n}.
   \end{align*}
+  %
   Therefore
+  %
   \begin{align*}
     &\sup_{t \in \R}
     \left|
@@ -10747,9 +11082,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
     + r_n
     + \varepsilon_n^{-1} n h^{-1/2} \delta_n^{1/2} \sqrt{\log n}.
   \end{align*}
+  %
   Taking $\varepsilon = r_n / \sqrt{\log n}$
   and then $\delta_n = n^{-2} h r_n^2 \varepsilon_n^2 / \log n$
   yields
+  %
   \begin{align*}
     \left|
     \P\left(
@@ -10780,16 +11117,19 @@ Theorem~3.3 in \citet{gine2000exponential}.
   as in the proof of
   Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian}.
   Write
+  %
   \begin{align*}
     r_n
     &=
     \frac{n^{-1/6}(\log n)^{5/6}}
     {\Dl^{1/3} + (n h)^{-1/6}}
   \end{align*}
+  %
   for the rate of approximation from
   Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian}.
   Then for any $\varepsilon_n > 0$ and
   uniformly in $t \in \R$:
+  %
   \begin{align*}
     &\P\left(
       \sup_{w \in \cW}
@@ -10877,6 +11217,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   as in the proof of
   Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian}.
   The corresponding lower bound is as follows:
+  %
   \begin{align*}
     &\P\left(
       \sup_{w \in \cW}
@@ -10992,6 +11333,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and denote this last quantity by $r_n'$.
   Then for any $\varepsilon_n \gg r_n'$,
   we have
+  %
   \begin{align*}
     \sup_{t \in \R}
     \left|
@@ -11046,9 +11388,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\Dl^{1/3} + (n h)^{-1/6}}
     &\to 0.
   \end{align*}
+  %
   Using the fact that $h \lesssim n^{-\varepsilon}$
   for some $\varepsilon > 0$
   and removing trivial statements leaves us with
+  %
   \begin{align*}
     \frac{n^{-3/4} h^{-7/8} (\log n)^{7/8}}
     {\Dl + 1/\sqrt{n h}}
@@ -11057,6 +11401,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\Dl + 1/\sqrt{n h}}
     &\to 0.
   \end{align*}
+  %
   Now we analyze these based on the degeneracy type
   and verify that they hold under
   Assumption~\ref{ass:kernel_rates}.
@@ -11064,24 +11409,28 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
     \item No degeneracy:
       if $\Dl > 0$ then we need
+      %
       \begin{align*}
         n^{-3/4} h^{-7/8} (\log n)^{7/8}
         &\to 0,
         &n^{1/2} h^{p \wedge \beta} (\log n)^{1/2}
         &\to 0.
       \end{align*}
+      %
       These reduce to
       $n^{-6/7} \log n \ll h
       \ll (n \log n)^{-\frac{1}{2(p \wedge \beta)}}$.
 
     \item Partial or total degeneracy:
       if $\Dl = 0$ then we need
+      %
       \begin{align*}
         n^{-1/4} h^{-3/8} (\log n)^{7/8}
         &\to 0,
         &n h^{(p \wedge \beta) + 1/2} (\log n)^{1/2}
         &\to 0.
       \end{align*}
+      %
       These reduce to
       $n^{-2/3} (\log n)^{7/3} \ll h
       \ll (n^2 \log n)^{-\frac{1}{2(p \wedge \beta) + 1}}$.
@@ -11125,6 +11474,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right) \\
     &\lesssim \varepsilon \sqrt{\log n}.
   \end{align*}
+  %
   Thus letting $\varepsilon \to 0$
   shows that the conditional distribution function of
   $\sup_{w \in \cW} \big|\hat Z_n^T(w)\big|$
@@ -11134,6 +11484,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{validity of the confidence band}
 
   Define the following (conditional) distribution functions.
+  %
   \begin{align*}
     F_Z(t \mid \bW_n)
     &=
@@ -11151,7 +11502,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \leq t
     \right),
   \end{align*}
+  %
   along with their well defined right-quantile functions,
+  %
   \begin{align*}
     F_Z^{-1}(p \mid \bW_n)
     &=
@@ -11172,6 +11525,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       = p
     \big\}.
   \end{align*}
+  %
   Note that
   $t \leq F_Z^{-1}(p \mid \bW_n)$
   if and only if
@@ -11183,6 +11537,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $F_Z(\hat q_{1-\alpha} \mid \bW_n) = 1-\alpha$.
   By Lemma~\ref{lem:kernel_app_feasible_gaussian_approx},
   we have that
+  %
   \begin{align*}
     \sup_{t \in \R}
     \big|
@@ -11191,6 +11546,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     o_\P(1)
   \end{align*}
+  %
   Thus by Lemma~\ref{lem:kernel_app_slow_convergence},
   this can be replaced by
   %
