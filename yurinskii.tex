@@ -71,17 +71,17 @@ new features:
 %
 \begin{enumerate}[label=(\roman*),leftmargin=*]
   \item
-    \label{it:contribution_approximate_martingale}
+    \label{it:yurinskii_contribution_approximate_martingale}
     It applies to vector-valued \textit{approximate martingale} data.
   \item
-    \label{it:contribution_gaussian_mixture}
+    \label{it:yurinskii_contribution_gaussian_mixture}
     It allows for a \textit{Gaussian mixture} coupling distribution.
   \item
-    \label{it:contribution_degeneracy}
+    \label{it:yurinskii_contribution_degeneracy}
     It imposes \textit{no restrictions on degeneracy} of the
     data covariance matrix.
   \item
-    \label{it:contribution_third_order}
+    \label{it:yurinskii_contribution_third_order}
     It establishes a \textit{third-order} coupling to
     improve the approximation in certain situations.
 \end{enumerate}
@@ -93,86 +93,106 @@ distribution theory for martingale data using Yurinskii's coupling and related
 methods. Specifically, \citet{li2020uniform} established a Gaussian
 $\ell^2$-norm Yurinskii coupling for mixingales and martingales under the
 assumption that the covariance structure has a minimum eigenvalue bounded away
-from zero. As formally demonstrated in this chapter (Section~\ref{sec:kde}),
+from zero. As formally demonstrated in this chapter
+(Section~\ref{sec:yurinskii_kde}),
 such eigenvalue assumptions can be prohibitively strong in practically relevant
 applications. In contrast, our Yurinskii coupling does not impose any
-restrictions on covariance degeneracy \ref{it:contribution_degeneracy}, in
+restrictions on covariance degeneracy
+\ref{it:yurinskii_contribution_degeneracy}, in
 addition to offering several other new features not present in
-\citet{li2020uniform}, including \ref{it:contribution_approximate_martingale},
-\ref{it:contribution_gaussian_mixture}, \ref{it:contribution_third_order}, and
+\citet{li2020uniform}, including
+\ref{it:yurinskii_contribution_approximate_martingale},
+\ref{it:yurinskii_contribution_gaussian_mixture},
+\ref{it:yurinskii_contribution_third_order}, and
 applicability to general $\ell^p$-norms. In addition, we correct a slight
 technical inaccuracy in their proof relating to the derivation of bounds in
-probability (Remark \ref{rem:coupling_bounds_probability}).
+probability (Remark \ref{rem:yurinskii_coupling_bounds_probability}).
 \citet{belloni2018high} did not establish a Yurinskii coupling for martingales,
 but rather a central limit theorem for smooth functions of high-dimensional
 martingales using the celebrated second-order Lindeberg method
 \citep[see][and references therein]{chatterjee2006generalization}, explicitly
 accounting for covariance degeneracy. As a consequence, their result could be
 leveraged to deduce a Yurinskii coupling for martingales with additional,
-non-trivial technical work (see Appendix~\ref{sec:yurinskii_proofs} for
-details). Nevertheless, a Yurinskii coupling derived from
+non-trivial technical work (see Section~\ref{sec:yurinskii_app_proofs}
+in Appendix~\ref{app:yurinskii} for details).
+Nevertheless, a Yurinskii coupling derived from
 \citet{belloni2018high} would not feature
-\ref{it:contribution_approximate_martingale},
-\ref{it:contribution_gaussian_mixture}, \ref{it:contribution_third_order}, or
+\ref{it:yurinskii_contribution_approximate_martingale},
+\ref{it:yurinskii_contribution_gaussian_mixture},
+\ref{it:yurinskii_contribution_third_order}, or
 general $\ell^p$-norms, as our results do. We discuss further the connections
 between our work and the related literature in the upcoming sections, both when
 introducing our main theoretical results and when presenting the examples and
 statistical applications.
 
 The most general coupling result of this chapter
-(Theorem~\ref{thm:sa_dependent}) is presented in
-Section~\ref{sec:main_results}, where we also specialize it to a slightly
+(Theorem~\ref{thm:yurinskii_sa_dependent}) is presented in
+Section~\ref{sec:yurinskii_main_results}, where we also specialize it to a
+slightly
 weaker yet more user-friendly formulation
-(Proposition~\ref{pro:sa_simplified}). Our Yurinskii coupling for approximate
+(Proposition~\ref{pro:yurinskii_sa_simplified}). Our Yurinskii coupling for
+approximate
 martingales is a strict generalization of all previous Yurinskii couplings
 available in the literature, offering a Gaussian mixture strong approximation
 for approximate martingale vectors in $\ell^p$-norm, with an improved rate of
 approximation when the third moments of the data are negligible, and with no
 assumptions on the spectrum of the data covariance matrix. A key technical
-innovation underlying the proof of Theorem~\ref{thm:sa_dependent} is that we
+innovation underlying the proof of Theorem~\ref{thm:yurinskii_sa_dependent} is
+that we
 explicitly account for the possibility that the minimum eigenvalue of the
 variance may be zero, or its lower bound may be unknown, with the argument
 proceeding using a carefully tailored regularization. Establishing a coupling
 to a Gaussian mixture distribution is achieved by an appropriate conditioning
 argument, leveraging a conditional version of Strassen's theorem established by
 \citet{chen2020jackknife}, along with some related technical work detailed in
-Appendix~\ref{sec:yurinskii_proofs}. A third-order coupling is obtained via a
-modification of a standard smoothing technique for Borel sets from classical
+Section~\ref{sec:yurinskii_app_proofs}.
+A third-order coupling is obtained via
+a modification of a standard smoothing technique for Borel sets from classical
 versions of Yurinskii's coupling, enabling improved approximation errors
 whenever third moments are negligible.
 
-In Proposition~\ref{pro:sa_simplified}, we explicitly tune the parameters of
+In Proposition~\ref{pro:yurinskii_sa_simplified}, we explicitly tune the
+parameters of
 the aforementioned regularization to obtain a simpler, parameter-free version
 of Yurinskii's coupling for approximate martingales, again offering Gaussian
 mixture coupling distributions and an improved third-order approximation error.
 This specialization of our main result takes an agnostic approach to potential
 singularities in the data covariance matrix and, as such, may be improved in
 specific applications where additional knowledge of the covariance structure is
-available. Section~\ref{sec:main_results} also presents some further
+available. Section~\ref{sec:yurinskii_main_results} also presents some further
 refinements when additional structure is imposed, deriving Yurinskii couplings
 for mixingales, martingales, and independent data as
-Corollaries~\ref{cor:sa_mixingale}, \ref{cor:sa_martingale}, and
-\ref{cor:sa_indep}, respectively. We take the opportunity to discuss and correct
-in Remark~\ref{rem:coupling_bounds_probability} a technical issue which is
+Corollaries~\ref{cor:yurinskii_sa_mixingale},
+\ref{cor:yurinskii_sa_martingale}, and
+\ref{cor:yurinskii_sa_indep}, respectively. We take the opportunity to discuss
+and correct
+in Remark~\ref{rem:yurinskii_coupling_bounds_probability} a technical issue
+which is
 often neglected \citep{pollard2002user, li2020uniform} when using Yurinskii's
-coupling to derive bounds in probability. Section~\ref{sec:factor} presents a
+coupling to derive bounds in probability. Section~\ref{sec:yurinskii_factor}
+presents a
 stylized example portraying the relevance of our main technical results in the
 context of canonical factor models, illustrating the importance of each of our
-new Yurinskii coupling features \ref{it:contribution_approximate_martingale}--%
-\ref{it:contribution_third_order}.
+new Yurinskii coupling features
+\ref{it:yurinskii_contribution_approximate_martingale}--%
+\ref{it:yurinskii_contribution_third_order}.
 
-Section~\ref{sec:emp_proc} considers a substantive application of our main
+Section~\ref{sec:yurinskii_emp_proc} considers a substantive application of our
+main
 results: strong approximation of martingale empirical processes. We begin with
 the motivating example of canonical kernel density estimation, demonstrating
 how Yurinskii's coupling can be applied, and showing in
-Lemma~\ref{lem:kde_eigenvalue} why it is essential that we do not place any
+Lemma~\ref{lem:yurinskii_kde_eigenvalue} why it is essential that we do not
+place any
 conditions on the minimum eigenvalue of the variance matrix
-\ref{it:contribution_degeneracy}.
+\ref{it:yurinskii_contribution_degeneracy}.
 We then present a general-purpose strong
 approximation for martingale empirical processes in
-Proposition~\ref{pro:emp_proc}, combining classical results in the empirical
+Proposition~\ref{pro:yurinskii_emp_proc}, combining classical results in the
+empirical
 process literature \citep{van1996weak} with our
-Corollary~\ref{cor:sa_martingale}. This statement appears to be the first of
+Corollary~\ref{cor:yurinskii_sa_martingale}. This statement appears to be the
+first of
 its kind for martingale data, and when specialized to independent
 (and not necessarily identically distributed) data, it is
 shown to be superior to the best known comparable strong approximation result
@@ -182,10 +202,12 @@ comes from using Yurinskii's coupling for the $\ell^\infty$-norm, where
 \citep{zaitsev1987estimates, zaitsev1987gaussian} with the larger
 $\ell^2$-norm.
 
-Section~\ref{sec:nonparametric} further illustrates the applicability of our
+Section~\ref{sec:yurinskii_nonparametric} further illustrates the applicability
+of our
 results through two examples in nonparametric regression estimation. Firstly,
 we deduce a strong approximation for partitioning-based least squares series
-estimators with time series data, applying Corollary~\ref{cor:sa_martingale}
+estimators with time series data, applying
+Corollary~\ref{cor:yurinskii_sa_martingale}
 directly and additionally imposing only a mild mixing condition on the
 regressors. We show that our Yurinskii coupling for martingale vectors delivers
 the same distributional approximation rate as the best known result for
@@ -195,7 +217,8 @@ vanishing conditional third moment, an improved rate of Gaussian approximation
 can be established. Secondly, we deduce a strong approximation for local
 polynomial estimators with time series data,
 using our result on martingale empirical processes
-(Proposition~\ref{pro:emp_proc}) and again imposing a mixing assumption.
+(Proposition~\ref{pro:yurinskii_emp_proc}) and again imposing a mixing
+assumption.
 Appealing to empirical process theory is essential here as, in contrast with
 series estimators, local polynomials do not possess certain additive
 separability properties. The bandwidth restrictions we require are relatively
@@ -207,7 +230,7 @@ All proofs are collected in
 Appendix~\ref{app:yurinskii}, which also includes other technical lemmas
 of potential independent interest, alongside some further results on
 applications of our theory to deriving high-dimensional central limit theorems
-for martingales in Appendix~\ref{sec:high_dim_clt}.
+for martingales in Section~\ref{sec:yurinskii_app_high_dim_clt}.
 
 \subsection{Notation}
 
@@ -239,29 +262,35 @@ notation, but technicalities are handled by the Vorob'ev--Berkes--Philipp
 Theorem~\citep[Theorem~1.1.10]{dudley1999uniform}.
 
 \section{Main results}
-\label{sec:main_results}
+\label{sec:yurinskii_main_results}
 
 We begin with our most general result: an $\ell^p$-norm Yurinskii coupling of a
 sum of vector-valued approximate martingale differences to a Gaussian
 mixture-distributed random vector. The general result is presented in
-Theorem~\ref{thm:sa_dependent}, while Proposition~\ref{pro:sa_simplified} gives
+Theorem~\ref{thm:yurinskii_sa_dependent}, while
+Proposition~\ref{pro:yurinskii_sa_simplified} gives
 a simplified and slightly weaker version which is easier to use in
-applications. We then further specialize Proposition~\ref{pro:sa_simplified} to
+applications. We then further specialize
+Proposition~\ref{pro:yurinskii_sa_simplified} to
 three scenarios with successively stronger assumptions, namely mixingales,
-martingales, and independent data in Corollaries~\ref{cor:sa_mixingale},
-\ref{cor:sa_martingale}, and \ref{cor:sa_indep} respectively. In each case we
+martingales, and independent data in
+Corollaries~\ref{cor:yurinskii_sa_mixingale},
+\ref{cor:yurinskii_sa_martingale}, and \ref{cor:yurinskii_sa_indep}
+respectively. In each case we
 allow for possibly random quadratic variations (cf.\ mixing convergence),
 thereby establishing a Gaussian mixture coupling in the general setting. In
-Remark~\ref{rem:coupling_bounds_probability} we comment on and correct an often
+Remark~\ref{rem:yurinskii_coupling_bounds_probability} we comment on and
+correct an often
 overlooked technicality relating to the derivation of bounds in probability
 from Yurinskii's coupling. As a first illustration of the power of our
 generalized $\ell^p$-norm Yurinskii coupling, we present in
-Section~\ref{sec:factor} a simple factor model example relating to all three of
+Section~\ref{sec:yurinskii_factor} a simple factor model example relating to
+all three of
 the aforementioned scenarios, discussing further how our contributions are
 related to the existing literature.
 
-\begin{theorem}[Strong approximation for vector-valued approximate martingales]%
-  \label{thm:sa_dependent}
+\begin{theorem}[Strong approximation for vector-valued approximate martingales]
+  \label{thm:yurinskii_sa_dependent}
 
   Take a complete probability space with a countably generated filtration
   $\cH_0, \ldots, \cH_n$ for $n \geq 1$, supporting the $\R^d$-valued
@@ -284,7 +313,7 @@ related to the existing literature.
   vector $T$ with $T \mid \cH_0 \sim \cN(0, \Sigma)$ and
   %
   \begin{align}
-    \label{eq:sa_dependent}
+    \label{eq:yurinskii_sa_dependent}
     \P\big(\|S-T\|_p > 6\eta\big)
     &\leq
     \inf_{t>0}
@@ -341,7 +370,8 @@ related to the existing literature.
 This theorem offers four novel contributions to the literature on coupling
 theory and strong approximation, as discussed in the introduction.
 % approximate martingales
-Firstly \ref{it:contribution_approximate_martingale}, it allows for approximate
+Firstly \ref{it:yurinskii_contribution_approximate_martingale}, it allows for
+approximate
 vector-valued martingales, with the variables $\tilde X_i$ forming martingale
 differences with respect to $\cH_i$ by construction, and $U$ quantifying the
 associated martingale approximation error. Such martingale approximation
@@ -350,15 +380,16 @@ have been used in a range of scenarios: see, for example,
 \citet{wu2004martingale}, \citet{dedecker2007weak}, \citet{zhao2008martingale},
 \citet{peligrad2010conditional}, \citet{atchade2014martingale},
 \citet{cuny2014martingale}, \citet{magda2018martingale}, and references
-therein. In Section~\ref{sec:mixingales} we demonstrate how this approximation
+therein. In Section~\ref{sec:yurinskii_mixingales} we demonstrate how this
+approximation
 can be established in practice by restricting our general theorem to the
 special case of mixingales, while the upcoming example in
-Section~\ref{sec:factor} provides an illustration in the context of
+Section~\ref{sec:yurinskii_factor} provides an illustration in the context of
 auto-regressive factor models.
 
 % Gaussian mixture
-Secondly \ref{it:contribution_gaussian_mixture},
-Theorem~\ref{thm:sa_dependent} allows for the
+Secondly \ref{it:yurinskii_contribution_gaussian_mixture},
+Theorem~\ref{thm:yurinskii_sa_dependent} allows for the
 resulting coupling variable $T$
 to follow a multivariate Gaussian distribution only conditionally,
 and thus we offer a useful analog of mixing convergence in the context
@@ -379,35 +410,40 @@ As demonstrated in our proof, our approach to establishing a
 mixing approximation is different from naively taking an unconditional version
 of Yurinskii's coupling and applying
 it conditionally on $\cH_0$, which will not deliver the same coupling as in
-Theorem~\ref{thm:sa_dependent} for a few reasons.
+Theorem~\ref{thm:yurinskii_sa_dependent} for a few reasons.
 To begin with, we explicitly indicate in the
-conditions of Theorem~\ref{thm:sa_dependent} where conditioning is required.
+conditions of Theorem~\ref{thm:yurinskii_sa_dependent} where conditioning is
+required.
 Next, our error of approximation is given unconditionally,
 involving only marginal expectations and probabilities.
 Finally, we provide a rigorous account of the construction of the
 conditionally Gaussian coupling variable $T$ via a conditional version
 of Strassen's theorem \citep{chen2020jackknife}.
-Section~\ref{sec:martingales}
+Section~\ref{sec:yurinskii_martingales}
 illustrates how a strong approximation akin to
 mixing convergence can arise when the data
-forms an exact martingale, and Section~\ref{sec:factor} gives a simple example
+forms an exact martingale, and Section~\ref{sec:yurinskii_factor} gives a
+simple example
 relating to factor modeling in statistics and data science.
 
 % remove lower bound on minimum eigenvalue
-As a third contribution to the literature \ref{it:contribution_degeneracy}, and
-of particular importance for applications, Theorem~\ref{thm:sa_dependent} makes
+As a third contribution to the literature
+\ref{it:yurinskii_contribution_degeneracy}, and
+of particular importance for applications,
+Theorem~\ref{thm:yurinskii_sa_dependent} makes
 no requirements on the minimum eigenvalue of the quadratic variation of the
 approximating martingale sequence. Instead, our proof technique employs a
 careful regularization scheme designed to account for any such exact or
 approximate rank degeneracy in $\Sigma$. This capability is fundamental in some
-applications, a fact which we illustrate in Section \ref{sec:kde} by
+applications, a fact which we illustrate in Section \ref{sec:yurinskii_kde} by
 demonstrating the significant improvements in strong approximation errors
-delivered by Theorem~\ref{thm:sa_dependent} relative to those obtained using
+delivered by Theorem~\ref{thm:yurinskii_sa_dependent} relative to those
+obtained using
 prior results in the literature.
 
 % matching third moments
-Finally \ref{it:contribution_third_order},
-Theorem~\ref{thm:sa_dependent} gives
+Finally \ref{it:yurinskii_contribution_third_order},
+Theorem~\ref{thm:yurinskii_sa_dependent} gives
 a third-order strong approximation alongside the usual second-order
 version considered in all prior literature.
 More precisely, we observe that an analog of the term
@@ -422,19 +458,21 @@ third-order terms, giving a new term $\beta_{p,3}$.
 In certain settings, such as when the data is symmetrically
 distributed around zero, using $\beta_{p,3}$ rather than $\beta_{p,2}$
 can give smaller approximation errors in the coupling given in
-\eqref{eq:sa_dependent}.
+\eqref{eq:yurinskii_sa_dependent}.
 Such a refinement can be viewed as a strong approximation counterpart
 to classical Edgeworth expansion methods.
 We illustrate this phenomenon in our
 upcoming applications to nonparametric inference
-(Section~\ref{sec:nonparametric}).
+(Section~\ref{sec:yurinskii_nonparametric}).
 
 \subsection{User-friendly formulation of the main result}%
 
-The result in Theorem~\ref{thm:sa_dependent} is given in a somewhat implicit
+The result in Theorem~\ref{thm:yurinskii_sa_dependent} is given in a somewhat
+implicit
 manner, involving infima over the free parameters $t > 0$ and $M \succeq 0$,
 and it is not clear how to compute these in general. In the upcoming
-Proposition~\ref{pro:sa_simplified}, we set $M = \nu^2 I_d$ and approximately
+Proposition~\ref{pro:yurinskii_sa_simplified}, we set $M = \nu^2 I_d$ and
+approximately
 optimize over $t > 0$ and $\nu > 0$, resulting in a simplified and slightly
 weaker version of our main general result. In specific applications, where
 there is additional knowledge of the quadratic variation structure, other
@@ -454,9 +492,9 @@ of the $\ell^p$-norm of a standard Gaussian.
 
 \begin{proposition}[Simplified strong approximation for
   vector-valued approximate martingales]%
-  \label{pro:sa_simplified}
+  \label{pro:yurinskii_sa_simplified}
 
-  Assume the setup and notation of Theorem~\ref{thm:sa_dependent}.
+  Assume the setup and notation of Theorem~\ref{thm:yurinskii_sa_dependent}.
   For each $\eta > 0$ and $p \in [1,\infty]$,
   there exists a random vector $T \mid \cH_0 \sim \cN(0, \Sigma)$ satisfying
   %
@@ -488,12 +526,14 @@ of the $\ell^p$-norm of a standard Gaussian.
   %
 \end{proposition}
 
-Proposition~\ref{pro:sa_simplified} makes clear the potential benefit of a
+Proposition~\ref{pro:yurinskii_sa_simplified} makes clear the potential benefit
+of a
 third-order coupling when $\pi_3 = 0$, as in this case the bound features
 $\beta_{p,3}^{1/4}$ rather than $\beta_{p,2}^{1/3}$. If $\pi_3$ is small but
 non-zero, an analogous result can easily be derived by adjusting the optimal
 choices of $t$ and $\nu$, but we omit this for clarity of notation. In
-applications (see Section~\ref{sec:series}), this reduction of the exponent can
+applications (see Section~\ref{sec:yurinskii_series}), this reduction of the
+exponent can
 provide a significant improvement in terms of the dependence of the bound on
 the sample size $n$, the dimension $d$, and other problem-specific quantities.
 When using our results for strong approximation, it is usual to set
@@ -503,19 +543,22 @@ $\phi_\infty(d) = \sqrt{2 \log 2d}$ has a sub-Gaussian slow-growing dependence
 on the dimension. The remaining term depends on $\E[\|\Omega\|_2]$ and requires
 that the matrix $\Sigma$ be a good approximation of $\sum_{i=1}^{n} V_i$, while
 remaining $\cH_0$-measurable. In some applications (such as factor modeling;
-see Section~\ref{sec:factor}), it can be shown that the quadratic variation
+see Section~\ref{sec:yurinskii_factor}), it can be shown that the quadratic
+variation
 $\sum_{i=1}^n V_i$ remains random and $\cH_0$-measurable even in large samples,
 giving a natural choice for $\Sigma$.
 
 In the next few sections, we continue to refine
-Proposition~\ref{pro:sa_simplified}, presenting a sequence of results with
+Proposition~\ref{pro:yurinskii_sa_simplified}, presenting a sequence of results
+with
 increasingly strict assumptions on the dependence structure of the data $X_i$.
 These allow us to demonstrate the broad applicability of our main results,
 providing more explicit bounds in settings which are likely to be of special
 interest. In particular, we consider mixingales, martingales, and independent
 data, comparing our derived results with those in the existing literature.
 
-\subsection{Mixingales}\label{sec:mixingales}
+\subsection{Mixingales}
+\label{sec:yurinskii_mixingales}
 
 In our first refinement, we provide a natural method for bounding the
 martingale approximation error term $U$. Suppose that $X_i$ form an
@@ -524,7 +567,7 @@ $c_1, \ldots, c_n$ and $\zeta_0, \ldots, \zeta_n$ such that for all
 $1 \leq i \leq n$ and $0 \leq r \leq i$,
 %
 \begin{align}
-  \label{eq:mixingale_1}
+  \label{eq:yurinskii_mixingale_1}
   \E \left[ \left\|
     \E \left[ X_i \mid \cH_{i-r} \right]
   \right\|_p \right]
@@ -535,7 +578,7 @@ $1 \leq i \leq n$ and $0 \leq r \leq i$,
 and for all $1 \leq i \leq n$ and $0 \leq r \leq n-i$,
 %
 \begin{align}
-  \label{eq:mixingale_2}
+  \label{eq:yurinskii_mixingale_2}
   \E \left[ \big\|
     X_i - \E \big[ X_i \mid \cH_{i+r} \big]
   \big\|_p \right]
@@ -546,9 +589,9 @@ and for all $1 \leq i \leq n$ and $0 \leq r \leq n-i$,
 These conditions are satisfied, for example, if $X_i$ are integrable strongly
 $\alpha$-mixing random variables \citep{mcleish1975invariance}, or if $X_i$ are
 generated by an auto-regressive or auto-regressive moving average process (see
-Section~\ref{sec:factor}), among many other possibilities
+Section~\ref{sec:yurinskii_factor}), among many other possibilities
 \citep{bradley2005basic}. Then, in the notation of
-Theorem~\ref{thm:sa_dependent}, we have by Markov's inequality that
+Theorem~\ref{thm:yurinskii_sa_dependent}, we have by Markov's inequality that
 %
 \begin{align*}
   \P \left( \|U\|_p > \frac{\eta}{6} \right)
@@ -567,15 +610,17 @@ Theorem~\ref{thm:sa_dependent}, we have by Markov's inequality that
 \end{align*}
 %
 with $\zeta = 6 \sum_{i=1}^{n} c_i (\zeta_{i} + \zeta_{n-i+1})$.
-Combining Proposition~\ref{pro:sa_simplified} with this
+Combining Proposition~\ref{pro:yurinskii_sa_simplified} with this
 martingale error bound yields the following result for mixingales.
 %
 \begin{corollary}[Strong approximation for vector-valued mixingales]%
-  \label{cor:sa_mixingale}
+  \label{cor:yurinskii_sa_mixingale}
 
-  Assume the setup and notation of Theorem~\ref{thm:sa_dependent}, and suppose
-  the mixingale conditions \eqref{eq:mixingale_1} and
-  \eqref{eq:mixingale_2} hold. For each $\eta > 0$ and $p \in [1,\infty]$ there
+  Assume the setup and notation of Theorem~\ref{thm:yurinskii_sa_dependent},
+  and suppose
+  the mixingale conditions \eqref{eq:yurinskii_mixingale_1} and
+  \eqref{eq:yurinskii_mixingale_2} hold. For each $\eta > 0$ and
+  $p \in [1,\infty]$ there
   is a random vector $T \mid \cH_0 \sim \cN(0, \Sigma)$ with
   %
   \begin{align*}
@@ -606,7 +651,7 @@ martingale error bound yields the following result for mixingales.
   %
 \end{corollary}
 
-The closest antecedent to Corollary~\ref{cor:sa_mixingale} is found in
+The closest antecedent to Corollary~\ref{cor:yurinskii_sa_mixingale} is found in
 \citet[Theorem~4]{li2020uniform}, who also considered Yurinskii's coupling for
 mixingales. Our result improves on this work in the following manner: it
 removes any requirements on the minimum eigenvalue of the quadratic variation
@@ -614,7 +659,8 @@ of the mixingale sequence; it allows for general $\ell^p$-norms with
 $p\in[1,\infty]$; it establishes a coupling to a multivariate Gaussian
 mixture distribution in general; and it permits third-order couplings
 (when $\pi_3=0$). These improvements have important practical implications as
-demonstrated in Sections \ref{sec:factor} and \ref{sec:nonparametric},
+demonstrated in Sections \ref{sec:yurinskii_factor} and
+\ref{sec:yurinskii_nonparametric},
 where significantly better coupling approximation
 errors are demonstrated for a variety of statistical applications. On the
 technical side, our result is rigorously established using a conditional
@@ -622,34 +668,38 @@ version of Strassen's theorem \citep{chen2020jackknife}, a carefully crafted
 regularization argument, and a third-order Lindeberg method
 \citep[see][and references therein, for more discussion on the
 standard second-order Lindeberg method]{chatterjee2006generalization}.
-Furthermore, as explained in Remark~\ref{rem:coupling_bounds_probability}, we
+Furthermore, as explained in
+Remark~\ref{rem:yurinskii_coupling_bounds_probability}, we
 clarify a technical issue in \citet{li2020uniform} surrounding the derivation
 of valid probability bounds for $\|S-T\|_p$.
 
-Corollary~\ref{cor:sa_mixingale} focused on mixingales for simplicity, but, as
+Corollary~\ref{cor:yurinskii_sa_mixingale} focused on mixingales for
+simplicity, but, as
 previously discussed, any method for constructing a martingale approximation
 $\tilde X_i$ and bounding the resulting error $U$ could be used instead in
-Proposition~\ref{pro:sa_simplified} to derive a similar result.
+Proposition~\ref{pro:yurinskii_sa_simplified} to derive a similar result.
 
-\subsection{Martingales}\label{sec:martingales}
+\subsection{Martingales}
+\label{sec:yurinskii_martingales}
 
 For our second refinement, suppose that
 $X_i$ form martingale differences with respect to $\cH_i$.
 In this case, $\E[X_i \mid \cH_n] = X_i$ and $\E[X_i \mid \cH_0] = 0$,
 so $U = 0$, and the martingale approximation error term vanishes.
-Applying Proposition~\ref{pro:sa_simplified} in this setting
+Applying Proposition~\ref{pro:yurinskii_sa_simplified} in this setting
 directly yields the following result.
 %
 \begin{corollary}[Strong approximation for vector-valued martingales]%
-  \label{cor:sa_martingale}
+  \label{cor:yurinskii_sa_martingale}
 
-  With the setup and notation of Theorem~\ref{thm:sa_dependent}, suppose that
+  With the setup and notation of Theorem~\ref{thm:yurinskii_sa_dependent},
+  suppose that
   $X_i$ is $\cH_i$-measurable satisfying $\E[X_i \mid \cH_{i-1}] = 0$ for
   $1 \leq i \leq n$. Then, for each $\eta > 0$ and $p \in [1,\infty]$, there is
   a random vector $T \mid \cH_0 \sim \cN(0, \Sigma)$ with
   %
   \begin{align}
-    \label{eq:sa_martingale_order_2}
+    \label{eq:yurinskii_sa_martingale_order_2}
     \P\big(\|S-T\|_p > \eta\big)
     &\leq
     24 \left(
@@ -663,7 +713,7 @@ directly yields the following result.
   If further $\pi_3 = 0$ then
   %
   \begin{align}
-    \label{eq:sa_martingale_order_3}
+    \label{eq:yurinskii_sa_martingale_order_3}
     \P\big(\|S-T\|_p > \eta\big)
     &\leq
     24 \left(
@@ -676,7 +726,7 @@ directly yields the following result.
   %
 \end{corollary}
 
-The closest antecedents to Corollary~\ref{cor:sa_martingale} are
+The closest antecedents to Corollary~\ref{cor:yurinskii_sa_martingale} are
 \citet{belloni2018high} and \citet{li2020uniform}, who also implicitly or
 explicitly considered Yurinskii's coupling for martingales. More specifically,
 \citet[Theorem~1]{li2020uniform} established an explicit
@@ -689,19 +739,24 @@ could be adapted to deduce a Yurinskii coupling for martingales with the help
 of a conditional version of Strassen's theorem \citep{chen2020jackknife} and
 some additional nontrivial technical work.
 
-Corollary~\ref{cor:sa_martingale} improves over this prior work as follows.
+Corollary~\ref{cor:yurinskii_sa_martingale} improves over this prior work as
+follows.
 With respect to \citet{li2020uniform}, our result establishes an $\ell^p$-norm
 Gaussian mixture Yurinskii coupling for martingales without any requirements on
 the minimum eigenvalue of the martingale quadratic variation, and permits a
 third-order coupling if $\pi_3=0$. The first probability bound
-\eqref{eq:sa_martingale_order_2} in Corollary~\ref{cor:sa_martingale} gives the
+\eqref{eq:yurinskii_sa_martingale_order_2} in
+Corollary~\ref{cor:yurinskii_sa_martingale} gives the
 same rate of strong approximation as that in Theorem~1 of \citet{li2020uniform}
 when $p=2$, with non-random $\Sigma$, and when the eigenvalues of a normalized
-version of $\Sigma$ are bounded away from zero. In Section~\ref{sec:kde} we
+version of $\Sigma$ are bounded away from zero. In
+Section~\ref{sec:yurinskii_kde} we
 demonstrate the crucial importance of removing this eigenvalue lower bound
 restriction in applications involving nonparametric kernel estimators, while in
-Section~\ref{sec:series} we demonstrate how the availability of a third-order
-coupling \eqref{eq:sa_martingale_order_3} can give improved approximation rates
+Section~\ref{sec:yurinskii_series} we demonstrate how the availability of a
+third-order
+coupling \eqref{eq:yurinskii_sa_martingale_order_3} can give improved
+approximation rates
 in applications involving nonparametric series estimators with conditionally
 symmetrically distributed residual errors. Finally, our technical work improves
 on \citet{li2020uniform} in two respects:
@@ -709,16 +764,17 @@ on \citet{li2020uniform} in two respects:
 \begin{inlineroman}
   \item
     we employ a conditional version
-    of Strassen's theorem (see Lemma~\ref{lem:strassen} in the appendix)
+    of Strassen's theorem (see Lemma~\ref{lem:yurinskii_app_strassen}
+    in the appendix)
     to appropriately handle the conditioning arguments; and
   \item
     we deduce valid
     probability bounds for $\|S-T\|_p$, as the following
-    Remark~\ref{rem:coupling_bounds_probability} makes clear.
+    Remark~\ref{rem:yurinskii_coupling_bounds_probability} makes clear.
 \end{inlineroman}
 
 \begin{remark}[Yurinskii's coupling and bounds in probability]
-  \label{rem:coupling_bounds_probability}
+  \label{rem:yurinskii_coupling_bounds_probability}
   Given a sequence of random vectors $S_n$, Yurinskii's method provides a
   coupling in the following form: for each $n$ and any $\eta > 0$, there exists
   a random vector $T_n$ with $\P\big(\|S_n - T_n\| > \eta\big) < r_n(\eta)$,
@@ -733,7 +789,8 @@ on \citet{li2020uniform} in two respects:
 \end{remark}
 
 Technicalities akin to those outlined in
-Remark~\ref{rem:coupling_bounds_probability} have been both addressed and
+Remark~\ref{rem:yurinskii_coupling_bounds_probability} have been both addressed
+and
 neglected alike in the prior literature. \citet[Chapter 10.4, Example
 16]{pollard2002user} apparently misses this subtlety, providing an
 inaccurate bound in probability based on the Yurinskii coupling.
@@ -744,8 +801,10 @@ bounds in $o_\P$ instead of $O_\P$, circumventing these issues in a manner
 similar to our approach involving a diverging sequence $R_n$.
 
 To see how this phenomenon applies to our main results, observe that the
-second-order martingale coupling given as \eqref{eq:sa_martingale_order_2} in
-Corollary~\ref{cor:sa_martingale} implies that for any $R_n \to \infty$,
+second-order martingale coupling given as
+\eqref{eq:yurinskii_sa_martingale_order_2} in
+Corollary~\ref{cor:yurinskii_sa_martingale} implies that for any
+$R_n \to \infty$,
 %
 \begin{align*}
   \|S - T\|_p
@@ -758,36 +817,39 @@ Corollary~\ref{cor:sa_martingale} implies that for any $R_n \to \infty$,
 %
 This bound is comparable to that obtained by \citet[Theorem~1]{li2020uniform}
 with $p=2$, albeit with their formulation missing the $R_n$ correction terms.
-In Section~\ref{sec:series} we discuss further their (amended) result, in the
+In Section~\ref{sec:yurinskii_series} we discuss further their (amended)
+result, in the
 setting of nonparametric series estimation. Our approach using
 $p = \infty$ obtains superior distributional approximation rates, alongside
 exhibiting various other improvements such as the aforementioned third-order
 coupling.
 
 Turning to the comparison with \citet{belloni2018high}, our
-Corollary~\ref{cor:sa_martingale} again offers the same improvements, with the
+Corollary~\ref{cor:yurinskii_sa_martingale} again offers the same improvements,
+with the
 only exception being that the authors did account for the implications of a
 possibly vanishing minimum eigenvalue. However, their results exclusively
 concern high-dimensional central limit theorems for vector-valued martingales,
 and therefore while their findings
 could in principle enable the derivation of a result similar to our
-Corollary~\ref{cor:sa_martingale}, this would require additional technical work
+Corollary~\ref{cor:yurinskii_sa_martingale}, this would require additional
+technical work
 on their behalf in multiple ways
-(see
-Appendix~\ref{sec:yurinskii_proofs}):
+(see Appendix~\ref{app:yurinskii}):
 %
 \begin{inlineroman}
   \item a correct application of a conditional
     version of Strassen's theorem
-    (Lemma~\ref{lem:strassen});
+    (Lemma~\ref{lem:yurinskii_app_strassen});
   \item the development of a third-order Borel set smoothing technique and
     associated $\ell^p$-norm moment control
-    (Lemmas \ref{lem:smooth_approximation},
-    \ref{lem:gaussian_useful}, and \ref{lem:gaussian_pnorm});
+    (Lemmas \ref{lem:yurinskii_app_smooth_approximation},
+      \ref{lem:yurinskii_app_gaussian_useful},
+    and \ref{lem:yurinskii_app_gaussian_pnorm});
   \item a careful truncation scheme to account for
     $\Omega\npreceq0$; and
   \item a valid third-order Lindeberg argument
-    (Lemma \ref{lem:sa_martingale}),
+    (Lemma \ref{lem:yurinskii_app_sa_martingale}),
     among others.
 \end{inlineroman}
 
@@ -798,13 +860,13 @@ zero-mean conditionally on $\cH_0$,
 and take $\cH_i$ to be the filtration
 generated by $X_1, \ldots, X_i$ and $\cH_0$ for $1 \leq i \leq n$.
 Then, taking $\Sigma = \sum_{i=1}^n V_i$
-gives $\Omega = 0$, and hence Corollary~\ref{cor:sa_martingale}
+gives $\Omega = 0$, and hence Corollary~\ref{cor:yurinskii_sa_martingale}
 immediately yields the following result.
 %
 \begin{corollary}[Strong approximation for sums of independent vectors]%
-  \label{cor:sa_indep}
+  \label{cor:yurinskii_sa_indep}
 
-  Take the setup of Theorem~\ref{thm:sa_dependent},
+  Take the setup of Theorem~\ref{thm:yurinskii_sa_dependent},
   and let $X_i$ be independent given $\cH_0$,
   with $\E[X_i \mid \cH_0] = 0$.
   Then, for each $\eta > 0$ and $p \in [1,\infty]$,
@@ -812,7 +874,7 @@ immediately yields the following result.
   there is $T \mid \cH_0 \sim \cN(0, \Sigma)$ with
   %
   \begin{align}
-    \label{eq:sa_indep_order_2}
+    \label{eq:yurinskii_sa_indep_order_2}
     \P\big(\|S-T\|_p > \eta\big)
     &\leq 24 \left( \frac{\beta_{p,2} \phi_p(d)^2}{\eta^3} \right)^{1/3}.
   \end{align}
@@ -826,8 +888,10 @@ immediately yields the following result.
   %
 \end{corollary}
 
-Taking $\cH_0$ to be trivial, the first inequality \eqref{eq:sa_indep_order_2}
-in Corollary~\ref{cor:sa_indep} provides an $\ell^p$-norm approximation
+Taking $\cH_0$ to be trivial, the first inequality
+\eqref{eq:yurinskii_sa_indep_order_2}
+in Corollary~\ref{cor:yurinskii_sa_indep} provides an $\ell^p$-norm
+approximation
 analogous to that presented in \citet{belloni2019conditional}.
 By further
 restricting to $p=2$, we recover the original Yurinskii coupling as presented
@@ -842,7 +906,7 @@ in the independent data setting, our result improves on prior work as follows:
 \end{inlineroman}
 
 \subsection{Stylized example: factor modeling}
-\label{sec:factor}
+\label{sec:yurinskii_factor}
 
 In this section, we present a simple statistical example of how our
 improvements over prior coupling results can have important theoretical and
@@ -859,9 +923,10 @@ $\varepsilon_i$. See \citet{fan2020statistical}, and references therein, for a
 textbook review of factor analysis in statistics and econometrics.
 
 We employ the above factor model to give a first illustration of the
-applicability of our main result Theorem~\ref{thm:sa_dependent}, the
-user-friendly Proposition~\ref{pro:sa_simplified}, and their specialized
-Corollaries~\ref{cor:sa_mixingale}--\ref{cor:sa_indep}. We
+applicability of our main result Theorem~\ref{thm:yurinskii_sa_dependent}, the
+user-friendly Proposition~\ref{pro:yurinskii_sa_simplified}, and their
+specialized
+Corollaries~\ref{cor:yurinskii_sa_mixingale}--\ref{cor:yurinskii_sa_indep}. We
 consider three different sets of conditions to demonstrate the applicability of
 each of our corollaries for mixingales, martingales, and independent data,
 respectively. We assume throughout that
@@ -878,7 +943,7 @@ $\cH_0$ the $\sigma$-algebra generated by $L$ alone.
     $\E [ f_i \mid L ] = 0$.
     Then, since $X_i$ are independent conditional on $\cH_0$ and with
     $\E [ X_i \mid \cH_0 ] = \E [ L f_i + \varepsilon_i \mid L ] = 0$,
-    we can apply Corollary~\ref{cor:sa_indep} to $\sum_{i=1}^n X_i$.
+    we can apply Corollary~\ref{cor:yurinskii_sa_indep} to $\sum_{i=1}^n X_i$.
     In general, we will obtain a coupling variable which has the Gaussian
     mixture distribution $T \mid \cH_0 \sim \cN(0, \Sigma)$ where
     $\Sigma= \sum_{i=1}^n (L\Var[f_i \mid L]L^\T +\Var[\varepsilon_i])$.
@@ -893,7 +958,8 @@ $\cH_0$ the $\sigma$-algebra generated by $L$ alone.
     $\E \left[ f_i \mid L, f_1, \ldots, f_{i-1} \right] = 0$.
     Then $\E [ X_i \mid \cH_{i-1} ]
     = L\, \E \left[ f_i \mid \cH_{i-1} \right] = 0$
-    and Corollary~\ref{cor:sa_martingale} is applicable to $\sum_{i=1}^n X_i$.
+    and Corollary~\ref{cor:yurinskii_sa_martingale} is applicable to
+    $\sum_{i=1}^n X_i$.
     The preceding comments on Gaussian mixture distributions
     and third-order couplings continue to apply.
 
@@ -909,7 +975,8 @@ $\cH_0$ the $\sigma$-algebra generated by $L$ alone.
     = \E \big[ \| A^i f_0 \|_p \big] \leq \|A\|_p^i\,\E [ \|f_0\|_p ]$,
     and that clearly $f_i - \E [ f_i \mid \cH_n ] = 0$.
     Thus, whenever $\|A\|_p < 1$, the geometric sum formula implies that
-    we can apply the mixingale result from Corollary~\ref{cor:sa_mixingale} to
+    we can apply the mixingale result from
+    Corollary~\ref{cor:yurinskii_sa_mixingale} to
     $\sum_{i=1}^n X_i$. The conclusions on Gaussian mixture distributions
     and third-order couplings parallel the previous cases.
     %
@@ -927,7 +994,7 @@ more general factor structures. These improvements are maintained in the
 martingale, mixingale, and weakly dependent stationary data settings.
 
 \section{Strong approximation for martingale empirical processes}%
-\label{sec:emp_proc}
+\label{sec:yurinskii_emp_proc}
 
 In this section, we demonstrate how our main results can be applied to some more
 substantive problems in statistics. Having until this point studied only
@@ -954,13 +1021,15 @@ processes in the sup-norm. This problem is more difficult than
 Indeed, the results we establish in
 this section are for a strong approximation for the entire empirical process by
 a sequence of Gaussian mixture processes in the supremum norm, when the data
-has a martingale difference structure (cf.\ Corollary \ref{cor:sa_martingale}).
+has a martingale difference structure
+(cf.\ Corollary \ref{cor:yurinskii_sa_martingale}).
 Our results can be further generalized to approximate martingale
-empirical processes (cf.\ Corollary \ref{cor:sa_mixingale}), but we do not
+empirical processes (cf.\ Corollary \ref{cor:yurinskii_sa_mixingale}), but we
+do not
 consider this extension to reduce notation and the technical burden.
 
 \subsection{Motivating example: kernel density estimation}
-\label{sec:kde}
+\label{sec:yurinskii_kde}
 
 We begin with a brief study of a canonical example of an empirical process
 which is non-Donsker (thus precluding the use of uniform central limit
@@ -968,11 +1037,12 @@ theorems) due to the presence of a function class whose complexity increases
 with the sample size: the kernel density estimator with i.i.d.\ scalar data.
 We give an overview of our general strategy for
 strong approximation of stochastic processes
-via discretization, and show explicitly in Lemma~\ref{lem:kde_eigenvalue}
+via discretization, and show explicitly in
+Lemma~\ref{lem:yurinskii_kde_eigenvalue}
 how it is crucial
 that we do not impose lower bounds on the eigenvalues of the discretized
 covariance matrix. Detailed calculations for this section are
-relegated to Appendix~\ref{sec:yurinskii_proofs} for conciseness.
+relegated to Appendix~\ref{app:yurinskii} for conciseness.
 
 Let $X_1, \ldots, X_n$ be i.i.d.\ $\Unif[0,1]$, take
 $K(x) = \frac{1}{\sqrt{2 \pi}} e^{-x^2/2}$ the Gaussian kernel and let
@@ -1021,7 +1091,7 @@ process to be constructed, consider the decomposition
 Writing $S(\cX_\delta)$ for
 $\big(S(x) : x \in \cX_\delta\big)\in \mathbb{R}^N$,
 noting that this is a sum of i.i.d.\ random vectors, we apply
-Corollary~\ref{cor:sa_indep} as
+Corollary~\ref{cor:yurinskii_sa_indep} as
 $\max_{x \in \cX_\delta} |S(x) - T(x)|
 = \| S(\cX_\delta) - T(\cX_\delta) \|_\infty$.
 We obtain that for each $\eta > 0$ there is a Gaussian vector
@@ -1062,7 +1132,7 @@ $\log(N/h) \lesssim \log n$ and $n h \gtrsim \log n$,
 \end{align*}
 %
 Finally, for any $R_n\to\infty$
-(see Remark~\ref{rem:coupling_bounds_probability}),
+(see Remark~\ref{rem:yurinskii_coupling_bounds_probability}),
 the resulting bound on the coupling error is
 %
 \begin{align*}
@@ -1077,13 +1147,16 @@ where the mesh size $\delta$ can be optimized to obtain the tightest
 possible strong approximation.
 
 The discretization strategy outlined above is at the core of the proof strategy
-for our upcoming Proposition~\ref{pro:emp_proc}. Since we will consider
+for our upcoming Proposition~\ref{pro:yurinskii_emp_proc}. Since we will
+consider
 martingale empirical processes, our proof will rely on
-Corollary~\ref{cor:sa_martingale}, which, unlike the martingale Yurinskii
+Corollary~\ref{cor:yurinskii_sa_martingale}, which, unlike the martingale
+Yurinskii
 coupling established by \citet{li2020uniform}, does not require a lower bound
 on the minimum eigenvalue of $\Sigma$. Using the simple kernel density example
 just discussed, we now demonstrate precisely the crucial importance of removing
-such eigenvalue conditions. The following Lemma~\ref{lem:kde_eigenvalue} shows
+such eigenvalue conditions. The following
+Lemma~\ref{lem:yurinskii_kde_eigenvalue} shows
 that the discretized covariance matrix $\Sigma = n h\Var[S(\cX_\delta)]$ has
 exponentially small eigenvalues, which in turn will negatively affect the
 strong approximation bound if the \citet{li2020uniform} coupling were to be
@@ -1091,7 +1164,7 @@ used instead of the results in this dissertation.
 
 \begin{lemma}[Minimum eigenvalue of a
   kernel density estimator covariance matrix]%
-  \label{lem:kde_eigenvalue}
+  \label{lem:yurinskii_kde_eigenvalue}
   %
   The minimum eigenvalue of
   $\Sigma=n h\Var[S(\cX_\delta)] \in \R^{N \times N}$
@@ -1106,8 +1179,9 @@ used instead of the results in this dissertation.
   \end{align*}
 \end{lemma}
 %
-Figure~\ref{fig:min_eig} shows how the upper bound in Lemma
-\ref{lem:kde_eigenvalue} captures the behavior of the simulated minimum
+Figure~\ref{fig:yurinskii_min_eig} shows how the upper bound in Lemma
+\ref{lem:yurinskii_kde_eigenvalue} captures the behavior of the simulated
+minimum
 eigenvalue of $\Sigma$. In particular, the smallest eigenvalue decays
 exponentially fast in the discretization level $\delta$ and the bandwidth $h$.
 As seen in the calculations above, the coupling rate depends on $\delta / h$,
@@ -1139,10 +1213,10 @@ ineffective in such scenarios.
     Computing matrix: the minimum eigenvalue of the limiting covariance
     matrix $\Sigma$ is computed explicitly.
     Upper bound: the bound derived in
-    Lemma~\ref{lem:kde_eigenvalue}
+    Lemma~\ref{lem:yurinskii_kde_eigenvalue}
     is shown.
   }
-  \label{fig:min_eig}
+  \label{fig:yurinskii_min_eig}
 \end{figure}
 
 The discussion in this section focuses on the strong approximation of the
@@ -1152,17 +1226,17 @@ between these is captured by the smoothing bias $\E [ \hat g(x) ] - g(x)$,
 which is straightforward to control with
 $\sup_{x \in \cX} \big| \E [ \hat g(x) ] - g(x) \big|
 \lesssim \frac{h}{a} e^{-a^2 / (2 h^2)}$.
-See Section \ref{sec:nonparametric} for further
+See Section \ref{sec:yurinskii_nonparametric} for further
 discussion.
 
 \subsection{General result for martingale empirical processes}
 
 We now give our general result on a strong approximation for
 martingale empirical processes, obtained by applying
-the first result \eqref{eq:sa_martingale_order_2} in
-Corollary~\ref{cor:sa_martingale} with $p=\infty$
+the first result \eqref{eq:yurinskii_sa_martingale_order_2} in
+Corollary~\ref{cor:yurinskii_sa_martingale} with $p=\infty$
 to a discretization of the empirical process,
-as in Section~\ref{sec:kde}.
+as in Section~\ref{sec:yurinskii_kde}.
 We then control the increments in the stochastic processes
 using chaining with Orlicz norms,
 but note that other tools are available,
@@ -1197,7 +1271,7 @@ $\vvvert Y \vvvert_\psi
 as in \citet[Section~2.2]{van1996weak}.
 
 \begin{proposition}[Strong approximation for martingale empirical processes]%
-  \label{pro:emp_proc}
+  \label{pro:yurinskii_emp_proc}
 
   Let $X_i$ be random variables for $1 \leq i \leq n$ taking values in a
   measurable space $\cX$, and $\cF$ be a pointwise measurable class of
@@ -1210,7 +1284,7 @@ as in \citet[Section~2.2]{van1996weak}.
   metric $d$ on $\cF$, constant $L$, and $\psi \in \Psi$,
   %
   \begin{align}%
-    \label{eq:emp_proc_var}
+    \label{eq:yurinskii_emp_proc_var}
     \Sigma(f,f) - 2\Sigma(f,f') + \Sigma(f',f')
     + \bigvvvert S(f) - S(f') \bigvvvert_\psi^2
     &\leq L^2 d(f,f')^2 \quad \text{a.s.}
@@ -1276,7 +1350,7 @@ as in \citet[Section~2.2]{van1996weak}.
   of $(\cF, d)$, then $|\cF_\delta| = N_\delta$.
 \end{proposition}
 
-Proposition~\ref{pro:emp_proc}
+Proposition~\ref{pro:yurinskii_emp_proc}
 is given in a rather general form to accommodate a range of different
 settings and applications.
 In particular, consider the following well known Orlicz functions.
@@ -1305,17 +1379,20 @@ In particular, consider the following well known Orlicz functions.
 \end{description}
 %
 For these Orlicz functions and when $\Sigma(f, f') = \Cov[S(f), S(f')]$ is
-non-random, the terms involving $\Sigma$ in \eqref{eq:emp_proc_var} can be
+non-random, the terms involving $\Sigma$ in \eqref{eq:yurinskii_emp_proc_var}
+can be
 controlled by the Orlicz $\psi$-norm term; similarly, $J_2$ is bounded by
 $J_\psi$. Further, $C_\psi$ can be replaced by a universal constant $C$ which
 does not depend on the parameter $a$. See Section~2.2 in \citet{van1996weak}
 for details. If the conditional third moments of $f(X_i)$ given $\cH_{i-1}$ are
 all zero (if $f$ and $X_i$ are appropriately symmetric, for example), then the
-second inequality in Corollary~\ref{cor:sa_martingale} can be applied to obtain
+second inequality in Corollary~\ref{cor:yurinskii_sa_martingale} can be applied
+to obtain
 a tighter coupling inequality; the details of this are omitted for brevity, and
 the proof would proceed in exactly the same manner.
 
-In general, however, Proposition~\ref{pro:emp_proc} allows for a random
+In general, however, Proposition~\ref{pro:yurinskii_emp_proc} allows for a
+random
 covariance function, yielding a coupling to a stochastic process that is
 Gaussian only conditionally. Such a process can equivalently be viewed as a
 mixture of Gaussian processes, writing $T=\Sigma^{1/2} Z$ with an operator
@@ -1364,9 +1441,9 @@ Theorem~2.2.8 and Theorem~2.14.1 in \citet{van1996weak} then give
 \end{align*}
 %
 where we used the VC-type property to bound the entropy integral.
-So by our Proposition~\ref{pro:emp_proc},
+So by our Proposition~\ref{pro:yurinskii_emp_proc},
 for any sequence $R_n \to \infty$
-(see Remark~\ref{rem:coupling_bounds_probability}),
+(see Remark~\ref{rem:yurinskii_coupling_bounds_probability}),
 %
 \begin{align*}
   \sup_{f \in \cF}
@@ -1407,34 +1484,40 @@ $\delta^{-\nu_0}$) is even moderately large. We use the fact that our version
 of Yurinskii's coupling applies directly to the supremum norm, giving sharper
 dependence on the dimension.
 
-In Section~\ref{sec:local_poly} we apply Proposition~\ref{pro:emp_proc} to
+In Section~\ref{sec:yurinskii_local_poly} we apply
+Proposition~\ref{pro:yurinskii_emp_proc} to
 obtain strong approximations for local polynomial estimators in the
 nonparametric regression setting. In contrast with the series estimators of the
-upcoming Section~\ref{sec:series}, local polynomial estimators are not linearly
+upcoming Section~\ref{sec:yurinskii_series}, local polynomial estimators are
+not linearly
 separable and hence cannot be analyzed directly using the finite-dimensional
-Corollary~\ref{cor:sa_martingale}.
+Corollary~\ref{cor:yurinskii_sa_martingale}.
 
 \section{Applications to nonparametric regression}
-\label{sec:nonparametric}
+\label{sec:yurinskii_nonparametric}
 
 We illustrate the applicability of our previous strong approximation results
 with two substantial and classical examples in nonparametric regression
 estimation. Firstly, we present an analysis of partitioning-based series
-estimators, in which we can apply Corollary~\ref{cor:sa_martingale} directly
+estimators, in which we can apply Corollary~\ref{cor:yurinskii_sa_martingale}
+directly
 due to an intrinsic linear separability property. Secondly, we consider local
-polynomial estimators, this time using Proposition~\ref{pro:emp_proc} due to
+polynomial estimators, this time using Proposition~\ref{pro:yurinskii_emp_proc}
+due to
 the presence of a non-linearly separable martingale empirical process.
 
 \subsection{Partitioning-based series estimators}
-\label{sec:series}
+\label{sec:yurinskii_series}
 
 Partitioning-based least squares methods are essential tools for estimation and
 inference in nonparametric regression, encompassing splines, piecewise
 polynomials, compactly supported wavelets and decision trees as special cases.
 See \citet{cattaneo2020large} for further details and references throughout
-this section. We illustrate the usefulness of Corollary~\ref{cor:sa_martingale}
+this section. We illustrate the usefulness of
+Corollary~\ref{cor:yurinskii_sa_martingale}
 by deriving a Gaussian strong approximation for partitioning series estimators
-based on multivariate martingale data. Proposition~\ref{pro:series} shows how
+based on multivariate martingale data. Proposition~\ref{pro:yurinskii_series}
+shows how
 we achieve the best known rate of strong approximation for independent data by
 imposing an additional mild $\alpha$-mixing condition to control the time
 series dependence of the regressors.
@@ -1463,7 +1546,8 @@ Our goal is to approximate the law of the stochastic process
 $(\hat\mu(w)-\mu(w):w\in\cW)$, which upon rescaling is typically not
 asymptotically tight as $k \to \infty$ and thus does not converge weakly.
 Nevertheless, exploiting the intrinsic linearity of the estimator $\hat\mu(w)$,
-we can apply Corollary~\ref{cor:sa_martingale} directly to construct a Gaussian
+we can apply Corollary~\ref{cor:yurinskii_sa_martingale} directly to construct
+a Gaussian
 strong approximation. Specifically, we write
 %
 \begin{align*}
@@ -1479,20 +1563,21 @@ is the score vector, and
 $\Bias(w) = p(w)^{\T} \hat H^{-1}\sum_{i=1}^n p(W_i) \mu(W_i) - \mu(w)$.
 Imposing some mild time series restrictions and assuming stationarity,
 it is not difficult to show
-(see Appendix~\ref{sec:yurinskii_proofs})
+(see Section~\ref{sec:yurinskii_app_proofs})
 that $\|\hat H - H\|_1 \lesssim_\P \sqrt{n k}$ and
 $\sup_{w\in\cW} |\Bias(w)| \lesssim_\P k^{-\gamma}$
 for some $\gamma>0$, depending on the specific structure of the basis
 functions, the dimension $m$ of the regressors, and the smoothness of the
 regression function $\mu$. It remains to study the $k$-dimensional
-mean-zero martingale $S$ by applying Corollary~\ref{cor:sa_martingale} with
+mean-zero martingale $S$ by applying
+Corollary~\ref{cor:yurinskii_sa_martingale} with
 $X_i=p(W_i) \varepsilon_i$. Controlling the convergence of the quadratic
 variation term $\E[\|\Omega\|_2]$ requires some time series dependence
 assumptions; we impose an $\alpha$-mixing condition on $(W_1, \ldots, W_n)$ for
 illustration \citep{bradley2005basic}.
 
 \begin{proposition}[Strong approximation for partitioning series estimators]%
-  \label{pro:series}
+  \label{pro:yurinskii_series}
   %
   Consider the nonparametric regression setup described above
   and further assume the following:
@@ -1555,8 +1640,10 @@ illustration \citep{bradley2005basic}.
   %
 \end{proposition}
 
-The core concept in the proof of Proposition~\ref{pro:series} is to apply
-Corollary~\ref{cor:sa_martingale} with $S = \sum_{i=1}^n p(W_i) \varepsilon_i$
+The core concept in the proof of Proposition~\ref{pro:yurinskii_series} is to
+apply
+Corollary~\ref{cor:yurinskii_sa_martingale} with
+$S = \sum_{i=1}^n p(W_i) \varepsilon_i$
 and $p=\infty$ to construct $T \sim \cN\big(0, \Var[S]\big)$ such that
 $\|S - T \|_\infty$ is small, and then setting $G(w) = p(w)^\T H^{-1} T$. So
 long as the bias can be appropriately controlled, this result allows for
@@ -1564,12 +1651,15 @@ uniform inference procedures such as uniform confidence bands or shape
 specification testing. The condition $k^3 / n \to 0$ is the same (up to logs)
 as that imposed by \citet{cattaneo2020large} for i.i.d. data, which gives the
 best known strong approximation rate for this problem. Thus,
-Proposition~\ref{pro:series} gives the same best approximation rate without
+Proposition~\ref{pro:yurinskii_series} gives the same best approximation rate
+without
 requiring any extra restrictions for $\alpha$-mixing time series data.
 
 Our results improve substantially on \citet[Theorem~1]{li2020uniform}: using
-the notation of our Corollary~\ref{cor:sa_martingale}, and with any sequence
-$R_n \to \infty$, a valid (see Remark~\ref{rem:coupling_bounds_probability})
+the notation of our Corollary~\ref{cor:yurinskii_sa_martingale}, and with any
+sequence
+$R_n \to \infty$, a valid (see
+Remark~\ref{rem:yurinskii_coupling_bounds_probability})
 version of their martingale Yurinskii coupling is
 %
 \begin{align*}
@@ -1582,7 +1672,7 @@ version of their martingale Yurinskii coupling is
 where $B_n = \sum_{i=1}^n \E[\|X_i\|_2^3]$ and $r_n$ is a term controlling the
 convergence of the quadratic variation, playing a similar role to our
 term $\E[\|\Omega\|_2]$. Under the assumptions of our
-Proposition~\ref{pro:series}, applying this
+Proposition~\ref{pro:yurinskii_series}, applying this
 result with $S = \sum_{i=1}^n p(W_i) \varepsilon_i$ yields a rate no better
 than $\|S-T\|_2 \lesssim_\P (n k)^{1/3} R_n$. As such, they attain a rate of
 strong approximation no faster than
@@ -1605,10 +1695,11 @@ our approach allows for an improved rate of distributional approximation
 whenever the residuals have zero conditional third moment.
 
 To illustrate the statistical applicability of
-Proposition~\ref{pro:series}, consider constructing a feasible uniform
+Proposition~\ref{pro:yurinskii_series}, consider constructing a feasible uniform
 confidence band for the regression function $\mu$, using standardization and
 Studentization for statistical power improvements. We assume throughout that
-the bias is negligible. Proposition~\ref{pro:series} and anti-concentration for
+the bias is negligible. Proposition~\ref{pro:yurinskii_series} and
+anti-concentration for
 Gaussian suprema \citep[Corollary~2.1]{chernozhukov2014anti} yield
 a distributional approximation for the supremum statistic whenever
 $k^3(\log n)^6 / n \to 0$, giving
@@ -1636,7 +1727,7 @@ $k^3(\log n)^6 / n \to 0$, giving
 where $\rho(w,w') = \E[G(w)G(w')]$. Furthermore, by a Gaussian--Gaussian
 comparison result \citep[Lemma~3.1]{chernozhukov2013gaussian} and
 anti-concentration again, it is not difficult to show (see the proof of
-Proposition~\ref{pro:series}) that with $\bW = (W_1, \ldots, W_n)$ and
+Proposition~\ref{pro:yurinskii_series}) that with $\bW = (W_1, \ldots, W_n)$ and
 $\bY = (Y_1, \ldots, Y_n)$,
 %
 \begin{align*}
@@ -1678,7 +1769,7 @@ based on martingale data.
 
 \begin{proposition}[Feasible uniform confidence bands for partitioning
   series estimators]%
-  \label{pro:series_feasible}
+  \label{pro:yurinskii_series_feasible}
   %
   Assume the setup of the preceding section. Then
   %
@@ -1720,14 +1811,15 @@ based on martingale data.
 \end{proposition}
 
 \subsection{Local polynomial estimators}
-\label{sec:local_poly}
+\label{sec:yurinskii_local_poly}
 
 As a second example application we consider nonparametric regression estimation
 with martingale data employing local polynomial methods
 \citep{fan1996local}. In contrast with the partitioning-based series
-methods of Section~\ref{sec:series}, local polynomials induce stochastic
+methods of Section~\ref{sec:yurinskii_series}, local polynomials induce
+stochastic
 processes which are not linearly separable, allowing us to showcase the
-empirical process result given in Proposition \ref{pro:emp_proc}.
+empirical process result given in Proposition \ref{pro:yurinskii_emp_proc}.
 
 As before, suppose that
 $Y_i = \mu(W_i) + \varepsilon_i$
@@ -1782,8 +1874,10 @@ $\Bias(w) = e_1^\T \hat H(w)^{-1}
 A key distinctive feature of local polynomial regression is that both
 $\hat H(w)$ and $S(w)$ are functions of the evaluation point $w\in\cW$;
 contrast this with the partitioning-based series estimator discussed in
-Section~\ref{sec:series}, for which neither $\hat H$ nor $S$ depend on $w$.
-Therefore we use Proposition \ref{pro:emp_proc} to obtain a Gaussian strong
+Section~\ref{sec:yurinskii_series}, for which neither $\hat H$ nor $S$ depend
+on $w$.
+Therefore we use Proposition \ref{pro:yurinskii_emp_proc} to obtain a Gaussian
+strong
 approximation for the martingale empirical process directly.
 
 Under mild regularity conditions, including stationarity for simplicity
@@ -1796,7 +1890,7 @@ $\sup_{w\in\cW} |\Bias(w)|
 provided that the regression function is sufficiently smooth.
 It remains to analyze the martingale empirical process given by
 $\big(e_1^\T H(w)^{-1} S(w) : w\in\cW\big)$
-via Proposition \ref{pro:emp_proc} by setting
+via Proposition \ref{pro:yurinskii_emp_proc} by setting
 %
 \begin{align*}
   \cF = \left\{
@@ -1810,7 +1904,7 @@ via Proposition \ref{pro:emp_proc} by setting
 With this approach, we obtain the following result.
 
 \begin{proposition}[Strong approximation for local polynomial estimators]%
-  \label{pro:local_poly}
+  \label{pro:yurinskii_local_poly}
 
   Under the nonparametric regression setup described above,
   assume further that
@@ -1872,8 +1966,10 @@ With this approach, we obtain the following result.
 If the residuals further satisfy
 $\E \left[ \varepsilon_i^3 \mid \cH_{i-1} \right] = 0$, then
 a third-order Yurinskii coupling delivers an improved rate of strong
-approximation for Proposition~\ref{pro:local_poly}; this is omitted here for
-brevity. For completeness, the proof of Proposition~\ref{pro:local_poly}
+approximation for Proposition~\ref{pro:yurinskii_local_poly}; this is omitted
+here for
+brevity. For completeness, the proof of
+Proposition~\ref{pro:yurinskii_local_poly}
 verifies that if the regression function $\mu(w)$ is $\gamma$ times
 continuously differentiable on $\cW$ then
 $\sup_w |\Bias(w)| \lesssim_\P h^\gamma$. Further, the assumption that $p(w)$
@@ -1883,7 +1979,8 @@ will suffice \citep{eggermont2009maximum}. As such, we can encompass local
 splines and wavelets, as well as polynomials, and also choose whether or not to
 include interactions between the regressor variables. The bandwidth restriction
 of $n h^{3m} \to \infty$ is analogous to that imposed in
-Proposition~\ref{pro:series} for partitioning-based series estimators, and as
+Proposition~\ref{pro:yurinskii_series} for partitioning-based series
+estimators, and as
 far as we know, has not been improved upon for non-i.i.d.\ data.
 
 Applying an anti-concentration result for Gaussian process suprema, such as
@@ -1893,22 +1990,26 @@ $\sup_{w \in \cW}|\hat\mu(w) - \mu(w)|$ to that of $\sup_{w \in \cW}|T(w)|$.
 With an appropriate covariance estimator, we can further replace $T(w)$ by a
 feasible version $\hat T(w)$ or its Studentized counterpart, enabling
 procedures for uniform inference analogous to the confidence bands constructed
-in Section~\ref{sec:series}. We omit the details of this to conserve space but
+in Section~\ref{sec:yurinskii_series}. We omit the details of this to conserve
+space but
 note that our assumptions on $W_i$ and $\varepsilon_i$ ensure that
 Studentization is possible even when the discretized covariance matrix has
-small eigenvalues (Section~\ref{sec:kde}), as we normalize only by the diagonal
+small eigenvalues (Section~\ref{sec:yurinskii_kde}), as we normalize only by
+the diagonal
 entries. \citet[Remark~3.1]{chernozhukov2014gaussian} achieve better rates for
 approximating the supremum of the $t$-process based on i.i.d.\ data in
 Kolmogorov--Smirnov distance by bypassing the step where we first approximate
-the entire stochastic process (see Section~\ref{sec:emp_proc} for a
+the entire stochastic process (see Section~\ref{sec:yurinskii_emp_proc} for a
 discussion).
 
 We finally remark that in this setting of kernel-based local empirical
 processes, it is essential that our initial strong approximation result
-(Corollary~\ref{cor:sa_martingale}) does not impose a lower bound on the
+(Corollary~\ref{cor:yurinskii_sa_martingale}) does not impose a lower bound on
+the
 eigenvalues of the variance matrix $\Sigma$. This effect was demonstrated by
-Lemma \ref{lem:kde_eigenvalue} and its surrounding discussion in
-Section~\ref{sec:kde}, and as such, the result of \citet{li2020uniform} is
+Lemma \ref{lem:yurinskii_kde_eigenvalue} and its surrounding discussion in
+Section~\ref{sec:yurinskii_kde}, and as such, the result of
+\citet{li2020uniform} is
 unsuited for this application due to its strong minimum eigenvalue assumption.
 
 \section{Conclusion}

@@ -12,8 +12,6 @@
 *** TODO mondrian appendix
 *** TODO kernel appendix
 *** TODO yurinskii appendix
-** TODO Fix all labels
-** TODO eqref for eq:
 ** TODO Align spacing in code
 * Formatting
 ** Page numbers no more than 0.5in from bottom

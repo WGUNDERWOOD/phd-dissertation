@@ -92,7 +92,8 @@ data points up to logarithmic terms.
 
 \begin{lemma}[Upper bound on the number of active data points]%
   \label{lem:mondrian_app_active_data}
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator} hold,
+  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator}
+  hold,
   and define
   $N_{\cup}(x) =
   \sum_{i=1}^{n} \I \left\{ X_i \in \bigcup_{b=1}^{B} T_b(x) \right\}$.
@@ -759,7 +760,8 @@ explicit bound with no expectations on the right-hand side.
 
 \begin{proof}[Lemma~\ref{lem:mondrian_app_simple_moment_denominator}]
   This follows directly from
-  Lemmas~\ref{lem:mondrian_app_moment_denominator} and \ref{lem:mondrian_app_moment_cell}.
+  Lemmas~\ref{lem:mondrian_app_moment_denominator} and
+  \ref{lem:mondrian_app_moment_cell}.
 \end{proof}
 
 Our final preliminary lemma is concerned with further properties of
@@ -973,7 +975,8 @@ results for the Mondrian random forest estimator without debiasing.
 
 \begin{proof}[Theorem~\ref{thm:mondrian_clt}]
   From the debiased version
-  (Theorem~\ref{thm:mondrian_clt_debiased}) with $J=0$, $a_0 = 1$, and $\omega_0 = 1$.
+  (Theorem~\ref{thm:mondrian_clt_debiased}) with $J=0$, $a_0 = 1$, and
+  $\omega_0 = 1$.
 \end{proof}
 
 \subsection*{Proof of bias characterization}
@@ -1401,7 +1404,8 @@ for details on our approach to this proof.
   %
   Note that since $f$ and $\mu$ are Lipschitz,
   and by integrating the tail probability given in
-  Lemma~\ref{lem:mondrian_app_largest_cell}, the Maclaurin remainder term is bounded by
+  Lemma~\ref{lem:mondrian_app_largest_cell}, the Maclaurin remainder term is
+  bounded by
   %
   \begin{align*}
     &\E \left[
@@ -1524,7 +1528,8 @@ for details on our approach to this proof.
     + O \left( |T_b(x)| \max_{1 \leq l \leq d} |T_b(x)_l|^\beta \right).
   \end{align*}
   %
-  Now by integrating the tail probabilities in Lemma~\ref{lem:mondrian_app_largest_cell},
+  Now by integrating the tail probabilities in
+  Lemma~\ref{lem:mondrian_app_largest_cell},
   $ \E \left[ \max_{1 \leq l \leq d} |T_b(x)_l|^\beta \right]
   \lesssim \frac{1}{\lambda^\beta}$.
   Therefore by Lemma~\ref{lem:mondrian_app_moment_cell},
@@ -1656,7 +1661,8 @@ for details on our approach to this proof.
     2d e^{-C \lambda}.
   \end{align*}
   %
-  Further, the quantity inside the expectation in \eqref{eq:mondrian_app_bias_calc}
+  Further, the quantity inside the expectation in
+  \eqref{eq:mondrian_app_bias_calc}
   is bounded almost surely by one and so
   the error incurred by replacing
   $E_{1j*}$ and $E_{2j*}$ by $E_{1j}$ and $E_{2j}$
@@ -1753,7 +1759,8 @@ for details on our approach to this proof.
   but there are an even number of terms,
   preserving the overall sign.
   Therefore the expected product
-  of \eqref{eq:mondrian_app_bias_odd_1} and \eqref{eq:mondrian_app_bias_odd_2} is zero by symmetry.
+  of \eqref{eq:mondrian_app_bias_odd_1} and \eqref{eq:mondrian_app_bias_odd_2}
+  is zero by symmetry.
 
   If however $\nu'_j + \nu''_j$ is even, then
   $\sum_{|\nu|=1}^{\flbeta} \nu_j u_\nu$ is odd so
@@ -1764,7 +1771,8 @@ for details on our approach to this proof.
   is inverted. However there are now an odd number of terms in the
   second product, so its overall sign is inverted.
   Therefore the expected product
-  of \eqref{eq:mondrian_app_bias_odd_1} and \eqref{eq:mondrian_app_bias_odd_2} is again zero.
+  of \eqref{eq:mondrian_app_bias_odd_1} and \eqref{eq:mondrian_app_bias_odd_2}
+  is again zero.
 
   \proofparagraph{calculating the second-order bias}
 
@@ -1774,7 +1782,8 @@ for details on our approach to this proof.
   $|\nu'| + |\nu''| + u \cdot |\nu| = 2$,
   proceeding by cases on the values of $|\nu'|$, $|\nu''|$, and $|u|$.
   Firstly, if $|\nu'| = 2$ then $|\nu''| = |u| = 0$.
-  Note that if any $\nu'_j = 1$ then the expectation in \eqref{eq:mondrian_app_bias} is zero.
+  Note that if any $\nu'_j = 1$ then the expectation in
+  \eqref{eq:mondrian_app_bias} is zero.
   Hence we can assume $\nu'_j \in \{0, 2\}$, yielding
   %
   \begin{align*}
@@ -3856,7 +3865,8 @@ of the debiased Mondrian random forest estimator.
   at most $\frac{\lambda^d}{n}$ by Theorem~\ref{thm:mondrian_clt_debiased}.
   Consistency of the second term in \eqref{eq:mondrian_app_sigma2_hat_proof}
   follows directly from Theorems~\ref{thm:mondrian_bias} and
-  \ref{thm:mondrian_clt_debiased} with the same bias and variance bounds. Therefore
+  \ref{thm:mondrian_clt_debiased} with the same bias and variance bounds.
+  Therefore
   %
   \begin{align*}
     \hat\sigma^2(x)
@@ -4229,7 +4239,8 @@ cells in a Mondrian tree with a natural order.
 
 We observe a version of the famous Poisson process inspection or waiting time
 paradox in the sizes of Mondrian cells. The above
-Lemma~\ref{lem:mondrian_app_cells_identically_distributed} shows that for a large enough
+Lemma~\ref{lem:mondrian_app_cells_identically_distributed} shows that for a
+large enough
 lifetime $\lambda$, the volume of any cell $D$ has the same distribution as the
 volume of a corner cell, and is asymptotically
 $\E[|D|] \asymp \E \left[ \prod_{j=1}^{d} (E_j / \lambda) \right]
@@ -4299,7 +4310,8 @@ sizes, due to the fact that they must all fit within the original cell $D$.
 \begin{proof}[Lemma~\ref{lem:mondrian_app_largest_cell_tail}]
 
   Let $D_i$ be the ordered cells of $T$ and take $k \geq 1$.
-  By union bounds and Lemma~\ref{lem:mondrian_app_cells_identically_distributed},
+  By union bounds and
+  Lemma~\ref{lem:mondrian_app_cells_identically_distributed},
   %
   \begin{align*}
     \P\left(
@@ -4410,7 +4422,8 @@ partitions.
 
 We begin our analysis of Mondrian forest refinements with a pair of simple
 inequalities for bounding the total number of refined cells
-in Lemma~\ref{lem:mondrian_app_refinement_inequalities}. This result does not depend
+in Lemma~\ref{lem:mondrian_app_refinement_inequalities}. This result does not
+depend
 on the probabilistic structure of the Mondrian process, and holds for any
 rectangular partitions.
 
@@ -4481,7 +4494,8 @@ rather crude bounds for the number of cells in a Mondrian forest
 refinement as they do not take into account the random structure.
 Indeed, it should be clear that the ``worst case'' scenarios, involving
 trees which contain splits only in a single direction, should be extremely
-unlikely under the Mondrian law. In Lemma~\ref{lem:mondrian_app_refinement} we confirm
+unlikely under the Mondrian law. In Lemma~\ref{lem:mondrian_app_refinement} we
+confirm
 this intuition and provide an exact value for the expected number of cells
 in a Mondrian refinement by direct calculation. This result strictly generalizes
 the single tree version provided as \citet[Proposition~2]{mourtada2020minimax}.
@@ -4585,12 +4599,15 @@ the single tree version provided as \citet[Proposition~2]{mourtada2020minimax}.
   %
 \end{proof}
 
-While the exact expectation calculation in Lemma~\ref{lem:mondrian_app_refinement} is neat,
+While the exact expectation calculation in
+Lemma~\ref{lem:mondrian_app_refinement} is neat,
 in some situations it may be desirable to have sharper control on the tail
 behavior of the number of cells in a Mondrian refinement.
-Lemma~\ref{lem:mondrian_app_refinement_tail} provides such a result, again making
+Lemma~\ref{lem:mondrian_app_refinement_tail} provides such a result, again
+making
 use of the subcell trick to convert a crude upper bound based on
-Lemma~\ref{lem:mondrian_app_refinement_inequalities} into a useful tail inequality.
+Lemma~\ref{lem:mondrian_app_refinement_inequalities} into a useful tail
+inequality.
 We assume for simplicity that all of the lifetimes are identical.
 
 \begin{lemma}[Tail bound on the number of cells in a Mondrian forest refinement]
@@ -4611,9 +4628,10 @@ We assume for simplicity that all of the lifetimes are identical.
 
 \begin{proof}[Lemma~\ref{lem:mondrian_app_refinement_tail}]
 
-  We begin with a rather coarse estimate and refine it using the subcell trick.
-  By Lemma~\ref{lem:mondrian_app_refinement_inequalities} \eqref{eq:mondrian_app_refinement_2} and
-  union bounds, for any $t > 0$, recalling that $\# T_{b j}$ denotes the number
+  We begin with a coarse estimate and refine it with the subcell trick.
+  By Lemma~\ref{lem:mondrian_app_refinement_inequalities}
+  \eqref{eq:mondrian_app_refinement_2} and
+  union bounds, for any $t > 0$, recalling that $\# T_{b j}$ is the number
   of splits made by $T_b$ in dimension $j$,
   %
   \begin{align}
@@ -4747,4 +4765,5 @@ Lemma~\ref{lem:mondrian_app_refinement_tail} shows that
 an exponential tail bounds holds for
 the number of cells in a Mondrian forest refinement
 which, up to logarithmic terms, for fixed dimension and large $\lambda$,
-provides the same probability bound as presented in Lemma~\ref{lem:mondrian_app_refinement}.
+provides the same probability bound as presented in
+Lemma~\ref{lem:mondrian_app_refinement}.

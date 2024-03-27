@@ -96,10 +96,12 @@ supremum statistic $\sup_{w\in\cW}\big|\hat{f}_W(w)\big|$ over a finite
 collection $\cW$ of design points. More generally, as we discuss below, the
 estimand $f_W(w)$ is useful in different applications because it forms the
 basis for counterfactual distributional analysis
-(Section~\ref{sec:kernel_counterfactual}) and other nonparametric and semiparametric
+(Section~\ref{sec:kernel_counterfactual}) and other nonparametric and
+semiparametric
 methods (Section~\ref{sec:kernel_future}). While we assume throughout
 that the network is complete, our approach generalizes in a straightforward way
-to networks with missing edges, as in Section~\ref{sec:kernel_trade_data}. This can be
+to networks with missing edges, as in Section~\ref{sec:kernel_trade_data}.
+This can be
 seen by setting $W_{i j} = -\infty$ whenever the edge $\{i, j\}$ is not
 present, so that the law of $W_{i j}$ is a mixture between a continuous
 distribution and a point mass at $-\infty$. We apply our methodology to
@@ -126,7 +128,8 @@ applications:
 %
 Our main results also lay the foundation for studying the uniform
 distributional properties of other nonparametric and semiparametric tests and
-estimators based on dyadic data (Section~\ref{sec:kernel_future}). Importantly, our
+estimators based on dyadic data (Section~\ref{sec:kernel_future}). Importantly,
+our
 inference results cannot be deduced from the existing U-statistic, empirical
 process and U-process theory available in the literature
 \citep{van1996weak,gine2021mathematical} because, as explained in detail below,
@@ -162,7 +165,8 @@ decomposition in Lemma~\ref{lem:kernel_uniform_concentration}.
 We give an example of a simple family of dyadic distributions
 exhibiting all three degeneracy types.
 
-Section~\ref{sec:kernel_point_estimation} studies minimax convergence rates for point
+Section~\ref{sec:kernel_point_estimation} studies minimax convergence rates for
+point
 estimation of $f_W$ uniformly over $\cW$ and gives precise conditions under
 which the estimator $\hat{f}_W$ is minimax-optimal. Firstly, in
 Theorem~\ref{thm:kernel_uniform_consistency} we establish the uniform rate of
@@ -202,7 +206,8 @@ building on ideas in \citet{gine2004kernel} and \citet{gine2010confidence}. The
 resulting rate of strong approximation is optimal, and follows from a generic
 strong approximation result of potential independent interest given in
 Section~\ref{sec:kernel_app_technical}. Our main result for $L_n$ is given as
-Lemma~\ref{lem:kernel_strong_approx_Ln}, and makes explicit the potential presence of
+Lemma~\ref{lem:kernel_strong_approx_Ln}, and makes explicit the potential
+presence of
 degenerate points.
 
 The stochastic process $E_n$ is an empirical process depending on the dyadic
@@ -225,11 +230,14 @@ approximation for $L_n+E_n$ and hence also for $\hat{f}_W$ and its associated
 $t$-process. This final step requires some additional technical work. Firstly,
 building on our conditional strong approximation for $E_n$, we establish an
 unconditional strong approximation for $E_n$ in
-Lemma~\ref{lem:kernel_unconditional_strong_approx_En}. We then employ a generalization
+Lemma~\ref{lem:kernel_unconditional_strong_approx_En}.
+We then employ a generalization
 of the celebrated Vorob'ev--Berkes--Philipp theorem \citep{dudley1999uniform},
-given in given in Section~\ref{sec:kernel_app_technical}, to deduce a \emph{joint}
+given in given in Section~\ref{sec:kernel_app_technical}, to deduce a
+\emph{joint}
 strong approximation for $(L_n,E_n)$ and, in particular, for $L_n+E_n$. Thus we
-obtain our main result in Theorem~\ref{thm:kernel_strong_approx_Tn}, which establishes
+obtain our main result in Theorem~\ref{thm:kernel_strong_approx_Tn},
+which establishes
 a valid strong approximation for the $t$-process associated with $\hat{f}_W$.
 This uniform inference result complements the recent contribution of
 \citet{davezies2021exchangeable}, which is not applicable here as
@@ -246,7 +254,8 @@ obtained simultaneous confidence intervals for the dyadic density $f_W$ based
 on a high-dimensional central limit theorem over rectangles, following prior
 work by \citet{chernozhukov2017central}. The distributional
 approximation therein is applied to the H\'{a}jek projection term $L_n$ only,
-whereas our main construction leading to Theorem~\ref{thm:kernel_strong_approx_Tn}
+whereas our main construction leading to
+Theorem~\ref{thm:kernel_strong_approx_Tn}
 gives a strong approximation for the entire U-process-like $\hat{f}_W$ and its
 associated $t$-process, uniformly on $\cW$. As a consequence, our uniform
 inference theory is robust to potential unknown degeneracies in $L_n$ by virtue
@@ -264,14 +273,16 @@ the Gaussian process underlying our strong approximation results. We present
 two estimators, one based on a plug-in method, and the other on a
 positive semi-definite regularization thereof \citep{laurent2005semidefinite}.
 We derive the uniform convergence rates for both estimators in
-Lemma~\ref{lem:kernel_sdp}, which we then use to justify Studentization of $\hat{f}_W$
+Lemma~\ref{lem:kernel_sdp}, which we then use to justify Studentization
+of $\hat{f}_W$
 and a feasible simulation-based approximation of the infeasible Gaussian
 process underlying our strong approximation results. Secondly, we discuss
 integrated mean squared error (IMSE) bandwidth selection and provide a simple
 rule-of-thumb implementation for applications
 \citep{wand1994kernel,simonoff1996smoothing}. Thirdly, we provide feasible,
 valid uniform inference methods for $f_W$ by employing robust bias correction
-\citep{calonico2018effect, calonico2022coverage}. Algorithm~\ref{alg:kernel_method}
+\citep{calonico2018effect, calonico2022coverage}.
+Algorithm~\ref{alg:kernel_method}
 summarizes our entire feasible uniform inference methodology.
 
 Section~\ref{sec:kernel_simulations} reports empirical evidence for our proposed
@@ -279,7 +290,8 @@ feasible robust bias-corrected confidence bands for $f_W$. We use simulations
 to show that these confidence bands are robust to potential unknown degenerate
 points in the underlying dyadic distribution.
 
-Section~\ref{sec:kernel_counterfactual} presents novel results for counterfactual
+Section~\ref{sec:kernel_counterfactual} presents novel results for
+counterfactual
 dyadic density estimation and inference, offering an application of our general
 theory to a substantive problem in statistics and other data science
 disciplines. Counterfactual distributions are important for causal inference
@@ -301,12 +313,14 @@ methods with a real dyadic data set recording bilateral trade between
 countries from 1995 to 2005, using GDP as a covariate for the
 counterfactual analysis.
 
-Section~\ref{sec:kernel_future} discusses further statistical applications of our main
+Section~\ref{sec:kernel_future} discusses further statistical applications
+of our main
 results, including dyadic density testing and nonparametric and
 semiparametric dyadic regression. Section~\ref{sec:kernel_conclusion} concludes.
 Appendix~\ref{app:kernel} includes other technical and methodological results,
 proofs, and additional details omitted here to conserve space.
-Section~\ref{sec:kernel_app_technical} may be of independent interest, containing
+Section~\ref{sec:kernel_app_technical} may be of independent interest,
+containing
 two generic strong approximation theorems for empirical processes, a
 generalized Vorob'ev--Berkes--Philipp theorem, and a maximal inequality for
 i.n.i.d.\ random variables.
@@ -427,7 +441,8 @@ boundary-corrected kernel functions
 \citep{wand1994kernel,simonoff1996smoothing}, constructed for example by taking
 polynomials on a compact interval and solving a linear system for the
 coefficients. Assumption~\ref{ass:kernel_bandwidth} implies
-(see Lemma~\ref{lem:kernel_app_lipschitz_kernels_bounded} in Appendix~\ref{app:kernel})
+(see Lemma~\ref{lem:kernel_app_lipschitz_kernels_bounded}
+in Appendix~\ref{app:kernel})
 that if $h \leq 1$ then $k_h$ is uniformly bounded by
 $C_\rk h^{-1}$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
 
@@ -608,7 +623,8 @@ degeneracy.
   \end{align*}
 \end{lemma}
 
-Lemma~\ref{lem:kernel_uniform_concentration} captures the potential total degeneracy
+Lemma~\ref{lem:kernel_uniform_concentration} captures the potential total
+degeneracy
 of $L_n$ by illustrating how if $\Du=0$ then $L_n=0$ everywhere on $\cW$ almost
 surely. The following lemma captures the potential partial degeneracy of $L_n$,
 where $\Du > \Dl = 0$. For $w,w' \in \cW$, define the covariance function
@@ -656,7 +672,8 @@ of $A_i$ for each node $i$, and the interaction outcome $W_{i j}$ is a function
 only of the communities which $i$ and $j$ belong to and some idiosyncratic
 noise. Unlike the stochastic block model \citep{kolaczyk2009statistical}, our
 setup assumes that community membership has no impact on edge existence, as we
-work with fully connected networks; see Section~\ref{sec:kernel_trade_data} for a
+work with fully connected networks; see Section~\ref{sec:kernel_trade_data} for
+a
 discussion of how to handle missing edges in practice. Also note that the
 parameter of interest in this chapter is the Lebesgue density of a continuous
 random variable $W_{i j}$ rather than the probability of network edge
@@ -755,7 +772,8 @@ $\hat f_W$.
   \end{align*}
 \end{theorem}
 %
-The implicit constant in Theorem~\ref{thm:kernel_uniform_consistency} depends only on
+The implicit constant in Theorem~\ref{thm:kernel_uniform_consistency} depends
+only on
 $\cW$, $\beta$, $C_\rH$, and the choice of kernel. We interpret this result in
 light of the degeneracy trichotomy from Lemma~\ref{lem:kernel_trichotomy}.
 %
@@ -833,7 +851,8 @@ $\left(\frac{\log n}{n^2}\right)^{\frac{\beta}{2\beta+1}}$ and
 is determined by the bias $B_n$ and the leading variance term $E_n$ in
 \eqref{eq:kernel_hoeffding}.
 
-Combining Theorems \ref{thm:kernel_uniform_consistency}~and~\ref{thm:kernel_minimax},
+Combining Theorems
+\ref{thm:kernel_uniform_consistency}~and~\ref{thm:kernel_minimax},
 we conclude that $\hat{f}_W(w)$ achieves the minimax-optimal rate for uniformly
 estimating $f_W(w)$ if $h \asymp \left( \frac{\log n}{n^2}
 \right)^{\frac{1}{2\beta+1}}$ and a kernel of sufficiently high order
@@ -897,7 +916,8 @@ and may be of independent interest.
 \end{lemma}
 
 % donsker case
-The strong approximation result in Lemma~\ref{lem:kernel_strong_approx_Ln} would be
+The strong approximation result in Lemma~\ref{lem:kernel_strong_approx_Ln}
+would be
 sufficient to develop valid and even optimal uniform inference procedures
 whenever both $\Dl > 0$ (no degeneracy in $L_n$) and $n h \gg \log n$
 ($L_n$ is leading). In this special case, the recent Donsker-type results of
@@ -905,7 +925,8 @@ whenever both $\Dl > 0$ (no degeneracy in $L_n$) and $n h \gg \log n$
 distribution of the stochastic process $\hat{f}_W$. Alternatively, again only
 when $L_n$ is non-degenerate and leading, standard empirical process methods
 could also be used. However, even in the special case when $\hat{f}_W(w)$ is
-asymptotically Donsker, our result in Lemma~\ref{lem:kernel_strong_approx_Ln} improves
+asymptotically Donsker, our result in Lemma~\ref{lem:kernel_strong_approx_Ln}
+improves
 upon the literature by providing a rate-optimal strong approximation for
 $\hat{f}_W$ as opposed to only a weak convergence result. See Theorem
 \ref{thm:kernel_infeasible_ucb} and the subsequent discussion below.
@@ -956,13 +977,15 @@ $\tilde Z_n^E$.
 \end{lemma}
 
 Combining Lemmas \ref{lem:kernel_conditional_strong_approx_En}
-and~\ref{lem:kernel_unconditional_strong_approx_En}, we obtain an unconditional strong
+and~\ref{lem:kernel_unconditional_strong_approx_En}, we obtain
+an unconditional strong
 approximation for $E_n$. The resulting rate of approximation may not be
 optimal, due to the Yurinskii coupling, but to the best of our knowledge it is
 the first in the literature for the process $E_n$, and hence for $\hat{f}_W$
 and its associated $t$-process in the context of dyadic data. The approximation
 rate is sufficiently fast to allow for optimal bandwidth choices; see Section
-\ref{sec:kernel_implementation} for more details. Strong approximation results for
+\ref{sec:kernel_implementation} for more details. Strong approximation results
+for
 local empirical processes (e.g.\ \citealp{gine2010confidence}) are not
 applicable here because the summands in the non-negligible $E_n$ are not
 (conditionally) i.i.d. Likewise, neither standard empirical process and
@@ -973,7 +996,8 @@ process $E_n$.
 The previous lemmas showed that $L_n$ is $\sqrt{n}$-consistent while $E_n$ is
 $\sqrt{n^2h}$-consistent (pointwise in $w$), showcasing the importance of
 careful standardization (cf.\ Studentization in
-Section~\ref{sec:kernel_implementation}) for the purpose of rate adaptivity to the
+Section~\ref{sec:kernel_implementation}) for the purpose of rate adaptivity to
+the
 unknown degeneracy type. In other words, a challenge in conducting uniform
 inference is that the finite-dimensional distributions of the stochastic
 process $L_n+E_n$, and hence those of $\hat{f}_W$ and its associated
@@ -1004,11 +1028,13 @@ which is fully adaptive to such potential unknown degeneracy.
 \end{theorem}
 
 The first term in the numerator corresponds to the strong approximation for
-$L_n$ in Lemma~\ref{lem:kernel_strong_approx_Ln} and the error introduced by $Q_n$.
+$L_n$ in Lemma~\ref{lem:kernel_strong_approx_Ln} and the error introduced by
+$Q_n$.
 The second and third terms correspond to the conditional and unconditional
 strong approximation errors for $E_n$ in Lemmas
 \ref{lem:kernel_conditional_strong_approx_En} and
-\ref{lem:kernel_unconditional_strong_approx_En}, respectively. The fourth term is from
+\ref{lem:kernel_unconditional_strong_approx_En}, respectively.
+The fourth term is from
 the smoothing bias result in Theorem~\ref{thm:kernel_bias}. The denominator is
 the lower bound on the standard deviation $\Sigma_n(w,w)^{1/2}$ formulated in
 Lemma~\ref{lem:kernel_variance_bounds}.
@@ -1023,25 +1049,29 @@ that $p\wedge\beta \geq 3.5$. This is achievable if a fourth-order
 (boundary-adaptive) kernel is used and $f_W$ is sufficiently smooth.
 
 In the presence of partial or total degeneracy ($\Dl =0$),
-Theorem~\ref{thm:kernel_strong_approx_Tn} provides a strong approximation for the
+Theorem~\ref{thm:kernel_strong_approx_Tn} provides a strong approximation for
+the
 $t$-process at the rate
 $\sqrt{h}\log n + n^{-1/4}h^{-3/8}(\log n)^{3/8} R_n + n^{-1/6}(\log n)^{2/3}
 + n h^{1/2+p\wedge\beta}$. If, for example, $n h^{p\wedge\beta}\lesssim 1$,
 then our result can achieve a strong approximation rate of $n^{-1/7}$ up to
-$\log n $ terms. Theorem~\ref{thm:kernel_strong_approx_Tn} appears to be the first in
-the dyadic literature which is also robust to the presence of
+$\log n $ terms. Theorem~\ref{thm:kernel_strong_approx_Tn} appears to be the
+first in the dyadic literature which is also robust to the presence of
 degenerate points in the underlying dyadic distribution.
 
 \subsection{Application: confidence bands}
 
-Theorem~\ref{thm:kernel_infeasible_ucb} constructs standardized confidence bands for
+Theorem~\ref{thm:kernel_infeasible_ucb} constructs standardized confidence
+bands for
 $f_W$ which are infeasible as they depend on the unknown population variance
-$\Sigma_n$. In Section~\ref{sec:kernel_implementation} we will make this inference
+$\Sigma_n$. In Section~\ref{sec:kernel_implementation} we will make this
+inference
 procedure feasible by proposing a valid estimator of the covariance function
 $\Sigma_n$ for Studentization, as well as developing bandwidth selection and
 robust bias correction methods. Before presenting our result on valid
 infeasible uniform confidence bands, we first impose in
-Assumption~\ref{ass:kernel_rates} some extra restrictions on the bandwidth sequence,
+Assumption~\ref{ass:kernel_rates} some extra restrictions on the bandwidth
+sequence,
 which depend on the degeneracy type of the dyadic distribution, to ensure the
 coverage rate converges.
 
@@ -1093,12 +1123,14 @@ hence improving the finite sample performance of the proposed confidence bands.
   %
 \end{theorem}
 
-By Theorem~\ref{thm:kernel_uniform_consistency}, the asymptotically optimal choice of
+By Theorem~\ref{thm:kernel_uniform_consistency}, the asymptotically optimal
+choice of
 bandwidth for uniform convergence is
 $h \asymp ((\log n)/n^2)^{\frac{1}{2(p \wedge \beta)+1}}$.
 As discussed in the next section, the approximate
 IMSE-optimal bandwidth is $h \asymp (1/n^2)^{\frac{1}{2(p \wedge \beta)+1}}$.
-Both bandwidth choices satisfy Assumption~\ref{ass:kernel_rates} only in the case of
+Both bandwidth choices satisfy Assumption~\ref{ass:kernel_rates} only in the
+case of
 no degeneracy. The degenerate cases in
 Assumption~\ref{ass:kernel_rates}\ref{it:kernel_rate_degen}, which require
 $p \wedge \beta > 1$, exhibit behavior more similar to that of standard
@@ -1119,7 +1151,8 @@ standardization (Studentization) when forming the $t$-statistic $T_n$.
 Importantly, regardless of the specific implementation details,
 Theorem~\ref{thm:kernel_infeasible_ucb} shows that any bandwidth sequence $h$
 satisfying both \ref{it:kernel_rate_non} and \ref{it:kernel_rate_degen}
-in Assumption~\ref{ass:kernel_rates} leads to valid uniform inference which is robust
+in Assumption~\ref{ass:kernel_rates} leads to valid uniform inference which is
+robust
 and adaptive to the (unknown) degeneracy type.
 
 \section{Implementation}
@@ -1129,8 +1162,10 @@ We address outstanding implementation details to make our main uniform
 inference results feasible. In Section~\ref{sec:kernel_covariance_estimation} we
 propose a covariance estimator along with a modified version which is
 guaranteed to be positive semi-definite. This allows for the construction of
-fully feasible confidence bands in Section~\ref{sec:kernel_feasible_confidence_bands}.
-In Section~\ref{sec:kernel_bandwidth_selection} we discuss bandwidth selection and
+fully feasible confidence bands in
+Section~\ref{sec:kernel_feasible_confidence_bands}.
+In Section~\ref{sec:kernel_bandwidth_selection} we discuss bandwidth selection
+and
 formalize our procedure for robust bias correction inference.
 
 \subsection{Covariance function estimation}
@@ -1181,7 +1216,7 @@ Section~\ref{sec:kernel_setup}.
 \end{equation}
 
 Denote by $\hat\Sigma_n^+$ any (approximately) optimal solution to
-(\ref{eq:kernel_sdp}). The following lemma establishes uniform convergence rates
+\eqref{eq:kernel_sdp}. The following lemma establishes uniform convergence rates
 for both $\hat \Sigma_n$ and $\hat \Sigma_n^+$.
 We then use $\hat \Sigma_n^+$ to construct feasible versions of $T_n$ and its
 associated Gaussian approximation $Z_n^{T}$ defined in
@@ -1199,7 +1234,8 @@ Theorem~\ref{thm:kernel_strong_approx_Tn}.
     &\lesssim_\P \frac{\sqrt{\log n}}{n}.
   \end{align*}
   %
-  Also, the optimization problem (\ref{eq:kernel_sdp}) is a semi-definite program
+  Also, the optimization problem \eqref{eq:kernel_sdp} is a semi-definite
+  program
   \citep[SDP,][]{laurent2005semidefinite} and has an approximately optimal
   solution $\hat\Sigma_n^+$ satisfying
   %
@@ -1214,13 +1250,15 @@ Theorem~\ref{thm:kernel_strong_approx_Tn}.
 
 In practice we take $w, w' \in \cW_d$ where $\cW_d$ is a finite subset of
 $\cW$, typically taken to be an equally-spaced grid. This yields
-finite-dimensional covariance matrices, for which \eqref{eq:kernel_sdp} can be solved
+finite-dimensional covariance matrices, for which \eqref{eq:kernel_sdp} can be
+solved
 in polynomial time in $|\cW_d|$ using a general-purpose SDP solver
 \citep[e.g.\ by interior point methods,][]{laurent2005semidefinite}.
 The number of points in $\cW_d$ should be taken as large as is computationally
 practical in order to generate confidence bands rather than merely simultaneous
 confidence intervals. It is worth noting that the complexity of solving
-\eqref{eq:kernel_sdp} does not depend on the number of vertices $n$, and so does not
+\eqref{eq:kernel_sdp} does not depend on the number of vertices $n$, and so
+does not
 influence the ability of our methodology to handle large and possibly sparse
 networks.
 
@@ -1280,7 +1318,8 @@ contrast, Theorem~\ref{thm:kernel_ucb} constructs a feasible uniform confidence
 band over the entire domain of inference $\cW$ based on our strong
 approximation results for the whole $t$-statistic process and the covariance
 estimator $\hat\Sigma_n^+$. The required rate condition specified in
-Assumption~\ref{ass:kernel_rates} does not depend on the number of design points.
+Assumption~\ref{ass:kernel_rates} does not depend on the number of design
+points.
 Furthermore, our proposed inference methods are robust to potential unknown
 degenerate points in the underlying dyadic data generating process.
 
@@ -1290,10 +1329,13 @@ be estimated by Monte Carlo simulation, resampling from the Gaussian process
 defined by the law of $\hat Z_n^T \mid \bW_n$.
 
 The bandwidth restrictions in Theorem~\ref{thm:kernel_ucb} are the same as
-those for the infeasible version given in Theorem~\ref{thm:kernel_infeasible_ucb},
-namely those imposed in Assumption \ref{ass:kernel_rates}. This follows from the rates
+those for the infeasible version given in
+Theorem~\ref{thm:kernel_infeasible_ucb},
+namely those imposed in Assumption \ref{ass:kernel_rates}. This follows from
+the rates
 of convergence obtained in Lemma~\ref{lem:kernel_sdp}, coupled with some careful
-technical work given in Section~\ref{sec:kernel_app_proofs} to handle the potential
+technical work given in Section~\ref{sec:kernel_app_proofs} to handle the
+potential
 presence of degenerate points in $\Sigma_n$.
 
 \subsection{Bandwidth selection and robust bias-corrected inference}
@@ -1331,7 +1373,8 @@ This is akin to the AIMSE-optimal bandwidth choice for traditional monadic
 kernel density estimation with a sample size of $\frac{1}{2}n(n-1)$. The choice
 $h^*_{\AIMSE}$ is slightly undersmoothed (up to a polynomial $\log n$ factor)
 relative to the uniform minimax-optimal bandwidth choice discussed in
-Section~\ref{sec:kernel_point_estimation}, but it is easier to implement in practice.
+Section~\ref{sec:kernel_point_estimation}, but it is easier to implement in
+practice.
 
 To implement the AIMSE-optimal bandwidth choice, we propose a simple
 rule-of-thumb (ROT) approach based on Silverman's rule.
@@ -1345,7 +1388,8 @@ and $C(K)=2.435$ for the Epanechnikov kernel
 $K(w) = \frac{3}{4}(1 - w^2) \vee 0$.
 
 The AIMSE-optimal bandwidth selector $h^*_{\AIMSE}\asymp n^{-\frac{2}{2p+1}}$
-and any of its feasible estimators only satisfy Assumption~\ref{ass:kernel_rates} in
+and any of its feasible estimators only satisfy
+Assumption~\ref{ass:kernel_rates} in
 the case of no degeneracy ($\Dl>0$). Under partial or total degeneracy, such
 bandwidths are not valid due to the usual leading smoothing (or
 misspecification) bias of the distributional approximation. To circumvent this
@@ -1380,7 +1424,8 @@ the following robust bias correction approach.
   as in Section~\ref{sec:kernel_covariance_estimation}. \\
 
   For $B \geq 1$, let $(\hat Z_{n,r}^T: 1\leq r\leq B)$ be i.i.d.\
-  from $\hat{Z}_n^T$ as in Section~\ref{sec:kernel_feasible_confidence_bands}. \\
+  from $\hat{Z}_n^T$ as in Section~\ref{sec:kernel_feasible_confidence_bands}.
+  \\
 
   For $\alpha \in (0,1)$, set
   $\hat q_{1-\alpha} = \inf_{q \in \R}
@@ -1396,7 +1441,8 @@ Firstly, estimate the bandwidth $h^*_{\AIMSE}\asymp n^{-\frac{2}{2p+1}}$ using a
 kernel of order $p$, which leads to an AIMSE-optimal point estimator
 $\hat{f}_W$ in an $L^2(\nu)$ sense. Then use this bandwidth and a kernel of
 order $p' > p$ to construct the statistic $\hat T_n$ and the confidence band as
-detailed in Section~\ref{sec:kernel_feasible_confidence_bands}. Importantly, both
+detailed in Section~\ref{sec:kernel_feasible_confidence_bands}. Importantly,
+both
 $\hat{f}_W$ and $\hat{\Sigma}^+_n$ are recomputed with the new higher-order
 kernel. The change in centering is equivalent to a bias correction of the
 original AIMSE-optimal point estimator, while the change in scale captures the
@@ -1433,11 +1479,13 @@ $p=2$ and $p=4$ respectively, on the inference domain $\cW = [-2,2]$. We select
 an optimal bandwidth for $p=2$ as recommended in
 Section~\ref{sec:kernel_bandwidth_selection}, using the rule-of-thumb with
 $C(K) = 2.435$. The semi-definite program in
-Section~\ref{sec:kernel_covariance_estimation} is solved with the MOSEK interior point
+Section~\ref{sec:kernel_covariance_estimation} is solved with the MOSEK
+interior point
 optimizer \citep{mosek}, ensuring positive semi-definite covariance estimates.
 Gaussian vectors are resampled $B = 10\,000$ times.
 
-In Figure~\ref{fig:kernel_results} we plot a typical outcome for each of the three
+In Figure~\ref{fig:kernel_results} we plot a typical outcome for each of the
+three
 degeneracy types (total, partial, none), using the Epanechnikov kernel of order
 $p=2$, with sample size $n=100$ (so $N=4950$ pairs of nodes) and with $d=100$
 equally-spaced evaluation points. Each plot contains the true density function
@@ -1483,7 +1531,8 @@ $w = 0$.
   %
 \end{figure}
 
-Next, Table~\ref{tab:kernel_results} presents numerical results. For each degeneracy
+Next, Table~\ref{tab:kernel_results} presents numerical results. For each
+degeneracy
 type (total, partial, none) and each kernel order ($p=2$, $p=4$), we run $2000$
 repeats with sample size $n=3000$ (giving $N=4\,498\,500$ pairs of nodes) and
 with $d=50$ equally-spaced evaluation points. We record the average
@@ -1651,7 +1700,8 @@ Define the covariance estimator
 We use a positive semi-definite approximation to
 $\hat\Sigma_n^{1 \triangleright 0}$, denoted by
 $\hat\Sigma_n^{+, 1 \triangleright 0}$,
-as in Section~\ref{sec:kernel_covariance_estimation}. To construct feasible uniform
+as in Section~\ref{sec:kernel_covariance_estimation}. To construct feasible
+uniform
 confidence bands, define a process $\hat Z_n^{T, 1 \triangleright 0}(w)$ which
 is conditionally mean-zero and Gaussian given the data $\bW_n^1$, $\bX_n^0$, and
 $\bX_n^1$, and whose conditional covariance structure is
@@ -1702,7 +1752,8 @@ did not trade directly, yielding trade flows of zero and hence a trade volume
 of $-\infty$. We therefore assume that the distribution of trade volumes is a
 mixture of a point mass at $-\infty$ and a Lebesgue density on $\R$. The local
 nature of our estimator means that observations taking the value of $-\infty$
-can simply be removed from the data set. Table~\ref{tab:kernel_trade_network_stats}
+can simply be removed from the data set.
+Table~\ref{tab:kernel_trade_network_stats}
 gives summary statistics for these trade networks, and shows how the networks
 become more connected over time, with edge density, average degree, and
 clustering coefficient increasing.
@@ -1732,14 +1783,16 @@ counterfactual distribution of trade had the GDP distribution remained as it
 was in $1995$. As such we can measure how much of the change in trade
 distribution is attributable to a shift in the GDP distribution.
 
-To estimate the trade volume density function we use Algorithm~\ref{alg:kernel_method}
+To estimate the trade volume density function we use
+Algorithm~\ref{alg:kernel_method}
 with $d=100$ equally-spaced evaluation points in $[-10,10]$, using the
 rule-of-thumb bandwidth selector $\hat h_{\ROT}$ from
 Section~\ref{sec:kernel_bandwidth_selection} with $p=2$ and $C(K) = 2.435$. For
 inference we use an Epanechnikov kernel of order $p=4$ and resample the
 Gaussian process $B = 10\,000$ times. We also estimate the counterfactual trade
 distributions in 2000 and 2005 respectively, replacing the GDP distribution
-with that from 1995. For each year, Figure~\ref{fig:kernel_trade} plots the real and
+with that from 1995. For each year, Figure~\ref{fig:kernel_trade} plots the
+real and
 counterfactual density estimates along with their respective uniform confidence
 bands (UCB) at the nominal coverage rate of $95\%$. Our empirical results show
 that the counterfactual distribution drifts further from the truth in 2005
@@ -1814,8 +1867,10 @@ model is clear or where the histogram estimators perform poorly.
 
 To demonstrate the relative robustness of our counterfactual analysis to the
 choice of preliminary estimation step, we provide results using a
-parametric estimator of the distribution of GDP. Figure~\ref{fig:kernel_trade_para}
-repeats the procedure used for Figure~\ref{fig:kernel_trade}, but this time replacing
+parametric estimator of the distribution of GDP.
+Figure~\ref{fig:kernel_trade_para}
+repeats the procedure used for Figure~\ref{fig:kernel_trade}, but this time
+replacing
 the histogram estimators by parametric estimators of the log GDP based on
 normal likelihood maximization. The point estimates are qualitatively similar,
 with the counterfactual distribution drifting in the same direction over time.
@@ -1886,7 +1941,8 @@ $1 \leq p \leq \infty$ where
 Clearly we should reject the null hypothesis that $f_W^0 = f_W^1$ whenever the
 test statistic $\tau_p$ is sufficiently large. To estimate the critical value,
 let $\hat\Sigma_n^{+,0}(w, w')$ and $\hat\Sigma_m^{+,1}(w, w')$ be the positive
-semi-definite estimators defined in Section~\ref{sec:kernel_covariance_estimation} and
+semi-definite estimators defined in
+Section~\ref{sec:kernel_covariance_estimation} and
 let $\hat Z^0_n(w)$ and $\hat Z^1_m(w)$ be zero-mean Gaussian processes with
 covariance structures $\hat\Sigma_n^{+,0}(w, w')$ and
 $\hat\Sigma_m^{+,1}(w, w')$ respectively, which are independent conditional on
@@ -1948,7 +2004,8 @@ with $k_{i j} = k_h(X_i-x_1, X_j-x_2)$ and $r_{i j} = r(X_i-x_1, X_j-x_2)$.
 \citet{graham2021minimax} established pointwise distribution theory
 for the special case of the dyadic Nadaraya--Watson kernel regression estimator
 ($\gamma=0$), but no uniform analogues have yet been given. It can be shown
-that the ``denominator'' matrix in \eqref{eq:kernel_locpol} converges uniformly to its
+that the ``denominator'' matrix in \eqref{eq:kernel_locpol} converges uniformly
+to its
 expectation, while the U-process-like ``numerator'' matrix can be handled the
 same way as we analyzed $\hat f_W(w)$ in this chapter, through a Hoeffding-type
 decomposition and strong approximation methods, along with standard bias

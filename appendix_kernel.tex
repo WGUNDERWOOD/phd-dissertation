@@ -414,23 +414,27 @@ properties to ensure the approximating processes are jointly Gaussian.
 The main result Theorem~\ref{thm:kernel_strong_approx_Tn}
 now follows easily using Theorem~\ref{thm:kernel_app_strong_approx_fW},
 the bias bound from Theorem~\ref{thm:kernel_bias},
-and properties of $\Sigma_n$ established in Lemma~\ref{lem:kernel_variance_bounds}.
+and properties of $\Sigma_n$ established in
+Lemma~\ref{lem:kernel_variance_bounds}.
 
 \subsection{Covariance estimation}
 \label{sec:kernel_app_covariance_estimation}
 
 In this section we carefully construct a consistent estimator for the
 covariance function $\Sigma_n$. Firstly we characterize $\Sigma_n$ in
-Lemma~\ref{lem:kernel_app_covariance_structure}. In Lemma~\ref{lem:kernel_app_covariance_estimation}
+Lemma~\ref{lem:kernel_app_covariance_structure}. In
+Lemma~\ref{lem:kernel_app_covariance_estimation}
 we define the estimator and demonstrate that it converges in probability in a
-suitable sense. In Lemma~\ref{lem:kernel_app_alternative_covariance_estimator} we give an
+suitable sense. In Lemma~\ref{lem:kernel_app_alternative_covariance_estimator}
+we give an
 alternative representation which is more amenable to computation.
 
 \begin{lemma}[Covariance structure]
   \label{lem:kernel_app_covariance_structure}
 
   Suppose Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
-  hold. Then $\Sigma_n$, as defined in Section~\ref{sec:kernel_degeneracy}, admits the
+  hold. Then $\Sigma_n$, as defined in Section~\ref{sec:kernel_degeneracy},
+  admits the
   following representations.
   %
   \begin{align*}
@@ -566,7 +570,8 @@ alternative representation which is more amenable to computation.
 
 We show how to obtain a positive semi-definite estimator $\hat \Sigma_n^+$
 which is uniformly entrywise-consistent for $\Sigma_n$. Define $\hat \Sigma_n$
-as in Lemma~\ref{lem:kernel_app_covariance_estimation} and consider the following
+as in Lemma~\ref{lem:kernel_app_covariance_estimation} and consider the
+following
 optimization problem over bivariate functions.
 %
 \begin{equation}
@@ -599,7 +604,7 @@ optimization problem over bivariate functions.
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold, and that
   $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
-  Then the optimization problem (\ref{eq:kernel_app_sdp})
+  Then the optimization problem \eqref{eq:kernel_app_sdp}
   has an approximately optimal solution $\hat\Sigma_n^+$
   which is uniformly entrywise-consistent
   for $\Sigma_n$ in the sense that
@@ -615,14 +620,17 @@ optimization problem over bivariate functions.
 
 \end{lemma}
 
-The optimization problem (\ref{eq:kernel_app_sdp}) is stated for functions rather than
+The optimization problem \eqref{eq:kernel_app_sdp} is stated for functions
+rather than
 matrices so is infinite-dimensional. However, when restricting to finite-size
-matrices, Lemma~\ref{lem:kernel_app_sdp} still holds and does not depend on the size
+matrices, Lemma~\ref{lem:kernel_app_sdp} still holds and does not depend on the
+size
 of the matrices. Furthermore, the problem then becomes a semi-definite program
 and so can be solved to arbitrary precision in polynomial time in the size of
 the matrices \citep{laurent2005semidefinite}.
 
-The Lipschitz-type constraint in the optimization problem (\ref{eq:kernel_app_sdp})
+The Lipschitz-type constraint in the optimization problem
+\eqref{eq:kernel_app_sdp}
 ensures that $\hat \Sigma_n^+$ is sufficiently smooth and is a technicality
 required by some of the later proofs. In practice this constraint is readily
 verified.
@@ -653,7 +661,8 @@ verified.
 We use the strong approximation derived in
 Section~\ref{sec:kernel_app_strong_approx} and the
 positive semi-definite covariance estimator introduced in
-Section~\ref{sec:kernel_app_covariance_estimation} to construct feasible uniform
+Section~\ref{sec:kernel_app_covariance_estimation} to construct feasible
+uniform
 confidence bands. We drop the prime notation for copies of processes
 in the interest of clarity.
 
@@ -2136,10 +2145,12 @@ they are needed.
     \log n
     + \frac{t \sigma^2}{2},
   \end{align*}
+  %
   where we use the Gaussian moment generating function.
   Minimizing this upper bound over $t$
   by setting $t = \sqrt{2 \log n} / \sigma$
-  yields Equation~\ref{eq:kernel_app_gaussian_vector_maximal}:
+  yields \eqref{eq:kernel_app_gaussian_vector_maximal}:
+  %
   \begin{align*}
     \E\left[
       \max_{1 \leq i \leq n}
@@ -2148,8 +2159,10 @@ they are needed.
     &\leq
     \sigma \sqrt{2 \log n}.
   \end{align*}
-  For Equation~\ref{eq:kernel_app_gaussian_vector_maximal_abs},
+  %
+  For \eqref{eq:kernel_app_gaussian_vector_maximal_abs},
   we use the symmetry of the Gaussian distribution:
+  %
   \begin{align*}
     \E\left[
       \max_{1 \leq i \leq n}
@@ -2165,11 +2178,12 @@ they are needed.
     \leq
     2 \sigma \sqrt{\log n}.
   \end{align*}
-  For Equations~\ref{eq:kernel_app_gaussian_difference_psd}
-  and~\ref{eq:kernel_app_gaussian_difference_pd},
+  %
+  For \eqref{eq:kernel_app_gaussian_difference_psd}
+  and \eqref{eq:kernel_app_gaussian_difference_pd},
   note that
   $\Sigma_1^{1/2} N - \Sigma_2^{1/2} N$
-  is a Gaussian vector with covariance matrix
+  is Gaussian with covariance matrix
   $\big(\Sigma_1^{1/2} - \Sigma_2^{1/2}\big)^2$.
   The variances of of its components are the diagonal
   elements of this matrix, namely
@@ -2202,7 +2216,7 @@ they are needed.
     \sigma^2.
   \end{align*}
   Applying
-  Equation~\ref{eq:kernel_app_gaussian_vector_maximal_abs}
+  \eqref{eq:kernel_app_gaussian_vector_maximal_abs}
   then gives
   \begin{align*}
     \E\Big[
@@ -2230,7 +2244,7 @@ they are needed.
     \big\|_2^{1/2},
   \end{align*}
   giving
-  Equation~\ref{eq:kernel_app_gaussian_difference_psd}.
+  \eqref{eq:kernel_app_gaussian_difference_psd}.
   If $\Sigma_1$
   is positive definite,
   then by
@@ -2248,7 +2262,7 @@ they are needed.
     \big\|_2,
   \end{align*}
   giving
-  Equation~\ref{eq:kernel_app_gaussian_difference_pd}.
+  \eqref{eq:kernel_app_gaussian_difference_pd}.
 \end{proof}
 
 \begin{lemma}[Maximal inequalities for Gaussian processes]
@@ -4010,7 +4024,7 @@ Lemma~\ref{lem:kernel_app_bv_characterization}.
     \Big),
   \end{align*}
   %
-  and so by Equation~\ref{eq:kernel_app_kmt_concentration}
+  and so by \eqref{eq:kernel_app_kmt_concentration}
   %
   \begin{align*}
     \P\left(
@@ -8125,7 +8139,8 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \ll \frac{1}{\sqrt{\log n}}.
   \end{align*}
   %
-  So by Lemma~\ref{lem:kernel_app_slow_convergence}, take $\varepsilon_n$ such that
+  So by Lemma~\ref{lem:kernel_app_slow_convergence}, take $\varepsilon_n$ such
+  that
   %
   \begin{align*}
     \P \left(
@@ -9003,7 +9018,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{j=i+1}^{r-1}
     \E[k_{i j} \mid \bA_n].
   \end{align}
-  For the term in~(\ref{eq:kernel_app_Sijr1_decomp1}),
+  For the term in \eqref{eq:kernel_app_Sijr1_decomp1},
   note that conditional on $\bA_n$,
   we have that
   $k_{i j} - \E[k_{i j} \mid \bA_n]$
@@ -9125,7 +9140,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     n^{-t^{2/3} / C_2}.
   \end{align*}
   Now for the term
-  in~(\ref{eq:kernel_app_Sijr1_decomp2}),
+  in \eqref{eq:kernel_app_Sijr1_decomp2},
   note that
   $\frac{3}{n} \sum_{r=j+1}^n \E[k_{i r}' \mid \bA_n]$
   is $\bA_n$-measurable and bounded uniformly in $i,j$.
@@ -9170,7 +9185,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     =
     2 n^{-t^2 / C_3}.
   \end{align*}
-  The term in~(\ref{eq:kernel_app_Sijr1_decomp3})
+  The term in \eqref{eq:kernel_app_Sijr1_decomp3}
   is controlled in exactly the same way.
   Putting these together, noting the symmetry in $i,j,r$
   and taking a marginal expectation,
@@ -9892,7 +9907,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Firstly we prove that the true covariance function
   $\Sigma_n$
   is feasible for the optimization problem
-  (\ref{eq:kernel_app_sdp}) in the sense that it satisfies the constraints.
+  \eqref{eq:kernel_app_sdp} in the sense that it satisfies the constraints.
   Clearly as a covariance function,
   $\Sigma_n$ is symmetric and positive semi-definite.
   The Lipschitz constraint is satisfied because
@@ -9914,7 +9929,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   %
   for all $w,w',w'' \in \cW$.
   Denote the (random) objective function
-  in (\ref{eq:kernel_app_sdp}) by
+  in \eqref{eq:kernel_app_sdp} by
   %
   \begin{align*}
     \objective(M) = \sup_{w,w' \in \cW}
@@ -10097,7 +10112,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right|.
   \end{align*}
   %
-  Now from the proof of Lemma~\ref{lem:kernel_app_covariance_estimation} we have that
+  Now from the proof of Lemma~\ref{lem:kernel_app_covariance_estimation} we
+  have that
   $\sup_{w \in \cW} \left|
   \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
   {\sqrt{\Sigma_n(w,w)}} \right|
@@ -10133,7 +10149,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian}]
+\begin{proof}[%
+  Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian}]
 
   Firstly note that $\hat Z_n^T$ exists
   by noting that $\hat \Sigma_n^+(w,w')$ and therefore also
