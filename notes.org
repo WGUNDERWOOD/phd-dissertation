@@ -7,12 +7,13 @@
 ** TODO Pass
 *** DONE mondrian
 *** DONE kernel
-*** TODO yurinskii
-*** TODO mondrian appendix
+*** DONE yurinskii
+*** DONE mondrian appendix
 *** DONE kernel appendix
 *** TODO yurinskii appendix
 ** TODO Spelling higher-order?
 ** TODO Table and algorithm stretch spacing
+** TODO Draft watermark
 ** TODO Oxford commas
 ** TODO No hyphen after well
 ** TODO Remove comments

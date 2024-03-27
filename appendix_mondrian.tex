@@ -3360,8 +3360,7 @@ results for the debiased Mondrian random forest estimator.
   \end{align*}
   %
   for some $C > 0$ and sufficiently large $\lambda$.
-  Hence by the Cauchy--Schwarz inequality
-  and Lemma~\ref{lem:moment_cell},
+  So by Cauchy--Schwarz and Lemma~\ref{lem:moment_cell},
   %
   \begin{align*}
     &
@@ -4062,9 +4061,9 @@ process
 only through $T(x)$; that is, the cell in $T$ which contains the point $x$.
 As such, we rely only on local properties of $T$, and may consider just a
 single Mondrian cell. The lemmas in this section take a more global approach
-to analyzing the Mondrian process, and we aim to make statements about the
+to analyzing the Mondrian process, and we make statements about the
 entire process $T$, rather than individual cells $T(x)$.
-Such results could be useful for a future investigation of the uniform
+Such results may be useful for a future investigation of the uniform
 properties of Mondrian forest estimators, as well as
 being interesting in their own right.
 
@@ -4654,12 +4653,12 @@ We assume for simplicity that all of the lifetimes are identical.
     \right).
   \end{align}
   %
-  Now by the subcell trick, partition $D$ into
+  By the subcell trick, partition $D$ into
   at most $(1 + 1/\varepsilon)^d$ cells
   $D' \in \cD_\varepsilon$ with side lengths at most
   $(|D_1| \varepsilon, \ldots, |D_d| \varepsilon)$.
-  Since every cell in $\bigwedge_b T_b$ corresponds to
-  a cell in at least one cell in $\bigwedge_b (T_b \cap D')$,
+  As every cell in $\bigwedge_b T_b$ corresponds to
+  at least one cell in $\bigwedge_b (T_b \cap D')$,
   %
   \begin{align*}
     \P\left(
