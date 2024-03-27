@@ -3,41 +3,14 @@
 \chapter{Supplement to Dyadic Kernel Density Estimators}
 \label{app:kernel}
 
-%\subsection{Setup and estimator}
-%
-%%Fix $n \geq 2$ and suppose there is
-%%a probability space carrying the latent random variables
-%%$\bA_n=(A_i: 1\leq i\leq n)$ and $\bV_n=(V_{i j}: 1\leq i<j\leq n)$.
-%%Suppose that the $A_i$ are i.i.d., the $V_{i j}$ are i.i.d., and
-%%that $\bA_n$ is independent of $\bV_n$.
-%%Define the observable dyadic random variables
-%%$W_{i j} = W(A_i, A_j, V_{i j})$
-%%where $W$ is some unknown real-valued function.
-%There are $\frac{1}{2}n(n-1)$ such variables;
-%one for each unordered pair of distinct indices $i<j$.
-%Note that if $i<j$ and $i'<j'$ are all distinct,
-%then $W_{i j}$ is independent of $W_{i' j'}$.
-%However, $W_{i j}$ is
-%not in general independent of $W_{i j'}$,
-%as they may both depend on the latent variable $A_i$.
-%This data generating process is justified by the
-%Aldous--Hoover representation theorem for exchangeable arrays
-%\citep{aldous1981representations, hoover1979relations}.
-
-%Denote the kernel weight of the data point $W_{i j}$
-%at the evaluation point $w$
-%with bandwidth $h$ by $k_h(W_{i j}, w)$.
-%Then the dyadic
-%kernel density estimator
-%is defined as
-%\begin{align*}
-%  \hat f_W(w) = \frac{2}{n(n-1)}
-%  \sum_{i=1}^{n-1} \sum_{j=i+1}^{n} k_h(W_{i j}, w).
-%\end{align*}
+This section contains complementary detailed expositions of some
+of our main results, along with additional technical lemmas
+which may be of independent interest. We also provide full proofs
+for all of our theoretical contributions.
 
 \section{Supplementary main results}
 
-In this section we provide more detailed versions of some of the
+In this first section we provide more detailed versions of some of the
 results presented in the main text, alongside some intermediate
 lemmas which were skipped for conciseness.
 We begin with some extra notation used throughout this appendix.
@@ -81,133 +54,10 @@ for $\sum_{i=1}^{n-1} \sum_{j=i+1}^n$
 and $\sum_{i<j<r}$
 for $\sum_{i=1}^{n-2} \sum_{j=i+1}^{n-1} \sum_{r=j+1}^n$.
 
-%\subsection{Uniform consistency}
-
-%We show uniform consistency of the
-%dyadic kernel density estimator.
-%Lemma~\ref{lem:hoeffding}
-%provides a U-statistic decomposition of the estimator
-%and Lemma~\ref{lem:uniform_concentration}
-%employs this decomposition to establish
-%uniform concentration.
-%Theorem~\ref{thm:app_uniform_consistency}
-%then combines this with the bias result from Lemma~\ref{lem:bias}
-%to show uniform consistency.
-%Lemma~\ref{lem:trichotomy} provides a useful trichotomy for
-%interpreting our results in various classes of data distributions.
-
-%\begin{lemma}[Uniform concentration of $\hat f_W$]
-%  \label{lem:uniform_concentration}
-%
-%  Suppose Assumptions
-%  \ref{ass:kernel_data}
-%  and
-%  \ref{ass:kernel_bandwidth}
-%  hold.
-%  Then with $L_n$, $Q_n$ and $E_n$ defined as in
-%  Lemma~\ref{lem:hoeffding},
-%  we have
-%  \begin{align*}
-%    \E\left[ \sup_{w \in \cW} |L_n(w)| \right]
-%    &\lesssim
-%    \frac{\Du}{\sqrt n},
-%    &\E\left[ \sup_{w \in \cW} |Q_n(w)| \right]
-%    &\lesssim
-%    \frac{1}{n},
-%    &\E\left[ \sup_{w \in \cW} |E_n(w)| \right]
-%    &\lesssim
-%    \sqrt{\frac{\log n}{n^2h}},
-%  \end{align*}
-%  where $\lesssim$ is up to constants which
-%  depend on the underlying data distribution
-%  and the choice of kernel.
-%  Note that the $Q_n$
-%  term is dominated by the $L_n$
-%  term uniformly in the bandwidth $h$.
-%  Therefore by Lemma~\ref{lem:hoeffding}
-%  \begin{align*}
-%    \E\left[
-%      \sup_{w \in \cW}
-%      \big|\hat f_W(w) - \E[\hat f_W(w)]\big|
-%    \right]
-%    &\lesssim
-%    \frac{\Du}{\sqrt n}
-%    + \sqrt{\frac{\log n}{n^2h}}.
-%  \end{align*}
-%
-%\end{lemma}
-
-%\begin{theorem}[Uniform consistency of $\hat f_W$]
-%  \label{thm:app_uniform_consistency}
-%
-%  Suppose Assumptions \ref{ass:kernel_data}
-%  and \ref{ass:kernel_bandwidth} hold. Then
-%  \begin{align*}
-%    \E\left[
-%      \sup_{w \in \cW}
-%      \big|\hat f_W(w) - f_W(w)\big|
-%    \right]
-%    &\lesssim
-%    h^{p \wedge \beta}
-%    + \frac{\Du}{\sqrt n}
-%    + \sqrt{\frac{\log n}{n^2h}},
-%  \end{align*}
-%  where $\lesssim$ is up to constants which
-%  depend on the underlying data distribution
-%  and the choice of kernel.
-%
-%\end{theorem}
-
-%\begin{remark}
-%
-%  In light of the degeneracy trichotomy
-%  in Lemma~\ref{lem:trichotomy},
-%  we interpret Theorem~\ref{thm:app_uniform_consistency}.
-%  \begin{enumerate}[label=(\roman*)]
-%
-%    \item Partial or no degeneracy:
-%      when $\Du > 0$,
-%      any bandwidth sequence satisfying
-%      $\frac{\log n}{n} \lesssim h \lesssim n^{-\frac{1}{2(p \wedge \beta)}}$
-%      gives the bandwidth-independent ``parametric'' rate noted by
-%      \citet{graham2024kernel}:
-%      \begin{align*}
-%        \E\left[
-%          \sup_{w \in \cW}
-%          \big|\hat f_W(w) - \E[\hat f_W(w)]\big|
-%        \right]
-%        \lesssim
-%        \frac{1}{\sqrt n},
-%      \end{align*}
-%
-%    \item Total degeneracy:
-%      when $\Du = 0$,
-%      minimizing the bound with
-%      $h \asymp
-%      \left( \frac{\log n}{n^2} \right)^{\frac{1}{2(p \wedge \beta)+1}}$
-%      yields
-%      %
-%      \begin{align*}
-%        \E\left[
-%          \sup_{w \in \cW}
-%          \big|\hat f_W(w) - f_W(w)\big|
-%        \right]
-%        &\lesssim
-%        h^{p \wedge \beta}
-%        + \sqrt{\frac{\log n}{n^2h}}
-%        \lesssim
-%        \left(
-%          \frac{\log n}{n^2}
-%        \right)^{\frac{p \wedge \beta}{2(p \wedge \beta)+1}},
-%      \end{align*}
-%  \end{enumerate}
-%
-%\end{remark}
-
 \subsection{Strong approximation}
 \label{sec:strong_approx}
 
-In this section we give a detailed construction of the
+We give a detailed construction of the
 strong approximation of the dyadic empirical process $\hat f_W$.
 We begin by using the
 K{\'o}mlos--Major--Tusn{\'a}dy (KMT) approximation
@@ -252,7 +102,7 @@ for random vectors or for stochastic processes
 indexed by a compact rectangle in $\R^d$
 with a.s.\ continuous sample paths.
 
-We begin by presenting more detailed versions of
+We present more detailed versions of
 Lemmas~\ref{lem:strong_approx_Ln},
 \ref{lem:conditional_strong_approx_En}
 and \ref{lem:unconditional_strong_approx_En}
@@ -260,7 +110,7 @@ as Lemmas~\ref{lem:app_strong_approx_Ln},
 \ref{lem:app_conditional_strong_approx_En}
 and \ref{lem:app_unconditional_strong_approx_En}
 respectively, taking care to describe how copies of
-the relevant stochastic processes are constructed,
+the stochastic processes are constructed,
 and also providing smoothness properties for
 the resulting sample paths.
 
@@ -669,10 +519,9 @@ alternative representation which is more amenable to computation.
 \begin{lemma}[Covariance estimation]
   \label{lem:covariance_estimation}
 
-  Let Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
-  hold and suppose that $n h \gtrsim \log n$
-  and $f_W(w) > 0$ on $\cW$.
-  For $w,w' \in \cW$ define
+  Grant Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
+  and suppose that $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$. Define
+  %
   \begin{align*}
     \hat \Sigma_n(w,w')
     &=
@@ -1048,10 +897,8 @@ We begin with an assumption describing the counterfactual setup.
 
 \end{assumption}
 
-The counterfactual density of
-$W_{i j}$ in population $1$
-had $X_i, X_j$
-followed the distribution in population $0$ is
+The counterfactual density of $W_{i j}$ in population $1$ had $X_i, X_j$
+followed population $0$ is
 %
 \begin{align*}
   f_W^{1 \triangleright 0}(w)
@@ -1069,7 +916,7 @@ followed the distribution in population $0$ is
 \end{align*}
 %
 where $\psi(x) = p_X^0(x)/p_X^1(x)$ for $x \in \cX$.
-This counterfactual density can be estimated by
+This is estimated by
 the counterfactual dyadic kernel density estimator
 %
 \begin{align*}
@@ -1323,26 +1170,22 @@ approximation results for the counterfactual density estimator.
   Define the upper and lower degeneracy constants as
   %
   \begin{align*}
-    \left(
-      \Du^{1 \triangleright 0}
-    \right)^2
+    \Du^{1 \triangleright 0}
     &=
     \limsup_{n \to \infty}
     \sup_{w \in \cW}
     \Var\big[
       l_i^{1 \triangleright 0}(w)
-    \big]
+    \big]^{1/2}
     &\text{and}&
     &
-    \left(
-      \Dl^{1 \triangleright 0}
-    \right)^2
+    \Dl^{1 \triangleright 0}
     &=
     \liminf_{n \to \infty}
     \inf_{w \in \cW}
     \Var\big[
       l_i^{1 \triangleright 0}(w)
-    \big].
+    \big]^{1/2}.
   \end{align*}
 
 \end{lemma}
@@ -1662,12 +1505,9 @@ we have that
 \section{Technical lemmas}
 \label{sec:kernel_technical}
 
-In this section we present some lemmas which provide the
-technical foundations for several of our main results.
-These lemmas are stated in as much generality
-as is reasonably possible,
-and we believe that they may be
-of some independent interest.
+We present some lemmas which provide the technical foundations for our main
+results. These lemmas are stated in as much generality as is reasonable,
+and may be of independent interest.
 
 \subsection{Maximal inequalities for i.n.i.d.\ empirical processes}
 
@@ -2169,8 +2009,6 @@ which are used in proofs of our main results.
 Other auxiliary lemmas will be introduced when
 they are needed.
 
-\subsubsection{Standard probabilistic results}
-
 \begin{lemma}[Bernstein's inequality for independent random variables]
   \label{lem:bernstein}
 
@@ -2651,8 +2489,6 @@ they are needed.
   = \P\big(|X_n| > 1/k\big) \leq 1/k = \varepsilon_n$.
 \end{proof}
 
-\subsubsection{U-statistics}
-
 \begin{lemma}[General second-order Hoeffding-type decomposition]
   \label{lem:general_hoeffding}
 
@@ -3116,8 +2952,6 @@ they are needed.
 \end{proof}
 
 \subsection{Technical lemmas}
-
-\subsubsection{Maximal inequalities for i.n.i.d.\ empirical processes}
 
 Before presenting the proof of
 Lemma~\ref{lem:maximal_entropy},
@@ -3845,8 +3679,6 @@ on each of the points $-1$ and $1$.
   The remaining equations now follow
   by Lemma~\ref{lem:maximal_entropy}.
 \end{proof}
-
-\subsubsection{Strong approximation results}
 
 Before proving Lemma~\ref{lem:kmt_corollary},
 we require the characterization
@@ -4981,8 +4813,6 @@ Lemma~\ref{lem:bv_characterization}.
   %
 \end{proof}
 
-\subsubsection{The Vorob'ev--Berkes--Philipp theorem}
-
 \begin{proof}[Lemma~\ref{lem:vbp}]
 
   The proof is by induction on the number of vertices in the tree.
@@ -5020,14 +4850,11 @@ Lemma~\ref{lem:bv_characterization}.
 \end{proof}
 
 \subsection{Main results}
+\label{sec:kernel_app_main}
 
 We give supplementary details for our main results on consistency, minimax
 optimality, strong approximation, covariance estimation, feasible inference and
 counterfactual estimation.
-
-\TODO{do we need these headers?}
-\subsubsection{Bias}
-
 We begin with a basic fact about Lipschitz functions.
 
 \begin{lemma}[Lipschitz kernels are bounded]
@@ -5347,8 +5174,6 @@ gives
     h^\beta.
   \end{align*}
 \end{proof}
-
-\subsubsection{Uniform consistency}
 
 \begin{proof}[Lemma~\ref{lem:hoeffding}]
 
@@ -6039,8 +5864,6 @@ gives
   and Lemma~\ref{lem:uniform_concentration}.
 \end{proof}
 
-\subsubsection{Minimax optimality}
-
 Before proving Theorem~\ref{thm:kernel_minimax}
 we first give a lower bound result
 for parametric point estimation in
@@ -6183,6 +6006,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     =
     \frac{1}{2},
   \end{align*}
+  %
   where in the penultimate line we used that
   $\log \frac{1}{1-x} \leq 2x$
   for $x \in [0,1/2]$.
@@ -6190,6 +6014,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $f = 1$ if $\tilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}$
   and $f=0$ otherwise,
   to see
+  %
   \begin{align*}
     \P_{\theta_0}^n \left(
       \tilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}
@@ -6199,11 +6024,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \right)
     \geq \frac{1}{2}.
   \end{align*}
+  %
   By the triangle inequality,
   recalling that
   $\theta_0 = \frac{1}{2}$
   and $\theta_{1,n} = \frac{1}{2} + \frac{1}{\sqrt{8n}}$,
-  we have the event inclusions
+  we have
+  %
   \begin{align*}
     \left\{
       \tilde \theta_n > \frac{1}{2} + \frac{1}{\sqrt{32n}}
@@ -6222,7 +6049,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       \geq \frac{1}{\sqrt{32n}}
     \right\}.
   \end{align*}
+  %
   Thus by the monotonicity of measures,
+  %
   \begin{align*}
     \P_{\theta_0}^n \left(
       \big| \tilde \theta_n - \theta_0 \big|
@@ -6426,7 +6255,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \right\}.
   \end{align*}
   Write $\E_f$ for the expectation under $W_{i j}$ having density $f$.
-  Then by the main theorem in \citet{khasminskii1978lower},
+  Then by \citet{khasminskii1978lower},
   \begin{align*}
     \liminf_{n \to \infty}
     \inf_{\tilde f_W}
@@ -6525,7 +6354,8 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   and note that $\beta \geq 1$ implies that
   $\left(\frac{\log n}{n^2} \right)^{\frac{\beta}{2\beta+1}}
   \ll \frac{1}{\sqrt n}$.
-  Therefore for some constant $C > 0$,
+  So for $C > 0$,
+  %
   \begin{align*}
     \sup_{\P \in \cP}
     \E_\P\left[
@@ -6551,15 +6381,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
 \end{proof}
 
-\subsubsection{Covariance structure}
-
 \begin{proof}[Lemma~\ref{lem:covariance_structure}]
 
-  Throughout this proof we will write
-  $k_{i j}$ for $k_h(W_{i j},w)$
-  and
-  $k_{i j}'$ for $k_h(W_{i j},w')$,
-  in the interest of brevity.
+  We write $k_{i j}$ for $k_h(W_{i j},w)$
+  and $k_{i j}'$ for $k_h(W_{i j},w')$, in the interest of brevity.
+  %
   \begin{align*}
     \Sigma_n(w,w')
     &=
@@ -6713,6 +6539,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   We bound each of the two terms separately.
   Firstly, note that since $k_h$ is bounded by $C_\rk/h$,
+  %
   \begin{align*}
     \Var\big[
       k_h(W_{i j},w)
@@ -6728,11 +6555,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \diff{s}
     \leq 2 C_\rk^2 / h.
   \end{align*}
-  Conversely, since
-  $\big|\E[k_h(W_{i j},w)]\big|
+  %
+  Since $\big|\E[k_h(W_{i j},w)]\big|
   = \big|\int_{[w \pm h] \cap \cW} k_h(s,w) f_W(s) \diff{s}\big|
-  \leq 2 C_\rk C_\rd$,
-  Jensen's integral inequality shows
+  \leq 2 C_\rk C_\rd$, Jensen's inequality shows
+  %
   \begin{align*}
     \Var\big[
       k_h(W_{i j},w)
@@ -6760,9 +6587,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{1}{4h}
     \inf_{w \in \cW} f_W(w)
   \end{align*}
-  for small enough $h$, noting that this is trivially true
-  if the infimum is zero.
-  For the other term, we have
+  %
+  for small enough $h$, noting that this is trivial if the infimum is zero.
+  For the other term,
+  %
   \begin{align*}
     \Var\big[
       \E[k_h(W_{i j},w) \mid A_i]
@@ -6823,8 +6651,6 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     + \frac{1}{n^2h}.
   \end{align*}
 \end{proof}
-
-\subsubsection{Strong approximation}
 
 \begin{proof}[Lemma~\ref{lem:app_strong_approx_Ln}]
 
@@ -7051,10 +6877,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   (Lemma~\ref{lem:vbp})
   allows us to ``glue'' them together
   in the desired way
-  on another new probability space,
-  giving
+  on another new probability space, giving
   $\big(\bA_n', \bV_n', L_n', Z_n^{L\prime}\big)$,
-  where we retain the single prime notation for clarity.
+  retaining the single prime notation for clarity.
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:strong_approx_Ln}]
@@ -7284,28 +7109,18 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \frac{\delta_n}{h}
     \sqrt{\log \frac{1}{h\delta_n}},
   \end{align*}
-  and there exists a modification
-  with continuous trajectories.
-  Finally in order to have
-  $\bA_n', \bV_n', E_n'$ and $\tilde Z_n^{E\prime}$
+  and there exists a modification with continuous trajectories.
+  Finally in order to have $\bA_n', \bV_n', E_n'$ and $\tilde Z_n^{E\prime}$
   all defined on the same probability space,
   we note that $\bA_n$ and $\bV_n$ are random vectors
-  while $E_n'$ and $\tilde Z_n^{E\prime}$
-  are stochastic processes
-  with continuous sample paths
-  indexed on
-  the compact interval $\cW$.
-  Hence the Vorob'ev--Berkes--Philipp theorem
-  (Lemma~\ref{lem:vbp})
-  allows us to ``glue together''
-  $\big(\bA_n, \bV_n, E_n\big)$
-  and
-  $\big(E_n', \tilde Z_n^{E\prime}\big)$
-  in the desired way
-  on another new probability space,
-  giving
+  while $E_n'$ and $\tilde Z_n^{E\prime}$ are stochastic processes
+  with continuous sample paths indexed on the compact interval $\cW$.
+  Hence the Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:vbp})
+  allows us to ``glue together'' $\big(\bA_n, \bV_n, E_n\big)$
+  and $\big(E_n', \tilde Z_n^{E\prime}\big)$
+  in the desired way on another new probability space, giving
   $\big(\bA_n', \bV_n', E_n', \tilde Z_n^{E\prime}\big)$,
-  where we retain the single prime notation for clarity.
+  retaining the single prime notation for clarity.
 
   Note that the trajectories of the conditionally Gaussian processes
   $\tilde Z_n^{E\prime}$ depend on the choice of $t_n$,
@@ -7336,12 +7151,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   be the conditional covariance function of $\tilde Z_n^{E\prime}$,
   and define
   $\Sigma_n^E(w,w') = \E\big[\tilde \Sigma_n^E(w,w')\big]$.
-  Let $\tilde \Sigma^E_{n,\delta}$
-  and $\Sigma^E_{n,\delta}$
+  Let $\tilde \Sigma^E_{n,\delta}$ and $\Sigma^E_{n,\delta}$
   be the restriction matrices of
-  $\tilde \Sigma^E_n$
-  and $\Sigma^E_n$
-  respectively
+  $\tilde \Sigma^E_n$ and $\Sigma^E_n$
   to $\cW_\delta \times \cW_\delta$,
   noting that, as (conditional) covariance matrices,
   these are
@@ -7630,9 +7442,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   to the zero-mean matrix $\tilde Q$ gives
   \begin{align*}
     \E\left[
-      \left\|
+      \big\|
       \tilde Q
-      \right\|_2
+      \big\|_2
     \right]
     &\lesssim
     \frac{h}{n^2}
@@ -7645,9 +7457,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \left(\frac{h}{\delta_n} + 1 \right)
     \frac{(\log n)^{3/2}}{n}.
   \end{align*}
-  Hence putting everything together,
-  taking a marginal expectation
+  %
+  Hence taking a marginal expectation
   and applying Jensen's inequality,
+  %
   \begin{align*}
     &\E\left[
       \max_{w \in \cW_\delta}
@@ -7782,8 +7595,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   \proofparagraph{conclusion}
 
-  We use the previous parts
-  to deduce that
+  We use the previous parts to deduce that
   %
   \begin{align*}
     &\E\left[
@@ -7822,14 +7634,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     n^{-1/6} (\log n)^{2/3}.
   \end{align*}
   %
-  Finally, independence of $Z_n^{E\dprime}$ and $\bA_n''$
-  follows by another application of
-  the Vorob'ev--Berkes--Philipp theorem
-  from Lemma~\ref{lem:vbp},
-  this time conditionally on $\bA_n'$,
-  to the random variables
-  $\big(\bA_n', \tilde Z_n^{E\prime}\big)$
-  and
+  Independence of $Z_n^{E\dprime}$ and $\bA_n''$
+  follows by applying the
+  Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:vbp}),
+  conditionally on $\bA_n'$, to the random variables
+  $\big(\bA_n', \tilde Z_n^{E\prime}\big)$ and
   $\big(\tilde Z_n^{E\dprime}, Z_n^{E\dprime}\big)$.
 \end{proof}
 
@@ -7856,15 +7665,14 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   given in Lemmas~\ref{lem:app_conditional_strong_approx_En}
   and \ref{lem:app_unconditional_strong_approx_En}
   respectively.
-  The first step is to define copies of all of these variables
+  The first step is to define copies of these variables
   and processes on the same probability space.
   This is achieved by applying the
-  Vorob'ev--Berkes--Philipp theorem
-  (Lemma~\ref{lem:vbp}).
-  In particular, dropping the prime notation for clarity,
-  we construct
+  Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:vbp}).
+  Dropping the prime notation for clarity, we construct
   $\big(\bA_n, \bV_n, L_n, Z_n^L, E_n, \tilde Z_n^E, Z_n^E\big)$
   with the following properties:
+  %
   \begin{enumerate}[label=(\roman*)]
 
     \item
@@ -8011,8 +7819,6 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $\frac{1}{\sqrt{n^2h}} Z_n^E$.
   Similarly, $Z_n^f$ has continuous trajectories.
 \end{proof}
-
-\subsubsection{Infeasible uniform confidence bands}
 
 \begin{proof}[Theorem~\ref{thm:strong_approx_Tn}]
 
@@ -8256,8 +8062,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   \proofparagraph{trajectory regularity of $Z_n^T$}
 
-  By the bound on $\rho$ established in the previous part,
-  we can deduce the following covering number bound:
+  By the bound on $\rho$ from the previous part,
+  we deduce the covering number bound
+  %
   \begin{align*}
     N(\varepsilon, \cW, \rho)
     &\lesssim
@@ -8411,13 +8218,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
       + n^{-3/4} h^{-7/8} (\log n)^{3/8} R_n
       + n^{-2/3} h^{-1/2} (\log n)^{2/3}
     + n^{1/2} h^{p \wedge \beta}}
-    {\Dl + 1/\sqrt{n h}} \\
-    &\quad\ll
-    \frac{1}{\sqrt{\log n}}.
+    {\Dl + 1/\sqrt{n h}}
+    \ll \frac{1}{\sqrt{\log n}}.
   \end{align*}
   %
-  So by Lemma~\ref{lem:slow_convergence},
-  take $\varepsilon_n$ such that
+  So by Lemma~\ref{lem:slow_convergence}, take $\varepsilon_n$ such that
   %
   \begin{align*}
     \P \left(
@@ -8548,8 +8353,6 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
 \end{proof}
 
-\subsubsection{Covariance estimation}
-
 Before proving
 Lemma~\ref{lem:covariance_estimation},
 we provide the following useful
@@ -8561,13 +8364,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \begin{lemma}[A concentration inequality]
   \label{lem:dyadic_concentration}
 
-  Let $X_{i j}$ be mutually independent random variables
-  for $1 \leq i < j \leq n$
+  Let $X_{i j}$ be mutually independent for $1 \leq i < j \leq n$
   taking values in a measurable space $\cX$.
-  Let $h_1$, $h_2$
-  be measurable functions from $\cX$ to $\R$
-  satisfying the following
-  for all $i$ and $j$.
+  Let $h_1$, $h_2$ be measurable functions from $\cX$ to $\R$
+  satisfying the following for all $i$ and $j$.
+  %
   \begin{align*}
     \E\big[h_1(X_{i j})\big]
     &= 0,
@@ -10183,8 +9984,6 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and the result follows.
 \end{proof}
 
-\subsubsection{Positive semi-definite covariance estimation}
-
 \begin{proof}[Lemma~\ref{lem:app_sdp}]
 
   Firstly we prove that the true covariance function
@@ -10359,8 +10158,6 @@ Theorem~3.3 in \citet{gine2000exponential}.
   See Lemma~\ref{lem:covariance_estimation}
   and Lemma~\ref{lem:app_sdp}.
 \end{proof}
-
-\subsubsection{Feasible uniform confidence bands}
 
 \begin{proof}[Lemma~\ref{lem:studentized_t_statistic}]
   \begin{align*}
@@ -11560,9 +11357,6 @@ Theorem~3.3 in \citet{gine2000exponential}.
   %
 \end{proof}
 
-\subsubsection{Counterfactual dyadic density estimation}
-\label{sec:kernel_app_counterfactual}
-
 \begin{proof}[Lemma~\ref{lem:counterfactual_bias}]
 
   Writing
@@ -11763,15 +11557,15 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{proof}[Lemma~\ref{lem:counterfactual_uniform_consistency}]
 
-  By Lemma~\ref{lem:maximal_vc_inid} we have
+  By Lemma~\ref{lem:maximal_vc_inid},
   $\sup_{w \in \cW} \big|L_n^{1 \triangleright 0}(w)\big|
   \lesssim_\P \frac{1}{\sqrt n}$.
-  Note that in the proof of Lemma~\ref{lem:counterfactual_hoeffding}
+  In the proof of Lemma~\ref{lem:counterfactual_hoeffding}
   the terms $v_{i j r} - u_{i j r}$ depend only on $V_{i j}, V_{i r}$ and
   $V_{jr}$
   after conditioning on $\bA_n^1$, $\bX_n^0$ and $\bX_n^1$.
   Thus $E_n^{1 \triangleright 0}(w)$ is a degenerate second-order
-  U-statistic and so
+  U-statistic so
   $\sup_{w \in \cW} \big|E_n^{1 \triangleright 0}(w)\big|
   \lesssim_\P \sqrt{\frac{\log n}{n^2h}}$
   by Lemma~\ref{lem:uprocess_maximal}.

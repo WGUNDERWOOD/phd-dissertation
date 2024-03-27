@@ -108,7 +108,7 @@ recover the continuous component of this distribution, following
 
 We contribute to the emerging literature on nonparametric smoothing methods for
 dyadic data with two main technical results. Firstly, we derive the minimax
-rate of uniform convergence for density estimation with dyadic data and show
+rate of uniform convergence for density estimation with dyadic data, and show
 that the estimator $\hat{f}_W$ in \eqref{eq:kernel_estimator} is
 minimax-optimal under appropriate conditions. Secondly, we present a set of
 uniform distributional approximation results for the \emph{entire} stochastic
@@ -130,12 +130,13 @@ estimators based on dyadic data (Section~\ref{sec:future}). Importantly, our
 inference results cannot be deduced from the existing U-statistic, empirical
 process and U-process theory available in the literature
 \citep{van1996weak,gine2021mathematical} because, as explained in detail below,
-$\hat{f}_W(w)$ is not a standard U-statistic, nor is the stochastic process
+$\hat{f}_W(w)$ is not a standard U-statistic, nor is
+(a suitable rescaling of) the stochastic process
 $\hat{f}_W$ Donsker in general, and the underlying dyadic data $\bW_n$ exhibits
 statistical dependence due to its network structure.
 
 Section~\ref{sec:kernel_setup} outlines the setup and presents the main
-assumptions imposed throughout the chapter. We demonstrate in
+assumptions imposed throughout this chapter. We demonstrate in
 Theorem~\ref{thm:kernel_bias} how the smoothing bias of the dyadic kernel
 density estimator can be controlled, and then discuss a Hoeffding-type
 decomposition of the U-statistic-like $\hat{f}_W$
@@ -178,13 +179,14 @@ graphon data \citep{gao2021minimax} and on nonparametric kernel-based
 regression using dyadic data \citep{graham2021minimax}.
 
 Section~\ref{sec:kernel_inference} presents a distributional analysis of the
-stochastic process $\hat{f}_W$ uniformly in $w \in \cW$. Because $\hat{f}_W$ is
+stochastic process $\hat{f}_W$ uniformly in $w \in \cW$. Because the
+$t$-process based on $\hat{f}_W$ is
 not asymptotically tight in general, it does not converge weakly in the space
 of uniformly bounded real functions supported on $\cW$ and equipped with the
 uniform norm \citep{van1996weak}, and hence is non-Donsker. To circumvent this
 problem, we employ strong approximation methods to characterize its
 distributional properties. Up to the smoothing bias term $B_n$ and the
-negligible term $Q_n$, it is enough to consider the stochastic process
+negligible term $Q_n$, it suffices to consider the stochastic process
 $w \mapsto L_n(w)+E_n(w)$. Since $L_n$ can be degenerate at some or possibly all
 points $w\in\cW$, and also because under some bandwidth choices both $L_n$ and
 $E_n$ can be of comparable order, it is crucial to analyze the joint
@@ -231,7 +233,7 @@ obtain our main result in Theorem~\ref{thm:strong_approx_Tn}, which establishes
 a valid strong approximation for the $t$-process associated with $\hat{f}_W$.
 This uniform inference result complements the recent contribution of
 \citet{davezies2021exchangeable}, which is not applicable here as
-the $t$-process is non-Donsker in general.
+the $t$-process is non-Donsker.
 
 We illustrate the applicability of our strong approximation results for
 $\hat{f}_W$ and its associated $t$-process by constructing valid standardized
@@ -248,10 +250,10 @@ whereas our main construction leading to Theorem~\ref{thm:strong_approx_Tn}
 gives a strong approximation for the entire U-process-like $\hat{f}_W$ and its
 associated $t$-process, uniformly on $\cW$. As a consequence, our uniform
 inference theory is robust to potential unknown degeneracies in $L_n$ by virtue
-of our strong approximation of $L_n+E_n$ and the use of proper standardization,
+of our strong approximation for $L_n+E_n$ and the use of proper standardization,
 delivering a ``rate-adaptive'' inference procedure. Our result appears to be
 the first to provide confidence bands that are valid uniformly over $w \in \cW$
-rather than over some finite collection of design points. Moreover, they
+rather than merely over a finite collection of design points. Moreover, they
 provide distributional approximations for the whole $t$-statistic process,
 which can be useful in applications where functionals other than the supremum
 are of interest.
@@ -259,7 +261,7 @@ are of interest.
 Section~\ref{sec:implementation} addresses outstanding issues of
 implementation. Firstly, we discuss estimation of the covariance function of
 the Gaussian process underlying our strong approximation results. We present
-two estimators, one based on the plug-in method, and the other based on a
+two estimators, one based on a plug-in method, and the other on a
 positive semi-definite regularization thereof \citep{laurent2005semidefinite}.
 We derive the uniform convergence rates for both estimators in
 Lemma~\ref{lem:sdp}, which we then use to justify Studentization of $\hat{f}_W$
@@ -270,7 +272,7 @@ rule-of-thumb implementation for applications
 \citep{wand1994kernel,simonoff1996smoothing}. Thirdly, we provide feasible,
 valid uniform inference methods for $f_W$ by employing robust bias correction
 \citep{calonico2018effect, calonico2022coverage}. Algorithm~\ref{alg:method}
-summarizes our entire feasible methodology.
+summarizes our entire feasible uniform inference methodology.
 
 Section~\ref{sec:simulations} reports empirical evidence for our proposed
 feasible robust bias-corrected confidence bands for $f_W$. We use simulations
@@ -284,7 +286,7 @@ disciplines. Counterfactual distributions are important for causal inference
 and policy evaluation
 \citep{dinardo1996distribution,chernozhukov2013inference}, and in the context
 of network data, such analysis can be used to answer empirical questions such
-as ``what would the international trade distribution in one year have been if
+as ``what would the international trade distribution have been if
 the gross domestic product (GDP) of the countries had remained the same as in a
 previous year?'' We formally show how our theory for kernel-based dyadic
 estimators can be used to infer the counterfactual density function of dyadic
@@ -293,16 +295,17 @@ a two-step semiparametric reweighting approach in which we first estimate the
 Radon--Nikodym derivative between the observed and counterfactual covariate
 distributions using a simple parametric estimator, and then use this to
 construct a weighted dyadic kernel density estimator. We present uniform
-consistency, strong approximation and feasible inference results for this
-dyadic counterfactual density estimator. Finally, we also illustrate our
+consistency, strong approximation, and feasible inference results for this
+dyadic counterfactual density estimator. Finally, we illustrate our
 methods with a real dyadic data set recording bilateral trade between
-countries, using GDP as a covariate for the counterfactual analysis.
+countries from 1995 to 2005, using GDP as a covariate for the
+counterfactual analysis.
 
 Section~\ref{sec:future} discusses further statistical applications of our main
 results, including dyadic density testing and nonparametric and
 semiparametric dyadic regression. Section~\ref{sec:conclusion} concludes.
 Appendix~\ref{app:kernel} includes other technical and methodological results,
-proofs and additional details omitted here to conserve space.
+proofs, and additional details omitted here to conserve space.
 Section~\ref{sec:kernel_technical} may be of independent interest, containing
 two generic strong approximation theorems for empirical processes, a
 generalized Vorob'ev--Berkes--Philipp theorem, and a maximal inequality for
@@ -429,12 +432,11 @@ $C_\rk h^{-1}$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
 \subsection{Bias characterization}
 \label{sec:kernel_bias}
 
-We begin our with a simple exercise in characterizing and bounding the bias
+We begin by characterizing and bounding the bias
 $B_n(w) = \E \big[ \hat f_W(w) \big] - f_W(w)$.
-Theorem~\ref{thm:kernel_bias} is a standard result for the
-non-random smoothing or misspecification bias in kernel density estimation with
-higher-order kernels and boundary bias correction, and it does not rely
-directly on the dyadic structure of the data.
+Theorem~\ref{thm:kernel_bias} is a standard result for the non-random smoothing
+bias in kernel density estimation with higher-order kernels and boundary bias
+correction, and does not rely on the dyadic structure.
 
 \begin{theorem}[Bias bound]
   \label{thm:kernel_bias}
@@ -1173,7 +1175,7 @@ Section~\ref{sec:kernel_setup}.
 
 Denote by $\hat\Sigma_n^+$ any (approximately) optimal solution to
 (\ref{eq:sdp}). The following lemma establishes uniform convergence rates
-for both $\hat \Sigma_n$ and $\hat \Sigma_n^+$. 
+for both $\hat \Sigma_n$ and $\hat \Sigma_n^+$.
 We then use $\hat \Sigma_n^+$ to construct feasible versions of $T_n$ and its
 associated Gaussian approximation $Z_n^{T}$ defined in
 Theorem~\ref{thm:strong_approx_Tn}.
@@ -1325,12 +1327,12 @@ relative to the uniform minimax-optimal bandwidth choice discussed in
 Section~\ref{sec:point_estimation}, but it is easier to implement in practice.
 
 To implement the AIMSE-optimal bandwidth choice, we propose a simple
-\emph{rule-of-thumb} (ROT) approach based on Silverman's rule.
-Suppose $p\wedge\beta=2$ and let $\hat\sigma^2$ and $\hat\IQR$
+rule-of-thumb (ROT) approach based on Silverman's rule.
+Suppose $p\wedge\beta=2$ and let $\hat\sigma^2$ and $\hat I$
 be the sample variance and sample interquartile range respectively
 of the data $\bW_n$. Then
 $\hat{h}_{\ROT} = C(K) \big( \hat\sigma \wedge
-\frac{\hat\IQR}{1.349} \big) \big(\frac{n(n-1)}{2} \big)^{-1/5}$,
+\frac{\hat I}{1.349} \big) \big(\frac{n(n-1)}{2} \big)^{-1/5}$,
 where we have $C(K)=2.576$ for the triangular kernel $K(w) = (1 - |w|) \vee 0$,
 and $C(K)=2.435$ for the Epanechnikov kernel
 $K(w) = \frac{3}{4}(1 - w^2) \vee 0$.
@@ -1559,7 +1561,7 @@ and that $(\bA_n^0, \bV_n^0, \bX_n^0)$
 is independent of $(\bA_n^1, \bV_n^1, \bX_n^1)$.
 
 We interpret $r$ as an index for two populations, labeled $0$ and $1$. The
-counterfactual density of the outcome of population $1$ had it followed the
+counterfactual density of population $1$ had it followed the
 same covariate distribution as population $0$ is
 %
 \begin{align*}
@@ -1595,7 +1597,7 @@ where $\hat\psi(x) = \hat p_X^{\,0}(x) / \hat p_X^{\,1}(x)$ and
 $\hat p_X^{\,r}(x) = \frac{1}{n}\sum_{i = 1}^n \I\{X_i^r = x\}$,
 with $\I$ the indicator function.
 
-Section~\ref{sec:kernel_app_counterfactual} provides technical details:
+Section~\ref{sec:kernel_app_main} provides technical details:
 we show how an asymptotic linear representation for $\hat\psi(x)$ leads to a
 Hoeffding-type decomposition of $\hat f_W^{\,1 \triangleright 0}(w)$,
 which is then used to establish that $\hat f_W^{\,1 \triangleright 0}$
