@@ -364,7 +364,7 @@ places throughout the analysis.
   By Cauchy--Schwarz, with $k \in \{2,3\}$, we have
   $\E\left[\|X\|_2^{k} \|X\|_\infty \right]
   \leq \E\big[\|X\|_2^{2k} \big]^{1/2} \E\big[\|X\|_\infty^2 \big]^{1/2}$.
-  For the first term, by H{\"o}lder's inequality and the fourth and sixth
+  For the first term, by H{\"o}lder's inequality and the even
   moments of the normal distribution,
   %
   \begin{align*}
@@ -467,7 +467,7 @@ $\phi_p(d)$.
   $\big(\E\big[|X_j|^p\big]\big)^{1/p}
   \leq \sqrt{p\, \E[X_j^2]}
   = \sqrt{p \Sigma_{j j}}$.
-  Therefore
+  So
   %
   \begin{align*}
     \E\big[\|X\|_p\big]
@@ -717,8 +717,7 @@ for $\alpha$-mixing random variables.
       \label{eq:variance_mixing_exponential}
       If $\alpha(j) \leq e^{-2j / C_\alpha}$ then
       for any $r>2$ there is a constant
-      $C_r$ depending only on $r$
-      such that
+      $C_r$ depending only on $r$ with
       %
       \begin{align*}
         \Var\left[
@@ -831,7 +830,7 @@ for $\alpha$-mixing random variables.
 
     \item
       \label{eq:exponential_mixing_bounded}
-      Suppose $|X_i| \leq M$ a.s.\ for each $1 \leq i \leq n$.
+      Suppose $|X_i| \leq M$ a.s.\ for $1 \leq i \leq n$.
       Then for all $t > 0$ there is a constant $C_1$ with
       %
       \begin{align*}
@@ -849,9 +848,8 @@ for $\alpha$-mixing random variables.
       %
     \item
       \label{eq:exponential_mixing_bernstein}
-      Suppose further
-      $\sum_{j=1}^n |\Cov[X_i, X_j]| \leq \sigma^2$.
-      Then for all $t > 0$ there is a constant $C_2$ with
+      If further $\sum_{j=1}^n |\Cov[X_i, X_j]| \leq \sigma^2$,
+      then for all $t > 0$ there is a constant $C_2$ with
       %
       \begin{align*}
         \P\left(
@@ -872,9 +870,6 @@ for $\alpha$-mixing random variables.
 
 \begin{proof}[Lemma~\ref{lem:exponential_mixing}]
 
-  We apply results from \citet{merlevede2009bernstein},adjusting constants
-  where necessary.
-  %
   \begin{enumerate}[label=(\roman*)]
 
     \item
@@ -940,7 +935,7 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
   filtration $\cH_0, \ldots, \cH_n$.
   Suppose that
   $\E[X_i \mid \cH_{i-1}] = 0$ for all $1 \leq i \leq n$
-  and define the martingale $S = \sum_{i=1}^n X_i$.
+  and define $S = \sum_{i=1}^n X_i$.
   Let $V_i = \Var[X_i \mid \cH_{i-1}]$ and
   $\Omega = \sum_{i=1}^n V_i - \Sigma$
   where $\Sigma$ is a positive semi-definite
@@ -1072,18 +1067,19 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
   Also
   $\P\big( \| H_\tau^{1/2} Z \|_p > \eta \big)
   \leq \P\big( \| H_n^{1/2} Z \|_p > \eta,\, \Omega \preceq M)
-  + \P\big( \Omega \npreceq M \big)$.
-  Therefore
+  + \P\big( \Omega \npreceq M \big)$,
+  so
   %
-  \begin{equation}%
-    \label{eq:approx_modified_original}
+  \begin{align*}%
+    \nonumber
     \P\big( \| S - \tilde S \|_p > \eta\big)
-    \leq
+    &\leq
     2 \P\big(\Omega \npreceq M \big)
     + \P\big( \| (M-\Omega)^{1/2}Z \|_p > \eta,\,
-    \Omega \preceq M \big)
-    = 2 \gamma(M) + \varepsilon_p(M, \eta).
-  \end{equation}
+    \Omega \preceq M \big) \\
+    \label{eq:approx_modified_original}
+    &= 2 \gamma(M) + \varepsilon_p(M, \eta).
+  \end{align*}
 
   \proofparagraph{strong approximation of the modified martingale}
 
@@ -1157,24 +1153,22 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
   $\tilde \cH_{i-1}$ and $\tilde Z_i$.
   Note that $\tilde Y_i$ is $\check \cH_i$-measurable
   and that $Y_i$ and $\tilde Y_i$
-  have the same distribution conditional on $\tilde \cH_{n+m}$.
-  So
+  have the same distribution conditional on $\tilde \cH_{n+m}$. So
   %
   \begin{align*}
-    \sum_{|\kappa| = 1}
+    &\sum_{|\kappa| = 1}
     \frac{1}{\kappa!}
-    \E\hspace*{-0.5mm}\left[
+    \E\left[
       \partial^\kappa f(Y_i)
       \big( \tilde X_i^\kappa - \check X_i^\kappa \big)
       \bigm| \cH_0
     \right]
-    &=
-    \E \left[
+    = \E \left[
       \nabla f(Y_i)^\T
       \big( \tilde X_i - \tilde V_i^{1/2} \tilde Z_i \big)
       \bigm| \cH_0
-    \right] \\[-3mm]
-    &=
+    \right] \\
+    &\quad=
     \E \left[
       \nabla f(\tilde Y_i)^\T \tilde X_i
       \bigm| \cH_0
@@ -1183,7 +1177,7 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
       \nabla f(Y_i)^\T \tilde V_i^{1/2} \tilde Z_i
       \bigm| \cH_0
     \right] \\
-    &=
+    &\quad=
     \E \left[
       \nabla f(\tilde Y_i)^\T
       \E \left[
@@ -1191,16 +1185,15 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
         \mid \check \cH_i
       \right]
       \bigm| \cH_0
-    \right] \\
-    &\quad-
-    \E \left[
+    \right]
+    - \E \left[
       \tilde Z_i
     \right]
     \E \left[
       \nabla f(Y_i)^\T \tilde V_i^{1/2}
       \bigm| \cH_0
     \right] \\
-    &=
+    &\quad=
     \E \left[
       \nabla f(\tilde Y_i)^\T
       \E \left[
@@ -1376,7 +1369,7 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
   $\tilde X_i = H_\tau^{1/2} Z_i / \sqrt m$
   and $\check X_i = H_\tau^{1/2} \tilde Z_i / \sqrt m$
   which are equal in distribution given $\cH_0$.
-  Therefore with
+  So with
   %
   \begin{align*}
     \tilde \beta_{p,k}
@@ -1836,7 +1829,7 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
 
 After establishing Proposition~\ref{pro:sa_simplified},
 Corollaries~\ref{cor:sa_mixingale}, \ref{cor:sa_martingale}
-and \ref{cor:sa_indep} follow easily, as shown in the main text.
+and \ref{cor:sa_indep} follow easily.
 
 \begin{proof}[Corollary~\ref{cor:sa_mixingale}]
   Proposition~\ref{pro:sa_simplified} with
@@ -1916,7 +1909,7 @@ conclude that
 We begin by presenting some calculations omitted from the main text
 relating to the motivating example of kernel density estimation with
 i.i.d.\ data.
-First, the bias of this estimator is bounded as
+First, the bias is bounded as
 %
 \begin{align*}
   \big| \E \big[ \hat g(x) \big] - g(x) \big|
@@ -2192,7 +2185,7 @@ the same bound holds for $T(x)$ with
     \exp \left(- \frac{a^2}{h^2}\right).
   \end{align*}
   %
-  Now for any positive semi-definite $N \times N$ matrices $A$ and $B$
+  For any positive semi-definite $N \times N$ matrices $A$ and $B$
   and vector $v$ we have $\lambda_{\min}(A - v v^\T) \leq \lambda_{\min}(A)$
   and $\lambda_{\min}(B) \leq \lambda_{\min}(A) + \|B-A\|_2
   \leq \lambda_{\min}(A) + N \|B-A\|_{\max}$.
@@ -2449,7 +2442,7 @@ the same bound holds for $T(x)$ with
   Lemma~\ref{lem:variance_mixing}\ref{eq:variance_mixing_bounded}.
   Since the basis functions
   satisfy Assumption~3 in \citet{cattaneo2020large}, $\Omega$ has a bounded
-  number of non-zero entries in each row, and so by Jensen's inequality
+  number of non-zero entries in each row, so by Jensen's inequality
   %
   \begin{align*}
     \E\left[
@@ -2843,7 +2836,7 @@ the same bound holds for $T(x)$ with
     \left|
     p(w)^\T \hat H^{-1}
     \left(
-      \hat{\Var}[S]
+      \hat{V}[S]
       - \Var[S]
     \right)
     \hat H^{-1} p(w')
@@ -2851,19 +2844,19 @@ the same bound holds for $T(x)$ with
     &\quad\lesssim_\P
     \left( \frac{k (\log n)^2}{n} \right)^{1/3}
     \left\|
-    \hat{\Var}[S]
+    \hat{V}[S]
     - \Var[S]
     \right\|_2^{1/3},
   \end{align*}
   %
-  and goes to zero in probability whenever
+  and vanishes in probability whenever
   $\frac{k (\log n)^2}{n}
-  \big\| \hat{\Var}[S] - \Var[S] \big\|_2 \to_\P 0$.
+  \big\| \hat{V}[S] - \Var[S] \big\|_2 \to_\P 0$.
   For the plug-in estimator,
   %
   \begin{align*}
     &\left\|
-    \hat{\Var}[S]
+    \hat{V}[S]
     - \Var[S]
     \right\|_2
     =
@@ -3106,8 +3099,8 @@ the same bound holds for $T(x)$ with
       \|\cF_\delta(W_i, \tilde\varepsilon_i)\|_\infty
       + \big\| V_i(\cF_\delta)^{1/2} Z_i \big\|^2_2
       \big\| V_i(\cF_\delta)^{1/2} Z_i \big\|_\infty
-    \right] \\
-    &\lesssim
+    \right]
+    \lesssim
     \frac{\log n}
     {n^2 h^{2m} \delta^m}.
   \end{align*}
@@ -3357,8 +3350,8 @@ the same bound holds for $T(x)$ with
     \E\left[
       \big( K_h(W_i-w) - K_h(W_i-w') \big)^2
       \sigma^2(X_i)
-    \right] \\
-    &\lesssim
+    \right]
+    \lesssim
     \frac{\|w-w'\|_2^2}{n^2h^{m+2}}.
   \end{align*}
   %
@@ -3396,7 +3389,7 @@ the same bound holds for $T(x)$ with
     C_1 e^{-t}.
   \end{align*}
   %
-  \citet[Lemma~2]{van2013bernstein} with
+  \Citet[Lemma~2]{van2013bernstein} with
   $\psi(x) =
   \exp\Big(\big(\sqrt{1+2 x / \sqrt{\log n}}-1 \big)^2
   \log n \Big)-1$
@@ -3543,9 +3536,8 @@ the same bound holds for $T(x)$ with
   \begin{align*}
     u_{i j l}(w)
     &=
-    K_h(W_i-w) p_h(W_i-w)_j p_h(W_i-w)_l \\
-    &\quad-
-    \E\big[K_h(W_i-w) p_h(W_i-w)_j p_h(W_i-w)_l \big]
+    K_h(W_i-w) p_h(W_i-w)_j p_h(W_i-w)_l
+    - \E\big[K_h(W_i-w) p_h(W_i-w)_j p_h(W_i-w)_l \big]
   \end{align*}
   %
   and note that
@@ -3967,7 +3959,7 @@ the same bound holds for $T(x)$ with
   %
   Similarly
   $\Var[T(w)] \gtrsim \frac{1}{n h^m}$
-  by the same argument given to bound the eigenvalues of
+  by the same argument used to bound eigenvalues of
   $H(w)^{-1}$.
   %
 \end{proof}
@@ -4091,9 +4083,8 @@ Corollary~\ref{cor:sa_martingale}:
     &\leq
     \sup_{A \in \cA}
     \big\{\P(T \in A_p^\eta\setminus A)
-    \vee \P(T \in A \setminus A_p^{-\eta})\big\} \\
-    &\quad+
-    \P(\|S - T\| > \eta) \\
+    \vee \P(T \in A \setminus A_p^{-\eta})\big\}
+    + \P(\|S - T\| > \eta) \\
     &\leq
     \inf_{p \in [1, \infty]} \inf_{\eta>0}
     \big\{\Gamma_p(\eta) + \Delta_p(\cA, \eta) \big\}.
@@ -4151,8 +4142,8 @@ and \eqref{eq:rect_anticonc} yields
 %
 \begin{align*}%
   &\sup_{A\in \cR}
-  \big|\P(S\in A) -\P(T\in A)\big| \\
-  &\quad\lesssim
+  \big|\P(S\in A) -\P(T\in A)\big|
+  \lesssim
   \inf_{\eta > 0}
   \left\{
     \left(\frac{\beta_{\infty,2} \log 2d}{\eta^3}\right)^{1/3}
@@ -4307,7 +4298,7 @@ multiplier bootstrap.
   and any $p, p' \in [1, \infty]$ and $\eta, \eta' > 0$.
   Taking a supremum over $A$ and infima over
   $p = p'$ and $\eta = \eta'$ yields the result.
-  Note that we need not insist that
+  We do not need
   $p = p'$ and $\eta = \eta'$ in general.
   %
 \end{proof}

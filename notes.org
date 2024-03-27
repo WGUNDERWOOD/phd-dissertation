@@ -5,16 +5,17 @@
 *** TODO Figure and table placement, floats
 *** TODO Widows and orphans
 ** TODO Pass
-*** DONE mondrian
-*** DONE kernel
-*** DONE yurinskii
-*** DONE mondrian appendix
-*** DONE kernel appendix
+*** TODO mondrian
+*** TODO kernel
+*** TODO yurinskii
+*** TODO mondrian appendix
+*** TODO kernel appendix
 *** TODO yurinskii appendix
 ** TODO Spelling higher-order?
 ** TODO Table and algorithm stretch spacing
 ** TODO Draft watermark
 ** TODO Oxford commas
+** TODO Check for hspace, vspace, quad etc
 ** TODO No hyphen after well
 ** TODO Remove comments
 ** TODO Subsubsections?
