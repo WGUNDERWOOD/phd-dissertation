@@ -737,8 +737,7 @@ for $\alpha$-mixing random variables.
   Define
   $\alpha^{-1}(t) =
   \inf\{j \in \N : \alpha(j) \leq t\}$
-  and
-  $Q_i(t) = \inf\{s \in \R : \P(|X_i| > s) \leq t\}$.
+  and $Q_i(t) = \inf\{s \in \R : \P(|X_i| > s) \leq t\}$.
   By Corollary~1.1 in \citet{rio2017asymptotic}
   and H{\"o}lder's inequality for $r > 2$,
   %
@@ -1613,7 +1612,7 @@ martingale, but which has an $\cH_0$-measurable terminal quadratic variation.
   \eqref{eq:approx_modified_original},
   \eqref{eq:approx_modified_martingale},
   \eqref{eq:approx_target},
-  the triangle inequality
+  the triangle inequality,
   and a union bound conclude the proof since
   by taking an infimum over $M \succeq 0$,
   and by possibly reducing the constant of $1/4$ in
@@ -1717,7 +1716,7 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
   conditional on $\cH_n$,
   on the event $\{\Omega \preceq M\}$.
   We thus have by Markov's inequality,
-  Lemma~\ref{lem:gaussian_pnorm}
+  Lemma~\ref{lem:gaussian_pnorm},
   and Jensen's inequality that
   %
   \begin{align*}
@@ -1828,7 +1827,7 @@ user-friendly version as Proposition~\ref{pro:sa_simplified}.
 \end{proof}
 
 After establishing Proposition~\ref{pro:sa_simplified},
-Corollaries~\ref{cor:sa_mixingale}, \ref{cor:sa_martingale}
+Corollaries~\ref{cor:sa_mixingale}, \ref{cor:sa_martingale},
 and \ref{cor:sa_indep} follow easily.
 
 \begin{proof}[Corollary~\ref{cor:sa_mixingale}]
@@ -1933,8 +1932,7 @@ First, the bias is bounded as
 %
 Next, we do the calculations necessary to apply
 Corollary~\ref{cor:sa_indep}.
-Define
-$k_{i j} = \frac{1}{n h} K \left( \frac{X_i - x_j}{h} \right)$ and
+Define $k_{i j} = \frac{1}{n h} K \left( \frac{X_i - x_j}{h} \right)$ and
 $k_i = (k_{i j} : 1 \leq j \leq N)$.
 Then $\|k_i\|_\infty \leq \frac{1}{n h \sqrt{2 \pi}}$ a.s.\ and
 $\E[\|k_i\|_2^2] \leq \frac{N}{n^2 h} \int_{-\infty}^\infty K(\xi)^2 \diff \xi
@@ -1975,8 +1973,7 @@ By chaining with the Bernstein--Orlicz norm and polynomial covering numbers,
   \sqrt{\frac{\log n}{n h^3}}
 \end{align*}
 %
-whenever $\log(N/h) \lesssim \log n$
-and $n h \gtrsim \log n$.
+whenever $\log(N/h) \lesssim \log n$ and $n h \gtrsim \log n$.
 By a Gaussian process maximal inequality
 \citep[Corollary~2.2.8]{van1996weak}
 the same bound holds for $T(x)$ with
@@ -2075,7 +2072,7 @@ the same bound holds for $T(x)$ with
   $\tilde\Sigma_{i j} = \frac{1}{2 \sqrt \pi}
   \exp \left( - \frac{1}{4} \left( \frac{x_i-x_j}{h} \right)^2 \right)$.
   By \citet[Proposition~2.4,
-  Proposition~2.5 and Equation~2.10]{baxter1994norm},
+  Proposition~2.5, and Equation~2.10]{baxter1994norm},
   with
   $\cB_k = \big\{b \in \R^\Z :
   \sum_{i \in \Z} \I\{b_i \neq 0\} \leq k \big\}$,
@@ -2096,7 +2093,7 @@ the same bound holds for $T(x)$ with
   $x = -e/2 \approx -1.359$.
   Consider the substitutions
   $\Z \cap (-\infty, -3] \mapsto (-\infty, -2]$,
-  $\{-2, -1\} \mapsto \{-2, -1\}$ and
+  $\{-2, -1\} \mapsto \{-2, -1\}$, and
   $\Z \cap [0, \infty) \mapsto [-1, \infty)$.
   %
   \begin{align*}
@@ -2235,8 +2232,7 @@ the same bound holds for $T(x)$ with
   which takes values in $\R^{|\cF_\delta|}$.
   Square integrability can be assumed otherwise
   $\beta_\delta = \infty$.
-  Note
-  $\sum_{i=1}^n \cF_\delta(X_i) = S(\cF_\delta)$
+  Note $\sum_{i=1}^n \cF_\delta(X_i) = S(\cF_\delta)$
   and $\phi_\infty(\cF_\delta) \leq \sqrt{2 \log 2 |\cF_\delta|}$.
   Therefore there exists a conditionally Gaussian vector $T(\cF_\delta)$
   with the same covariance structure as $S(\cF_\delta)$
@@ -2362,12 +2358,10 @@ the same bound holds for $T(x)$ with
   \proofparagraph{bounding $\beta_{\infty,2}$ and $\beta_{\infty,3}$}
 
   Set $X_i = p(W_i) \varepsilon_i$
-  so $S = \sum_{i=1}^n X_i$
+  so $S = \sum_{i=1}^n X_i$,
   and set $\sigma^2_i = \sigma^2(W_i)$ and
-  $V_i = \Var[X_i \mid \cH_{i-1}]
-  = \sigma_i^2 p(W_i) p(W_i)^\T$.
-  Recall from
-  Corollary~\ref{cor:sa_martingale} that for $r \in \{2,3\}$,
+  $V_i = \Var[X_i \mid \cH_{i-1}] = \sigma_i^2 p(W_i) p(W_i)^\T$.
+  Recall from Corollary~\ref{cor:sa_martingale} that for $r \in \{2,3\}$,
   %
   \begin{align*}
     \beta_{\infty,r}
@@ -2741,7 +2735,7 @@ the same bound holds for $T(x)$ with
   \citet{cattaneo2020large}, who provide a high-level assumption on the
   approximation error in Assumption~4 and then use it to derive bias bounds in
   Section~3 of the form $\sup_{w \in \cW} |\Bias(w)| \lesssim_\P k^{-\gamma}$.
-  This assumption is then verified for B-splines, wavelets and piecewise
+  This assumption is then verified for B-splines, wavelets, and piecewise
   polynomials in their supplemental appendix.
 
 \end{proof}
@@ -3848,10 +3842,8 @@ the same bound holds for $T(x)$ with
   %
   Now write
   $\tilde u_{i j}(w) = K_h(W_i-w)p_h(W_i-w)_j$
-  and note that
-  $|\tilde u_{i j}(w)| \lesssim h^{-m}$
-  and
-  $\E[\tilde u_{i j}(w)] \lesssim 1$.
+  and note that $|\tilde u_{i j}(w)| \lesssim h^{-m}$
+  and $\E[\tilde u_{i j}(w)] \lesssim 1$.
   By Lemma~\ref{lem:exponential_mixing}%
   \ref{eq:exponential_mixing_bounded},
   for a constant $C_4$,
@@ -4012,7 +4004,7 @@ For $\eta>0$ and $p \in [1, \infty]$ define the Gaussian perimetric quantity
 \end{align*}
 %
 where $A_p^\eta = \{x \in \R^d : \|x - A\|_p \leq \eta\}$,
-$A_p^{-\eta} = \R^d \setminus (\R^d \setminus A)_p^\eta$
+$A_p^{-\eta} = \R^d \setminus (\R^d \setminus A)_p^\eta$,
 and $\|x - A\|_p = \inf_{x' \in A} \|x - x'\|_p$.
 Using this perimetric term allows us to convert coupling results
 to central limit theorems as follows.
@@ -4173,54 +4165,15 @@ such as Lemma~2.1 from \citet{chernozhukov2023nearly}.
   particularly for the special case of
   sums of independent random vectors
   on the rectangular sets $\cR$.
-  %For example, if $X_i$ are i.i.d.\ and bounded a.s.\
-  %and if $\Var[X_i]$ has minimum eigenvalue bounded away from zero,
-  %\citet[Theorem~2.1]{chernozhukov2023nearly} showed
-  %
-  %\begin{align*}
-  %\sup_{A\in \cR}
-  %\big|\P(S\in A) -\P(T\in A)\big|
-  %&\lesssim
-  %\frac{(\log d)^{3/2} \log n}{\sqrt n}.
-  %\end{align*}
-  %
-  %For comparison, under the same conditions, we have
-  %$\Omega=0$ by independence,
-  %$\beta_{\infty,2} \lesssim n d \sqrt{\log d}$
-  %and $\sigma_{\min} \gtrsim \sqrt n$;
-  %our closest comparable result
-  %\eqref{eq:clt_rectangle} yields
-  %
-  %\begin{align*}
-  %\sup_{A\in \cR}
-  %\big|\P(S\in A) -\P(T\in A)\big|
-  %&\lesssim
-  %\left(\frac{d(\log d)^3}{\sqrt{n}}\right)^{1/6}.
-  %\end{align*}
   %
   Our corresponding results are rather weaker in terms of
   dependence on the dimension than for example
   \citet[Theorem~2.1]{chernozhukov2023nearly}.
-  This is an inherent issue due to our approach
-  of first
-  %constructing a coupling for the high-dimensional
-  %vector $S$ via Yurinskii's method,
+  This is an inherent issue due to our approach of first
   considering the class of all Borel sets
   and only afterwards specializing to the smaller class $\cR$,
   where sharper results in the literature directly target the
   Kolmogorov--Smirnov distance via Stein's method and Slepian interpolation.
-  %The main contribution of this section is therefore to obtain
-  %Gaussian distributional approximations
-  %for high-dimensional martingale vectors,
-  %a setting in which alternative central limit theorem proof strategies are not
-  %readily available.
-  %It may be possible to improve our approach
-  %somewhat by adjusting
-  %our proof strategy. If the family of sets under consideration
-  %is substantially smaller than the family of Borel sets,
-  %one might be able to
-  %with a superior smoothing argument on $\cR$
-  %skip Strassen's theorem entirely.
 \end{remark}
 
 Next, we present a version of Proposition~\ref{pro:clt} in which the covariance
@@ -4423,8 +4376,7 @@ discussed, for example, in
 \citet[Section~4]{giessing2023anti}.
 Note that alongside the $\ell^p$-norms,
 other functionals can be analyzed in this manner,
-including the maximum statistic
-and other order statistics
+including the maximum statistic and other order statistics
 \citep{kozbur2021dimension,giessing2023anti}.
 
 To conduct inference in this situation, we need to feasibly

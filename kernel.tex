@@ -6,7 +6,7 @@
 % abstract
 Dyadic data is often encountered when quantities of interest are associated
 with the edges of a network. As such it plays an important role in statistics,
-econometrics and many other data science disciplines. We consider the problem
+econometrics, and many other data science disciplines. We consider the problem
 of uniformly estimating a dyadic Lebesgue density function, focusing on
 nonparametric kernel-based estimators taking the form of dyadic empirical
 processes. The main contributions of this chapter
@@ -34,11 +34,11 @@ maximal inequalities are of potential independent interest.
 \label{sec:introduction}
 
 Dyadic data, also known as graphon data, plays an important role in the
-statistical, social, behavioral and biomedical sciences. In network settings,
+statistical, social, behavioral, and biomedical sciences. In network settings,
 this type of dependent data captures interactions between the units of study,
 and its analysis is of interest in statistics \citep{kolaczyk2009statistical},
 economics \citep{graham2020network}, psychology \citep{kenny2020dyadic}, public
-health \citep{luke2007network} and many other data science disciplines. For
+health \citep{luke2007network}, and many other data science disciplines. For
 $n \geq 2$, a dyadic data set contains $\frac{1}{2}n(n-1)$ observed real-valued
 random variables
 %
@@ -144,7 +144,7 @@ in Lemma~\ref{lem:hoeffding}. This is more general than
 the standard Hoeffding decomposition for second-order U-statistics due to the
 intrinsic dyadic data structure. In particular, \eqref{eq:h-decomposition}
 shows that $\hat{f}_W(w)$ decomposes into a sum of the four terms $B_n(w)$,
-$L_n(w)$, $E_n(w)$ and $Q_n(w)$, where $E_n(w)$ is not present in the classical
+$L_n(w)$, $E_n(w)$, and $Q_n(w)$, where $E_n(w)$ is not present in the classical
 second-order U-statistic theory. The first term $B_n(w)$ captures the usual
 smoothing bias, the second term $L_n(w)$ is akin to the H{\'a}jek projection
 for second-order U-statistics, the third term $E_n(w)$ is a mean-zero double
@@ -534,7 +534,7 @@ Lemma~\ref{lem:hoeffding}, which is a key element in our analysis.
     \hat f_W(w) - f_W(w) = L_n(w) + Q_n(w) + E_n(w) + B_n(w).
   \end{align}
   %
-  The processes $L_n$, $Q_n$ and $E_n$ are mean-zero
+  The processes $L_n$, $Q_n$, and $E_n$ are mean-zero
   with $\E\big[L_n(w)\big] = \E\big[Q_n(w)\big] = \E\big[E_n(w)\big] = 0$
   for all $w \in \cW$. They are also orthogonal,
   satisfying $\E\big[ L_n(w) Q_n(w') \big] = \E\big[ L_n(w) E_n(w') \big]
@@ -665,7 +665,7 @@ In line with Assumption~\ref{ass:kernel_data}, $\bA_n$ and $\bV_n$ are i.i.d.\
 sequences independent of each other. Then
 $f_{W \mid AA}(w \mid A_i, A_j) = \phi(w - A_i A_j)$,\,
 $f_{W \mid A}(w \mid A_i) = \pi_1 \phi(w + A_i) + \pi_2 \phi(w)
-+ \pi_3 \phi(w - A_i)$ and
++ \pi_3 \phi(w - A_i)$, and
 $f_W(w) = (\pi_1^2 + \pi_3^2) \phi(w-1) + \pi_2 (2 - \pi_2) \phi(w) + 2
 \pi_1 \pi_3 \phi(w+1),$
 where $\phi$ denotes the probability density function of the standard normal
@@ -753,7 +753,7 @@ $\hat f_W$.
 \end{theorem}
 %
 The implicit constant in Theorem~\ref{thm:uniform_consistency} depends only on
-$\cW$, $\beta$, $C_\rH$ and the choice of kernel. We interpret this result in
+$\cW$, $\beta$, $C_\rH$, and the choice of kernel. We interpret this result in
 light of the degeneracy trichotomy from Lemma~\ref{lem:trichotomy}.
 %
 \begin{enumerate}[label=(\roman*)]
@@ -814,7 +814,8 @@ distribution.
   %
   where $\tilde f_W$ is any estimator depending only on the data
   $\bW_n = (W_{i j}: 1 \leq i < j \leq n)$ distributed according to the dyadic
-  law $\P$. The constants in $\asymp$ depend only on $\cW$, $\beta$ and $C_\rH$.
+  law $\P$. The constants in $\asymp$ depend only on
+  $\cW$, $\beta$, and $C_\rH$.
 
 \end{theorem}
 
@@ -1073,7 +1074,7 @@ hence improving the finite sample performance of the proposed confidence bands.
 \begin{theorem}[Infeasible uniform confidence bands]
   \label{thm:infeasible_ucb}
 
-  Suppose that Assumptions~\ref{ass:kernel_data},~\ref{ass:kernel_bandwidth}
+  Suppose that Assumptions~\ref{ass:kernel_data},~\ref{ass:kernel_bandwidth},
   and~\ref{ass:rates} hold and $f_W(w) > 0$ on $\cW$. Then
   %
   \begin{align*}
@@ -1250,7 +1251,7 @@ which is shown to be well defined in Section~\ref{sec:kernel_proofs}.
 \begin{theorem}[Feasible uniform confidence bands]
   \label{thm:kernel_ucb}
 
-  Suppose that Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
+  Suppose that Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth},
   and \ref{ass:rates} hold and $f_W(w) > 0$ on $\cW$. Then
   %
   \begin{align*}
@@ -1549,7 +1550,7 @@ had some covariates followed a distribution different from the actual one, and
 it is important in causal inference and program evaluation settings
 \citep{dinardo1996distribution,chernozhukov2013inference}.
 
-For each $r \in \{0,1\}$, let $\bW_n^r$, $\bA_n^r$ and $\bV_n^r$ be random
+For each $r \in \{0,1\}$, let $\bW_n^r$, $\bA_n^r$, and $\bV_n^r$ be random
 variables as defined in Assumption~\ref{ass:kernel_data} and
 $\bX_n^r = (X_1^r, \ldots, X_n^r)$ be some covariates.
 We assume that $(A_i^r, X_i^r)$ are independent over $1 \leq i \leq n$
@@ -1647,8 +1648,8 @@ $\hat\Sigma_n^{1 \triangleright 0}$, denoted by
 $\hat\Sigma_n^{+, 1 \triangleright 0}$,
 as in Section~\ref{sec:covariance_estimation}. To construct feasible uniform
 confidence bands, define a process $\hat Z_n^{T, 1 \triangleright 0}(w)$ which
-is conditionally mean-zero and Gaussian given the data $\bW_n^1$, $\bX_n^0$ and
-$\bX_n^1$ and whose conditional covariance structure is
+is conditionally mean-zero and Gaussian given the data $\bW_n^1$, $\bX_n^0$, and
+$\bX_n^1$, and whose conditional covariance structure is
 $\E\big[\hat Z_n^{T, 1 \triangleright 0}(w)
   \hat Z_n^{T, 1 \triangleright 0}(w')
 \bigm| \bW_n^1, \bX_n^0, \bX_n^1 \big]
@@ -1687,7 +1688,7 @@ real-world data set. We use international bilateral trade data from the
 International Monetary Fund's Direction of Trade Statistics (DOTS), previously
 analyzed by \citet{head2014gravity} and \citet{chiang2022inference}. This data
 set contains information about the yearly trade flows among $n = 207$ economies
-($N = 21\,321$ pairs), and we focus on the years $1995$, $2000$ and $2005$.
+($N = 21\,321$ pairs), and we focus on the years $1995$, $2000$, and $2005$.
 
 We define the \emph{trade volume} between countries $i$ and $j$ as the
 logarithm of the sum of the trade flow (in billions of US dollars) from $i$ to
@@ -1698,7 +1699,7 @@ mixture of a point mass at $-\infty$ and a Lebesgue density on $\R$. The local
 nature of our estimator means that observations taking the value of $-\infty$
 can simply be removed from the data set. Table~\ref{tab:trade_network_stats}
 gives summary statistics for these trade networks, and shows how the networks
-become more connected over time, with edge density, average degree and
+become more connected over time, with edge density, average degree, and
 clustering coefficient increasing.
 
 \begin{table}[b!]
@@ -1905,7 +1906,7 @@ For a second example, suppose $Y_{i j} = Y(X_i, X_j, A_i, A_j, V_{i j})$,
 where only $\bX_n$ and $\bY_n$ are observed and
 $\bV_n$ is independent of $(\bX_n, \bA_n)$,
 with $\bX_n = (X_i : 1 \leq i \leq n)$,
-$\bA_n = (A_i : 1 \leq i \leq n)$, $\bY_n = (Y_{i j}:1\leq i<j\leq n)$
+$\bA_n = (A_i : 1 \leq i \leq n)$, $\bY_n = (Y_{i j}:1\leq i<j\leq n)$,
 and $\bV_n = (V_{i j} : 1 \leq i < j \leq n)$.
 A parameter of interest is the regression function
 $\mu(x_1, x_2) = \E[Y_{i j} \mid X_i=x_1, X_j=x_2]$,

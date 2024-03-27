@@ -26,8 +26,7 @@ $\|\cdot\|_1$
 is the maximum absolute column sum,
 $\|\cdot\|_\infty$
 is the maximum absolute row sum,
-and
-$\|\cdot\|_2$
+and $\|\cdot\|_2$
 is the maximum singular value.
 For real symmetric matrices,
 $\|\cdot\|_2$
@@ -102,10 +101,10 @@ with a.s.\ continuous sample paths.
 
 We present more detailed versions of
 Lemmas~\ref{lem:strong_approx_Ln},
-\ref{lem:conditional_strong_approx_En}
+\ref{lem:conditional_strong_approx_En},
 and \ref{lem:unconditional_strong_approx_En}
 as Lemmas~\ref{lem:app_strong_approx_Ln},
-\ref{lem:app_conditional_strong_approx_En}
+\ref{lem:app_conditional_strong_approx_En},
 and \ref{lem:app_unconditional_strong_approx_En}
 respectively, taking care to describe how copies of
 the stochastic processes are constructed,
@@ -127,6 +126,7 @@ the resulting sample paths.
   and a mean-zero Gaussian process
   $Z^{L\prime}_n$
   indexed on $\cW$ satisfying
+  %
   \begin{align*}
     \P\left(
       \sup_{w \in \cW}
@@ -136,8 +136,9 @@ the resulting sample paths.
     \right)
     &\leq C_2 e^{-C_3 t},
   \end{align*}
+  %
   for some positive constants
-  $C_1$, $C_2$, $C_3$
+  $C_1$, $C_2$, $C_3$,
   and for all $t > 0$.
   By integration of tail probabilities,
   \begin{align*}
@@ -178,6 +179,7 @@ the resulting sample paths.
     \Du
     \delta_n \sqrt{\log 1/\delta_n},
   \end{align*}
+  %
   and has continuous trajectories.
   The process $Z_n^{L\prime}$
   is a function only of $\bA_n'$
@@ -303,10 +305,9 @@ the resulting sample paths.
   Further,
   $Z_n^{E\dprime}$ has the same
   (unconditional) covariance structure as
-  $\tilde Z_n^{E\dprime}$
-  and
-  $\sqrt{n^2h} E_n$
+  $\tilde Z_n^{E\dprime}$ and $\sqrt{n^2h} E_n$
   in the sense that for all $w, w' \in \cW$,
+  %
   \begin{align*}
     \E\left[
       Z_n^{E\dprime}(w)
@@ -324,9 +325,11 @@ the resulting sample paths.
       E_n(w')
     \right].
   \end{align*}
+  %
   It also satisfies the following
   trajectory regularity property
   for any $\delta_n \in (0, 1/(2h)]$:
+  %
   \begin{align*}
     \E\left[
       \sup_{|w-w'| \leq \delta_n}
@@ -339,6 +342,7 @@ the resulting sample paths.
     \frac{\delta_n}{h}
     \sqrt{\log \frac{1}{h\delta_n}}.
   \end{align*}
+  %
   Finally, $Z_n^{E\dprime}$ is independent of $\bA_n''$
   and has continuous trajectories.
 
@@ -412,60 +416,6 @@ now follows easily using Theorem~\ref{thm:app_strong_approx_fW},
 the bias bound from Theorem~\ref{thm:kernel_bias},
 and properties of $\Sigma_n$ established in Lemma~\ref{lem:variance_bounds}.
 
-%\subsection{Infeasible uniform confidence bands}
-
-%We use the strong approximation and bias results
-%from Theorem~\ref{thm:app_strong_approx_fW}
-%and Theorem~\ref{thm:kernel_bias}
-%respectively to construct uniform confidence bands for
-%the true density function $f_W$.
-%In this section we will assume oracle knowledge of the true
-%covariance function $\Sigma_n$,
-%which is not typically available in practice.
-%For feasible versions of these results which use a covariance estimator,
-%see Section~\ref{sec:app_feasible_confidence_bands}.
-%We also assume that the true density $f_W$
-%is bounded away from zero on the domain of inference,
-%which is a standard assumption when constructing confidence bands.
-
-%\begin{theorem}[Infeasible uniform confidence bands]
-%  \label{thm:infeasible_ucb}
-%
-%  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
-%  and \ref{ass:rates}
-%  hold and suppose that $f_W(w) > 0$ on $\cW$.
-%  Let $\alpha \in (0,1)$ be a confidence level
-%  and define $q_{1-\alpha}$ as the quantile
-%  satisfying
-%  \begin{align*}
-%    \P\left(
-%      \sup_{w \in \cW}
-%      \left| Z_n^T(w) \right|
-%      \leq q_{1-\alpha}
-%    \right)
-%    &=
-%    1 - \alpha.
-%  \end{align*}
-%  Then
-%  \begin{align*}
-%    \P\left(
-%      f_W(w)
-%      \in
-%      \left[
-%        \hat f_W(w)
-%        \pm
-%        q_{1-\alpha}
-%        \sqrt{\Sigma_n(w,w)}
-%      \, \right]
-%      \, \textup{for all }
-%      w \in \cW
-%    \right)
-%    \to 1 - \alpha.
-%  \end{align*}
-%\end{theorem}
-
-%\subsection{Covariance structure}
-
 \subsection{Covariance estimation}
 \label{sec:app_covariance_estimation}
 
@@ -518,8 +468,8 @@ alternative representation which is more amenable to computation.
 \begin{lemma}[Covariance estimation]
   \label{lem:covariance_estimation}
 
-  Grant Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
-  and suppose that $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$. Define
+  Grant Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth},
+  and suppose $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$. Define
   %
   \begin{align*}
     \hat \Sigma_n(w,w')
@@ -580,7 +530,7 @@ alternative representation which is more amenable to computation.
   \label{lem:alternative_covariance_estimator}
 
   Suppose that Assumptions~\ref{ass:kernel_data}
-  and~\ref{ass:kernel_bandwidth} hold
+  and~\ref{ass:kernel_bandwidth} hold,
   and let $\hat \Sigma_n$
   be the covariance estimator defined
   in Lemma~\ref{lem:covariance_estimation}.
@@ -647,7 +597,7 @@ optimization problem over bivariate functions.
   \label{lem:app_sdp}
 
   Suppose that Assumptions~\ref{ass:kernel_data}
-  and~\ref{ass:kernel_bandwidth} hold and that
+  and~\ref{ass:kernel_bandwidth} hold, and that
   $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Then the optimization problem (\ref{eq:app_sdp})
   has an approximately optimal solution $\hat\Sigma_n^+$
@@ -681,7 +631,7 @@ verified.
   \label{lem:variance_estimator_bounds}
 
   Suppose that Assumptions~\ref{ass:kernel_data}
-  and~\ref{ass:kernel_bandwidth} hold and that
+  and~\ref{ass:kernel_bandwidth} hold, and that
   $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Then $\hat \Sigma_n^+(w,w) \geq 0$
   almost surely for all $w \in \cW$ and
@@ -711,7 +661,7 @@ in the interest of clarity.
   \label{lem:studentized_t_statistic}
 
   Let Assumptions \ref{ass:kernel_data} and
-  \ref{ass:kernel_bandwidth} hold and suppose that
+  \ref{ass:kernel_bandwidth} hold, and suppose that
   $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define for $w \in \cW$
   the Studentized $t$-statistic process
@@ -742,12 +692,12 @@ in the interest of clarity.
   \label{lem:distributional_approx_feasible_gaussian}
 
   Let Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
-  hold and suppose that
+  hold, and suppose that
   $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
   Define a process $\hat Z_n^T(w)$ which,
   conditional on the data $\bW_n$,
   is conditionally mean-zero and
-  conditionally Gaussian and whose
+  conditionally Gaussian, and whose
   conditional covariance structure is
   %
   \begin{align*}
@@ -788,7 +738,7 @@ in the interest of clarity.
   \label{lem:feasible_gaussian_approx}
 
   Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
-  and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
+  and \ref{ass:rates} hold, and suppose that $f_W(w) > 0$ on $\cW$.
   Then
   %
   \begin{align*}
@@ -816,63 +766,18 @@ These intermediate lemmas can be used to establish the valid and feasible
 uniform confidence bands presented in Theorem~\ref{thm:kernel_ucb} in the main
 text. See Section~\ref{sec:kernel_proofs} for details.
 
-%\begin{theorem}[Feasible uniform confidence bands]
-%  \label{thm:kernel_ucb}
-%
-%  Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
-%  and \ref{ass:rates} hold and suppose that $f_W(w) > 0$ on $\cW$.
-%  Let $\alpha \in (0,1)$ be a confidence level
-%  and define $\hat q_{1-\alpha}$ as the
-%  conditional quantile satisfying
-%  \begin{align*}
-%    \P\left(
-%      \sup_{w \in \cW}
-%      \left| \hat Z_n^T(w) \right|
-%      \leq \hat q_{1-\alpha}
-%      \Bigm\vert \bW_n
-%    \right)
-%    &=
-%    1 - \alpha.
-%  \end{align*}
-%  Then
-%  \begin{align*}
-%    \P\left(
-%      f_W(w)
-%      \in
-%      \left[
-%        \hat f_W(w)
-%        \pm
-%        \hat q_{1-\alpha}
-%        \sqrt{\hat\Sigma_n^+(w,w)}
-%      \,\right]
-%      \,\textup{for all }
-%      w \in \cW
-%    \right)
-%    \to 1 - \alpha.
-%  \end{align*}
-%
-%\end{theorem}
-
-\subsection{Counterfactual
-dyadic density estimation}
+\subsection{Counterfactual dyadic density estimation}
 \label{subsec:counterfactual}
 
 In this section we give a detailed analysis of the counterfactual
 estimator of Section~\ref{sec:counterfactual}.
 We begin with an assumption describing the counterfactual setup.
-%As an application we provide methodology for estimation and inference
-%on counterfactual dyadic density functions,
-%following the reweighting approach of
-%\citet{dinardo1996distribution}.
-%We give the counterfactual data
-%generating process as
-%Assumption~\ref{ass:counterfactual}.
 
 \begin{assumption}[Counterfactual data generation]
   \label{ass:counterfactual}
 
   For each $r \in \{0,1\}$,
-  let $\bW_n^r$, $\bA_n^r$ and $\bV_n^r$ be as in
+  let $\bW_n^r$, $\bA_n^r$, and $\bV_n^r$ be as in
   Assumption~\ref{ass:kernel_data}.
   Let $X_i^r$ be finitely-supported variables,
   setting $\bX_n^r = (X_1^r, \ldots, X_n^r)$.
@@ -966,7 +871,7 @@ approximation results for the counterfactual density estimator.
   \label{lem:counterfactual_bias}
 
   Suppose that Assumptions~\ref{ass:kernel_data},
-  \ref{ass:kernel_bandwidth} and \ref{ass:counterfactual} hold.
+  \ref{ass:kernel_bandwidth}, and \ref{ass:counterfactual} hold.
   Then
   %
   \begin{align*}
@@ -986,7 +891,7 @@ approximation results for the counterfactual density estimator.
   \label{lem:counterfactual_hoeffding}
 
   Suppose that Assumptions~\ref{ass:kernel_data},
-  \ref{ass:kernel_bandwidth} and
+  \ref{ass:kernel_bandwidth}, and
   \ref{ass:counterfactual} hold.
   With $k_{i j} = k_h(W_{i j}^1, w)$,
   $\kappa_{r i} = \kappa(X_r^0, X_r^1, X_i^1)$
@@ -1189,7 +1094,7 @@ approximation results for the counterfactual density estimator.
   \label{lem:counterfactual_uniform_consistency}
 
   Suppose that Assumptions~\ref{ass:kernel_data},
-  \ref{ass:kernel_bandwidth} and \ref{ass:counterfactual} hold.
+  \ref{ass:kernel_bandwidth}, and \ref{ass:counterfactual} hold.
   Then
   %
   \begin{align*}
@@ -1297,9 +1202,9 @@ approximation results for the counterfactual density estimator.
   \label{lem:counterfactual_infeasible_t_statistic}
 
   Let Assumptions \ref{ass:kernel_data},
-  \ref{ass:kernel_bandwidth} and
+  \ref{ass:kernel_bandwidth}, and
   \ref{ass:counterfactual}
-  hold and suppose
+  hold, and suppose
   $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
   Define
   %
@@ -1336,7 +1241,7 @@ approximation results for the counterfactual density estimator.
   \label{thm:counterfactual_infeasible_ucb}
 
   Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth},
-  \ref{ass:rates} and \ref{ass:counterfactual}
+  \ref{ass:rates}, and \ref{ass:counterfactual}
   hold and suppose that $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
   and define $q^{1 \triangleright 0}_{1-\alpha}$ as the quantile
@@ -1379,7 +1284,7 @@ $\Sigma_n^{1 \triangleright 0}$. First let
   &=
   \frac{\I\{X_i^0 = x\} - \hat p_X^0(x)}{\hat p_X^1(x)}
   - \frac{\hat p_X^0(x)}{\hat p_X^1(x)}
-  \frac{\I\{X_i^1 = x\} - \hat p_X^1(x)}{\hat p_X^1(x)}
+  \frac{\I\{X_i^1 = x\} - \hat p_X^1(x)}{\hat p_X^1(x)},
 \end{align*}
 %
 and define the leave-out conditional expectation estimators
@@ -1448,8 +1353,8 @@ We omit the proof of consistency of these covariance estimators
 in the interest of brevity.
 To construct feasible uniform confidence bands,
 define a process $\hat Z_n^{T, 1 \triangleright 0}(w)$ which,
-conditional on the data $\bW_n^1$, $\bX_n^0$ and $\bX_n^1$
-is conditionally mean-zero and conditionally Gaussian and whose
+conditional on the data $\bW_n^1$, $\bX_n^0$, and $\bX_n^1$
+is conditionally mean-zero and conditionally Gaussian, and whose
 conditional covariance structure is
 %
 \begin{align*}
@@ -1572,6 +1477,7 @@ conditional distribution.
   $M = \max_{1 \leq i \leq n} F(X_i)$.
   Then with
   $\delta = \sigma / \|F\|_{\bar\P,2} \in (0,1]$,
+  %
   \begin{align*}
     \E \left[
       \sup_{f \in \cF}
@@ -1583,8 +1489,10 @@ conditional distribution.
     +
     \frac{\|M\|_{\P,2} \, J(\delta, \cF, F)^2}{\delta^2 \sqrt{n}},
   \end{align*}
+  %
   where $\lesssim$ is up to a universal constant,
   and $J(\delta, \cF, F)$ is the covering integral
+  %
   \begin{align*}
     J\big(\delta, \cF, F\big)
     &=
@@ -1593,6 +1501,7 @@ conditional distribution.
     \sup_\Q \log N(\cF, \rho_\Q, \varepsilon \|F\|_{\Q,2})}
     \diff{\varepsilon},
   \end{align*}
+  %
   with the supremum taken over finite discrete probability
   measures $\Q$ on $(S, \cS)$.
 
@@ -1688,7 +1597,7 @@ of i.n.i.d.\ variables.
   \end{align*}
   then
   for some universal positive constants
-  $C_1,$ $C_2$ and $C_3$,
+  $C_1$, $C_2$, and $C_3$,
   %
   \begin{align*}
     \P\left(
@@ -1737,6 +1646,7 @@ of i.n.i.d.\ variables.
   and $\left|\log \sigma_n^2\right| \leq C_1 \log n$.
   Suppose that $g_n$ satisfies the following uniform
   Lipschitz condition:
+  %
   \begin{align*}
     \sup_{\xi \in S}
     \sup_{x,x' \in \cX_n}
@@ -1747,8 +1657,10 @@ of i.n.i.d.\ variables.
     \leq
     l_{n,\infty},
   \end{align*}
+  %
   and also the following $L^2$
   Lipschitz condition:
+  %
   \begin{align*}
     \sup_{x,x' \in \cX_n}
     \E\left[
@@ -1762,18 +1674,17 @@ of i.n.i.d.\ variables.
     \leq
     l_{n,2},
   \end{align*}
+  %
   where $0 < l_{n,2} \leq l_{n,\infty}$,
-  $\left|\log l_{n,2}\right| \leq C_1 \log n$ and
+  $\left|\log l_{n,2}\right| \leq C_1 \log n$, and
   $\left|\log l_{n,\infty}\right| \leq C_1 \log n$.
   Then for any $t_n > 0$ with
   $\left|\log t_n\right| \leq C_1 \log n$,
   there is a probability space carrying
-  independent copies of
-  $X_1, \ldots, X_n$
-  denoted
-  $X_1', \ldots, X_n'$
+  independent copies of $X_1, \ldots, X_n$ denoted $X_1', \ldots, X_n'$
   and a mean-zero Gaussian process $Z_n(x)$
   such that if we define the empirical process
+  %
   \begin{align*}
     G_n(x)
     &=
@@ -1784,7 +1695,9 @@ of i.n.i.d.\ variables.
       - \E[g_n(X'_i,x)]
     \Big),
   \end{align*}
+  %
   then
+  %
   \begin{align*}
     &\P\left(
       \sup_{x \in \cX_n}
@@ -1840,12 +1753,8 @@ We begin with some definitions.
   (a topological space metrizable by a complete separable metric),
   $\cF$ is the Borel $\sigma$-algebra induced on $\cX$ by its topology,
   and $\P$ is a probability measure on $(\cX, \cF)$.
-  Important examples of Polish spaces
-  include
-  $\R^d$ and
-  the Skorokhod space
-  $\cD[0,1]^d$
-  for some $d \geq 1$.
+  Important examples of Polish spaces include $\R^d$ and
+  the Skorokhod space $\cD[0,1]^d$ for $d \geq 1$.
   In particular,
   one can consider vectors of real-valued random variables
   or stochastic processes indexed by
@@ -1870,9 +1779,7 @@ We begin with some definitions.
 \begin{lemma}[Vorob'ev--Berkes--Philipp theorem, tree form]
   \label{lem:vbp}
 
-  Let $\cT$ be a tree
-  with vertex set
-  $\cV = \{1, \ldots, n\}$
+  Let $\cT$ be a tree with vertex set $\cV = \{1, \ldots, n\}$
   and edge set $\cE$.
   Suppose that attached to each vertex $i$ is a
   Polish Borel probability space
@@ -1895,10 +1802,8 @@ We begin with some definitions.
   such that the projection of $\P$
   onto $\cX_i \times \cX_j$
   is $\P_{i j}$ for each $(i,j) \in \cE$,
-  and therefore also
-  the projection of $\P$
-  onto $\cX_i$
-  is $\P_i$ for each $i \in \cV$.
+  and therefore also the projection of $\P$
+  onto $\cX_i$ is $\P_i$ for each $i \in \cV$.
 
 \end{lemma}
 
@@ -1910,6 +1815,7 @@ We begin with some definitions.
   $\cX_1 = \cX_2 = \cX_3 = \{0,1\}$,
   their respective Borel $\sigma$-algebras,
   and the pairwise-consistent probability measures:
+  %
   \begin{align*}
     1/2
     &=
@@ -1920,6 +1826,7 @@ We begin with some definitions.
     \P_{13}(0,1) = \P_{13}(1,0) =
     \P_{23}(0,1) = \P_{23}(1,0).
   \end{align*}
+  %
   Each measure $\P_i$ places equal mass on 0 and 1, while $\P_{i j}$
   asserts that each pair of realizations is a.s.\ not equal.
   The graph of these laws forms a triangle,
@@ -1940,6 +1847,7 @@ We begin with some definitions.
   the embedding of a random vector into a stochastic process
   and the coupling of stochastic processes
   onto the same probability space:
+  %
   \begin{enumerate}[label=(\roman*)]
 
     \item
@@ -2009,10 +1917,11 @@ they are needed.
 
   Let $X_1, \ldots, X_n$ be independent real-valued
   random variables with
-  $\E[X_i] = 0$ and $|X_i| \leq M$ and
+  $\E[X_i] = 0$, $|X_i| \leq M$, and
   $\E[X_i^2] \leq \sigma^2$,
   where $M$ and $\sigma$ are non-random.
   Then for all $t>0$,
+  %
   \begin{align*}
     \P \left(
       \left| \frac{1}{n} \sum_{i=1}^n X_i \right| \geq t
@@ -2257,8 +2166,7 @@ they are needed.
     \leq
     2 \sigma \sqrt{\log n}.
   \end{align*}
-  For
-  Equations~\ref{eq:gaussian_difference_psd}
+  For Equations~\ref{eq:gaussian_difference_psd}
   and~\ref{eq:gaussian_difference_pd},
   note that
   $\Sigma_1^{1/2} N - \Sigma_2^{1/2} N$
@@ -2351,13 +2259,11 @@ they are needed.
   mean-zero Gaussian process indexed
   by $x \in \cX$.
   Recall that $Z$ is separable for example if
-  $\cX$ is Polish
-  and $Z$ has
+  $\cX$ is Polish and $Z$ has
   continuous trajectories.
   Define its covariance structure on $\cX \times \cX$
   by $\Sigma(x, x') = \E[Z(x) Z(x')]$,
-  and the corresponding semimetric on $\cX$
-  by
+  and the corresponding semimetric on $\cX$ by
   \begin{align*}
     \rho(x,x')
     &=
@@ -2954,7 +2860,7 @@ we give some auxiliary lemmas;
 namely a symmetrization inequality
 (Lemma~\ref{lem:symmetrization}),
 a Rademacher contraction principle
-(Lemma~\ref{lem:contraction})
+(Lemma~\ref{lem:contraction}),
 and a Hoffman--J{\o}rgensen inequality
 (Lemma~\ref{lem:hoffmann}).
 Recall that the Rademacher distribution
@@ -3372,7 +3278,7 @@ on each of the points $-1$ and $1$.
   using our i.n.i.d.\ versions of the symmetrization inequality
   (Lemma~\ref{lem:symmetrization}),
   Rademacher contraction principle
-  (Lemma~\ref{lem:contraction})
+  (Lemma~\ref{lem:contraction}),
   and Hoffmann--J{\o}rgensen inequality
   (Lemma~\ref{lem:hoffmann}).
 
@@ -3445,8 +3351,7 @@ on each of the points $-1$ and $1$.
   Taking marginal expectations
   and applying Jensen's inequality along with
   a convexity result for the covering integral,
-  as in Lemma~A.2 in \citet{chernozhukov2014gaussian},
-  gives
+  as in Lemma~A.2 in \citet{chernozhukov2014gaussian}, gives
   %
   \begin{align*}
     Z
@@ -3469,7 +3374,7 @@ on each of the points $-1$ and $1$.
   (Lemma~\ref{lem:symmetrization}),
   the contraction principle
   (Lemma~\ref{lem:contraction}),
-  the Cauchy--Schwarz inequality
+  the Cauchy--Schwarz inequality,
   and the Hoffmann--J{\o}rgensen inequality
   (Lemma~\ref{lem:hoffmann})
   to deduce that
@@ -3757,9 +3662,8 @@ Lemma~\ref{lem:bv_characterization}.
   \end{align*}
   %
   where clearly
-  $\I[0, a_k] \in \cI$
-  and
-  $g(a_k) - g(a_{k+1}) \geq 0$
+  $\I[0, a_k] \in \cI$,
+  $g(a_k) - g(a_{k+1}) \geq 0$,
   and
   $\sum_{k = 1}^{|A_n|-1}
   \big(
@@ -3832,7 +3736,7 @@ Lemma~\ref{lem:bv_characterization}.
   since then the corresponding sequence $g_n^\pm$
   need not be defined.
   Now note that each of
-  $g_n^+$, $\,-g_n^-$ and $0$
+  $g_n^+$, $\,-g_n^-$, and $0$
   are in $\symconv \cI$, so
   $f \in \overline\symconv \ \cI$
   under pointwise convergence.
@@ -3864,7 +3768,7 @@ Lemma~\ref{lem:bv_characterization}.
   \end{align*}
   then
   for some universal positive constants
-  $C_1$, $C_2$, $C_3$
+  $C_1$, $C_2$, $C_3$,
   and for all $t > 0$,
   \begin{align*}
     \P\left(
@@ -3889,7 +3793,7 @@ Lemma~\ref{lem:bv_characterization}.
     &= \int_0^1 \I[0,s](u) \diff{B_n(u)}
     - B_n(1) \int_0^1 \I[0,s](u) \diff{u},
   \end{align*}
-  where the integrals are defined as It\^o and
+  where the integrals are defined as It{\^o} and
   Riemann--Stieltjes integrals in
   the usual way for stochastic integration against semimartingales
   \citep[Chapter~5]{legall2016brownian}.
@@ -3910,6 +3814,7 @@ Lemma~\ref{lem:bv_characterization}.
   combinations of functions in $\pm\cI$,
   and the extension to $g \in \cV_1$ follows
   by linearity and $L^2$ convergence of (stochastic) integrals:
+  %
   \begin{align*}
     \alpha_n(g)
     &=
@@ -3920,6 +3825,7 @@ Lemma~\ref{lem:bv_characterization}.
     &= \int_0^1 g(s) \diff{B_n(s)}
     - B_n(1) \int_0^1 g(s) \diff{s}.
   \end{align*}
+  %
   Now we show that the norm induced on
   $(\alpha_n - \beta_n)$
   by the function class $\cV_1$ is a.s.\ identical to the
@@ -3928,6 +3834,7 @@ Lemma~\ref{lem:bv_characterization}.
   for finite-variation Lebesgue--Stieltjes and It\^o integrals,
   and recalling that $g(1) = \alpha_n(0) = B_n(0) = 0$,
   we see
+  %
   \begin{align*}
     \sup_{g \in \cV_1}
     \big|\alpha_n(g) - \beta_n(g)\big|
@@ -3956,14 +3863,16 @@ Lemma~\ref{lem:bv_characterization}.
     \alpha_n(s) - \beta_n(s)
     \big|,
   \end{align*}
+  %
   where in the last line
-  the upper bound is because $\|g\|_\TV \leq 1$
+  the upper bound is because $\|g\|_\TV \leq 1$,
   and the lower bound is by taking
   $g_\varepsilon = \pm \I[0,s_\varepsilon]$ where
   $|\alpha_n(s_\varepsilon) - \beta_n(s_\varepsilon)|
   \geq \sup_s |\alpha_n(s) - \beta_n(s)| -
   \varepsilon$.
   Hence we obtain
+  %
   \begin{align}
     \label{eq:kmt_concentration}
     \P\left(
@@ -3973,6 +3882,7 @@ Lemma~\ref{lem:bv_characterization}.
     \right)
     \leq C_2 e^{-C_3 t}.
   \end{align}
+  %
   Now define $V_n = \sup_{x \in \R} \|g_n(\cdot, x)\|_\TV$,
   noting that if $V_n = 0$ then the result is trivially true
   by setting $Z_n = 0$.
@@ -3982,12 +3892,14 @@ Lemma~\ref{lem:bv_characterization}.
   writing $\inf \emptyset = \infty$
   and $\inf \R = -\infty$.
   Consider the function class
+  %
   \begin{align*}
     \cG_n = \big\{
       V_n^{-1} g_n\big(F_X^{-1}(\cdot), x\big)
       - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
     : x \in \R \big\},
   \end{align*}
+  %
   noting that $g_n(\cdot,x)$
   is finite-variation so
   $g_n(\pm \infty, x)$
@@ -4001,6 +3913,7 @@ Lemma~\ref{lem:bv_characterization}.
   linear operators which a.s.\ annihilate
   constant functions,
   define
+  %
   \begin{align*}
     Z_n(x)
     &=
@@ -4010,8 +3923,10 @@ Lemma~\ref{lem:bv_characterization}.
       - V_n^{-1} g_n\big(F_X^{-1}(1), x\big)
     \Big),
   \end{align*}
+  %
   which is a mean-zero continuous Gaussian process.
   Its covariance structure is
+  %
   \begin{align*}
     &\E[Z_n(x) Z_n(x')] \\
     &=
@@ -4259,9 +4174,11 @@ Lemma~\ref{lem:bv_characterization}.
     \leq
     \frac{3\sigma_n^4 \Leb(\cX_n)^2}{n^2\delta_n^2} .
   \end{align*}
+  %
   Also by Jensen's inequality
   and for $|\cX_n^\delta| \geq 2$,
   assuming $C_1 > 1$ without loss of generality,
+  %
   \begin{align*}
     \E\big[
       \|z_i\|_\infty^2
@@ -4518,14 +4435,13 @@ Lemma~\ref{lem:bv_characterization}.
   note that
   $\sup_{\cG_n^\delta} \|g\|_{\bar\P,2}
   \leq l_{n,2} \delta_n$
-  by the $L^2$ Lipschitz condition,
-  and recall
+  by the $L^2$ Lipschitz condition, and recall
   $\Env(\cG_n^\delta) = l_{n,\infty} \delta_n$.
   Therefore
   Lemma~\ref{lem:maximal_vc_inid}
   with
   $\|F\|_{\bar\P,2} = l_{n,\infty} \delta_n$,
-  $\|M\|_{\P,2} = l_{n,\infty} \delta_n$
+  $\|M\|_{\P,2} = l_{n,\infty} \delta_n$,
   and $\sigma = l_{n,2} \delta_n$
   gives,
   up to universal constants
@@ -4812,8 +4728,7 @@ Lemma~\ref{lem:bv_characterization}.
 
   The proof is by induction on the number of vertices in the tree.
   Let $\cT$ have $n$ vertices,
-  and suppose
-  that vertex $n$ is a leaf
+  and suppose that vertex $n$ is a leaf
   connected to vertex $n-1$ by an edge,
   relabeling the vertices if necessary.
   By the induction hypothesis we assume that there is a
@@ -4828,7 +4743,7 @@ Lemma~\ref{lem:bv_characterization}.
   \citet{dudley1999uniform},
   to the spaces
   $\prod_{i=1}^{n-2} \cX_i$,\,
-  $\cX_{n-1}$ and
+  $\cX_{n-1}$, and
   $\cX_n$;
   and to the laws
   $\P^{(n-1)}$
@@ -4862,11 +4777,13 @@ We begin with a basic fact about Lipschitz functions.
   Suppose also that $f$ is a kernel in the sense that
   $\int_\cX f(x) \diff{x} = 1$.
   Then we have
+  %
   \begin{align*}
     \sup_{x \in \cX} |f(x)|
     &\leq
     C \Leb(\cX) + \frac{1}{\Leb(\cX)}.
   \end{align*}
+  %
   Now let $g: \cX \to [0,\infty)$ satisfy
   $|g(x) - g(x')| \leq C |x-x'|$ for some $C > 0$
   and all $x, x' \in \cX$.
@@ -4896,8 +4813,8 @@ Lemma~\ref{lem:lipschitz_kernels_bounded} that
 \end{align*}
 Since each of
 $f_{W \mid AA}(\cdot \mid a,a')$,
-$f_{W \mid A}(\cdot \mid a)$ and
-$f_W$ is non-negative and $C_\rH$-Lipschitz on $\cW$
+$f_{W \mid A}(\cdot \mid a)$, and
+$f_W$ is non-negative, and $C_\rH$-Lipschitz on $\cW$
 and integrates to at most one over $\cW$,
 taking $M = \frac{1}{\sqrt{C_\rH}} \wedge \Leb(\cW)$
 in the second inequality in
@@ -4941,7 +4858,7 @@ gives
   giving a contradiction.
 
   For the second inequality,
-  assume that $f$ is non-negative on $\cX$
+  assume that $f$ is non-negative on $\cX$,
   and take $M \in \big(0, \Leb(\cX)\big]$.
   Suppose for contradiction that
   $f(x) > C M + \frac{1}{M}$
@@ -5242,9 +5159,9 @@ gives
     L_n + Q_n.
   \end{align*}
 
-  \proofparagraph{expectation and covariance of $L_n$, $Q_n$ and $E_n$}
+  \proofparagraph{expectation and covariance of $L_n$, $Q_n$, and $E_n$}
 
-  $L_n$, $Q_n$ and $E_n$
+  $L_n$, $Q_n$, and $E_n$
   are clearly mean-zero.
   For orthogonality,
   note that their summands
@@ -5252,6 +5169,7 @@ gives
   for any $1 \leq i < j \leq n$
   and $1 \leq r < s \leq n$,
   and for any $w, w' \in \cW$:
+  %
   \begin{align*}
     \E\big[
       l_i(w)
@@ -5330,6 +5248,7 @@ gives
     &=
     0,
   \end{align*}
+  %
   by independence of $\bA_n$ and $\bV_n$
   and as $\E[q_{rs}(w) \mid A_i] = 0$
   and $\E[e_{i j}(w) \mid A_i, A_j] = 0$.
@@ -5379,8 +5298,7 @@ gives
 
   Suppose that $\Dl > 0$.
   Now since $f_{W|A}(\cdot \mid a)$ is $C_\rH$-Lipschitz
-  for all $a \in \cA$
-  and since $|k_h| \leq C_\rk/h$,
+  for all $a \in \cA$ and since $|k_h| \leq C_\rk/h$,
   %
   \begin{align*}
     &\sup_{w \in \cW}
@@ -5700,13 +5618,11 @@ gives
     C_3 \Leb(\cW) / (\varepsilon C_4).
   \end{align*}
   %
-  Hence
-  $\cF_1$,
-  $\cF_2$ and
-  $\cF_3$
+  Hence $\cF_1$, $\cF_2$, and $\cF_3$
   form VC-type classes with envelopes
   $F_1 = C_\rk / h$ and
   $F_2 = F_3 = C_4$ respectively:
+  %
   \begin{align*}
     \sup_\Q
     N\left(\cF_1, \rho_\Q,
@@ -5722,6 +5638,7 @@ gives
     &\leq
     (C_1/\varepsilon)^{C_2},
   \end{align*}
+  %
   for some constants $C_1 \geq e$ and $C_2 \geq 1$,
   where we augment the constants if necessary.
 
@@ -5766,8 +5683,7 @@ gives
   is the completely degenerate second-order U-process
   of the i.i.d.\ variables $A_i$
   indexed by $\cF_2$.
-  This function class is again uniformly bounded
-  and VC-type,
+  This function class is again uniformly bounded and VC-type,
   so applying the U-process maximal inequality from
   Lemma~\ref{lem:uprocess_maximal}
   yields with $\sigma = C_4$
@@ -5854,7 +5770,6 @@ gives
 \end{proof}
 
 \begin{proof}[Theorem~\ref{thm:uniform_consistency}]
-
   This follows from Theorem~\ref{thm:kernel_bias}
   and Lemma~\ref{lem:uniform_concentration}.
 \end{proof}
@@ -5903,8 +5818,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Let $f: \{0,1\}^n \to \{0,1\}$
   be any function.
   Considering this function as a statistical test,
-  the Neyman--Pearson lemma
-  and Pinsker's inequality
+  the Neyman--Pearson lemma and Pinsker's inequality
   \citep{gine2021mathematical}
   give
   \begin{align*}
@@ -6760,12 +6674,13 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   $Z_n^{L\prime}$ has the
   same covariance structure as $G_n^{L\prime}$ in the
   sense that for all $w, w' \in \cW$,
+  %
   \begin{align*}
     \E\big[Z_n^{L\prime}(w) Z_n^{L\prime}(w')\big]
     = \E\big[G_n^{L\prime}(w) G_n^{L\prime}(w')\big],
   \end{align*}
-  and clearly
-  $L_n'$
+  %
+  and clearly $L_n'$
   is equal in distribution to $L_n$.
   To obtain the trajectory regularity property of
   $Z_n^{L\prime}$,
@@ -6860,7 +6775,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   random noise which is independent of
   $(\bA_n', \bV_n')$.
   Finally in order to have
-  $\bA_n', \bV_n', L_n'$ and $Z_n^{L\prime}$
+  $\bA_n', \bV_n', L_n'$, and $Z_n^{L\prime}$
   all defined on the same probability space,
   we note that $\bA_n$ and $\bV_n$ are random vectors
   while $L_n'$ and $Z_n^{L\prime}$
@@ -7105,7 +7020,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sqrt{\log \frac{1}{h\delta_n}},
   \end{align*}
   and there exists a modification with continuous trajectories.
-  Finally in order to have $\bA_n', \bV_n', E_n'$ and $\tilde Z_n^{E\prime}$
+  Finally in order to have $\bA_n', \bV_n', E_n'$, and $\tilde Z_n^{E\prime}$
   all defined on the same probability space,
   we note that $\bA_n$ and $\bV_n$ are random vectors
   while $E_n'$ and $\tilde Z_n^{E\prime}$ are stochastic processes
@@ -7228,6 +7143,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   writing $E_n(\cW_\delta)$
   for the vector $\big(E_n(w) : w \in \cW_\delta\big)$
   and similarly for $k_h(W_{i j}, \cW_\delta)$,
+  %
   \begin{align*}
     \tilde\Sigma^E_{n,\delta}
     &=
@@ -7287,8 +7203,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \right]^\T.
   \end{align*}
   %
-  Let $u(A_i) = \E[u(A_i, A_j) \mid A_i]$
-  and
+  Let $u(A_i) = \E[u(A_i, A_j) \mid A_i]$ and
   $u = \E[u(A_i, A_j)]$.
   The following Hoeffding decomposition holds,
   by Lemma~\ref{lem:general_hoeffding}:
@@ -7411,8 +7326,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     + 1/h.
   \end{align*}
   Clearly the same bound holds for
-  $\|u(A_i)\|_2$
-  and $\|u\|_2$, by Jensen's inequality.
+  $\|u(A_i)\|_2$ and $\|u\|_2$, by Jensen's inequality.
   Therefore applying the matrix Bernstein inequality
   (Lemma~\ref{lem:matrix_bernstein})
   to the zero-mean matrix $\tilde L$ gives
@@ -7780,7 +7694,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   \proofparagraph{covariance structure}
 
-  Since $L_n$, $Q_n$ and $E_n$
+  Since $L_n$, $Q_n$, and $E_n$
   are mutually orthogonal in $L^2$
   (as shown in Lemma~\ref{lem:hoeffding}),
   we have the following covariance
@@ -7805,13 +7719,9 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \proofparagraph{trajectory regularity}
 
   The trajectory regularity of the process
-  $Z_n^f$ follows directly
-  by adding the regularities
-  of the processes $\frac{1}{\sqrt n} Z_n^L$
-  and
-  $\frac{1}{n} Z_n^Q$
-  and
-  $\frac{1}{\sqrt{n^2h}} Z_n^E$.
+  $Z_n^f$ follows directly by adding the regularities
+  of the processes $\frac{1}{\sqrt n} Z_n^L$,
+  $\frac{1}{n} Z_n^Q$, and $\frac{1}{\sqrt{n^2h}} Z_n^E$.
   Similarly, $Z_n^f$ has continuous trajectories.
 \end{proof}
 
@@ -8137,7 +8047,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Apply the Gaussian anti-concentration
   result from Lemma~\ref{lem:anti-concentration},
   noting that $Z_n^T$ is separable,
-  mean-zero and has unit variance:
+  mean-zero, and has unit variance:
   \begin{align*}
     \sup_{t \in \R}
     \P\left(
@@ -8161,8 +8071,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   apply the Gaussian process maximal inequality from
   Lemma~\ref{lem:gaussian_process_maximal}
   with
-  $\sigma \leq 1$
-  and
+  $\sigma \leq 1$ and
   $N(\varepsilon, \cW, \rho) \lesssim n^2 h^{-2} \varepsilon^{-2}$:
   \begin{align*}
     \E\left[
@@ -8877,7 +8786,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   given by $F(a) \lesssim \sqrt{n h}$.
   Clearly $M = \sup_a F(a) \lesssim \sqrt{n h}$.
   Also by definition of $\Sigma_n$
-  and orthogonality of $L_n$, $Q_n$ and $E_n$,
+  and orthogonality of $L_n$, $Q_n$, and $E_n$,
   we have
   $\sup_{f \in \cF} \E[f(A_i)^2] \leq \sigma^2 = 1$.
   To verify a VC-type condition on $\cF$
@@ -9010,7 +8919,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   \proofparagraph{pointwise concentration of the $S_{i j r}^{(1)}$ term}
 
-  By symmetry in $i, j$ and $r$
+  By symmetry in $i, j$, and $r$
   it is sufficient to consider only the first summand
   in the definition of $S_{i j r}$.
   By conditional independence properties,
@@ -9309,7 +9218,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\E[S_{i j r} \mid \bA_n]$
   are permutation-symmetric functions of
   the random variables
-  $A_i, A_j$ and $A_r$ only,
+  $A_i, A_j$, and $A_r$ only,
   making $S_{i j r}^{(2)}$ the summands of
   a (non-degenerate) mean-zero third-order U-statistic.
   While we could apply a third-order Hoeffding decomposition
@@ -11094,9 +11003,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   This rate can be made $o_\P(1)$
   by some appropriate choice of $\varepsilon_n$
   whenever
-  $r_n \to 0$
-  and
-  $r_n' \sqrt{\log n} \to 0$,
+  $r_n \to 0$ and $r_n' \sqrt{\log n} \to 0$,
   by Lemma~\ref{lem:slow_convergence}, along with
   a sufficiently slowly diverging sequence $R_n$.
   Explicitly, we require the following.
@@ -11174,7 +11081,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   now also conditioning on the data.
   In particular, using the anti-concentration result from
   Lemma~\ref{lem:anti-concentration},
-  the regularity property of $\hat Z_n^T$
+  the regularity property of $\hat Z_n^T$,
   and the Gaussian process maximal inequality from
   Lemma~\ref{lem:gaussian_process_maximal},
   we see that for any $\varepsilon > 0$,
@@ -11357,7 +11264,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Writing
   $k_{i j} = k_h(W_{i j}^1, w)$,
   $\psi_i = \psi(X_i^1)$,
-  $\hat\psi_i = \hat\psi(X_i^1)$
+  $\hat\psi_i = \hat\psi(X_i^1)$,
   and $\kappa_{i j} = \kappa(X_i^0, X_i^1, X_j^1)$,
   %
   \begin{align*}
@@ -11556,9 +11463,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\sup_{w \in \cW} \big|L_n^{1 \triangleright 0}(w)\big|
   \lesssim_\P \frac{1}{\sqrt n}$.
   In the proof of Lemma~\ref{lem:counterfactual_hoeffding}
-  the terms $v_{i j r} - u_{i j r}$ depend only on $V_{i j}, V_{i r}$ and
-  $V_{jr}$
-  after conditioning on $\bA_n^1$, $\bX_n^0$ and $\bX_n^1$.
+  the terms $v_{i j r} - u_{i j r}$ depend only on
+  $V_{i j}$, $V_{i r}$, and $V_{jr}$
+  after conditioning on $\bA_n^1$, $\bX_n^0$, and $\bX_n^1$.
   Thus $E_n^{1 \triangleright 0}(w)$ is a degenerate second-order
   U-statistic so
   $\sup_{w \in \cW} \big|E_n^{1 \triangleright 0}(w)\big|
@@ -11573,7 +11480,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $L_n^{1 \triangleright 0}(w)
   = \frac 3n \sum_{i=1}^n l_i^{1 \triangleright 0}(w)$
   where $l_i^{1 \triangleright 0}(w)$ depends only on
-  $A_i^1$, $X_i^0$ and $X_i^1$.
+  $A_i^1$, $X_i^0$, and $X_i^1$.
   Let $\gamma: \cX \times \cX \to \{1, \ldots, |\cX|^2\}$
   be a bijection and
   define $\logistic(x) = \frac{1}{1+e^{-x}}$.

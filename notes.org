@@ -4,6 +4,7 @@
 *** TODO Find pages with most blank space and fix
 *** TODO Figure and table placement, floats
 *** TODO Widows and orphans
+*** TODO Remove watermark
 ** TODO Pass
 *** TODO mondrian
 *** TODO kernel
@@ -11,10 +12,9 @@
 *** TODO mondrian appendix
 *** TODO kernel appendix
 *** TODO yurinskii appendix
-** TODO Spelling higher-order?
 ** TODO Table and algorithm stretch spacing
-** TODO Draft watermark
 ** TODO Oxford commas
+** TODO Watermark upright
 ** TODO Check for hspace, vspace, quad etc
 ** TODO No hyphen after well
 ** TODO Remove comments
