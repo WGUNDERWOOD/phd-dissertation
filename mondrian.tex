@@ -163,36 +163,36 @@ of trees. We give our notation for the following sections in this chapter.
 
 Section~\ref{sec:mondrian_inference} presents our first set of main results,
 beginning with a central limit theorem for the centered Mondrian random forest
-estimator (Theorem~\ref{thm:clt}), in which we characterize the limiting
+estimator (Theorem~\ref{thm:mondrian_clt}), in which we characterize the limiting
 variance. Theorem~\ref{thm:mondrian_bias} complements this result by precisely
 calculating the limiting bias of the estimator, with the aim of subsequently
 applying a debiasing procedure. To enable valid feasible statistical inference,
 we provide a consistent variance estimator in
-Theorem~\ref{thm:variance_estimation} and briefly discuss implications for
+Theorem~\ref{thm:mondrian_variance_estimation} and briefly discuss implications for
 lifetime parameter selection.
 
-In Section~\ref{sec:overview_proofs} we provide a brief overview of the proofs
+In Section~\ref{sec:mondrian_overview_proofs} we provide a brief overview of the proofs
 of these first main results. We focus on the technical innovations and general
 strategic approach, giving some insight into the challenges involved, and refer
-the reader to Section~\ref{sec:mondrian_proofs} for detailed proofs.
+the reader to Section~\ref{sec:mondrian_app_proofs} for detailed proofs.
 
-In Section~\ref{sec:debiased} we define debiased Mondrian random forests, a
+In Section~\ref{sec:mondrian_debiased} we define debiased Mondrian random forests, a
 collection of estimators based on linear combinations of Mondrian random
 forests with varying lifetime parameters. These parameters are carefully chosen
 to annihilate leading terms in our bias characterization, yielding an estimator
 with provably superior bias properties
-(Theorem~\ref{thm:mondrian_bias_debiased}). In Theorem~\ref{thm:clt_debiased}
+(Theorem~\ref{thm:mondrian_bias_debiased}). In Theorem~\ref{thm:mondrian_clt_debiased}
 we verify that a central limit theorem continues to hold for the debiased
 Mondrian random forest. We again state the limiting variance, discuss the
 implications for the lifetime parameter, and provide a consistent variance
-estimator (Theorem~\ref{thm:variance_estimation_debiased}) for constructing
-confidence intervals (Theorem~\ref{thm:confidence_debiased}). As a final
+estimator (Theorem~\ref{thm:mondrian_variance_estimation_debiased}) for constructing
+confidence intervals (Theorem~\ref{thm:mondrian_confidence_debiased}). As a final
 corollary of the improved bias properties, we demonstrate in
 Theorem~\ref{thm:mondrian_minimax} that the debiased Mondrian random forest
 estimator is minimax-optimal in pointwise mean squared error for all
 $\beta > 0$, provided that $\beta$ is known a priori.
 
-Section~\ref{sec:parameter_selection} discusses tuning parameter selection,
+Section~\ref{sec:mondrian_parameter_selection} discusses tuning parameter selection,
 beginning with a data-driven approach to selecting the crucial lifetime
 parameter using polynomial estimation, alongside other practical suggestions
 including generalized cross-validation.
@@ -353,7 +353,7 @@ upper and lower bounds on the conditional variance function.
 We define the basic Mondrian random forest estimator
 \eqref{eq:mondrian_estimator} as in \citet{lakshminarayanan2014mondrian} and
 \citet{mourtada2020minimax}, and will later extend it to a debiased version in
-Section~\ref{sec:debiased}. For a lifetime parameter $\lambda > 0$ and forest
+Section~\ref{sec:mondrian_debiased}. For a lifetime parameter $\lambda > 0$ and forest
 size $B \geq 1$, let $\bT = (T_1, \ldots, T_B)$ be a Mondrian forest where
 $T_b \sim \cM\big([0,1]^d, \lambda\big)$ are i.i.d.\ Mondrian trees
 which are independent of the data. For $x \in [0,1]^d$, write
@@ -368,14 +368,14 @@ Mondrian random forest estimator of $\mu(x)$ is
 \end{align}
 %
 If there are no samples $X_i$ in $T_b(x)$ then $N_b(x) = 0$, so we define
-$0/0 = 0$ (see Section~\ref{sec:mondrian_proofs} for details). To ensure the
+$0/0 = 0$ (see Section~\ref{sec:mondrian_app_proofs} for details). To ensure the
 bias and variance of the Mondrian random forest estimator converge to zero (see
 Section~\ref{sec:mondrian_inference}), and to avoid boundary issues, we impose
 some basic conditions on $x$, $\lambda$, and $B$ in
-Assumption~\ref{ass:estimator}.
+Assumption~\ref{ass:mondrian_estimator}.
 
 \begin{assumption}[Mondrian random forest estimator]%
-  \label{ass:estimator}
+  \label{ass:mondrian_estimator}
   %
   Suppose $x \in (0,1)^d$ is an interior point of the support of $X_i$,
   $\frac{\lambda^d}{n} \to 0$,
@@ -385,7 +385,7 @@ Assumption~\ref{ass:estimator}.
   %
 \end{assumption}
 
-Assumption~\ref{ass:estimator} implies that the size of the forest $B$ grows
+Assumption~\ref{ass:mondrian_estimator} implies that the size of the forest $B$ grows
 with $n$. For the purpose of mitigating the computational burden, we suggest
 the sub-linear polynomial growth $B \asymp n^{\xi}$, satisfying the conditions
 imposed in our main results. Large forests usually do not present computational
@@ -411,7 +411,7 @@ forest estimator:
     \frac{1}{B} \sum_{b=1}^B
     \frac{\sum_{i=1}^n \varepsilon_i \, \I\big\{ X_i \in T_b(x) \big\}} {N_b(x)}
   \right) \\
-  \label{eq:bias_variance}
+  \label{eq:mondrian_bias_variance}
   &\quad+
   \left(
     \frac{1}{B} \sum_{b=1}^B
@@ -422,7 +422,7 @@ forest estimator:
 %
 Our approach to inference is summarized as follows. Firstly, we provide a
 central limit theorem (weak convergence to a Gaussian) for the first
-``variance'' term in \eqref{eq:bias_variance}. Secondly, we precisely compute
+``variance'' term in \eqref{eq:mondrian_bias_variance}. Secondly, we precisely compute
 the probability limit of the second ``bias'' term. By ensuring that the
 standard deviation dominates the bias, we can conclude that a corresponding
 central limit theorem holds for the Mondrian random forest. With an appropriate
@@ -432,7 +432,7 @@ feasible statistical inference on the unknown regression function $\mu(x)$.
 We begin with the aforementioned central limit theorem, which forms the core of
 our methodology for performing statistical inference. Before stating our main
 result, we highlight some of the challenges involved. At first glance, the
-summands in the first term in \eqref{eq:bias_variance} seem to be independent
+summands in the first term in \eqref{eq:mondrian_bias_variance} seem to be independent
 over $1 \leq i \leq n$, conditional on the forest $\bT$, depending only on
 $X_i$ and $\varepsilon_i$. However, the $N_b(x)$ appearing in the denominator
 depends on all $X_i$ simultaneously, violating this independence assumption and
@@ -467,22 +467,22 @@ $\E \left[ \frac{\I \{N_b(x) \geq 1\}}{N_b(x)^2} \right]
 \lesssim \frac{\lambda^{2d} \log n}{n^2}$.
 Asymptotic normality is then established using a central limit theorem for
 martingale difference sequences \citep[Theorem~3.2]{hall1980martingale} with
-respect to an appropriate filtration. Section~\ref{sec:overview_proofs} gives
+respect to an appropriate filtration. Section~\ref{sec:mondrian_overview_proofs} gives
 an overview our proof strategy in which  we further discuss the underlying
-challenges, while Section~\ref{sec:mondrian_proofs} gives all the technical
+challenges, while Section~\ref{sec:mondrian_app_proofs} gives all the technical
 details.
 
 \subsection{Central limit theorem}
 \label{sec:mondrian_clt}
 
-Theorem~\ref{thm:clt} gives our first main result; a central
+Theorem~\ref{thm:mondrian_clt} gives our first main result; a central
 limit theorem.
 
 \begin{theorem}[Central limit theorem for the centered
   Mondrian random forest estimator]%
-  \label{thm:clt}
+  \label{thm:mondrian_clt}
   %
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold,
+  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator} hold,
   $\E[Y_i^4 \mid X_i ]$ is bounded almost surely,
   and $\frac{\lambda^d \log n}{n} \to 0$. Then
   %
@@ -521,7 +521,7 @@ even with probability approaching one).
 
 \subsection*{Bias characterization}
 
-We turn to the second term in \eqref{eq:bias_variance}, which captures the bias
+We turn to the second term in \eqref{eq:mondrian_bias_variance}, which captures the bias
 of the Mondrian random forest estimator conditional on the covariates $\bX$ and
 the forest $\bT$. As such it is a random quantity which, as we will
 demonstrate, converges in probability. We precisely characterize the limiting
@@ -530,7 +530,7 @@ may seem ignorable. Indeed the magnitude of the bias is determined by its
 leading term, typically of order $1/\lambda^2$ whenever $\beta \geq 2$, and
 this suffices for ensuring a negligible contribution from the bias with an
 appropriate choice of lifetime parameter. However, the advantage of specifying
-higher-order bias terms is made apparent in Section~\ref{sec:debiased} when we
+higher-order bias terms is made apparent in Section~\ref{sec:mondrian_debiased} when we
 construct a debiased Mondrian random forest estimator. There, we target and
 annihilate the higher-order terms in order to furnish superior estimation and
 inference properties.
@@ -541,7 +541,7 @@ the bias of the Mondrian random forest estimator.
 \begin{theorem}[Bias of the Mondrian random forest estimator]%
   \label{thm:mondrian_bias}
   %
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold.
+  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator} hold.
   Then for each $1 \leq r \leq \lfloor \flbeta / 2 \rfloor$ there exists
   $B_r(x) \in \R$, which is a function only of
   the derivatives of $f$ and $\mu$ at $x$ up to order $2r$, with
@@ -587,18 +587,18 @@ the bias of the Mondrian random forest estimator.
 In Theorem~\ref{thm:mondrian_bias} we give some explicit examples of
 calculating the
 limiting bias if $\beta > 2$ or when $X_i$ are uniformly distributed. The
-general form of $B_r(x)$ is provided in Section~\ref{sec:mondrian_proofs} but
+general form of $B_r(x)$ is provided in Section~\ref{sec:mondrian_app_proofs} but
 is somewhat unwieldy except in specific situations. Nonetheless the most
 important properties are that $B_r(x)$ are non-random and do not depend on the
 lifetime $\lambda$, crucial facts for our debiasing procedure given in
-Section~\ref{sec:debiased}. If the forest size $B$ does not diverge to infinity
+Section~\ref{sec:mondrian_debiased}. If the forest size $B$ does not diverge to infinity
 then we suffer the first-order bias term $\frac{1}{\lambda \sqrt B}$. This
 phenomenon was explained by \citet{mourtada2020minimax}, who noted that it
 allows single Mondrian trees to achieve minimax optimality only when
 $\beta \in (0, 1]$. In contrast, large forests remove this first-order bias
 and as such are optimal for all $\beta \in (0, 2]$.
 
-Using Theorem~\ref{thm:clt} and Theorem~\ref{thm:mondrian_bias} together,
+Using Theorem~\ref{thm:mondrian_clt} and Theorem~\ref{thm:mondrian_bias} together,
 along with an appropriate choice of lifetime parameter $\lambda$,
 gives a central limit theorem for the Mondrian random forest estimator
 which can be used, for example, to build confidence intervals
@@ -623,7 +623,7 @@ $n^{\frac{-(2 \wedge \beta)}{d + 2(2 \wedge \beta)}}$
 which is the minimax-optimal rate of convergence \citep{stone1982optimal}
 for $\beta$-H{\"o}lder functions with $\beta \in (0,2]$
 as shown by \citet[Theorem~2]{mourtada2020minimax}.
-In Section~\ref{sec:debiased} we will show how the Mondrian random forest
+In Section~\ref{sec:mondrian_debiased} we will show how the Mondrian random forest
 estimator can be debiased, giving both weaker lifetime conditions for inference
 and also improved rates of convergence, under additional smoothness assumptions.
 
@@ -635,7 +635,7 @@ To conduct feasible inference, we must therefore first estimate
 $\Sigma(x)$. To this end, define
 %
 \begin{align}
-  \label{eq:sigma2_hat}
+  \label{eq:mondrian_sigma2_hat}
   \hat\sigma^2(x)
   &=
   \frac{1}{B} \sum_{b=1}^{B} \sum_{i=1}^n
@@ -647,12 +647,12 @@ $\Sigma(x)$. To this end, define
   \left( \frac{1}{B} \sum_{b=1}^B \frac{\I\{X_i \in T_b(x)\}}{N_b(x)} \right)^2.
 \end{align}
 %
-In Theorem~\ref{thm:variance_estimation} we show that this
+In Theorem~\ref{thm:mondrian_variance_estimation} we show that this
 estimator is consistent, and establish its rate of convergence.
 %
 \begin{theorem}[Variance estimation]%
-  \label{thm:variance_estimation}
-  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator}, and
+  \label{thm:mondrian_variance_estimation}
+  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator}, and
   suppose $\E[Y_i^4 \mid X_i ]$ is bounded almost surely. Then
   %
   \begin{align*}
@@ -668,16 +668,16 @@ estimator is consistent, and establish its rate of convergence.
 
 \subsection{Confidence intervals}
 
-Theorem~\ref{thm:confidence} shows how to construct valid confidence intervals
+Theorem~\ref{thm:mondrian_confidence} shows how to construct valid confidence intervals
 for the regression function $\mu(x)$ under the lifetime and forest size
 assumptions previously discussed. For details on feasible and practical
 selection of the lifetime parameter $\lambda$, see
-Section~\ref{sec:parameter_selection}.
+Section~\ref{sec:mondrian_parameter_selection}.
 %
 \begin{theorem}[Feasible confidence intervals using a Mondrian random forest]%
-  \label{thm:confidence}
+  \label{thm:mondrian_confidence}
   %
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold,
+  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator} hold,
   $\E[Y_i^4 \mid X_i ]$ is bounded almost surely,
   and $\frac{\lambda^d \log n}{n} \to 0$. Assume that
   $\lambda \gg n^{\frac{1}{d + 2(2 \wedge \beta)}}$
@@ -705,12 +705,12 @@ Section~\ref{sec:parameter_selection}.
 \end{theorem}
 
 When coupled with an appropriate lifetime selection method,
-Theorem~\ref{thm:confidence} gives a fully feasible procedure for uncertainty
+Theorem~\ref{thm:mondrian_confidence} gives a fully feasible procedure for uncertainty
 quantification in Mondrian random forests. Our procedure requires no adjustment
 of the original Mondrian random forest estimator beyond ensuring that the bias
 is negligible, and in particular does not rely on sample splitting. The
 construction of confidence intervals is just one corollary of the weak
-convergence result given in Theorem~\ref{thm:clt}, and follows immediately from
+convergence result given in Theorem~\ref{thm:mondrian_clt}, and follows immediately from
 Slutsky's theorem with a consistent variance estimator. Other applications
 include hypothesis testing on the value of $\mu(x)$ at a design point $x$ by
 inversion of the confidence interval, as well as parametric specification
@@ -723,13 +723,13 @@ limit theorem using the Cram{\'e}r--Wold device
 and formulating a consistent multivariate variance estimator.
 
 \section{Overview of proof strategy}%
-\label{sec:overview_proofs}
+\label{sec:mondrian_overview_proofs}
 
 This section provides some insight into the general approach we use to
 establish the main results in the preceding sections. We focus on the technical
 innovations forming the core of our arguments, and refer the reader to
-Section~\ref{sec:mondrian_proofs} for detailed proofs, including those for the
-debiased estimator discussed in the upcoming Section~\ref{sec:debiased}.
+Section~\ref{sec:mondrian_app_proofs} for detailed proofs, including those for the
+debiased estimator discussed in the upcoming Section~\ref{sec:mondrian_debiased}.
 
 \subsection*{Preliminary results}
 
@@ -828,7 +828,7 @@ moments of truncated inverse Mondrian cell volumes, as above.
 
 \subsection*{Central limit theorem}
 
-To prove our main central limit theorem result (Theorem~\ref{thm:clt}), we use
+To prove our main central limit theorem result (Theorem~\ref{thm:mondrian_clt}), we use
 the martingale central limit theorem given by
 \citet[Theorem~3.2]{hall1980martingale}. For each $1 \leq i \leq n$ define
 $\cH_{n i}$ to be the filtration generated by $\bT$, $\bX$, and
@@ -999,7 +999,7 @@ in an appropriate sense, and hence,
 by conditioning on $\bT$ and $\bX$ without $X_i$, we write
 %
 \begin{align}
-  \label{eq:bias_ratio}
+  \label{eq:mondrian_bias_ratio}
   \E \left[ \hat \mu(x) \right] - \mu(x)
   &\approx
   \E \left[
@@ -1009,7 +1009,7 @@ by conditioning on $\bT$ and $\bX$ without $X_i$, we write
 \end{align}
 %
 Next we apply the multivariate version of Taylor's theorem to the integrands in
-both the numerator and the denominator in \eqref{eq:bias_ratio}, and then apply
+both the numerator and the denominator in \eqref{eq:mondrian_bias_ratio}, and then apply
 the Maclaurin series of $\frac{1}{1+x}$ and the multinomial theorem to recover
 a single polynomial in $1/\lambda$. The error term is on the order of
 $1/\lambda^\beta$ and depends on the smoothness of $\mu$ and $f$, and the
@@ -1019,7 +1019,7 @@ that all the odd monomial coefficients are zero, and to calculate some explicit
 examples of the form of the limiting bias.
 
 \section{Debiased Mondrian random forests}%
-\label{sec:debiased}
+\label{sec:mondrian_debiased}
 
 In this section we give our next main contribution, proposing a variant of the
 Mondrian random forest estimator which corrects for higher-order bias with an
@@ -1050,7 +1050,7 @@ coefficients $\omega_r$ in order to annihilate the leading $J$ bias terms of
 the debiased Mondrian random forest estimator
 %
 \begin{align}
-  \label{eq:debiased}
+  \label{eq:mondrian_debiased}
   \hat \mu_\rd(x)
   &= \sum_{r=0}^J \omega_r \hat \mu_r(x)
   = \sum_{r=0}^{J} \omega_r
@@ -1089,20 +1089,20 @@ away from zero as a function of $J$.
 
 \subsection{Central limit theorem}
 
-In Theorem~\ref{thm:clt_debiased}, we verify that a central
+In Theorem~\ref{thm:mondrian_clt_debiased}, we verify that a central
 limit theorem holds for the debiased
 random forest estimator $\hat\mu_\rd(x)$ and give its limiting variance.
 The strategy and challenges associated with proving
-Theorem~\ref{thm:clt_debiased} are identical to those discussed earlier
-surrounding Theorem~\ref{thm:clt}. In fact in Section~\ref{sec:mondrian_proofs}
-we provide a direct proof only for Theorem~\ref{thm:clt_debiased}
-and deduce Theorem~\ref{thm:clt} as a special case.
+Theorem~\ref{thm:mondrian_clt_debiased} are identical to those discussed earlier
+surrounding Theorem~\ref{thm:mondrian_clt}. In fact in Section~\ref{sec:mondrian_app_proofs}
+we provide a direct proof only for Theorem~\ref{thm:mondrian_clt_debiased}
+and deduce Theorem~\ref{thm:mondrian_clt} as a special case.
 
 \begin{theorem}[Central limit theorem for the
   debiased Mondrian random forest estimator]%
-  \label{thm:clt_debiased}
+  \label{thm:mondrian_clt_debiased}
   %
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold,
+  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator} hold,
   $\E[Y_i^4 \mid X_i ]$ is bounded,
   and $\frac{\lambda^d \log n}{n} \to 0$. Then
   %
@@ -1132,7 +1132,7 @@ and deduce Theorem~\ref{thm:clt} as a special case.
 
 It is easy to verify that in the case of no debiasing we have
 $J=0$ and $a_0 = \omega_0 = 1$, yielding
-$\Sigma_\rd(x) = \Sigma(x)$, and recovering Theorem~\ref{thm:clt}.
+$\Sigma_\rd(x) = \Sigma(x)$, and recovering Theorem~\ref{thm:mondrian_clt}.
 
 \subsection*{Bias characterization}
 
@@ -1143,7 +1143,7 @@ debiased Mondrian random forest estimator $\hat\mu_\rd(x)$.
 
 \begin{theorem}[Bias of the debiased Mondrian random forest estimator]%
   \label{thm:mondrian_bias_debiased}
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold.
+  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator} hold.
   Then using the notation of Theorem~\ref{thm:mondrian_bias} and with
   $\bar\omega = \sum_{r=0}^J \omega_r a_r^{-2J - 2}$,
   %
@@ -1177,7 +1177,7 @@ but its form is left unspecified.
 
 As before, we propose a variance estimator in order to conduct feasible
 inference and show that it is consistent.
-With $\hat\sigma^2(x)$ as in \eqref{eq:sigma2_hat}
+With $\hat\sigma^2(x)$ as in \eqref{eq:mondrian_sigma2_hat}
 in Section~\ref{sec:mondrian_inference}, define the estimator
 %
 \begin{align}
@@ -1198,8 +1198,8 @@ in Section~\ref{sec:mondrian_inference}, define the estimator
 \end{align}
 %
 \begin{theorem}[Variance estimation]%
-  \label{thm:variance_estimation_debiased}
-  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator}, and
+  \label{thm:mondrian_variance_estimation_debiased}
+  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator}, and
   suppose $\E[Y_i^4 \mid X_i ]$ is bounded almost surely. Then
   %
   \begin{align*}
@@ -1219,7 +1219,7 @@ in Section~\ref{sec:mondrian_inference}, define the estimator
 In analogy to Section~\ref{sec:mondrian_inference},
 we now demonstrate the construction of feasible valid confidence
 intervals using the debiased Mondrian random forest estimator
-in Theorem~\ref{thm:confidence_debiased}.
+in Theorem~\ref{thm:mondrian_confidence_debiased}.
 Once again we must ensure that the bias
 (now significantly reduced due to our debiasing procedure)
 is negligible when compared to the standard deviation
@@ -1241,16 +1241,16 @@ and forest size $B$.
 
 \begin{theorem}[Feasible confidence intervals using a
   debiased Mondrian random forest]%
-  \label{thm:confidence_debiased}
+  \label{thm:mondrian_confidence_debiased}
   %
-  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator} hold,
+  Suppose Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator} hold,
   $\E[Y_i^4 \mid X_i ]$ is bounded,
   and $\frac{\lambda^d \log n}{n} \to 0$.
   Fix $J \geq \lfloor \flbeta / 2 \rfloor$ and assume that
   $\lambda \gg n^{\frac{1}{d + 2 \beta}}$
   and $B \gg n^{\frac{2 \beta - 2}{d + 2 \beta}}$.
   For a confidence level $\alpha \in (0, 1)$,
-  let $q_{1 - \alpha / 2}$ be as in Theorem~\ref{thm:confidence}. Then
+  let $q_{1 - \alpha / 2}$ be as in Theorem~\ref{thm:mondrian_confidence}. Then
   %
   \begin{align*}
     \P \left(
@@ -1271,12 +1271,12 @@ and forest size $B$.
 \end{theorem}
 
 One important benefit of our debiasing technique is made clear in
-Theorem~\ref{thm:confidence_debiased}: the restrictions imposed on the lifetime
+Theorem~\ref{thm:mondrian_confidence_debiased}: the restrictions imposed on the lifetime
 parameter $\lambda$ are substantially relaxed, especially in smooth classes
 with large $\beta$. As well as the high-level of benefit of relaxed conditions,
 this is also useful for practical selection of appropriate lifetimes for
 estimation and inference respectively; see
-Section~\ref{sec:parameter_selection} for more details. Nonetheless, such
+Section~\ref{sec:mondrian_parameter_selection} for more details. Nonetheless, such
 improvements do not come without concession. The limiting variance
 $\Sigma_\rd(x)$ of the debiased estimator is larger than that of the unbiased
 version (the extent of this increase depends on the choice of the debiasing
@@ -1298,7 +1298,7 @@ by \citet{mourtada2020minimax}.
 \begin{theorem}[Minimax optimality of the debiased
   Mondrian random forest estimator]%
   \label{thm:mondrian_minimax}
-  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:estimator},
+  Grant Assumptions~\ref{ass:mondrian_data} and \ref{ass:mondrian_estimator},
   and let $J \geq \lfloor \flbeta / 2 \rfloor$,
   $\lambda \asymp n^{\frac{1}{d + 2 \beta}}$, and
   $B \gtrsim n^{\frac{2 \beta - 2}{d + 2 \beta}}$. Then
@@ -1320,13 +1320,13 @@ by \citet{mourtada2020minimax}.
 The sequence of lifetime parameters $\lambda$ required in
 Theorem~\ref{thm:mondrian_minimax} are chosen to balance the bias and standard
 deviation bounds implied by Theorem~\ref{thm:mondrian_bias_debiased} and
-Theorem~\ref{thm:clt_debiased} respectively, in order to minimize the pointwise
+Theorem~\ref{thm:mondrian_clt_debiased} respectively, in order to minimize the pointwise
 mean squared error. While selecting an optimal debiasing order $J$ needs only
 knowledge of an upper bound on the smoothness $\beta$, choosing an optimal
 sequence of $\lambda$ values does assume that $\beta$ is known a priori. The
 problem of adapting to $\beta$ from data is challenging and beyond the scope of
 this chapter; we provide some practical advice for tuning parameter
-selection in Section~\ref{sec:parameter_selection}.
+selection in Section~\ref{sec:mondrian_parameter_selection}.
 
 Theorem~\ref{thm:mondrian_minimax} complements the minimaxity results proven by
 \citet{mourtada2020minimax} for Mondrian trees (with $\beta \leq 1$) and for
@@ -1359,7 +1359,7 @@ is fixed then under the same conditions as Theorem~\ref{thm:mondrian_minimax},
 
 \subsection{Interpretation}
 
-The debiased Mondrian random forest estimator defined in \eqref{eq:debiased} is
+The debiased Mondrian random forest estimator defined in \eqref{eq:mondrian_debiased} is
 a linear combination of Mondrian random forests, and as such contains both a
 sum over $0 \leq r \leq J$, representing the debiasing procedure, and a sum
 over $1 \leq b \leq B$, representing the forest averaging. We have thus far
@@ -1375,7 +1375,7 @@ trees, each of which has a small bias component \citep{caruana2004ensemble,
 zhou2019deep, friedberg2020local}.
 
 \section{Tuning parameter selection}%
-\label{sec:parameter_selection}
+\label{sec:mondrian_parameter_selection}
 
 We discuss various procedures for selecting the parameters involved in fitting
 a debiased Mondrian random forest; namely the base lifetime parameter
@@ -1384,7 +1384,7 @@ $J$, and the debiasing scale parameters $a_r$ for $0 \leq r \leq J$.
 
 \subsection{Selecting the base lifetime parameter
 \texorpdfstring{$\lambda$}{lambda}}%
-\label{sec:lifetime_selection}
+\label{sec:mondrian_lifetime_selection}
 
 The most important parameter is the base Mondrian lifetime parameter $\lambda$,
 which plays the role of a complexity parameter and thus governs the overall
@@ -1392,7 +1392,7 @@ bias--variance trade-off of the estimator. Correct tuning of $\lambda$ is
 especially important in two main respects:
 %
 firstly, in order to use the central limit theorem established in
-Theorem~\ref{thm:clt_debiased}, we must have that the bias converges to zero,
+Theorem~\ref{thm:mondrian_clt_debiased}, we must have that the bias converges to zero,
 requiring $\lambda \gg n^{\frac{1}{d + 2\beta}}$.
 %
 Secondly, the minimax optimality result of Theorem~\ref{thm:mondrian_minimax}
@@ -1400,7 +1400,7 @@ is valid only in the regime $\lambda \asymp n^{\frac{1}{d + 2\beta}}$, and thus
 requires careful determination in the more realistic finite-sample setting. For
 clarity, in this section we use the notation $\hat\mu_\rd(x; \lambda, J)$ for
 the debiased Mondrian random forest with lifetime $\lambda$ and debiasing order
-$J$ as in \eqref{eq:debiased}.
+$J$ as in \eqref{eq:mondrian_debiased}.
 Similarly write $\hat\Sigma_\rd(x; \lambda, J)$ for the associated
 variance estimator given in \eqref{eq:mondrian_debiased_variance_estimator}.
 
@@ -1646,7 +1646,7 @@ where $\bar a^d = \frac{1}{J+1} \sum_{r=0}^{J} a_r^d$
 gives the generalized cross-validation (GCV) formula
 %
 \begin{align}
-  \label{eq:gcv}
+  \label{eq:mondrian_gcv}
   \GCV(\lambda, J)
   &=
   \frac{1}{n}
@@ -1667,9 +1667,9 @@ in each forest}%
 
 The next parameter to choose is the number of trees in each forest, $B$.
 If no debiasing is applied, we suggest taking
-$B = \sqrt{n}$ to satisfy the constraint in Theorem~\ref{thm:confidence}.
+$B = \sqrt{n}$ to satisfy the constraint in Theorem~\ref{thm:mondrian_confidence}.
 If debiasing is used then we recommend setting
-$B = n^{\frac{2J-1}{2J}}$, consistent with Theorem~\ref{thm:confidence_debiased}
+$B = n^{\frac{2J-1}{2J}}$, consistent with Theorem~\ref{thm:mondrian_confidence_debiased}
 and Theorem~\ref{thm:mondrian_minimax}.
 
 \subsection{Setting the debiasing order \texorpdfstring{$J$}{J}}%
@@ -1683,7 +1683,7 @@ avoid overly inflating the variance of the estimator.
 
 \subsection{Selecting the debiasing coefficients}%
 
-As in Section~\ref{sec:debiased}, we take $a_r$ to be a fixed
+As in Section~\ref{sec:mondrian_debiased}, we take $a_r$ to be a fixed
 geometric or arithmetic sequence. For example, one could set
 $a_r = (1+\gamma)^r$ or $a_r = 1 + \gamma r$ for some $\gamma > 0$.
 We suggest taking $a_r = 1.05^r$.
@@ -1722,7 +1722,7 @@ locations across Australia, with a total of $n = 125\,927$ samples.
     fitted with a lifetime of $\lambda = 5$
     selected by generalized cross-validation. Cell colors represent the response
   proportions.}
-  \label{fig:weather_data}
+  \label{fig:mondrian_weather_data}
 \end{figure}
 
 We consider the classification problem of predicting whether or not it will
@@ -1739,9 +1739,9 @@ $(X_i, Y_i) \in [0, 1]^2 \times \{0, 1\}$.
 We fit a Mondrian random forest to the data as defined in
 Section~\ref{sec:mondrian_forests}, selecting the lifetime parameter with the
 generalized cross-validation (GCV) method detailed in
-Section~\ref{sec:lifetime_selection}.
+Section~\ref{sec:mondrian_lifetime_selection}.
 
-Figure~\ref{fig:weather_data} plots the
+Figure~\ref{fig:mondrian_weather_data} plots the
 data, using colors to indicate the response values, and illustrates how a
 single Mondrian tree is fitted by sampling from an independent Mondrian process
 and then computing local averages (equivalent to response proportions in this
@@ -1769,10 +1769,10 @@ function.
     function persists. Right: with $B=40$ trees, the estimate is much smoother
     as the individual tree estimates average out.
   Three design points are identified for further analysis.}
-  \label{fig:weather_forest}
+  \label{fig:mondrian_weather_forest}
 \end{figure}
 
-Figure~\ref{fig:weather_forest} adds more trees to the estimator,
+Figure~\ref{fig:mondrian_weather_forest} adds more trees to the estimator,
 demonstrating the effect of increasing the forest size first to $B=2$
 and then to $B=40$.
 As more trees are included in the Mondrian random forest,
@@ -1783,7 +1783,7 @@ We also choose three specific design points in the
 (humidity, pressure) covariate space,
 namely (20\%, 1020\,mbar), (70\%, 1000\,mbar), and (80\%, 990\,mbar),
 at which to conduct inference
-by constructing confidence intervals. See Table~\ref{tab:weather_ci}
+by constructing confidence intervals. See Table~\ref{tab:mondrian_weather_ci}
 for the results.
 
 \begin{figure}[t]
@@ -1801,11 +1801,11 @@ for the results.
     for Mondrian random forests with the Australian weather data.
     Right: a debiased Mondrian random forest with $B=20$, giving $40$ trees
   in total. Three design points are identified for further analysis.}
-  \label{fig:weather_gcv}
+  \label{fig:mondrian_weather_gcv}
 \end{figure}
 
-In Figure~\ref{fig:weather_gcv} we show the mean squared error and GCV scores
-computed using \eqref{eq:gcv} with $B=400$ trees
+In Figure~\ref{fig:mondrian_weather_gcv} we show the mean squared error and GCV scores
+computed using \eqref{eq:mondrian_gcv} with $B=400$ trees
 for several candidate lifetime parameters $\lambda$. As
 expected, the mean squared error decreases monotonically
 as $\lambda$ increases and the model
@@ -1813,11 +1813,11 @@ overfits, but the GCV score is minimized at a value which appropriately
 balances the bias and variance; we take $\lambda = 5$.
 We then fit a debiased Mondrian forest
 with bias correction order $J = 1$ as described in
-Section~\ref{sec:debiased}, using $B=20$ trees at each debiasing level
+Section~\ref{sec:mondrian_debiased}, using $B=20$ trees at each debiasing level
 $r \in \{0, 1\}$ for a total of $40$ trees.
 We continue to use the same lifetime parameter
 $\lambda = 5$ selected through GCV without debiasing, following the approach
-recommended in Section~\ref{sec:lifetime_selection} to ensure valid inference
+recommended in Section~\ref{sec:mondrian_lifetime_selection} to ensure valid inference
 through negligible bias.
 The resulting debiased Mondrian random forest estimate is noticeably
 less smooth than the version without bias correction.
@@ -1859,10 +1859,10 @@ using GCV on the original estimator without debiasing.
   \caption[Results for the Australian weather data]{
     Results for the Australian weather data
   at three specified design points.}
-  \label{tab:weather_ci}
+  \label{tab:mondrian_weather_ci}
 \end{table}
 
-Table~\ref{tab:weather_ci} presents numerical results for estimation and
+Table~\ref{tab:mondrian_weather_ci} presents numerical results for estimation and
 inference at the three specified design points. We first give the outcomes
 without debiasing, using a Mondrian random forest with $B = 400$ trees and
 $\lambda = 5$ selected by GCV. We then show the results with a first-order
@@ -1873,7 +1873,7 @@ and the resulting confidence intervals (CI) are generally narrow due to the
 large sample size and moderate lifetime parameter. The forest with debiasing
 exhibits more extreme predictions away from $50\%$ and wider confidence
 intervals in general, in line with the illustration in
-Figure~\ref{fig:weather_gcv}. Interestingly, the confidence intervals for the
+Figure~\ref{fig:mondrian_weather_gcv}. Interestingly, the confidence intervals for the
 non-debiased and debiased estimators do not intersect, indicating that the
 original estimator is severely biased, and providing further justification for
 our modified debiased random forest estimator.
