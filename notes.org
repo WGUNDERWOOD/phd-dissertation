@@ -12,16 +12,7 @@
 *** TODO mondrian appendix
 *** TODO kernel appendix
 *** TODO yurinskii appendix
-** TODO Table and algorithm stretch spacing
-** TODO Oxford commas
-** TODO Watermark upright
-** TODO Check for hspace, vspace, quad etc
-** TODO No hyphen after well
-** TODO Remove comments
-** TODO Subsubsections?
-** TODO Almost-sure spelling
 ** TODO Fix all labels
-** TODO Warn when breaking an equation or hyphenating?
 * Formatting
 ** Page numbers no more than 0.5in from bottom
 ** Typeface 10-12pt

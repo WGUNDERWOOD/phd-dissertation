@@ -20,15 +20,12 @@ parameter tuning.
 
 \section{Introduction}
 
-% background on random forests
 Random forests, first introduced by \citet{breiman2001random}, are a workhorse
 in modern machine learning for classification and regression tasks.
-% why random forests are good
 Their desirable traits include computational efficiency (via parallelization
 and greedy heuristics) in big data settings, simplicity of configuration and
 amenability to tuning parameter selection, ability to adapt to latent structure
 in high-dimensional data sets, and flexibility in handling mixed data types.
-% example applications
 Random forests have achieved great empirical successes in many fields of study,
 including healthcare, finance, online commerce, text analysis, bioinformatics,
 image classification, and ecology.
@@ -1637,9 +1634,7 @@ without the $i$th data sample, it is easy to show that
       \frac{ Y_j \I \left\{ X_j \in T_{r b}(X_i) \right\}}
       {N_{r b}(X_i)}
     \right)
-    \hspace*{-1mm}
-  \right)^{\hspace*{-1mm}2}
-  \hspace*{-1.2mm},
+  \right)^{2},
 \end{align*}
 %
 avoiding refitting the model leaving each sample out in turn.
@@ -1830,7 +1825,6 @@ This is expected due to both the inflated variance resulting from the debiasing
 procedure, and the undersmoothing enacted by selecting a lifetime parameter
 using GCV on the original estimator without debiasing.
 
-\vspace{4mm}
 \begin{table}[b!]
   \centering
   \begin{tabular}{|c|c|c|c|c|c|c|}

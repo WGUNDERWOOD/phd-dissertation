@@ -96,7 +96,7 @@ supremum statistic $\sup_{w\in\cW}\big|\hat{f}_W(w)\big|$ over a finite
 collection $\cW$ of design points. More generally, as we discuss below, the
 estimand $f_W(w)$ is useful in different applications because it forms the
 basis for counterfactual distributional analysis
-(Section~\ref{sec:counterfactual}) and other nonparametric and semiparametric
+(Section~\ref{sec:kernel_counterfactual}) and other nonparametric and semiparametric
 methods (Section~\ref{sec:future}). While we assume throughout
 that the network is complete, our approach generalizes in a straightforward way
 to networks with missing edges, as in Section~\ref{sec:trade_data}. This can be
@@ -121,7 +121,7 @@ applications:
     confidence bands for $f_W$ (Section~\ref{sec:implementation}), and
   \item
     estimation and inference for counterfactual
-    dyadic distributions (Section~\ref{sec:counterfactual}).
+    dyadic distributions (Section~\ref{sec:kernel_counterfactual}).
 \end{inlineroman}
 %
 Our main results also lay the foundation for studying the uniform
@@ -201,7 +201,7 @@ we use the celebrated Hungarian construction \citep{komlos1975approximation},
 building on ideas in \citet{gine2004kernel} and \citet{gine2010confidence}. The
 resulting rate of strong approximation is optimal, and follows from a generic
 strong approximation result of potential independent interest given in
-Section~\ref{sec:kernel_technical}. Our main result for $L_n$ is given as
+Section~\ref{sec:kernel_app_technical}. Our main result for $L_n$ is given as
 Lemma~\ref{lem:strong_approx_Ln}, and makes explicit the potential presence of
 degenerate points.
 
@@ -214,7 +214,7 @@ coupling \citep{yurinskii1978error}, leveraging a refinement obtained by
 \citet*[Lemma~38]{belloni2019conditional}. This result follows from a generic
 strong approximation result which gives a novel rate of strong approximation
 for (local) empirical processes based on i.n.i.d. data, given in
-Section~\ref{sec:kernel_technical}.
+Section~\ref{sec:kernel_app_technical}.
 Lemma~\ref{lem:conditional_strong_approx_En} gives our conditional strong
 approximation for $E_n$.
 
@@ -227,7 +227,7 @@ building on our conditional strong approximation for $E_n$, we establish an
 unconditional strong approximation for $E_n$ in
 Lemma~\ref{lem:unconditional_strong_approx_En}. We then employ a generalization
 of the celebrated Vorob'ev--Berkes--Philipp theorem \citep{dudley1999uniform},
-given in given in Section~\ref{sec:kernel_technical}, to deduce a \emph{joint}
+given in given in Section~\ref{sec:kernel_app_technical}, to deduce a \emph{joint}
 strong approximation for $(L_n,E_n)$ and, in particular, for $L_n+E_n$. Thus we
 obtain our main result in Theorem~\ref{thm:strong_approx_Tn}, which establishes
 a valid strong approximation for the $t$-process associated with $\hat{f}_W$.
@@ -279,7 +279,7 @@ feasible robust bias-corrected confidence bands for $f_W$. We use simulations
 to show that these confidence bands are robust to potential unknown degenerate
 points in the underlying dyadic distribution.
 
-Section~\ref{sec:counterfactual} presents novel results for counterfactual
+Section~\ref{sec:kernel_counterfactual} presents novel results for counterfactual
 dyadic density estimation and inference, offering an application of our general
 theory to a substantive problem in statistics and other data science
 disciplines. Counterfactual distributions are important for causal inference
@@ -306,7 +306,7 @@ results, including dyadic density testing and nonparametric and
 semiparametric dyadic regression. Section~\ref{sec:conclusion} concludes.
 Appendix~\ref{app:kernel} includes other technical and methodological results,
 proofs, and additional details omitted here to conserve space.
-Section~\ref{sec:kernel_technical} may be of independent interest, containing
+Section~\ref{sec:kernel_app_technical} may be of independent interest, containing
 two generic strong approximation theorems for empirical processes, a
 generalized Vorob'ev--Berkes--Philipp theorem, and a maximal inequality for
 i.n.i.d.\ random variables.
@@ -380,7 +380,7 @@ secondly the choice of kernel and bandwidth sequence.
 
 In Assumption~\ref{ass:kernel_data} we require the density $f_W$ be in a
 $\beta$-smooth H\"older class of functions on the compact interval $\cW$.
-H\"older classes are well-established in the minimax estimation literature
+H\"older classes are well established in the minimax estimation literature
 \citep{stone1982optimal,gine2021mathematical},
 with the smoothness parameter $\beta$ appearing
 in the minimax-optimal rate of convergence. If the H\"older condition is
@@ -425,7 +425,7 @@ boundary-corrected kernel functions
 \citep{wand1994kernel,simonoff1996smoothing}, constructed for example by taking
 polynomials on a compact interval and solving a linear system for the
 coefficients. Assumption~\ref{ass:kernel_bandwidth} implies
-(see Lemma~\ref{lem:lipschitz_kernels_bounded} in Appendix~\ref{app:kernel})
+(see Lemma~\ref{lem:kernel_app_lipschitz_kernels_bounded} in Appendix~\ref{app:kernel})
 that if $h \leq 1$ then $k_h$ is uniformly bounded by
 $C_\rk h^{-1}$ where $C_\rk \vcentcolon = 2 C_\rL + 1 + 1/\Leb(\cW)$.
 
@@ -857,7 +857,7 @@ irrespective of the degeneracy type.
 This section is largely concerned with distributional properties and thus
 frequently requires copies of stochastic processes. For succinctness of
 notation, we will not differentiate between a process and its copy, but details
-are available in Section~\ref{sec:kernel_technical}.
+are available in Section~\ref{sec:kernel_app_technical}.
 
 \subsection{Strong approximation}
 
@@ -875,7 +875,7 @@ is not applicable. These approximations are then combined to give a final
 $t$-statistic process $T_n$.
 
 The following lemma is an application of our generic KMT approximation result
-for empirical processes, given in Section~\ref{sec:kernel_technical}, which
+for empirical processes, given in Section~\ref{sec:kernel_app_technical}, which
 builds on earlier work by \citet{gine2004kernel} and \citet{gine2010confidence}
 and may be of independent interest.
 
@@ -1246,7 +1246,7 @@ For $\alpha \in (0,1)$, let $\hat q_{1-\alpha}$ be the
 conditional quantile satisfying
 $\P\big(\sup_{w \in \cW} \big| \hat Z_n^T(w) \big| \leq \hat q_{1-\alpha}
 \bigm\vert \bW_n \big) = 1 - \alpha$,
-which is shown to be well defined in Section~\ref{sec:kernel_proofs}.
+which is shown to be well defined in Section~\ref{sec:kernel_app_proofs}.
 
 \begin{theorem}[Feasible uniform confidence bands]
   \label{thm:kernel_ucb}
@@ -1287,7 +1287,7 @@ The bandwidth restrictions in Theorem~\ref{thm:kernel_ucb} are the same as
 those for the infeasible version given in Theorem~\ref{thm:infeasible_ucb},
 namely those imposed in Assumption \ref{ass:rates}. This follows from the rates
 of convergence obtained in Lemma~\ref{lem:sdp}, coupled with some careful
-technical work given in Section~\ref{sec:kernel_proofs} to handle the potential
+technical work given in Section~\ref{sec:kernel_app_proofs} to handle the potential
 presence of degenerate points in $\Sigma_n$.
 
 \subsection{Bandwidth selection and robust bias-corrected inference}
@@ -1499,7 +1499,6 @@ feasible inference methods based on robust bias correction and proper
 Studentization deliver valid uniform inference which is robust to unknown
 degenerate points in the underlying dyadic distribution.
 
-\vspace{4mm}
 \begin{table}[t]
   \centering
   \begin{tabular}{|c|c|c|c|c|cc|cc|}
@@ -1541,7 +1540,7 @@ degenerate points in the underlying dyadic distribution.
 \end{table}
 
 \section{Application: counterfactual dyadic density estimation}
-\label{sec:counterfactual}
+\label{sec:kernel_counterfactual}
 
 To further showcase the applicability of our main results, we develop a kernel
 density estimator for dyadic counterfactual distributions. The aim of such
@@ -1773,7 +1772,7 @@ distribution.
 In Figure~\ref{fig:gdp} we illustrate how, in the preliminary step of the
 counterfactual analysis, the distribution of log GDP is approximated using the
 histogram estimators $\hat p_X^{\,0}$ and $\hat p_X^{\,1}$ defined in
-Section~\ref{subsec:counterfactual}. We also plot the density function of a
+Section~\ref{sec:kernel_counterfactual}. We also plot the density function of a
 normal distribution, fitted using maximum likelihood estimation, and this seems
 to capture the distribution of log GDP reasonably well. Such a parametric
 approach to the preliminary step may be favored in cases where a choice of

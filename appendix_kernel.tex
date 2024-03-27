@@ -52,26 +52,26 @@ and $\sum_{i<j<r}$
 for $\sum_{i=1}^{n-2} \sum_{j=i+1}^{n-1} \sum_{r=j+1}^n$.
 
 \subsection{Strong approximation}
-\label{sec:strong_approx}
+\label{sec:kernel_app_strong_approx}
 
 We give a detailed construction of the
 strong approximation of the dyadic empirical process $\hat f_W$.
 We begin by using the
 K{\'o}mlos--Major--Tusn{\'a}dy (KMT) approximation
 to obtain a strong approximation for $L_n$
-in Lemma~\ref{lem:app_strong_approx_Ln}.
+in Lemma~\ref{lem:kernel_app_strong_approx_Ln}.
 Since $E_n$ is an empirical process of i.n.i.d.\ variables,
 the KMT approximation is not valid.
 Instead we apply a conditional version of
 Yurinskii's coupling to obtain a
 conditional strong approximation for $E_n$
-in Lemma~\ref{lem:app_conditional_strong_approx_En},
+in Lemma~\ref{lem:kernel_app_conditional_strong_approx_En},
 and then construct an unconditional
 strong approximation for $E_n$
-in Lemma~\ref{lem:app_unconditional_strong_approx_En}.
+in Lemma~\ref{lem:kernel_app_unconditional_strong_approx_En}.
 These approximations are combined to give a
 strong approximation for $\hat f_W$
-in Theorem~\ref{thm:app_strong_approx_fW}.
+in Theorem~\ref{thm:kernel_app_strong_approx_fW}.
 We do not need to approximate
 the negligible $Q_n$.
 
@@ -93,7 +93,7 @@ the copying and embedding of stochastic processes
 are covered by the
 Vorob'ev--Berkes--Philipp theorem,
 which is stated and discussed in
-Lemma~\ref{lem:vbp}.
+Lemma~\ref{lem:kernel_app_vbp}.
 In particular, this theorem can be used
 for random vectors or for stochastic processes
 indexed by a compact rectangle in $\R^d$
@@ -103,16 +103,16 @@ We present more detailed versions of
 Lemmas~\ref{lem:strong_approx_Ln},
 \ref{lem:conditional_strong_approx_En},
 and \ref{lem:unconditional_strong_approx_En}
-as Lemmas~\ref{lem:app_strong_approx_Ln},
-\ref{lem:app_conditional_strong_approx_En},
-and \ref{lem:app_unconditional_strong_approx_En}
+as Lemmas~\ref{lem:kernel_app_strong_approx_Ln},
+\ref{lem:kernel_app_conditional_strong_approx_En},
+and \ref{lem:kernel_app_unconditional_strong_approx_En}
 respectively, taking care to describe how copies of
 the stochastic processes are constructed,
 and also providing smoothness properties for
 the resulting sample paths.
 
 \begin{lemma}[Strong approximation of $L_n$]
-  \label{lem:app_strong_approx_Ln}
+  \label{lem:kernel_app_strong_approx_Ln}
 
   Suppose that Assumptions
   \ref{ass:kernel_data}
@@ -189,7 +189,7 @@ the resulting sample paths.
 \end{lemma}
 
 \begin{lemma}[Conditional strong approximation of $E_n$]
-  \label{lem:app_conditional_strong_approx_En}
+  \label{lem:kernel_app_conditional_strong_approx_En}
 
   Suppose Assumptions
   \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth} hold.
@@ -276,13 +276,13 @@ the resulting sample paths.
 \end{lemma}
 
 \begin{lemma}[Unconditional strong approximation of $E_n$]
-  \label{lem:app_unconditional_strong_approx_En}
+  \label{lem:kernel_app_unconditional_strong_approx_En}
 
   Suppose Assumptions
   \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth} hold.
   Let $\big(\bA_n', \bV_n', \tilde Z_n^{E\prime}\big)$
   be defined as in
-  Lemma~\ref{lem:app_conditional_strong_approx_En}.
+  Lemma~\ref{lem:kernel_app_conditional_strong_approx_En}.
   For each $n \geq 2$
   there exists
   (on some probability space)
@@ -349,11 +349,11 @@ the resulting sample paths.
 \end{lemma}
 
 We combine these strong approximations to deduce a coupling for $\hat f_W$ in
-Theorem~\ref{thm:app_strong_approx_fW}, taking care with independence
+Theorem~\ref{thm:kernel_app_strong_approx_fW}, taking care with independence
 properties to ensure the approximating processes are jointly Gaussian.
 
 \begin{theorem}[Strong approximation of $\hat f_W$]
-  \label{thm:app_strong_approx_fW}
+  \label{thm:kernel_app_strong_approx_fW}
 
   Suppose that Assumptions
   \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth} hold.
@@ -412,22 +412,22 @@ properties to ensure the approximating processes are jointly Gaussian.
 \end{theorem}
 
 The main result Theorem~\ref{thm:strong_approx_Tn}
-now follows easily using Theorem~\ref{thm:app_strong_approx_fW},
+now follows easily using Theorem~\ref{thm:kernel_app_strong_approx_fW},
 the bias bound from Theorem~\ref{thm:kernel_bias},
 and properties of $\Sigma_n$ established in Lemma~\ref{lem:variance_bounds}.
 
 \subsection{Covariance estimation}
-\label{sec:app_covariance_estimation}
+\label{sec:kernel_app_covariance_estimation}
 
 In this section we carefully construct a consistent estimator for the
 covariance function $\Sigma_n$. Firstly we characterize $\Sigma_n$ in
-Lemma~\ref{lem:covariance_structure}. In Lemma~\ref{lem:covariance_estimation}
+Lemma~\ref{lem:kernel_app_covariance_structure}. In Lemma~\ref{lem:kernel_app_covariance_estimation}
 we define the estimator and demonstrate that it converges in probability in a
-suitable sense. In Lemma~\ref{lem:alternative_covariance_estimator} we give an
+suitable sense. In Lemma~\ref{lem:kernel_app_alternative_covariance_estimator} we give an
 alternative representation which is more amenable to computation.
 
 \begin{lemma}[Covariance structure]
-  \label{lem:covariance_structure}
+  \label{lem:kernel_app_covariance_structure}
 
   Suppose Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
   hold. Then $\Sigma_n$, as defined in Section~\ref{sec:degeneracy}, admits the
@@ -437,25 +437,25 @@ alternative representation which is more amenable to computation.
     \Sigma_n(w,w')
     &=
     \frac{2}{n(n-1)}
-    \Cov\hspace*{-0.7mm}\big[
+    \,\Cov\big[
       k_h(W_{i j},w),
       k_h(W_{i j},w')
     \big] \\
     &\quad+
     \frac{4(n-2)}{n(n-1)}
-    \Cov\hspace*{-0.7mm}\big[
+    \,\Cov\big[
       k_h(W_{i j},w),
       k_h(W_{i r},w')
     \big] \\
     &=
     \frac{2}{n(n-1)}
-    \Cov\hspace*{-0.7mm}\big[
+    \,\Cov\big[
       k_h(W_{i j},w),
       k_h(W_{i j},w')
     \big] \\
     &\quad+
     \frac{4(n-2)}{n(n-1)}
-    \Cov\hspace*{-0.7mm}\big[
+    \,\Cov\big[
       \E[k_h(W_{i j},w) \mid A_i],
       \E[k_h(W_{i j},w') \mid A_i]
     \big],
@@ -466,7 +466,7 @@ alternative representation which is more amenable to computation.
 \end{lemma}
 
 \begin{lemma}[Covariance estimation]
-  \label{lem:covariance_estimation}
+  \label{lem:kernel_app_covariance_estimation}
 
   Grant Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth},
   and suppose $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$. Define
@@ -527,13 +527,13 @@ alternative representation which is more amenable to computation.
 \end{lemma}
 
 \begin{lemma}[Alternative covariance estimator representation]
-  \label{lem:alternative_covariance_estimator}
+  \label{lem:kernel_app_alternative_covariance_estimator}
 
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold,
   and let $\hat \Sigma_n$
   be the covariance estimator defined
-  in Lemma~\ref{lem:covariance_estimation}.
+  in Lemma~\ref{lem:kernel_app_covariance_estimation}.
   Then the following alternative representation
   for $\hat \Sigma_n$ holds,
   which may be easier to compute
@@ -566,11 +566,11 @@ alternative representation which is more amenable to computation.
 
 We show how to obtain a positive semi-definite estimator $\hat \Sigma_n^+$
 which is uniformly entrywise-consistent for $\Sigma_n$. Define $\hat \Sigma_n$
-as in Lemma~\ref{lem:covariance_estimation} and consider the following
+as in Lemma~\ref{lem:kernel_app_covariance_estimation} and consider the following
 optimization problem over bivariate functions.
 %
 \begin{equation}
-  \label{eq:app_sdp}
+  \label{eq:kernel_app_sdp}
   \begin{aligned}
     \minimize
     \qquad
@@ -594,12 +594,12 @@ optimization problem over bivariate functions.
 \end{equation}
 
 \begin{lemma}[Consistency of $\hat \Sigma_n^+$]
-  \label{lem:app_sdp}
+  \label{lem:kernel_app_sdp}
 
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold, and that
   $n h \gtrsim \log n$ and $f_W(w) > 0$ on $\cW$.
-  Then the optimization problem (\ref{eq:app_sdp})
+  Then the optimization problem (\ref{eq:kernel_app_sdp})
   has an approximately optimal solution $\hat\Sigma_n^+$
   which is uniformly entrywise-consistent
   for $\Sigma_n$ in the sense that
@@ -615,20 +615,20 @@ optimization problem over bivariate functions.
 
 \end{lemma}
 
-The optimization problem (\ref{eq:app_sdp}) is stated for functions rather than
+The optimization problem (\ref{eq:kernel_app_sdp}) is stated for functions rather than
 matrices so is infinite-dimensional. However, when restricting to finite-size
-matrices, Lemma~\ref{lem:app_sdp} still holds and does not depend on the size
+matrices, Lemma~\ref{lem:kernel_app_sdp} still holds and does not depend on the size
 of the matrices. Furthermore, the problem then becomes a semi-definite program
 and so can be solved to arbitrary precision in polynomial time in the size of
 the matrices \citep{laurent2005semidefinite}.
 
-The Lipschitz-type constraint in the optimization problem (\ref{eq:app_sdp})
+The Lipschitz-type constraint in the optimization problem (\ref{eq:kernel_app_sdp})
 ensures that $\hat \Sigma_n^+$ is sufficiently smooth and is a technicality
 required by some of the later proofs. In practice this constraint is readily
 verified.
 
 \begin{lemma}[Positive semi-definite variance estimator bounds]
-  \label{lem:variance_estimator_bounds}
+  \label{lem:kernel_app_variance_estimator_bounds}
 
   Suppose that Assumptions~\ref{ass:kernel_data}
   and~\ref{ass:kernel_bandwidth} hold, and that
@@ -651,14 +651,14 @@ verified.
 \subsection{Feasible uniform confidence bands}
 
 We use the strong approximation derived in
-Section~\ref{sec:strong_approx} and the
+Section~\ref{sec:kernel_app_strong_approx} and the
 positive semi-definite covariance estimator introduced in
-Section~\ref{sec:app_covariance_estimation} to construct feasible uniform
+Section~\ref{sec:kernel_app_covariance_estimation} to construct feasible uniform
 confidence bands. We drop the prime notation for copies of processes
 in the interest of clarity.
 
 \begin{lemma}[Proximity of the standardized and studentized $t$-statistics]
-  \label{lem:studentized_t_statistic}
+  \label{lem:kernel_app_studentized_t_statistic}
 
   Let Assumptions \ref{ass:kernel_data} and
   \ref{ass:kernel_bandwidth} hold, and suppose that
@@ -689,7 +689,7 @@ in the interest of clarity.
 
 \begin{lemma}[Feasible Gaussian approximation
   of the infeasible Gaussian process]
-  \label{lem:distributional_approx_feasible_gaussian}
+  \label{lem:kernel_app_distributional_approx_feasible_gaussian}
 
   Let Assumptions \ref{ass:kernel_data} and \ref{ass:kernel_bandwidth}
   hold, and suppose that
@@ -735,7 +735,7 @@ in the interest of clarity.
 \end{lemma}
 
 \begin{lemma}[Feasible Gaussian approximation of the studentized $t$-statistic]
-  \label{lem:feasible_gaussian_approx}
+  \label{lem:kernel_app_feasible_gaussian_approx}
 
   Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
   and \ref{ass:rates} hold, and suppose that $f_W(w) > 0$ on $\cW$.
@@ -764,17 +764,16 @@ in the interest of clarity.
 
 These intermediate lemmas can be used to establish the valid and feasible
 uniform confidence bands presented in Theorem~\ref{thm:kernel_ucb} in the main
-text. See Section~\ref{sec:kernel_proofs} for details.
+text. See Section~\ref{sec:kernel_app_proofs} for details.
 
 \subsection{Counterfactual dyadic density estimation}
-\label{subsec:counterfactual}
 
 In this section we give a detailed analysis of the counterfactual
-estimator of Section~\ref{sec:counterfactual}.
+estimator of Section~\ref{sec:kernel_counterfactual}.
 We begin with an assumption describing the counterfactual setup.
 
 \begin{assumption}[Counterfactual data generation]
-  \label{ass:counterfactual}
+  \label{ass:kernel_app_counterfactual}
 
   For each $r \in \{0,1\}$,
   let $\bW_n^r$, $\bA_n^r$, and $\bV_n^r$ be as in
@@ -868,10 +867,10 @@ We now establish uniform consistency and feasible strong
 approximation results for the counterfactual density estimator.
 
 \begin{lemma}[Bias of $\hat f_W^{1 \triangleright 0}$]
-  \label{lem:counterfactual_bias}
+  \label{lem:kernel_app_counterfactual_bias}
 
   Suppose that Assumptions~\ref{ass:kernel_data},
-  \ref{ass:kernel_bandwidth}, and \ref{ass:counterfactual} hold.
+  \ref{ass:kernel_bandwidth}, and \ref{ass:kernel_app_counterfactual} hold.
   Then
   %
   \begin{align*}
@@ -888,11 +887,11 @@ approximation results for the counterfactual density estimator.
 
 \begin{lemma}[Hoeffding-type decomposition for
   $\hat f_W^{1 \triangleright 0}$]
-  \label{lem:counterfactual_hoeffding}
+  \label{lem:kernel_app_counterfactual_hoeffding}
 
   Suppose that Assumptions~\ref{ass:kernel_data},
   \ref{ass:kernel_bandwidth}, and
-  \ref{ass:counterfactual} hold.
+  \ref{ass:kernel_app_counterfactual} hold.
   With $k_{i j} = k_h(W_{i j}^1, w)$,
   $\kappa_{r i} = \kappa(X_r^0, X_r^1, X_i^1)$
   and $\psi_i = \psi(X_i^1)$, define the projections
@@ -1091,10 +1090,10 @@ approximation results for the counterfactual density estimator.
 \end{lemma}
 
 \begin{lemma}[Uniform consistency of $\hat f_W^{1 \triangleright 0}$]
-  \label{lem:counterfactual_uniform_consistency}
+  \label{lem:kernel_app_counterfactual_uniform_consistency}
 
   Suppose that Assumptions~\ref{ass:kernel_data},
-  \ref{ass:kernel_bandwidth}, and \ref{ass:counterfactual} hold.
+  \ref{ass:kernel_bandwidth}, and \ref{ass:kernel_app_counterfactual} hold.
   Then
   %
   \begin{align*}
@@ -1112,7 +1111,7 @@ approximation results for the counterfactual density estimator.
 \end{lemma}
 
 \begin{lemma}[Strong approximation of $\hat f_W^{1 \triangleright 0}$]
-  \label{lem:counterfactual_sa}
+  \label{lem:kernel_app_counterfactual_sa}
 
   On an appropriately enlarged probability space
   and for any sequence $R_n \to \infty$,
@@ -1137,7 +1136,7 @@ approximation results for the counterfactual density estimator.
 \end{lemma}
 
 \begin{lemma}[Counterfactual covariance structure]
-  \label{lem:counterfactual_covariance_structure}
+  \label{lem:kernel_app_counterfactual_covariance_structure}
 
   Writing $k_{i j}'$ for $k_h(W_{i j}^1, w')$ etc.,
   the counterfactual covariance function is
@@ -1199,11 +1198,11 @@ approximation results for the counterfactual density estimator.
 
 \begin{lemma}[Gaussian approximation
   of the standardized counterfactual $t$-statistic]
-  \label{lem:counterfactual_infeasible_t_statistic}
+  \label{lem:kernel_app_counterfactual_infeasible_t_statistic}
 
   Let Assumptions \ref{ass:kernel_data},
   \ref{ass:kernel_bandwidth}, and
-  \ref{ass:counterfactual}
+  \ref{ass:kernel_app_counterfactual}
   hold, and suppose
   $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
   Define
@@ -1219,7 +1218,7 @@ approximation results for the counterfactual density estimator.
     {\sqrt{\Sigma_n^{1 \triangleright 0}(w,w)}}.
   \end{align*}
   %
-  Then with $R_n \to \infty$ as in Lemma~\ref{lem:counterfactual_sa},
+  Then with $R_n \to \infty$ as in Lemma~\ref{lem:kernel_app_counterfactual_sa},
   %
   \begin{align*}
     &\sup_{w \in \cW}
@@ -1238,10 +1237,10 @@ approximation results for the counterfactual density estimator.
 \end{lemma}
 
 \begin{theorem}[Infeasible counterfactual uniform confidence bands]
-  \label{thm:counterfactual_infeasible_ucb}
+  \label{thm:kernel_app_counterfactual_infeasible_ucb}
 
   Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth},
-  \ref{ass:rates}, and \ref{ass:counterfactual}
+  \ref{ass:rates}, and \ref{ass:kernel_app_counterfactual}
   hold and suppose that $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
   and define $q^{1 \triangleright 0}_{1-\alpha}$ as the quantile
@@ -1403,7 +1402,7 @@ we have that
 \end{align*}
 
 \section{Technical lemmas}
-\label{sec:kernel_technical}
+\label{sec:kernel_app_technical}
 
 We present some lemmas which provide the technical foundations for our main
 results. These lemmas are stated in as much generality as is reasonable,
@@ -1429,7 +1428,7 @@ but which do not necessarily follow the same
 conditional distribution.
 
 \begin{lemma}[A maximal inequality for i.n.i.d.\ empirical processes]
-  \label{lem:maximal_entropy}
+  \label{lem:kernel_app_maximal_entropy}
 
   Let $X_1, \dots, X_n$
   be independent but not necessarily identically distributed
@@ -1508,10 +1507,10 @@ conditional distribution.
 \end{lemma}
 
 \begin{lemma}[A VC class maximal inequality for i.n.i.d.\ empirical processes]
-  \label{lem:maximal_vc_inid}
+  \label{lem:kernel_app_maximal_vc_inid}
 
   Assume the same setup as in
-  Lemma~\ref{lem:maximal_entropy},
+  Lemma~\ref{lem:kernel_app_maximal_entropy},
   and suppose that $\cF$ forms a VC-type class
   in that
   %
@@ -1536,7 +1535,7 @@ conditional distribution.
     \sqrt{C_2 \log (C_1/\delta)},
   \end{align*}
   %
-  and so by Lemma~\ref{lem:maximal_entropy},
+  and so by Lemma~\ref{lem:kernel_app_maximal_entropy},
   %
   \begin{align*}
     \E \left[
@@ -1573,7 +1572,7 @@ which applies to Lipschitz functions
 of i.n.i.d.\ variables.
 
 \begin{lemma}[A KMT approximation corollary]
-  \label{lem:kmt_corollary}
+  \label{lem:kernel_app_kmt_corollary}
 
   For $n \geq 1$
   let $X_1, \ldots, X_n$
@@ -1627,7 +1626,7 @@ of i.n.i.d.\ variables.
 \end{lemma}
 
 \begin{lemma}[Yurinskii coupling for Lipschitz i.n.i.d.\ empirical processes]
-  \label{lem:yurinskii_corollary}
+  \label{lem:kernel_app_yurinskii_corollary}
 
   For $n \geq 2$ let $X_1, \dots, X_n$
   be independent but not necessarily identically distributed
@@ -1777,7 +1776,7 @@ We begin with some definitions.
 \end{definition}
 
 \begin{lemma}[Vorob'ev--Berkes--Philipp theorem, tree form]
-  \label{lem:vbp}
+  \label{lem:kernel_app_vbp}
 
   Let $\cT$ be a tree with vertex set $\cV = \{1, \ldots, n\}$
   and edge set $\cE$.
@@ -1843,7 +1842,7 @@ We begin with some definitions.
 \begin{remark}
 
   Two important applications of
-  Lemma~\ref{lem:vbp} include
+  Lemma~\ref{lem:kernel_app_vbp} include
   the embedding of a random vector into a stochastic process
   and the coupling of stochastic processes
   onto the same probability space:
@@ -1899,7 +1898,7 @@ We begin with some definitions.
 \end{remark}
 
 \section{Proofs}
-\label{sec:kernel_proofs}
+\label{sec:kernel_app_proofs}
 
 We present full proofs of all the results stated in
 Chapter~\ref{ch:kernel} and Appendix~\ref{app:kernel}.
@@ -1913,7 +1912,7 @@ Other auxiliary lemmas will be introduced when
 they are needed.
 
 \begin{lemma}[Bernstein's inequality for independent random variables]
-  \label{lem:bernstein}
+  \label{lem:kernel_app_bernstein}
 
   Let $X_1, \ldots, X_n$ be independent real-valued
   random variables with
@@ -1934,14 +1933,14 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:bernstein}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_bernstein}]
 
   See for example
   Lemma~2.2.9 in~\citet{van1996weak}.
 \end{proof}
 
 \begin{lemma}[The matrix Bernstein inequality]
-  \label{lem:matrix_bernstein}
+  \label{lem:kernel_app_matrix_bernstein}
 
   For $1 \leq i \leq n$
   let $X_i$ be independent symmetric $d \times d$
@@ -2017,13 +2016,13 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:matrix_bernstein}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_matrix_bernstein}]
 
   See Lemma~3.2 in \citet{minsker2019moment}.
 \end{proof}
 
 \begin{lemma}[A maximal inequality for Gaussian vectors]
-  \label{lem:gaussian_vector_maximal}
+  \label{lem:kernel_app_gaussian_vector_maximal}
 
   Take $n \geq 2$.
   Let $X_i \sim \cN(0, \sigma_i^2)$
@@ -2032,14 +2031,14 @@ they are needed.
   Then
   %
   \begin{align}
-    \label{eq:gaussian_vector_maximal}
+    \label{eq:kernel_app_gaussian_vector_maximal}
     \E\left[
       \max_{1 \leq i \leq n}
       X_i
     \right]
     &\leq
     \sigma \sqrt{2 \log n}, \\
-    \label{eq:gaussian_vector_maximal_abs}
+    \label{eq:kernel_app_gaussian_vector_maximal_abs}
     \E\left[
       \max_{1 \leq i \leq n}
       |X_i|
@@ -2054,7 +2053,7 @@ they are needed.
   then
   %
   \begin{align}
-    \label{eq:gaussian_difference_psd}
+    \label{eq:kernel_app_gaussian_difference_psd}
     \E\Big[
       \big\|
       \Sigma_1^{1/2} N
@@ -2073,7 +2072,7 @@ they are needed.
   then
   %
   \begin{align}
-    \label{eq:gaussian_difference_pd}
+    \label{eq:kernel_app_gaussian_difference_pd}
     \E\Big[
       \big\|
       \Sigma_1^{1/2} N
@@ -2090,7 +2089,7 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:gaussian_vector_maximal}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_gaussian_vector_maximal}]
 
   For $t > 0$,
   Jensen's inequality on the concave logarithm function
@@ -2140,7 +2139,7 @@ they are needed.
   where we use the Gaussian moment generating function.
   Minimizing this upper bound over $t$
   by setting $t = \sqrt{2 \log n} / \sigma$
-  yields Equation~\ref{eq:gaussian_vector_maximal}:
+  yields Equation~\ref{eq:kernel_app_gaussian_vector_maximal}:
   \begin{align*}
     \E\left[
       \max_{1 \leq i \leq n}
@@ -2149,7 +2148,7 @@ they are needed.
     &\leq
     \sigma \sqrt{2 \log n}.
   \end{align*}
-  For Equation~\ref{eq:gaussian_vector_maximal_abs},
+  For Equation~\ref{eq:kernel_app_gaussian_vector_maximal_abs},
   we use the symmetry of the Gaussian distribution:
   \begin{align*}
     \E\left[
@@ -2166,8 +2165,8 @@ they are needed.
     \leq
     2 \sigma \sqrt{\log n}.
   \end{align*}
-  For Equations~\ref{eq:gaussian_difference_psd}
-  and~\ref{eq:gaussian_difference_pd},
+  For Equations~\ref{eq:kernel_app_gaussian_difference_psd}
+  and~\ref{eq:kernel_app_gaussian_difference_pd},
   note that
   $\Sigma_1^{1/2} N - \Sigma_2^{1/2} N$
   is a Gaussian vector with covariance matrix
@@ -2203,7 +2202,7 @@ they are needed.
     \sigma^2.
   \end{align*}
   Applying
-  Equation~\ref{eq:gaussian_vector_maximal_abs}
+  Equation~\ref{eq:kernel_app_gaussian_vector_maximal_abs}
   then gives
   \begin{align*}
     \E\Big[
@@ -2231,7 +2230,7 @@ they are needed.
     \big\|_2^{1/2},
   \end{align*}
   giving
-  Equation~\ref{eq:gaussian_difference_psd}.
+  Equation~\ref{eq:kernel_app_gaussian_difference_psd}.
   If $\Sigma_1$
   is positive definite,
   then by
@@ -2249,11 +2248,11 @@ they are needed.
     \big\|_2,
   \end{align*}
   giving
-  Equation~\ref{eq:gaussian_difference_pd}.
+  Equation~\ref{eq:kernel_app_gaussian_difference_pd}.
 \end{proof}
 
 \begin{lemma}[Maximal inequalities for Gaussian processes]
-  \label{lem:gaussian_process_maximal}
+  \label{lem:kernel_app_gaussian_process_maximal}
 
   Let $Z$ be a separable
   mean-zero Gaussian process indexed
@@ -2300,7 +2299,7 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:gaussian_process_maximal}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_gaussian_process_maximal}]
 
   See Corollary~2.2.8 in \citet{van1996weak},
   noting that for any $x,x' \in \cX$, we have
@@ -2313,7 +2312,7 @@ they are needed.
 \end{proof}
 
 \begin{lemma}[Anti-concentration for Gaussian process absolute suprema]
-  \label{lem:anti-concentration}
+  \label{lem:kernel_app_anticoncentration}
 
   Let $Z$ be a separable mean-zero Gaussian process
   indexed by a semimetric space $\cX$ with
@@ -2342,14 +2341,14 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:anti-concentration}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_anticoncentration}]
 
   See Corollary~2.1
   in \citet{chernozhukov2014anti}.
 \end{proof}
 
 \begin{lemma}[No slowest rate of convergence in probability]
-  \label{lem:slow_convergence}
+  \label{lem:kernel_app_slow_convergence}
 
   Let $X_n$ be a sequence of real-valued random
   variables with
@@ -2362,7 +2361,7 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:slow_convergence}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_slow_convergence}]
 
   Define the following deterministic sequence
   for $k \geq 1$.
@@ -2391,7 +2390,7 @@ they are needed.
 \end{proof}
 
 \begin{lemma}[General second-order Hoeffding-type decomposition]
-  \label{lem:general_hoeffding}
+  \label{lem:kernel_app_general_hoeffding}
 
   Let $\cU$ be a vector space.
   Let $u_{i j} \in \cU$ be defined for
@@ -2420,7 +2419,7 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:general_hoeffding}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_general_hoeffding}]
 
   We compute the left hand side minus the right hand side,
   beginning by observing that all of the
@@ -2473,7 +2472,7 @@ they are needed.
 \end{proof}
 
 \begin{lemma}[A U-statistic concentration inequality]
-  \label{lem:ustat_concentration}
+  \label{lem:kernel_app_ustat_concentration}
 
   Let $(S,\cS)$ be a measurable space and
   $X_1, \ldots, X_n$ be i.i.d.\ $S$-valued random variables.
@@ -2511,13 +2510,13 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:ustat_concentration}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_ustat_concentration}]
 
   See Theorem~2 in \citet{arcones1995bernstein}.
 \end{proof}
 
 \begin{lemma}[A second-order U-process maximal inequality]
-  \label{lem:uprocess_maximal}
+  \label{lem:kernel_app_uprocess_maximal}
 
   Let $X_1 \ldots, X_n$
   be i.i.d.\ random variables taking values
@@ -2593,7 +2592,7 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:uprocess_maximal}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_uprocess_maximal}]
 
   Apply Corollary~5.3
   from \citet{chen2020jackknife}
@@ -2603,7 +2602,7 @@ they are needed.
 \end{proof}
 
 \begin{lemma}[A U-statistic matrix concentration inequality]
-  \label{lem:ustat_matrix_concentration}
+  \label{lem:kernel_app_ustat_matrix_concentration}
 
   Let $X_1, \ldots, X_n$ be i.i.d.\ random variables
   taking values in a measurable space $(S, \cS)$.
@@ -2689,7 +2688,7 @@ they are needed.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:ustat_matrix_concentration}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_ustat_matrix_concentration}]
 
   We apply results from \citet{minsker2019moment}.
 
@@ -2855,20 +2854,20 @@ they are needed.
 \subsection{Technical lemmas}
 
 Before presenting the proof of
-Lemma~\ref{lem:maximal_entropy},
+Lemma~\ref{lem:kernel_app_maximal_entropy},
 we give some auxiliary lemmas;
 namely a symmetrization inequality
-(Lemma~\ref{lem:symmetrization}),
+(Lemma~\ref{lem:kernel_app_symmetrization}),
 a Rademacher contraction principle
-(Lemma~\ref{lem:contraction}),
+(Lemma~\ref{lem:kernel_app_contraction}),
 and a Hoffman--J{\o}rgensen inequality
-(Lemma~\ref{lem:hoffmann}).
+(Lemma~\ref{lem:kernel_app_hoffmann}).
 Recall that the Rademacher distribution
 places probability mass of $1/2$
 on each of the points $-1$ and $1$.
 
 \begin{lemma}[A symmetrization inequality for i.n.i.d.\ variables]
-  \label{lem:symmetrization}
+  \label{lem:kernel_app_symmetrization}
 
   Let $(S, \cS)$ be a measurable space and
   $\cF$ a class of Borel-measurable functions
@@ -2921,7 +2920,7 @@ on each of the points $-1$ and $1$.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:symmetrization}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_symmetrization}]
 
   See Lemma~2.3.6 in
   \citet{van1996weak}.
@@ -2929,7 +2928,7 @@ on each of the points $-1$ and $1$.
 \end{proof}
 
 \begin{lemma}[A Rademacher contraction principle]
-  \label{lem:contraction}
+  \label{lem:kernel_app_contraction}
 
   Let $\varepsilon_1, \ldots, \varepsilon_n$
   be independent Rademacher random variables
@@ -2998,7 +2997,7 @@ on each of the points $-1$ and $1$.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:contraction}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_contraction}]
 
   Apply Theorem~4.12 from \citet{ledoux1991probability} with $F$ the identity
   function and
@@ -3149,7 +3148,7 @@ on each of the points $-1$ and $1$.
 \end{proof}
 
 \begin{lemma}[A Hoffmann--J{\o}rgensen inequality]
-  \label{lem:hoffmann}
+  \label{lem:kernel_app_hoffmann}
 
   Let $(S, \cS)$ be a measurable space
   and $X_1, \ldots, X_n$
@@ -3196,7 +3195,7 @@ on each of the points $-1$ and $1$.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:hoffmann}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_hoffmann}]
 
   We use Talagrand's formulation of
   a Hoffmann--J{\o}rgensen inequality.
@@ -3271,16 +3270,16 @@ on each of the points $-1$ and $1$.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:maximal_entropy}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_maximal_entropy}]
 
   We follow the proof of Theorem~5.2
   from \citet{chernozhukov2014gaussian},
   using our i.n.i.d.\ versions of the symmetrization inequality
-  (Lemma~\ref{lem:symmetrization}),
+  (Lemma~\ref{lem:kernel_app_symmetrization}),
   Rademacher contraction principle
-  (Lemma~\ref{lem:contraction}),
+  (Lemma~\ref{lem:kernel_app_contraction}),
   and Hoffmann--J{\o}rgensen inequality
-  (Lemma~\ref{lem:hoffmann}).
+  (Lemma~\ref{lem:kernel_app_hoffmann}).
 
   Without loss of generality,
   we may assume that $J(1, \cF, F) < \infty$
@@ -3292,7 +3291,7 @@ on each of the points $-1$ and $1$.
   and define the empirical variance bound
   $\sigma_n^2 = \sup_\cF n^{-1} \sum_i f(X_i)^2$.
   By the i.n.i.d.\ symmetrization inequality
-  (Lemma~\ref{lem:symmetrization}),
+  (Lemma~\ref{lem:kernel_app_symmetrization}),
   \begin{align*}
     \E \left[
       \sup_{f \in \cF}
@@ -3371,12 +3370,12 @@ on each of the points $-1$ and $1$.
   \end{align*}
   %
   Now use symmetrization
-  (Lemma~\ref{lem:symmetrization}),
+  (Lemma~\ref{lem:kernel_app_symmetrization}),
   the contraction principle
-  (Lemma~\ref{lem:contraction}),
+  (Lemma~\ref{lem:kernel_app_contraction}),
   the Cauchy--Schwarz inequality,
   and the Hoffmann--J{\o}rgensen inequality
-  (Lemma~\ref{lem:hoffmann})
+  (Lemma~\ref{lem:kernel_app_hoffmann})
   to deduce that
   %
   \begin{align*}
@@ -3519,7 +3518,7 @@ on each of the points $-1$ and $1$.
   the entropy integral $J$.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:maximal_vc_inid}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_maximal_vc_inid}]
 
   We are assuming the VC-type condition that
   \begin{align*}
@@ -3577,16 +3576,16 @@ on each of the points $-1$ and $1$.
   \end{align*}
   %
   The remaining equations now follow
-  by Lemma~\ref{lem:maximal_entropy}.
+  by Lemma~\ref{lem:kernel_app_maximal_entropy}.
 \end{proof}
 
-Before proving Lemma~\ref{lem:kmt_corollary},
+Before proving Lemma~\ref{lem:kernel_app_kmt_corollary},
 we require the characterization
 of bounded-variation functions given in
-Lemma~\ref{lem:bv_characterization}.
+Lemma~\ref{lem:kernel_app_bv_characterization}.
 
 \begin{lemma}[A characterization of bounded-variation functions]
-  \label{lem:bv_characterization}
+  \label{lem:kernel_app_bv_characterization}
 
   Let $\cV_1$ be
   the class of real-valued functions on $[0,1]$
@@ -3623,7 +3622,7 @@ Lemma~\ref{lem:bv_characterization}.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:bv_characterization}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_bv_characterization}]
 
   Firstly, let $\cD \subseteq \cV_1$
   be the class of real-valued functions
@@ -3742,7 +3741,7 @@ Lemma~\ref{lem:bv_characterization}.
   under pointwise convergence.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:kmt_corollary}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_kmt_corollary}]
 
   We follow the Gaussian approximation method given in
   Section~2 of \citet{gine2004kernel}.
@@ -3802,7 +3801,7 @@ Lemma~\ref{lem:bv_characterization}.
   of functions on $[0,1]$
   which are 0 at 1 and have total variation bounded by 1.
   This is achieved by
-  noting that by Lemma~\ref{lem:bv_characterization},
+  noting that by Lemma~\ref{lem:kernel_app_bv_characterization},
   we have
   $\cV_1 \subseteq \overline\symconv \ \cI$
   where $\overline{\symconv} \ \cI$ is the
@@ -3874,7 +3873,7 @@ Lemma~\ref{lem:bv_characterization}.
   Hence we obtain
   %
   \begin{align}
-    \label{eq:kmt_concentration}
+    \label{eq:kernel_app_kmt_concentration}
     \P\left(
       \sup_{g \in \cV_1}
       \big|\alpha_n(g) - \beta_n(g)\big|
@@ -4011,7 +4010,7 @@ Lemma~\ref{lem:bv_characterization}.
     \Big),
   \end{align*}
   %
-  and so by Equation~\ref{eq:kmt_concentration}
+  and so by Equation~\ref{eq:kernel_app_kmt_concentration}
   %
   \begin{align*}
     \P\left(
@@ -4029,7 +4028,7 @@ Lemma~\ref{lem:bv_characterization}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:yurinskii_corollary}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_yurinskii_corollary}]
 
   Take $0 < \delta_n \leq \Leb(\cX_n)$ and let
   $\cX_n^\delta = \big\{ x_1, \dots, x_{|\cX_n^\delta|}\big\}$
@@ -4274,7 +4273,7 @@ Lemma~\ref{lem:bv_characterization}.
   $Z_n^\delta$
   now extends
   by the Vorob'ev--Berkes--Philipp theorem
-  (Lemma~\ref{lem:vbp})
+  (Lemma~\ref{lem:kernel_app_vbp})
   to a mean-zero Gaussian
   process
   $Z_n$ on the compact interval $\cX_n$
@@ -4430,7 +4429,7 @@ Lemma~\ref{lem:bv_characterization}.
   We now apply the maximal inequality
   for i.n.i.d.\ data
   given in
-  Lemma~\ref{lem:maximal_vc_inid}.
+  Lemma~\ref{lem:kernel_app_maximal_vc_inid}.
   To do this,
   note that
   $\sup_{\cG_n^\delta} \|g\|_{\bar\P,2}
@@ -4438,7 +4437,7 @@ Lemma~\ref{lem:bv_characterization}.
   by the $L^2$ Lipschitz condition, and recall
   $\Env(\cG_n^\delta) = l_{n,\infty} \delta_n$.
   Therefore
-  Lemma~\ref{lem:maximal_vc_inid}
+  Lemma~\ref{lem:kernel_app_maximal_vc_inid}
   with
   $\|F\|_{\bar\P,2} = l_{n,\infty} \delta_n$,
   $\|M\|_{\P,2} = l_{n,\infty} \delta_n$,
@@ -4549,7 +4548,7 @@ Lemma~\ref{lem:bv_characterization}.
   l_{n,2} \, |x - x'|$.
   By
   the Gaussian process maximal inequality from
-  Lemma~\ref{lem:gaussian_process_maximal},
+  Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   we obtain that
   \begin{align*}
     &\E\bigg[
@@ -4724,7 +4723,7 @@ Lemma~\ref{lem:bv_characterization}.
   %
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:vbp}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_vbp}]
 
   The proof is by induction on the number of vertices in the tree.
   Let $\cT$ have $n$ vertices,
@@ -4768,7 +4767,7 @@ counterfactual estimation.
 We begin with a basic fact about Lipschitz functions.
 
 \begin{lemma}[Lipschitz kernels are bounded]
-  \label{lem:lipschitz_kernels_bounded}
+  \label{lem:kernel_app_lipschitz_kernels_bounded}
 
   Let $\cX \subseteq \R$ be a connected set.
   Let $f: \cX \to \R$ satisfy the Lipschitz condition
@@ -4799,14 +4798,14 @@ We begin with a basic fact about Lipschitz functions.
 
 \end{lemma}
 
-Applying Lemma~\ref{lem:lipschitz_kernels_bounded}
+Applying Lemma~\ref{lem:kernel_app_lipschitz_kernels_bounded}
 to the density and kernel functions defined in
 Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
 yields the following.
 Firstly, since $k_h(\cdot, w)$ is $C_\rL / h^2$-Lipschitz
 on $[w \pm h] \cap \cW$ and integrates to one,
 we have by the first inequality in
-Lemma~\ref{lem:lipschitz_kernels_bounded} that
+Lemma~\ref{lem:kernel_app_lipschitz_kernels_bounded} that
 \begin{align*}
   |k_h(s,w)|
   &\leq \frac{2 C_\rL + 1}{h} + \frac{1}{\Leb(\cW)}.
@@ -4818,7 +4817,7 @@ $f_W$ is non-negative, and $C_\rH$-Lipschitz on $\cW$
 and integrates to at most one over $\cW$,
 taking $M = \frac{1}{\sqrt{C_\rH}} \wedge \Leb(\cW)$
 in the second inequality in
-Lemma~\ref{lem:lipschitz_kernels_bounded}
+Lemma~\ref{lem:kernel_app_lipschitz_kernels_bounded}
 gives
 \begin{align*}
   f_{W \mid AA}(w \mid a,a')
@@ -4829,7 +4828,7 @@ gives
   &\leq 2 \sqrt{C_\rH} + \frac{1}{\Leb(\cW)}.
 \end{align*}
 
-\begin{proof}[Lemma~\ref{lem:lipschitz_kernels_bounded}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_lipschitz_kernels_bounded}]
 
   We begin with the first inequality.
   Note that if $\Leb(\cX) = \infty$ there is nothing to prove.
@@ -5114,7 +5113,7 @@ gives
     \Big)
   \end{align*}
   %
-  and apply Lemma~\ref{lem:general_hoeffding} with
+  and apply Lemma~\ref{lem:kernel_app_general_hoeffding} with
   %
   \begin{align*}
     u_{i j}
@@ -5648,7 +5647,7 @@ gives
   $\sqrt{n}L_n$
   is the empirical process of the i.i.d.\ variables $A_i$
   indexed by $\cF_3$.
-  We apply Lemma~\ref{lem:maximal_vc_inid}
+  We apply Lemma~\ref{lem:kernel_app_maximal_vc_inid}
   with $\sigma = C_4$:
   \begin{align*}
     \E \left[
@@ -5685,7 +5684,7 @@ gives
   indexed by $\cF_2$.
   This function class is again uniformly bounded and VC-type,
   so applying the U-process maximal inequality from
-  Lemma~\ref{lem:uprocess_maximal}
+  Lemma~\ref{lem:kernel_app_uprocess_maximal}
   yields with $\sigma = C_4$
   \begin{align*}
     \E \left[
@@ -5708,7 +5707,7 @@ gives
   is the empirical process of the conditionally
   i.n.i.d.\ variables $W_{i j}$
   indexed by $\cF_1$.
-  We apply Lemma~\ref{lem:maximal_vc_inid}
+  We apply Lemma~\ref{lem:kernel_app_maximal_vc_inid}
   conditionally with
   \begin{align*}
     \sigma^2
@@ -5777,10 +5776,10 @@ gives
 Before proving Theorem~\ref{thm:kernel_minimax}
 we first give a lower bound result
 for parametric point estimation in
-Lemma~\ref{lem:neyman_pearson_bernoulli}.
+Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
 
 \begin{lemma}[A Neyman--Pearson result for Bernoulli random variables]
-  \label{lem:neyman_pearson_bernoulli}
+  \label{lem:kernel_app_neyman_pearson_bernoulli}
 
   Recall that the Bernoulli distribution
   $\Ber(\theta)$
@@ -5813,7 +5812,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:neyman_pearson_bernoulli}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}]
 
   Let $f: \{0,1\}^n \to \{0,1\}$
   be any function.
@@ -6078,7 +6077,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \right|.
   \end{align*}
   Now we apply the point estimation lower bound from
-  Lemma~\ref{lem:neyman_pearson_bernoulli},
+  Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli},
   setting $\theta_0 = \frac{1}{2}$
   and $\theta_{1,n} = \frac{1}{2} + \frac{1}{\sqrt{8n}}$,
   noting that the estimator
@@ -6290,7 +6289,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:covariance_structure}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_covariance_structure}]
 
   We write $k_{i j}$ for $k_h(W_{i j},w)$
   and $k_{i j}'$ for $k_h(W_{i j},w')$, in the interest of brevity.
@@ -6431,7 +6430,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
 \begin{proof}[Lemma~\ref{lem:variance_bounds}]
 
-  By Lemma~\ref{lem:covariance_structure},
+  By Lemma~\ref{lem:kernel_app_covariance_structure},
   the diagonal elements of $\Sigma_n$ are
   \begin{align*}
     \Sigma_n(w,w)
@@ -6561,11 +6560,11 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:app_strong_approx_Ln}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_strong_approx_Ln}]
 
   For the strong approximation,
   apply the KMT corollary from
-  Lemma~\ref{lem:kmt_corollary}.
+  Lemma~\ref{lem:kernel_app_kmt_corollary}.
   Define
   %
   \begin{align*}
@@ -6627,7 +6626,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   %
   where the last line is by observing that the total variation
   is zero whenever $\Du = 0$.
-  Hence by Lemma~\ref{lem:kmt_corollary}
+  Hence by Lemma~\ref{lem:kernel_app_kmt_corollary}
   there exist (on some probability space)
   $n$ independent copies of $A_i$,
   denoted $A_i'$
@@ -6742,7 +6741,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   Therefore by
   the regularity result for Gaussian processes in
-  Lemma~\ref{lem:gaussian_process_maximal},
+  Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   with $\delta_n \in (0, 1/2]$:
   \begin{align*}
     \E\left[
@@ -6769,7 +6768,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   by Kolmogorov's continuity criterion
   \citep[Theorem~2.9]{legall2016brownian}.
   Note that $L_n'$ is $\bA_n'$-measurable
-  and so by Lemma~\ref{lem:kmt_corollary}
+  and so by Lemma~\ref{lem:kernel_app_kmt_corollary}
   we can assume that $Z_n^{L\prime}$
   depends only on $\bA_n'$ and some
   random noise which is independent of
@@ -6784,7 +6783,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   indexed on
   the compact interval $\cW$.
   Hence the Vorob'ev--Berkes--Philipp theorem
-  (Lemma~\ref{lem:vbp})
+  (Lemma~\ref{lem:kernel_app_vbp})
   allows us to ``glue'' them together
   in the desired way
   on another new probability space, giving
@@ -6793,12 +6792,12 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:strong_approx_Ln}]
-  See Lemma~\ref{lem:app_strong_approx_Ln}
+  See Lemma~\ref{lem:kernel_app_strong_approx_Ln}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:app_conditional_strong_approx_En}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_conditional_strong_approx_En}]
 
-  We apply Lemma~\ref{lem:yurinskii_corollary} conditional on
+  We apply Lemma~\ref{lem:kernel_app_yurinskii_corollary} conditional on
   $\bA_n$. While this lemma is not in its current form
   stated for conditional distributions,
   the Yurinskii coupling on which it depends can be readily extended
@@ -6807,7 +6806,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \cite[Theorem~B.2]{chen2020jackknife}.
   Care must similarly be taken in embedding the conditionally Gaussian vectors
   into a conditionally Gaussian process, using the
-  Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:vbp}).
+  Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:kernel_app_vbp}).
 
   By the mutual independence of $A_i$ and $V_{i j}$,
   we have that the observations
@@ -6859,7 +6858,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   %
   So we apply
-  Lemma~\ref{lem:yurinskii_corollary}
+  Lemma~\ref{lem:kernel_app_yurinskii_corollary}
   conditionally on $\bA_n$
   to the $\frac{1}{2}n(n-1)$ observations,
   noting that
@@ -7000,7 +6999,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     h^{-1} |w-w'|.
   \end{align*}
   So by the regularity result for Gaussian processes in
-  Lemma~\ref{lem:gaussian_process_maximal},
+  Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   with $\delta_n \in (0, 1/(2h)]$:
   \begin{align*}
     \E\left[
@@ -7025,7 +7024,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   we note that $\bA_n$ and $\bV_n$ are random vectors
   while $E_n'$ and $\tilde Z_n^{E\prime}$ are stochastic processes
   with continuous sample paths indexed on the compact interval $\cW$.
-  Hence the Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:vbp})
+  Hence the Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:kernel_app_vbp})
   allows us to ``glue together'' $\big(\bA_n, \bV_n, E_n\big)$
   and $\big(E_n', \tilde Z_n^{E\prime}\big)$
   in the desired way on another new probability space, giving
@@ -7039,10 +7038,10 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:conditional_strong_approx_En}]
-  See Lemma~\ref{lem:app_conditional_strong_approx_En}
+  See Lemma~\ref{lem:kernel_app_conditional_strong_approx_En}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:app_unconditional_strong_approx_En}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_unconditional_strong_approx_En}]
 
   \proofparagraph{defining $Z_n^{E\dprime}$}
 
@@ -7080,7 +7079,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   conditional on $\bA_n'$.
   Extend it using
   the Vorob'ev--Berkes--Philipp theorem
-  (Lemma~\ref{lem:vbp})
+  (Lemma~\ref{lem:kernel_app_vbp})
   to the compact interval $\cW$,
   giving a conditionally Gaussian process
   $\tilde Z_n^{E\dprime}$
@@ -7092,7 +7091,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   noting that this is independent of $\bA_n'$,
   and extend it using
   the Vorob'ev--Berkes--Philipp theorem
-  (Lemma~\ref{lem:vbp})
+  (Lemma~\ref{lem:kernel_app_vbp})
   to a Gaussian process
   $Z_n^{E\dprime}$ on the compact interval $\cW$,
   which is independent of $\bA_n'$
@@ -7111,7 +7110,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     - \big(\Sigma^E_{n,\delta}\big)^{1/2}
   \big)^2$.
   So by the Gaussian maximal inequality in
-  Lemma~\ref{lem:gaussian_vector_maximal}
+  Lemma~\ref{lem:kernel_app_gaussian_vector_maximal}
   applied conditionally on $\bA_n'$,
   we have
   \begin{align*}
@@ -7133,7 +7132,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   with the aim of applying the
   matrix concentration result
   for second-order U-statistics
-  presented in Lemma~\ref{lem:ustat_matrix_concentration}.
+  presented in Lemma~\ref{lem:kernel_app_ustat_matrix_concentration}.
   Firstly we note that
   since
   the conditional covariance structures of
@@ -7206,7 +7205,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Let $u(A_i) = \E[u(A_i, A_j) \mid A_i]$ and
   $u = \E[u(A_i, A_j)]$.
   The following Hoeffding decomposition holds,
-  by Lemma~\ref{lem:general_hoeffding}:
+  by Lemma~\ref{lem:kernel_app_general_hoeffding}:
   \begin{align*}
     \tilde \Sigma^E_{n,\delta} - \Sigma^E_{n,\delta}
     &=
@@ -7328,7 +7327,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   Clearly the same bound holds for
   $\|u(A_i)\|_2$ and $\|u\|_2$, by Jensen's inequality.
   Therefore applying the matrix Bernstein inequality
-  (Lemma~\ref{lem:matrix_bernstein})
+  (Lemma~\ref{lem:kernel_app_matrix_bernstein})
   to the zero-mean matrix $\tilde L$ gives
   \begin{align*}
     \E\left[
@@ -7347,7 +7346,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \sqrt{\frac{\log n}{n}}.
   \end{align*}
   Applying the matrix U-statistic concentration inequality
-  (Lemma~\ref{lem:ustat_matrix_concentration})
+  (Lemma~\ref{lem:kernel_app_ustat_matrix_concentration})
   to the zero-mean matrix $\tilde Q$ gives
   \begin{align*}
     \E\left[
@@ -7458,7 +7457,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   uniformly in $\bA_n'$,
   where the last line was shown in
-  the proof of Lemma~\ref{lem:app_conditional_strong_approx_En}.
+  the proof of Lemma~\ref{lem:kernel_app_conditional_strong_approx_En}.
   Note that also
   \begin{align*}
     \rho(w, w')
@@ -7468,7 +7467,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     h^{-1}
     |w-w'|.
   \end{align*}
-  Thus Lemma~\ref{lem:gaussian_process_maximal}
+  Thus Lemma~\ref{lem:kernel_app_gaussian_process_maximal}
   applies directly to $Z_n^E$
   and conditionally to $\tilde Z_n^{E\prime}$,
   with $\delta_n \in (0, 1/(2h)]$,
@@ -7545,17 +7544,17 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   %
   Independence of $Z_n^{E\dprime}$ and $\bA_n''$
   follows by applying the
-  Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:vbp}),
+  Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:kernel_app_vbp}),
   conditionally on $\bA_n'$, to the random variables
   $\big(\bA_n', \tilde Z_n^{E\prime}\big)$ and
   $\big(\tilde Z_n^{E\dprime}, Z_n^{E\dprime}\big)$.
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:unconditional_strong_approx_En}]
-  See Lemma~\ref{lem:app_unconditional_strong_approx_En}
+  See Lemma~\ref{lem:kernel_app_unconditional_strong_approx_En}
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:app_strong_approx_fW}]
+\begin{proof}[Theorem~\ref{thm:kernel_app_strong_approx_fW}]
 
   We add together the strong approximations
   for the $L_n$ and $E_n$ terms,
@@ -7566,18 +7565,18 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   Let $\big(\bA_n', \bV_n', L_n', Z_n^{L\prime}\big)$
   be the strong approximation for $L_n$
-  derived in Lemma~\ref{lem:app_strong_approx_Ln}.
+  derived in Lemma~\ref{lem:kernel_app_strong_approx_Ln}.
   Let $\big(\bA_n'', \bV_n'', E_n'', \tilde Z_n^{E\dprime}\big)$
   and
   $\big(\bA_n''', \bV_n''', \tilde Z_n^{E\tprime}, Z_n^{E\tprime}\big)$
   be the conditional and unconditional strong approximations for $E_n$
-  given in Lemmas~\ref{lem:app_conditional_strong_approx_En}
-  and \ref{lem:app_unconditional_strong_approx_En}
+  given in Lemmas~\ref{lem:kernel_app_conditional_strong_approx_En}
+  and \ref{lem:kernel_app_unconditional_strong_approx_En}
   respectively.
   The first step is to define copies of these variables
   and processes on the same probability space.
   This is achieved by applying the
-  Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:vbp}).
+  Vorob'ev--Berkes--Philipp theorem (Lemma~\ref{lem:kernel_app_vbp}).
   Dropping the prime notation for clarity, we construct
   $\big(\bA_n, \bV_n, L_n, Z_n^L, E_n, \tilde Z_n^E, Z_n^E\big)$
   with the following properties:
@@ -7642,7 +7641,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   the process
   $Q_n(w)$ is uniformly Lipschitz
   and uniformly bounded in $w$.
-  Thus by Lemma~\ref{lem:gaussian_process_maximal},
+  Thus by Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   we have
   $\E\big[\sup_{w \in \cW}
   |Z_n^Q(w)|\big]
@@ -7735,7 +7734,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     {\sqrt{\Sigma_n(w,w)}}.
   \end{align*}
   %
-  By Theorems~\ref{thm:app_strong_approx_fW} and \ref{thm:kernel_bias},
+  By Theorems~\ref{thm:kernel_app_strong_approx_fW} and \ref{thm:kernel_bias},
   the numerator can be bounded above by
   %
   \begin{align*}
@@ -7803,7 +7802,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 
   Writing $k_{i j}'$
   for $k_h(W_{i j},w')$ etc.,
-  note that by Lemma~\ref{lem:covariance_structure},
+  note that by Lemma~\ref{lem:kernel_app_covariance_structure},
   \begin{align*}
     &\big|
     \Sigma_n(w,w')
@@ -7995,7 +7994,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   %
   Now apply the Gaussian process regularity result from
-  Lemma~\ref{lem:gaussian_process_maximal}.
+  Lemma~\ref{lem:kernel_app_gaussian_process_maximal}.
   \begin{align*}
     \E\left[
       \sup_{\rho(w,w') \leq \delta}
@@ -8045,7 +8044,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \proofparagraph{existence of the quantile}
 
   Apply the Gaussian anti-concentration
-  result from Lemma~\ref{lem:anti-concentration},
+  result from Lemma~\ref{lem:kernel_app_anticoncentration},
   noting that $Z_n^T$ is separable,
   mean-zero, and has unit variance:
   \begin{align*}
@@ -8069,7 +8068,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
   \end{align*}
   To bound the supremum on the right hand side,
   apply the Gaussian process maximal inequality from
-  Lemma~\ref{lem:gaussian_process_maximal}
+  Lemma~\ref{lem:kernel_app_gaussian_process_maximal}
   with
   $\sigma \leq 1$ and
   $N(\varepsilon, \cW, \rho) \lesssim n^2 h^{-2} \varepsilon^{-2}$:
@@ -8126,7 +8125,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
     \ll \frac{1}{\sqrt{\log n}}.
   \end{align*}
   %
-  So by Lemma~\ref{lem:slow_convergence}, take $\varepsilon_n$ such that
+  So by Lemma~\ref{lem:kernel_app_slow_convergence}, take $\varepsilon_n$ such that
   %
   \begin{align*}
     \P \left(
@@ -8258,7 +8257,7 @@ Lemma~\ref{lem:neyman_pearson_bernoulli}.
 \end{proof}
 
 Before proving
-Lemma~\ref{lem:covariance_estimation},
+Lemma~\ref{lem:kernel_app_covariance_estimation},
 we provide the following useful
 concentration inequality.
 This is essentially a corollary of the
@@ -8266,7 +8265,7 @@ U-statistic concentration inequality given in
 Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{lemma}[A concentration inequality]
-  \label{lem:dyadic_concentration}
+  \label{lem:kernel_app_dyadic_concentration}
 
   Let $X_{i j}$ be mutually independent for $1 \leq i < j \leq n$
   taking values in a measurable space $\cX$.
@@ -8317,7 +8316,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \end{lemma}
 
-\begin{proof}[Lemma~\ref{lem:dyadic_concentration}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_dyadic_concentration}]
 
   We proceed in three main steps.
   Firstly we write $S_n$ as a second-order U-statistic
@@ -8636,7 +8635,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:covariance_estimation}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_covariance_estimation}]
 
   Throughout this proof we will write
   $k_{i j}$ for $k_h(W_{i j},w)$ and
@@ -8849,7 +8848,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \lesssim n^4 \varepsilon^{-1}.
   \end{align*}
   %
-  Thus by Lemma~\ref{lem:maximal_vc_inid},
+  Thus by Lemma~\ref{lem:kernel_app_maximal_vc_inid},
   %
   \begin{align*}
     \E \left[
@@ -8967,7 +8966,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \big)
       \E[k_{i j} \mid \bA_n]
     \Big) \\
-    \label{eq:Sijr1_decomp1}
+    \label{eq:kernel_app_Sijr1_decomp1}
     &\quad=
     \frac{6}{n(n-1)(n-2)}
     \sum_{i<j<r}
@@ -8979,7 +8978,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       k_{i r}'
       - \E[k_{i r}' \mid \bA_n]
     \Big) \\
-    \label{eq:Sijr1_decomp2}
+    \label{eq:kernel_app_Sijr1_decomp2}
     &\qquad+
     \frac{2}{(n-1)(n-2)}
     \sum_{i=1}^{n-2}
@@ -8991,7 +8990,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \cdot \frac{3}{n}
     \sum_{r=j+1}^n
     \E[k_{i r}' \mid \bA_n] \\
-    \label{eq:Sijr1_decomp3}
+    \label{eq:kernel_app_Sijr1_decomp3}
     &\qquad+
     \frac{2}{(n-1)(n-2)}
     \sum_{i=1}^{n-2}
@@ -9004,7 +9003,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sum_{j=i+1}^{r-1}
     \E[k_{i j} \mid \bA_n].
   \end{align}
-  For the term in~(\ref{eq:Sijr1_decomp1}),
+  For the term in~(\ref{eq:kernel_app_Sijr1_decomp1}),
   note that conditional on $\bA_n$,
   we have that
   $k_{i j} - \E[k_{i j} \mid \bA_n]$
@@ -9017,7 +9016,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $|k_{i j}| \lesssim M := 1/h$
   uniformly.
   The same is true for $k_{i j}'$.
-  Thus by Lemma~\ref{lem:dyadic_concentration}
+  Thus by Lemma~\ref{lem:kernel_app_dyadic_concentration}
   for some universal constant $C_1 > 0$:
   \begin{align*}
     &\P\left(
@@ -9126,14 +9125,14 @@ Theorem~3.3 in \citet{gine2000exponential}.
     n^{-t^{2/3} / C_2}.
   \end{align*}
   Now for the term
-  in~(\ref{eq:Sijr1_decomp2}),
+  in~(\ref{eq:kernel_app_Sijr1_decomp2}),
   note that
   $\frac{3}{n} \sum_{r=j+1}^n \E[k_{i r}' \mid \bA_n]$
   is $\bA_n$-measurable and bounded uniformly in $i,j$.
   Also, using the previously established conditional variance
   and almost sure bounds on $k_{i j}$,
   Bernstein's inequality
-  (Lemma~\ref{lem:bernstein})
+  (Lemma~\ref{lem:kernel_app_bernstein})
   applied conditionally
   gives for some constant $C_3 > 0$
   \begin{align*}
@@ -9171,7 +9170,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     =
     2 n^{-t^2 / C_3}.
   \end{align*}
-  The term in~(\ref{eq:Sijr1_decomp3})
+  The term in~(\ref{eq:kernel_app_Sijr1_decomp3})
   is controlled in exactly the same way.
   Putting these together, noting the symmetry in $i,j,r$
   and taking a marginal expectation,
@@ -9213,7 +9212,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{pointwise concentration of the $S_{i j r}^{(2)}$ term}
 
   We apply the U-statistic concentration inequality from
-  Lemma~\ref{lem:ustat_concentration}.
+  Lemma~\ref{lem:kernel_app_ustat_concentration}.
   Note that the terms
   $\E[S_{i j r} \mid \bA_n]$
   are permutation-symmetric functions of
@@ -9223,7 +9222,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   a (non-degenerate) mean-zero third-order U-statistic.
   While we could apply a third-order Hoeffding decomposition
   here to achieve degeneracy,
-  it is unnecessary as Lemma~\ref{lem:ustat_concentration}
+  it is unnecessary as Lemma~\ref{lem:kernel_app_ustat_concentration}
   is general enough to deal with the non-degenerate case directly.
   The quantity of interest here is
   \begin{align*}
@@ -9279,7 +9278,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     n \Sigma_n(w,w) + n \Sigma_n(w',w').
   \end{align*}
   %
-  So Lemma~\ref{lem:ustat_concentration}
+  So Lemma~\ref{lem:kernel_app_ustat_concentration}
   and Lemma~\ref{lem:variance_bounds}
   give the pointwise concentration inequality
   %
@@ -9535,7 +9534,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and the conditional variance bound
   $\E\big[\big( S_{i j}^{(1)} \big)^2 \mid \bA_n \big] \lesssim h^{-3}$.
   Therefore applying Bernstein's inequality
-  (Lemma~\ref{lem:bernstein})
+  (Lemma~\ref{lem:kernel_app_bernstein})
   conditional on $\bA_n$,
   we obtain the pointwise in $w,w'$
   concentration inequality
@@ -9573,7 +9572,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{pointwise concentration of the $S_{i j}^{(2)}$ term}
 
   We apply the U-statistic concentration inequality from
-  Lemma~\ref{lem:ustat_concentration}.
+  Lemma~\ref{lem:kernel_app_ustat_concentration}.
   Note that $S_{i j}^{(2)}$
   are permutation-symmetric functions of
   the random variables
@@ -9584,7 +9583,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\big|S_{i j}^{(2)}\big| \lesssim h^{-1}$
   and so trivially
   $\E\big[\E[S_{i j}^{(2)} \mid A_i ]^2 \big] \lesssim h^{-2}$.
-  Thus by Lemma~\ref{lem:ustat_concentration},
+  Thus by Lemma~\ref{lem:kernel_app_ustat_concentration},
   since the order of this U-statistic is fixed at two,
   for some universal positive constant $C_7$ we have
   \begin{align*}
@@ -9803,7 +9802,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:alternative_covariance_estimator}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_alternative_covariance_estimator}]
 
   Since there is no ambiguity,
   we may understand
@@ -9888,12 +9887,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and the result follows.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:app_sdp}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_sdp}]
 
   Firstly we prove that the true covariance function
   $\Sigma_n$
   is feasible for the optimization problem
-  (\ref{eq:app_sdp}) in the sense that it satisfies the constraints.
+  (\ref{eq:kernel_app_sdp}) in the sense that it satisfies the constraints.
   Clearly as a covariance function,
   $\Sigma_n$ is symmetric and positive semi-definite.
   The Lipschitz constraint is satisfied because
@@ -9914,7 +9913,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   for all $w,w',w'' \in \cW$.
   Denote the (random) objective function
-  in (\ref{eq:app_sdp}) by
+  in (\ref{eq:kernel_app_sdp}) by
   %
   \begin{align*}
     \objective(M) = \sup_{w,w' \in \cW}
@@ -9924,7 +9923,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right|.
   \end{align*}
   %
-  By Lemma~\ref{lem:covariance_estimation}
+  By Lemma~\ref{lem:kernel_app_covariance_estimation}
   with $w = w'$ we deduce that
   $\sup_{w \in \cW}
   \left|\frac{\hat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
@@ -9989,11 +9988,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:variance_estimator_bounds}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_variance_estimator_bounds}]
 
   Since $\hat \Sigma_n^+$ is positive semi-definite,
   we must have $\hat \Sigma_n^+(w,w) \geq 0$.
-  Now Lemma~\ref{lem:app_sdp}
+  Now Lemma~\ref{lem:kernel_app_sdp}
   implies that for all $\varepsilon \in (0,1)$
   there exists a $C_\varepsilon$ such that
   %
@@ -10059,11 +10058,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
 \end{proof}
 
 \begin{proof}[Lemma~\ref{lem:sdp}]
-  See Lemma~\ref{lem:covariance_estimation}
-  and Lemma~\ref{lem:app_sdp}.
+  See Lemma~\ref{lem:kernel_app_covariance_estimation}
+  and Lemma~\ref{lem:kernel_app_sdp}.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:studentized_t_statistic}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_studentized_t_statistic}]
   \begin{align*}
     \sup_{w \in \cW}
     \left| \hat T_n(w) - T_n(w) \right|
@@ -10097,7 +10096,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \right|.
   \end{align*}
   %
-  Now from the proof of Lemma~\ref{lem:covariance_estimation} we have that
+  Now from the proof of Lemma~\ref{lem:kernel_app_covariance_estimation} we have that
   $\sup_{w \in \cW} \left|
   \frac{\hat f_W(w) - \E\big[\hat f_W(w)\big]}
   {\sqrt{\Sigma_n(w,w)}} \right|
@@ -10111,8 +10110,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \lesssim \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$, and
   $\sup_{w \in \cW} \hat \Sigma_n^+(w,w)^{-1/2}
   \lesssim_\P \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$
-  by Lemma~\ref{lem:variance_estimator_bounds}.
-  Thus, applying Lemma~\ref{lem:app_sdp} to control the
+  by Lemma~\ref{lem:kernel_app_variance_estimator_bounds}.
+  Thus, applying Lemma~\ref{lem:kernel_app_sdp} to control the
   covariance estimation error,
   \begin{align*}
     \sup_{w \in \cW}
@@ -10133,7 +10132,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:distributional_approx_feasible_gaussian}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian}]
 
   Firstly note that $\hat Z_n^T$ exists
   by noting that $\hat \Sigma_n^+(w,w')$ and therefore also
@@ -10207,12 +10206,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
   For the first term, note that
   $\inf_{w \in \cW} \hat \Sigma_n^+(w,w)
   \gtrsim \frac{\Dl^2}{n} + \frac{1}{n^2h}$
-  by Lemma~\ref{lem:variance_estimator_bounds} and also
+  by Lemma~\ref{lem:kernel_app_variance_estimator_bounds} and also
   $\sup_{w \in \cW}
   \left|\frac{\hat \Sigma_n(w,w)}{\Sigma_n(w,w)} - 1\right|
   \lesssim_\P \sqrt{h \log n}$
-  by the proof of Lemma~\ref{lem:app_sdp}.
-  Thus by Lemma~\ref{lem:app_sdp},
+  by the proof of Lemma~\ref{lem:kernel_app_sdp}.
+  Thus by Lemma~\ref{lem:kernel_app_sdp},
   %
   \begin{align*}
     &\sup_{w, w' \in \cW}
@@ -10366,7 +10365,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   \proofparagraph{conditional $L^2$ regularity of $\hat Z_n^T$}
 
-  By Lemma~\ref{lem:app_sdp},
+  By Lemma~\ref{lem:kernel_app_sdp},
   with $n h \gtrsim \log n$,
   we have
   uniformly in $w,w'$,
@@ -10380,7 +10379,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   Taking
   $\delta_n \leq n^{-2} h^2$,
-  Lemma~\ref{lem:variance_estimator_bounds}
+  Lemma~\ref{lem:kernel_app_variance_estimator_bounds}
   gives
   \begin{align*}
     \inf_{|w-w'| \leq \delta_n}
@@ -10442,7 +10441,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   Just as for $Z_n^T$
   in the proof of Theorem~\ref{thm:infeasible_ucb}
-  we apply Lemma~\ref{lem:gaussian_process_maximal},
+  we apply Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   this time conditionally,
   to obtain that also
   \begin{align*}
@@ -10755,13 +10754,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:feasible_gaussian_approx}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_feasible_gaussian_approx}]
 
   \proofparagraph{Kolmogorov--Smirnov approximation}
 
   Let $Z_n^T$ and $\hat Z_n^T$ be defined
   as in the proof of
-  Lemma~\ref{lem:distributional_approx_feasible_gaussian}.
+  Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian}.
   Write
   \begin{align*}
     r_n
@@ -10770,7 +10769,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\Dl^{1/3} + (n h)^{-1/6}}
   \end{align*}
   for the rate of approximation from
-  Lemma~\ref{lem:distributional_approx_feasible_gaussian}.
+  Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian}.
   Then for any $\varepsilon_n > 0$ and
   uniformly in $t \in \R$:
   \begin{align*}
@@ -10855,10 +10854,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   %
   where in the last line we used the anti-concentration result
-  from Lemma~\ref{lem:anti-concentration}
+  from Lemma~\ref{lem:kernel_app_anticoncentration}
   applied to $Z_n^T$,
   as in the proof of
-  Lemma~\ref{lem:distributional_approx_feasible_gaussian}.
+  Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian}.
   The corresponding lower bound is as follows:
   \begin{align*}
     &\P\left(
@@ -10946,7 +10945,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   To control the remaining term,
   note that by
   Theorem~\ref{thm:strong_approx_Tn}
-  and Lemma~\ref{lem:studentized_t_statistic},
+  and Lemma~\ref{lem:kernel_app_studentized_t_statistic},
   %
   \begin{align*}
     &\sup_{w \in \cW}
@@ -11004,7 +11003,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   by some appropriate choice of $\varepsilon_n$
   whenever
   $r_n \to 0$ and $r_n' \sqrt{\log n} \to 0$,
-  by Lemma~\ref{lem:slow_convergence}, along with
+  by Lemma~\ref{lem:kernel_app_slow_convergence}, along with
   a sufficiently slowly diverging sequence $R_n$.
   Explicitly, we require the following.
   %
@@ -11077,13 +11076,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{existence of the conditional quantile}
 
   We argue as in the proof of
-  Lemma~\ref{lem:distributional_approx_feasible_gaussian},
+  Lemma~\ref{lem:kernel_app_distributional_approx_feasible_gaussian},
   now also conditioning on the data.
   In particular, using the anti-concentration result from
-  Lemma~\ref{lem:anti-concentration},
+  Lemma~\ref{lem:kernel_app_anticoncentration},
   the regularity property of $\hat Z_n^T$,
   and the Gaussian process maximal inequality from
-  Lemma~\ref{lem:gaussian_process_maximal},
+  Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   we see that for any $\varepsilon > 0$,
   %
   \begin{align*}
@@ -11134,7 +11133,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
       \leq t
     \right),
   \end{align*}
-  along with their well-defined right-quantile functions,
+  along with their well defined right-quantile functions,
   \begin{align*}
     F_Z^{-1}(p \mid \bW_n)
     &=
@@ -11164,7 +11163,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\hat q_{1-\alpha} = F_Z^{-1}(1-\alpha \mid \bW_n)$,
   so that
   $F_Z(\hat q_{1-\alpha} \mid \bW_n) = 1-\alpha$.
-  By Lemma~\ref{lem:feasible_gaussian_approx},
+  By Lemma~\ref{lem:kernel_app_feasible_gaussian_approx},
   we have that
   \begin{align*}
     \sup_{t \in \R}
@@ -11174,7 +11173,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &=
     o_\P(1)
   \end{align*}
-  Thus by Lemma~\ref{lem:slow_convergence},
+  Thus by Lemma~\ref{lem:kernel_app_slow_convergence},
   this can be replaced by
   %
   \begin{align*}
@@ -11259,7 +11258,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   %
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:counterfactual_bias}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_counterfactual_bias}]
 
   Writing
   $k_{i j} = k_h(W_{i j}^1, w)$,
@@ -11329,7 +11328,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   %
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:counterfactual_hoeffding}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_counterfactual_hoeffding}]
   %
   \begin{align*}
     \hat f_W^{1 \triangleright 0}(w)
@@ -11449,7 +11448,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   $\E[k_{i j} \mid A_i^1, A_j^1]$
   is Lipschitz in $w$,
   we deduce by
-  Lemma~\ref{lem:uprocess_maximal}
+  Lemma~\ref{lem:kernel_app_uprocess_maximal}
   and Proposition~2.3 of
   \citet{arcones1993limit} that
   $\sup_{w \in \cW} |Q_n^{1 \triangleright 0}(w)
@@ -11457,12 +11456,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
   %
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:counterfactual_uniform_consistency}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_counterfactual_uniform_consistency}]
 
-  By Lemma~\ref{lem:maximal_vc_inid},
+  By Lemma~\ref{lem:kernel_app_maximal_vc_inid},
   $\sup_{w \in \cW} \big|L_n^{1 \triangleright 0}(w)\big|
   \lesssim_\P \frac{1}{\sqrt n}$.
-  In the proof of Lemma~\ref{lem:counterfactual_hoeffding}
+  In the proof of Lemma~\ref{lem:kernel_app_counterfactual_hoeffding}
   the terms $v_{i j r} - u_{i j r}$ depend only on
   $V_{i j}$, $V_{i r}$, and $V_{jr}$
   after conditioning on $\bA_n^1$, $\bX_n^0$, and $\bX_n^1$.
@@ -11470,11 +11469,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
   U-statistic so
   $\sup_{w \in \cW} \big|E_n^{1 \triangleright 0}(w)\big|
   \lesssim_\P \sqrt{\frac{\log n}{n^2h}}$
-  by Lemma~\ref{lem:uprocess_maximal}.
+  by Lemma~\ref{lem:kernel_app_uprocess_maximal}.
   %
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:counterfactual_sa}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_counterfactual_sa}]
 
   Note that
   $L_n^{1 \triangleright 0}(w)
@@ -11494,7 +11493,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Thus
   $l_i^{1 \triangleright 0}(w)$ is a bounded-variation function
   of $\tilde A_i$, uniformly in $w$, and so as in
-  Lemma~\ref{lem:app_strong_approx_Ln} we have that
+  Lemma~\ref{lem:kernel_app_strong_approx_Ln} we have that
   on an appropriately enlarged probability space,
   %
   \begin{align*}
@@ -11515,9 +11514,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
   For $E_n^{1 \triangleright 0}(w)$,
   we first construct a strong approximation conditional on
   $\bA_n$ and $\bX_n$ as shown in
-  Lemma~\ref{lem:app_conditional_strong_approx_En}
+  Lemma~\ref{lem:kernel_app_conditional_strong_approx_En}
   and deduce an unconditional strong approximation as in
-  Lemma~\ref{lem:app_unconditional_strong_approx_En} to see
+  Lemma~\ref{lem:kernel_app_unconditional_strong_approx_En} to see
   %
   \begin{align*}
     \sup_{w \in \cW}
@@ -11533,13 +11532,13 @@ Theorem~3.3 in \citet{gine2000exponential}.
   where $Z_n^{E, 1 \triangleright 0}$ is a mean-zero
   Gaussian process with the same covariance as
   $\sqrt{n^2h} E_n^{1 \triangleright 0}$.
-  Arguing as in the proof of Theorem~\ref{thm:app_strong_approx_fW}
+  Arguing as in the proof of Theorem~\ref{thm:kernel_app_strong_approx_fW}
   shows that the Gaussian processes are independent
   and can be summed to yield a single strong approximation.
   %
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:counterfactual_covariance_structure}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_counterfactual_covariance_structure}]
 
   Arguing by mean-zero properties and conditional independence,
   %
@@ -11654,12 +11653,12 @@ Theorem~3.3 in \citet{gine2000exponential}.
   %
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:counterfactual_infeasible_t_statistic}]
+\begin{proof}[Lemma~\ref{lem:kernel_app_counterfactual_infeasible_t_statistic}]
   The proof is exactly the same as the proof of
   Theorem~\ref{thm:strong_approx_Tn}.
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:counterfactual_infeasible_ucb}]
+\begin{proof}[Theorem~\ref{thm:kernel_app_counterfactual_infeasible_ucb}]
   This proof proceeds in the same manner as the proof of
   Theorem~\ref{thm:infeasible_ucb}.
 \end{proof}
