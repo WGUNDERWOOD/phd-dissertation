@@ -100,9 +100,9 @@ indexed by a compact rectangle in $\R^d$
 with a.s.\ continuous sample paths.
 
 We present more detailed versions of
-Lemmas~\ref{lem:strong_approx_Ln},
-\ref{lem:conditional_strong_approx_En},
-and \ref{lem:unconditional_strong_approx_En}
+Lemmas~\ref{lem:kernel_strong_approx_Ln},
+\ref{lem:kernel_conditional_strong_approx_En},
+and \ref{lem:kernel_unconditional_strong_approx_En}
 as Lemmas~\ref{lem:kernel_app_strong_approx_Ln},
 \ref{lem:kernel_app_conditional_strong_approx_En},
 and \ref{lem:kernel_app_unconditional_strong_approx_En}
@@ -411,10 +411,10 @@ properties to ensure the approximating processes are jointly Gaussian.
   \end{align*}
 \end{theorem}
 
-The main result Theorem~\ref{thm:strong_approx_Tn}
+The main result Theorem~\ref{thm:kernel_strong_approx_Tn}
 now follows easily using Theorem~\ref{thm:kernel_app_strong_approx_fW},
 the bias bound from Theorem~\ref{thm:kernel_bias},
-and properties of $\Sigma_n$ established in Lemma~\ref{lem:variance_bounds}.
+and properties of $\Sigma_n$ established in Lemma~\ref{lem:kernel_variance_bounds}.
 
 \subsection{Covariance estimation}
 \label{sec:kernel_app_covariance_estimation}
@@ -430,7 +430,7 @@ alternative representation which is more amenable to computation.
   \label{lem:kernel_app_covariance_structure}
 
   Suppose Assumptions~\ref{ass:kernel_data} and~\ref{ass:kernel_bandwidth}
-  hold. Then $\Sigma_n$, as defined in Section~\ref{sec:degeneracy}, admits the
+  hold. Then $\Sigma_n$, as defined in Section~\ref{sec:kernel_degeneracy}, admits the
   following representations.
   %
   \begin{align*}
@@ -738,7 +738,7 @@ in the interest of clarity.
   \label{lem:kernel_app_feasible_gaussian_approx}
 
   Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth}
-  and \ref{ass:rates} hold, and suppose that $f_W(w) > 0$ on $\cW$.
+  and \ref{ass:kernel_rates} hold, and suppose that $f_W(w) > 0$ on $\cW$.
   Then
   %
   \begin{align*}
@@ -1240,7 +1240,7 @@ approximation results for the counterfactual density estimator.
   \label{thm:kernel_app_counterfactual_infeasible_ucb}
 
   Let Assumptions \ref{ass:kernel_data}, \ref{ass:kernel_bandwidth},
-  \ref{ass:rates}, and \ref{ass:kernel_app_counterfactual}
+  \ref{ass:kernel_rates}, and \ref{ass:kernel_app_counterfactual}
   hold and suppose that $f_W^{1 \triangleright 0}(w) > 0$ on $\cW$.
   Let $\alpha \in (0,1)$ be a confidence level
   and define $q^{1 \triangleright 0}_{1-\alpha}$ as the quantile
@@ -5086,7 +5086,7 @@ gives
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:hoeffding}]
+\begin{proof}[Lemma~\ref{lem:kernel_hoeffding}]
 
   \proofparagraph{Hoeffding-type decomposition}
 
@@ -5253,7 +5253,7 @@ gives
   and $\E[e_{i j}(w) \mid A_i, A_j] = 0$.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:trichotomy}]
+\begin{proof}[Lemma~\ref{lem:kernel_trichotomy}]
 
   \proofparagraph{total degeneracy}
 
@@ -5407,7 +5407,7 @@ gives
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:uniform_concentration}]
+\begin{proof}[Lemma~\ref{lem:kernel_uniform_concentration}]
 
   We establish VC-type properties of some function
   classes and apply results from empirical process theory.
@@ -5663,7 +5663,7 @@ gives
     {\sqrt{n}}
     \lesssim 1.
   \end{align*}
-  By Lemma~\ref{lem:trichotomy},
+  By Lemma~\ref{lem:kernel_trichotomy},
   the left hand side is zero whenever
   $\Du = 0$,
   so we can also write
@@ -5768,9 +5768,9 @@ gives
   of $\frac{\log n}{n^2h} \to 0$.
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:uniform_consistency}]
+\begin{proof}[Theorem~\ref{thm:kernel_uniform_consistency}]
   This follows from Theorem~\ref{thm:kernel_bias}
-  and Lemma~\ref{lem:uniform_concentration}.
+  and Lemma~\ref{lem:kernel_uniform_concentration}.
 \end{proof}
 
 Before proving Theorem~\ref{thm:kernel_minimax}
@@ -6219,7 +6219,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   treating the degenerate and non-degenerate cases separately
   and noting that all inequalities hold uniformly over
   $\cP$ and $\cP_\rd$,
-  the proof of Lemma~\ref{lem:uniform_concentration}
+  the proof of Lemma~\ref{lem:kernel_uniform_concentration}
   shows that
   \begin{align*}
     \sup_{\P \in \cP}
@@ -6428,7 +6428,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:variance_bounds}]
+\begin{proof}[Lemma~\ref{lem:kernel_variance_bounds}]
 
   By Lemma~\ref{lem:kernel_app_covariance_structure},
   the diagonal elements of $\Sigma_n$ are
@@ -6512,7 +6512,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     2 \Du^2
   \end{align*}
   for small enough $h$, by a result from
-  the proof of Lemma~\ref{lem:trichotomy}.
+  the proof of Lemma~\ref{lem:kernel_trichotomy}.
   Also
   \begin{align*}
     \Var\big[
@@ -6684,7 +6684,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   To obtain the trajectory regularity property of
   $Z_n^{L\prime}$,
   note that it was shown in the proof of
-  Lemma~\ref{lem:uniform_concentration}
+  Lemma~\ref{lem:kernel_uniform_concentration}
   that for all $w,w' \in \cW$,
   \begin{align*}
     \left|
@@ -6791,7 +6791,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   retaining the single prime notation for clarity.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:strong_approx_Ln}]
+\begin{proof}[Lemma~\ref{lem:kernel_strong_approx_Ln}]
   See Lemma~\ref{lem:kernel_app_strong_approx_Ln}
 \end{proof}
 
@@ -7037,7 +7037,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   bounds in probability on the coupling error.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:conditional_strong_approx_En}]
+\begin{proof}[Lemma~\ref{lem:kernel_conditional_strong_approx_En}]
   See Lemma~\ref{lem:kernel_app_conditional_strong_approx_En}
 \end{proof}
 
@@ -7550,7 +7550,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   $\big(\tilde Z_n^{E\dprime}, Z_n^{E\dprime}\big)$.
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:unconditional_strong_approx_En}]
+\begin{proof}[Lemma~\ref{lem:kernel_unconditional_strong_approx_En}]
   See Lemma~\ref{lem:kernel_app_unconditional_strong_approx_En}
 \end{proof}
 
@@ -7637,7 +7637,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     \big].
   \end{align*}
   As shown in the proof of
-  Lemma~\ref{lem:uniform_concentration},
+  Lemma~\ref{lem:kernel_uniform_concentration},
   the process
   $Q_n(w)$ is uniformly Lipschitz
   and uniformly bounded in $w$.
@@ -7695,7 +7695,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
 
   Since $L_n$, $Q_n$, and $E_n$
   are mutually orthogonal in $L^2$
-  (as shown in Lemma~\ref{lem:hoeffding}),
+  (as shown in Lemma~\ref{lem:kernel_hoeffding}),
   we have the following covariance
   structure:
   \begin{align*}
@@ -7724,7 +7724,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   Similarly, $Z_n^f$ has continuous trajectories.
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:strong_approx_Tn}]
+\begin{proof}[Theorem~\ref{thm:kernel_strong_approx_Tn}]
 
   Define $Z_n^T(w) = \frac{Z_n^f(w)}{\sqrt{\Sigma_n(w,w)}}$ so that
   %
@@ -7764,7 +7764,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
     + h^{p \wedge \beta}.
   \end{align*}
   %
-  By Lemma~\ref{lem:variance_bounds}
+  By Lemma~\ref{lem:kernel_variance_bounds}
   with $\inf_\cW f_W(w) > 0$,
   the denominator is bounded below by
   %
@@ -7778,7 +7778,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   and the result follows.
 \end{proof}
 
-\begin{proof}[Theorem~\ref{thm:infeasible_ucb}]
+\begin{proof}[Theorem~\ref{thm:kernel_infeasible_ucb}]
 
   Note that the covariance structure of $Z_n^T$ is given by
   %
@@ -7870,7 +7870,7 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
   \end{align*}
   %
   uniformly in $w, w', w'' \in \cW$.
-  Therefore by Lemma~\ref{lem:variance_bounds},
+  Therefore by Lemma~\ref{lem:kernel_variance_bounds},
   with $\delta_n \leq n^{-2} h^2$,
   we have
   %
@@ -8108,10 +8108,10 @@ Lemma~\ref{lem:kernel_app_neyman_pearson_bernoulli}.
 
   \proofparagraph{validity of the infeasible uniform confidence band}
 
-  Under Assumption~\ref{ass:rates} and with a
+  Under Assumption~\ref{ass:kernel_rates} and with a
   sufficiently slowly diverging sequence $R_n$,
   the strong approximation rate established in
-  Theorem~\ref{thm:strong_approx_Tn} is
+  Theorem~\ref{thm:kernel_strong_approx_Tn} is
   %
   \begin{align*}
     &\sup_{w \in \cW} \left| T_n(w) - Z_n^T(w) \right| \\
@@ -8688,11 +8688,11 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{uniform consistency of the $\hat f_W(w) \hat f_W(w')$ term}
 
   By boundedness of $f_W$ and
-  Theorem~\ref{thm:uniform_consistency},
+  Theorem~\ref{thm:kernel_uniform_consistency},
   $\hat f_W$ is uniformly bounded in probability.
   Noting that
   $\E[\hat f_W(w)] = \E[k_{i j}]$
-  and by Lemma~\ref{lem:variance_bounds},
+  and by Lemma~\ref{lem:kernel_variance_bounds},
   \begin{align*}
     &\sup_{w,w' \in \cW}
     \left|
@@ -8779,7 +8779,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   is an empirical process evaluated at
   $g_w \in \cF$.
   By the lower bound on $\Sigma_n(w,w)$
-  from Lemma~\ref{lem:variance_bounds}
+  from Lemma~\ref{lem:kernel_variance_bounds}
   with $\inf_\cW f_W(w) > 0$ and since $n h \gtrsim \log n$,
   the class $\cF$ has a constant envelope function
   given by $F(a) \lesssim \sqrt{n h}$.
@@ -8792,8 +8792,8 @@ Theorem~3.3 in \citet{gine2000exponential}.
   we need to establish the regularity of the process.
   By Lipschitz properties
   of $L_n$ and $\Sigma_n$
-  derived in the proofs of Lemma~\ref{lem:uniform_concentration}
-  and Theorem~\ref{thm:infeasible_ucb}
+  derived in the proofs of Lemma~\ref{lem:kernel_uniform_concentration}
+  and Theorem~\ref{thm:kernel_infeasible_ucb}
   respectively,
   we have
   \begin{align*}
@@ -9279,7 +9279,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   %
   So Lemma~\ref{lem:kernel_app_ustat_concentration}
-  and Lemma~\ref{lem:variance_bounds}
+  and Lemma~\ref{lem:kernel_variance_bounds}
   give the pointwise concentration inequality
   %
   \begin{align*}
@@ -9412,7 +9412,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     &\lesssim
     \delta_n h^{-3}.
   \end{align*}
-  Also as noted in the proof of Theorem~\ref{thm:infeasible_ucb},
+  Also as noted in the proof of Theorem~\ref{thm:kernel_infeasible_ucb},
   \begin{align*}
     \sup_{|w_1-w_2| \leq \delta_n}
     \sup_{|w_1'-w_2'| \leq \delta_n}
@@ -9736,7 +9736,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   where $C_8 > 0$ is a constant and
   in the last line we use $1/h \lesssim n$.
   This converges to zero for any sufficiently large $t$,
-  so by Lemma~\ref{lem:variance_bounds} we have
+  so by Lemma~\ref{lem:kernel_variance_bounds} we have
   \begin{align*}
     \sup_{w,w' \in \cW}
     \left|
@@ -9896,9 +9896,9 @@ Theorem~3.3 in \citet{gine2000exponential}.
   Clearly as a covariance function,
   $\Sigma_n$ is symmetric and positive semi-definite.
   The Lipschitz constraint is satisfied because
-  as established in
-  the proof of
-  Theorem~\ref{thm:infeasible_ucb},
+  as established in the proof of
+  Theorem~\ref{thm:kernel_infeasible_ucb},
+  %
   \begin{align*}
     \big|
     \Sigma_n(w,w')
@@ -9911,6 +9911,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     C_\rL
     |w'-w''|
   \end{align*}
+  %
   for all $w,w',w'' \in \cW$.
   Denote the (random) objective function
   in (\ref{eq:kernel_app_sdp}) by
@@ -10017,7 +10018,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   and note that it is increasing on $\{t \geq a^2/4\}$.
   Applying this with $t = \Sigma_n(w,w)$
   and $a = \frac{\sqrt{\log n}}{n}$,
-  noting that by Lemma~\ref{lem:variance_bounds} we have
+  noting that by Lemma~\ref{lem:kernel_variance_bounds} we have
   $t = \Sigma_n(w,w) \gtrsim \frac{1}{n^2h}
   \gg \frac{\log n}{4n^2} = a^2/4$,
   shows that for $n$ large enough,
@@ -10031,7 +10032,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     \sup_{w \in \cW} \Sigma_n(w,w)
     + \frac{\sqrt{\log n}}{n} \sqrt{\sup_{w \in \cW} \Sigma_n(w,w)}.
   \end{align*}
-  Applying the bounds from Lemma~\ref{lem:variance_bounds}
+  Applying the bounds from Lemma~\ref{lem:kernel_variance_bounds}
   yields
   \begin{align*}
     \frac{\Dl^2}{n} + \frac{1}{n^2h}
@@ -10057,7 +10058,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
 \end{proof}
 
-\begin{proof}[Lemma~\ref{lem:sdp}]
+\begin{proof}[Lemma~\ref{lem:kernel_sdp}]
   See Lemma~\ref{lem:kernel_app_covariance_estimation}
   and Lemma~\ref{lem:kernel_app_sdp}.
 \end{proof}
@@ -10104,7 +10105,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   while Theorem~\ref{thm:kernel_bias} gives
   $\sup_{w \in \cW} \big| \E\big[\hat f_W(w)\big] - f_W(w) \big|
   \lesssim h^{p \wedge \beta}$.
-  By Lemma~\ref{lem:variance_bounds},
+  By Lemma~\ref{lem:kernel_variance_bounds},
   note that
   $\sup_{w \in \cW} \Sigma_n(w,w)^{-1/2}
   \lesssim \frac{1}{\Dl/\sqrt{n} + 1/\sqrt{n^2h}}$, and
@@ -10347,7 +10348,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{trajectory regularity of $Z_n^T$}
 
   During the proof of
-  Theorem~\ref{thm:infeasible_ucb}
+  Theorem~\ref{thm:kernel_infeasible_ucb}
   we established that
   $Z_n^T$ satisfies the following
   trajectory regularity property:
@@ -10411,7 +10412,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
     {\sqrt{\hat \Sigma_n^+(w,w) \hat \Sigma_n^+(w',w')}}.
   \end{align*}
   Applying the same elementary result as for $Z_n^T$
-  in the proof of Theorem~\ref{thm:infeasible_ucb} yields
+  in the proof of Theorem~\ref{thm:kernel_infeasible_ucb} yields
   \begin{align*}
     \E\left[
       \big(
@@ -10440,7 +10441,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \proofparagraph{conditional trajectory regularity of $\hat Z_n^T$}
 
   Just as for $Z_n^T$
-  in the proof of Theorem~\ref{thm:infeasible_ucb}
+  in the proof of Theorem~\ref{thm:kernel_infeasible_ucb}
   we apply Lemma~\ref{lem:kernel_app_gaussian_process_maximal},
   this time conditionally,
   to obtain that also
@@ -10692,7 +10693,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   we apply the anti-concentration
   result for $Z_n^T$
   from the proof of
-  Theorem~\ref{thm:infeasible_ucb}:
+  Theorem~\ref{thm:kernel_infeasible_ucb}:
   \begin{align*}
     \sup_{t \in \R}
     \P\left(
@@ -10944,7 +10945,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
   To control the remaining term,
   note that by
-  Theorem~\ref{thm:strong_approx_Tn}
+  Theorem~\ref{thm:kernel_strong_approx_Tn}
   and Lemma~\ref{lem:kernel_app_studentized_t_statistic},
   %
   \begin{align*}
@@ -11041,7 +11042,7 @@ Theorem~3.3 in \citet{gine2000exponential}.
   \end{align*}
   Now we analyze these based on the degeneracy type
   and verify that they hold under
-  Assumption~\ref{ass:rates}.
+  Assumption~\ref{ass:kernel_rates}.
   \begin{enumerate}[label=(\roman*)]
 
     \item No degeneracy:
@@ -11655,10 +11656,10 @@ Theorem~3.3 in \citet{gine2000exponential}.
 
 \begin{proof}[Lemma~\ref{lem:kernel_app_counterfactual_infeasible_t_statistic}]
   The proof is exactly the same as the proof of
-  Theorem~\ref{thm:strong_approx_Tn}.
+  Theorem~\ref{thm:kernel_strong_approx_Tn}.
 \end{proof}
 
 \begin{proof}[Theorem~\ref{thm:kernel_app_counterfactual_infeasible_ucb}]
   This proof proceeds in the same manner as the proof of
-  Theorem~\ref{thm:infeasible_ucb}.
+  Theorem~\ref{thm:kernel_infeasible_ucb}.
 \end{proof}
