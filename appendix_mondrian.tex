@@ -435,7 +435,7 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
   %
   \begin{align*}
     &\E \Bigg[
-      \prod_{b \in \cA(D)}
+      \prod_{b \in \cA(D)} \!
       \frac{1}{
         1 \vee \left(
           \sum_{D' \in \cA(b) \setminus \cD}
@@ -443,11 +443,11 @@ beginning with $\cD = \emptyset$ and ending at $\cD = \cR$.
           + n \sum_{D' \in \cA(b) \cap \cD}
           |D'|
         \right)^{k_b}
-      } \\
-      &\qquad
+      }
       \biggm|
+      \!
       \bT,
-      N_b(D') : D' \in \cR \setminus (\cD \cup \{D\})
+      N_b(D')\! : D' \in \cR \setminus \! (\cD \cup \{D\})
     \Bigg] \\
     &\quad\leq
     \E \! \left[
@@ -703,13 +703,11 @@ have heavy tails is a recurring challenge.
     \frac{1}{x_j(1-x_j)}.
   \end{align*}
   %
-  Lower bounds which match up to
-  constants for the first moment
-  and up to logarithmic terms for the second moment
-  are easily obtained by noting
+  Lower bounds which match up to constants for the first moment and up to
+  logarithmic terms for the second moment are obtained as
   $\E \left[ 1 \wedge \frac{1}{(n|T(x)|)^2} \right]
   \geq \E \left[ 1 \wedge \frac{1}{n|T(x)|} \right]^2$
-  by Jensen's inequality and
+  by Jensen, and
   %
   \begin{align*}
     \E \left[ 1 \wedge \frac{1}{n|T(x)|} \right]
@@ -719,14 +717,12 @@ have heavy tails is a recurring challenge.
   \end{align*}
 \end{proof}
 
-The ongoing endeavor to bound
-moments of (products of) $\frac{\I_b(x)}{N_b(x)}$
-is concluded with the next result,
-chaining together the previous two lemmas to provide an
-explicit bound with no expectations on the right-hand side.
+The endeavor to bound moments of (products of) $\frac{\I_b(x)}{N_b(x)}$ is
+concluded with the next result, combining the previous two lemmas to give a
+bound without expectations on the right.
 
 \begin{lemma}[Simplified generalized moment bound for
-  Mondrian random forest denominators]%
+  Mondrian forest denominators]%
   \label{lem:mondrian_app_simple_moment_denominator}
   %
   Suppose Assumptions~\ref{ass:mondrian_data}
@@ -810,7 +806,7 @@ and bounds from Lemma~\ref{lem:mondrian_app_binomial_bound}.
 
   For the first result,
   Taylor's theorem with Lagrange remainder
-  applied to $N \mapsto \frac{1}{N+a}$ around $n p$ gives
+  for $N \mapsto \frac{1}{N+a}$ around $n p$ gives
   %
   \begin{align*}
     \E \left[
@@ -824,11 +820,9 @@ and bounds from Lemma~\ref{lem:mondrian_app_binomial_bound}.
     \right]
   \end{align*}
   %
-  for some $\xi$ between $n p$ and $N$.
-  The second term on the right-hand side is zero-mean,
-  clearly showing the non-negativity part of the result,
-  and applying the Cauchy--Schwarz inequality
-  to the remaining term gives
+  for some $\xi$ between $n p$ and $N$. The second term in the expectation
+  is zero-mean, showing the non-negativity part, and the
+  Cauchy--Schwarz inequality for the remaining term gives
   %
   \begin{align*}
     \E \left[
@@ -888,11 +882,9 @@ and bounds from Lemma~\ref{lem:mondrian_app_binomial_bound}.
     \right]
   \end{align*}
   %
-  for some $\xi$ between $n p$ and $N$.
-  The second term on the right-hand side is zero-mean,
-  clearly showing the non-negativity part of the result,
-  and applying the Cauchy--Schwarz inequality
-  to the remaining term gives
+  for some $\xi$ between $n p$ and $N$. The second term on the right is
+  zero-mean, showing non-negativity, and applying the Cauchy--Schwarz
+  inequality to the remaining term gives
   %
   \begin{align*}
     &\E \left[
@@ -970,19 +962,14 @@ and bounds from Lemma~\ref{lem:mondrian_app_binomial_bound}.
 We give rigorous proofs of the central limit theorem,
 bias characterization, and variance estimation
 results for the Mondrian random forest estimator without debiasing.
-
-\subsection*{Proof of central limit theorem}
+See Section~\ref{sec:mondrian_overview_proofs} in the main text
+for details on our approaches to these proofs.
 
 \begin{proof}[Theorem~\ref{thm:mondrian_clt}]
   From the debiased version
   (Theorem~\ref{thm:mondrian_clt_debiased}) with $J=0$, $a_0 = 1$, and
   $\omega_0 = 1$.
 \end{proof}
-
-\subsection*{Proof of bias characterization}
-
-See Section~\ref{sec:mondrian_overview_proofs} in the main text
-for details on our approach to this proof.
 
 \begin{proof}[Theorem~\ref{thm:mondrian_bias}]
 
@@ -1005,12 +992,12 @@ for details on our approach to this proof.
   As $\mu$ is Lipschitz,
   %
   \begin{align*}
-    \Var \left[
+    &\Var \big[
       \E \left[ \hat \mu(x) \mid \bX, \bT \right]
       - \mu(x)
       \mid \bX
-    \right]
-    &\leq
+    \big]
+    \leq
     \frac{1}{B}
     \E \left[
       \left(
@@ -1019,7 +1006,7 @@ for details on our approach to this proof.
       \right)^2
       \Bigm| \bX
     \right] \\
-    &\lesssim
+    &\quad\lesssim
     \frac{1}{B}
     \E \left[
       \max_{1 \leq i \leq n}
@@ -1029,8 +1016,8 @@ for details on our approach to this proof.
         \frac{\I_{i b}(x)}{N_b(x)}
       \right)^2
       \Bigm| \bX
-    \right] \\
-    &\lesssim
+    \right]
+    \lesssim
     \frac{1}{B}
     \sum_{j=1}^{d}
     \E \left[
@@ -1079,24 +1066,21 @@ for details on our approach to this proof.
     &\quad\leq
     \frac{1}{2}
     \sum_{j=1}^{n}
-    \E \left[
-      \left(
+    \E \! \left[
+      \! \left(
         \sum_{i=1}^{n}
         \big( \mu(X_i) - \mu(x) \big)
-        \E \left[
+        \E \! \left[
           \frac{\I_{i b}(x)}{N_b(x)}
           \Bigm| \bX
         \right]
-        \right.\right. \\
-        \nonumber
-        &\qquad\qquad\qquad\quad\left.\left.
         - \sum_{i=1}^{n}
         \left( \mu(\tilde X_{i j}) - \mu(x) \right)
-        \E \left[
+        \E \! \left[
           \frac{\tilde \I_{i j b}(x)}{\tilde N_{j b}(x)}
           \Bigm| \tilde \bX_j
         \right]
-      \right)^2
+      \right)^{\! \! 2}
     \right] \\
     \nonumber
     &\quad\leq
@@ -1123,7 +1107,7 @@ for details on our approach to this proof.
         \left(
           \frac{\I_{i b}(x)}{N_b(x)} - \frac{\I_{i b}(x)}{\tilde N_{j b}(x)}
         \right)
-      \right)^2
+      \right)^{\!\!2} \,
     \right] \\
     \label{eq:mondrian_app_bias_efron_stein}
     &\qquad+
@@ -1137,10 +1121,10 @@ for details on our approach to this proof.
   For the first term in \eqref{eq:mondrian_app_bias_efron_stein} to be non-zero,
   we must have $|N_b(x) - \tilde N_{j b}(x)| = 1$.
   Writing $N_{-j b}(x) = \sum_{i \neq j} \I_{i b}(x)$,
-  we may assume by symmetry that
+  assume by symmetry that
   $\tilde N_{j b}(x) = N_{-j b}(x)$ and $N_b(x) = N_{-j b}(x) + 1$,
-  and also that $\I_{j b}(x) = 1$.
-  Hence since $f$ is bounded and $\mu$ is Lipschitz,
+  and $\I_{j b}(x) = 1$.
+  As $f$ is bounded and $\mu$ is Lipschitz,
   writing $\I_{-j b}(x) = \I \left\{ N_{-j b}(x) \geq 1 \right\}$,
   %
   \begin{align*}
@@ -1152,7 +1136,7 @@ for details on our approach to this proof.
         \left(
           \frac{\I_{i b}(x)}{N_b(x)} - \frac{\I_{i b}(x)}{\tilde N_{j b}(x)}
         \right)
-      \right)^2
+      \right)^{\! 2} \,
     \right] \\
     &\quad\lesssim
     \sum_{j=1}^{n}
@@ -1172,7 +1156,7 @@ for details on our approach to this proof.
     \right].
   \end{align*}
   %
-  For $t > 0$, partition by the event
+  For $t > 0$, partition by
   $\left\{ \max_{1 \leq l \leq d} |T_b(x)_l| \geq t/\lambda \right\}$
   and apply Lemma~\ref{lem:mondrian_app_largest_cell} and
   Lemma~\ref{lem:mondrian_app_simple_moment_denominator}:
@@ -1263,15 +1247,15 @@ for details on our approach to this proof.
   Then
   %
   \begin{align*}
-    \E \left[ \hat \mu(x) \right]
+    &\E \left[ \hat \mu(x) \right]
     - \mu(x)
-    &=
+    =
     \E \left[
       \sum_{i=1}^{n}
       \left( \mu(X_i) - \mu(x) \right)
       \frac{\I_{i b}(x)}{N_b(x)}
     \right] \\
-    &=
+    &\quad=
     \sum_{i=1}^{n}
     \E \left[
       \E \left[
@@ -1279,9 +1263,8 @@ for details on our approach to this proof.
         {N_{-i b}(x) + 1}
         \bigm| \bT, \bX_{-i}
       \right]
-    \right] \\
-    &=
-    n \,
+    \right]
+    = n \,
     \E \left[
       \frac{\int_{T_b(x)} \left( \mu(s) - \mu(x) \right) f(s) \diff s}
       {N_{-i b}(x) + 1}
@@ -1295,18 +1278,18 @@ for details on our approach to this proof.
   %
   \begin{align*}
     \left|
-    \E \left[
+    \E \! \left[
       \frac{1}{N_{-i b}(x) + 1}
       \Bigm| \bT
     \right]
-    - \frac{1}{(n-1) \int_{T_b(x)} f(s) \diff s + 1}
+    - \frac{1}{(n-1) \! \int_{T_b(x)} \! f(s) \diff s + 1}
     \right|
     &\lesssim
-    \frac{1}{n^2 \left( \int_{T_b(x)} f(s) \diff s \right)^2}
-    \wedge 1 \\
-    &\lesssim
-    \frac{1}{n^2 |T_b(x)|^2}
+    \frac{1}{n^2 \! \left( \int_{T_b(x)} f(s) \diff s \right)^2}
     \wedge 1
+    \lesssim
+    \frac{1}{n^2 |T_b(x)|^2}
+    \wedge 1,
   \end{align*}
   %
   and also
@@ -1324,10 +1307,9 @@ for details on our approach to this proof.
     \wedge 1.
   \end{align*}
   %
-  So by Lemma~\ref{lem:mondrian_app_largest_cell}
-  and Lemma~\ref{lem:mondrian_app_moment_cell},
-  since $f$ is Lipschitz and bounded,
-  using the Cauchy--Schwarz inequality,
+  So by Lemmas~\ref{lem:mondrian_app_largest_cell}
+  and \ref{lem:mondrian_app_moment_cell},
+  since $f$ is Lipschitz and bounded, using Cauchy--Schwarz,
   %
   \begin{align*}
     &\left|
@@ -1382,8 +1364,8 @@ for details on our approach to this proof.
     &\E \left[
       \frac{\int_{T_b(x)} \left( \mu(s) - \mu(x) \right) f(s) \diff s}
       {\int_{T_b(x)} f(s) \diff s}
-    \right] \\
-    &\quad=
+    \right]
+    =
     \E \left[
       \frac{\int_{T_b(x)} \left( \mu(s) - \mu(x) \right) f(s) \diff s}
       {f(x) |{T_b(x)}|}
@@ -1442,13 +1424,12 @@ for details on our approach to this proof.
     \frac{2^{\flbeta + 3} d (\flbeta + 2)! }
     {\lambda^{\flbeta + 2}}
     \lesssim
-    \frac{1}{\lambda^{\beta}}
+    \frac{1}{\lambda^{\beta}},
   \end{align*}
   %
-  since
-  $\int_0^\infty e^{-a x^{1/k}} \diff x
+  since $\int_0^\infty e^{-a x^{1/k}} \diff x
   = a^{-k} k!$.
-  Hence to summarize the progress so far, we have
+  To summarize the progress so far, we have
   %
   \begin{align*}
     &\left|
@@ -1484,12 +1465,11 @@ for details on our approach to this proof.
     \left(
       \sum_{|\nu| = 1}^\flbeta
       \frac{\partial^\nu f(x)}{\nu !}
-      \int_{T_b(x)}
-      (s - x)^\nu
+      \! \int_{T_b(x)}
+      \!\! (s - x)^\nu
       \diff s
-    \right)^k \\
-    &\quad+
-    O \left(
+    \right)^k
+    + O \! \left(
       |T_b(x)| \max_{1 \leq l \leq d} |T_b(x)_l|^\beta
     \right).
   \end{align*}
@@ -1546,26 +1526,26 @@ for details on our approach to this proof.
       \right)^k
     \right] \\
     &\,=
-    \sum_{k=0}^{\flbeta}
+    \! \sum_{k=0}^{\flbeta}
     (-1)^k \,
-    \E
+    \E \!
     \left[
-      \frac{
+      \! \frac{
         \sum_{|\nu'|=1}^{\flbeta}
-        \sum_{|\nu''|=0}^{\flbeta}
-        \frac{\partial^{\nu'} \mu(x)}{\nu' !}
+        \! \sum_{|\nu''|=0}^{\flbeta}
+        \! \frac{\partial^{\nu'} \mu(x)}{\nu' !}
         \frac{\partial^{\nu''} f(x)}{\nu'' !}
-        T_b(x)^{\nu' + \nu''}
+        T_b(x)^{\nu' + \nu''\!\!\!}
       }{f(x)^{k+1} |T_b(x)|^{k+1}}
-      \sum_{|u| = k}
-      \binom{k}{u}
+      \!\! \sum_{|u| = k}
+      \! \binom{k}{u}
+      \!\!
       \left(
         \frac{\partial^\nu f(x)}{\nu !}
         T_b(x)^\nu
-      \right)^u
-    \right] \\
-    &\qquad+
-    O \left(
+      \right)^{\!\! u}
+    \right]
+    \! + O \! \left(
       \frac{1}{\lambda^\beta}
     \right) \\
     &\,=
@@ -1575,13 +1555,13 @@ for details on our approach to this proof.
     \frac{\partial^{\nu'} \mu(x)}{\nu' !}
     \frac{\partial^{\nu''} f(x)}{\nu'' !}
     \left( \frac{\partial^\nu f(x)}{\nu !} \right)^u
-    \binom{|u|}{u} \\
-    &\qquad\times
+    \binom{|u|}{u}
     \frac{(-1)^{|u|}}{f(x)^{|u|+1}}
     \E \left[
       \frac{ T_b(x)^{\nu' + \nu''} (T_b(x)^\nu)^u}{|T_b(x)|^{|u|+1}}
-    \right]
-    + O \left(
+    \right] \\
+    &\quad+
+    O \left(
       \frac{1}{\lambda^\beta}
     \right) .
   \end{align*}
@@ -1639,7 +1619,7 @@ for details on our approach to this proof.
   For some $C > 0$,
   %
   \begin{align*}
-    \P \left(
+    \P \! \left(
       \bigcup_{j=1}^{d}
       \left(
         \left\{
@@ -1650,14 +1630,14 @@ for details on our approach to this proof.
           E_{2j*} \neq E_{2j}
         \right\}
       \right)
-    \right)
+    \! \right)
     &\leq
     2d\,
-    \P \left(
+    \P \! \left(
       \Exp(1) \geq \lambda \min_{1 \leq j \leq d}
       (x_j \wedge (1-x_j))
-    \right) \\
-    &\leq
+    \! \right)
+    \leq
     2d e^{-C \lambda}.
   \end{align*}
   %
@@ -1686,7 +1666,7 @@ for details on our approach to this proof.
     \frac{(-1)^{|u|}}{f(x)^{|u|+1}}
     \, \lambda^{- |\nu'| - |\nu''| - |\nu| \cdot u} \\
     \nonumber
-    &\qquad\times
+    &\qquad\quad\times
     \prod_{j=1}^d
     \E \left[
       \frac{E_{2j}^{\nu'_j + \nu''_j + 1}
@@ -1724,28 +1704,30 @@ for details on our approach to this proof.
   \begin{align}
     \label{eq:mondrian_app_bias_odd_1}
     \frac{E_{2j}^{\nu'_j + \nu''_j + 1}
-    + (-1)^{\nu'_j + \nu''_j} E_{1j}^{\nu'_j + \nu''_j + 1}}
+    - (-E_{1j})^{\nu'_j + \nu''_j + 1}}
     {E_{2j} + E_{1j}}
   \end{align}
   %
   and
   %
   \begin{align}
-    \nonumber
-    &\frac{\left(E_{2j}^{\nu_j + 1}
-    + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^u}
-    {(E_{2j} + E_{1j})^{|u|}} \\
     \label{eq:mondrian_app_bias_odd_2}
-    &\quad=
+    &\frac{\left(E_{2j}^{\nu_j + 1}
+    - (-E_{1j})^{\nu_j + 1}\right)^u}
+    {(E_{2j} + E_{1j})^{|u|}}
+    = \!\!\!
     \prod_{\substack{|\nu| = 1 \\
     \nu_j u_\nu \text{ even}}}^\beta
+    \!\!\!
     \frac{\left(E_{2j}^{\nu_j + 1}
-    + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^{u_\nu}}
+    - (-E_{1j})^{\nu_j + 1}\right)^{u_\nu}}
     {(E_{2j} + E_{1j})^{u_\nu}}
+    \!\!\!
     \prod_{\substack{|\nu| = 1 \\
     \nu_j u_\nu \text{ odd}}}^\beta
+    \!\!\!
     \frac{\left(E_{2j}^{\nu_j + 1}
-    + (-1)^{\nu_j} E_{1j}^{\nu_j + 1}\right)^{u_\nu}}
+    - (-E_{1j})^{\nu_j + 1}\right)^{u_\nu}}
     {(E_{2j} + E_{1j})^{u_\nu}}.
   \end{align}
   %
@@ -1788,25 +1770,24 @@ for details on our approach to this proof.
   %
   \begin{align*}
     \frac{1}{2 \lambda^2}
-    \sum_{j=1}^d
+    \! \sum_{j=1}^d
     \frac{\partial^2 \mu(x)}{\partial x_j^2}
     \frac{1}{3}
-    \E \left[
+    \E \! \left[
       \frac{E_{2j}^{3} + E_{1j}^{3}} {E_{2j} + E_{1j}}
     \right]
-    &=
+    &\!=
     \frac{1}{2 \lambda^2}
-    \sum_{j=1}^d
+    \! \sum_{j=1}^d
     \frac{\partial^2 \mu(x)}{\partial x_j^2}
     \frac{1}{3}
-    \E \left[
+    \E \! \left[
       E_{1j}^{2}
       + E_{2j}^{2}
       - E_{1j} E_{2j}
-    \right] \\
-    &=
-    \frac{1}{2 \lambda^2}
-    \sum_{j=1}^d
+    \right]
+    = \frac{1}{2 \lambda^2}
+    \! \sum_{j=1}^d
     \frac{\partial^2 \mu(x)}{\partial x_j^2},
   \end{align*}
   %
@@ -1900,8 +1881,8 @@ for details on our approach to this proof.
     \right].
   \end{align*}
   %
-  Note that this is zero if any $\nu_j'$ is odd.
-  Therefore we can group these terms based on the exponent of $\lambda$ to see
+  This is zero if any $\nu_j'$ is odd,
+  so we group these terms based on the exponent of $\lambda$ to see
   %
   \begin{align*}
     \frac{B_r(x)}{\lambda^{2r}}
@@ -1947,7 +1928,7 @@ for details on our approach to this proof.
     \frac{(2 \nu_j + 1)!}{\nu_j + 1},
   \end{align*}
   %
-  so
+  so finally
   %
   \begin{align*}
     \frac{B_r(x)}{\lambda^{2r}}
@@ -1968,15 +1949,11 @@ for details on our approach to this proof.
   %
 \end{proof}
 
-\subsection*{Proof of variance estimator consistency}
-
 \begin{proof}[Theorem~\ref{thm:mondrian_variance_estimation}]
   This follows from the debiased version in
   Theorem~\ref{thm:mondrian_variance_estimation_debiased}
   with $J=0$, $a_0 = 1$, and $\omega_0 = 1$.
 \end{proof}
-
-\subsection*{Proof of confidence interval validity}
 
 \begin{proof}[Theorem~\ref{thm:mondrian_confidence}]
   %
@@ -2019,8 +1996,6 @@ We give rigorous proofs of the central limit theorem,
 bias characterization, variance estimation,
 confidence interval validity, and minimax optimality
 results for the debiased Mondrian random forest estimator.
-
-\subsection*{Proof of central limit theorem with debiasing}
 
 \begin{proof}[Theorem~\ref{thm:mondrian_clt_debiased}]
 
@@ -2069,14 +2044,14 @@ results for the debiased Mondrian random forest estimator.
   By \citet[Theorem~3.2]{hall1980martingale}
   it suffices to check that
   %
-  \begin{enumerate}[label=(\roman*)]
-    \item $\max_i |S_i(x)| \to 0$ in probability,
+  \begin{inlineroman}
+    \item $\max_i |S_i(x)| \to 0$ in probability,%
       \label{it:mondrian_app_hall_prob}
-    \item $\E\left[\max_i S_i(x)^2\right] \lesssim 1$,
+    \item $\E\left[\max_i S_i(x)^2\right] \lesssim 1$, and%
       \label{it:mondrian_app_hall_exp}
     \item $\sum_i S_i(x)^2 \to \Sigma_\rd(x)$ in probability.
       \label{it:mondrian_app_hall_var}
-  \end{enumerate}
+  \end{inlineroman}
 
   \proofparagraph{checking condition \ref{it:mondrian_app_hall_prob}}
   %
@@ -2258,7 +2233,7 @@ results for the debiased Mondrian random forest estimator.
   By boundedness of $\E[\varepsilon_i^2 \mid X_i]$
   and Lemma~\ref{lem:mondrian_app_simple_moment_denominator},
   the first term in \eqref{eq:mondrian_app_clt_condition_sum}
-  converges to zero in probability as
+  vanishes as
   %
   \begin{align*}
     \frac{n}{\lambda^d}
@@ -2377,8 +2352,7 @@ results for the debiased Mondrian random forest estimator.
     \sum_{\tilde b' \neq \tilde b}
     \E \Bigg[
       \varepsilon_i^2
-      \varepsilon_j^2 \\
-      &\qquad\times
+      \varepsilon_j^2
       \left(
         \frac{\I_{i b r}(x) \I_{i b' r'}(x) }
         {N_{b r}(x) N_{b' r'}(x)}
@@ -2389,7 +2363,7 @@ results for the debiased Mondrian random forest estimator.
           \Bigm| \bX
         \right]
       \right) \\
-      &\qquad
+      &\qquad\quad
       \times
       \left(
         \frac{\I_{j \tilde b r}(x) \I_{j \tilde b' r'}(x) }
@@ -2483,7 +2457,7 @@ results for the debiased Mondrian random forest estimator.
         \Bigm| \bX, \bY
       \right]
     \right] \\
-    &\leq
+    &\quad\leq
     \Var \left[
       \E \left[
         \frac{n}{\lambda^d}
@@ -2721,7 +2695,6 @@ results for the debiased Mondrian random forest estimator.
   $\P \left(\max_{1 \leq l \leq d}
   |T_b(x)_l| \geq t/\lambda \right) \leq 2d e^{-t/2}$
   by Lemma~\ref{lem:mondrian_app_largest_cell},
-  we have by Lemma~\ref{lem:mondrian_app_simple_moment_denominator} that
   %
   \begin{align*}
     \frac{n^2}{\lambda^d}
@@ -2747,6 +2720,7 @@ results for the debiased Mondrian random forest estimator.
     \frac{\log n}{\lambda},
   \end{align*}
   %
+  by Lemma~\ref{lem:mondrian_app_simple_moment_denominator},
   where we set $t = 4 \log n$.
   Therefore
   %
@@ -2773,8 +2747,8 @@ results for the debiased Mondrian random forest estimator.
     &\E \left[
       \frac{\I_{i b r}(x) \I_{i b' r'}(x)}
       {N_{b r}(x) N_{b' r'}(x)}
-    \right] \\
-    &\quad= \E \left[
+    \right]
+    = \E \left[
       \frac{\int_{T_{b r}(x) \cap T_{b' r'}(x)} f(\xi) \diff \xi}
       {(N_{-i b r}(x)+1) (N_{-i b' r'}(x)+1)}
     \right] \\
@@ -2807,7 +2781,7 @@ results for the debiased Mondrian random forest estimator.
   %
   \begin{align*}
     \frac{n^2}{\lambda^d}
-    \E \left[
+    \E \! \left[
       \frac{\I_{i b r}(x) \I_{i b' r'}(x) \varepsilon_i^2}
       {N_{b r}(x) N_{b' r'}(x)}
     \right]
@@ -2815,12 +2789,11 @@ results for the debiased Mondrian random forest estimator.
     \sigma^2(x)
     f(x)
     \frac{n^2}{\lambda^d}
-    \E \left[
+    \E \! \left[
       \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}
       {(N_{-i b r}(x)+1) (N_{-i b' r'}(x)+1)}
-    \right] \\
-    &\quad+
-    O \left(
+    \right]
+    \! + O \! \left(
       \frac{(\log n)^{d+1}}{\lambda}
     \right).
   \end{align*}
@@ -2863,9 +2836,8 @@ results for the debiased Mondrian random forest estimator.
     \right).
   \end{align*}
   %
-  Now we bound these parameters above and below.
-  Firstly, by applying Lemma~\ref{lem:mondrian_app_active_data} with $B=1$,
-  we have
+  We bound these parameters above and below.
+  Firstly, by Lemma~\ref{lem:mondrian_app_active_data} with $B=1$,
   %
   \begin{align*}
     \P \left( N_{-i b r}(x) >
@@ -2878,9 +2850,9 @@ results for the debiased Mondrian random forest estimator.
     e^{- t / C}
   \end{align*}
   %
-  for some $C > 0$ and all sufficiently large $t$.
-  Next, note that if $f$ is $L$-Lipschitz in $\ell^2$,
-  by Lemma~\ref{lem:mondrian_app_largest_cell}
+  for some $C > 0$ and sufficiently large $t$.
+  Next, if $f$ is $L$-Lipschitz in $\ell^2$,
+  by Lemma~\ref{lem:mondrian_app_largest_cell},
   %
   \begin{align*}
     &\P \left(
@@ -2961,7 +2933,7 @@ results for the debiased Mondrian random forest estimator.
   %
   So by Lemma~\ref{lem:mondrian_app_binomial_expectation} conditionally on
   $\bT$, $N_{-i b' r' \cap b r}(x)$, and $N_{-i b r \setminus b' r'}(x)$,
-  with probability at least $1 - e^{-t/C}$,
+  we have with probability at least $1 - e^{-t/C}$ that
   %
   \begin{align*}
     &\left|
@@ -3136,9 +3108,8 @@ results for the debiased Mondrian random forest estimator.
     \right).
   \end{align*}
   %
-  Next we remove the $N_{-i b r \cap b' r'}(x)$ terms.
-  As before, with probability at least $1 - e^{-t/C}$,
-  conditional on $\bT$,
+  We remove the $N_{-i b r \cap b' r'}(x)$ terms.
+  With probability at least $1 - e^{-t/C}$, conditional on $\bT$,
   %
   \begin{align*}
     N_{-i b r \cap b' r'}(x)
@@ -3165,15 +3136,14 @@ results for the debiased Mondrian random forest estimator.
   \begin{align*}
     &
     \left|
-    \E \left[
+    \E \! \left[
       \frac{1}
-      {N_{-i b r \cap b' r'}(x) + n f(x) |T_{b r}(x) \setminus T_{b' r'}(x)|+1}
-      \right.\right. \\
-      &\quad\qquad\left.\left.
-      \times
+      {N_{-i b r \cap b' r'}(x)
+      + n f(x) |T_{b r}(x) \!\setminus\! T_{b' r'}(x)|+1}
       \frac{1}
-      {N_{-i b' r' \cap b r}(x)+n f(x) |T_{b' r'}(x) \setminus T_{b r}(x)|+1}
-      \Bigm| \bT
+      {N_{-i b' r' \cap b r}(x)
+      + n f(x) |T_{b' r'}(x) \!\setminus\! T_{b r}(x)|+1}
+      \! \Bigm| \! \bT
     \right]
     \right.
     \\
@@ -3199,14 +3169,13 @@ results for the debiased Mondrian random forest estimator.
   \begin{align*}
     &\frac{n^2}{\lambda^d}
     \left|
-    \E \left[
+    \E \! \left[
       \frac{|T_{b r}(x) \cap T_{b' r'}(x)|}
-      {N_{-i b r \cap b' r'}(x) + n f(x) |T_{b r}(x) \setminus T_{b' r'}(x)|+1}
-      \right.\right. \\
-      &\quad\qquad\left.\left.
-      \times
+      {N_{-i b r \cap b' r'}(x)
+      + n f(x) |T_{b r}(x) \!\setminus\! T_{b' r'}(x)|+1}
       \frac{1}
-      {N_{-i b' r' \cap b r}(x)+n f(x) |T_{b' r'}(x) \setminus T_{b r}(x)|+1}
+      {N_{-i b' r' \cap b r}(x)
+      + n f(x) |T_{b' r'}(x) \!\setminus\! T_{b r}(x)|+1}
     \right]
     \right. \\
     &\left.
@@ -3224,15 +3193,11 @@ results for the debiased Mondrian random forest estimator.
       |T_{b r}(x) \cap T_{b' r'}(x)|
       \frac{1 + \frac{n t}{\lambda} |T_{b r}(x) \cap T_{b' r'}(x)|}
       {(n |T_{b r}(x)| + 1)(n |T_{b' r'}(x)| + 1)}
-      \right.\\
-      &\quad\qquad\qquad\left.
-      \times
-      \left(
-        \frac{1}{n |T_{b r}(x)| + 1}
-        + \frac{1}{n |T_{b' r'}(x)| + 1}
-      \right)
-    \right]
-    + \frac{n^2}{\lambda^d}
+      \frac{1}{n |T_{b r}(x)| + 1}
+      + \frac{1}{n |T_{b' r'}(x)| + 1}
+    \right] \\
+    &\qquad+
+    \frac{n^2}{\lambda^d}
     e^{-t/C} \\
     &\quad\lesssim
     \frac{n^2}{\lambda^d}
@@ -3354,16 +3319,15 @@ results for the debiased Mondrian random forest estimator.
       \neq
       \big( T_{b r}(x), T_{b' r'}(x), T_{b r}(x) \cap T_{b' r'}(x) \big)
     \right) \\
-    &\quad\leq
+    &\,\leq
     \sum_{j=1}^{d}
     \big(
       \P(E_{1j} \geq a_r \lambda x_j)
-      + \P(E_{3j} \geq a_{r'} \lambda x_j) \\
-      &\qquad\qquad+
-      \P(E_{2j} \geq a_r \lambda (1 - x_j))
+      + \P(E_{3j} \geq a_{r'} \lambda x_j)
+      + \P(E_{2j} \geq a_r \lambda (1 - x_j))
       + \P(E_{4j} \geq a_{r'} \lambda (1 - x_j))
-    \big)
-    \leq e^{-C \lambda}
+    \big) \\
+    &\,\leq e^{-C \lambda}
   \end{align*}
   %
   for some $C > 0$ and sufficiently large $\lambda$.
@@ -3427,10 +3391,7 @@ results for the debiased Mondrian random forest estimator.
       \frac{|\tilde T_{b r}(x) \cap \tilde T_{b' r'}(x)|}
       {(n f(x) |\tilde T_{b r}(x)|+1)(n f(x) |\tilde T_{b' r'}(x)|+1)}
     \right]
-    \right .\\
-    &\left.
-    \qquad-
-    \E \left[
+    - \E \left[
       \frac{|\tilde T_{b r}(x) \cap \tilde T_{b' r'}(x)|}
       {(n f(x) |\tilde T_{b r}(x)|+1)(n f(x) |\tilde T_{b' r'}(x)|)}
     \right]
@@ -3442,8 +3403,8 @@ results for the debiased Mondrian random forest estimator.
       {n |\tilde T_{b r}(x)|}
       \frac{1}
       {n^2 |\tilde T_{b' r'}(x)|^2}
-    \right] \\
-    &\quad\lesssim
+    \right]
+    \lesssim
     \frac{1}{n \lambda^d}
     \E \left[
       \frac{1}{|T_{b r}(x)|}
@@ -3702,8 +3663,7 @@ results for the debiased Mondrian random forest estimator.
     \sum_{r=0}^{J}
     \sum_{r'=0}^{J}
     \omega_r
-    \omega_{r'} \\
-    &\qquad\times
+    \omega_{r'}
     \left(
       \frac{2 a_{r'}}{3}
       \left(
@@ -3723,38 +3683,26 @@ results for the debiased Mondrian random forest estimator.
     \right).
   \end{align*}
   %
-  So the limit exists and
+  So the limit exists, and
+  with $\ell_{r r'} = \frac{2 a_r}{3} \left( 1 - \frac{a_{r}}{a_{r'}}
+  \log\left(\frac{a_{r'}}{a_{r}} + 1\right) \right)$,
+  the limiting variance is
   %
   \begin{align*}
     \Sigma_\rd(x)
     &=
     \frac{\sigma^2(x)}{f(x)}
-    \sum_{r=0}^{J}
-    \sum_{r'=0}^{J}
-    \omega_r
-    \omega_{r'} \\
-    &\qquad\times
-    \left(
-      \frac{2 a_r}{3}
-      \left(
-        1 - \frac{a_r}{a_{r'}}
-        \log\left(\frac{a_{r'}}{a_r} + 1\right)
-      \right)
-      + \frac{2 a_{r'}}{3}
-      \left(
-        1 - \frac{a_{r'}}{a_r}
-        \log\left(\frac{a_r}{a_{r'}} + 1\right)
-      \right)
-    \right)^d.
+    \sum_{r=0}^{J} \sum_{r'=0}^{J} \omega_r \omega_{r'}
+    \left( \ell_{r r'} + \ell_{r' r} \right)^d.
   \end{align*}
   %
 \end{proof}
 
-\subsection*{Proof of bias characterization with debiasing}
-
-The new bias characterization with debiasing is a purely algebraic
+The new bias characterization with debiasing is an algebraic
 consequence of the original bias characterization and the construction
 of the debiased Mondrian random forest estimator.
+
+\TODO{check from here}
 
 \begin{proof}[Theorem~\ref{thm:mondrian_bias_debiased}]
 
@@ -3832,8 +3780,6 @@ of the debiased Mondrian random forest estimator.
   \end{align*}
   %
 \end{proof}
-
-\subsection*{Proof of variance estimator consistency with debiasing}
 
 \begin{proof}[Theorem~\ref{thm:mondrian_variance_estimation_debiased}]
 
@@ -3959,8 +3905,6 @@ of the debiased Mondrian random forest estimator.
 
 \end{proof}
 
-\subsection*{Proof of confidence interval validity with debiasing}
-
 \begin{proof}[Theorem~\ref{thm:mondrian_confidence_debiased}]
   %
   By Theorem~\ref{thm:mondrian_bias_debiased}
@@ -3996,8 +3940,6 @@ of the debiased Mondrian random forest estimator.
   Validity of the confidence interval follows immediately.
   %
 \end{proof}
-
-\subsection*{Proof of minimax optimality with debiasing}
 
 \begin{proof}[Theorem~\ref{thm:mondrian_minimax}]
 

@@ -5,7 +5,9 @@
 *** TODO Check refs
 *** TODO Figure and table placement, floats
 *** TODO Widows and orphans
-*** TODO Remove watermark
+*** TODO Watermark
+*** TODO Acknowledgments
+*** TODO Check for long environment headers
 ** TODO Pass
 *** DONE mondrian
 *** DONE kernel
