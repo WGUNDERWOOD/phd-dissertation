@@ -2610,17 +2610,14 @@ the same bound holds for $T(x)$ with
     \|H^{-1}\|_1
     \|T\|_\infty \\
     &\lesssim_\P
-    \frac{k}{n}
+    \frac{k^2}{n^2}
     \sqrt{n k}
-    \frac{k}{n}
-    \left(
+    \!\left(
       n^{1/3} \sqrt{\log 2k}
       + (n k)^{1/4} \sqrt{\log 2k}
-    \right) \\
-    &\quad+
-    \frac{k}{n}
+    \right)
+    \!+ \frac{k^2}{n^2}
     \sqrt{n k}
-    \frac{k}{n}
     \sqrt{\frac{n \log 2k}{k}} \\
     &\lesssim_\P
     \frac{k^2}{n}
@@ -2918,8 +2915,8 @@ the same bound holds for $T(x)$ with
     n \int_\cW
     \big( a(w)^\T p_h(u-w) \big)^2
     K_h(u-w)
-    \diff{u} \\
-    &\gtrsim
+    \diff{u}
+    \gtrsim
     n \int_{\frac{\cW-w}{h}}
     \big( a(w)^\T p(u) \big)^2
     K(u)
@@ -3020,11 +3017,11 @@ the same bound holds for $T(x)$ with
       \|\cF_\delta(W_i, \tilde\varepsilon_i)\|_\infty
     \right]
     &\leq
-    \sum_{f\in\cF_\delta}
-    \bigvvvert f(W_i, \tilde\varepsilon_i) \bigvvvert_2^2
-    \, \max_{f\in\cF_\delta}
-    \bigvvvert f(W_i, \tilde\varepsilon_i) \bigvvvert_\infty \\
-    &\lesssim
+    \!\sum_{f\in\cF_\delta}
+    \!\bigvvvert f(W_i, \tilde\varepsilon_i) \bigvvvert_2^2
+    \max_{f\in\cF_\delta}
+    \bigvvvert f(W_i, \tilde\varepsilon_i) \bigvvvert_\infty
+    \!\lesssim
     n^{-3} \delta^{-m} h^{-2m} \log n.
   \end{align*}
   %
@@ -3632,8 +3629,8 @@ the same bound holds for $T(x)$ with
     \big\|\hat H(w)^{-1}\big\|_2
     \big\|H(w)^{-1}\big\|_2
     \big\|\hat H(w) - H(w)\big\|_2
-    \|S(w)\|_2 \\
-    &\quad\lesssim_\P
+    \|S(w)\|_2
+    \lesssim_\P
     \sqrt{\frac{\log n}{n^3 h^{2m}}}
     \sup_{w \in \cW}
     \|S(w)\|_2.
@@ -3801,44 +3798,41 @@ the same bound holds for $T(x)$ with
   Finally
   %
   \begin{align*}
-    &\sup_{w\in\cW}
-    |\Bias(w)| \\
-    &\quad=
     \sup_{w\in\cW}
-    \left|
+    |\Bias(w)|
+    &=
+    \sup_{w\in\cW}
+    \Bigg|
     \sum_{|\kappa|=\gamma}
     \frac{1}{\kappa!}
     \partial^{\kappa} \mu(w')
     e_1^\T \hat H(w)^{-1}
     \sum_{i=1}^n K_h(W_i-w) p_h(W_i-w)
     (W_i-w)^\kappa
-    \right| \\
-    &\quad\lesssim_\P
+    \Bigg| \\
+    &\lesssim_\P
     \sup_{w\in\cW}
     \max_{|\kappa| = \gamma}
     \left|
     \partial^{\kappa} \mu(w')
     \right|
     \|\hat H(w)^{-1}\|_2
-    \left\|
+    \Bigg\|
     \sum_{i=1}^n K_h(W_i-w) p_h(W_i-w)
-    \right\|_2
+    \Bigg\|_2
     h^\gamma \\
-    &\quad\lesssim_\P
+    &\lesssim_\P
     \frac{h^\gamma}{n}
     \sup_{w\in\cW}
-    \left\|
+    \Bigg\|
     \sum_{i=1}^n K_h(W_i-w) p_h(W_i-w)
-    \right\|_2.
+    \Bigg\|_2.
   \end{align*}
   %
-  Now write
+  Write
   $\tilde u_{i j}(w) = K_h(W_i-w)p_h(W_i-w)_j$
-  and note that $|\tilde u_{i j}(w)| \lesssim h^{-m}$
-  and $\E[\tilde u_{i j}(w)] \lesssim 1$.
-  By Lemma~\ref{lem:yurinskii_app_exponential_mixing}%
-  \ref{it:yurinskii_app_exponential_mixing_bounded},
-  for a constant $C_4$,
+  and note $|\tilde u_{i j}(w)| \lesssim h^{-m}$
+  and $\E[\tilde u_{i j}(w)] \lesssim 1$, so
   %
   \begin{align*}
     \P\left(
@@ -3852,11 +3846,12 @@ the same bound holds for $T(x)$ with
       + (\log n)(\log \log n) t \big)
     \right)
     &\leq
-    C_4 e^{-t}.
+    C_4 e^{-t}
   \end{align*}
   %
-  As in previous parts, by Lipschitz properties,
-  this implies
+  by Lemma~\ref{lem:yurinskii_app_exponential_mixing}%
+  \ref{it:yurinskii_app_exponential_mixing_bounded} for a constant $C_4$,
+  By Lipschitz properties, this implies
   %
   \begin{align*}
     \sup_{w \in \cW}
@@ -4021,9 +4016,9 @@ Corollary~\ref{cor:yurinskii_sa_martingale}:
 \begin{proposition}[High-dimensional central limit theorem for martingales]%
   \label{pro:yurinskii_app_clt}
 
-  Assume the setup of Corollary~\ref{cor:yurinskii_sa_martingale},
-  and take $\Sigma$ non-random.
-  For a class $\cA$ of measurable subsets of $\R^d$,
+  Take the setup of Corollary~\ref{cor:yurinskii_sa_martingale},
+  and $\Sigma$ non-random.
+  For a class $\cA$ of measurable sets in $\R^d$,
   %
   \begin{equation}%
     \label{eq:yurinskii_app_high_dim_clt}
@@ -4099,8 +4094,8 @@ $\cA = \cC = \{A \subseteq \R^d \text{ is convex}\}$,
 \end{equation}
 %
 whenever $\Sigma$ is invertible.
-Then Proposition~\ref{pro:yurinskii_app_clt} with $p=2$
-combined with \eqref{eq:yurinskii_app_convex_anticonc} yields for convex sets
+Proposition~\ref{pro:yurinskii_app_clt} with $p=2$
+and \eqref{eq:yurinskii_app_convex_anticonc} yield for convex sets
 %
 \begin{align*}
   \sup_{A\in \cC}
@@ -4285,7 +4280,7 @@ feasible distributional approximations are also available.
 \texorpdfstring{$\ell^p$}{lp}-norms}
 \label{sec:yurinskii_app_lp}
 
-In some empirical applications,
+In empirical applications,
 including nonparametric significance tests
 \citep{lopes2020bootstrapping}
 and nearest neighbor search procedures
@@ -4293,28 +4288,15 @@ and nearest neighbor search procedures
 an estimator or test statistic
 can be expressed under the null hypothesis
 as the $\ell^p$-norm of a zero-mean
-(possibly high-dimensional) martingale for some $p \in [1, \infty]$.
+martingale for some $p \in [1, \infty]$.
 In the notation of Corollary~\ref{cor:yurinskii_sa_martingale},
-it is therefore of interest to bound Kolmogorov--Smirnov
+it is of interest to bound Kolmogorov--Smirnov
 quantities of the form
-%
-\begin{align*}
-  \sup_{t \geq 0}
-  \big| \P( \|S\|_p \leq t)
-  - \P( \|T\|_p \leq t) \big|.
-\end{align*}
-%
+$\sup_{t \geq 0} \big| \P( \|S\|_p \leq t) - \P( \|T\|_p \leq t) \big|$.
 Let $\cB_p$ be the class of closed $\ell^p$-balls in $\R^d$ centered at the
 origin and set
-%
-\begin{align*}
-  \Delta_p(\eta)
-  &\vcentcolon=
-  \Delta_p(\cB_p, \eta)
-  = \sup_{t \geq 0}
-  \P( t < \|T\|_p \leq t + \eta ).
-\end{align*}
-%
+$\Delta_p(\eta) \vcentcolon= \Delta_p(\cB_p, \eta)
+= \sup_{t \geq 0} \P( t < \|T\|_p \leq t + \eta )$.
 
 \begin{proposition}[Distributional approximation of
   martingale $\ell^p$-norms]
@@ -4366,32 +4348,25 @@ $\Delta_\infty(\eta) \leq \eta (\sqrt{2\log d} + 2) / \sigma_{\min}$
 whenever $\min_j \Sigma_{j j} \geq \sigma_{\min}^2$.
 Alternatively, \citet[Theorem~1]{giessing2023anti} provides
 $\Delta_\infty(\eta) \lesssim \eta / \sqrt{\Var[\|T\|_\infty] + \eta^2}$.
-In fact, by H{\"o}lder duality of $\ell^p$-norms, we can write
-$\|T\|_p = \sup_{\|u\|_q \leq 1} u^\T T$ where
-$1/p + 1/q = 1$.
-Then, applying the Gaussian process anti-concentration result of
+By H{\"o}lder duality of $\ell^p$-norms, we can write
+$\|T\|_p = \sup_{\|u\|_q \leq 1} u^\T T$ where $1/p + 1/q = 1$.
+Applying the Gaussian process anti-concentration result of
 \citet[Theorem~2]{giessing2023anti} yields the more general
 $\Delta_p(\eta) \lesssim \eta / \sqrt{\Var[\|T\|_p] + \eta^2}$.
 Thus, the problem can be reduced to that of bounding
 $\Var\left[\|T\|_p\right]$, with techniques for doing so
-discussed, for example, in
-\citet[Section~4]{giessing2023anti}.
-Note that alongside the $\ell^p$-norms,
-other functionals can be analyzed in this manner,
-including the maximum statistic and other order statistics
+discussed in \citet[Section~4]{giessing2023anti}.
+Alongside the $\ell^p$-norms, other functionals can be analyzed in this manner,
+including the maximum and other order statistics
 \citep{kozbur2021dimension,giessing2023anti}.
 
-To conduct inference in this situation, we need to feasibly
+To conduct inference in this setting, we must feasibly
 approximate the quantiles of $\|T\|_p$.
-To that end, take a significance level $\tau\in(0,1)$ and define
+To that end, take a significance level $\tau\in(0,1)$ and set
 %
-\begin{equation*}
-  \hat q_p(\tau)
-  = \inf \big\{t \in \R:
-  \P(\|\hat T\|_p \leq t \mid \bX) \geq \tau \}
-  \quad\text{where}\quad
-  \hat T \mid \bX \sim \cN(0, \hat\Sigma),
-\end{equation*}
+$\hat q_p(\tau) =
+\inf \big\{t \in \R: \P(\|\hat T\|_p \leq t \mid \bX) \geq \tau \}$
+where $\hat T \mid \bX \sim \cN(0, \hat\Sigma)$,
 %
 with $\hat\Sigma$ any $\bX$-measurable positive semi-definite
 estimator of $\Sigma$.
@@ -4423,7 +4398,7 @@ to see
       \exp\left(\frac{-\eta^2}
       {2d^{2/p}\big\|\hat \Sigma^{1/2} - \Sigma^{1/2}\big\|_2^2}\right)
     \right]
-  \right\}
+  \right\},
 \end{align*}
 %
 and hence the bootstrap is valid whenever
