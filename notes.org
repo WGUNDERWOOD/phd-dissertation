@@ -8,8 +8,3 @@
 *** TODO Watermark
 *** TODO Acknowledgments
 *** TODO Table of contents
-* Formatting
-** DONE Page numbers no more than 0.5in from bottom
-** DONE Typeface 10-12pt
-** DONE 1in margin on all sides
-** DONE Double spacing

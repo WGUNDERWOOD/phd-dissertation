@@ -3,7 +3,7 @@ pkgs = import <nixpkgs> { };
 
 dotfiles = builtins.fetchGit {
     url = "https://github.com/WGUNDERWOOD/dotfiles";
-    rev = "8a0beb5f7dc88a9910eae652b24ae3b31d823c1a";
+    rev = "293530054ada04afe2783253ade9e36c68f545b1";
 };
 
 programs = "${dotfiles}/programs/";
