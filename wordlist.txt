@@ -1,5 +1,6 @@
 # accept
 Aad
+Aardal
 aboveskip
 Abraar
 adaptivity
@@ -114,6 +115,7 @@ degeneracies
 Dehling
 der
 DF
+Dietmar
 DiNardo
 discretization
 discretize
@@ -123,6 +125,7 @@ DMS
 doi
 Dongyu
 Donsker
+Durlauf
 Duroux
 dy
 DyadicKDE
@@ -132,6 +135,7 @@ Edgeworth
 Edmends
 Efron
 Eggermont
+Elhanan
 Elizaveta
 Elsevier
 ensembling
@@ -171,17 +175,22 @@ Giessing
 Gijbels
 Girolami
 Girvan
+Gita
 Giulia
 Glatard
+Gopinath
 graphon
 Guilford
 Guyonvarch
 Gy
 Haar
+Hallin
 Hanin
 Haoran
 Harro
 HDR
+Heckman
+Helpman
 Herold
 Heyde
 hler
@@ -190,6 +199,7 @@ Hoeffding
 Hoffmann
 homoscedastic
 Hoon
+Houdr
 Hu
 Hua
 Hypercontraction
@@ -214,6 +224,7 @@ invertible
 IOP
 IQR
 isometry
+Istvan
 Jacod
 Jansson
 Jaouad
@@ -290,6 +301,7 @@ Massart
 Matej
 Matias
 Matsushita
+Matzkin
 mbar
 McLeish
 measurability
@@ -298,6 +310,7 @@ Merlev
 metrizable
 Mihai
 Mikl
+Milman
 minimax
 minimaxity
 Minsker
@@ -331,6 +344,7 @@ Nazarov
 Nazarov's
 ndez
 ne
+Nemhauser
 newcommand
 newinout
 Neyman
@@ -368,6 +382,7 @@ Penrose
 Pensky
 Pereira
 perimetric
+Pfeifer
 Ph
 phane
 Philcox
@@ -405,6 +420,7 @@ Rigobon
 RIMSE
 Rina
 Roc
+Rogoff
 Roxane
 Royden
 Runze
@@ -414,6 +430,7 @@ Samad
 Sambharya
 Sanjeev
 Sasaki
+Schechtman
 Schucany
 Schwarz
 Scillitoe
@@ -452,6 +469,7 @@ Stanislav
 Stanislaw
 stationarity
 Statistica
+Steinebach
 Stieltjes
 Strassen
 Strassen's
@@ -511,6 +529,7 @@ VC
 Verlag
 Verleysen
 verwandte
+Vitali
 Vladimirovich
 Voln
 von
@@ -518,6 +537,7 @@ Vorob'ev
 Vossler
 vy
 Wahrscheinlichkeitstheorie
+Weismantel
 Wellner
 Wertz
 wgunderwood
