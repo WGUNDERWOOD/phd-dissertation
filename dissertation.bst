@@ -4,7 +4,7 @@
 %%
 %% The original source files were:
 %%
-%% merlin.mbs  (with options: `ay,nat,nm-rev,jnrlst,keyxyr,dt-beg,yr-par,yrp-per,note-yr,pgsep-s,num-xser,edpar,pp,xedn,nfss,')
+%% merlin.mbs  (with options: `ay,nat,nm-rev,jnrlst,keyxyr,dt-beg,yr-par,yrp-per,note-yr,pgsep-s,num-xser,edpar,edby,pp,xedn,nfss,')
 %% ----------------------------------------
 %% *** diss ***
 %% 
@@ -866,10 +866,11 @@ FUNCTION {format.in.ed.booktitle}
     {
       editor "editor" format.names.ed duplicate$ empty$ 'pop$
         {
-          " " *
-          get.bbl.editor
-          "(" swap$ * "), " *
-          * swap$
+          bbl.edby
+          " " * swap$ *
+          swap$
+          "," *
+          " " * swap$
           * }
       if$
       word.in swap$ *

@@ -422,7 +422,7 @@ End of customized bst file
 %--------------------
 %EDITOR IN COLLECTIONS:
     %: (def) Same as for edited book
-% edby,%: In booktitle, edited by .. 
+edby,%: In booktitle, edited by ..
 % edby-par,%: In booktitle (edited by ..)
 % edby-parc,%: In booktitle, (edited by ..)
 % edby,edbyx,%: In booktitle, editor ..
