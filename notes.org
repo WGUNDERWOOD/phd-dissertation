@@ -12,8 +12,8 @@
 *** DONE mondrian
 *** DONE kernel
 *** DONE yurinskii
-*** TODO mondrian appendix
-*** TODO kernel appendix
+*** DONE mondrian appendix
+*** DONE kernel appendix
 *** TODO yurinskii appendix
 ** TODO Single line align should be equation
 * Formatting
