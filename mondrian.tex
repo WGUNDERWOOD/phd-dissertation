@@ -370,11 +370,11 @@ $N_b(x) = \sum_{i=1}^{n} \I \left\{ X_i \in T_b(x) \right\}$ for the number of
 samples in $T_b(x)$, with $\I$ denoting an indicator function. Then the
 Mondrian random forest estimator of $\mu(x)$ is
 %
-\begin{align}
+\begin{equation}
   \label{eq:mondrian_estimator}
   \hat\mu(x) = \frac{1}{B} \sum_{b=1}^B
   \frac{\sum_{i=1}^n Y_i \, \I\big\{ X_i \in T_b(x) \big\}} {N_b(x)}.
-\end{align}
+\end{equation}
 %
 If there are no samples $X_i$ in $T_b(x)$ then $N_b(x) = 0$, so we define
 $0/0 = 0$ (see Section~\ref{sec:mondrian_app_proofs} for details). To ensure the
@@ -451,12 +451,11 @@ depends on all $X_i$ simultaneously, violating this independence assumption and
 rendering classical central limit theorems inapplicable. A natural preliminary
 attempt to resolve this issue is to observe that
 %
-\begin{align*}
-  N_b(x)&=
-  \sum_{i=1}^{n} \I\big\{X_i \in T_b(x)\big\}
+\begin{equation*}
+  N_b(x)= \sum_{i=1}^{n} \I\big\{X_i \in T_b(x)\big\}
   \approx n \, \P \big( X_i \in T_b(x) \mid T_b \big)
   \approx n f(x) |T_b(x)|
-\end{align*}
+\end{equation*}
 %
 with high probability. One could attempt to use this by approximating the
 estimator with an average of i.i.d.\ random variables, or by employing a
@@ -561,10 +560,9 @@ the bias of the Mondrian random forest estimator.
   $B_r(x) \in \R$, which is a function only of
   the derivatives of $f$ and $\mu$ at $x$ up to order $2r$, with
   %
-  \begin{align*}
+  \begin{equation*}
     \E \left[ \hat \mu(x) \mid \bX, \bT \right]
-    &=
-    \mu(x)
+    = \mu(x)
     + \sum_{r=1}^{\lfloor \flbeta / 2 \rfloor}
     \frac{B_r(x)}{\lambda^{2r}}
     + O_\P \left(
@@ -572,30 +570,29 @@ the bias of the Mondrian random forest estimator.
       + \frac{1}{\lambda \sqrt B}
       + \frac{\log n}{\lambda} \sqrt{\frac{\lambda^d}{n}}
     \right).
-  \end{align*}
+  \end{equation*}
   %
   Whenever $\beta > 2$ the leading bias is the quadratic term
   %
-  \begin{align*}
+  \begin{equation*}
     \frac{B_1(x)}{\lambda^2}
-    &=
+    =
     \frac{1}{2 \lambda^2}
     \sum_{j=1}^d \frac{\partial^2 \mu(x)}{\partial x_j^2}
     + \frac{1}{2 \lambda^2}
     \frac{1}{f(x)}
     \sum_{j=1}^{d} \frac{\partial \mu(x)}{\partial x_j}
     \frac{\partial f(x)}{\partial x_j}.
-  \end{align*}
+  \end{equation*}
   %
   If $X_i \sim \Unif\big([0,1]^d\big)$ then $f(x) = 1$,
   and using multi-index notation we have
   %
-  \begin{align*}
+  \begin{equation*}
     \frac{B_r(x)}{\lambda^{2r}}
-    &=
-    \frac{1}{\lambda^{2r}} \sum_{|\nu|=r} \partial^{2 \nu} \mu(x)
+    = \frac{1}{\lambda^{2r}} \sum_{|\nu|=r} \partial^{2 \nu} \mu(x)
     \prod_{j=1}^d \frac{1}{\nu_j + 1}.
-  \end{align*}
+  \end{equation*}
   %
 \end{theorem}
 

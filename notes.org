@@ -1,21 +1,13 @@
 #+title: PhD Dissertation
 * Tasks
 ** TODO Final layout check
-*** TODO Find pages with most blank space and fix
 *** TODO Check refs
 *** TODO Figure and table placement, floats
 *** TODO Widows and orphans
+*** TODO Check for long environment headers
 *** TODO Watermark
 *** TODO Acknowledgments
-*** TODO Check for long environment headers
-** TODO Pass
-*** DONE mondrian
-*** DONE kernel
-*** DONE yurinskii
-*** DONE mondrian appendix
-*** DONE kernel appendix
-*** TODO yurinskii appendix
-** TODO Single line align should be equation
+*** TODO Table of contents
 * Formatting
 ** DONE Page numbers no more than 0.5in from bottom
 ** DONE Typeface 10-12pt
