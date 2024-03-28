@@ -4,7 +4,4 @@
 *** TODO Check refs
 *** TODO Figure and table placement, floats
 *** TODO Widows and orphans
-*** TODO Check for long environment headers
-*** TODO Watermark
-*** TODO Acknowledgments
 *** TODO Table of contents
