@@ -3702,8 +3702,6 @@ The new bias characterization with debiasing is an algebraic
 consequence of the original bias characterization and the construction
 of the debiased Mondrian random forest estimator.
 
-\TODO{check from here}
-
 \begin{proof}[Theorem~\ref{thm:mondrian_bias_debiased}]
 
   By the definition of the debiased estimator and
@@ -3923,9 +3921,8 @@ of the debiased Mondrian random forest estimator.
     &=
     \sqrt{\frac{n}{\lambda^d}}
     \frac{\hat \mu_\rd(x) - \E \left[ \hat \mu_\rd(x) \mid \bX, \bT \right]}
-    {\hat \Sigma_\rd(x)^{1/2}} \\
-    &\quad+
-    \sqrt{\frac{n}{\lambda^d}} \,
+    {\hat \Sigma_\rd(x)^{1/2}}
+    + \sqrt{\frac{n}{\lambda^d}} \,
     O_\P \left(
       \frac{1}{\lambda^\beta}
       + \frac{1}{\lambda \sqrt B}
@@ -3933,17 +3930,16 @@ of the debiased Mondrian random forest estimator.
     \right).
   \end{align*}
   %
-  The first term now converges weakly to $\cN(0,1)$ by
-  Slutsky's theorem, Theorem~\ref{thm:mondrian_clt_debiased},
-  and Theorem~\ref{thm:mondrian_variance_estimation_debiased},
-  while the second term is $o_\P(1)$ by assumption.
-  Validity of the confidence interval follows immediately.
+  The first term converges weakly to $\cN(0,1)$ by
+  Slutsky's theorem and Theorems~\ref{thm:mondrian_clt_debiased}
+  and \ref{thm:mondrian_variance_estimation_debiased},
+  while the second is $o_\P(1)$ by assumption.
+  Validity of the confidence interval follows.
   %
 \end{proof}
 
 \begin{proof}[Theorem~\ref{thm:mondrian_minimax}]
 
-  The bias--variance decomposition along with
   Theorem~\ref{thm:mondrian_bias_debiased}
   and the proof of Theorem~\ref{thm:mondrian_clt_debiased}
   with $J = \lfloor \flbeta / 2 \rfloor$ gives
@@ -3974,13 +3970,10 @@ of the debiased Mondrian random forest estimator.
     + \frac{1}{\lambda^2 B}.
   \end{align*}
   %
-  Note that we used an $L^2$ version of Theorem~\ref{thm:mondrian_bias_debiased}
+  We use here an $L^2$ version of Theorem~\ref{thm:mondrian_bias_debiased}
   which is immediate from the proof of Theorem~\ref{thm:mondrian_bias},
-  since we obtain the bound in probability through
-  Chebyshev's inequality.
-  Now since
-  $\lambda \asymp n^{\frac{1}{d + 2 \beta}}$
-  and
+  since we leveraged Chebyshev's inequality. Now since
+  $\lambda \asymp n^{\frac{1}{d + 2 \beta}}$ and
   $B \gtrsim n^{\frac{2 \beta - 2}{d + 2 \beta}}$,
   %
   \begin{align*}
@@ -4543,11 +4536,10 @@ the single tree version provided as \citet[Proposition~2]{mourtada2020minimax}.
 
 While the exact expectation calculation in
 Lemma~\ref{lem:mondrian_app_refinement} is neat,
-in some situations it may be desirable to have sharper control on the tail
-behavior of the number of cells in a Mondrian refinement.
-Lemma~\ref{lem:mondrian_app_refinement_tail} provides such a result, again
-making
-use of the subcell trick to convert a crude upper bound based on
+sharper control on the tail
+behavior of the number of cells in a Mondrian refinement is desired.
+Lemma~\ref{lem:mondrian_app_refinement_tail} provides this, again
+making use of the subcell trick to convert a crude bound based on
 Lemma~\ref{lem:mondrian_app_refinement_inequalities} into a useful tail
 inequality.
 We assume for simplicity that all of the lifetimes are identical.
@@ -4572,8 +4564,8 @@ We assume for simplicity that all of the lifetimes are identical.
 
   We begin with a coarse estimate and refine it with the subcell trick.
   By Lemma~\ref{lem:mondrian_app_refinement_inequalities}
-  \eqref{eq:mondrian_app_refinement_2} and
-  union bounds, for any $t > 0$, recalling that $\# T_{b j}$ is the number
+  \eqref{eq:mondrian_app_refinement_2},
+  for any $t > 0$, recalling that $\# T_{b j}$ is the number
   of splits made by $T_b$ in dimension $j$,
   %
   \begin{align}
@@ -4589,22 +4581,20 @@ We assume for simplicity that all of the lifetimes are identical.
         1 + \sum_{b=1}^B \# T_{b j}
       \right)
       > t
-    \right) \\
-    \nonumber
-    &\leq
+    \right)
+    \leq
     \sum_{j=1}^d
     \P\left(
       1 + \sum_{b=1}^B \# T_{b j}
       > t^{1/d}
     \right) \\
-    \nonumber
+    \label{eq:mondrian_app_refinement_tail_coarse}
     &\leq
     d\, \P\left(
       \sum_{b=1}^B \# T_b
       > t^{1/d}
-    \right) \\
-    \label{eq:mondrian_app_refinement_tail_coarse}
-    &\leq
+    \right)
+    \leq
     d B\,
     \P\left(
       \# T_b > \frac{t^{1/d}}{B}
@@ -4653,7 +4643,8 @@ We assume for simplicity that all of the lifetimes are identical.
     \right).
   \end{align*}
   %
-  Now apply Lemma~\ref{lem:mondrian_app_cells_tail} to obtain
+  Now apply Lemma~\ref{lem:mondrian_app_cells_tail}
+  and set $\varepsilon = \frac{1}{\lambda |D|_1}$ to obtain
   %
   \begin{align*}
     \P\left(
@@ -4675,16 +4666,7 @@ We assume for simplicity that all of the lifetimes are identical.
     2 d B (1 + 1 / \varepsilon)^d
     (1 + \lambda \varepsilon |D|_1)^d
     e^{- t^{1/d} (1 + 1/\varepsilon)^{-1} B^{-1}
-    (1 + \lambda \varepsilon |D|_1)^{-d} / 3}.
-  \end{align*}
-  %
-  Set $\varepsilon = \frac{1}{\lambda |D|_1}$ to see
-  %
-  \begin{align*}
-    \P\left(
-      \# \bigwedge_{b=1}^B T_b
-      > t
-    \right)
+    (1 + \lambda \varepsilon |D|_1)^{-d} / 3} \\
     &\leq
     2^{d+1} d B (1 + \lambda |D|_1)^d
     e^{- t^{1/d} (1 + \lambda |D|_1)^{-1} B^{-1} 2^{-d} / 3}.
@@ -4702,10 +4684,3 @@ We assume for simplicity that all of the lifetimes are identical.
   \end{align*}
   %
 \end{proof}
-
-Lemma~\ref{lem:mondrian_app_refinement_tail} shows that
-an exponential tail bounds holds for
-the number of cells in a Mondrian forest refinement
-which, up to logarithmic terms, for fixed dimension and large $\lambda$,
-provides the same probability bound as presented in
-Lemma~\ref{lem:mondrian_app_refinement}.
