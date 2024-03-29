@@ -1,8 +1,1 @@
 #+title: PhD Dissertation
-* Tasks
-** TODO Final layout check
-*** TODO Check refs
-*** TODO Figure and table placement, floats
-*** TODO Widows and orphans
-*** TODO Table of contents
-** TODO References vs bibliography?

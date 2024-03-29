@@ -43,8 +43,6 @@ complicated dependencies on the data which are often exceedingly hard to
 untangle without overly stringent assumptions, thereby hampering theoretical
 progress.
 
-\subsection{Prior work}
-
 To address the aforementioned technical challenges while retaining the
 phenomenology of Breiman's random forests, a variety of stylized versions of
 random forest procedures have been proposed and studied in the literature.
@@ -107,8 +105,6 @@ value of ensembling with random forests from a point estimation perspective. No
 results are currently available in the literature for statistical inference
 using Mondrian random forests.
 
-\subsection{Contributions}
-
 This chapter contributes to the literature on the foundational statistical
 properties of Mondrian random forest regression estimation with two main
 results. Firstly, we give a central limit theorem for the classical Mondrian
@@ -151,8 +147,6 @@ negligible relative to the standard deviation of the estimator. More
 specifically, we use our debiasing approach to construct valid inference
 procedures based on robust bias correction
 \citep{calonico2018effect,calonico2022coverage}.
-
-\subsection{Organization}
 
 This chapter is structured as follows. In Section~\ref{sec:mondrian_setup} we
 introduce the Mondrian process and give our assumptions on the data generating
@@ -1390,8 +1384,6 @@ is fixed then under the same conditions as Theorem~\ref{thm:mondrian_minimax},
   n^{-\frac{\beta}{d + 2 \beta}}.
 \end{align*}
 
-\subsection{Interpretation}
-
 The debiased Mondrian random forest estimator defined in
 \eqref{eq:mondrian_debiased} is
 a linear combination of Mondrian random forests, and as such contains both a
@@ -1697,28 +1689,28 @@ either $\hat\lambda_{\LOOCV} \in \argmin_\lambda \LOOCV(\lambda, J)$
 or $\hat\lambda_{\GCV} \in \argmin_\lambda \GCV(\lambda, J)$.
 See Section~\ref{sec:mondrian_weather} for a practical illustration.
 
-\subsection{Choosing the number \texorpdfstring{$B$}{B} of trees
-in each forest}%
+\subsection{Choosing the other parameters}
 
-The next parameter to choose is the number of trees in each forest, $B$.
-If no debiasing is applied, we suggest taking
-$B = \sqrt{n}$ to satisfy the constraint in
+\subsubsection*{The number \texorpdfstring{$B$}{B} of trees in each forest}%
+
+If no debiasing is applied, we suggest
+$B = \sqrt{n}$ to satisfy
 Theorem~\ref{thm:mondrian_confidence}.
-If debiasing is used then we recommend setting
+If debiasing is used then we recommend
 $B = n^{\frac{2J-1}{2J}}$, consistent with
 Theorem~\ref{thm:mondrian_confidence_debiased}
 and Theorem~\ref{thm:mondrian_minimax}.
 
-\subsection{Setting the debiasing order \texorpdfstring{$J$}{J}}%
+\subsubsection*{The debiasing order \texorpdfstring{$J$}{J}}%
 
-When constructing a debiased Mondrian random forest estimator, one must decide
-how many orders of bias to remove. This requires some form of
-oracle knowledge of the H{\"o}lder smoothness of $\mu$ and $f$, which is in
-practice very difficult to estimate statistically. As such we recommend
+When debiasing a Mondrian random forest, one must decide
+how many orders of bias to remove. This requires some
+oracle knowledge of the H{\"o}lder smoothness of $\mu$ and $f$, which is
+difficult to estimate statistically. As such we recommend
 removing only the first one or two bias terms, taking $J \in \{0,1,2\}$ to
 avoid overly inflating the variance of the estimator.
 
-\subsection{Selecting the debiasing coefficients}%
+\subsubsection*{The debiasing coefficients \texorpdfstring{$a_r$}{ar}}%
 
 As in Section~\ref{sec:mondrian_debiased}, we take $a_r$ to be a fixed
 geometric or arithmetic sequence. For example, one could set

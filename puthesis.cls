@@ -109,7 +109,7 @@
 \DeclareOption{lot}{\renewcommand*{\makelot}{
   \addcontentsline{toc}{section}{List of Tables}\listoftables}}
 \DeclareOption{lof}{\renewcommand*{\makelof}{
-  \addcontentsline{toc}{section}{List of Figures}\listoffigures}}
+  \addcontentsline{toc}{section}{List of Figures and Tables}\listoffigures}}
 \DeclareOption{los}{
   \renewcommand*{\makelos}{
     \RequirePackage{losymbol}
