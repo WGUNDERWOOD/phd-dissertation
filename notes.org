@@ -5,3 +5,4 @@
 *** TODO Figure and table placement, floats
 *** TODO Widows and orphans
 *** TODO Table of contents
+** TODO References vs bibliography?
