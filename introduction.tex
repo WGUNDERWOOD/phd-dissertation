@@ -15,25 +15,25 @@ kernel estimators, smoothing splines, decision trees, nearest neighbor methods,
 random forests, neural networks, and many more.
 
 % nonparametric estimation is good
-The benefits of the nonparametric framework are clear; statistical procedures
+The benefits of the nonparametric framework are clear: statistical procedures
 can be formulated in cases where the stringent assumptions of parametric models
 are untestable, demonstrably violated, or simply unreasonable.
-Further, the resulting
-methods often as a consequence inherit desirable robustness properties against
-various forms of misspecification or misuse. The class of problems which can be
+As a consequence,
+the resulting methods often inherit desirable robustness properties against
+various forms of misspecification or misuse. The class of problems that can be
 formulated is correspondingly larger: arbitrary distributions and
 relationships can be characterized and estimated in a principled manner.
 
 % nonparametric estimation is hard
 Nonetheless, these attractive properties do come at a price. In particular, as
 its name suggests, the nonparametric approach forgoes the ability to reduce
-a complex statistical problem to that of estimating a fixed finite number of
-parameters. Rather, nonparametric procedures typically involve making inference
+a complex statistical problem to that of estimating a fixed, finite number of
+parameters. Rather, nonparametric procedures typically involve making inferences
 about a growing number of parameters simultaneously, as witnessed in
 high-dimensional regimes, or even directly handling infinite-dimensional
 objects such as entire regression or density functions. As a consequence,
 nonparametric estimators are usually less efficient than their corresponding
-correctly specified parametric counterparts, when these are available; rates of
+correctly specified parametric counterparts, when they are available; rates of
 convergence tend to be slower, and confidence sets more conservative. Another
 challenge is that theoretical mathematical analyses of nonparametric estimators
 are often significantly more demanding than those required for low-dimensional
@@ -54,7 +54,7 @@ assessing statistical significance, and performing power analyses. Inference is
 a central concept in classical statistics, and despite the rapid
 recent development of theory for modern nonparametric estimators, their
 applicability to statistical inference is in certain cases rather less well
-studied: theoretically sound and practically implementable inference procedures
+studied; theoretically sound and practically implementable inference procedures
 are sometimes absent in the literature.
 
 % complex data
@@ -64,11 +64,11 @@ data produced and analyzed does not necessarily fit neatly into the classical
 framework of independent and identically distributed samples, and instead might
 consist of time series, stochastic processes, networks,
 or high-dimensional or functional data, to name just a few.
-Therefore it is important to understand how nonparametric methods might be
+Therefore, it is important to understand how nonparametric methods might be
 adapted to correctly handle these data types, maintaining fast estimation rates
 and valid techniques for statistical inference. The technical challenges
 associated with such an endeavor are non-trivial; many standard techniques are
-ineffective in the presence of dependent or infinite-dimensional data for
+ineffective in the presence of dependent or infinite-dimensional data, for
 example. As such, the development of new mathematical results in probability
 theory plays an important role in the comprehensive treatment of nonparametric
 statistics with complex data.
@@ -85,7 +85,7 @@ is based on the work of \citet{cattaneo2023inference}.
 % what are random forests
 Random forests are popular ensembling-based methods for classification and
 regression, which are well known for their good performance, flexibility,
-robustness and efficiency. The majority of random forest models share the
+robustness, and efficiency. The majority of random forest models share the
 following common framework for producing estimates of a classification or
 regression function using covariates and a response variable. Firstly, the
 covariate space is partitioned in some algorithmic manner, possibly using a
@@ -103,9 +103,9 @@ detailed theoretical analysis.
 % mondrian random forests
 One interesting such example is that of the Mondrian random forest, in which
 the underlying partitions (or trees) are constructed independently of the data.
-Naturally this restriction rules out many classical random forest models which
+Naturally, this restriction rules out many classical random forest models, which
 exhibit a complex and data-dependent partitioning scheme. Instead, trees are
-sampled from a canonical stochastic process, known as the Mondrian process,
+sampled from a canonical stochastic process known as the Mondrian process,
 which endows the resulting tree and forest estimators with various agreeable
 features.
 
@@ -117,7 +117,7 @@ random forest which, when combined with a characterization of the bias and a
 consistent variance estimator, allows one to perform asymptotically valid
 statistical inference, such as constructing confidence intervals, on the
 unknown regression function. We also provide a debiasing procedure for Mondrian
-random forests which allows them to achieve minimax-optimal estimation rates
+random forests, which allows them to achieve minimax-optimal estimation rates
 with H{\"o}lder smooth regression functions, for any smoothness parameter and
 in arbitrary dimension.
 
@@ -136,7 +136,7 @@ complex structure present in the network.
 
 % broad scope
 We focus on nonparametric estimation and inference with dyadic
-data, and in particular we seek methods which are robust in the sense that our
+data, and in particular we seek methods that are robust in the sense that our
 results should hold uniformly across the support of the data. Such uniformity
 guarantees allow for statistical inference in a broader range of settings,
 including specification testing and distributional counterfactual analysis. We
@@ -155,8 +155,8 @@ estimation and inference methodology for dyadic data, which can be used for
 causal inference and program evaluation.
 % why it is difficult
 A crucial feature of dyadic distributions is that they may be ``degenerate'' at
-certain points in the support of the data, a property making our analysis
-somewhat delicate. Nonetheless our methods for uniform inference remain robust
+certain points in the support of the data, a property that makes our analysis
+somewhat delicate. Nonetheless, our methods for uniform inference remain robust
 to the potential presence of such points.
 % applications
 For implementation purposes, we discuss inference procedures based on positive
