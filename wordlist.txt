@@ -462,6 +462,7 @@ Skorokhod
 Slepian
 Slutsky's
 Smirnov
+Sodimu
 Sommers
 Sourav
 Spokoiny
@@ -506,6 +507,7 @@ Tian
 Tibshirani
 Tichy
 Tien
+Titi
 Titiunik
 TODO
 Toeplitz
