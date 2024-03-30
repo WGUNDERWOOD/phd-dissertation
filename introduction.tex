@@ -31,7 +31,7 @@ a complex statistical problem to that of estimating a fixed finite number of
 parameters. Rather, nonparametric procedures typically involve making inference
 about a growing number of parameters simultaneously, as witnessed in
 high-dimensional regimes, or even directly handling infinite-dimensional
-objects such as entire regression functions or distributions. As a consequence,
+objects such as entire regression or density functions. As a consequence,
 nonparametric estimators are usually less efficient than their corresponding
 correctly specified parametric counterparts, when these are available; rates of
 convergence tend to be slower, and confidence sets more conservative. Another
@@ -110,7 +110,7 @@ which endows the resulting tree and forest estimators with various agreeable
 features.
 
 % what we do
-In this chapter we study the estimation and inference properties of Mondrian
+We study the estimation and inference properties of Mondrian
 random forests in the nonparametric regression setting. In particular, we
 establish a novel central limit theorem for the estimates made by a Mondrian
 random forest which, when combined with a characterization of the bias and a
@@ -135,7 +135,7 @@ appeal to techniques tailored to dyadic data in order to accurately capture the
 complex structure present in the network.
 
 % broad scope
-In this chapter we focus on nonparametric estimation and inference with dyadic
+We focus on nonparametric estimation and inference with dyadic
 data, and in particular we seek methods which are robust in the sense that our
 results should hold uniformly across the support of the data. Such uniformity
 guarantees allow for statistical inference in a broader range of settings,
@@ -184,8 +184,8 @@ finite-sample guarantees.
 Coupling allows distributional analysis in settings where weak convergence
 fails, including many applications to nonparametric or high-dimensional
 statistics; it is a key technical component in the main strong approximation
-results of Chapter~\ref{ch:kernel}. The Yurinskii method specifically offers a
-Gaussian coupling with an explicit error bound under easily verified
+results of our Chapter~\ref{ch:kernel}. The Yurinskii method specifically
+offers a Gaussian coupling with an explicit error bound under easily verified
 conditions; originally stated in $\ell^2$-norm for sums of independent random
 vectors, it has recently been extended both to the $\ell^p$-norm, for $1 \leq p
 \leq \infty$, and to vector-valued martingales in $\ell^2$-norm, under some
