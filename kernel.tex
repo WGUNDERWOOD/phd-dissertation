@@ -23,7 +23,7 @@ points in the support of the data, a property making our analysis somewhat
 delicate. Nonetheless our methods for uniform inference remain robust to the
 potential presence of such points. For implementation purposes, we discuss
 inference procedures based on positive semi-definite covariance estimators,
-mean squared error optimal bandwidth selectors and robust bias correction
+mean squared error optimal bandwidth selectors, and robust bias correction
 techniques. We illustrate the empirical finite-sample performance of our
 methods both in simulations and with real-world trade data, for which we make
 comparisons between observed and counterfactual trade distributions in
@@ -868,7 +868,7 @@ We investigate the distributional properties of the
 standardized $t$-statistic process
 %
 \begin{align*}
-  T_n(w) = \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}}
+  T_n(w) = \frac{\hat{f}_W(w) - f_W(w)}{\sqrt{\Sigma_n(w,w)}},
 \end{align*}
 %
 which is not necessarily asymptotically tight. Therefore, to approximate the
@@ -1139,7 +1139,7 @@ bandwidth choices will lead to a non-negligible smoothing bias in the
 distributional approximation for $T_n$. Different approaches are available in
 the literature to address this issue, including undersmoothing or ignoring the
 bias \citep{hall2001bootstrapping}, bias correction \citep{hall1992effect},
-robust bias correction \citep{calonico2018effect, calonico2022coverage} and
+robust bias correction \citep{calonico2018effect, calonico2022coverage}, and
 Lepskii's method
 \citep{lepskii1992asymptotically,birge2001alternative}, among others. In the
 next section we develop a feasible uniform inference procedure, based on robust
