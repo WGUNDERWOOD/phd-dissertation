@@ -140,7 +140,7 @@ have smaller misspecification bias when extra smoothness is available,
 resulting in minimax optimality even for $\beta > 2$. This result complements
 \citet{mourtada2020minimax} by demonstrating the existence of a class of
 Mondrian random forests that can efficiently exploit the additional smoothness
-of the unknown regression function for minimax optimal point estimation. Our
+of the unknown regression function for minimax-optimal point estimation. Our
 proposed debiasing procedure is also useful when conducting statistical
 inference because it provides a principled method for ensuring that the bias is
 negligible relative to the standard deviation of the estimator. More
@@ -215,7 +215,7 @@ probabilistic results on the Mondrian process which may be of interest.
 
 \subsection{Notation}
 
-We write $\|\cdot\|_2$ for the usual Euclidean $\ell^2$ norm on $\R^d$. The
+We write $\|\cdot\|_2$ for the usual Euclidean $\ell^2$-norm on $\R^d$. The
 natural numbers are $\N = \{0, 1, 2, \ldots \}$. We use $a \wedge b$ for the
 minimum and $a \vee b$ for the maximum of two real numbers. For a set $A$, we
 use $A^{\comp}$ for the complement whenever the background space is clear from
@@ -400,7 +400,7 @@ important to our theory as they arise throughout the chapter.
 \section{Inference with Mondrian random forests}%
 \label{sec:mondrian_inference}
 
-We begins with a bias--variance decomposition for the Mondrian random
+We begin with a bias--variance decomposition for the Mondrian random
 forest estimator:
 %
 \begin{align}
@@ -530,7 +530,7 @@ even with probability approaching one).
 We turn to the second term in \eqref{eq:mondrian_bias_variance}, which captures
 the bias
 of the Mondrian random forest estimator conditional on the covariates $\bX$ and
-the forest $\bT$. As such it is a random quantity which, as we will
+the forest $\bT$. As such, it is a random quantity which, as we will
 demonstrate, converges in probability. We precisely characterize the limiting
 non-random bias, including high-degree polynomials in $\lambda$ which for now
 may seem ignorable. Indeed the magnitude of the bias is determined by its
@@ -787,7 +787,7 @@ estimator is localized around $x$ on the scale of $1/\lambda$, an important
 property for the upcoming bias characterization.
 
 Having provided upper bounds for the sizes of Mondrian cells, we also must
-establish some lower bounds in order to quantify the ``small cells'' phenomenon
+establish some lower bounds in order to quantify the ``small cell'' phenomenon
 mentioned previously. The first step towards this is to bound the first two
 moments of the truncated inverse Mondrian cell volume; we show that
 %
@@ -1360,7 +1360,7 @@ Theorem~\ref{thm:mondrian_minimax} complements the minimaxity results proven by
 Mondrian random forests (with $\beta \leq 2$), with one modification: our
 version is stated in pointwise rather than integrated mean squared error. This
 is because our debiasing procedure is designed to handle interior smoothing
-bias and as such does not provide any correction for boundary bias. We leave
+bias and so does not provide any correction for boundary bias. We leave
 the development of such boundary corrections to future work, but constructions
 similar to higher-order boundary-correcting kernels should be possible. If the
 region of integration is a compact set in the interior of $[0,1]^d$, then we do
@@ -1473,7 +1473,7 @@ smoothing literature \citep{fan2020statistical}.
 
 \subsubsection*{Lifetime selection with polynomial estimation}
 
-Firstly suppose $X_i \sim \Unif\big([0,1]^d\big)$
+Firstly, suppose $X_i \sim \Unif\big([0,1]^d\big)$
 and that the leading bias of $\hat\mu_\rd(x)$ is well approximated by an
 additively separable function so that,
 writing $\partial^{2 J + 2}_j \mu(x)$
@@ -1706,7 +1706,7 @@ and Theorem~\ref{thm:mondrian_minimax}.
 When debiasing a Mondrian random forest, one must decide
 how many orders of bias to remove. This requires some
 oracle knowledge of the H{\"o}lder smoothness of $\mu$ and $f$, which is
-difficult to estimate statistically. As such we recommend
+difficult to estimate statistically. As such, we recommend
 removing only the first one or two bias terms, taking $J \in \{0,1,2\}$ to
 avoid overly inflating the variance of the estimator.
 
@@ -1916,7 +1916,7 @@ We gave a central limit theorem for the Mondrian random forest estimator
 and showed how to perform statistical inference on an unknown nonparametric
 regression function. We introduced debiased versions of the Mondrian random
 forest, and demonstrated their advantages
-for statistical inference and minimax optimal estimation. We discussed
+for statistical inference and minimax-optimal estimation. We discussed
 tuning parameter selection, enabling a fully feasible and practical methodology.
 An application to weather forecasting was presented
 as an illustrative example. Implementations of this chapter's methodology and
