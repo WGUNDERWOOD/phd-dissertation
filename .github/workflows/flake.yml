@@ -1,4 +1,4 @@
-name: "phd-dissertation"
+name: "nix flake build"
 on:
   pull_request:
   push:
