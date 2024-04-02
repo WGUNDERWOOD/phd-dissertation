@@ -8,7 +8,7 @@ alias l := longlines
 alias f := format
 alias w := warn
 
-all: spell todo longlines format build warn
+all: spell todo longlines format build warn compress
 
 spell:
 	@spell-check -a *.tex refs.bib
@@ -23,7 +23,7 @@ count:
     @texcount -brief -inc {{DISS}}.tex
 
 build:
-	@tex-build {{DISS}}.tex
+	@tex-build -l {{DISS}}.tex
 
 warn:
 	@tex-check {{DISS}}.log
