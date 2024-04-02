@@ -1,7 +1,8 @@
 # phd-dissertation
 
 My PhD dissertation in Operations Research and Financial Engineering
-at Princeton University
+at Princeton University, titled
+"Estimation and Inference in Modern Nonparametric Statistics."
 
 ## Building with Nix
 
