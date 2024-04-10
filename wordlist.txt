@@ -486,6 +486,7 @@ suboptimal
 subsampling
 summand
 summands
+suppressoptionalinfo
 suprema
 supremum
 symconv
