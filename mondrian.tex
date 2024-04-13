@@ -411,17 +411,14 @@ forest estimator:
   + \Big( \E \big[ \hat \mu(x) \mid \bX, \bT \big] - \mu(x)\Big) \\
   &=
   \nonumber
-  \left(
-    \frac{1}{B} \sum_{b=1}^B
-    \frac{\sum_{i=1}^n \varepsilon_i \, \I\big\{ X_i \in T_b(x) \big\}} {N_b(x)}
-  \right) \\
+  \frac{1}{B} \sum_{b=1}^B
+  \frac{\sum_{i=1}^n \varepsilon_i \, \I\big\{ X_i \in T_b(x) \big\}}
+  {N_b(x)} \\
   \label{eq:mondrian_bias_variance}
   &\quad+
-  \left(
-    \frac{1}{B} \sum_{b=1}^B
-    \frac{\sum_{i=1}^n \big(\mu(X_i) - \mu(x)\big) \,
-    \I\big\{ X_i \in T_b(x) \big\}} {N_b(x)}
-  \right).
+  \frac{1}{B} \sum_{b=1}^B
+  \frac{\sum_{i=1}^n \big(\mu(X_i) - \mu(x)\big) \,
+  \I\big\{ X_i \in T_b(x) \big\}} {N_b(x)}.
 \end{align}
 %
 Our approach to inference is summarized as follows. Firstly, we provide a
@@ -887,7 +884,7 @@ Expanding this square, we see that the diagonal terms (where $b = b'$) provide
 a negligible contribution due to the large forest assumption. For the other
 terms, we apply the law of total variance and the moment bounds detailed
 earlier. Here, it is crucial that $b \neq b'$ in order to exploit the
-independence of the trees and avoid having to control any higher-moments. The
+independence of the trees and avoid having to control any higher moments. The
 law of total variance requires that we bound
 %
 \begin{align*}
