@@ -53,7 +53,7 @@
           '';
           installPhase = ''
             mkdir -p $out
-            cp dissertation.pdf $out/
+            cp phd_dissertation.pdf $out/
           '';
         };
       };

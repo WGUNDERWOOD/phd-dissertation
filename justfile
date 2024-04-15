@@ -1,4 +1,4 @@
-DISS := "dissertation"
+DISS := "phd_dissertation"
 
 alias c := clean
 alias b := build
