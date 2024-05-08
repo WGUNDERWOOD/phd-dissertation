@@ -5,3 +5,7 @@ dissertation:
 
 presentation:
   @just presentation/
+
+clean:
+  @just dissertation/clean
+  @just presentation/clean
