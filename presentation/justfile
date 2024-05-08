@@ -1,0 +1,23 @@
+DOC := "phd_presentation"
+
+all: spell format build compress
+
+spell:
+	@spell-check -a *.tex refs.bib
+
+format:
+	@tex-fmt *.tex refs.bib
+
+build:
+	@tex-build -l {{DOC}}.tex
+
+compress:
+	@compress-pdf {{DOC}}.pdf
+	@compress-pdf {{DOC}}.pdf
+	@compress-pdf {{DOC}}.pdf
+	@compress-pdf {{DOC}}.pdf
+	@compress-pdf {{DOC}}.pdf
+
+clean:
+	@tex-clean
+	@rm -fv *.bak

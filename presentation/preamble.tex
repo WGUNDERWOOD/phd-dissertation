@@ -1,0 +1,122 @@
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{pgfpages}
+\usepackage{caption}
+\usepackage{microtype}
+\usepackage{mathtools}
+\usepackage{stackengine,scalerel}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{tikz}
+\usepackage[absolute,overlay]{textpos}
+\usepackage[]{natbib}
+\usepackage[hang,flushmargin]{footmisc}
+
+\newcommand{\TODO}[1]{\textcolor{red}{\textsc{TODO}: #1}}
+\newcommand{\readhere}{\textcolor{red}{Read}}
+\newcommand{\Var}{\ensuremath{\mathrm{Var}}}
+\newcommand{\E}{\ensuremath{\mathbb{E}}}
+\renewcommand{\P}{\ensuremath{\mathbb{P}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\V}{\ensuremath{\mathbb{V}}}
+\newcommand{\TV}{\ensuremath{\mathrm{TV}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\cN}{\ensuremath{\mathcal{N}}}
+\newcommand{\W}{\ensuremath{\mathcal{W}}}
+\newcommand{\A}{\ensuremath{\mathcal{A}}}
+\newcommand{\I}{\ensuremath{\mathbb{I}}}
+\newcommand{\bA}{\ensuremath{\mathbf{A}}}
+\newcommand{\bX}{\ensuremath{\mathbf{X}}}
+\newcommand{\bY}{\ensuremath{\mathbf{Y}}}
+\newcommand{\bT}{\ensuremath{\mathbf{T}}}
+\newcommand{\bV}{\ensuremath{\mathbf{V}}}
+\newcommand{\cC}{\ensuremath{\mathcal{C}}}
+\newcommand{\cX}{\ensuremath{\mathcal{X}}}
+\newcommand{\cW}{\ensuremath{\mathcal{W}}}
+\newcommand{\cU}{\ensuremath{\mathcal{U}}}
+\newcommand{\cF}{\ensuremath{\mathcal{F}}}
+\newcommand{\rd}{\ensuremath{\mathrm{d}}}
+\newcommand{\Rad}{\mathrm{Rad}}
+\newcommand{\Exp}{\mathrm{Exp}}
+\newcommand{\Unif}{\mathrm{Unif}}
+\newcommand{\GP}{\mathcal{GP}}
+\newcommand{\MP}{\mathcal{MP}}
+\newcommand{\LL}{{\mathrm{L}}}
+\newcommand{\RR}{{\mathrm{R}}}
+\newcommand{\GCV}{{\mathrm{GCV}}}
+\renewcommand{\d}[1]{\,\mathrm{d}#1}
+
+% Floor of beta
+\newcommand{\flbeta}{{\ThisStyle{%
+      \ensurestackMath{\stackengine{-0.5\LMpt}{\SavedStyle \beta}%
+        {\SavedStyle {\rule{3.7\LMpt}{0.3\LMpt}}}
+{U}{c}{F}{F}{S}}\vphantom{\beta}}}}
+
+\usetheme{metropolis}
+\metroset{sectionpage=simple}
+\setbeamertemplate{bibliography item}{}
+\usefonttheme{professionalfonts}
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[circle]
+\metroset{block=fill}
+\metroset{numbering=fraction}
+\setbeamersize{text margin left=8mm}
+\setbeamersize{text margin right=8mm}
+\setbeamertemplate{frametitle
+continuation}[singleframecheck][\insertcontinuationcountroman]
+\defbeamertemplate*{enumerate item}{bold}{%
+  \phantom{(}\textbf{\insertenumlabel})
+}
+\setbeamertemplate{enumerate item}[bold]
+
+% title page line
+\setbeamertemplate{title separator}{
+  \begin{tikzpicture}
+    \fill[fg] (0,0) rectangle (\textwidth, 0.2mm);
+  \end{tikzpicture}%
+  \par%
+}
+
+% title page margins
+\setbeamertemplate{title page}{
+  \begin{minipage}[b][\paperheight]{0.02\textwidth}
+    \hfill
+  \end{minipage}
+  \begin{minipage}[b][\paperheight]{0.94\textwidth}
+    \ifx\inserttitlegraphic\@empty\else\usebeamertemplate*{title graphic}\fi
+    \vfill%
+    \ifx\inserttitle\@empty\else\usebeamertemplate*{title}\fi
+    \ifx\insertsubtitle\@empty\else\usebeamertemplate*{subtitle}\fi
+    \usebeamertemplate*{title separator}
+    \ifx\beamer@shortauthor\@empty\else\usebeamertemplate*{author}\fi
+    \ifx\insertdate\@empty\else\usebeamertemplate*{date}\fi
+    \ifx\insertinstitute\@empty\else\usebeamertemplate*{institute}\fi
+    \vfill
+    \vspace*{1mm}
+  \end{minipage}
+}
+
+% captions
+\captionsetup[subfigure]{justification=centering}
+
+% arxiv
+\newcommand{\arxiv}[1]{\href{https://arxiv.org/abs/#1}{\texttt{arXiv:#1}}}
+
+% links
+\newcommand{\link}[1]{\href{#1}{\texttt{#1}}}
+
+% colors
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{note page}{bg=orange!20!white}
+\setbeamercolor{alerted text}{fg=orange!65!black}
+\setbeamercolor{normal text}{fg=black!90!white}
+\setbeamercolor{block title}{bg=cyan!7!lightgray,fg=black}
+\setbeamercolor{block body}{bg=black!9!white,fg=black}
+\setbeamercolor{footline}{fg=black!60!white}
+
+% environments
+\newtheoremstyle{beamertheorem}{3pt}{3pt}{}{}{\itshape}{:}{0em}{}
+\theoremstyle{beamertheorem}
+\newtheorem{beamertheorem}{Theorem}
+\newtheorem{beamerlemma}{Lemma}
