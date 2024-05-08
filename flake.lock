@@ -103,11 +103,28 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1713995372,
+        "narHash": "sha256-fFE3M0vCoiSwCX02z8VF58jXFRj9enYUSTqjyHAjrds=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "dd37924974b9202f8226ed5d74a252a9785aedf8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "dotfiles": "dotfiles",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "tex-fmt-repo": "tex-fmt-repo"
       }
     },
     "systems": {
@@ -123,6 +140,24 @@
         "owner": "nix-systems",
         "repo": "default",
         "type": "github"
+      }
+    },
+    "tex-fmt-repo": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1714930852,
+        "narHash": "sha256-Heke9KKWSPioS+w2/Lp5c0IIWVL7X83GH2/0CsfhNZY=",
+        "rev": "716754e3dd69e64c1990f186b4a91442be19869e",
+        "revCount": 95,
+        "type": "git",
+        "url": "https://github.com/wgunderwood/tex-fmt"
+      },
+      "original": {
+        "rev": "716754e3dd69e64c1990f186b4a91442be19869e",
+        "type": "git",
+        "url": "https://github.com/wgunderwood/tex-fmt"
       }
     }
   },
