@@ -16,7 +16,6 @@
     with flake-utils.lib; eachSystem allSystems (system: let
       pkgs = nixpkgs.legacyPackages.${system};
       programs = "${dotfiles}/programs/";
-      compress-pdf = pkgs.callPackage "${programs}/compress-pdf/compress-pdf.nix" {};
       spell-check = pkgs.callPackage "${programs}/spell-check/spell-check.nix" {};
       tex-build = pkgs.callPackage "${programs}/tex-build/tex-build.nix" {};
       tex-clean = pkgs.callPackage "${programs}/tex-clean/tex-clean.nix" {};
@@ -33,7 +32,6 @@
             pkgs.bash
             pkgs.gnugrep
             aspell
-            compress-pdf
             spell-check
             tex-build
             tex-clean

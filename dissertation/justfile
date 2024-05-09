@@ -1,6 +1,6 @@
 DOC := "phd_dissertation"
 
-all: spell format build compress
+all: spell format build
 
 spell:
 	@spell-check -a *.tex refs.bib
@@ -10,9 +10,6 @@ format:
 
 build:
 	@tex-build -l {{DOC}}.tex
-
-compress:
-	@compress-pdf {{DOC}}.pdf
 
 clean:
 	@tex-clean
