@@ -4,7 +4,7 @@
     nixpkgs.url = github:NixOS/nixpkgs/nixos-23.11;
     flake-utils.url = github:numtide/flake-utils;
     dotfiles.url = git+https://github.com/wgunderwood/dotfiles?rev=293530054ada04afe2783253ade9e36c68f545b1;
-    tex-fmt-repo.url = git+https://github.com/wgunderwood/tex-fmt?rev=716754e3dd69e64c1990f186b4a91442be19869e;
+    tex-fmt-repo.url = git+https://github.com/wgunderwood/tex-fmt?rev=8d2d3dfdea74dcf4a3a03daf2236666439a75206;
   };
   outputs = {
     self,

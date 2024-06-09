@@ -37,6 +37,24 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1710146030,
+        "narHash": "sha256-SZ5L6eA7HJ/nmkzGG7/ISclqe6oZdOZTNoesiInkXPQ=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "b1d9ab70662946ef0850d488da1c9019f3a9752a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": "nixpkgs"
@@ -105,16 +123,16 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1713995372,
-        "narHash": "sha256-fFE3M0vCoiSwCX02z8VF58jXFRj9enYUSTqjyHAjrds=",
+        "lastModified": 1717696253,
+        "narHash": "sha256-1+ua0ggXlYYPLTmMl3YeYYsBXDSCqT+Gw3u6l4gvMhA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "dd37924974b9202f8226ed5d74a252a9785aedf8",
+        "rev": "9b5328b7f761a7bbdc0e332ac4cf076a3eedb89b",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-23.11",
+        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -142,20 +160,37 @@
         "type": "github"
       }
     },
+    "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "tex-fmt-repo": {
       "inputs": {
+        "flake-utils": "flake-utils_2",
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1714930852,
-        "narHash": "sha256-Heke9KKWSPioS+w2/Lp5c0IIWVL7X83GH2/0CsfhNZY=",
-        "rev": "716754e3dd69e64c1990f186b4a91442be19869e",
-        "revCount": 95,
+        "lastModified": 1717727722,
+        "narHash": "sha256-XHUKQ747Eh8iNxYYB1wmZa0EwnuW7n5ZipuU8MCJPlc=",
+        "ref": "refs/heads/main",
+        "rev": "8d2d3dfdea74dcf4a3a03daf2236666439a75206",
+        "revCount": 189,
         "type": "git",
         "url": "https://github.com/wgunderwood/tex-fmt"
       },
       "original": {
-        "rev": "716754e3dd69e64c1990f186b4a91442be19869e",
+        "rev": "8d2d3dfdea74dcf4a3a03daf2236666439a75206",
         "type": "git",
         "url": "https://github.com/wgunderwood/tex-fmt"
       }
